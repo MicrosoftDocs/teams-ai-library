@@ -1,0 +1,88 @@
+- name: Teams AI Library v2 (Spark) SDK
+  href: index.yml
+- name: Overview
+  href: overview.md
+- name: Quickstart
+  href: temp.md
+- name: Basics
+  expanded: true
+  items:
+    - name: Listening to Activities
+      href: temp.md
+    - name: Listening to Messages
+      href: temp.md
+    - name: Listening to Events
+      href: temp.md
+    - name: Middleware
+      href: temp.md
+    - name: Using the API Client
+      href: temp.md
+    - name: Authentication
+      href: temp.md
+    - name: Custom logging
+      href: temp.md
+    - name: Enable feedback
+      href: temp.md
+    - name: at-mentions
+      href: temp.md
+- name: Dialogs (Task Modules)
+  items:
+    - name: Listening to dialogs
+      href: temp.md
+    - name: Dialog submit
+      href: temp.md
+- name: Message extensions
+  href: temp.md
+- name: Cards
+  href: temp.md
+- name: DevTools
+  items:
+  - name: Chat 
+    href: temp.md
+  - name: Inspect 
+    href: temp.md
+  - name: Cards 
+    href: temp.md
+  - name: Development 
+    href: temp.md
+- name: AI
+  items:
+  - name: Chat 
+    href: temp.md
+  - name: Audio 
+    href: temp.md
+  - name: Image 
+    href: temp.md
+  - name: Chaining 
+    href: temp.md
+  - name: Memory 
+    href: temp.md
+- name: Activity
+  items:
+  - name: Message
+    href: temp.md
+  - name: Typing
+    href: temp.md
+  - name: Conversation
+    href: temp.md
+  - name: Install update
+    href: temp.md
+  - name: Event
+    href: temp.md
+  - name: Command
+    href: temp.md
+  - name: Invoke
+    href: temp.md
+  - name: Handoff
+    href: temp.md
+  - name: Trace
+    href: temp.md
+- name: Samples
+  href: temp.md
+- name: Reference
+  expanded: true
+  items:
+  - name: JavaScript SDK (preview)
+    href: temp.md
+  - name: .NET SDK (preview)
+    href: temp.md
