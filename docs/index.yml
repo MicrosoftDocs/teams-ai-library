@@ -1,0 +1,105 @@
+### YamlMime:Landing
+
+title: Teams AI Library v2 (Spark) SDK
+summary: Simplify the development of AI-driven bots for Microsoft Teams with our new SDK, which reduces boilerplate code and dependencies while providing native AI and Teams abstractions. Focus on building intelligent bots without the complexity of setup and configuration.
+
+metadata:
+  title: Teams AI Library v2 (Spark) SDK
+  description: Developer documentation for the Teams AI Library v2 (Spark) SDK, which simplifies the development of AI-driven bots for Microsoft Teams.
+  ms.service: msteams
+  ms.topic: landing-page
+  ms.date: 03/26/2025
+  ms.author: mosdevdocs
+  author: surbhigupta12
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Basics
+  - title: Learn the basics of Teams AI Library
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Listening to Activities
+            url: temp.md
+          - text: Listening to Messages
+            url: temp.md
+          - text: Listening to Events
+            url: temp.md
+          - text: Using the API Client
+            url: temp.md
+          - text: Authentication
+            url: temp.md
+
+  # Overview
+  - title: Get started with Teams AI Library v2 (Spark) SDK
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: overview.md
+          - text: Quickstart
+            url: temp.md
+      - linkListType: sample
+        links:
+          - text: Samples
+            url: temp.md
+
+  # Activity
+  - title: Handle activities in Teams
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Message
+            url: temp.md
+          - text: Typing
+            url: temp.md
+          - text: Conversation
+            url: temp.md
+          - text: Event
+            url: temp.md
+          - text: Command
+            url: temp.md
+          - text: Invoke
+            url: temp.md
+          - text: Handoff
+            url: temp.md
+
+  # DevTools
+  - title: Use developer tools
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Chat
+            url: temp.md
+          - text: Inspect
+            url: temp.md
+          - text: Cards
+            url: temp.md
+          - text: Development
+            url: temp.md
+
+  # AI
+  - title: Integrate AI capabilities
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Chat
+            url: temp.md
+          - text: Audio
+            url: temp.md
+          - text: Image
+            url: temp.md
+          - text: Chaining
+            url: temp.md
+          - text: Memory
+            url: temp.md
+
+  - title: Find reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: JavaScript SDK (preview)
+            url: temp.md
+          - text: .NET SDK (preview)
+            url: temp.md
