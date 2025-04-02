@@ -10,6 +10,7 @@
           "**/obj/**",
           "**/includes/**",
           "_themes/**",
+          "_themes.pdf/**",
           "**/docfx.json",
           "_repo.en-us/**",
           "README.md",
@@ -24,12 +25,14 @@
       {
         "files": [
           "**/*.png",
-          "**/*.jpg"
+          "**/*.jpg",
+          "**/*.gif"
         ],
         "exclude": [
           "**/obj/**",
           "**/includes/**",
           "_themes/**",
+          "_themes.pdf/**",
           "**/docfx.json",
           "_repo.en-us/**"
         ]
@@ -38,9 +41,15 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "~/breadcrumb/Teams-AI-Library/toc.yml",
+      "breadcrumb_path": "/microsoftteams/platform/ai-library/breadcrumb/toc.json",
       "feedback_system": "Standard",
-      "permissioned-type": "public"
+      "feedback_github_repo": "MicrosoftDocs/teams-ai-library",
+      "permissioned-type": "public",
+      "uhfHeaderId": "MSDocsHeader-MicrosoftTeams",
+      "ms.service": "msteams",
+      "ms.subservice": "m365apps",
+      "ms.author": "mosdevdocs",
+      "author": "surbhigupta12"
     },
     "fileMetadata": {},
     "template": []
