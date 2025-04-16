@@ -1,4 +1,6 @@
 - name: Teams AI Library v2 SDK
+  href: index.yml
+- name: Overview
   href: overview.md
 - name: Get started
   expanded: true
@@ -10,7 +12,6 @@
   - name: Samples
     href: https://github.com/microsoft/teams.ts/tree/main/samples
 - name: Basics
-  expanded: true
   items:
     - name: Listening to Activities
       href: temp.md
