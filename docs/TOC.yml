@@ -82,12 +82,10 @@
     href: temp.md
   - name: Trace
     href: temp.md
-- name: Samples
-  href: temp.md
 - name: Reference
   expanded: true
   items:
-  - name: JavaScript SDK (preview)
+  - name: TypeScript SDK (preview)
     href: temp.md
   - name: .NET SDK (preview)
     href: temp.md
