@@ -3,7 +3,7 @@
 
 You can listen on the `dialog.open` activity and respond with adaptive cards or url to be rendered as the dialogs content.
 
-## ](#dialogopen-taskfetch)[`dialog.open` (task/fetch)
+## `dialog.open` (task/fetch)
 
 triggered when a dialog is opened, used to render dialog contents.
 

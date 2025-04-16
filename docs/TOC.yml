@@ -36,7 +36,7 @@
 - name: Dialogs (Task modules)
   items:
     - name: Overview
-      href: dialogs.md
+      href: ./how-to/dialogs.md
     - name: Listen to dialog open
       href: ./how-to/on-dialog-open.md
     - name: Listen for dialog submit
@@ -110,7 +110,7 @@
     - name: Meeting events
       href: ./how-to/activity-event-meeting.md
     - name: Meeting participant events
-      href: ./how-to/activity-event-meeting-participant.md
+      href: ./how-to/activity-event-meeting-participants.md
   - name: Command
     items:
     - name: Overview
@@ -124,7 +124,7 @@
     - name: Adaptive card invoke
       href: ./how-to/activity-invoke-adaptive-card.md
     - name: Config invoke 
-      href: ./how-to/activity-invoke-config.m
+      href: ./how-to/activity-invoke-config.md
     - name: Message invoke
       href: ./how-to/activity-invoke-message.md
     - name: Message extension invoke
