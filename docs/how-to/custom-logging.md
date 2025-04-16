@@ -1,3 +1,10 @@
+---
+title: Custom Logger
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Custom Logger
 
 The `App` will provide a default logger, but you can also provide your own. The default `Logger` instance will be set to `ConsoleLogger` from the `@microsoft/teams.common` package.

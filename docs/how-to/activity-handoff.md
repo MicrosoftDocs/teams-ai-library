@@ -1,3 +1,10 @@
+---
+title: Activity - Handoff
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Activity: Handoff
 
 

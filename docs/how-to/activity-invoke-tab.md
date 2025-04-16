@@ -1,3 +1,10 @@
+---
+title: Activity - Tab Invoke
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Activity: Tab Invoke
 
 ## Activity: Tab Fetch Invoke

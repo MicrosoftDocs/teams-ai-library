@@ -1,3 +1,10 @@
+---
+title: Activity - Command
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Activity: Command
 
 Command activities communicate a request to perform a specific action.

@@ -1,3 +1,10 @@
+---
+title: Activity - End Of Conversation
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Activity: End Of Conversation
 
 End of conversation activities signal the end of a conversation from the recipient's perspective. This may be because the conversation has been completely ended, or because the recipient has been removed from the conversation in a way that is indistinguishable from it ending. The conversation being ended is described in the `conversation` field.

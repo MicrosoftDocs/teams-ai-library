@@ -1,3 +1,10 @@
+---
+title: Activity - Installation update event
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Activity: Installation update event
 
 

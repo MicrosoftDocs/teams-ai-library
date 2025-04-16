@@ -1,3 +1,10 @@
+---
+title: Using the API Client
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Using the API Client
 
 

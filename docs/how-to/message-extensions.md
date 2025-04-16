@@ -1,3 +1,10 @@
+---
+title: Message extensions
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Message extensions
 
 

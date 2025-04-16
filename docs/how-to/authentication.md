@@ -1,3 +1,10 @@
+---
+title: Authentication
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Authentication
 
 Prompting the user to sign in using an `OAuth` connection has never been easier! Just use the `signin` method to send the request and the listen to the `signin` event to handle the token result.

@@ -1,3 +1,10 @@
+---
+title: Activity
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Activity
 
 An activity is an application-level representation of conversational actions made by humans and automated software.

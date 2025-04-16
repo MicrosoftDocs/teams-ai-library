@@ -1,3 +1,10 @@
+---
+title: Activity - Meeting Participant Events
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Activity: Meeting Participant Events
 
 Meeting extensibility on Teams also provides events such as a user joining or leaving a meeting.

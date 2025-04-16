@@ -1,3 +1,9 @@
+---
+title: Activity - Command Result
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
 # Activity: Command Result
 
 Command result activities communicate the result of a [command activity](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#command-activity).

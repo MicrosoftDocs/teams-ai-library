@@ -1,3 +1,10 @@
+---
+title: 🤖 AI
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # 🤖 AI
 
 Tools that make it easier to integrate apps with LLM's and enabling multi-agent scenarios. The `@microsoft/teams.ai` package has three main components:

@@ -1,3 +1,10 @@
+---
+title: Activity - Sign In Invoke
+description: PLACEHOLDER
+ms.topic: how-to
+ms.date: 05/15/2025
+---
+
 # Activity: Sign In Invoke
 
 ## Activity: Sign In Token Exchange Invoke
