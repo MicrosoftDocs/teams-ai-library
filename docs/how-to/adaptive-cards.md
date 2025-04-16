@@ -61,4 +61,4 @@ The Adaptive Card framework is used across many Microsoft products, including Te
 
 ## Resources
 
-*   [Microsoft Learn: Adaptive Cards Actions](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-actions?tabsjson#adaptive-cards-actions)
+*   [Microsoft Learn: Adaptive Cards Actions](/microsoftteams/platform/task-modules-and-cards/cards/cards-actions?tabsjson#adaptive-cards-actions)

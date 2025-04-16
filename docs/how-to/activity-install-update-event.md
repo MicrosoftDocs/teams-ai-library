@@ -28,4 +28,4 @@ The `installationUpdate` event is sent to the bot when a bot is added or removed
 
 ## Resources
 
-*   [Microsoft Learn: Installation Events](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/subscribe-to-conversation-events#installation-update-event)
+*   [Microsoft Learn: Installation Events](/microsoftteams/platform/bots/how-to/conversations/subscribe-to-conversation-events#installation-update-event)
