@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Teams AI Library v2 (Spark) SDK
+title: Teams AI Library v2 SDK
 summary: Simplify the development of AI-driven bots for Microsoft Teams with our new SDK, which reduces boilerplate code and dependencies while providing native AI and Teams abstractions. Focus on building intelligent bots without the complexity of setup and configuration.
 
 metadata:
-  title: Teams AI Library v2 (Spark) SDK
-  description: Developer documentation for the Teams AI Library v2 (Spark) SDK, which simplifies the development of AI-driven bots for Microsoft Teams.
+  title: Teams AI Library v2 SDK
+  description: Developer documentation for the Teams AI Library v2 SDK, which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
   ms.date: 03/26/2025
@@ -32,7 +32,7 @@ landingContent:
             url: temp.md
 
   # Overview
-  - title: Get started with Teams AI Library v2 (Spark) SDK
+  - title: Get started with Teams AI Library v2 SDK
     linkLists:
       - linkListType: overview
         links:

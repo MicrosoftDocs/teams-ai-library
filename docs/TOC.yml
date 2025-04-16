@@ -1,9 +1,14 @@
-- name: Teams AI Library v2 (Spark) SDK
-  href: index.yml
-- name: Overview
+- name: Teams AI Library v2 SDK
   href: overview.md
-- name: Quickstart
-  href: temp.md
+- name: Get started
+  expanded: true
+  items:    
+  - name: Quickstart
+    href: quickstart.md
+  - name: Tutorial
+    href: tutorial.md
+  - name: Samples
+    href: https://github.com/microsoft/teams.ts/tree/main/samples
 - name: Basics
   expanded: true
   items:
