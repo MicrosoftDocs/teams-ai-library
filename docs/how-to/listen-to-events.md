@@ -1,9 +1,9 @@
-# 👂 Listening To Events
+# Listening To Events
 
 
 To listen/subscribe to different event types, you can use the `event()` method. Handlers will be called in the order they are added.
 
-> Example: We subscribe to errors that occur in the app.
+Example: We subscribe to errors that occur in the app.
 
 ```
     app.event('error', ({ err, log }) > {
@@ -12,7 +12,7 @@ To listen/subscribe to different event types, you can use the `event()` method. 
     
 
 ```
-> Example: When a user signs in using `OAuth` or `SSO`, use the graph api to fetch their profile and say hello.
+Example: When a user signs in using `OAuth` or `SSO`, use the graph api to fetch their profile and say hello.
 
 ```
     app.event('signin', async ({ activity, send, api }) > {

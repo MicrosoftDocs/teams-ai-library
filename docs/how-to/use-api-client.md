@@ -3,7 +3,7 @@
 
 an instance of the web api client is passed to handlers that can be used to fetch team/meeting/conversation/etc... details.
 
-> Example: we use the api client to fetch the conversations array of members.
+Example: we use the api client to fetch the conversations array of members.
 
 ```
     app.on('message', async ({ activity, api }) > {

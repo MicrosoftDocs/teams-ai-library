@@ -1,4 +1,4 @@
-# @Mention
+# At-mentions
 
 
 Sending a message at `@mentions` a user is as simple as:

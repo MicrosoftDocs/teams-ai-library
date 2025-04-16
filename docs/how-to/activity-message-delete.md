@@ -5,9 +5,8 @@ Message delete activities represent a deletion of an existing message activity w
 
 ```
     app.on('messageDelete', async ({ activity }) > {});
-    
-
 ```
+
 ## Schema
 
 Message delete activities are identified by a `type` value of `messageDelete`.

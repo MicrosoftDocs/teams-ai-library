@@ -7,8 +7,6 @@ Event activities are the asynchronous counterpart to [invoke activities](https:/
 
 ```
     app.on('event', async ({ activity }) > {});
-    
-
 ```
 
 ## Schema

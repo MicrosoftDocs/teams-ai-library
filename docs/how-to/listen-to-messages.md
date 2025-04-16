@@ -1,9 +1,9 @@
-# 👂 Listening To Message Activities
+# Listening To Message Activities
 
 
 You can listen/subscribe to messages using static text or `Regexp`.
 
-> Example: when the user sends a message to the bot with the text `/logout` we send a message back.
+Example: when the user sends a message to the bot with the text `/logout` we send a message back.
 
 ```
     app.message('/logout', async ({ activity, send }) > {

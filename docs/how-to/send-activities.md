@@ -1,11 +1,11 @@
-# 💬 Sending Activities
+# Sending Activities
 
 
 To send an activity you can either use the `send` or `reply` methods. You can also `stream` chunks of an activity.
 
 ## Send
 
-> Example: a bot that listens for when a member is added to the conversation and sends a greeting.
+Example: a bot that listens for when a member is added to the conversation and sends a greeting.
 
 ```
     app.on('conversationUpdate', async ({ activity, send }) > {
@@ -13,21 +13,19 @@ To send an activity you can either use the `send` or `reply` methods. You can al
             await send(`👋 welcome ${account.name}!`);
         }
     });
-    
-
 ```
+
 ## Reply
 
-> Example: an echo bot that listens for messages sent to it and responds.
+Example: an echo bot that listens for messages sent to it and responds.
 
 ```
     app.on('message', async ({ activity, reply, send }) > {
         await send({ type: 'typing' }); // send typing indicator...
         await reply(`you said: "${activity.text}"`);
     });
-    
-
 ```
+
 ## Streaming
 
 ```
@@ -38,7 +36,7 @@ To send an activity you can either use the `send` or `reply` methods. You can al
     
         // result message: "hello, world!"
     });
-    
 
 ```
-![Streaming Activity](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/streaming.gif?rawtrue)
+
+![Streaming Activity](../assets/images/streaming.gif?rawtrue)

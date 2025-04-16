@@ -1,3 +1,3 @@
-# 🔍 Inspect
+# Inspect
 
-Inspect incoming and outgoing activities ![Inspect Activity Screenshot](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/inspect_activity.png?rawtrue)
+Inspect incoming and outgoing activities ![Inspect Activity Screenshot](../assets/images/inspect_activity.png?rawtrue)

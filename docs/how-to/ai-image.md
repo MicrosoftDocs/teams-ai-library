@@ -1,1 +1,1 @@
-# 📷 Image
+# Image

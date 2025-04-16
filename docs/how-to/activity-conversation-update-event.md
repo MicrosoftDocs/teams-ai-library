@@ -12,9 +12,8 @@ The following events are part of the original Agents protocol and are supported 
         if (activity.membersAdded) {
         }
     });
-    
-
 ```
+
 *   `historyDisclosed` - Deprecated
 *   `membersAdded`
 *   `membersRemoved`
@@ -26,9 +25,8 @@ The following events are custom to Teams and are not part of the original Agents
 
 ```
     app.on('channelCreated', async ({ activity }) > {});
-    
-
 ```
+
 The following events are custom to Teams and are not part of the original Agents protocol.
 
 *   `channelCreated`

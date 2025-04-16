@@ -33,7 +33,7 @@
       href: ./how-to/enable-feedback.md
     - name: at-mentions
       href: ./how-to/at-mentions.md
-- name: Dialogs (Task Modules)
+- name: Dialogs (Task modules)
   items:
     - name: Overview
       href: dialogs.md

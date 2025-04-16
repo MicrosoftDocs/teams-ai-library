@@ -4,9 +4,8 @@ Conversation update activities describe a change in a conversation's members, de
 
 ```
     app.on('conversationUpdate', async ({ activity }) > {});
-    
-
 ```
+
 ## Schema
 
 Conversation update activities are identified by a `type` value of `conversationUpdate`.

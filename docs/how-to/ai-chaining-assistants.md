@@ -1,4 +1,4 @@
-# 🧑‍🤝‍🧑 Assistants
+# Assistants
 
 
 Lets create a prompt with a complex directive that we can split into sub prompts.

@@ -7,18 +7,16 @@ The `installationUpdate` event is sent to the bot when a bot is added or removed
 
 ```
     app.on('install.add', async ({ activity }) > {});
-    
-
 ```
+
 *   `install.add` - A user has installed the app.
 
 ## Installation remove event
 
 ```
     app.on('install.remove', async ({ activity }) > {});
-    
-
 ```
+
 *   `install.remove` - A user has uninstalled the app.
 
 ## Resources

@@ -16,7 +16,7 @@ A `Template` is the component that allows the `instructions` or "System Prompt" 
 
 A `Prompt` is the component that orchestrates everything, it handles state management, function definitions, and invokes the model/template when needed.
 
-> \[**ℹ️ Note**\] A prompt can have one model and one template. The type of model that can be provided to a prompt must match that of the prompt.
+**ℹ️ Note** A prompt can have one model and one template. The type of model that can be provided to a prompt must match that of the prompt.
 
 ## 💬 🔈 📷 Multi Media
 

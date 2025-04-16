@@ -4,9 +4,8 @@ Installation update activities represent an installation or uninstallation of a 
 
 ```
     app.on('installationUpdate', async ({ activity }) > {});
-    
-
 ```
+
 ## Schema
 
 Installation update activities are identified by a `type` value of `installationUpdate`.

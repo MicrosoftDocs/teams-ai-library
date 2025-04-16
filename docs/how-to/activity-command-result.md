@@ -2,13 +2,12 @@
 
 Command result activities communicate the result of a [command activity](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#command-activity).
 
-> \[**ℹ️ Note**\] This event type is not applicable to Teams.
+**ℹ️ Note** This event type is not applicable to Teams.
 
 ```
     app.on('commandResult', async ({ activity }) > {});
-    
-
 ```
+
 ## Schema
 
 Command result activities are identified by a `type` value of `commandResult` and specific values of the `name` field. The `name` field of a command result is always set to the `name` of the original command activity.

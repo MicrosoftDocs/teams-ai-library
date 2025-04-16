@@ -1,15 +1,13 @@
 # Activity: Invoke
 
-
 Invoke activities communicate programmatic information from a client or channel to a bot, and have a corresponding return payload for use within the channel. The meaning of an invoke activity is defined by the `name` field, which is meaningful within the scope of a channel.
 
 Invoke activities are the synchronous counterpart to [event activities](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#event-activity). Event activities are designed to be extensible. Invoke activities differ only in their ability to return response payloads back to the channel; because the channel must decide where and how to process these response payloads, Invoke is useful only in cases where explicit support for each invoke name has been added to the channel. Thus, Invoke is not designed to be a generic application extensibility mechanism.
 
 ```
     app.on('invoke', async ({ activity }) > {});
-    
-
 ```
+
 ## Schema
 
 Invoke activities are identified by a `type` value of `invoke` and specific values of the `name` field.

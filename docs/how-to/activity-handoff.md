@@ -5,9 +5,8 @@ Handoff activities are used to request or signal a change in focus between eleme
 
 ```
     app.on('handoff', async ({ activity }) > {});
-    
-
 ```
+
 ## Schema
 
 Handoff activities are identified by a `type` value of `handoff`.

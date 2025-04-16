@@ -5,8 +5,6 @@ A read receipt event is sent when a user has read a message, and in the UI shows
 
 ```
     app.on('readReceipt', async ({ activity }) > {});
-    
-
 ```
 
 `'readReceipt'` is alias for the event name `'application/vnd.microsoft.readReceipt'`.

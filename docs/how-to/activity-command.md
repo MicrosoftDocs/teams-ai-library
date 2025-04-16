@@ -4,13 +4,12 @@ Command activities communicate a request to perform a specific action.
 
 Commands look similar in structure to events but have different semantics. Commands are requests to perform an action and receivers typically respond with one or more commandResult activities. Receivers are also expected to explicitly reject unsupported command activities.
 
-> \[**ℹ️ Note**\] This event type is not applicable to Teams.
+**ℹ️ Note** This event type is not applicable to Teams.
 
 ```
     app.on('command', async ({ activity }) > {});
-    
-
 ```
+
 ## Schema
 
 Command activities are identified by a `type` value of `command` and specific values of the `name` field.

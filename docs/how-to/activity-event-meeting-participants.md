@@ -6,18 +6,16 @@ Meeting extensibility on Teams also provides events such as a user joining or le
 
 ```
     app.on('meetingParticipantJoin', async ({ activity }) > {});
-    
-
 ```
+
 The `'meetingParticipantJoin'` is the alias for the event name `'application/vnd.microsoft.meetingParticipantJoin'`. This event is sent when a user joins a meeting.
 
 ## Meeting participant leave event
 
 ```
     app.on('meetingParticipantLeave', async ({ activity }) > {});
-    
-
 ```
+
 The `'meetingParticipantLeave'` is the alias for the event name `'application/vnd.microsoft.meetingParticipantLeave'`. This event is sent when a user leaves a meeting.
 
 ## App permissions
