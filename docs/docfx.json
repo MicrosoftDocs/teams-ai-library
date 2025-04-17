@@ -41,7 +41,7 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/microsoftteams/platform/breadcrumb/toc.json",
+      "breadcrumb_path": "/microsoftteams/platform/teams-ai-library/breadcrumb/toc.json",
       "feedback_system": "Standard",
       "feedback_github_repo": "MicrosoftDocs/teams-ai-library",
       "permissioned-type": "public",
