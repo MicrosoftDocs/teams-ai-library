@@ -11,9 +11,8 @@ An activity is an application-level representation of conversational actions mad
 
 ```
     app.on('activity', async ({ activity }) > {});
-    
-
 ```
+
 ## Schema
 
 Activity objects include a flat list of name/value pairs, called fields. Fields may be primitive and complex types. JSON is used as the common interchange format and although not all activities must be serialized to JSON at all times, they must be serializable to it. This allows implementations to rely on a simple set of conventions for handling known and unknown activity fields.
@@ -34,7 +33,7 @@ This document defines data types for fields used within the Activity object. The
 
 `A2003`: Receivers SHOULD reject activities that contain field values whose types do not match the data types described in this specification.
 
-### [Type](#type)
+### Type
 
 The `type` field controls the meaning of each activity, and are by convention short strings (e.g. "`message`"). Senders may define their own application-layer types, although they are encouraged to choose values that are unlikely to collide with future well-defined values. If senders use URIs as type values, they SHOULD NOT implement URI ladder comparisons to establish equivalence.
 
@@ -48,7 +47,7 @@ The `type` field controls the meaning of each activity, and are by convention sh
 
 `A2014`: A bot or client SHOULD ignore activities of type it does not understand.
 
-### [Channel ID](#channel-id)
+### Channel ID
 
 The `channelId` field establishes the channel and authoritative store for the activity. The value of the `channelId` field is of type string.
 
@@ -60,7 +59,7 @@ The `channelId` field establishes the channel and authoritative store for the ac
 
 `A2022`: A channel MAY ignore or reject any activity it receives without an expected `channelId` value.
 
-### [ID](#id)
+### ID
 
 The `id` field establishes the identity for the activity once it has been recorded in the channel. Activities in-flight that have not yet been recorded do not have identities. Not all activities are assigned identities (for example, a [typing activity](#typing-activity) may never be assigned an `id`.) The value of the `id` field is of type string.
 
@@ -78,7 +77,7 @@ The `id` field is designed to allow de-duplication, but this is prohibitive in m
 
 `A2033`: Receivers MAY de-duplicate activities by ID, however senders SHOULD NOT rely on receivers performing this de-duplication.
 
-### [Timestamp](#timestamp)
+### Timestamp
 
 The `timestamp` field records the exact UTC time when the activity occurred. Due to the distributed nature of computing systems, the important time is when the channel (the authoritative store) records the activity. The time when a client or bot initiated an activity may be transmitted separately in the `localTimestamp` field. The value of the `timestamp` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html) \[[2](#references)\] encoded datetime within a string.
 
@@ -90,7 +89,7 @@ The `timestamp` field records the exact UTC time when the activity occurred. Due
 
 `A2043`: Senders SHOULD always use encode the value of `timestamp` fields as UTC, and they SHOULD always include Z as an explicit UTC mark within the value.
 
-### [Local timezone](#local-timezone)
+### Local timezone
 
 The `localTimezone` field expresses the timezone where the activity was generated. The value of the `localTimezone` field is a time zone name (zone entry) per the IANA Time Zone database. \[[14](#references)\]
 
@@ -100,7 +99,7 @@ The `localTimezone` field expresses the timezone where the activity was generate
 
 `A2057`: A receiver MAY ignore `localTimezone` values it does not understand.
 
-### [Local timestamp](#local-timestamp)
+### Local timestamp
 
 The `localTimestamp` field expresses the datetime and timezone offset where the activity was generated. This may be different from the UTC `timestamp` where the activity was recorded. The value of the `localTimestamp` field is an ISO 8601 \[[2](#references)\] encoded datetime within a string.
 
@@ -110,7 +109,7 @@ When both the `localTimezone` and `localTimestamp` fields are included in an act
 
 `A2051`: Channels SHOULD preserve `localTimestamp` when forwarding activities from a sender to recipient(s).
 
-### [From](#from)
+### From
 
 The `from` field describes which client, bot, or channel generated an activity. The value of the `from` field is a complex object of the [Channel account](#channel-account) type.
 
@@ -126,7 +125,7 @@ The `from.name` field is optional and represents the display name for the accoun
 
 `A2063`: Bots and clients SHOULD NOT include the `from.name` field unless it is semantically valuable within the channel.
 
-### [Recipient](#recipient)
+### Recipient
 
 The `recipient` field describes which client or bot is receiving this activity. This field is only meaningful when an activity is transmitted to exactly one recipient; it is not meaningful when it is broadcast to multiple recipients (as happens when an activity is sent to a channel). The purpose of the field is to allow the recipient to identify themselves. This is helpful when a client or bot has more than one identity within the channel. The value of the `recipient` field is a complex object of the [Channel account](#channel-account) type.
 
@@ -138,7 +137,7 @@ The `recipient.name` field is optional and represents the display name for the a
 
 `A2072`: Channels SHOULD include the `recipient.name` field if the `recipient` field is present and `recipient.name` is available.
 
-### [Conversation](#conversation)
+### Conversation
 
 The `conversation` field describes the conversation in which the activity exists. The value of the `conversation` field is a complex object of the [Conversation account](#conversation-account) type.
 
@@ -154,7 +153,7 @@ The `conversation.name` field is optional and represents the display name for th
 
 `A2084`: Channels SHOULD include the `conversation.conversationType` field if more than one value is defined for the channel. Channels SHOULD NOT include the field if there is only one possible value.
 
-### [Reply to ID](#reply-to-id)
+### Reply to ID
 
 The `replyToId` field identifies the prior activity to which the current activity is a reply. This field allows threaded conversation and comment nesting to be communicated between participants. `replyToId` is valid only within the current conversation. (See [relatesTo](#relates-to) for references to other conversations.) The value of the `replyToId` field is a string.
 
@@ -164,7 +163,7 @@ The `replyToId` field identifies the prior activity to which the current activit
 
 `A2092`: Bots and clients MAY omit `replyToId` if it knows the channel does not make use of the field, even if the activity being sent is a reply to another activity.
 
-### [Entities](#entities)
+### Entities
 
 The `entities` field contains a flat list of metadata objects pertaining to this activity. Unlike attachments (see the [attachments](#attachments) field), entities do not necessarily manifest as user-interactable content elements, and are intended to be ignored if not understood. Senders may include entities they think may be useful to a receiver even if they are not certain the receiver can accept them. The value of each `entities` list element is a complex object of the [Entity](#entity) type.
 
@@ -180,7 +179,7 @@ The `entities` field contains a flat list of metadata objects pertaining to this
 
 `A2105`: Receivers SHOULD ignore entities whose type they understand but are unable to process due to e.g. syntactic errors.
 
-### [Channel data](#channel-data)
+### Channel data
 
 Extensibility data in the activity schema is organized principally within the `channelData` field. This simplifies plumbing in SDKs that implement the protocol. The format of the `channelData` object is defined by the channel sending or receiving the activity.
 
@@ -188,7 +187,7 @@ Extensibility data in the activity schema is organized principally within the `c
 
 `A2201`: If the `channelData` format is undefined for the current channel, receivers SHOULD ignore the contents of `channelData`.
 
-### [Caller ID](#caller-id)
+### Caller ID
 
 In some cases, it's important to record where an activity was sent. The `callerId` field is a string containing an [IRI](https://tools.ietf.org/html/rfc3987) \[[3](#references)\] identifying the caller of a bot, described in more detail in [Appendix V](#appendix-v---caller-id-values). This field is not intended to be transmitted over the wire, but is instead populated by bots and clients based on cryptographically verifiable data that asserts the identity of the callers (e.g. tokens).
 
@@ -198,7 +197,7 @@ In some cases, it's important to record where an activity was sent. The `callerI
 
 `A2252`: Bots SHOULD, after receiving an Activity, populate its `callerId` field with an identifier described in [Appendix V](#appendix-v---caller-id-values)
 
-### [Service URL](#service-url)
+### Service URL
 
 Activities are frequently sent asynchronously, with separate transport connections for sending and receiving traffic. The `serviceUrl` field is used by channels to denote the URL where replies to the current activity may be sent. The value of the `serviceUrl` field is of type string.
 

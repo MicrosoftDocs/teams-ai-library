@@ -29,7 +29,7 @@ Command activities are identified by a `type` value of `command` and specific va
 
 The list of Activity Protocol command activities is included in [Appendix VI](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#appendix-vi---protocols-using-the-command-activity).
 
-### [Name](#name)
+### Name
 
 The `name` field defines the meaning of the command activity. The value of the `name` field is of type string.
 
@@ -41,7 +41,7 @@ The `name` field defines the meaning of the command activity. The value of the `
 
 The recommended patterns for rejecting command activities are included in [Appendix VI](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#appendix-vi---protocols-using-the-command-activity).
 
-### [Value](#value)
+### Value
 
 The `value` field contains the command metadata and parameters specific to a command, as defined by the command `name`. The `value` field is a complex object of the [command value](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#command-value) type.
 

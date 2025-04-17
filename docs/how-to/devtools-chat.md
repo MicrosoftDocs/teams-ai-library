@@ -16,7 +16,7 @@ Chat with your app the same way you would in teams without the need for an app i
 
 You can use the devtools package as a plugin for your app.
 
-### [Installation](#installation)
+### Installation
 
 Add the package to your Teams app.
 
@@ -25,7 +25,7 @@ Add the package to your Teams app.
     
 
 ```
-### [Usage](#usage)
+### Usage
 
 In your app's main file, make sure DevTools plugin is added to the app.
 
@@ -55,7 +55,7 @@ When you open the page, you will see a Teams-like chat window and you can immedi
 
 ![Devtools chat](../assets/images/devtools_with_chat.png?rawtrue)
 
-### [Developer tools](#developer-tools)
+### Developer tools
 
 For an easier debugging experience, we have added a features to the compose box that will store the last five messages sent to the app. To access this, simply press ↑ in the compose box and you can cycle through your message history and send that message.
 

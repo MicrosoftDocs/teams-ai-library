@@ -17,15 +17,15 @@ Message activities represent content intended to be shown within a conversationa
 
 Message activities are identified by a `type` value of `message`.
 
-### [Text](#text)
+### Text
 
-The `text` field contains text content, either in the Markdown format, XML, or as plain text. The format is controlled by the [`textFormat`](#text-Format) field as is plain if unspecified or ambiguous. The value of the `text` field is of type string.
+The `text` field contains text content, either in the Markdown format, XML, or as plain text. The format is controlled by the [`textFormat`](#textformat) field as is plain if unspecified or ambiguous. The value of the `text` field is of type string.
 
 `A3000`: The `text` field MAY contain an empty string to indicate sending text without contents.
 
 `A3001`: Channels SHOULD handle `markdown`\-formatted text in a way that degrades gracefully for that channel.
 
-### [Text format](#text-format)
+### textFormat
 
 The `textFormat` field denotes whether the [`text`](#text) field should be interpreted as [Markdown](https://daringfireball.net/projects/markdown/) \[[3](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)\], plain text, or XML. The value of the `textFormat` field is of type string, with defined values of `markdown`, `plain`, and `xml`. The default value is `plain`. This field is not designed to be extended with arbitrary values.
 
@@ -45,7 +45,7 @@ The `textFormat` field controls additional fields within attachments etc. This r
 
 `A3016`: Channels MAY reject `textformat` of value `xml`.
 
-### [Locale](#locale)
+### Locale
 
 The `locale` field communicates the language code of the [`text`](#text) field. The value of the `locale` field is an [IETF BCP-47](https://tools.ietf.org/html/bcp47) \[[18](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)\] language tag within a string.
 
@@ -53,9 +53,9 @@ The `locale` field communicates the language code of the [`text`](#text) field. 
 
 `A3021`: Receivers SHOULD NOT reject activities with unknown locale.
 
-### [Speak](#speak)
+### Speak
 
-The `speak` field indicates how the activity should be spoken via a text-to-speech system. The field is only used to customize speech rendering when the default is deemed inadequate. It replaces speech synthesis for any content within the activity, including text, attachments, and summaries. The value of the `speak` field is either plain text or [SSML](https://www.w3.org/TR/speech-synthesis/) \[[6](#references)\] encoded within a string.
+The `speak` field indicates how the activity should be spoken via a text-to-speech system. The field is only used to customize speech rendering when the default is deemed inadequate. It replaces speech synthesis for any content within the activity, including text, attachments, and summaries. The value of the `speak` field is either plain text or [SSML](https://www.w3.org/TR/speech-synthesis#references) encoded within a string.
 
 `A3030`: The `speak` field MAY contain an empty string to indicate no speech should be generated.
 
@@ -67,7 +67,7 @@ The `speak` field indicates how the activity should be spoken via a text-to-spee
 
 `A3035`: Receivers generating speech from an Activity with a missing or null `speak` field SHOULD render message contents such as [`text`](#text) and [`summary`](#summary) instead.
 
-### [Input hint](#input-hint)
+### Input hint
 
 The `inputHint` field indicates whether or not the generator of the activity is anticipating a response. This field is used predominantly within channels that have modal user interfaces, and is typically not used in channels with continuous chat feeds. The value of the `inputHint` field is of type string, with defined values of `accepting`, `expecting`, and `ignoring`. The default value is `accepting`.
 
@@ -77,7 +77,7 @@ The `inputHint` field indicates whether or not the generator of the activity is 
 
 `A3042`: Receivers SHOULD interpret undefined values as `accepting`.
 
-### [Attachments](#attachments)
+### Attachments
 
 The `attachments` field contains a flat list of objects to be displayed as part of this activity. The value of each `attachments` list element is a complex object of the [Attachment](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#attachment) type.
 
@@ -89,7 +89,7 @@ The `attachments` field contains a flat list of objects to be displayed as part 
 
 `A3053`: Receivers SHOULD preserve the ordering of attachments when processing content, except when rendering limitations force changes, e.g. grouping of documents after images.
 
-### [Attachment layout](#attachment-layout)
+### Attachment layout
 
 The `attachmentLayout` field instructs user interface renderers how to present content included in the [`attachments`](#attachments) field. The value of the `attachmentLayout` field is of type string, with defined values of `list` and `carousel`. The default value is `list`.
 
@@ -97,7 +97,7 @@ The `attachmentLayout` field instructs user interface renderers how to present c
 
 `A3061`: Receivers SHOULD interpret undefined values as `list`.
 
-### [Summary](#summary)
+### Summary
 
 The `summary` field contains text used to replace [`attachments`](#attachments) on channels that do not support them. The value of the `summary` field is of type string.
 
@@ -107,23 +107,23 @@ The `summary` field contains text used to replace [`attachments`](#attachments) 
 
 `A3072`: Channels able to process all attachments within an activity SHOULD ignore the `summary` field.
 
-### [Suggested actions](#suggested-actions)
+### Suggested actions
 
 The `suggestedActions` field contains a payload of interactive actions that may be displayed to the user. Support for `suggestedActions` and their manifestation depends heavily on the channel. The value of the `suggestedActions` field is a complex object of the [Suggested actions](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#suggested-actions-2) type.
 
-### [Value](#value)
+### Value
 
 The `value` field contains a programmatic payload specific to the activity being sent. Its meaning and format are defined in other sections of this document that describe its use.
 
 `A3080`: Senders SHOULD NOT include `value` fields of primitive types (e.g. string, int). `value` fields SHOULD be complex types or omitted.
 
-### [Expiration](#expiration)
+### Expiration
 
-The `expiration` field contains a time at which the activity should be considered to be "expired" and should not be presented to the recipient. The value of the `expiration` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html)\[[2](#references)\] encoded datetime within a string.
+The `expiration` field contains a time at which the activity should be considered to be "expired" and should not be presented to the recipient. The value of the `expiration` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html#references) encoded datetime within a string.
 
 `A3090`: Senders SHOULD always use encode the value of `expiration` fields as UTC, and they SHOULD always include Z as an explicit UTC mark within the value.
 
-### [Importance](#importance)
+### Importance
 
 The `importance` field contains an enumerated set of values to signal to the recipient the relative importance of the activity. It is up to the receiver to map these importance hints to the user experience. The value of the `importance` field is of type string, with defined values of `low`, `normal` and `high`. The default value is `normal`.
 
@@ -131,7 +131,7 @@ The `importance` field contains an enumerated set of values to signal to the rec
 
 `A3101`: Receivers SHOULD interpret undefined values as `normal`.
 
-### [Delivery mode](#delivery-mode)
+### Delivery mode
 
 The `deliveryMode` field contains any one of an enumerated set of values to signal to the recipient alternate delivery paths for the activity or response. The value of the `deliveryMode` field is of type string, with defined values of `normal`, `notification` and `expectReplies`. The default value is `normal`.
 
@@ -151,7 +151,7 @@ Activities with a `deliveryMode` of `expectReplies` differ only in their require
 
 `A3116`: Bots SHOULD NOT send activities with `deliveryMode` of `expectReplies` to channels.
 
-### [Listen for](#listen-for)
+### Listen for
 
 The `listenFor` field contains a list of terms or references to term sources that speech and language processing systems can listen for. It can also be referred to as [priming format](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#appendix-iv---priming-format). The value of the `listenFor` field is an array of strings whose format allows:
 
@@ -164,7 +164,7 @@ A missing `listenFor` field indicates default priming behavior should be used. T
 
 `A3121`: Bots SHOULD send `listenFor` contents that reflect the complete set of utterances expected from users, not just the utterances in response to the content in the message in which the `listenFor` is included.
 
-### [Semantic action](#semantic-action)
+### Semantic action
 
 The `semanticAction` field contains an optional programmatic action accompanying the user request. The semantic action field is populated by the channel and bot based on some understanding of what the user is trying to accomplish; this understanding may be achieved with natural language processing, additional user interface elements tied specifically to these actions, through a process of conversational refinement, or contextually via other means. The meaning and structure of the semantic action is agreed ahead of time between the channel and the bot.
 

@@ -21,7 +21,7 @@ Installation update activities are identified by a `type` value of `installation
 
 `A5701`: Channels SHOULD NOT send installation activities when the bot is installed into or removed from a channel.
 
-### [Action](#action)
+### Action
 
 The `action` field describes the meaning of the installation update activity. The value of the `action` field is a string. Only values of `add` and `remove` are defined.
 

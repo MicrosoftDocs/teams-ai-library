@@ -22,7 +22,7 @@ Event activities are identified by a `type` value of `event` and specific values
 
 `A5000`: Channels MAY allow application-defined event messages between clients and bots, if the clients allow application customization.
 
-### [Name](#name)
+### Name
 
 The `name` field controls the meaning of the event and the schema of the `value` field. The value of the `name` field is of type string.
 
@@ -30,7 +30,7 @@ The `name` field controls the meaning of the event and the schema of the `value`
 
 `A5002`: Receivers MUST ignore event activities with `name` fields they do not understand.
 
-### [Value](#value)
+### Value
 
 The `value` field contains parameters specific to this event, as defined by the event name. The value of the `value` field is a complex type.
 
@@ -38,7 +38,7 @@ The `value` field contains parameters specific to this event, as defined by the 
 
 `A5101`: Extensions to the event activity SHOULD NOT require receivers to use any information other than the activity `type` and `name` fields to understand the schema of the `value` field.
 
-### [Relates to](#relates-to)
+### Relates to
 
 The `relatesTo` field references another conversation, and optionally a specific activity within that conversation. The value of the `relatesTo` field is a complex object of the [Conversation reference](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#conversation-reference) type.
 

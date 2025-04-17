@@ -48,4 +48,4 @@ The `Activity.value` field of the invoke activity for an Adaptive Card is `Adapt
 
 ### Resources
 
-*   [Microsoft Learn: `AdaptiveCardInvokeValue`](https://learn.microsoft.com/en-us/javascript/api/botframework-schema/adaptivecardinvokevalue?viewbotbuilder-ts-latest)
+*   [Microsoft Learn: `AdaptiveCardInvokeValue`](/javascript/api/botframework-schema/adaptivecardinvokevalue?viewbotbuilder-ts-latest)

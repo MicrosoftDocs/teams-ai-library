@@ -23,7 +23,7 @@ The list of defined Invoke activities is included in [Appendix III](https://gith
 
 `A5301`: Channels SHOULD NOT allow application-defined invoke messages between clients and bots.
 
-### [Name](#name)
+### Name
 
 The `name` field controls the meaning of the invocation and the schema of the `value` field. The value of the `name` field is of type string.
 
@@ -31,7 +31,7 @@ The `name` field controls the meaning of the invocation and the schema of the `v
 
 `A5402`: Receivers MUST ignore event activities with `name` fields they do not understand.
 
-### [Value](#value)
+### Value
 
 The `value` field contains parameters specific to this event, as defined by the event name. The value of the `value` field is a complex type.
 
@@ -39,7 +39,7 @@ The `value` field contains parameters specific to this event, as defined by the 
 
 `A5501`: Extensions to the event activity SHOULD NOT require receivers to use any information other than the activity `type` and `name` fields to understand the schema of the `value` field.
 
-### [Relates to](#relates-to)
+### Relates to
 
 The `relatesTo` field references another conversation, and optionally a specific activity within that conversation. The value of the `relatesTo` field is a complex object of the [Conversation reference](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#conversation-reference) type.
 

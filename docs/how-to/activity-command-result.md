@@ -20,7 +20,7 @@ Command result activities are identified by a `type` value of `commandResult` an
 
 `A6400`: Senders MAY send one or more command result activities to communicate the result of the command.
 
-### [Name](#name)
+### Name
 
 The `name` field defines the meaning of the command result activity. The value of the `name` field is of type string.
 
@@ -30,7 +30,7 @@ The `name` field defines the meaning of the command result activity. The value o
 
 `A6413`: The `name` of a command result activity MUST be the same as the `name` of the original command activity.
 
-### [Value](#value)
+### Value
 
 The `value` field contains the command metadata and additional information specific to a command result, as defined by the command result `name`. The value of the `value` field is a complex object of type [command result value](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#command-result-value) type.
 

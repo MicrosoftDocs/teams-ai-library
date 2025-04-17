@@ -21,10 +21,10 @@ End of conversation activities are identified by a `type` value of `endOfConvers
 
 Both the `code` and the `text` fields are optional.
 
-### [Code](#code)
+### Code
 
 The `code` field contains a programmatic value describing why or how the conversation was ended. The value of the `code` field is of type string and its meaning is defined by the channel sending the activity.
 
-### [Text](#text)
+### Text
 
 The `text` field contains optional text content to be communicated to a user. The value of the `text` field is of type string, and its format is plain text.

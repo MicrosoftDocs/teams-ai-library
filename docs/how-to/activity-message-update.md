@@ -28,11 +28,11 @@ Message update activities are identified by a `type` value of `messageUpdate`.
 
 To update a message in Teams, you can hover over the message in the client and click the pencil icon. This will open a text editor where you can update the message.
 
-![Updating a message in Teams](../../../../../assets/screenshots/message-update-ui.png)
+![Updating a message in Teams](../assets/images/message-update-ui.png)
 
 To save the changes, click the checkmark icon or to cancel, click the X icon.
 
-![Updating a message in Teams](../../../../../assets/screenshots/message-update-save.png)
+![Updating a message in Teams](../assets/images/message-update-save.png)
 
 ## Resources
 

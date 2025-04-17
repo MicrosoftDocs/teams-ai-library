@@ -25,19 +25,19 @@ Conversation update activities are identified by a `type` value of `conversation
 
 `A4103`: Channels SHOULD NOT send the `topicName` or `historyDisclosed` fields if the activity is not signaling a change in value for either field.
 
-### [Members added](#members-added)
+### Members added
 
 The `membersAdded` field contains a list of channel participants (bots or users) added to the conversation. The value of the `membersAdded` field is an array of type [`channelAccount`](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#channel-account).
 
-### [Members removed](#members-removed)
+### Members removed
 
 The `membersRemoved` field contains a list of channel participants (bots or users) removed from the conversation. The value of the `membersRemoved` field is an array of type [`channelAccount`](#https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#channel-account).
 
-### [Topic name](#topic-name)
+### Topic name
 
 The `topicName` field contains the text topic or description for the conversation. The value of the `topicName` field is of type string.
 
-### [History disclosed](#history-disclosed)
+### History disclosed
 
 The `historyDisclosed` field is deprecated.
 
