@@ -188,5 +188,5 @@ Semantic actions are sometimes used to indicate a change in which participant co
 
 ## Resources
 
-*   [Agents Activity Protocol Schema](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md)
-*   [Microsoft Learn: Message](/microsoftteams/platform/resources/bot-v3/bot-conversations/bots-conversations#conversation-basics)
+* [Agents Activity Protocol Schema](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md)
+* [Microsoft Learn: Message](/microsoftteams/platform/resources/bot-v3/bot-conversations/bots-conversations#conversation-basics)

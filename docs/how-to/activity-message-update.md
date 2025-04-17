@@ -9,9 +9,8 @@ ms.date: 05/15/2025
 
 ```
     app.on('messageUpdate', async ({ activity }) > {});
-    
-
 ```
+
 Message update activities represent an update of an existing message activity within a conversation. The updated activity is referred to by the `id` and `conversation` fields within the activity, and the message update activity contains all fields in the revised message activity.
 
 ## Schema
@@ -36,4 +35,4 @@ To save the changes, click the checkmark icon or to cancel, click the X icon.
 
 ## Resources
 
-*   [Microsoft Teams: Message Update](/microsoftteams/platform/bots/build-conversational-capability#receive-edit-message-activity)
+* [Microsoft Teams: Message Update](/microsoftteams/platform/bots/build-conversational-capability#receive-edit-message-activity)

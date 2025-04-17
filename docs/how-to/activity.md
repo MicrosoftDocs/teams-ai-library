@@ -17,7 +17,7 @@ An activity is an application-level representation of conversational actions mad
 
 Activity objects include a flat list of name/value pairs, called fields. Fields may be primitive and complex types. JSON is used as the common interchange format and although not all activities must be serialized to JSON at all times, they must be serializable to it. This allows implementations to rely on a simple set of conventions for handling known and unknown activity fields.
 
-`A2001`: Activities MUST be serializable to the JSON format defined in [RFC 4627](http://www.ietf.org/rfc/rfc4627.txt) \[[14](#references)\], including adherence to e.g. field uniqueness constraints.
+`A2001`: Activities MUST be serializable to the JSON format defined in [RFC 4627](http://www.ietf.org/rfc/rfc4627.txt#references), including adherence to e.g. field uniqueness constraints.
 
 `A2002`: Receivers MAY allow improperly-cased field names, although this is not required. Receivers MAY reject activities that do not include fields with the proper casing.
 
@@ -27,7 +27,7 @@ Activity objects include a flat list of name/value pairs, called fields. Fields 
 
 `A2006`: Receivers SHOULD accept events of types they do not understand.
 
-This document defines data types for fields used within the Activity object. These type definitions include a syntactic type (e.g. `string` or `complex type`) and in the case of strings, an optional format (e.g. [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html) \[[2](#references)\]).
+This document defines data types for fields used within the Activity object. These type definitions include a syntactic type (e.g. `string` or `complex type`) and in the case of strings, an optional format (e.g. [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html#references)).
 
 `A2007`: Senders MUST adhere to data type definitions contained in this document.
 
@@ -79,7 +79,7 @@ The `id` field is designed to allow de-duplication, but this is prohibitive in m
 
 ### Timestamp
 
-The `timestamp` field records the exact UTC time when the activity occurred. Due to the distributed nature of computing systems, the important time is when the channel (the authoritative store) records the activity. The time when a client or bot initiated an activity may be transmitted separately in the `localTimestamp` field. The value of the `timestamp` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html) \[[2](#references)\] encoded datetime within a string.
+The `timestamp` field records the exact UTC time when the activity occurred. Due to the distributed nature of computing systems, the important time is when the channel (the authoritative store) records the activity. The time when a client or bot initiated an activity may be transmitted separately in the `localTimestamp` field. The value of the `timestamp` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html#references) encoded datetime within a string.
 
 `A2040`: Channels SHOULD include a `timestamp` field if it is available for that activity.
 
@@ -91,7 +91,7 @@ The `timestamp` field records the exact UTC time when the activity occurred. Due
 
 ### Local timezone
 
-The `localTimezone` field expresses the timezone where the activity was generated. The value of the `localTimezone` field is a time zone name (zone entry) per the IANA Time Zone database. \[[14](#references)\]
+The `localTimezone` field expresses the timezone where the activity was generated. The value of the `localTimezone` field is a time zone name (zone entry) per the IANA Time Zone database. 
 
 `A2055`: Clients MAY include the `localTimezone` in their activities.
 
@@ -101,7 +101,7 @@ The `localTimezone` field expresses the timezone where the activity was generate
 
 ### Local timestamp
 
-The `localTimestamp` field expresses the datetime and timezone offset where the activity was generated. This may be different from the UTC `timestamp` where the activity was recorded. The value of the `localTimestamp` field is an ISO 8601 \[[2](#references)\] encoded datetime within a string.
+The `localTimestamp` field expresses the datetime and timezone offset where the activity was generated. This may be different from the UTC `timestamp` where the activity was recorded. The value of the `localTimestamp` field is an ISO 8601  encoded datetime within a string.
 
 When both the `localTimezone` and `localTimestamp` fields are included in an activity, the interpretation is to first convert the value of the localTimestamp to UTC and then apply a conversion to the local timezone.
 
@@ -155,7 +155,7 @@ The `conversation.name` field is optional and represents the display name for th
 
 ### Reply to ID
 
-The `replyToId` field identifies the prior activity to which the current activity is a reply. This field allows threaded conversation and comment nesting to be communicated between participants. `replyToId` is valid only within the current conversation. (See [relatesTo](#relates-to) for references to other conversations.) The value of the `replyToId` field is a string.
+The `replyToId` field identifies the prior activity to which the current activity is a reply. This field allows threaded conversation and comment nesting to be communicated between participants. `replyToId` is valid only within the current conversation. (See *relatesTo* for references to other conversations.) The value of the `replyToId` field is a string.
 
 `A2090`: Senders SHOULD include `replyToId` on an activity when it is a reply to another activity.
 

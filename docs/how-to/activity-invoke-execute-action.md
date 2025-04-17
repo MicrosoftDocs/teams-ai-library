@@ -1,21 +1,12 @@
 ---
-title: Activity - Task Invoke
-description: Activity - Task Invoke
+title: Activity - Execute Action Invoke
+description: Activity - Execute Action Invoke
 ms.topic: how-to
 ms.date: 05/15/2025
 ---
 
-# Activity: Task Invoke
-
-## Activity: Task Fetch Invoke
-
+# Activity: Execute Action Invoke
 
 ```
-    app.on('dialog.open', async ({ activity }) > {});
-```
-
-## Activity: Tab Submit Invoke
-
-```
-    app.on('tab.submit', async ({ activity }) > {});
+app.on('message.execute', async ({ activity }) => {});
 ```

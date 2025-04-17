@@ -26,7 +26,7 @@ See the next section for more information on the `value` field of the invoke act
 
 ### Resources
 
-*   [Microsoft Learn: AC invokes](/microsoftteams/platform/task-modules-and-cards/cards/cards-actions?tabsjson#action-type-invoke)
+* [Microsoft Learn: AC invokes](/microsoftteams/platform/task-modules-and-cards/cards/cards-actions?tabsjson#action-type-invoke)
 
 ## Activity: Adaptive Card Action Invoke
 
@@ -48,4 +48,4 @@ The `Activity.value` field of the invoke activity for an Adaptive Card is `Adapt
 
 ### Resources
 
-*   [Microsoft Learn: `AdaptiveCardInvokeValue`](/javascript/api/botframework-schema/adaptivecardinvokevalue?viewbotbuilder-ts-latest)
+* [Microsoft Learn: `AdaptiveCardInvokeValue`](/javascript/api/botframework-schema/adaptivecardinvokevalue?viewbotbuilder-ts-latest)

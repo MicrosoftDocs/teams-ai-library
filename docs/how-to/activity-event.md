@@ -10,7 +10,7 @@ ms.date: 05/15/2025
 
 Event activities communicate programmatic information from a client or channel to a bot. The meaning of an event activity is defined by the `name` field, which is meaningful within the scope of a channel. Event activities are designed to carry both interactive information (such as button clicks) and non-interactive information (such as a notification of a client automatically updating an embedded speech model).
 
-Event activities are the asynchronous counterpart to [invoke activities](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#invoke-activity). (See [Invoke Activity](../7.invoke) for more information on invokes.) Unlike invoke, event is designed to be extended by client application extensions.
+Event activities are the asynchronous counterpart to [invoke activities](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#invoke-activity). (See [Invoke Activity](./activity-invoke.md) for more information on invokes.) Unlike invoke, event is designed to be extended by client application extensions.
 
 ```
     app.on('event', async ({ activity }) > {});
