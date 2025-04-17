@@ -1,6 +1,6 @@
 ---
 title: Activity - Event
-description: PLACEHOLDER
+description: Activity - Event
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

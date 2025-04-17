@@ -1,6 +1,6 @@
 ---
 title: Devtools Chat
-description: PLACEHOLDER
+description: Devtools Chat
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

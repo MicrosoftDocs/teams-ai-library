@@ -1,6 +1,6 @@
 ---
 title: Assistants
-description: PLACEHOLDER
+description: Assistants
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

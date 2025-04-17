@@ -1,6 +1,6 @@
 ---
 title: Activity - Tab Invoke
-description: PLACEHOLDER
+description: Activity - Tab Invoke
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

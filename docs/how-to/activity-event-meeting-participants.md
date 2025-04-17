@@ -1,6 +1,6 @@
 ---
 title: Activity - Meeting Participant Events
-description: PLACEHOLDER
+description: Activity - Meeting Participant Events
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

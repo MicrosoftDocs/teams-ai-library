@@ -1,6 +1,6 @@
 ---
 title: Listening To Dialogs
-description: PLACEHOLDER
+description: Listening To Dialogs
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

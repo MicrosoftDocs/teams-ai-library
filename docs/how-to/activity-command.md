@@ -1,6 +1,6 @@
 ---
 title: Activity - Command
-description: PLACEHOLDER
+description: Activity - Command
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

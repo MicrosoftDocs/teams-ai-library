@@ -1,6 +1,6 @@
 ---
 title: Sending Activities
-description: PLACEHOLDER
+description: Sending Activities
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

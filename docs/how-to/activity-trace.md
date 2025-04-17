@@ -1,6 +1,6 @@
 ---
 title: Activity - Trace
-description: PLACEHOLDER
+description: Activity - Trace
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

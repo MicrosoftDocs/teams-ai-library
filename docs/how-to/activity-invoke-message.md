@@ -1,6 +1,6 @@
 ---
 title: Activity - Message Invoke
-description: PLACEHOLDER
+description: Activity - Message Invoke
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

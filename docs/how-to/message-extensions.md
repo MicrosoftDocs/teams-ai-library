@@ -1,6 +1,6 @@
 ---
 title: Message extensions
-description: PLACEHOLDER
+description: Message extensions
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

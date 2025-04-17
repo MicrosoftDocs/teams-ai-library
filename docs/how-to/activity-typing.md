@@ -1,6 +1,6 @@
 ---
 title: Activity - Typing
-description: PLACEHOLDER
+description: Activity - Typing
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

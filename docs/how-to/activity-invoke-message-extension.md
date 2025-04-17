@@ -1,6 +1,6 @@
 ---
 title: Activity - Message Extension Invoke
-description: PLACEHOLDER
+description: Activity - Message Extension Invoke
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

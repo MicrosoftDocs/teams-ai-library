@@ -1,6 +1,6 @@
 ---
 title: Using the API Client
-description: PLACEHOLDER
+description: Using the API Client
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

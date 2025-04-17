@@ -1,6 +1,6 @@
 ---
 title: Adaptive cards
-description: PLACEHOLDER
+description: Adaptive cards
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

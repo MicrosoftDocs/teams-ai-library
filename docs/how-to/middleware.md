@@ -1,6 +1,6 @@
 ---
 title: Middleware
-description: PLACEHOLDER
+description: Middleware
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

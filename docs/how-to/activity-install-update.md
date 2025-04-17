@@ -1,6 +1,6 @@
 ---
 title: Activity - Install Update
-description: PLACEHOLDER
+description: Activity - Install Update
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

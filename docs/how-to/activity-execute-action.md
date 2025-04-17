@@ -1,6 +1,6 @@
 ---
 title: Activity - Execute Action Invoke
-description: PLACEHOLDER
+description: Activity - Execute Action Invoke
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

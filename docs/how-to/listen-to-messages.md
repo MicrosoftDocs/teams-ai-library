@@ -1,6 +1,6 @@
 ---
 title: Listening To Message Activities
-description: PLACEHOLDER
+description: Listening To Message Activities
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: Listening To Events
-description: PLACEHOLDER
+description: Listening To Events
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

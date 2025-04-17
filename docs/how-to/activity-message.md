@@ -1,6 +1,6 @@
 ---
 title: Activity - Message
-description: PLACEHOLDER
+description: Activity - Message
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

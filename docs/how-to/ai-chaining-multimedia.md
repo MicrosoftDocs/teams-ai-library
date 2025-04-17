@@ -1,6 +1,6 @@
 ---
 title: Multimedia
-description: PLACEHOLDER
+description: Multimedia
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

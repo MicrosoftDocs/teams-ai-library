@@ -1,6 +1,6 @@
 ---
 title: Inspect
-description: PLACEHOLDER
+description: Inspect
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

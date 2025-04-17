@@ -1,6 +1,6 @@
 ---
 title: Activity - Read Receipt Event
-description: PLACEHOLDER
+description: Activity - Read Receipt Event
 ms.topic: how-to
 ms.date: 05/15/2025
 ---

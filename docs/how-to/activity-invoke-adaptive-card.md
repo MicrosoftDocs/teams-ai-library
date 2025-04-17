@@ -1,6 +1,6 @@
 ---
 title: Activity - Adaptive Card Invoke
-description: PLACEHOLDER
+description: Activity - Adaptive Card Invoke
 ms.topic: how-to
 ms.date: 05/15/2025
 ---
