@@ -52,6 +52,6 @@ The `value` field contains an object for this trace, as defined by the `valueTyp
 
 ### Relates to
 
-The `relatesTo` field references another conversation, and optionally a specific activity within that conversation. The value of the `relatesTo` field is a complex object of the [Conversation reference](#conversation-reference) type.
+The `relatesTo` field references another conversation, and optionally a specific activity within that conversation. The value of the `relatesTo` field is a complex object of the *Conversation reference* type.
 
 `A6157`: `relatesTo` MAY reference an activity within the conversation identified by the `conversation` field.
