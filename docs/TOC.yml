@@ -124,7 +124,7 @@
     - name: Adaptive card invoke
       href: ./how-to/activity-invoke-adaptive-card.md
     - name: Config invoke 
-      href: ./how-to/activity-invoke-config.md
+      href: temp.md
     - name: Message invoke
       href: ./how-to/activity-invoke-message.md
     - name: Message extension invoke

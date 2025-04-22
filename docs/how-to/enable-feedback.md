@@ -1,11 +1,11 @@
 ---
-title: Feedback
-description: Feedback
+title: Enable feedback
+description: Enable feedback
 ms.topic: how-to
 ms.date: 05/15/2025
 ---
 
-# Feedback
+# Enable feedback
 
 
 If enabled, feedback buttons will be present in messages that allow the user to provide an indication of whether the message was useful/correct or not. This feature can be used with LLM's for training.
