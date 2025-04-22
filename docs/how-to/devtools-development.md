@@ -20,10 +20,9 @@ When in development mode, setting `VITE_DEV_MESSAGE` will send a message from th
     NODE_ENVdevelopment
     LOG*
     VITE_DEV_MESSAGE"hi there"
-    
-
 ```
-![Automatically sent message](../assets/screenshots/devtools-default-send.png?rawtrue)
+
+![Automatically sent message](../assets/images/devtools-default-send.png)
 
 Clicking on the Teams icon in the upper left corner will refresh the page, bring you back to the Chat screen, and send the first message.
 
