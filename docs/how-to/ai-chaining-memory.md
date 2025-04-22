@@ -1,11 +1,11 @@
 ---
-title: Memory
-description: Memory
+title: Memory - Chaining
+description: Memory - Chaining
 ms.topic: how-to
 ms.date: 05/15/2025
 ---
 
-# Memory
+# Memory - Chaining
 
 The cognitive process by which information is encoded, stored, and retrieved, allowing individuals to retain past experiences and knowledge for future use. It encompasses various types that vary in **how long they are stored** and **what type of content is stored**.
 

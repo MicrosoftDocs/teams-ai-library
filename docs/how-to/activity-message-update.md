@@ -31,8 +31,6 @@ To update a message in Teams, you can hover over the message in the client and c
 
 To save the changes, click the checkmark icon or to cancel, click the X icon.
 
-![Updating a message in Teams](../assets/images/message-update-save.png)
-
 ## Resources
 
 * [Microsoft Teams: Message Update](/microsoftteams/platform/bots/build-conversational-capability#receive-edit-message-activity)
