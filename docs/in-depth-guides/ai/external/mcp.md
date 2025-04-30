@@ -1,4 +1,6 @@
-# MCP (Model Context Protocol)
+# MCP (Model Context Protocol) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Teams AI Library supports [MCP](https://modelcontextprotocol.io/introduction) as an optional add-on both as a service or as a client.
 

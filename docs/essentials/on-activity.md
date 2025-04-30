@@ -1,4 +1,6 @@
-# 👂 Listening To Activities
+# 👂 Listening To Activities (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 To listen/subscribe to different activity types, you can use the `on()` method.
 Handlers will be called in the order they are added.

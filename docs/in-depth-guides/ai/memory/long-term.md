@@ -1,4 +1,6 @@
-# 📚 Memory: Long Term
+# 📚 Memory: Long Term (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Stores information for extended periods of time.
 It's where memories of events, knowledge, and experiences are stored and recalled.

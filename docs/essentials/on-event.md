@@ -1,4 +1,6 @@
-# 👂 Listening To Events
+# 👂 Listening To Events (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 To listen/subscribe to different event types, you can use the `event()` method.
 Handlers will be called in the order they are added.

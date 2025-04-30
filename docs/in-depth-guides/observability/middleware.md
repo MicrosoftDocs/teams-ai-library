@@ -1,4 +1,6 @@
-# Middleware
+# Middleware (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.

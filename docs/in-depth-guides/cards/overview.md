@@ -1,4 +1,6 @@
-# Adaptive Cards
+# Adaptive Cards (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Adaptive Cards provide a flexible, cross-platform content format for creating rich, interactive experiences. They consist of a customizable body of card elements combined with optional action sets, all fully serializable for delivery to clients. Through a powerful combination of text, graphics, and interactive buttons, Adaptive Cards enable compelling user experiences across various platforms.
 

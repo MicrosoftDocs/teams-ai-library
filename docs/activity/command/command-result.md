@@ -1,4 +1,6 @@
-# Activity: Command Result
+# Activity: Command Result (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Command result activities communicate the result of a [command activity](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#command-activity).
 

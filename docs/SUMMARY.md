@@ -1,4 +1,6 @@
-# Summary
+# Summary (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 - [👋 Welcome](./welcome/overview.md)
   - [Why an SDK?](./welcome/need-for-sdk.md)

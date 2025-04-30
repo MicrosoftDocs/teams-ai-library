@@ -1,4 +1,6 @@
-# Teams Integration
+# Teams Integration (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 This section describes Teams-specific features and components of the SDK, helping you understand how your agent integrates with the Microsoft Teams platform.
 
