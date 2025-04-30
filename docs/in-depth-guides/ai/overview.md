@@ -1,4 +1,6 @@
-# 🤖 AI
+# 🤖 AI (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Tools that make it easier to integrate apps with LLM's and enabling multi-agent scenarios.
 The `@microsoft/teams.ai` package has three main components:

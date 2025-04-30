@@ -1,4 +1,6 @@
-# Activity: Meeting Start and End Events
+# Activity: Meeting Start and End Events (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Meeting extensibility provides a way for bots to participate in meetings and receive notifications that are specific to meeting events. Please note that Teams has three types of meetings: channel meetings, scheduled meetings, and instant meetings.
 

@@ -1,4 +1,6 @@
-# Message Delete
+# Message Delete (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Message delete activities represent a deletion of an existing message activity within a conversation. The deleted activity is referred to by the `id` and `conversation` fields within the activity.
 

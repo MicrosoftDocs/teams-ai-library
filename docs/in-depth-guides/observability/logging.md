@@ -1,4 +1,6 @@
-# 🗃️ Custom Logger
+# 🗃️ Custom Logger (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the

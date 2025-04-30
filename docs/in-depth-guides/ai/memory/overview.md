@@ -1,4 +1,6 @@
-# 🧠 Memory
+# 🧠 Memory (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The cognitive process by which information is encoded, stored, and retrieved, allowing individuals
 to retain past experiences and knowledge for future use. It encompasses various types that vary in

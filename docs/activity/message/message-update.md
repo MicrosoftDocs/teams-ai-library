@@ -1,4 +1,6 @@
-# Activity: Message Update
+# Activity: Message Update (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ```typescript
 app.on('messageUpdate', async ({ activity }) => {});

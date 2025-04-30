@@ -1,4 +1,6 @@
-# Quickstart
+# Quickstart (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.
 
@@ -20,7 +22,7 @@ npm install -g @microsoft/teams.cli@latest
 
 > [!NOTE]
 >
-> _The [Teams CLI](../7.developer-tools/1.cli/README.md) is a command-line tool that helps you create, manage, and deploy Teams applications. It provides a set of commands to simplify the development process._<br><br>
+> _The [Teams CLI](../developer-tools/cli/overview.md) is a command-line tool that helps you create, manage, and deploy Teams applications. It provides a set of commands to simplify the development process._<br><br>
 > After installation, you can run `teams --version` to verify the installation.
 
 ## Creating Your First Agent
@@ -86,13 +88,13 @@ Let's navigate to the devtools server. Open your browser and head to [http://loc
 
 ## Next steps
 
-Now that you have your first agent running, learn about [the code basics](2.code-basics.md) to understand its components and structure.
+Now that you have your first agent running, learn about [the code basics](./code-basics.md) to understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, check out the [Running in Teams](3.running-in-teams.md) guide.
+Otherwise, if you want to run your agent in Teams, check out the [Running in Teams](./running-in-teams.md) guide.
 
 ## Resources
 
-- [Teams CLI documentation](./7.developer-tools/1.cli/README.md)
-- [Teams DevTools documentation](./7.developer-tools/2.devtools/README.md)
+- [Teams CLI documentation](./developer-tools/cli/overview.md)
+- [Teams DevTools documentation](./developer-tools/devtools/overview.md)
 - [Teams manifest schema](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema)
 - [Teams sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

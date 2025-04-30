@@ -1,4 +1,6 @@
-# Feedback
+# Feedback (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 If enabled, feedback buttons will be present in messages that allow the user to provide
 an indication of whether the message was useful/correct or not. This feature can be used

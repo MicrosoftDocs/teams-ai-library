@@ -1,4 +1,6 @@
-# 💬 Sending Activities
+# 💬 Sending Activities (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 To send an activity you can either use the `send` or `reply` methods. You can also `stream` chunks of an activity.
 
@@ -15,7 +17,7 @@ app.on('conversationUpdate', async ({ activity, send }) => {
 ```
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../5.in-depth-guides/1.cards/).
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../in-depth-guides/cards/).
 
 ## Reply
 

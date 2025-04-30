@@ -1,4 +1,6 @@
-# Documentation
+# Documentation (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The assistant that specializes in documentation searching.
 
