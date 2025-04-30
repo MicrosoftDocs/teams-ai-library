@@ -1,3 +1,10 @@
+---
+title: Command Activity
+ms.topic: reference
+description: Learn about the schema and value for the command activity.
+ms.date: 04/30/2025
+---
+
 # Activity: Command
 
 Command activities communicate a request to perform a specific action.

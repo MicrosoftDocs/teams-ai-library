@@ -1,3 +1,10 @@
+---
+title: Command Result Activity
+ms.topic: reference
+description: Learn about the schema and value for the command result activity.
+ms.date: 04/30/2025
+---
+
 # Activity: Command Result
 
 Command result activities communicate the result of a [command activity](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#command-activity).
