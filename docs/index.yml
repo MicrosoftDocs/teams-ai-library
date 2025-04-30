@@ -21,15 +21,15 @@ landingContent:
       - linkListType: concept
         links:
           - text: Listening to Activities
-            url: temp.md
+            url: ./essentials/on-activity.md
           - text: Listening to Messages
-            url: temp.md
+            url: ./essentials/on-message.md
           - text: Listening to Events
-            url: temp.md
+            url: ./essentials/on-event.md
           - text: Using the API Client
-            url: temp.md
+            url: ./essentials/api.md
           - text: Authentication
-            url: temp.md
+            url: ./in-depth-guides/auth/overview.md
 
   # Overview
   - title: Get started with Teams AI Library v2 SDK
@@ -37,13 +37,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: Overview
-            url: overview.md
+            url: ./getting-started/overview.md
           - text: Quickstart
-            url: temp.md
+            url: ./getting-started/quickstart.md
       - linkListType: sample
         links:
           - text: Samples
-            url: temp.md
+            url: ./developer-tools/devtools/overview.md
 
   # Activity
   - title: Handle activities in Teams
@@ -51,19 +51,19 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Message
-            url: temp.md
+            url: ./activity/message/overview.md
           - text: Typing
-            url: temp.md
+            url: ./activity/typing/overview.md
           - text: Conversation
-            url: temp.md
+            url: ./activity/conversation/overview.md
           - text: Event
-            url: temp.md
+            url: ./activity/event/overview.md
           - text: Command
-            url: temp.md
+            url: ./activity/command/overview.md
           - text: Invoke
-            url: temp.md
+            url: ./activity/invoke/overview.md
           - text: Handoff
-            url: temp.md
+            url: ./activity/handoff/overview.md
 
   # DevTools
   - title: Use developer tools
@@ -71,13 +71,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Chat
-            url: temp.md
+            url: ./developer-tools/devtools/chat.md
           - text: Inspect
-            url: temp.md
+            url: ./developer-tools/devtools/inspect.md
           - text: Cards
-            url: temp.md
+            url: ./developer-tools/devtools/cards.md
           - text: Development
-            url: temp.md
+            url: ./developer-tools/overview.md
 
   # AI
   - title: Integrate AI capabilities
@@ -85,21 +85,19 @@ landingContent:
       - linkListType: concept
         links:
           - text: Chat
-            url: temp.md
+            url: ./in-depth-guides/ai/chat/overview.md
           - text: Audio
-            url: temp.md
+            url: ./in-depth-guides/ai/overview.md
           - text: Image
-            url: temp.md
+            url: ./in-depth-guides/ai/overview.md
           - text: Chaining
-            url: temp.md
+            url: ./in-depth-guides/ai/chaining/overview.md
           - text: Memory
-            url: temp.md
+            url: ./in-depth-guides/ai/overview.md
 
   - title: Find reference
     linkLists:
       - linkListType: reference
         links:
           - text: JavaScript SDK (preview)
-            url: temp.md
-          - text: .NET SDK (preview)
-            url: temp.md
+            url: https://review.learn.microsoft.com/javascript/api/teams-sdk-typescript
