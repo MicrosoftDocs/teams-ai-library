@@ -1,3 +1,10 @@
+---
+title: Adaptive Card Action Invoke
+ms.topic: reference
+description: Learn about the Adaptive Card action invoke activity.
+ms.date: 04/30/2025
+---
+
 # Activity: Adaptive Card Action Invoke
 
 The invoke `name` for Adaptive Cards is `adaptiveCard/action`. However, it is also possible to use the alias `card.action` to invoke an Adaptive Card.
@@ -14,8 +21,8 @@ The `Activity.value` field of the invoke activity for an Adaptive Card is `Adapt
 - `action`: `AdaptiveCardInvokeAction` - The action that was performed on the card.
 - `authentication`: `AdaptiveCardAuthentication` - The authentication request for the card.
 - `state`: `string` - magic code for OAuth.
-- `trigger`: `'manual'` - what triggered the action.
+- `trigger`: `manual` - what triggered the action.
 
 ## Resources
 
-- [Microsoft Learn: `AdaptiveCardInvokeValue`](https://learn.microsoft.com/en-us/javascript/api/botframework-schema/adaptivecardinvokevalue?view=botbuilder-ts-latest)
+[Microsoft Learn: `AdaptiveCardInvokeValue`](https://learn.microsoft.com/en-us/javascript/api/botframework-schema/adaptivecardinvokevalue?view=botbuilder-ts-latest)

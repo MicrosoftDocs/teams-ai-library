@@ -1,3 +1,10 @@
+---
+title: Adaptive Card Invoke
+ms.topic: reference
+description: Learn about the Adaptive Card invoke activity.
+ms.date: 04/30/2025
+---
+
 # Activity: Adaptive Card Invoke
 
 [Adaptive Cards](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#adaptive-card) are a way to send rich content to users. They can be used to send messages, notifications, or to display information.
@@ -19,4 +26,4 @@ See the next section for more information on the `value` field of the invoke act
 
 ## Resources
 
-- [Microsoft Learn: AC invokes](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-actions?tabs=json#action-type-invoke)
+[Microsoft Learn: AC invokes](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-actions?tabs=json#action-type-invoke)
