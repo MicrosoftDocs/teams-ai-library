@@ -19,8 +19,8 @@ app.on('readReceipt', async ({ activity }) => {});
 
 Bots can also subscribe to read receipts to track when a message has been read by a user. For example, if a read receipt is not received by the bot, the bot could send a follow-up message in personal chat.
 
-Note that in Teams, the RSC `ChatMessageReadReceipt.Read.Chat` permissions must be added to the app manifest to receive read receipts.
+Please note that in Teams, the RSC `ChatMessageReadReceipt.Read.Chat` permissions must be added to the app manifest to receive read receipts.
 
 ## Resources
 
-[Microsoft Teams: Read Receipts](/microsoftteams/platform/bots/build-conversational-capability)
+[Microsoft Teams: Read Receipts](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/build-conversational-capability#receive-a-read-receipt)

@@ -34,5 +34,5 @@ In Teams, the app manifest requires specific setup to have meetings permissions.
 
 ## Resources
 
-- [Microsoft Learn: Teams Meeting Extensibility](/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis)
-- [Microsoft Learn: Graph API - Resource specific consent](/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
+- [Microsoft Learn: Teams Meeting Extensibility](https://learn.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis#example-of-getting-meeting-start-or-end-events)
+- [Microsoft Learn: Graph API - Resource specific consent](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
