@@ -1,3 +1,11 @@
+---
+title: Task Submit Invoke Activity
+ms.topic: reference
+description: Learn about the task submit invoke activity.
+ms.date: 04/30/2025
+---
+
+
 # Activity: Task Submit Invoke
 
 ```typescript

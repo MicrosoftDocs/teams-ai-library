@@ -1,7 +1,7 @@
 ---
 title: Invoke Activity
 ms.topic: reference
-description: Learn about the schema and value of the Invoke activity.
+description: Learn about the schema and value of the invoke activity.
 ms.date: 04/30/2025
 ---
 
