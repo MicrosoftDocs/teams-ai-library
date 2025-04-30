@@ -9,7 +9,7 @@ ms.date: 04/30/2025
 
 Bots will receive notifications for conversation events, which can be captured to take subsequent actions. For example, a bot can subscribe to the `membersAdded` event and send a welcome message when a team member is added to a conversation.
 
-Teams has several unique conversation update activities that are not found in the original Agents protocol. Please see the [Conversation Update Events](./2.conversation-update-events.md) section for more information.
+Teams has several unique conversation update activities that are not found in the original Agents protocol. Please see the [Conversation Update Events](./conversation-update-events.md) section for more information.
 
 ## Resources
 
