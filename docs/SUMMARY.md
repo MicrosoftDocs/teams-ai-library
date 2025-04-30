@@ -1,3 +1,10 @@
+---
+title: Summary
+ms.topic: reference
+description: This article contains the table of contents for the reference docs.
+ms.date: 04/30/2025
+---
+
 # Summary
 
 - [👋 Welcome](./welcome/overview.md)
