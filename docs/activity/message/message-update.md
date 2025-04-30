@@ -1,3 +1,10 @@
+---
+title: Message Update Activity
+ms.topic: reference
+description: Learn about the schema of the message update activity that indicates update of an existing message.
+ms.date: 04/30/2025
+---
+
 # Activity: Message Update
 
 ```typescript
