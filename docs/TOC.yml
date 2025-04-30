@@ -1,7 +1,274 @@
 - name: Teams AI Library v2 SDK
   href: index.yml
-- name: Reference
-  expanded: true
+- name: Welcome
   items:
-  - name: TypeScript SDK (preview)
-    href: temp.md
+  - name: Overview
+    href: ./welcome/overview.md
+  - name: Why an SDK?
+    href: ./welcome/need-for-sdk.md
+  - name: Package Decomposition
+    href: ./welcome/package-decomposition.md
+- name: Getting Started
+  items:
+  - name: Overview
+    href: ./getting-started/overview.md
+  - name: Quickstart
+    href: ./getting-started/quickstart.md
+  - name: Anatomy of an App
+    href: ./getting-started/code-basics.md
+  - name: Running in Teams
+    href: ./getting-started/running-in-teams.md
+- name: Essentials
+  items:
+  - name: Overview
+    href: ./essentials/overview.md
+  - name: App Basics
+    href: ./essentials/app-class.md
+  - name: Listening To Activities
+    href: ./essentials/on-activity.md
+  - name: Listening To Messages
+    href: ./essentials/on-message.md
+  - name: Sending Messages
+    href: ./essentials/sending-activities.md
+  - name: Proactive Messages
+    href: ./essentials/proactive-messaging.md
+  - name: Listening To Events
+    href: ./essentials/on-event.md
+  - name: Using The API Client
+    href: ./essentials/api.md
+  - name: at-Mention
+    href: ./essentials/mention.md
+- name: Teams
+  items:
+  - name: Overview
+    href: ./teams/overview.md
+  - name: Core Concepts
+    href: ./teams/core-concepts.md
+  - name: Teams Manifest
+    href: ./teams/manifest.md
+  - name: Deployment
+    href: ./teams/deployment.md
+  - name: Teams Toolkit
+    href: ./teams/toolkit.md
+- name: In-Depth Guides
+  items:
+  - name: Overview
+    href: ./in-depth-guides/overview.md
+  - name: Adaptive Cards
+    items:
+    - name: Overview
+      href: ./in-depth-guides/cards/overview.md
+    - name: Building Adaptive Cards
+      href: ./in-depth-guides/cards/building-adaptive-cards.md
+    - name: Executing Actions
+      href: ./in-depth-guides/cards/executing-actions.md
+  - name: Dialogs (Task Modules)
+    items:
+    - name: Overview
+      href: ./in-depth-guides/dialogs/overview.md
+    - name: Creating Dialogs
+      href: ./in-depth-guides/dialogs/creating-dialogs.md
+    - name: Handling Submissions
+      href: ./in-depth-guides/dialogs/handling-dialog-submissions.md
+    - name: Multi-Step Forms
+      href: ./in-depth-guides/dialogs/handling-multi-step-forms.md
+  - name: Message Extensions
+    href: ./in-depth-guides/message-extensions/overview.md
+  - name: Auth
+    items:
+    - name: Overview
+      href: ./in-depth-guides/auth/overview.md
+    - name: User Authentication
+      href: ./in-depth-guides/auth/auth.md
+  - name: AI
+    items:
+    - name: Overview
+      href: ./in-depth-guides/ai/overview.md
+    - name: Chat
+      items:
+      - name: Overview
+        href: ./in-depth-guides/ai/chat/overview.md
+      - name: Simple
+        href: ./in-depth-guides/ai/chat/simple.md
+      - name: Streaming
+        href: ./in-depth-guides/ai/chat/streaming.md
+      - name: Functions
+        href: ./in-depth-guides/ai/chat/functions.md
+    - name: Chaining
+      items:
+      - name: Overview
+        href: ./in-depth-guides/ai/chaining/overview.md
+      - name: Assistants
+        items:
+        - name: Overview
+          href: ./in-depth-guides/ai/chaining/assistants/overview.md
+        - name: Developer
+          href: ./in-depth-guides/ai/chaining/assistants/developer.md
+        - name: Project
+          href: ./in-depth-guides/ai/chaining/assistants/project.md
+        - name: Documentation
+          href: ./in-depth-guides/ai/chaining/assistants/documentation.md
+        - name: Typescript
+          href: ./in-depth-guides/ai/chaining/assistants/typescript.md
+    - name: MCP
+      href: ./in-depth-guides/ai/external/mcp.md
+    - name: Feedback
+      href: ./in-depth-guides/ai/feedback.md
+  - name: Observability
+    items:
+    - name: Overview
+      href: ./in-depth-guides/observability/overview.md
+    - name: Middleware
+      href: ./in-depth-guides/observability/middleware.md
+    - name: Logging
+      href: ./in-depth-guides/observability/logging.md
+  - name: Migrating from V1
+    href: ./in-depth-guides/migrating-from-v1.md
+- name: Developer Tools
+  items:
+  - name: Overview
+    href: ./developer-tools/overview.md
+  - name: CLI
+    href: ./developer-tools/cli/overview.md
+  - name: Dev Tools
+    items:
+    - name: Overview
+      href: ./developer-tools/devtools/overview.md
+    - name: Chat
+      href: ./developer-tools/devtools/chat.md
+    - name: Inspect
+      href: ./developer-tools/devtools/inspect.md
+    - name: Cards
+      href: ./developer-tools/devtools/cards.md
+- name: Activity
+  items:
+  - name: Overview
+    href: ./activity/overview.md
+  - name: Message
+    items:
+    - name: Overview
+      href: ./activity/message/overview.md
+    - name: Message Update
+      href: ./activity/message/message-update.md
+    - name: Message Reaction
+      href: ./activity/message/message-reaction.md
+    - name: Message Delete
+      href: ./activity/message/message-delete.md
+  - name: Typing
+    href: ./activity/typing/overview.md
+  - name: Conversation
+    items:
+    - name: Overview
+      href: ./activity/conversation/overview.md
+    - name: Conversation Update
+      href: ./activity/conversation/conversation-update.md
+    - name: Conversation Update Events
+      href: ./activity/conversation/conversation-update-events.md
+    - name: End Of Conversation
+      href: ./activity/conversation/end-of-conversation.md
+  - name: Install Update
+    items:
+    - name: Overview
+      href: ./activity/install-update/overview.md
+    - name: Installation Events
+      href: ./activity/install-update/install-updates.md
+  - name: Event
+    items:
+    - name: Overview
+      href: ./activity/event/overview.md
+    - name: Read Receipt
+      href: ./activity/event/read-receipt.md
+    - name: Meeting Events
+      href: ./activity/event/meeting-events.md
+    - name: Meeting Participant Events
+      href: ./activity/event/meeting-participant-events.md
+  - name: Command
+    items:
+    - name: Overview
+      href: ./activity/command/overview.md
+    - name: Command Result
+      href: ./activity/command/command-result.md
+  - name: Invoke
+    items:
+    - name: Overview
+      href: ./activity/invoke/overview.md
+    - name: Adaptive Card
+      items:
+      - name: Overview
+        href: ./activity/invoke/adaptive-card/overview.md
+      - name: Action
+        href: ./activity/invoke/adaptive-card/action.md
+    - name: Config
+      items:
+      - name: Overview
+        href: ./activity/invoke/config/overview.md
+      - name: Fetch
+        href: ./activity/invoke/config/config-fetch.md
+      - name: Submit
+        href: ./activity/invoke/config/config-submit.md
+    - name: Message
+      items:
+      - name: Overview
+        href: ./activity/invoke/message/overview.md
+      - name: Submit Action
+        href: ./activity/invoke/message/submit-action.md
+    - name: Message Extension
+      items:
+      - name: Overview
+        href: ./activity/invoke/message-extension/overview.md
+      - name: Anon Query Link
+        href: ./activity/invoke/message-extension/anon-query-link.md
+      - name: Card Button Clicked
+        href: ./activity/invoke/message-extension/card-button-clicked.md
+      - name: Fetch Task
+        href: ./activity/invoke/message-extension/fetch-task.md
+      - name: Query Link
+        href: ./activity/invoke/message-extension/query-link.md
+      - name: Query Settings URL
+        href: ./activity/invoke/message-extension/query-settings-url.md
+      - name: Query
+        href: ./activity/invoke/message-extension/query.md
+      - name: Select Item
+        href: ./activity/invoke/message-extension/select-item.md
+      - name: Setting
+        href: ./activity/invoke/message-extension/setting.md
+      - name: Submit Action
+        href: ./activity/invoke/message-extension/submit-action.md
+    - name: Sign In
+      items:
+      - name: Overview
+        href: ./activity/invoke/sign-in/overview.md
+      - name: Token Exchange
+        href: ./activity/invoke/sign-in/token-exchange.md
+      - name: Verify State
+        href: ./activity/invoke/sign-in/verify-state.md
+    - name: Tab
+      items:
+      - name: Overview
+        href: ./activity/invoke/tab/overview.md
+      - name: Fetch
+        href: ./activity/invoke/tab/fetch.md
+      - name: Submit
+        href: ./activity/invoke/tab/submit.md
+    - name: Task
+      items:
+      - name: Overview
+        href: ./activity/invoke/task/overview.md
+      - name: Fetch
+        href: ./activity/invoke/task/fetch.md
+      - name: Submit
+        href: ./activity/invoke/task/submit.md
+    - name: Execute Action
+      href: ./activity/invoke/execute-action.md
+    - name: File Consent
+      href: ./activity/invoke/file-consent.md
+    - name: Handoff Action
+      href: ./activity/invoke/handoff-action.md
+  - name: Handoff
+    href: ./activity/handoff/overview.md
+  - name: Trace
+    href: ./activity/trace/overview.md
+- name: Reference
+  items:
+  - name: TypeScript SDK
+    href: https://review.learn.microsoft.com/javascript/api/teams-sdk-typescript
