@@ -1,3 +1,10 @@
+---
+title: Install Update Activity
+ms.topic: reference
+description: Learn about the schema of install updates.
+ms.date: 04/30/2025
+---
+
 # Activity: Install Update
 
 Installation update activities represent an installation or uninstallation of a bot within an organizational unit (such as a customer tenant or "team") of a channel. Installation update activities generally do not represent adding or removing a channel.
