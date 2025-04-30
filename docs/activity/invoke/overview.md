@@ -1,3 +1,10 @@
+---
+title: Invoke Activity
+ms.topic: reference
+description: Learn about the schema and value of the Invoke activity.
+ms.date: 04/30/2025
+---
+
 # Activity: Invoke
 
 Invoke activities communicate programmatic information from a client or channel to a bot, and have a corresponding return payload for use within the channel. The meaning of an invoke activity is defined by the `name` field, which is meaningful within the scope of a channel.
@@ -50,4 +57,4 @@ Please see the subsequent sections for more information on the aliases that are 
 
 ## Resources
 
-- [Microsoft Learn: Graph API - Resource specific consent](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
+[Microsoft Learn: Graph API - Resource specific consent](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
