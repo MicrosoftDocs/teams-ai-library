@@ -15,7 +15,7 @@ app.on('conversationUpdate', async ({ activity, send }) => {
 ```
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../5.in-depth-guides/1.cards/).
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../in-depth-guides/cards/).
 
 ## Reply
 

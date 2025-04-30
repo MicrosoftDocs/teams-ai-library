@@ -13,9 +13,9 @@ When working with Teams, several key components come into play:
 
 ## In This Section
 
-1. [Running Your Agent](1.running-agent.md) - Understanding the Teams deployment process
-2. [Teams Manifest](2.manifest.md) - Configuring your agent's Teams presence
-3. [Deployment](3.deployment.md) - Moving to production
-4. [Teams Toolkit](4.teams-toolkit.md) - Using Teams development tools
+1. [Running Your Agent](./running-agent.md) - Understanding the Teams deployment process
+2. [Teams Manifest](./manifest.md) - Configuring your agent's Teams presence
+3. [Deployment](./deployment.md) - Moving to production
+4. [Teams Toolkit](./teams-toolkit.md) - Using Teams development tools
 
 Each guide provides detailed information about specific aspects of Teams integration, from local development to production deployment.
