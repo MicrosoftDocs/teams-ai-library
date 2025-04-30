@@ -1,3 +1,10 @@
+---
+title: Conversation Update Activity
+ms.topic: reference
+description: Learn about the schema of the conversation update activity.
+ms.date: 04/30/2025
+---
+
 # Activity: Conversation Update
 
 Conversation update activities describe a change in a conversation's members, description, existence, or otherwise. Conversation update activities generally do not contain user-generated content. The conversation being updated is described in the `conversation` field.
