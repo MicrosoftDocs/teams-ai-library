@@ -6,3 +6,6 @@ _themes*/
 _repo.*/
 
 .openpublishing.buildcore.ps1
+
+# Ignore all Python files
+*.py

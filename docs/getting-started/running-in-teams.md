@@ -66,7 +66,7 @@ After installing Teams Toolkit and adding the configuration:
 When debugging starts, the Teams Toolkit will:
 
 - **Build** your application
-- **Start a [devtunnel](../teams/core-concepts.html#devtunnel)** which will assign a temporary public URL to your local server
+- **Start a [devtunnel](../teams/core-concepts.md#devtunnel)** which will assign a temporary public URL to your local server
 - **Provision the Teams app** for your tenant so that it can be installed and be authenticated on Teams
 - **Set up the local variables** necessary for your agent to run in Teams in `env/.env.local` and `env/env.local.user`. This includes propagating the app manifest with your newly provisioned resources.
 - **Start** the local server.
@@ -96,7 +96,7 @@ After the debugging session starts:
 3. Teams will ask permission to install the app
 4. Once installed, you can start chatting with your agent!
 
-![Agent running on Teams](./example-on-teams.png)
+![Agent running on Teams](~/assets/screenshots/example-on-teams.png)
 
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 
