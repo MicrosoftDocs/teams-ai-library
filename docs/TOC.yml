@@ -44,10 +44,6 @@
     href: ./teams/overview.md
   - name: Core Concepts
     href: ./teams/core-concepts.md
-  - name: Teams Manifest
-    href: ./teams/manifest.md
-  - name: Deployment
-    href: ./teams/deployment.md
 - name: In-Depth Guides
   items:
   - name: Adaptive Cards
@@ -106,8 +102,6 @@
           href: ./in-depth-guides/ai/chaining/assistants/documentation.md
         - name: Typescript
           href: ./in-depth-guides/ai/chaining/assistants/typescript.md
-    - name: MCP
-      href: ./in-depth-guides/ai/external/mcp.md
     - name: Feedback
       href: ./in-depth-guides/ai/feedback.md
   - name: Observability
@@ -118,8 +112,6 @@
       href: ./in-depth-guides/observability/middleware.md
     - name: Logging
       href: ./in-depth-guides/observability/logging.md
-  - name: Migrating from V1
-    href: ./in-depth-guides/migrating-from-v1.md
 - name: Developer Tools
   items:
   - name: Overview
