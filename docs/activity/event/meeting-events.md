@@ -1,3 +1,10 @@
+---
+title: Activity - Meeting Start and End Events (preview)
+description: Learn about Activity - Meeting Start and End Events (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Meeting Start and End Events (preview)
 
 [This article is prerelease documentation and is subject to change.]

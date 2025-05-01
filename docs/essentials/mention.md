@@ -1,3 +1,10 @@
+---
+title: @Mention (preview)
+description: Learn about @Mention (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # @Mention (preview)
 
 [This article is prerelease documentation and is subject to change.]

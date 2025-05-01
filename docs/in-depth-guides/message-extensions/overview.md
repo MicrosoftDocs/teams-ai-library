@@ -1,3 +1,10 @@
+---
+title: 📖 [Message Extensions](/messaging-extensions/what-are-messaging-extensions?tabs=desktop) (preview)
+description: Learn about 📖 [Message Extensions](/messaging-extensions/what-are-messaging-extensions?tabs=desktop) (preview)
+ms.topic: overview
+ms.date: 04/30/2025
+---
+
 # 📖 [Message Extensions](/messaging-extensions/what-are-messaging-extensions?tabs=desktop) (preview)
 
 [This article is prerelease documentation and is subject to change.]

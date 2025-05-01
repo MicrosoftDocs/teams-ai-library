@@ -1,3 +1,10 @@
+---
+title: Creating Dialogs (preview)
+description: Learn about Creating Dialogs (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # Creating Dialogs (preview)
 
 [This article is prerelease documentation and is subject to change.]

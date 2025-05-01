@@ -1,3 +1,10 @@
+---
+title: Basics (preview)
+description: Learn about Basics (preview)
+ms.topic: overview
+ms.date: 04/30/2025
+---
+
 # Basics (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,3 +1,10 @@
+---
+title: Adaptive Cards (preview)
+description: Learn about Adaptive Cards (preview)
+ms.topic: overview
+ms.date: 04/30/2025
+---
+
 # Adaptive Cards (preview)
 
 [This article is prerelease documentation and is subject to change.]

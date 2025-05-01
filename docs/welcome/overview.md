@@ -1,3 +1,10 @@
+---
+title: Teams AI Library v2 (preview)
+description: Learn about Teams AI Library v2 (preview)
+ms.topic: overview
+ms.date: 04/30/2025
+---
+
 # Teams AI Library v2 (preview)
 
 [This article is prerelease documentation and is subject to change.]

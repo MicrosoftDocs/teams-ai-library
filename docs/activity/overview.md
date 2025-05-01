@@ -1,3 +1,10 @@
+---
+title: Activity (preview)
+description: Learn about Activity (preview)
+ms.topic: overview
+ms.date: 04/30/2025
+---
+
 # Activity (preview)
 
 [This article is prerelease documentation and is subject to change.]

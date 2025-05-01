@@ -1,3 +1,10 @@
+---
+title: Activity - Adaptive Card Action Invoke (preview)
+description: Learn about Activity - Adaptive Card Action Invoke (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Adaptive Card Action Invoke (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,3 +1,10 @@
+---
+title: Message Delete (preview)
+description: Learn about Message Delete (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Message Delete (preview)
 
 [This article is prerelease documentation and is subject to change.]

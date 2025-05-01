@@ -1,3 +1,10 @@
+---
+title: Functions (preview)
+description: Learn about Functions (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # Functions (preview)
 
 [This article is prerelease documentation and is subject to change.]

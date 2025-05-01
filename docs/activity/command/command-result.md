@@ -1,3 +1,10 @@
+---
+title: Activity - Command Result (preview)
+description: Learn about Activity - Command Result (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Command Result (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,3 +1,10 @@
+---
+title: Running in Teams (preview)
+description: Learn about Running in Teams (preview)
+ms.topic: get-started
+ms.date: 04/30/2025
+---
+
 # Running in Teams (preview)
 
 [This article is prerelease documentation and is subject to change.]

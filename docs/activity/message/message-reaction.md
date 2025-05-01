@@ -1,3 +1,10 @@
+---
+title: Message Reaction (preview)
+description: Learn about Message Reaction (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Message Reaction (preview)
 
 [This article is prerelease documentation and is subject to change.]

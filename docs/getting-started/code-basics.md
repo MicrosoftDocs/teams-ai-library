@@ -1,3 +1,10 @@
+---
+title: Code basics (preview)
+description: Learn about Code basics (preview)
+ms.topic: get-started
+ms.date: 04/30/2025
+---
+
 # Code basics (preview)
 
 [This article is prerelease documentation and is subject to change.]

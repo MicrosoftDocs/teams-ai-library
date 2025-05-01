@@ -1,3 +1,10 @@
+---
+title: Activity - Conversation Update (preview)
+description: Learn about Activity - Conversation Update (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Conversation Update (preview)
 
 [This article is prerelease documentation and is subject to change.]

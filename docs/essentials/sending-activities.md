@@ -1,3 +1,10 @@
+---
+title: 💬 Sending Activities (preview)
+description: Learn about 💬 Sending Activities (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # 💬 Sending Activities (preview)
 
 [This article is prerelease documentation and is subject to change.]

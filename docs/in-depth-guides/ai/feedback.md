@@ -1,3 +1,10 @@
+---
+title: Feedback (preview)
+description: Learn about Feedback (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # Feedback (preview)
 
 [This article is prerelease documentation and is subject to change.]
