@@ -50,8 +50,6 @@
     href: ./teams/deployment.md
 - name: In-Depth Guides
   items:
-  - name: Overview
-    href: ./in-depth-guides/overview.md
   - name: Adaptive Cards
     items:
     - name: Overview
@@ -269,4 +267,4 @@
 - name: Reference
   items:
   - name: TypeScript SDK
-    href: https://review.learn.microsoft.com/javascript/api/teams-sdk-typescript
+    href: /javascript/api/teams-sdk-typescript
