@@ -22,4 +22,4 @@ app.on('install.remove', async ({ activity }) => {});
 
 ## Resources
 
-- [Microsoft Learn: Installation Events](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/subscribe-to-conversation-events#installation-update-event)
+- [Microsoft Learn: Installation Events](/bots/how-to/conversations/subscribe-to-conversation-events#installation-update-event)

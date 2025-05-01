@@ -52,4 +52,4 @@ Please see the subsequent sections for more information on the aliases that are 
 
 ## Resources
 
-- [Microsoft Learn: Graph API - Resource specific consent](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
+- [Microsoft Learn: Graph API - Resource specific consent](/graph-api/rsc/resource-specific-consent)

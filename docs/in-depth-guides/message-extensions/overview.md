@@ -1,4 +1,4 @@
-# 📖 [Message Extensions](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/what-are-messaging-extensions?tabs=desktop) (preview)
+# 📖 [Message Extensions](/messaging-extensions/what-are-messaging-extensions?tabs=desktop) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
