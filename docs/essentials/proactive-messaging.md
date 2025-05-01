@@ -1,3 +1,4 @@
+---
 title: Proactive Messaging (preview)
 description: Learn about Proactive Messaging (preview)
 ms.topic: get-started
