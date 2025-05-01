@@ -48,8 +48,6 @@
     href: ./teams/manifest.md
   - name: Deployment
     href: ./teams/deployment.md
-  - name: Teams Toolkit
-    href: ./teams/toolkit.md
 - name: In-Depth Guides
   items:
   - name: Overview
