@@ -65,7 +65,7 @@ The `channelId` field establishes the channel and authoritative store for the ac
 
 ### ID
 
-The `id` field establishes the identity for the activity once it has been recorded in the channel. Activities in-flight that have not yet been recorded do not have identities. Not all activities are assigned identities (for example, a [typing activity](#typing-activity) may never be assigned an `id`.) The value of the `id` field is of type string.
+The `id` field establishes the identity for the activity once it has been recorded in the channel. Activities in-flight that have not yet been recorded do not have identities. Not all activities are assigned identities (for example, a *typing activity* may never be assigned an `id`.) The value of the `id` field is of type string.
 
 `A2030`: Channels SHOULD include an `id` field if it is available for that activity.
 
@@ -115,7 +115,7 @@ When both the `localTimezone` and `localTimestamp` fields are included in an act
 
 ### From
 
-The `from` field describes which client, bot, or channel generated an activity. The value of the `from` field is a complex object of the [Channel account](#channel-account) type.
+The `from` field describes which client, bot, or channel generated an activity. The value of the `from` field is a complex object of the *Channel account* type.
 
 The `from.id` field identifies who generated an activity. Most commonly, this is another user or bot within the system. In some cases, the `from` field identifies the channel itself.
 
@@ -131,11 +131,11 @@ The `from.name` field is optional and represents the display name for the accoun
 
 ### Recipient
 
-The `recipient` field describes which client or bot is receiving this activity. This field is only meaningful when an activity is transmitted to exactly one recipient; it is not meaningful when it is broadcast to multiple recipients (as happens when an activity is sent to a channel). The purpose of the field is to allow the recipient to identify themselves. This is helpful when a client or bot has more than one identity within the channel. The value of the `recipient` field is a complex object of the [Channel account](#channel-account) type.
+The `recipient` field describes which client or bot is receiving this activity. This field is only meaningful when an activity is transmitted to exactly one recipient; it is not meaningful when it is broadcast to multiple recipients (as happens when an activity is sent to a channel). The purpose of the field is to allow the recipient to identify themselves. This is helpful when a client or bot has more than one identity within the channel. The value of the `recipient` field is a complex object of the *Channel account* type.
 
 `A2070`: Channels MUST include the `recipient` and `recipient.id` fields when transmitting an activity to a single recipient.
 
-`A2071`: Bots and clients SHOULD NOT include the `recipient` field when generating an activity. The exception to this is when sending a [Suggestion activity](#suggestion-activity), in which case the recipient MUST identify the user that should receive the suggestion.
+`A2071`: Bots and clients SHOULD NOT include the `recipient` field when generating an activity. The exception to this is when sending a *Suggestion activity*, in which case the recipient MUST identify the user that should receive the suggestion.
 
 The `recipient.name` field is optional and represents the display name for the account within the channel. Channels SHOULD include this value so clients and bots can populate their UIs and backend systems.
 
@@ -143,7 +143,7 @@ The `recipient.name` field is optional and represents the display name for the a
 
 ### Conversation
 
-The `conversation` field describes the conversation in which the activity exists. The value of the `conversation` field is a complex object of the [Conversation account](#conversation-account) type.
+The `conversation` field describes the conversation in which the activity exists. The value of the `conversation` field is a complex object of the *Conversation account* type.
 
 `A2080`: Channels, bots, and clients MUST include the `conversation` and `conversation.id` fields when generating an activity.
 
@@ -159,7 +159,7 @@ The `conversation.name` field is optional and represents the display name for th
 
 ### Reply to ID
 
-The `replyToId` field identifies the prior activity to which the current activity is a reply. This field allows threaded conversation and comment nesting to be communicated between participants. `replyToId` is valid only within the current conversation. (See [relatesTo](#relates-to) for references to other conversations.) The value of the `replyToId` field is a string.
+The `replyToId` field identifies the prior activity to which the current activity is a reply. This field allows threaded conversation and comment nesting to be communicated between participants. `replyToId` is valid only within the current conversation. (See *relatesTo* for references to other conversations.) The value of the `replyToId` field is a string.
 
 `A2090`: Senders SHOULD include `replyToId` on an activity when it is a reply to another activity.
 
@@ -169,7 +169,7 @@ The `replyToId` field identifies the prior activity to which the current activit
 
 ### Entities
 
-The `entities` field contains a flat list of metadata objects pertaining to this activity. Unlike attachments (see the [attachments](#attachments) field), entities do not necessarily manifest as user-interactable content elements, and are intended to be ignored if not understood. Senders may include entities they think may be useful to a receiver even if they are not certain the receiver can accept them. The value of each `entities` list element is a complex object of the [Entity](#entity) type.
+The `entities` field contains a flat list of metadata objects pertaining to this activity. Unlike attachments (see the *attachments* field), entities do not necessarily manifest as user-interactable content elements, and are intended to be ignored if not understood. Senders may include entities they think may be useful to a receiver even if they are not certain the receiver can accept them. The value of each `entities` list element is a complex object of the *Entity* type.
 
 `A2100`: Senders SHOULD omit the `entities` field if it contains no elements.
 
@@ -193,13 +193,13 @@ Extensibility data in the activity schema is organized principally within the `c
 
 ### Caller ID
 
-In some cases, it's important to record where an activity was sent. The `callerId` field is a string containing an [IRI](https://tools.ietf.org/html/rfc3987) [[3](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] identifying the caller of a bot, described in more detail in [Appendix V](#appendix-v---caller-id-values). This field is not intended to be transmitted over the wire, but is instead populated by bots and clients based on cryptographically verifiable data that asserts the identity of the callers (e.g. tokens).
+In some cases, it's important to record where an activity was sent. The `callerId` field is a string containing an [IRI](https://tools.ietf.org/html/rfc3987) [[3](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] identifying the caller of a bot, described in more detail in *Appendix V*. This field is not intended to be transmitted over the wire, but is instead populated by bots and clients based on cryptographically verifiable data that asserts the identity of the callers (e.g. tokens).
 
 `A2250`: Senders SHOULD NOT populate the `callerId` field.
 
 `A2251`: Receivers SHOULD discard any data included in the `callerId` field on the wire.
 
-`A2252`: Bots SHOULD, after receiving an Activity, populate its `callerId` field with an identifier described in [Appendix V](#appendix-v---caller-id-values)
+`A2252`: Bots SHOULD, after receiving an Activity, populate its `callerId` field with an identifier described in *Appendix V*
 
 ### Service URL
 
