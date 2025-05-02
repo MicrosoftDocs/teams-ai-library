@@ -1,3 +1,10 @@
+---
+title: App class
+ms.topic: reference
+description: Learn how to use app class and its core components and plugins.
+ms.date: 04/30/2025
+---
+
 # App class (preview)
 
 [This article is prerelease documentation and is subject to change.]

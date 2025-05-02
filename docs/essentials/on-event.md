@@ -1,3 +1,10 @@
+---
+title: Listen to Events
+ms.topic: reference
+description: Learn how to listen or subscribe to events.
+ms.date: 04/30/2025
+---
+
 # 👂 Listening To Events (preview)
 
 [This article is prerelease documentation and is subject to change.]

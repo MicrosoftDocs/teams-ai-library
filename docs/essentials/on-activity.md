@@ -1,3 +1,10 @@
+---
+title: Listen to Activities
+ms.topic: reference
+description: Learn how to listen or subscribe to activity types.
+ms.date: 04/30/2025
+---
+
 # 👂 Listening To Activities (preview)
 
 [This article is prerelease documentation and is subject to change.]

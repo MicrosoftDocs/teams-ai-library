@@ -1,9 +1,15 @@
+---
+title: Use the API Client
+ms.topic: reference
+description: Learn how to use the API client to add support for web API and graph API.
+ms.date: 04/30/2025
+---
+
 # Using the API Client (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-an instance of the web api client is passed to handlers that can be used
-to fetch team/meeting/conversation/etc... details.
+An instance of the web api client is passed to handlers that can be used to fetch team/meeting/conversation/etc... details.
 
 > Example: we use the api client to fetch the conversations array of members.
 
