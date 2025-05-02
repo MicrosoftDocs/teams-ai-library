@@ -5,7 +5,9 @@ description: Learn about the schema of the message reaction activity that indica
 ms.date: 04/30/2025
 ---
 
-# Message Reaction
+# Message Reaction (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Message reaction activities represent a social interaction on an existing message activity within a conversation. The original activity is referred to by the `id` and `conversation` fields within the activity. The `from` field represents the source of the reaction (i.e., the user that reacted to the message).
 

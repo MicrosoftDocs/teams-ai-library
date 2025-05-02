@@ -1,4 +1,6 @@
-# Package Decomposition
+# Package Decomposition (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The SDK is broken down into the following packages.
 

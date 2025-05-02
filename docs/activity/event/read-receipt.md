@@ -5,7 +5,9 @@ description: Learn how the read receipt event allows bots to indicate if a user 
 ms.date: 04/30/2025
 ---
 
-# Activity: Read Receipt Event
+# Activity: Read Receipt Event (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 A read receipt event is sent when a user has read a message, and in the UI shows as an eye icon next to the message.
 

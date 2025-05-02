@@ -5,7 +5,9 @@ description: Learn about the schema of the message update activity that indicate
 ms.date: 04/30/2025
 ---
 
-# Activity: Message Update
+# Activity: Message Update (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ```typescript
 app.on('messageUpdate', async ({ activity }) => {});
@@ -35,4 +37,4 @@ To save the changes, click the checkmark icon or to cancel, click the X icon.
 
 ## Resources
 
-- [Microsoft Teams: Message Update](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/build-conversational-capability#receive-edit-message-activity)
+[Microsoft Teams: Message Update](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/build-conversational-capability#receive-edit-message-activity)

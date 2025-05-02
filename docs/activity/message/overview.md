@@ -5,7 +5,9 @@ description: Learn about the schema of the message activity.
 ms.date: 04/30/2025
 ---
 
-# Activity: Message
+# Activity: Message (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Message activities represent content intended to be shown within a conversational interface. Message activities may contain text, speech, interactive cards, and binary or unknown attachments; typically channels require at most one of these for the message activity to be well-formed.
 

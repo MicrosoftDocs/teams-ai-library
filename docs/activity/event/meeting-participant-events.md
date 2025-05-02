@@ -5,7 +5,9 @@ description: Learn how participant events allow bots to receive meeting notifica
 ms.date: 04/30/2025
 ---
 
-# Activity: Meeting Participant Events
+# Activity: Meeting Participant Events (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Meeting extensibility on Teams also provides events such as a user joining or leaving a meeting.
 
@@ -34,5 +36,5 @@ In Teams, the app manifest requires specific setup to have meeting participant e
 
 ## Resources
 
-- [Microsoft Learn: Teams meeting extensibility participant events](/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis)
-- [Microsoft Learn: Graph API - resource specific consent](/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
+- [Microsoft Learn: Teams meeting extensibility participant events](https://learn.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis#receive-meeting-participant-events)
+- [Microsoft Learn: Graph API - resource specific consent](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)

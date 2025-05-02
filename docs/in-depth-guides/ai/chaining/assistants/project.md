@@ -1,4 +1,6 @@
-# Project
+# Project (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The assistant that specializes in project operations like reading/writing
 a file/directory or running a build.

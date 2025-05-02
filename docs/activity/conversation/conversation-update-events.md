@@ -5,7 +5,9 @@ description: Learn about the default and custom conversation update events.
 ms.date: 04/30/2025
 ---
 
-# Activity: Conversation Update Events
+# Activity: Conversation Update Events (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 As seen from the previous page, the `conversationUpdate` activity is used to describe a change in a conversation's members, description, existence, or otherwise. There are several default events that originate from the Agents protocol. However, Teams also has custom events that can be used to extend the conversation update activity.
 

@@ -5,11 +5,13 @@ description: Learn about the schema of the end of conversation activity.
 ms.date: 04/30/2025
 ---
 
-# Activity: End Of Conversation
+# Activity: End Of Conversation (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 End of conversation activities signal the end of a conversation from the recipient's perspective. This may be because the conversation has been completely ended, or because the recipient has been removed from the conversation in a way that is indistinguishable from it ending. The conversation being ended is described in the `conversation` field.
 
-> [**ℹ️ Note**]
+> [!NOTE]
 > This event is not applicable to Teams.
 
 ```typescript

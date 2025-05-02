@@ -5,7 +5,9 @@ description: This article contains the table of contents for the reference docs.
 ms.date: 04/30/2025
 ---
 
-# Summary
+# Summary (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 - [👋 Welcome](./welcome/overview.md)
   - [Why an SDK?](./welcome/need-for-sdk.md)

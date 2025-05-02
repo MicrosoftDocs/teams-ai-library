@@ -5,7 +5,9 @@ description: Learn about the schema and value of the invoke activity.
 ms.date: 04/30/2025
 ---
 
-# Activity: Invoke
+# Activity: Invoke (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Invoke activities communicate programmatic information from a client or channel to a bot, and have a corresponding return payload for use within the channel. The meaning of an invoke activity is defined by the `name` field, which is meaningful within the scope of a channel.
 

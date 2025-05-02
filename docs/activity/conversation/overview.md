@@ -5,7 +5,9 @@ description: Learn about the conversation activity.
 ms.date: 04/30/2025
 ---
 
-# Activity: Conversation
+# Activity: Conversation (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Bots will receive notifications for conversation events, which can be captured to take subsequent actions. For example, a bot can subscribe to the `membersAdded` event and send a welcome message when a team member is added to a conversation.
 

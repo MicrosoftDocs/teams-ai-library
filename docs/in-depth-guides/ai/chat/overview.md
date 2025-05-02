@@ -1,4 +1,6 @@
-# 💬 Chat (Text)
+# 💬 Chat (Text) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ## Chat Prompt
 

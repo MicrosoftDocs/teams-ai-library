@@ -5,7 +5,9 @@ description: Learn about executing the Action Invoke activity.
 ms.date: 04/30/2025
 ---
 
-# Activity: File Consent Invoke
+# Activity: File Consent Invoke (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ```typescript
 app.on('file.consent', async ({ activity }) => {});

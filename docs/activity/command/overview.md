@@ -5,7 +5,9 @@ description: Learn about the schema and value for the command activity.
 ms.date: 04/30/2025
 ---
 
-# Activity: Command
+# Activity: Command (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Command activities communicate a request to perform a specific action.
 

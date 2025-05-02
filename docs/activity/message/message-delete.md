@@ -5,7 +5,9 @@ description: Learn about the schema of the message delete activity that represen
 ms.date: 04/30/2025
 ---
 
-# Message Delete
+# Message Delete (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Message delete activities represent a deletion of an existing message activity within a conversation. The deleted activity is referred to by the `id` and `conversation` fields within the activity.
 

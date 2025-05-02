@@ -1,4 +1,6 @@
-# Simple
+# Simple (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 A simple prompt for finding the right emojis.
 
