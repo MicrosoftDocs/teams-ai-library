@@ -1,7 +1,7 @@
 ---
-title: 🔈 Audio (preview)
-description: Learn about 🔈 Audio (preview)
+title: Audio
 ms.topic: overview
+description: Learn about adding Audio capability to your agents
 ms.date: 04/30/2025
 ---
 
