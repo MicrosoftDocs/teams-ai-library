@@ -2,7 +2,7 @@
 title: Creating Dialogs (preview)
 description: Learn about Creating Dialogs (preview)
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Creating Dialogs (preview)
@@ -10,7 +10,7 @@ ms.date: 04/30/2025
 [This article is prerelease documentation and is subject to change.]
 
 > [!TIP]
-> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../cards/overview.md). Understanding their basics is a prerequisite for this guide.
+> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../cards/). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 
@@ -79,7 +79,6 @@ app.on('dialog.open', async ({ activity }) => {
     },
   };
 }
-
 ```
 
 ### Rendering A Card
@@ -129,7 +128,7 @@ if (dialogType === 'simple_form') {
 
 You can render a webpage in a dialog as well. There are some security requirements to be aware of:
 
-1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app manifest for the agent
+1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](../../teams/manifest.md) for the agent
 2. The webpage must also host the [teams-js client library](https://www.npmjs.com/package/@microsoft/teams-js). The reason for this is that for security purposes, the Teams client will not render arbitrary webpages. As such, the webpage must explicitly opt-in to being rendered in the Teams client. Setting up the teams-js client library handles this for you.
 
 ```ts
@@ -142,7 +141,7 @@ return {
       // server as the agent. This server needs to be publicly accessible,
       // needs to set up teams.js client library (https://www.npmjs.com/package/@microsoft/teams-js)
       // and needs to be registered in the manifest.
-      url: process.env['BOT_ENDPOINT'],
+      url: `${process.env['BOT_ENDPOINT']}/tabs/dialog-form`,
       width: 1000,
       height: 800,
     },

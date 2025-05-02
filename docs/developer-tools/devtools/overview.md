@@ -1,8 +1,8 @@
 ---
 title: 🛠️ DevTools (preview)
 description: Learn about 🛠️ DevTools (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+ms.topic: how-to
+ms.date: 05/02/2025
 ---
 
 # 🛠️ DevTools (preview)
@@ -12,7 +12,7 @@ ms.date: 04/30/2025
 The developer tools can be used to locally interact with an app to streamline the testing/development process,
 preventing you from needing to deploy/register the app or expose a public endpoint.
 
-![DevTools Chat with sent messages](~/assets/screenshots/devtools-echo-chat.png)
+![DevTools Chat with sent messages](../../assets/screenshots/devtools-echo-chat.png)
 
 ## Basic features
 

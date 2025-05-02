@@ -1,8 +1,8 @@
 ---
 title: Activity - Install Update (preview)
 description: Learn about Activity - Install Update (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+ms.topic: reference
+ms.date: 05/02/2025
 ---
 
 # Activity: Install Update (preview)

@@ -2,7 +2,7 @@
 title: Core Teams Concepts (preview)
 description: Learn about Core Teams Concepts (preview)
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Core Teams Concepts (preview)
@@ -48,7 +48,7 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
+[DevTunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
 
 > [!NOTE]
 > DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
@@ -79,3 +79,7 @@ Sideloading is the process of installing your agent in Teams. You are able to pa
 
 > [!IMPORTANT]
 > Sideloading needs to be enabled in your tenant. If this is not the case, then you will need to contact your Teams administrator to enable it.
+
+## Provisioning and Deployment
+
+To test your app in Teams, you will at minimum need to have a provisioned Azure bot. You are likely to have other provisionied resources such as storage. Please see the Microsoft Learn [Provision cloud resources](/toolkit/provision) documentation for provisioning and deployment using Visual Studio Code and to a container service.

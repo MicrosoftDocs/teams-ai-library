@@ -2,7 +2,7 @@
 title: Using the API Client (preview)
 description: Learn about Using the API Client (preview)
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Using the API Client (preview)

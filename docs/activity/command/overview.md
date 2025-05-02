@@ -1,8 +1,8 @@
 ---
 title: Activity - Command (preview)
 description: Learn about Activity - Command (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+ms.topic: reference
+ms.date: 05/02/2025
 ---
 
 # Activity: Command (preview)
@@ -38,7 +38,7 @@ The `name` field defines the meaning of the command activity. The value of the `
 
 `A6310`: Command activities MUST contain a `name` field.
 
-`A6311`: The `name` of a command activity MUST use a [MIME media type](https://www.iana.org/assignments/media-types/media-types.xhtml) [[8](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] format.
+`A6311`: The `name` of a command activity MUST use a [MIME media type](https://www.iana.org/assignments/media-types/media-types.xhtml) [[8](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#referencess)] format.
 
 `A6312`: Receivers MUST ignore command activities with missing or invalid `name` field.
 

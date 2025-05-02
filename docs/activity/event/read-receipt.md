@@ -2,7 +2,7 @@
 title: Activity - Read Receipt Event (preview)
 description: Learn about Activity - Read Receipt Event (preview)
 ms.topic: reference
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Read Receipt Event (preview)

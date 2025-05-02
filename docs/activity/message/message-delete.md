@@ -2,7 +2,7 @@
 title: Message Delete (preview)
 description: Learn about Message Delete (preview)
 ms.topic: reference
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Message Delete (preview)
@@ -31,4 +31,4 @@ Message delete activities are identified by a `type` value of `messageDelete`.
 
 To delete a message in Teams, hover over the message in the client, click on the three dots, and select "Delete" option in the dropdown menu.
 
-![Deleting a message in Teams](~/assets/screenshots/message-delete-ui.png)
+![Deleting a message in Teams](../../assets/screenshots/message-delete-ui.png)

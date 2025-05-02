@@ -2,7 +2,7 @@
 title: Activity - Meeting Participant Events (preview)
 description: Learn about Activity - Meeting Participant Events (preview)
 ms.topic: reference
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Meeting Participant Events (preview)
