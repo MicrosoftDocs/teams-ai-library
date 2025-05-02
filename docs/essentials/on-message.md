@@ -1,3 +1,10 @@
+---
+title: 👂 Listening To Message Activities (preview)
+description: Learn about 👂 Listening To Message Activities (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # 👂 Listening To Message Activities (preview)
 
 [This article is prerelease documentation and is subject to change.]

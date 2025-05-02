@@ -1,3 +1,10 @@
+---
+title: Activity - Adaptive Card Action Invoke (preview)
+description: Learn about Activity - Adaptive Card Action Invoke (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Adaptive Card Action Invoke (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -20,4 +27,4 @@ The `Activity.value` field of the invoke activity for an Adaptive Card is `Adapt
 
 ## Resources
 
-- [Microsoft Learn: `AdaptiveCardInvokeValue`](https://learn.microsoft.com/en-us/javascript/api/botframework-schema/adaptivecardinvokevalue?view=botbuilder-ts-latest)
+- [Microsoft Learn: `AdaptiveCardInvokeValue`](/javascript/api/botframework-schema/adaptivecardinvokevalue)

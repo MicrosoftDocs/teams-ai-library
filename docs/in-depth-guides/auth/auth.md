@@ -1,4 +1,11 @@
-# 📖 [🔒 User Authentication](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication) (preview)
+---
+title: 📖 [🔒 User Authentication](/bots/how-to/authentication/add-authentication) (preview)
+description: Learn about 📖 [🔒 User Authentication](/bots/how-to/authentication/add-authentication) (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
+# 📖 [🔒 User Authentication](/bots/how-to/authentication/add-authentication) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

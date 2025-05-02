@@ -1,3 +1,10 @@
+---
+title: Activity - Meeting Start and End Events (preview)
+description: Learn about Activity - Meeting Start and End Events (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Meeting Start and End Events (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -29,5 +36,5 @@ In Teams, the app manifest requires specific setup to have meetings permissions.
 
 ## Resources
 
-- [Microsoft Learn: Teams Meeting Extensibility](https://learn.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis#example-of-getting-meeting-start-or-end-events)
-- [Microsoft Learn: Graph API - Resource specific consent](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
+- [Microsoft Learn: Teams Meeting Extensibility](/apps-in-teams-meetings/meeting-apps-apis#example-of-getting-meeting-start-or-end-events)
+- [Microsoft Learn: Graph API - Resource specific consent](/graph-api/rsc/resource-specific-consent)

@@ -1,3 +1,10 @@
+---
+title: 💬 Sending Activities (preview)
+description: Learn about 💬 Sending Activities (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # 💬 Sending Activities (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -17,7 +24,7 @@ app.on('conversationUpdate', async ({ activity, send }) => {
 ```
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../in-depth-guides/cards/).
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../in-depth-guides/cards/overview.md).
 
 ## Reply
 

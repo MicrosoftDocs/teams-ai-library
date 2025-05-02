@@ -1,3 +1,10 @@
+---
+title: Core Teams Concepts (preview)
+description: Learn about Core Teams Concepts (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # Core Teams Concepts (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -41,7 +48,7 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
+[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
 
 > [!NOTE]
 > DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.

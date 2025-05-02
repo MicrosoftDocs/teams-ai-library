@@ -1,3 +1,10 @@
+---
+title: 🗃️ Custom Logger (preview)
+description: Learn about 🗃️ Custom Logger (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # 🗃️ Custom Logger (preview)
 
 [This article is prerelease documentation and is subject to change.]

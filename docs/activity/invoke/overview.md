@@ -1,3 +1,10 @@
+---
+title: Activity - Invoke (preview)
+description: Learn about Activity - Invoke (preview)
+ms.topic: overview
+ms.date: 04/30/2025
+---
+
 # Activity: Invoke (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -52,4 +59,4 @@ Please see the subsequent sections for more information on the aliases that are 
 
 ## Resources
 
-- [Microsoft Learn: Graph API - Resource specific consent](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
+- [Microsoft Learn: Graph API - Resource specific consent](/graph-api/rsc/resource-specific-consent)

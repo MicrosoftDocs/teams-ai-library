@@ -1,3 +1,10 @@
+---
+title: Activity - Message Update (preview)
+description: Learn about Activity - Message Update (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Message Update (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -22,12 +29,12 @@ Message update activities are identified by a `type` value of `messageUpdate`.
 
 To update a message in Teams, you can hover over the message in the client and click the pencil icon. This will open a text editor where you can update the message.
 
-![Updating a message in Teams](../../../assets/screenshots/message-update-ui.png)
+![Updating a message in Teams](~/assets/screenshots/message-update-ui.png)
 
 To save the changes, click the checkmark icon or to cancel, click the X icon.
 
-![Confirming a message update in Teams](../../../assets/screenshots/message-update-editor.png)
+![Confirming a message update in Teams](~/assets/screenshots/message-update-editor.png)
 
 ## Resources
 
-- [Microsoft Teams: Message Update](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/build-conversational-capability#receive-edit-message-activity)
+- [Microsoft Teams: Message Update](/bots/build-conversational-capability#receive-edit-message-activity)

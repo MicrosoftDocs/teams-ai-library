@@ -1,3 +1,10 @@
+---
+title: Activity - Meeting Participant Events (preview)
+description: Learn about Activity - Meeting Participant Events (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Meeting Participant Events (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -29,5 +36,5 @@ In Teams, the app manifest requires specific setup to have meeting participant e
 
 ## Resources
 
-- [Microsoft Learn: Teams meeting extensibility participant events](https://learn.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis#receive-meeting-participant-events)
-- [Microsoft Learn: Graph API - resource specific consent](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
+- [Microsoft Learn: Teams meeting extensibility participant events](/apps-in-teams-meetings/meeting-apps-apis#receive-meeting-participant-events)
+- [Microsoft Learn: Graph API - resource specific consent](/graph-api/rsc/resource-specific-consent)

@@ -1,4 +1,11 @@
-# @Mention (preview)
+---
+title: at-mention (preview)
+description: Learn about at-mention (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
+# `@mention` (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

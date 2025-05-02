@@ -1,3 +1,10 @@
+---
+title: Activity - Read Receipt Event (preview)
+description: Learn about Activity - Read Receipt Event (preview)
+ms.topic: reference
+ms.date: 04/30/2025
+---
+
 # Activity: Read Receipt Event (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -18,4 +25,4 @@ Please note that in Teams, the RSC `ChatMessageReadReceipt.Read.Chat` permission
 
 ## Resources
 
-- [Microsoft Teams: Read Receipts](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/build-conversational-capability#receive-a-read-receipt)
+- [Microsoft Teams: Read Receipts](/bots/build-conversational-capability#receive-a-read-receipt)
