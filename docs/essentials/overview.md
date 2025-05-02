@@ -1,3 +1,10 @@
+---
+title: Overview
+ms.topic: overview
+description: Learn about activity handlers and system events.
+ms.date: 04/30/2025
+---
+
 # Basics (preview)
 
 [This article is prerelease documentation and is subject to change.]
