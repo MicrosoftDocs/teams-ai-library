@@ -1,6 +1,6 @@
 ---
 title: Event Activity
-ms.topic: reference
+ms.topic: overview
 description: Learn about the schema and value of Event activity.
 ms.date: 04/30/2025
 ---

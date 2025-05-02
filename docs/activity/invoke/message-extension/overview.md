@@ -1,6 +1,6 @@
 ---
 title: Message Extension Invoke Activity
-ms.topic: reference
+ms.topic: overview
 description: Learn about the message extension invoke activity.
 ms.date: 04/30/2025
 ---

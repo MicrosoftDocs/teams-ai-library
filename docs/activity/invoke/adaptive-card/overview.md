@@ -1,6 +1,6 @@
 ---
 title: Adaptive Card Invoke
-ms.topic: reference
+ms.topic: overview
 description: Learn about the Adaptive Card invoke activity.
 ms.date: 04/30/2025
 ---

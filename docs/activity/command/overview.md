@@ -1,6 +1,6 @@
 ---
 title: Command Activity
-ms.topic: reference
+ms.topic: overview
 description: Learn about the schema and value for the command activity.
 ms.date: 04/30/2025
 ---

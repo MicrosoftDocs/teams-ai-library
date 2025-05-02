@@ -1,3 +1,10 @@
+---
+title: Cards
+ms.topic: reference
+description: Learn how to use Adaptive Cards in your agent.
+ms.date: 04/30/2025
+---
+
 # 🪪 Cards (preview)
 
 [This article is prerelease documentation and is subject to change.]

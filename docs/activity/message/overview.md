@@ -1,6 +1,6 @@
 ---
 title: Message Activity
-ms.topic: reference
+ms.topic: overview
 description: Learn about the schema of the message activity.
 ms.date: 04/30/2025
 ---

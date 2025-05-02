@@ -1,3 +1,10 @@
+---
+title: Inspect Activities
+ms.topic: reference
+description: Learn how to use DevTools to inspect incoming and outgoing activities.
+ms.date: 04/30/2025
+---
+
 # 🔍 Inspect activities (preview)
 
 [This article is prerelease documentation and is subject to change.]

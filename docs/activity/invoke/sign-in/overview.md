@@ -1,6 +1,6 @@
 ---
 title: Sign In Invoke Activity
-ms.topic: reference
+ms.topic: overview
 description: Learn about the sign in invoke activity.
 ms.date: 04/30/2025
 ---

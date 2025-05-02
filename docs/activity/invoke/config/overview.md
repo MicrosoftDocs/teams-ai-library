@@ -1,6 +1,6 @@
 ---
 title: Configure Invoke
-ms.topic: reference
+ms.topic: overview
 description: Learn about the Invoke activity.
 ms.date: 04/30/2025
 ---

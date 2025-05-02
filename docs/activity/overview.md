@@ -1,3 +1,10 @@
+---
+title: Activity
+ms.topic: overview
+description: Learn about the schema and value for activity.
+ms.date: 04/30/2025
+---
+
 # Activity (preview)
 
 [This article is prerelease documentation and is subject to change.]

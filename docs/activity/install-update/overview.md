@@ -1,6 +1,6 @@
 ---
 title: Install Update Activity
-ms.topic: reference
+ms.topic: overview
 description: Learn about the schema of install updates.
 ms.date: 04/30/2025
 ---
