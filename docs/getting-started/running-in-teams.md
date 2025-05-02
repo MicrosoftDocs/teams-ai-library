@@ -1,3 +1,10 @@
+---
+title: Run Your Agent in Teams
+ms.topic: reference
+description: Learn how to deploy your agent in Teams for testing it.
+ms.date: 04/30/2025
+---
+
 # Running in Teams (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -39,9 +46,9 @@ This [CLI](./developer-tools/cli/overview.md) command adds configuration files r
 
 The Teams CLI (Teams AI v2 CLI) helps with TTK configuration, but it is not a replacement for the Teams Toolkit extension or the Teams Toolkit CLI itself. Both CLI tools will support development in different ways.
 
-| Cmd name   | CLI name      | Description                                                                                                                                        |
-| ---------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `teams`    | Teams AI v2   | A tool for setting up and utilizing the Teams AI v2 library including integration with TTK, if desired.                                            |
+| Cmd name | CLI name | Description |
+| --- | --- | --- |
+| `teams` | Teams AI v2 | A tool for setting up and utilizing the Teams AI v2 library including integration with TTK, if desired. |
 | `teamsapp` | Teams Toolkit | A tool for managing provisioning, deployment, and in-client debugging for Teams. These samples do **not** necessarily use the Teams AI v2 library. |
 
 ## Debugging in Teams
