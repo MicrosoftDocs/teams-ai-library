@@ -56,11 +56,11 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 ```
 
 > [!NOTE]
-> If you used the [CLI](../cli/) to create a TTK configuration for your app, DevTools will run on port 3979 when you launch the debugger.
+> If you used the [CLI](../cli/overview.md) to create a TTK configuration for your app, DevTools will run on port 3979 when you launch the debugger.
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](../../assets/screenshots/devtools-echo-chat.png)
+![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
 
 ## Teams chat terminology
 
@@ -113,7 +113,7 @@ Soft [delete messages](../../activity/message/message-delete.md) by hovering ove
 
 If your agent is using [streaming](../../in-depth-guides/ai/chat/streaming.md),DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](./inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Feedback
+### Sending feedback
 
 Send [feedback](../../in-depth-guides/ai/feedback.md) to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 

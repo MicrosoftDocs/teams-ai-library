@@ -21,7 +21,7 @@ Message activities are identified by a `type` value of `message`.
 
 ### Text
 
-The `text` field contains text content, either in the Markdown format, XML, or as plain text. The format is controlled by the [`textFormat`](#text-Format) field as is plain if unspecified or ambiguous. The value of the `text` field is of type string.
+The `text` field contains text content, either in the Markdown format, XML, or as plain text. The format is controlled by the `textFormat` field as is plain if unspecified or ambiguous. The value of the `text` field is of type string.
 
 `A3000`: The `text` field MAY contain an empty string to indicate sending text without contents.
 
@@ -29,7 +29,7 @@ The `text` field contains text content, either in the Markdown format, XML, or a
 
 ### Text format
 
-The `textFormat` field denotes whether the [`text`](#text) field should be interpreted as [Markdown](https://daringfireball.net/projects/markdown/) [[3](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)], plain text, or XML. The value of the `textFormat` field is of type string, with defined values of `markdown`, `plain`, and `xml`. The default value is `plain`. This field is not designed to be extended with arbitrary values.
+The `textFormat` field denotes whether the `text` field should be interpreted as [Markdown](https://daringfireball.net/projects/markdown/) [[3](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.mdhttps://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)], plain text, or XML. The value of the `textFormat` field is of type string, with defined values of `markdown`, `plain`, and `xml`. The default value is `plain`. This field is not designed to be extended with arbitrary values.
 
 The `textFormat` field controls additional fields within attachments etc. This relationship is described within those fields, elsewhere in this document.
 
@@ -49,7 +49,7 @@ The `textFormat` field controls additional fields within attachments etc. This r
 
 ### Locale
 
-The `locale` field communicates the language code of the [`text`](#text) field. The value of the `locale` field is an [IETF BCP-47](https://tools.ietf.org/html/bcp47) [[18](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] language tag within a string.
+The `locale` field communicates the language code of the `text` field. The value of the `locale` field is an [IETF BCP-47](https://tools.ietf.org/html/bcp47) [[18](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.mdhttps://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] language tag within a string.
 
 `A3020`: Receivers SHOULD treat missing and unknown values of the `locale` field as unknown.
 
@@ -57,7 +57,7 @@ The `locale` field communicates the language code of the [`text`](#text) field. 
 
 ### Speak
 
-The `speak` field indicates how the activity should be spoken via a text-to-speech system. The field is only used to customize speech rendering when the default is deemed inadequate. It replaces speech synthesis for any content within the activity, including text, attachments, and summaries. The value of the `speak` field is either plain text or [SSML](https://www.w3.org/TR/speech-synthesis/) [[6](#references)] encoded within a string.
+The `speak` field indicates how the activity should be spoken via a text-to-speech system. The field is only used to customize speech rendering when the default is deemed inadequate. It replaces speech synthesis for any content within the activity, including text, attachments, and summaries. The value of the `speak` field is either plain text or [SSML](https://www.w3.org/TR/speech-synthesis/) [[6](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] encoded within a string.
 
 `A3030`: The `speak` field MAY contain an empty string to indicate no speech should be generated.
 
@@ -67,7 +67,7 @@ The `speak` field indicates how the activity should be spoken via a text-to-spee
 
 `A3034`: Channels SHOULD NOT send the `speak` field to bots.
 
-`A3035`: Receivers generating speech from an Activity with a missing or null `speak` field SHOULD render message contents such as [`text`](#text) and [`summary`](#summary) instead.
+`A3035`: Receivers generating speech from an Activity with a missing or null `speak` field SHOULD render message contents such as `text` and `summary` instead.
 
 ### Input hint
 
@@ -93,7 +93,7 @@ The `attachments` field contains a flat list of objects to be displayed as part 
 
 ### Attachment layout
 
-The `attachmentLayout` field instructs user interface renderers how to present content included in the [`attachments`](#attachments) field. The value of the `attachmentLayout` field is of type string, with defined values of `list` and `carousel`. The default value is `list`.
+The `attachmentLayout` field instructs user interface renderers how to present content included in the `attachments` field. The value of the `attachmentLayout` field is of type string, with defined values of `list` and `carousel`. The default value is `list`.
 
 `A3060`: If a sender includes the `attachmentLayout` field, it SHOULD only send defined values.
 
@@ -101,7 +101,7 @@ The `attachmentLayout` field instructs user interface renderers how to present c
 
 ### Summary
 
-The `summary` field contains text used to replace [`attachments`](#attachments) on channels that do not support them. The value of the `summary` field is of type string.
+The `summary` field contains text used to replace `attachments` on channels that do not support them. The value of the `summary` field is of type string.
 
 `A3070`: Receivers SHOULD consider the `summary` field to logically follow the `text` field.
 
@@ -121,7 +121,7 @@ The `value` field contains a programmatic payload specific to the activity being
 
 ### Expiration
 
-The `expiration` field contains a time at which the activity should be considered to be "expired" and should not be presented to the recipient. The value of the `expiration` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html)[[2](#references)] encoded datetime within a string.
+The `expiration` field contains a time at which the activity should be considered to be "expired" and should not be presented to the recipient. The value of the `expiration` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html)[[2](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] encoded datetime within a string.
 
 `A3090`: Senders SHOULD always use encode the value of `expiration` fields as UTC, and they SHOULD always include Z as an explicit UTC mark within the value.
 
@@ -191,4 +191,4 @@ Semantic actions are sometimes used to indicate a change in which participant co
 ## Resources
 
 - [Agents Activity Protocol Schema](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md)
-- [Microsoft Learn: Message](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/bot-v3/bot-conversations/bots-conversations#conversation-basics)
+- [Microsoft Learn: Message](/resources/bot-v3/bot-conversations/bots-conversations#conversation-basics)

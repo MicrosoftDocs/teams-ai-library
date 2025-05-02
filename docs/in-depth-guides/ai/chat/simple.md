@@ -1,3 +1,10 @@
+---
+title: Simple (preview)
+description: Learn about Simple (preview)
+ms.topic: how-to
+ms.date: 04/30/2025
+---
+
 # Simple (preview)
 
 [This article is prerelease documentation and is subject to change.]

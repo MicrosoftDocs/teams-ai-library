@@ -1,3 +1,10 @@
+---
+title: 💬 Chat (Text) (preview)
+description: Learn about 💬 Chat (Text) (preview)
+ms.topic: overview
+ms.date: 04/30/2025
+---
+
 # 💬 Chat (Text) (preview)
 
 [This article is prerelease documentation and is subject to change.]

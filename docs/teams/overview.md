@@ -1,3 +1,10 @@
+---
+title: Teams Integration (preview)
+description: Learn about Teams Integration (preview)
+ms.topic: overview
+ms.date: 04/30/2025
+---
+
 # Teams Integration (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -13,11 +20,4 @@ When working with Teams, several key components come into play:
 - **Environment Setup**: Manages Teams-specific configuration files
 - **App Packaging**: Bundles your agent for Teams deployment
 
-## In This Section
-
-1. [Running Your Agent](./running-agent.md) - Understanding the Teams deployment process
-2. [Teams Manifest](./manifest.md) - Configuring your agent's Teams presence
-3. [Deployment](./deployment.md) - Moving to production
-4. [Teams Toolkit](./teams-toolkit.md) - Using Teams development tools
-
-Each guide provides detailed information about specific aspects of Teams integration, from local development to production deployment.
+Each guide in this section provides detailed information about specific aspects of Teams integration, from local development to production deployment.
