@@ -1,3 +1,10 @@
+---
+title: Overview of New Teams App
+ms.topic: overview
+description: Learn about the Teams app structure and its key components.
+ms.date: 04/30/2025
+---
+
 # Code basics (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -20,7 +27,7 @@ quote-agent/
 
 ## Core Components
 
-Let's break down the simple application we created in the [quickstart](./quickstart.md) into its core components.:
+Let's break down the simple application we created in the [quickstart](./quickstart.md) into its core components.
 
 ### The App Class
 
