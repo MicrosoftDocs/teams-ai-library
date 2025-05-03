@@ -2,25 +2,25 @@
 title: Building Adaptive Cards (preview)
 description: Learn about Building Adaptive Cards (preview)
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Building Adaptive Cards (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.  
+Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
 With `@microsoft/teams.cards` you can build these cards entirely in TypeScript / JavaScript while enjoying full IntelliSense and compiler safety.
 
 ---
 
-## 1 The Builder Pattern
+## The Builder Pattern
 
-`@microsoft/teams.cards` exposes small **builder helpers** (`Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._).  
+`@microsoft/teams.cards` exposes small **builder helpers** (`Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._).
 Each helper wraps raw JSON and provides fluent, chainable methods that keep your code concise and readable.
 
 ```ts
-/**
+  /**
  import {
   Card,
   TextBlock,
@@ -30,15 +30,15 @@ Each helper wraps raw JSON and provides fluent, chainable methods that keep your
 } from "@microsoft/teams.cards";
 */
 
-const card = new Card(
-  new TextBlock('Hello world', { wrap: true, weight: 'bolder' }),
-  new ToggleInput('Notify me').withId('notify'),
-  new ActionSet(
-    new ExecuteAction({ title: 'Submit' })
-      .withData({ action: 'submit_basic' })
-      .withAssociatedInputs('auto')
-  )
-);
+  const card = new Card(
+    new TextBlock('Hello world', { wrap: true, weight: 'bolder' }),
+    new ToggleInput('Notify me').withId('notify'),
+    new ActionSet(
+      new ExecuteAction({ title: 'Submit' })
+        .withData({ action: 'submit_basic' })
+        .withAssociatedInputs('auto')
+    )
+  );
 
 ```
 
@@ -54,9 +54,9 @@ Benefits:
 
 ---
 
-## 2 Type‑safe Authoring & IntelliSense
+## Type‑safe Authoring & IntelliSense
 
-The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript types.  
+The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript types.
 While coding you get:
 
 - **Autocomplete** for every element and attribute.
@@ -71,7 +71,7 @@ const textBlock = new TextBlock('Valid', { size: 'huge' });
 
 ---
 
-## 3 The Visual Designer
+## The Visual Designer
 
 Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
@@ -138,32 +138,52 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 
 ---
 
-## 4 End‑to‑end Example – Task Form Card
+## End‑to‑end Example – Task Form Card
 
 Below is a complete example showing a task management form. Notice how the builder pattern keeps the file readable and maintainable:
 
 ```ts
-app.on(
-  'message',
-  async ({
-    send,
-    activity,
-  }) => {
-    await send({ type: 'typing' });
-    const card: ICard = new Card().withBody(new TextBlock(`Hello ${activity.from.name}`));
-
-    await send(card);
-
-    // Or send it with some text
-    await send(new MessageActivity('Got your message!').addCard('adaptive', card));
-  }
-);
+app.on('message', async ({ send, activity }) => {
+  await send({ type: 'typing' });
+  const card = new Card().withBody(
+    new TextBlock('Create New Task', {
+      size: 'large',
+      weight: 'bolder',
+    }),
+    new TextInput({ id: 'title' }).withLabel('Task Title').withPlaceholder('Enter task title'),
+    new TextInput({ id: 'description' })
+      .withLabel('Description')
+      .withPlaceholder('Enter task details')
+      .withMultiLine(true),
+    new ChoiceSetInput(
+      { title: 'High', value: 'high' },
+      { title: 'Medium', value: 'medium' },
+      { title: 'Low', value: 'low' }
+    )
+      .withId('priority')
+      .withLabel('Priority')
+      .withValue('medium'),
+    new DateInput({ id: 'due_date' })
+      .withLabel('Due Date')
+      .withValue(new Date().toISOString().split('T')[0]),
+    new ActionSet(
+      new ExecuteAction({ title: 'Create Task' })
+        .withData({ action: 'create_task' })
+        .withAssociatedInputs('auto')
+        .withStyle('positive')
+    )
+  );
+  await send(card);
+  // Or build a complex activity out that includes the card:
+  // const message  = new MessageActivity('Enter this form').addCard('adaptive', card);
+  // await send(message);
+});
 
 ```
 
 ---
 
-## 5 Additional Resources
+## Additional Resources
 
 - **Official Adaptive Card Documentation** — <https://adaptivecards.microsoft.com/>
 - **Adaptive Cards Designer** — <https://adaptivecards.microsoft.com/designer.html>
@@ -175,7 +195,5 @@ app.on(
 - Use **builder helpers** for readable, maintainable card code.
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
-
-Check out [this](https://github.com/microsoft/teams.ts/tree/main/samples/cards) sample demonstrating all the above features.
 
 Happy card building! 🎉

@@ -2,7 +2,7 @@
 title: Activity - Message Extension Card Button Clicked Invoke (preview)
 description: Learn about Activity - Message Extension Card Button Clicked Invoke (preview)
 ms.topic: reference
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Message Extension Card Button Clicked Invoke (preview)

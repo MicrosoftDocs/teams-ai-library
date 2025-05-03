@@ -1,15 +1,15 @@
 ---
 title: Activity - Trace (preview)
 description: Learn about Activity - Trace (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+ms.topic: reference
+ms.date: 05/02/2025
 ---
 
 # Activity: Trace (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-The Trace activity is an activity which the developer inserts in to the stream of activities to represent a point in the developers bot logic. The trace activity typically is logged by transcript history components to become part of a *Transcript-format* history file. In remote debugging scenarios the Trace activity can be sent to the client so that the activity can be inspected as part of the debug flow.
+The Trace activity is an activity which the developer inserts in to the stream of activities to represent a point in the developers bot logic. The trace activity typically is logged by transcript history components to become part of a Transcript-Format history file. In remote debugging scenarios the Trace activity can be sent to the client so that the activity can be inspected as part of the debug flow.
 
 Trace activities are normally not shown to the user, and are internal to transcript logging and developer debugging.
 

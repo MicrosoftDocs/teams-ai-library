@@ -1,8 +1,8 @@
 ---
 title: Activity (preview)
 description: Learn about Activity (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+ms.topic: reference
+ms.date: 05/02/2025
 ---
 
 # Activity (preview)
@@ -21,7 +21,7 @@ app.on('activity', async ({ activity }) => {});
 
 Activity objects include a flat list of name/value pairs, called fields. Fields may be primitive and complex types. JSON is used as the common interchange format and although not all activities must be serialized to JSON at all times, they must be serializable to it. This allows implementations to rely on a simple set of conventions for handling known and unknown activity fields.
 
-`A2001`: Activities MUST be serializable to the JSON format defined in [RFC 4627](http://www.ietf.org/rfc/rfc4627.txt) [[14](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)], including adherence to e.g. field uniqueness constraints.
+`A2001`: Activities MUST be serializable to the JSON format defined in [RFC 4627](http://www.ietf.org/rfc/rfc4627.txt) [[14](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#referencess)], including adherence to e.g. field uniqueness constraints.
 
 `A2002`: Receivers MAY allow improperly-cased field names, although this is not required. Receivers MAY reject activities that do not include fields with the proper casing.
 
@@ -31,7 +31,7 @@ Activity objects include a flat list of name/value pairs, called fields. Fields 
 
 `A2006`: Receivers SHOULD accept events of types they do not understand.
 
-This document defines data types for fields used within the Activity object. These type definitions include a syntactic type (e.g. `string` or `complex type`) and in the case of strings, an optional format (e.g. [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html) [[2](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)]).
+This document defines data types for fields used within the Activity object. These type definitions include a syntactic type (e.g. `string` or `complex type`) and in the case of strings, an optional format (e.g. [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html) [[2](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#referencess)]).
 
 `A2007`: Senders MUST adhere to data type definitions contained in this document.
 
@@ -83,7 +83,7 @@ The `id` field is designed to allow de-duplication, but this is prohibitive in m
 
 ### Timestamp
 
-The `timestamp` field records the exact UTC time when the activity occurred. Due to the distributed nature of computing systems, the important time is when the channel (the authoritative store) records the activity. The time when a client or bot initiated an activity may be transmitted separately in the `localTimestamp` field. The value of the `timestamp` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html) [[2](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] encoded datetime within a string.
+The `timestamp` field records the exact UTC time when the activity occurred. Due to the distributed nature of computing systems, the important time is when the channel (the authoritative store) records the activity. The time when a client or bot initiated an activity may be transmitted separately in the `localTimestamp` field. The value of the `timestamp` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html) [[2](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#referencess)] encoded datetime within a string.
 
 `A2040`: Channels SHOULD include a `timestamp` field if it is available for that activity.
 
@@ -95,7 +95,7 @@ The `timestamp` field records the exact UTC time when the activity occurred. Due
 
 ### Local timezone
 
-The `localTimezone` field expresses the timezone where the activity was generated. The value of the `localTimezone` field is a time zone name (zone entry) per the IANA Time Zone database. [[14](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)]
+The `localTimezone` field expresses the timezone where the activity was generated. The value of the `localTimezone` field is a time zone name (zone entry) per the IANA Time Zone database. [[14](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#referencess)]
 
 `A2055`: Clients MAY include the `localTimezone` in their activities.
 
@@ -105,7 +105,7 @@ The `localTimezone` field expresses the timezone where the activity was generate
 
 ### Local timestamp
 
-The `localTimestamp` field expresses the datetime and timezone offset where the activity was generated. This may be different from the UTC `timestamp` where the activity was recorded. The value of the `localTimestamp` field is an ISO 8601 [[2](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] encoded datetime within a string.
+The `localTimestamp` field expresses the datetime and timezone offset where the activity was generated. This may be different from the UTC `timestamp` where the activity was recorded. The value of the `localTimestamp` field is an ISO 8601 [[2](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#referencess)] encoded datetime within a string.
 
 When both the `localTimezone` and `localTimestamp` fields are included in an activity, the interpretation is to first convert the value of the localTimestamp to UTC and then apply a conversion to the local timezone.
 
@@ -193,7 +193,7 @@ Extensibility data in the activity schema is organized principally within the `c
 
 ### Caller ID
 
-In some cases, it's important to record where an activity was sent. The `callerId` field is a string containing an [IRI](https://tools.ietf.org/html/rfc3987) [[3](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] identifying the caller of a bot, described in more detail in *Appendix V*. This field is not intended to be transmitted over the wire, but is instead populated by bots and clients based on cryptographically verifiable data that asserts the identity of the callers (e.g. tokens).
+In some cases, it's important to record where an activity was sent. The `callerId` field is a string containing an [IRI](https://tools.ietf.org/html/rfc3987) [[3](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#referencess)] identifying the caller of a bot, described in more detail in *Appendix V*. This field is not intended to be transmitted over the wire, but is instead populated by bots and clients based on cryptographically verifiable data that asserts the identity of the callers (e.g. tokens).
 
 `A2250`: Senders SHOULD NOT populate the `callerId` field.
 

@@ -2,7 +2,7 @@
 title: Activity - Conversation Update (preview)
 description: Learn about Activity - Conversation Update (preview)
 ms.topic: reference
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Conversation Update (preview)
@@ -33,7 +33,7 @@ The `membersAdded` field contains a list of channel participants (bots or users)
 
 ### Members removed
 
-The `membersRemoved` field contains a list of channel participants (bots or users) removed from the conversation. The value of the `membersRemoved` field is an array of type [`channelAccount`](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#channel-account).
+The `membersRemoved` field contains a list of channel participants (bots or users) removed from the conversation. The value of the `membersRemoved` field is an array of type `channelAccount`.
 
 ### Topic name
 

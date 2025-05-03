@@ -8,11 +8,9 @@ metadata:
   description: Developer documentation for the Teams AI Library v2 SDK, which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
-  ms.date: 03/26/2025
+  ms.date: 05/02/2025
   ms.author: mosdevdocs
   author: surbhigupta12
-
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
   # Basics
@@ -22,10 +20,10 @@ landingContent:
         links:
           - text: Listening to Activities
             url: ./essentials/on-activity.md
-          - text: Listening to Messages
-            url: ./essentials/on-message.md
           - text: Listening to Events
             url: ./essentials/on-event.md
+          - text: Sending Messages
+            url: ./essentials/sending-messages.md
           - text: Using the API Client
             url: ./essentials/api.md
           - text: Authentication
@@ -40,10 +38,10 @@ landingContent:
             url: ./getting-started/overview.md
           - text: Quickstart
             url: ./getting-started/quickstart.md
-      - linkListType: sample
-        links:
-          - text: Samples
-            url: ./developer-tools/devtools/overview.md
+          - text: Anatomy of an App
+            url: ./getting-started/code-basics.md
+          - text: Running in Teams
+            url: ./getting-started/running-in-teams.md
 
   # Activity
   - title: Handle activities in Teams
@@ -51,7 +49,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Message
-            url: ./activity/message/overview.md
+            url: ./essentials/on-message.md
           - text: Typing
             url: ./activity/typing/overview.md
           - text: Conversation
@@ -76,28 +74,29 @@ landingContent:
             url: ./developer-tools/devtools/inspect.md
           - text: Cards
             url: ./developer-tools/devtools/cards.md
-          - text: Development
-            url: ./developer-tools/overview.md
+          - text: CLI
+            url: ./developer-tools/cli/overview.md
 
   # AI
   - title: Integrate AI capabilities
     linkLists:
       - linkListType: concept
         links:
-          - text: Chat
-            url: ./in-depth-guides/ai/chat/overview.md
-          - text: Audio
-            url: ./in-depth-guides/ai/overview.md
-          - text: Image
-            url: ./in-depth-guides/ai/overview.md
-          - text: Chaining
-            url: ./in-depth-guides/ai/chaining/overview.md
-          - text: Memory
-            url: ./in-depth-guides/ai/overview.md
+          - text: Chat Generation
+            url: ./in-depth-guides/ai/chat.md
+          - text: Functions
+            url: ./in-depth-guides/ai/function-calling.md
+          - text: Keeping State
+            url: ./in-depth-guides/ai/keeping-state.md
+          - text: Best Practices
+            url: ./in-depth-guides/ai/best-practices.md
+          - text: MCP Overview
+            url: ./in-depth-guides/ai/mcp/overview.md
 
+  # Reference
   - title: Find reference
     linkLists:
       - linkListType: reference
         links:
-          - text: JavaScript SDK (preview)
-            url: https://review.learn.microsoft.com/javascript/api/teams-sdk-typescript
+          - text: TypeScript SDK (preview)
+            url: /javascript/api/teams-sdk-typescript

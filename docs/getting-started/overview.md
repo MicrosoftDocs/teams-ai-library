@@ -1,8 +1,8 @@
 ---
 title: Getting Started (preview)
 description: Learn about Getting Started (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+ms.topic: get-started
+ms.date: 05/02/2025
 ---
 
 # Getting Started (preview)
