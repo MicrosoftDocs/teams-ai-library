@@ -1,6 +1,6 @@
 ---
-title: Teams Integration (preview)
-description: Learn about Teams Integration (preview)
+title: Teams Integration
+description: Learn how your agent integrates with Teams platform.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

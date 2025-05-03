@@ -1,6 +1,6 @@
 ---
-title: Link unfurling (preview)
-description: Learn about Link unfurling (preview)
+title: Use Link Unfurling
+description: Learn how to use link unfurling to help your agent respond to URLs from registered domains.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

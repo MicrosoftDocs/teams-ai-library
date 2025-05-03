@@ -1,7 +1,7 @@
 ---
-title: Core Teams Concepts (preview)
-description: Learn about Core Teams Concepts (preview)
-ms.topic: how-to
+title: Core Teams Concepts
+description: Learn about core Teams concepts and components that can help you to debug and deploy your agent.
+ms.topic: conceptual
 ms.date: 05/02/2025
 ---
 

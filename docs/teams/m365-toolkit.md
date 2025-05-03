@@ -1,7 +1,7 @@
 ---
-title: Teams Toolkit (preview)
-description: Learn about Teams Toolkit (preview)
-ms.topic: how-to
+title: Teams Toolkit
+description: Learn about Teams Toolkit.
+ms.topic: conceptual
 ms.date: 05/02/2025
 ---
 

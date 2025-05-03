@@ -1,7 +1,7 @@
 ---
-title: Teams app manifest (preview)
-description: Learn about Teams app manifest (preview)
-ms.topic: how-to
+title: Teams App Manifest
+description: Learn about Teams app manifest.
+ms.topic: conceptual
 ms.date: 05/02/2025
 ---
 

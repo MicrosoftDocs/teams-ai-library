@@ -1,6 +1,6 @@
 ---
-title: Search commands (preview)
-description: Learn about Search commands (preview)
+title: Use Search Commands
+description: Learn how to use Search commands in your agent.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
@@ -58,7 +58,7 @@ Here we are defining the `searchQuery` search (or query) command.
 
 ## Handle submission
 
-Handle opening adaptive card dialog when the `searchQuery` query is submitted.
+Handle opening Adaptive Card dialog when the `searchQuery` query is submitted.
 
 ```ts
 app.on('message.ext.query', async ({ activity }) => {
