@@ -1,7 +1,7 @@
 ---
-title: Developer (preview)
-description: Learn about Developer (preview)
-ms.topic: how-to
+title: Developer
+description: Learn about the Developer assistant that orchestrates the other assistance.
+ms.topic: reference
 ms.date: 04/30/2025
 ---
 
