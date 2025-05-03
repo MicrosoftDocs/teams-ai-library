@@ -1,11 +1,11 @@
 ---
-title: Setup & Prerequisites (preview)
-description: Learn about Setup & Prerequisites (preview)
+title: Setup and Prerequisites for Agents
+description: Learn about Setup and Prerequisites for integrating LLMs in your agent.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
 
-# Setup & Prerequisites (preview)
+# Setup and Prerequisites (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

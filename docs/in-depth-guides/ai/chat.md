@@ -1,6 +1,6 @@
 ---
-title: Chat Generation (preview)
-description: Learn about Chat Generation (preview)
+title: Chat Generation
+description: Learn how to create a chat prompt for simple chat generation and streaming chat responses.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

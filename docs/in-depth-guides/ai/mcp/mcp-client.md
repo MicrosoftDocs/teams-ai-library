@@ -1,6 +1,6 @@
 ---
-title: MCP Client (preview)
-description: Learn about MCP Client (preview)
+title: MCP Client
+description: Learn about using MCP servers to leverage their tools remotely in your agent.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
