@@ -1,6 +1,6 @@
 ---
-title: How Auth Works (preview)
-description: Learn about How Auth Works (preview)
+title: Add Authentication
+description: Learn how to implement single sign-on (SSO) or third-party OAuth authentication in your agent.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

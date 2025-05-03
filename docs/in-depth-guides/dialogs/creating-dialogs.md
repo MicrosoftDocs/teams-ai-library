@@ -1,11 +1,11 @@
 ---
-title: Creating Dialogs (preview)
-description: Learn about Creating Dialogs (preview)
+title: Create Dialogs
+description: Learn how to create dialogs for your agent.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
 
-# Creating Dialogs (preview)
+# Create Dialogs (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

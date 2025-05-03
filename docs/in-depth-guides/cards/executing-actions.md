@@ -1,6 +1,6 @@
 ---
-title: Executing Actions (preview)
-description: Learn about Executing Actions (preview)
+title: Executing Actions
+description: Learn how to execute Adaptive Cards actions. 
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

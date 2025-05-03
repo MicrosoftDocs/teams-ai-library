@@ -1,6 +1,6 @@
 ---
-title: Building Adaptive Cards (preview)
-description: Learn about Building Adaptive Cards (preview)
+title: Build Adaptive Cards
+description: Learn about building Adaptive Cards
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
