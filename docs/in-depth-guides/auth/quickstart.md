@@ -1,6 +1,6 @@
 ---
-title: Quickstart (preview)
-description: Learn about Quickstart (preview)
+title: Quick Start
+description: Learn about Quickstart
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

@@ -113,7 +113,7 @@ Soft [delete messages](../../activity/message/message-delete.md) by hovering ove
 
 If your agent is using [streaming](../../in-depth-guides/ai/chat.md#streaming-chat-responses),DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](./inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Feedback
+### Send feedback
 
 Send [feedback](../../in-depth-guides/feedback.md) to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 

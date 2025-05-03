@@ -1,5 +1,5 @@
 ---
-title: Get Started
+title: Quick Start Guide
 ms.topic: how-to
 description: Learn how to install Teams CLI and build your first agent.
 ms.date: 05/02/2025

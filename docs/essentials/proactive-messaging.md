@@ -5,7 +5,7 @@ description: Learn how to send proactive messages in response to events.
 ms.date: 05/02/2025
 ---
 
-## Proactive Messaging (preview)
+# Proactive Messaging (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
