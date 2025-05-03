@@ -2,7 +2,7 @@
 title: Invoke Activity
 ms.topic: overview
 description: Learn about the schema and value of the invoke activity.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Invoke (preview)

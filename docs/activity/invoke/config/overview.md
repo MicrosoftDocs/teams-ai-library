@@ -2,7 +2,7 @@
 title: Configure Invoke
 ms.topic: overview
 description: Learn about the Invoke activity.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Config Invoke (preview)

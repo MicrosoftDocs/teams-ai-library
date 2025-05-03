@@ -2,7 +2,7 @@
 title: Use the API Client
 ms.topic: reference
 description: Learn how to use the API client to add support for web API and graph API.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Using the API Client (preview)

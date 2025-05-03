@@ -2,10 +2,10 @@
 title: Inspect Activities
 ms.topic: reference
 description: Learn how to use DevTools to inspect incoming and outgoing activities.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
-# 🔍 Inspect activities (preview)
+# Inspect activities (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -42,6 +42,6 @@ Press the Copy button in the top right corner of the Activity details view to co
 
 ### Inspect activities by ID
 
-When in [Chat](./chat.md), you can inspect activities by ID by clicking the magnifying glass icon in the message actions menu. This opens the Activities page with the activity ID filtered in the list, which is useful for inspecting [streaming](../../in-depth-guides/ai/chat/streaming.md) messages, which have multiple activities.
+When in [Chat](./chat.md), you can inspect activities by ID by clicking the magnifying glass icon in the message actions menu. This opens the Activities page with the activity ID filtered in the list, which is useful for inspecting [streaming](../../in-depth-guides/ai/chat.md#streaming-chat-responses) messages, which have multiple activities.
 
 To reset the filter, use the filter button in the Type column header and de-select the activity ID to show all activities again.

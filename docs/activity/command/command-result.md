@@ -1,8 +1,8 @@
 ---
-title: Command Result Activity (preview)
+title: Command Result Activity
 ms.topic: reference
-description: Learn about the schema and value for the command result activity. (preview)
-ms.date: 04/30/2025
+description: Learn about the schema and value for the command result activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Command Result (preview)

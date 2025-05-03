@@ -2,7 +2,7 @@
 title: Task Fetch Invoke Activity
 ms.topic: reference
 description: Learn about the task fetch invoke activity.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Task Fetch Invoke (preview)

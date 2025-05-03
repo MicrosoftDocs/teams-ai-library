@@ -2,7 +2,7 @@
 title: End of Conversation Activity
 ms.topic: reference
 description: Learn about the schema of the end of conversation activity.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: End Of Conversation (preview)

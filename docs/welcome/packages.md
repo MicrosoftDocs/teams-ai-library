@@ -1,11 +1,11 @@
 ---
-title: Package Decomposition (preview)
-description: Learn about Package Decomposition (preview)
+title: Packages (preview)
+description: Learn about Packages (preview)
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
-# Package Decomposition (preview)
+# Packages (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

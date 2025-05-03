@@ -2,7 +2,7 @@
 title: Execute Action Invoke Activity
 ms.topic: reference
 description: Learn about executing the Action Invoke activity.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Execute Action Invoke (preview)

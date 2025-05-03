@@ -2,7 +2,7 @@
 title: Meeting Participant Events Activity
 ms.topic: reference
 description: Learn how participant events allow bots to receive meeting notifications about users in a meeting.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Meeting Participant Events (preview)

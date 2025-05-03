@@ -2,7 +2,7 @@
 title: Handoff Activity
 ms.topic: overview
 description: Learn how to use the handoff activity to initiate or indicate a handoff between bot elements.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Handoff (preview)

@@ -2,26 +2,44 @@
 title: Listen to Events
 ms.topic: reference
 description: Learn how to listen or subscribe to events.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
-# 👂 Listening To Events (preview)
+# Listening To Events (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-To listen/subscribe to different event types, you can use the `event()` method.
-Handlers will be called in the order they are added.
+An **event** is a foundational concept in building agents — it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).
 
-> Example: We subscribe to errors that occur in the app.
+![alt-text for on-event-1.png](~/assets/diagrams/on-event-1.png)
+
+The Teams AI Library v2 makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.
+
+Here are the events that you can start building handlers for:
+
+| **Event Name**      | **Description**                                                                |
+| ------------------- | ------------------------------------------------------------------------------ |
+| `start`             | Triggered when your application starts. Useful for setup or boot-time logging. |
+| `signin`            | Triggered during a sign-in flow via Teams.                                     |
+| `error`             | Triggered when an unhandled error occurs in your app. Great for diagnostics.   |
+| `activity`          | A catch-all for incoming Teams activities (messages, commands, etc.).          |
+| `activity.response` | Triggered when your app sends a response to an activity. Useful for logging.   |
+| `activity.sent`     | Triggered when an activity is sent (not necessarily in response).              |
+
+### Example 1
+
+We can subscribe to errors that occur in the app.
 
 ```typescript
 app.event('error', ({ err, log }) => {
   log.error(err);
+  // Or Alternatively, send it to an observability platform
 });
 ```
 
-> Example: When a user signs in using `OAuth` or `SSO`, use the graph api to
-> fetch their profile and say hello.
+### Example 2
+
+When a user signs in using `OAuth` or `SSO`, use the graph api to fetch their profile and say hello.
 
 ```typescript
 app.event('signin', async ({ activity, send, api }) => {

@@ -1,8 +1,8 @@
 ---
 title: Adaptive Cards (preview)
 description: Learn about Adaptive Cards (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+ms.topic: how-to
+ms.date: 05/02/2025
 ---
 
 # Adaptive Cards (preview)

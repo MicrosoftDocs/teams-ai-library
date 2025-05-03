@@ -2,7 +2,7 @@
 title: Get Started
 ms.topic: overview
 description: Learn about the Teams AI library and how to build a Teams app and its structure.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Getting Started (preview)

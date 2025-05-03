@@ -2,7 +2,7 @@
 title: Executing Actions (preview)
 description: Learn about Executing Actions (preview)
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Executing Actions (preview)
@@ -14,7 +14,7 @@ You can use these to collect form input, trigger workflows, show task modules, o
 
 ---
 
-## 1 Action Types
+## Action Types
 
 The Teams AI Library supports several action types for different interaction patterns:
 
@@ -30,7 +30,7 @@ The Teams AI Library supports several action types for different interaction pat
 
 ---
 
-## 2 Creating Actions with the SDK
+## Creating Actions with the SDK
 
 ### Single Actions
 
@@ -62,7 +62,7 @@ new ActionSet(
     .withData({ action: 'submit_feedback' })
     .withAssociatedInputs('auto'),
   new OpenUrlAction('https://adaptivecards.microsoft.com').withTitle('Learn More')
-);
+)
 
 ```
 
@@ -81,7 +81,7 @@ Just like when building cards, if you prefer to work with raw JSON, you can do j
 
 ---
 
-## 3 Working with Input Values
+## Working with Input Values
 
 ### Associating data with the cards
 

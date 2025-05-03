@@ -2,7 +2,7 @@
 title: Message Update Activity
 ms.topic: reference
 description: Learn about the schema of the message update activity that indicates update of an existing message.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Message Update (preview)
@@ -29,11 +29,11 @@ Message update activities are identified by a `type` value of `messageUpdate`.
 
 To update a message in Teams, you can hover over the message in the client and click the pencil icon. This will open a text editor where you can update the message.
 
-![Updating a message in Teams](~/assets/screenshots/message-update-ui.png)
+![Updating a message in Teams](../../assets/screenshots/message-update-ui.png)
 
 To save the changes, click the checkmark icon or to cancel, click the X icon.
 
-![Confirming a message update in Teams](~/assets/screenshots/message-update-editor.png)
+![Confirming a message update in Teams](../../assets/screenshots/message-update-editor.png)
 
 ## Resources
 

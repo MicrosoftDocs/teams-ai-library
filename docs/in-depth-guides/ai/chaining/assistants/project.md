@@ -2,7 +2,7 @@
 title: Project
 description: Learn about the Project assistant that helps with project operations.
 ms.topic: reference
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Project (preview)

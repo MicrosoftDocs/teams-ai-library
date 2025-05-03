@@ -2,7 +2,7 @@
 title: Conversation Update Events Activity
 ms.topic: reference
 description: Learn about the default and custom conversation update events.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Conversation Update Events (preview)

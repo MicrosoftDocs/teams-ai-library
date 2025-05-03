@@ -2,7 +2,7 @@
 title: Meeting Start and End Events Activity
 ms.topic: reference
 description: Learn how meeting start and end events enable bots to receive notifications.
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Activity: Meeting Start and End Events (preview)
