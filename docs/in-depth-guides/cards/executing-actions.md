@@ -18,8 +18,8 @@ You can use these to collect form input, trigger workflows, show task modules, o
 
 The Teams AI Library supports several action types for different interaction patterns:
 
-| Action Type               | Purpose                | Description                                                                  |
-| ------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
+| Action Type | Purpose | Description |
+| --- | --- | --- |
 | `Action.Execute`          | Server‑side processing | Send data to your bot for processing. Best for forms & multi‑step workflows. |
 | `Action.Submit`           | Simple data submission | Legacy action type. Prefer `Execute` for new projects.                       |
 | `Action.OpenUrl`          | External navigation    | Open a URL in the user's browser.                                            |

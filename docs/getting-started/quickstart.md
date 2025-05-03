@@ -15,7 +15,7 @@ Get started with Teams AI Library v2 quickly using the Teams CLI.
 
 ### Prerequisites
 
-- **Node.js** v.20 or higher. Install or upgrade from [nodejs.org](https://nodejs.org/).
+**Node.js** v.20 or higher. Install or upgrade from [nodejs.org](https://nodejs.org/).
 
 ## Instructions
 
@@ -97,7 +97,7 @@ Let's navigate to the devtools server. Open your browser and head to [http://loc
 
 Now that you have your first agent running, learn about [the code basics](./code-basics.md) to understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, check out the [Running in Teams](./running-in-teams.md) guide.
+Otherwise, if you want to run your agent in Teams, check out the [running in Teams](./running-in-teams.md) guide.
 
 ## Resources
 

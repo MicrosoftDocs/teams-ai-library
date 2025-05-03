@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 05/02/2025
 ---
 
-# 🗃️ Custom Logger (preview)
+# Custom Logger (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

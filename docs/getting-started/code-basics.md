@@ -93,7 +93,7 @@ After that, you can:
 
 - Add more activity handlers for different types of interactions. See [Listening to Activities](../essentials/on-activity.md) for more details.
 - Integrate with external services using the [API Client](../essentials/api.md).
-- Add interactive [cards](../in-depth-guides/cards) and [dialogs](../in-depth-guides/dialogs). See and for more information.
+- Add interactive [cards](../in-depth-guides/cards) and [dialogs](../in-depth-guides/dialogs).
 - Implement [AI](../in-depth-guides/ai/).
 
 Continue on to the next page to learn about these advanced features.

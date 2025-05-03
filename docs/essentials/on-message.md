@@ -5,7 +5,7 @@ description: Learn how to listen or subscribe to messages.
 ms.date: 04/30/2025
 ---
 
-# 👂 Listening To Message Activities (preview)
+# Listening To Message Activities (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

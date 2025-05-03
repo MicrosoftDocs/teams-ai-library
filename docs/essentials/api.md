@@ -9,7 +9,7 @@ ms.date: 05/02/2025
 
 [This article is prerelease documentation and is subject to change.]
 
-An instance of the web api client is passed to handlers that can be used to fetch team/meeting/conversation/etc... details.
+An instance of the web API client is passed to handlers that can be used to fetch team/meeting/conversation/etc... details.
 
 > Example: we use the api client to fetch the conversations array of members.
 
@@ -21,7 +21,7 @@ app.on('message', async ({ activity, api }) => {
 
 ## Graph
 
-The api also comes with graph support built in which can be easily accessed.
+The API also comes with graph support built in which can be easily accessed.
 
 ```typescript
 app.on('message', async ({ activity, api }) => {
@@ -31,7 +31,7 @@ app.on('message', async ({ activity, api }) => {
 
 ## Proactive
 
-The api client can also be accessed from outside a handler via the app instance.
+The API client can also be accessed from outside a handler via the app instance.
 
 ```typescript
 const res = await app.api.graph.chats.getAllMessages.get();

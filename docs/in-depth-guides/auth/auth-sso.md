@@ -18,11 +18,12 @@ The following table provides a clear comparison between OAuth and SSO authentica
 Single Sign-On (SSO) in Teams provides a seamless authentication experience by leveraging a user's existing Teams identity. Once a user is logged into Teams, they can access your app without needing to sign in again. The only requirement is a one-time consent from the user, after which your app can securely retrieve their access details from Microsoft Entra ID. This consent is device-agnostic - once granted, users can access your app from any device without additional authentication steps.
 
 When an access token expires, the app automatically initiates a token exchange flow. In this process:
-1. The Teams client sends an OAuth ID token containing the user's information
-2. Your app exchanges this ID token for a new access token with the previously consented scopes
-3. This exchange happens silently without requiring user interaction
 
-> [!tip]
+1. The Teams client sends an OAuth ID token containing the user's information.
+2. Your app exchanges this ID token for a new access token with the previously consented scopes.
+3. This exchange happens silently without requiring user interaction.
+
+> [!TIP]
 > Always use SSO if you authenticating the user with Microsoft Entra ID.
 
 ### The SSO Signin Flow
@@ -65,7 +66,7 @@ When an access token expires, the user will need to go through the sign-in proce
 | Authentication Flow | User is sent a card with a sign-in link | If user has already consent to the requested scopes in the past they will "silently" login through the token exchange flow. Otherwise user is shown a consent form |
 | User Experience | Requires explicit sign-in | Seamless authentication using existing Teams identity |
 | Conversation scopes (`personal`, `groupChat`, `teams`) | `personal` scope only | `personal` scope only |
-| Azure Configuration differences | Same configuration except `Token Exchange URL` is blank | Same configuration except `Token Exchange URL` is set
+| Azure Configuration differences | Same configuration except `Token Exchange URL` is blank | Same configuration except `Token Exchange URL` is set |
 
 
 
