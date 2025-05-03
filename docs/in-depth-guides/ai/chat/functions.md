@@ -1,7 +1,7 @@
 ---
-title: Functions (preview)
-description: Learn about Functions (preview)
-ms.topic: how-to
+title: Functions
+description: Learn about the Functions to add support for GIFs.
+ms.topic: reference
 ms.date: 04/30/2025
 ---
 

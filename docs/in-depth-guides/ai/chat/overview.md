@@ -1,11 +1,11 @@
 ---
-title: 💬 Chat (Text) (preview)
-description: Learn about 💬 Chat (Text) (preview)
+title: Chat (Text)
+description: Learn about the Chat (Text) prompt that enables a simple unified way for interaction.
 ms.topic: overview
 ms.date: 04/30/2025
 ---
 
-# 💬 Chat (Text) (preview)
+# Chat (Text) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

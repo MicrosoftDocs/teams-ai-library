@@ -1,7 +1,7 @@
 ---
-title: Simple (preview)
-description: Learn about Simple (preview)
-ms.topic: how-to
+title: Simple Prompts
+description: Learn how to use a simple prompt to find emojis.
+ms.topic: reference
 ms.date: 04/30/2025
 ---
 
