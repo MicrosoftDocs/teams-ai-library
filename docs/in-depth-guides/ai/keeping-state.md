@@ -23,7 +23,7 @@ To avoid this, you need to get messages from your persistent (or in-memory) stor
 > [!NOTE]
 > The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
 
-```ts
+```typescript
 // Simple in-memory store for conversation histories
 // In your application, it may be a good idea to use a more
 // persistent store backed by a database or other storage solution
@@ -43,7 +43,7 @@ const getOrCreateConversationHistory = (conversationId: string) => {
 
 ```
 
-```ts
+```typescript
 /**
  * Example of a stateful conversation handler that maintains conversation history
  * using an in-memory store keyed by conversation ID.

@@ -16,7 +16,7 @@ ms.date: 05/02/2025
 
 To open a dialog, you need to supply a special type of action as to the Adaptive Card. Once this button is clicked, the dialog will open and ask the application what to show.
 
-```ts
+```typescript
 app.on('message', async ({ send }) => {
   await send({ type: 'typing' });
 
@@ -64,7 +64,7 @@ app.on('message', async ({ send }) => {
 
 Once an action is executed to open a dialog, the Teams client will send an event to the agent to request what the content of the dialog should be. Here is how to handle this event:
 
-```ts
+```typescript
 app.on('dialog.open', async ({ activity }) => {
   const card: ICard = new Card()...
 
@@ -85,7 +85,7 @@ app.on('dialog.open', async ({ activity }) => {
 
 You can render an Adaptive Card in a dialog by returning a card response.
 
-```ts
+```typescript
 if (dialogType === 'simple_form') {
   const dialogCard = new Card()
     .withBody(
@@ -131,7 +131,7 @@ You can render a webpage in a dialog as well. There are some security requiremen
 1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](../../teams/manifest.md) for the agent
 2. The webpage must also host the [teams-js client library](https://www.npmjs.com/package/@microsoft/teams-js). The reason for this is that for security purposes, the Teams client will not render arbitrary webpages. As such, the webpage must explicitly opt-in to being rendered in the Teams client. Setting up the teams-js client library handles this for you.
 
-```ts
+```typescript
 return {
   task: {
     type: 'continue',

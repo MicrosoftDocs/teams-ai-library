@@ -29,7 +29,7 @@ The `MCPClientPlugin` (from `@microsoft/teams.mcpclient` package) integrates dir
 
 Once loaded, it treats these tools like any functions that are available to the `ChatPrompt` object. If the LLM then decides to call one of these remote MCP tools, the MCP Client plugin will call the remote MCP server and return the result back to the LLM. The LLM can then use this result in its response.
 
-```ts
+```typescript
 {{#include ../../../../generated-snippets/ts/index.snippet.mcp-client-prompt-config.ts  }}
 ```
 

@@ -17,7 +17,7 @@ The Teams AI Library v2 exposes a fluent router so you can subscribe to these 
 
 Here is an example of a basic message handler:
 
-```ts
+```typescript
 app.on('message', async ({ activity, send }) => {
   await send(`You said: ${activity.text}`);
 });
@@ -31,14 +31,14 @@ In the above example, the `activity` parameter is of type `MessageActivity`, whi
 
 The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `express` middlewares work. This means that for each activity handler, a `next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
 
-```ts
+```typescript
 app.on('message', async ({ next }) => {
   console.log('global logger');
   next(); // pass control onward
 });
 ```
 
-```ts
+```typescript
 app.on('message', async ({ activity, next }) => {
   if (activity.text === '/help') {
     await send('Here are all the ways I can help you...');
@@ -50,7 +50,7 @@ app.on('message', async ({ activity, next }) => {
 });
 ```
 
-```ts
+```typescript
 app.on('message', async ({ activity }) => {
   // Fallthrough to the final handler
   await send(`Hello! you said ${activity.text}`);

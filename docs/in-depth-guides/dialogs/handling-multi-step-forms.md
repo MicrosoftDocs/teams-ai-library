@@ -13,7 +13,7 @@ Dialogs can become complex yet powerful with multi-step forms. These forms can a
 
 Start off by sending an initial card in the `dialog.open` event.
 
-```ts
+```typescript
 const dialogCard = new Card()
   .withBody(
     {
@@ -51,7 +51,7 @@ return {
 
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
-```ts
+```typescript
 app.on('dialog.submit', async ({ activity, send, next }) => {
   const dialogType = activity.value.data.submissiondialogtype;
 

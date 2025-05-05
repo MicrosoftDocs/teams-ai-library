@@ -111,7 +111,7 @@ Here we are defining three different commands:
 
 Handle submission when the `createCard` or `getMessageDetails` actions commands are invoked.
 
-```ts
+```typescript
 app.on('message.ext.submit', async ({ activity }) => {
   const { commandId } = activity.value;
   let card: ICard;
@@ -139,7 +139,7 @@ app.on('message.ext.submit', async ({ activity }) => {
 
 `createCard()` function
 
-```ts
+```typescript
 interface FormData {
   title: string;
   subtitle: string;
@@ -171,7 +171,7 @@ export function createCard(data: FormData) {
 
 `createMessageDetailsCard()` function
 
-```ts
+```typescript
 export function createMessageDetailsCard(messagePayload: Message) {
   const cardElements: Element[] = [
     new TextBlock('Message Details', {
@@ -245,7 +245,7 @@ export function createMessageDetailsCard(messagePayload: Message) {
 
 Handle opening adaptive card dialog when the `fetchConversationMembers` command is invoked.
 
-```ts
+```typescript
 app.on('message.ext.open', async ({ activity, api }) => {
   const conversationId = activity.conversation.id;
   const members = await api.conversations.members(conversationId).get();
@@ -268,7 +268,7 @@ app.on('message.ext.open', async ({ activity, api }) => {
 
 `createConversationMembersCard()` function
 
-```ts
+```typescript
 export function createConversationMembersCard(members: Account[]) {
   const membersList = members.map((member) => member.name).join(', ');
 

@@ -17,7 +17,7 @@ User feedback is essential for the improvement of any application. Teams provide
 
 Once you receive a feedback event, you can choose to store it in some persistent storage. In the example below, we are storing it in an in-memory store.
 
-```ts
+```typescript
 // This store would ideally be persisted in a database
 export const storedFeedbackByMessageId = new Map<
   string,
@@ -36,7 +36,7 @@ export const storedFeedbackByMessageId = new Map<
 
 When sending a message that you want feedback in, simply `addFeedback()` to the message you are sending.
 
-```ts
+```typescript
 const { id: sentMessageId } = await send(
   result.content != null
     ? new MessageActivity(result.content)
@@ -61,7 +61,7 @@ storedFeedbackByMessageId.set(sentMessageId, {
 
 Once the user decides to like/dislike the message, you can handle the feedback in a received event. Once received, you can choose to include it in your persistent store.
 
-```ts
+```typescript
 app.on("message.submit.feedback", async ({ activity, log }) => {
   const { reaction, feedback: feedbackJson } = activity.value.actionValue;
   if (activity.replyToId == null) {

@@ -60,7 +60,7 @@ Here we are defining the `searchQuery` search (or query) command.
 
 Handle opening Adaptive Card dialog when the `searchQuery` query is submitted.
 
-```ts
+```typescript
 app.on('message.ext.query', async ({ activity }) => {
   const { commandId } = activity.value;
   const searchQuery = activity.value.parameters![0].value;
@@ -90,7 +90,7 @@ app.on('message.ext.query', async ({ activity }) => {
 
 `createDummyCards()` function
 
-```ts
+```typescript
 export async function createDummyCards(searchQuery: string) {
   const dummyItems = [
     {
