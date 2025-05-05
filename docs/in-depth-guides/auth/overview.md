@@ -1,11 +1,11 @@
 ---
-title: 🔒 User Authentication (preview)
-description: Learn about 🔒 User Authentication (preview)
-ms.topic: how-to
+title: User Authentication
+description: Learn about adding user authentication in your agent
+ms.topic: overview
 ms.date: 05/02/2025
 ---
 
-# 🔒 User Authentication (preview)
+# User Authentication (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

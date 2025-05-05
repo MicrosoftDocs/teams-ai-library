@@ -1,6 +1,6 @@
 ---
-title: App setup (preview)
-description: Learn about App setup (preview)
+title: App Setup for Authentication
+description: Learn how to set up your agent for using authentication.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
@@ -16,6 +16,7 @@ There are a few ways you can enable your application to access secured external 
 
 
 ## Authenticate the user to Entra ID to access Microsoft Graph APIs
+
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
 
 > [!note]

@@ -1,6 +1,6 @@
 ---
-title: Functions (preview)
-description: Learn about Functions (preview)
+title: Functions
+description: Learn how to add functions that the LLM can call as needed.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

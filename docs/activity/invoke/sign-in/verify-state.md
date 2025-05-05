@@ -1,7 +1,7 @@
 ---
-title: Activity - Sign In Verify State Invoke (preview)
-description: Learn about Activity - Sign In Verify State Invoke (preview)
+title: Sign In Verify State Invoke Activity
 ms.topic: reference
+description: Learn about the sign in verify state invoke activity.
 ms.date: 05/02/2025
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Activity - Message Extension Query Invoke (preview)
-description: Learn about Activity - Message Extension Query Invoke (preview)
+title: Message Extension Query Invoke Activity
 ms.topic: reference
+description: Learn about the message extension query invoke activity.
 ms.date: 05/02/2025
 ---
 

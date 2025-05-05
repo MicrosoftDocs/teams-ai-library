@@ -1,7 +1,7 @@
 ---
-title: Activity - Command Result (preview)
-description: Learn about Activity - Command Result (preview)
+title: Command Result Activity
 ms.topic: reference
+description: Learn about the schema and value for the command result activity.
 ms.date: 05/02/2025
 ---
 
@@ -11,7 +11,7 @@ ms.date: 05/02/2025
 
 Command result activities communicate the result of a [command activity](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#command-activity).
 
-> [**ℹ️ Note**]
+> [!NOTE]
 > This event type is not applicable to Teams.
 
 ```typescript

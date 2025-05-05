@@ -1,6 +1,6 @@
 ---
-title: Initiating Signing In (preview)
-description: Learn about Initiating Signing In (preview)
+title: Initiating Signing In
+description: Learn about initiating signing in using OAuth connection.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

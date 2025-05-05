@@ -1,6 +1,6 @@
 ---
-title: Executing Actions (preview)
-description: Learn about Executing Actions (preview)
+title: Executing Actions
+description: Learn how to execute Adaptive Cards actions. 
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
@@ -18,8 +18,8 @@ You can use these to collect form input, trigger workflows, show task modules, o
 
 The Teams AI Library supports several action types for different interaction patterns:
 
-| Action Type               | Purpose                | Description                                                                  |
-| ------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
+| Action Type | Purpose | Description |
+| --- | --- | --- |
 | `Action.Execute`          | Server‑side processing | Send data to your bot for processing. Best for forms & multi‑step workflows. |
 | `Action.Submit`           | Simple data submission | Legacy action type. Prefer `Execute` for new projects.                       |
 | `Action.OpenUrl`          | External navigation    | Open a URL in the user's browser.                                            |

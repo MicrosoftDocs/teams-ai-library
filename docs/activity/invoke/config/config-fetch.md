@@ -1,7 +1,7 @@
 ---
-title: Activity - Config Fetch Invoke (preview)
-description: Learn about Activity - Config Fetch Invoke (preview)
+title: Configure Fetch Invoke
 ms.topic: reference
+description: Learn about the Fetch Invoke activity.
 ms.date: 05/02/2025
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Activity - Message Submit Action Invoke (preview)
-description: Learn about Activity - Message Submit Action Invoke (preview)
+title: Message Submit Action Invoke Activity
 ms.topic: reference
+description: Learn about the message submit action invoke activity.
 ms.date: 05/02/2025
 ---
 

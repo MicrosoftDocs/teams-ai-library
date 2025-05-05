@@ -1,7 +1,7 @@
 ---
-title: Activity - Event (preview)
-description: Learn about Activity - Event (preview)
-ms.topic: reference
+title: Event Activity
+ms.topic: overview
+description: Learn about the schema and value of Event activity.
 ms.date: 05/02/2025
 ---
 

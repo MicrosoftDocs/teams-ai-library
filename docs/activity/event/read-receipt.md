@@ -1,7 +1,7 @@
 ---
-title: Activity - Read Receipt Event (preview)
-description: Learn about Activity - Read Receipt Event (preview)
+title: Read Receipt Event Activity
 ms.topic: reference
+description: Learn how the read receipt event allows bots to indicate if a user has read a message.
 ms.date: 05/02/2025
 ---
 
@@ -15,7 +15,7 @@ A read receipt event is sent when a user has read a message, and in the UI shows
 app.on('readReceipt', async ({ activity }) => {});
 ```
 
-`'readReceipt'` is alias for the event name `'application/vnd.microsoft.readReceipt'`.
+`readReceipt` is an alias for the event name `application/vnd.microsoft.readReceipt`.
 
 ## Read receipts
 
@@ -25,4 +25,4 @@ Please note that in Teams, the RSC `ChatMessageReadReceipt.Read.Chat` permission
 
 ## Resources
 
-- [Microsoft Teams: Read Receipts](/bots/build-conversational-capability#receive-a-read-receipt)
+[Microsoft Teams: Read Receipts](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/build-conversational-capability#receive-a-read-receipt)

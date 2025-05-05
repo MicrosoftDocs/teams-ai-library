@@ -1,7 +1,7 @@
 ---
-title: Activity - Message Extension Select Item Invoke (preview)
-description: Learn about Activity - Message Extension Select Item Invoke (preview)
+title: Message Extension Select Item Invoke Activity
 ms.topic: reference
+description: Learn about the message extension select item invoke activity.
 ms.date: 05/02/2025
 ---
 

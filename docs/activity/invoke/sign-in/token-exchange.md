@@ -1,7 +1,7 @@
 ---
-title: Activity - Sign In Token Exchange Invoke (preview)
-description: Learn about Activity - Sign In Token Exchange Invoke (preview)
+title: Sign In Token Exchange Invoke Activity
 ms.topic: reference
+description: Learn about the sign in token exchange Invoke activity.
 ms.date: 05/02/2025
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Activity - Handoff (preview)
-description: Learn about Activity - Handoff (preview)
-ms.topic: reference
+title: Handoff Activity
+ms.topic: overview
+description: Learn how to use the handoff activity to initiate or indicate a handoff between bot elements.
 ms.date: 05/02/2025
 ---
 

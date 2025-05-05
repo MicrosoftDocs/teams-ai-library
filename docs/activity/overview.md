@@ -1,7 +1,7 @@
 ---
-title: Activity (preview)
-description: Learn about Activity (preview)
-ms.topic: reference
+title: Activity
+ms.topic: overview
+description: Learn about the schema and value for activity.
 ms.date: 05/02/2025
 ---
 

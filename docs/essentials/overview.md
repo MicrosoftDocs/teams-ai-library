@@ -1,7 +1,7 @@
 ---
-title: Essentials (preview)
-description: Learn about Essentials (preview)
-ms.topic: how-to
+title: Overview
+ms.topic: overview
+description: Learn about activity handlers and system events.
 ms.date: 05/02/2025
 ---
 

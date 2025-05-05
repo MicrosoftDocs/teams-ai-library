@@ -1,7 +1,7 @@
 ---
-title: Activity - Message Extension Setting Invoke (preview)
-description: Learn about Activity - Message Extension Setting Invoke (preview)
+title: Message Extension Setting Invoke Activity
 ms.topic: reference
+description: Learn about the message extension setting invoke activity.
 ms.date: 05/02/2025
 ---
 

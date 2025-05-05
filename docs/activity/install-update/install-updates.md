@@ -1,7 +1,7 @@
 ---
-title: Activity - Installation Updates (preview)
-description: Learn about Activity - Installation Updates (preview)
+title: Installation Updates Activity
 ms.topic: reference
+description: Learn about the events related to the installation or removal of a bot from conversations.
 ms.date: 05/02/2025
 ---
 
@@ -9,7 +9,7 @@ ms.date: 05/02/2025
 
 [This article is prerelease documentation and is subject to change.]
 
-The `installationUpdate` event is sent to the bot when a bot is added or removed from a conversation thread
+The `installationUpdate` event is sent to the bot when a bot is added or removed from a conversation thread.
 
 ## Installation add event
 
@@ -29,4 +29,4 @@ app.on('install.remove', async ({ activity }) => {});
 
 ## Resources
 
-- [Microsoft Learn: Installation Events](/bots/how-to/conversations/subscribe-to-conversation-events#installation-update-event)
+[Microsoft Learn: Installation Events](/bots/how-to/conversations/subscribe-to-conversation-events#installation-update-event)

@@ -1,7 +1,7 @@
 ---
-title: Activity - Config Submit Invoke (preview)
-description: Learn about Activity - Config Submit Invoke (preview)
+title: Configure Submit Invoke
 ms.topic: reference
+description: Learn about the Submit Invoke activity.
 ms.date: 05/02/2025
 ---
 

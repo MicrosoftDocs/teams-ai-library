@@ -1,11 +1,11 @@
 ---
-title: Building Adaptive Cards (preview)
-description: Learn about Building Adaptive Cards (preview)
+title: Build Adaptive Cards
+description: Learn about building Adaptive Cards
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
 
-# Building Adaptive Cards (preview)
+# Build Adaptive Cards (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -44,9 +44,9 @@ Each helper wraps raw JSON and provides fluent, chainable methods that keep your
 
 Benefits:
 
-| Benefit     | Description                                                                   |
-| ----------- | ----------------------------------------------------------------------------- |
-| Readability | No deep JSON trees—just chain simple methods.                                 |
+| Benefit | Description |
+| --- | --- |
+| Readability | No deep JSON trees; just chain simple methods.                                 |
 | Re‑use      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
@@ -54,7 +54,7 @@ Benefits:
 
 ---
 
-## Type‑safe Authoring & IntelliSense
+## Type‑safe Authoring and IntelliSense
 
 The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript types.
 While coding you get:
@@ -71,7 +71,7 @@ const textBlock = new TextBlock('Valid', { size: 'huge' });
 
 ---
 
-## The Visual Designer
+## Visual Designer
 
 Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
@@ -183,7 +183,7 @@ app.on('message', async ({ send, activity }) => {
 
 ---
 
-## Additional Resources
+## Additional resources
 
 - **Official Adaptive Card Documentation** — <https://adaptivecards.microsoft.com/>
 - **Adaptive Cards Designer** — <https://adaptivecards.microsoft.com/designer.html>
@@ -196,4 +196,4 @@ app.on('message', async ({ send, activity }) => {
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building! 🎉
+Happy card building!

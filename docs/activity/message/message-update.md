@@ -1,7 +1,7 @@
 ---
-title: Activity - Message Update (preview)
-description: Learn about Activity - Message Update (preview)
+title: Message Update Activity
 ms.topic: reference
+description: Learn about the schema of the message update activity that indicates update of an existing message.
 ms.date: 05/02/2025
 ---
 
@@ -37,4 +37,4 @@ To save the changes, click the checkmark icon or to cancel, click the X icon.
 
 ## Resources
 
-- [Microsoft Teams: Message Update](/bots/build-conversational-capability#receive-edit-message-activity)
+[Microsoft Teams: Message Update](/bots/build-conversational-capability#receive-edit-message-activity)

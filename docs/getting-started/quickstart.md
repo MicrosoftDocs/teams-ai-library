@@ -1,21 +1,21 @@
 ---
-title: Quickstart (preview)
-description: Learn about Quickstart (preview)
-ms.topic: get-started
+title: Quick Start Guide
+ms.topic: how-to
+description: Learn how to install Teams CLI and build your first agent.
 ms.date: 05/02/2025
 ---
 
-# Quickstart (preview)
+# Quick start with Teams AI library v2 (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-Get started with Teams AI Library (v2) quickly using the Teams CLI.
+Get started with Teams AI Library v2 quickly using the Teams CLI.
 
 ## Set up a new project
 
 ### Prerequisites
 
-- **Node.js** v.20 or higher. Install or upgrade from [nodejs.org](https://nodejs.org/).
+**Node.js** v.20 or higher. Install or upgrade from [nodejs.org](https://nodejs.org/).
 
 ## Instructions
 
@@ -97,7 +97,7 @@ Let's navigate to the devtools server. Open your browser and head to [http://loc
 
 Now that you have your first agent running, learn about [the code basics](./code-basics.md) to understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, check out the [Running in Teams](./running-in-teams.md) guide.
+Otherwise, if you want to run your agent in Teams, check out the [running in Teams](./running-in-teams.md) guide.
 
 ## Resources
 

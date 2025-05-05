@@ -1,7 +1,7 @@
 ---
-title: Documentation (preview)
-description: Learn about Documentation (preview)
-ms.topic: how-to
+title: Documentation
+description: Learn about the Documentation assistant that helps in searching documentation.
+ms.topic: reference
 ms.date: 05/02/2025
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: 🛠️ DevTools (preview)
-description: Learn about 🛠️ DevTools (preview)
-ms.topic: how-to
+title: DevTools Overview
+ms.topic: overview
+description: Learn about Devtools and its features.
 ms.date: 05/02/2025
 ---
 
-# 🛠️ DevTools (preview)
+# DevTools (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

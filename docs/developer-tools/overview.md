@@ -1,7 +1,7 @@
 ---
-title: Developer Tools (preview)
-description: Learn about Developer Tools (preview)
-ms.topic: how-to
+title: Developer Tools Overview
+ms.topic: overview
+description: Learn about Developer tools and its features.
 ms.date: 05/02/2025
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Activity - Handoff Action Invoke (preview)
-description: Learn about Activity - Handoff Action Invoke (preview)
+title: Handoff Action Invoke
 ms.topic: reference
+description: Learn about the Handoff Action Invoke activity.
 ms.date: 05/02/2025
 ---
 

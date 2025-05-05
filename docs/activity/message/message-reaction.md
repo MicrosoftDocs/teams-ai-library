@@ -1,7 +1,7 @@
 ---
-title: Message Reaction (preview)
-description: Learn about Message Reaction (preview)
+title: Message Reaction
 ms.topic: reference
+description: Learn about the schema of the message reaction activity that indicates the reaction on a message.
 ms.date: 05/02/2025
 ---
 

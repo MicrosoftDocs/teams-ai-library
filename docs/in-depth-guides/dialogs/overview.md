@@ -1,6 +1,6 @@
 ---
-title: Dialogs (preview)
-description: Learn about Dialogs (preview)
+title: Use Dialogs
+description: Learn how to use dialogs in your agent. 
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

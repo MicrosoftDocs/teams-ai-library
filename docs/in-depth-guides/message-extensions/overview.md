@@ -1,11 +1,11 @@
 ---
-title: 📖 Message Extensions (preview)
-description: Learn about 📖 Message Extensions (preview)
+title: Message Extensions
+description: Learn how to use message extensions in your agent.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
 
-# 📖 Message Extensions (preview)
+# Message Extensions (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -15,4 +15,4 @@ There are two types of message extensions: [API-based](/messaging-extensions/api
 
 ## Resources
 
-- [What are message extensions?](/messaging-extensions/what-are-messaging-extensions?tabs=desktop)
+[What are message extensions?](/messaging-extensions/what-are-messaging-extensions?tabs=desktop)

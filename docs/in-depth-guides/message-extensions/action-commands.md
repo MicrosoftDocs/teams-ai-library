@@ -1,6 +1,6 @@
 ---
-title: Action commands (preview)
-description: Learn about Action commands (preview)
+title: Action commands
+description: Learn how to use Action commands to show modal pop-ups in Teams.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---
@@ -290,4 +290,4 @@ export function createConversationMembersCard(members: Account[]) {
 
 ## Resources
 
-- [Action commands](/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)
+[Action commands](/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)

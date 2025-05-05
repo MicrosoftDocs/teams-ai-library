@@ -1,6 +1,6 @@
 ---
-title: Welcome to Teams AI Library v2 (preview)
-description: Learn about Teams AI Library v2 (preview)
+title: Welcome to Teams AI Library v2
+description: Learn about Teams AI Library v2 and its features.
 ms.topic: overview
 ms.date: 05/02/2025
 ---
@@ -55,7 +55,7 @@ app.on('message', async ({ api, isSignedIn, send, signin }) => {
 })();
 ```
 
-## ⭐ What's new?
+## What's new?
 
 ### Streamlined Developer Experience
 
@@ -69,7 +69,7 @@ We’ve simplified complex integration workflows to help you deliver a richer, m
 
 Get your application up and running in under 30 seconds with our lightning-fast CLI—so you can spend more time on what really matters.
 
-## 🔎 Navigation Tips
+## Navigation Tips
 
 We encourage you to use the left sidebar to navigate to your desired section.
 

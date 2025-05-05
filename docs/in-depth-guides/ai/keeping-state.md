@@ -1,6 +1,6 @@
 ---
-title: Keeping state (preview)
-description: Learn about Keeping state (preview)
+title: Keeping State
+description: Learn how to keep state of the conversation history in your agent.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

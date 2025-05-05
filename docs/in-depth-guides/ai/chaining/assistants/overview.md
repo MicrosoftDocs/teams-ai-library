@@ -1,11 +1,11 @@
 ---
-title: 🧑‍🤝‍🧑 Assistants (preview)
-description: Learn about 🧑‍🤝‍🧑 Assistants (preview)
-ms.topic: how-to
+title: Assistants
+description: Learn about the Assistants.
+ms.topic: overview
 ms.date: 05/02/2025
 ---
 
-# 🧑‍🤝‍🧑 Assistants (preview)
+# Assistants (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

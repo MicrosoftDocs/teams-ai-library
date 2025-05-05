@@ -1,6 +1,6 @@
 ---
-title: Signout (preview)
-description: Learn about Signout (preview)
+title: User Signout
+description: Learn how to signout a user to discard the cached access token.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

@@ -1,7 +1,7 @@
 ---
-title: Activity - Adaptive Card Action Invoke (preview)
-description: Learn about Activity - Adaptive Card Action Invoke (preview)
+title: Adaptive Card Action Invoke
 ms.topic: reference
+description: Learn about the Adaptive Card action invoke activity.
 ms.date: 05/02/2025
 ---
 
@@ -23,8 +23,8 @@ The `Activity.value` field of the invoke activity for an Adaptive Card is `Adapt
 - `action`: `AdaptiveCardInvokeAction` - The action that was performed on the card.
 - `authentication`: `AdaptiveCardAuthentication` - The authentication request for the card.
 - `state`: `string` - magic code for OAuth.
-- `trigger`: `'manual'` - what triggered the action.
+- `trigger`: `manual` - what triggered the action.
 
 ## Resources
 
-- [Microsoft Learn: `AdaptiveCardInvokeValue`](https://learn.microsoft.com/en-us/javascript/api/botframework-schema/adaptivecardinvokevalue?view=botbuilder-ts-latest)
+[Microsoft Learn: `AdaptiveCardInvokeValue`](https://learn.microsoft.com/en-us/javascript/api/botframework-schema/adaptivecardinvokevalue?view=botbuilder-ts-latest)

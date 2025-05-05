@@ -1,7 +1,7 @@
 ---
-title: Project (preview)
-description: Learn about Project (preview)
-ms.topic: how-to
+title: Project
+description: Learn about the Project assistant that helps with project operations.
+ms.topic: reference
 ms.date: 05/02/2025
 ---
 

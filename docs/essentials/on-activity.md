@@ -1,7 +1,7 @@
 ---
-title: Listening To Activities (preview)
-description: Learn about Listening To Activities (preview)
-ms.topic: how-to
+title: Listen to Activities
+ms.topic: reference
+description: Learn how to listen or subscribe to activity types.
 ms.date: 05/02/2025
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Activity - Conversation Update (preview)
-description: Learn about Activity - Conversation Update (preview)
+title: Conversation Update Activity
 ms.topic: reference
+description: Learn about the schema of the conversation update activity.
 ms.date: 05/02/2025
 ---
 

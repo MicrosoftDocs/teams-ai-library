@@ -1,7 +1,7 @@
 ---
-title: Proactive Messaging (preview)
-description: Learn about Proactive Messaging (preview)
-ms.topic: how-to
+title: Proactive Messages
+ms.topic: reference
+description: Learn how to send proactive messages in response to events.
 ms.date: 05/02/2025
 ---
 

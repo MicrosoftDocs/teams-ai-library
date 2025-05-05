@@ -1,6 +1,6 @@
 ---
-title: MCP Server (preview)
-description: Learn about MCP Server (preview)
+title: MCP Server
+description: Learn how to convert your app into an MCP server to expose tools, prompts, and resources to other MCP applications.
 ms.topic: how-to
 ms.date: 05/02/2025
 ---

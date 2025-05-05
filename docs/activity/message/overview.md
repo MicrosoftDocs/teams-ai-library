@@ -1,7 +1,7 @@
 ---
-title: Activity - Message (preview)
-description: Learn about Activity - Message (preview)
-ms.topic: reference
+title: Message Activity
+ms.topic: overview
+description: Learn about the schema of the message activity.
 ms.date: 05/02/2025
 ---
 

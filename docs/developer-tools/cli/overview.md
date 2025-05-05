@@ -1,7 +1,7 @@
 ---
-title: Teams CLI (preview)
-description: Learn about Teams CLI (preview)
-ms.topic: how-to
+title: Teams CLI
+ms.topic: overview
+description: Learn how to install Teams CLI and use it to create an agent.
 ms.date: 05/02/2025
 ---
 
@@ -39,7 +39,7 @@ npm install -g @microsoft/teams.cli@latest
 The `new` token will create a brand new agent with `app-name` applied as the directory name and project name.
 
 > [!NOTE]
-> The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
+> The name you choose may have case changes when applied; for example, "My App" would become "my-app" due to the requirements for `package.json` files.
 
 ### Optional parameters
 

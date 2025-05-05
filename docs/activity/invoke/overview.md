@@ -1,7 +1,7 @@
 ---
-title: Activity - Invoke (preview)
-description: Learn about Activity - Invoke (preview)
-ms.topic: reference
+title: Invoke Activity
+ms.topic: overview
+description: Learn about the schema and value of the invoke activity.
 ms.date: 05/02/2025
 ---
 
@@ -59,4 +59,4 @@ Please see the subsequent sections for more information on the aliases that are 
 
 ## Resources
 
-- [Microsoft Learn: Graph API - Resource specific consent](/graph-api/rsc/resource-specific-consent)
+[Microsoft Learn: Graph API - Resource specific consent](/graph-api/rsc/resource-specific-consent)

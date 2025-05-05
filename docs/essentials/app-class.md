@@ -1,7 +1,7 @@
 ---
-title: App class (preview)
-description: Learn about App class (preview)
-ms.topic: how-to
+title: App class
+ms.topic: reference
+description: Learn how to use app class and its core components and plugins.
 ms.date: 05/02/2025
 ---
 
