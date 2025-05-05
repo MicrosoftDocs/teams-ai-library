@@ -1,8 +1,8 @@
 ---
-title: Activity - Typing (preview)
-description: Learn about Activity - Typing (preview)
+title: Typing Activity
 ms.topic: overview
-ms.date: 04/30/2025
+description: Learn about the schema for the typing activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Typing (preview)

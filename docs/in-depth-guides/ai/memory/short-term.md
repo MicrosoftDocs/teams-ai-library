@@ -1,11 +1,11 @@
 ---
-title: 📓 Memory - Short Term (preview)
-description: Learn about 📓 Memory - Short Term (preview)
+title: Short Term Memory
+description: Learn about short term memory that is used for storing information while problem-solving or decision-making. 
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
-# 📓 Memory: Short Term (preview)
+# Memory: Short Term (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

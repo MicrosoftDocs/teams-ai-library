@@ -1,8 +1,8 @@
 ---
-title: Observability (preview)
-description: Learn about Observability (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+title: Use Observability
+description: Learn about observability.
+ms.topic: hoverview
+ms.date: 05/02/2025
 ---
 
 # Observability (preview)

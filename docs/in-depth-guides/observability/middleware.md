@@ -1,8 +1,8 @@
 ---
-title: Middleware (preview)
-description: Learn about Middleware (preview)
+title: Use Middleware
+description: Learn about using the middleware tool for activties like logging or validation.
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # Middleware (preview)

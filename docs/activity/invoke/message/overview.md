@@ -1,8 +1,8 @@
 ---
-title: Activity - Message Invoke (preview)
-description: Learn about Activity - Message Invoke (preview)
+title: Message Invoke Activity
 ms.topic: overview
-ms.date: 04/30/2025
+description: Learn about the message invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Message Invoke (preview)

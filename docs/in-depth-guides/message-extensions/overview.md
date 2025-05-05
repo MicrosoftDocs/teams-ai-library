@@ -1,12 +1,18 @@
 ---
-title: 📖 [Message Extensions](/messaging-extensions/what-are-messaging-extensions?tabs=desktop) (preview)
-description: Learn about 📖 [Message Extensions](/messaging-extensions/what-are-messaging-extensions?tabs=desktop) (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+title: Message Extensions
+description: Learn how to use message extensions in your agent.
+ms.topic: how-to
+ms.date: 05/02/2025
 ---
 
-# 📖 [Message Extensions](/messaging-extensions/what-are-messaging-extensions?tabs=desktop) (preview)
+# Message Extensions (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-Message extensions (or Compose Extensions) enable users to engage with your web service through buttons and forms within the Microsoft Teams client. Users can search or initiate actions in an external system from the compose message area, the command box, or directly from a message. The results of these interactions can be returned to the Teams client as a richly formatted card.
+Message extensions (or Compose Extensions) allow your application to hook into messages that users can send or perform actions on messages that users have already sent. They enhance user productivity by providing quick access to information and actions directly within the Teams interface. Users can search or initiate actions from the compose message area, the command box, or directly from a message, with the results returned as richly formatted cards that make information more accessible and actionable.
+
+There are two types of message extensions: [API-based](/messaging-extensions/api-based-overview) and [Bot-based](/messaging-extensions/build-bot-based-message-extension?tabs=search-commands). API-based message extensions use an OpenAPI specification that Teams directly queries, requiring no additional application to build or maintain, but offering less customization. Bot-based message extensions require building an application to handle queries, providing more flexibility and customization options. This library supports bot-based message extensions only.
+
+## Resources
+
+[What are message extensions?](/messaging-extensions/what-are-messaging-extensions?tabs=desktop)

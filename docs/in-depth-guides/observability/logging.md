@@ -1,11 +1,11 @@
 ---
-title: 🗃️ Custom Logger (preview)
-description: Learn about 🗃️ Custom Logger (preview)
-ms.topic: how-to
-ms.date: 04/30/2025
+title: Use Custom Logger
+description: Learn about using default or custom logger for your agent.
+ms.topic: reference
+ms.date: 05/02/2025
 ---
 
-# 🗃️ Custom Logger (preview)
+# Custom Logger (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

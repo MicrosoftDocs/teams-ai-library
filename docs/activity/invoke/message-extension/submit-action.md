@@ -1,8 +1,8 @@
 ---
-title: Activity - Message Extension Submit Action Invoke (preview)
-description: Learn about Activity - Message Extension Submit Action Invoke (preview)
+title: Message Extension Submit Action Invoke Activity
 ms.topic: reference
-ms.date: 04/30/2025
+description: Learn about the message extension submit action invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Message Extension Submit Action Invoke (preview)

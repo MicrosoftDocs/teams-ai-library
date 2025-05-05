@@ -1,8 +1,8 @@
 ---
-title: Activity - Adaptive Card Invoke (preview)
-description: Learn about Activity - Adaptive Card Invoke (preview)
+title: Adaptive Card Invoke
 ms.topic: overview
-ms.date: 04/30/2025
+description: Learn about the Adaptive Card invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Adaptive Card Invoke (preview)
@@ -28,4 +28,4 @@ See the next section for more information on the `value` field of the invoke act
 
 ## Resources
 
-- [Microsoft Learn: AC invokes](/task-modules-and-cards/cards/cards-actions?tabs=json#action-type-invoke)
+[Microsoft Learn: AC invokes](/task-modules-and-cards/cards/cards-actions?tabs=json#action-type-invoke)

@@ -1,11 +1,11 @@
 ---
-title: 💬 Devtools Chat (preview)
-description: Learn about 💬 Devtools Chat (preview)
-ms.topic: how-to
-ms.date: 04/30/2025
+title: DevTools Chat
+ms.topic: reference
+description: Learn how to use DevTools to test the chat functionality in your agent.
+ms.date: 05/02/2025
 ---
 
-# 💬 Devtools Chat (preview)
+# Devtools Chat (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -56,11 +56,11 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 ```
 
 > [!NOTE]
-> If you used the [CLI](../cli/overview.md) to create a TTK configuration for your app, DevTools will run on port 3979 when you launch the debugger.
+> If you used the [CLI](../cli/) to create a TTK configuration for your app, DevTools will run on port 3979 when you launch the debugger.
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
+![Devtools chat](../../assets/screenshots/devtools-echo-chat.png)
 
 ## Teams chat terminology
 
@@ -74,11 +74,11 @@ Below is a brief list of the terminology used in the chat window and in Teams:
 The chat window emulates Teams features as closely as possible. Not all Teams features are available in DevTools, but we are working to add more features over time. The following capabilities are available:
 
 > [!IMPORTANT]
-> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize acessibility in future preview releases.
+> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize accessibility in future preview releases.
 
 ### Send messages
 
-You can [send messages](../../essentials/sending-activities.md) to your agent just like in Teams. In the compose box, type your message and press <kbd>Enter</kbd> to send it.
+You can [send messages](../../essentials/sending-messages.md) to your agent just like in Teams. In the compose box, type your message and press <kbd>Enter</kbd> to send it.
 
 ### Attachments
 
@@ -111,11 +111,11 @@ Soft [delete messages](../../activity/message/message-delete.md) by hovering ove
 
 ### Streaming
 
-If your agent is using [streaming](../../in-depth-guides/ai/chat/streaming.md),DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](./inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
+If your agent is using [streaming](../../in-depth-guides/ai/chat.md#streaming-chat-responses), DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](./inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Sending feedback
+### Send feedback
 
-Send [feedback](../../in-depth-guides/ai/feedback.md) to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
+Send [feedback](../../in-depth-guides/feedback.md) to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 
 > [!NOTE]
 > The capabilities above will also populate activities to the Activities page, where you can inspect activity payloads and see the full activity history.

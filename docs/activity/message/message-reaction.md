@@ -1,8 +1,8 @@
 ---
-title: Message Reaction (preview)
-description: Learn about Message Reaction (preview)
+title: Message Reaction
 ms.topic: reference
-ms.date: 04/30/2025
+description: Learn about the schema of the message reaction activity that indicates the reaction on a message.
+ms.date: 05/02/2025
 ---
 
 # Message Reaction (preview)
@@ -31,8 +31,8 @@ The `reactionsRemoved` field contains a list of reactions removed from this acti
 
 Message reactions can be used to express a variety of social interactions on messages sent in Teams chat. By hovering over a message, you can see the available reactions for that message.
 
-![Message reactions UI in Teams](~/assets/screenshots/message-reaction-ui.png)
+![Message reactions UI in Teams](../../assets/screenshots/message-reaction-ui.png)
 
 To react to a message, click the reaction you want to use. This will add the reaction to the message.
 
-![Adding a reaction to a message in Teams](~/assets/screenshots/message-reaction-add.png)
+![Adding a reaction to a message in Teams](../../assets/screenshots/message-reaction-add.png)

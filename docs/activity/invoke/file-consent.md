@@ -1,8 +1,8 @@
 ---
-title: Activity - File Consent Invoke (preview)
-description: Learn about Activity - File Consent Invoke (preview)
+title: File Consent Invoke Activity
 ms.topic: reference
-ms.date: 04/30/2025
+description: Learn about executing the Action Invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: File Consent Invoke (preview)

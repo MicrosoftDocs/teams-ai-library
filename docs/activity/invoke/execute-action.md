@@ -1,8 +1,8 @@
 ---
-title: Activity - Execute Action Invoke (preview)
-description: Learn about Activity - Execute Action Invoke (preview)
+title: Execute Action Invoke Activity
 ms.topic: reference
-ms.date: 04/30/2025
+description: Learn about executing the Action Invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Execute Action Invoke (preview)

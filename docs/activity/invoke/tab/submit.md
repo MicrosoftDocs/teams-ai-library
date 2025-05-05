@@ -1,8 +1,8 @@
 ---
-title: Activity - Tab Submit Invoke (preview)
-description: Learn about Activity - Tab Submit Invoke (preview)
+title: Tab Submit Invoke Activity
 ms.topic: reference
-ms.date: 04/30/2025
+description: Learn about the tab submit invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Tab Submit Invoke (preview)

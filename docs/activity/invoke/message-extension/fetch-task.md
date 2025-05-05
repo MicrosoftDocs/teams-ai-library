@@ -1,8 +1,8 @@
 ---
-title: Activity - Message Extension Fetch Task Invoke (preview)
-description: Learn about Activity - Message Extension Fetch Task Invoke (preview)
+title: Message Extension Fetch Task Invoke Activity
 ms.topic: reference
-ms.date: 04/30/2025
+description: Learn about the message extension fetch task invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Message Extension Fetch Task Invoke (preview)

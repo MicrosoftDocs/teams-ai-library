@@ -1,8 +1,8 @@
 ---
-title: Adaptive Cards (preview)
-description: Learn about Adaptive Cards (preview)
-ms.topic: overview
-ms.date: 04/30/2025
+title: Adaptive Cards
+description: Learn about using Adaptive Cards in your agents.
+ms.topic: how-to
+ms.date: 05/02/2025
 ---
 
 # Adaptive Cards (preview)

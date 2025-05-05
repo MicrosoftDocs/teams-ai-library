@@ -1,6 +1,6 @@
 ---
-title: Streaming (preview)
-description: Learn about Streaming (preview)
+title: Streaming messages
+description: Learn about Streaming messages in 
 ms.topic: how-to
 ms.date: 04/30/2025
 ---

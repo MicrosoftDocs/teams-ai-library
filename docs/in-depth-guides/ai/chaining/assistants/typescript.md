@@ -1,8 +1,8 @@
 ---
-title: Typescript (preview)
-description: Learn about Typescript (preview)
-ms.topic: how-to
-ms.date: 04/30/2025
+title: Typescript
+description: Learn about the Typescript assistant that helps with the TypeScript knowledge.
+ms.topic: reference
+ms.date: 05/02/2025
 ---
 
 # Typescript (preview)

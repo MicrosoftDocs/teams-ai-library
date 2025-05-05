@@ -1,8 +1,8 @@
 ---
-title: Activity - Config Invoke (preview)
-description: Learn about Activity - Config Invoke (preview)
+title: Configure Invoke
 ms.topic: overview
-ms.date: 04/30/2025
+description: Learn about the Invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Config Invoke (preview)

@@ -1,0 +1,24 @@
+---
+title: Functions
+description: Learn how to add functions that the LLM can call as needed.
+ms.topic: how-to
+ms.date: 05/02/2025
+---
+
+# Functions (preview)
+
+[This article is prerelease documentation and is subject to change.]
+
+It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
+
+```typescript
+{{#include ../../../generated-snippets/ts/tool-calling.snippet.single-function-calling.ts }}
+```
+
+## Multiple functions
+
+Additionally, for complex scenarios, you can add multiple functions to the `ChatPrompt`. The LLM will then decide which function to call based on the context of the conversation. The LLM can pick one or more functions to call before returning the final response.
+
+```typescript
+{{#include ../../../generated-snippets/ts/tool-calling.snippet.multiple-function-calling.ts }}
+```

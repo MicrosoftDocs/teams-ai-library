@@ -1,8 +1,8 @@
 ---
-title: Activity - Conversation Update Events (preview)
-description: Learn about Activity - Conversation Update Events (preview)
+title: Conversation Update Events Activity
 ms.topic: reference
-ms.date: 04/30/2025
+description: Learn about the default and custom conversation update events.
+ms.date: 05/02/2025
 ---
 
 # Activity: Conversation Update Events (preview)
@@ -51,19 +51,19 @@ The following events are custom to Teams and are not part of the original Agents
 
 ## Table of conversation update events
 
-| Event                | Action taken                                       | Scope                 |
-| -------------------- | -------------------------------------------------- | --------------------- |
-| `'channelCreated'`   | Channel created                                    | Team                  |
-| `'channelDeleted'`   | Channel deleted                                    | Team                  |
-| `'channelRenamed'`   | Channel renamed                                    | Team                  |
-| `'channelRestored'`  | Channel restored                                   | Team                  |
-| `'historyDisclosed'` | _Deprecated._ Whether channel history is disclosed | Team                  |
-| `'membersAdded'`     | List of members added                              | Personal, Group, Team |
-| `'membersRemoved'`   | List of members removed                            | Personal, Group, Team |
-| `'teamRenamed'`      | Team is renamed                                    | Team                  |
-| `'teamDeleted'`      | Team is deleted                                    | Team                  |
-| `'teamHardDeleted'`  | Team is permanently deleted                        | Team                  |
-| `'teamArchived'`     | Team is archived                                   | Team                  |
-| `'teamUnarchived'`   | Team is unarchived                                 | Team                  |
-| `'teamRestored'`     | Team is restored after being deleted               | Team                  |
-| `'topicName'`        | Chat's display name for a group chat               | Group                 |
+| Event | Action taken | Scope |
+| --- | --- | --- |
+| `channelCreated`   | Channel created                                    | Team                  |
+| `channelDeleted`   | Channel deleted                                    | Team                  |
+| `channelRenamed`   | Channel renamed                                    | Team                  |
+| `channelRestored`  | Channel restored                                   | Team                  |
+| `historyDisclosed` | _Deprecated._ Whether channel history is disclosed | Team                  |
+| `membersAdded`     | List of members added                              | Personal, Group, Team |
+| `membersRemoved`   | List of members removed                            | Personal, Group, Team |
+| `teamRenamed`      | Team is renamed                                    | Team                  |
+| `teamDeleted`      | Team is deleted                                    | Team                  |
+| `teamHardDeleted`  | Team is permanently deleted                        | Team                  |
+| `teamArchived`     | Team is archived                                   | Team                  |
+| `teamUnarchived`   | Team is unarchived                                 | Team                  |
+| `teamRestored`     | Team is restored after being deleted               | Team                  |
+| `topicName`        | Chat's display name for a group chat               | Group                 |

@@ -1,11 +1,11 @@
 ---
-title: Handling Dialog Submissions (preview)
-description: Learn about Handling Dialog Submissions (preview)
+title: Handle Dialog Submissions
+description: Learn how to handle submissions when a user submits a dialog.
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
-# Handling Dialog Submissions (preview)
+# Handle Dialog Submissions (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,22 +1,25 @@
 ---
-title: Teams AI Library v2 (preview)
-description: Learn about Teams AI Library v2 (preview)
+title: Welcome to Teams AI Library v2
+description: Learn about Teams AI Library v2 and its features.
 ms.topic: overview
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
-# Teams AI Library v2 (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Welcome to Teams AI Library v2 (preview)
 
 Teams AI Library v2 is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
 
 ## Quick start
 
-The Teams CLI makes it easy to bootstrap your first agent.
+The Teams CLI makes it easy to bootstrap your first agent. First, install the CLI via NPM:
 
 ```sh
 npm install -g @microsoft/teams.cli@latest
+```
+
+Next, use the CLI to create your agent:
+
+```sh
 teams new quote-agent --template echo
 ```
 
@@ -24,7 +27,7 @@ For more information, follow our [quick start guide](../getting-started/quicksta
 
 ## Overview
 
-Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams AI v2. Whether you are building [AI-powered agents](../in-depth-guides/ai/overview.md), [message extensions](../in-depth-guides/message-extensions/overview.md), embedded web applications, or Graph, Teams AI v2 has you covered.
+Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams AI v2. Whether you are building [AI-powered agents](../in-depth-guides/ai/), [message extensions](../in-depth-guides/message-extensions/), embedded web applications, or Graph, Teams AI v2 has you covered.
 
 Here is a simple example, which responds to incoming messages with information retrieved from Graph.
 
@@ -52,7 +55,7 @@ app.on('message', async ({ api, isSignedIn, send, signin }) => {
 })();
 ```
 
-## ⭐ What's new?
+## What's new?
 
 ### Streamlined Developer Experience
 
@@ -66,7 +69,7 @@ We’ve simplified complex integration workflows to help you deliver a richer, m
 
 Get your application up and running in under 30 seconds with our lightning-fast CLI—so you can spend more time on what really matters.
 
-## 🔎 Navigation Tips
+## Navigation Tips
 
 We encourage you to use the left sidebar to navigate to your desired section.
 

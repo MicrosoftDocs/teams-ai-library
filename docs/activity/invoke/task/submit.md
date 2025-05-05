@@ -1,8 +1,8 @@
 ---
-title: Activity - Task Submit Invoke (preview)
-description: Learn about Activity - Task Submit Invoke (preview)
+title: Task Submit Invoke Activity
 ms.topic: reference
-ms.date: 04/30/2025
+description: Learn about the task submit invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Task Submit Invoke (preview)

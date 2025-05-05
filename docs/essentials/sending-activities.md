@@ -1,11 +1,11 @@
 ---
-title: 💬 Sending Activities (preview)
-description: Learn about 💬 Sending Activities (preview)
-ms.topic: how-to
+title: Send Activity
+ms.topic: reference
+description: Learn how to send activity or to stream chunks of an activity.
 ms.date: 04/30/2025
 ---
 
-# 💬 Sending Activities (preview)
+# Sending Activities (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

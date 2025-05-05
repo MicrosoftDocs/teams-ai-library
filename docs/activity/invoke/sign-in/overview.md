@@ -1,8 +1,8 @@
 ---
-title: Activity - Sign In Invoke (preview)
-description: Learn about Activity - Sign In Invoke (preview)
+title: Sign In Invoke Activity
 ms.topic: overview
-ms.date: 04/30/2025
+description: Learn about the sign in invoke activity.
+ms.date: 05/02/2025
 ---
 
 # Activity: Sign In Invoke (preview)

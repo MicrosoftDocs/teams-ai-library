@@ -1,11 +1,11 @@
 ---
-title: at-mention (preview)
-description: Learn about at-mention (preview)
-ms.topic: how-to
+title: Mention
+ms.topic: reference
+description: Learn how to use @mention a user to send a message.
 ms.date: 04/30/2025
 ---
 
-# `@mention` (preview)
+# @Mention (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,15 +1,15 @@
 ---
-title: MCP (Model Context Protocol) (preview)
-description: Learn about MCP (Model Context Protocol) (preview)
+title: Model Context Protocol
+description: Learn about Model Context Protocol (MCP).
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/02/2025
 ---
 
 # MCP (Model Context Protocol) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-Teams AI Library supports [MCP](https://modelcontextprotocol.io/introduction) as an optional add-on both as a service or as a client.
+Teams AI Library supports Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) as an optional add-on both as a service or as a client.
 
 ## MCP Server
 

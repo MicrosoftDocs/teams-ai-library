@@ -1,11 +1,11 @@
 ---
-title: 👂 Listening To Message Activities (preview)
-description: Learn about 👂 Listening To Message Activities (preview)
-ms.topic: how-to
+title: Listen to Message Activity
+ms.topic: reference
+description: Learn how to listen or subscribe to messages.
 ms.date: 04/30/2025
 ---
 
-# 👂 Listening To Message Activities (preview)
+# Listening To Message Activities (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
