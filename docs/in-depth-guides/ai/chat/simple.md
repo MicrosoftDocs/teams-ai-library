@@ -36,7 +36,7 @@ const generateEmojis = async (message: string) => {
 
 Somewhere else in the app:
 
-```ts
+```typescript
 app.on('message', async ({ send, activity }) => {
   await send({ type: 'typing' });
   const emoji = await generateEmojis(activity.text);

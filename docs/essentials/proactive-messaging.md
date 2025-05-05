@@ -13,7 +13,7 @@ In [Sending Messages](./sending-messages.md), we show how we can respond to an e
 
 The main thing to note is that you need to have the `conversationId` of the chat or channel you want to send the message to. It's a good idea to store this value somewhere from an activity handler so you can use it for proactive messaging later.
 
-```ts
+```typescript
 // This would be some persistent storage
 const myConversationIdStorage = new Map<string, string>();
 
@@ -31,7 +31,7 @@ app.on('install.add', async ({ activity, send}) => {
 
 Then, when you want to send a proactive message, you can retrieve the `conversationId` from storage and use it to send the message.
 
-```ts
+```typescript
 const sendProactiveNotification = async (userId: string) => {
   const conversationId = myConversationIdStorage.get(userId);
   if (!conversationId) {

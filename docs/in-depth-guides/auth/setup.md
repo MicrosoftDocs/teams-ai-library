@@ -20,7 +20,7 @@ There are a few ways you can enable your application to access secured external 
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
 
 > [!note]
-> See [How Auth Works](./auth-sso.md) to learn more about how authentication works. 
+> See [How Auth Works](./setup.md) to learn more about how authentication works. 
 
 ### Manual setup
 
@@ -57,5 +57,5 @@ You can follow the [Add authentication to bot app](/bots/how-to/authentication/a
 
 ## Resources
 
-- [User Authentication Basics](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
 - [User Authentication in Teams](/concepts/authentication/authentication)

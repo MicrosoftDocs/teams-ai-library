@@ -11,7 +11,7 @@ ms.date: 05/02/2025
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `send` method is provided which allows your handlers to send a message back to the user to the relevant conversation.
 
-```ts
+```typescript
 app.on('message', async ({ activity, send }) => {
   await send(`You said: ${activity.text}`);
 });
@@ -19,7 +19,7 @@ app.on('message', async ({ activity, send }) => {
 
 In the above example, the handler gets a `message` activity, and uses the `send` method to send a reply to the user.
 
-```ts
+```typescript
 app.on('signin.verify-state', async ({ send }) => {
   await send('You have successfully signed in!');
 });

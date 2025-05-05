@@ -19,7 +19,7 @@ With `@microsoft/teams.cards` you can build these cards entirely in TypeScript /
 `@microsoft/teams.cards` exposes small **builder helpers** (`Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._).
 Each helper wraps raw JSON and provides fluent, chainable methods that keep your code concise and readable.
 
-```ts
+```typescript
   /**
  import {
   Card,
@@ -63,7 +63,7 @@ While coding you get:
 - **In‑editor validation**—invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
-```ts
+```typescript
 // @ts-expect-error: "huge" is not a valid size for TextBlock
 const textBlock = new TextBlock('Valid', { size: 'huge' });
 
@@ -79,12 +79,12 @@ Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](ht
 2. Copy the JSON payload from the editor pane.
 3. Paste the JSON into your project **or** convert it to builder calls:
 
-```ts
+```typescript
 const cardJson = /* copied JSON */;
 const card = new Card().withBody(cardJson);
 ```
 
-```ts
+```typescript
 const rawCard: ICard = {
   type: 'AdaptiveCard',
   body: [
@@ -142,7 +142,7 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 
 Below is a complete example showing a task management form. Notice how the builder pattern keeps the file readable and maintainable:
 
-```ts
+```typescript
 app.on('message', async ({ send, activity }) => {
   await send({ type: 'typing' });
   const card = new Card().withBody(

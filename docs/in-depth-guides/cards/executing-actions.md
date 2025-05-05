@@ -36,7 +36,7 @@ The Teams AI Library supports several action types for different interaction pat
 
 The SDK provides builder helpers that abstract the underlying JSON. For example:
 
-```ts
+```typescript
 /** import { ExecuteAction } from "@microsoft/teams.cards"; */
 new ExecuteAction({ title: 'Submit Feedback' })
   .withData({ action: 'submit_feedback' })
@@ -48,7 +48,7 @@ new ExecuteAction({ title: 'Submit Feedback' })
 
 Group actions together using `ActionSet`:
 
-```ts
+```typescript
 /**
  * import {
  *  Card,
@@ -70,7 +70,7 @@ new ActionSet(
 
 Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get typesafety for free in typescript.
 
-```ts
+```typescript
 {
   type: 'Action.OpenUrl',
   url: 'https://adaptivecards.microsoft.com',
@@ -87,7 +87,7 @@ Just like when building cards, if you prefer to work with raw JSON, you can do j
 
 Sometimes you want to send a card and have it be associated with some data. Set the `data` value to be sent back to the client so you can associate it with a particular entity.
 
-```ts
+```typescript
 function editProfileCard() {
   const card = new Card().withBody(
     new TextInput({ id: 'name' }).withLabel('Name').withValue('John Doe'),
@@ -123,7 +123,7 @@ function editProfileCard() {
 
 Input Controls provide ways for you to validate. More details can be found on the Adaptive Cards [documentation](https://adaptivecards.microsoft.com/?topic=input-validation).
 
-```ts
+```typescript
 function createProfileCardInputValidation() {
   const ageInput = new NumberInput({ id: 'age' })
     .withLabel('Age')
@@ -161,7 +161,7 @@ function createProfileCardInputValidation() {
 
 Card actions arrive as `card.action` activities in your app. These give you access to the validated input values plus any `data` values you had configured to be sent back to you.
 
-```ts
+```typescript
 app.on('card.action', async ({ activity, send }) => {
   const data = activity.value?.action?.data;
   if (!data?.action) {

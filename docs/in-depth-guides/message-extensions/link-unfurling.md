@@ -39,7 +39,7 @@ When a user pastes a URL from your registered domain (like `www.test.com`) into 
 
 Handle link unfurling when a URL from your registered domain is submited into the Teams compose box.
 
-```ts
+```typescript
 app.on('message.ext.query-link', async ({ activity }) => {
   const { url } = activity.value;
 
@@ -66,7 +66,7 @@ app.on('message.ext.query-link', async ({ activity }) => {
 
 `createLinkUnfurlCard()` function
 
-```ts
+```typescript
 export function createLinkUnfurlCard(url: string) {
   const thumbnail = {
     title: 'Unfurled Link',

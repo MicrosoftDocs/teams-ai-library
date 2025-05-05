@@ -13,7 +13,7 @@ Dialogs have a specific `dialog.submit` event to handle submissions. When a user
 
 In this example, we show how to handle dialog submissions from an Adaptive Card form:
 
-```ts
+```typescript
 app.on('dialog.submit', async ({ activity, send, next }) => {
   const dialogType = activity.value.data?.submissiondialogtype;
 
@@ -36,7 +36,7 @@ app.on('dialog.submit', async ({ activity, send, next }) => {
 
 Similarly, handling dialog submissions from rendered webpages is also possible:
 
-```ts
+```typescript
 // The submission from a webpage happens via the microsoftTeams.tasks.submitTask(formData)
 // call.
 app.on('dialog.submit', async ({ activity, send, next }) => {

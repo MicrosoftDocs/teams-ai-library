@@ -34,7 +34,7 @@ npx @microsoft/teams.cli config add ttk.basic
 > The `ttk.basic` configuration is a basic setup for Teams Toolkit. It includes the necessary files and configuration to get started with Teams development.<br/>
 > Explore more advanced configurations as needed with teams config --help.<br>
 
-This [CLI](../developer-tools/cli) command adds configuration files required by Teams Toolkit, including:
+This [CLI](../developer-tools/cli/overview.md) command adds configuration files required by Teams Toolkit, including:
 
 - Environment setup in the `env` folder and root `.env` file
 - Teams app manifest in the `appPackage` folder (if not already present)
@@ -101,7 +101,7 @@ After the debugging session starts:
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 
 > [!TIP]
-> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](../developer-tools/devtools/)! Note that the DevTools server is running on port 3979. You can open it in your browser to interact with your agent and monitor activities in real time.
+> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](../developer-tools/devtools/overview.md)! Note that the DevTools server is running on port 3979. You can open it in your browser to interact with your agent and monitor activities in real time.
 
 ## Troubleshooting
 
@@ -111,16 +111,15 @@ While Teams AI v2 SDK heavily endorses Teams Tookit (TTK), you can run your agen
 > Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/toolkit/overview) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
 
 > [!CAUTION]
-> Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](https://learn.microsoft.com/en-us/microsoftteams/deploy-overview).
+> Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview).
 
 ## Next steps
 
-Now that your agent is running in Teams, you can learn more [essential concepts](../essentials) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides) for advanced topics like authentication, message extensions, and more.
+Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/overview.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides/cards/overview.md) for advanced topics like authentication, message extensions, and more.
 
 ## Resources
 
-- [Teams CLI documentation](../developer-tools/cli/)
-- [Teams Toolkit documentation](/toolkit/overview)
-- [Teams Toolkit CLI documentation](/toolkit/cli)
+- [Teams CLI documentation](../developer-tools/cli/overview.md)
+- [Teams Toolkit documentation](/toolkit/teams-toolkit-fundamentals)
+- [Teams Toolkit CLI documentation](/toolkit/teams-toolkit-cli)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
-- [Microsoft Teams deployment documentation](https://learn.microsoft.com/en-us/microsoftteams/deploy-overview)

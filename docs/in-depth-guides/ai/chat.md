@@ -23,13 +23,13 @@ Chat generation is the the most basic way of interacting with an LLM model. It i
 
 Import the relevant objects:
 
-```ts
+```typescript
 import { ChatPrompt } from "@microsoft/teams.ai";
 import { OpenAIChatModel } from "@microsoft/teams.openai";
 
 ```
 
-```ts
+```typescript
 app.on("message", async ({ send, activity, next }) => {
   const model = new OpenAIChatModel({
     apiKey: process.env.AZURE_OPENAI_API_KEY || process.env.OPENAI_API_KEY,
@@ -63,7 +63,7 @@ LLMs can take a while to generate a response, so often streaming the response le
 > [!IMPORTANT]
 > Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
 
-```ts
+```typescript
 app.on("message", async ({ stream, send, activity, next }) => {
   // const query = activity.text;
 
