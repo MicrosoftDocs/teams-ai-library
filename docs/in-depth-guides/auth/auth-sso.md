@@ -72,7 +72,7 @@ When an access token expires, the user will need to go through the sign-in proce
 
 ## Resources
 
-- [User Authentication Basics](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
 - [User Authentication in Teams](/concepts/authentication/authentication)
 - [Enable SSO for bot and message extension app using Entra ID](/bots/how-to/authentication/bot-sso-overview)
 - [Add authentication to your Teams bot](/bots/how-to/authentication/add-authentication)
