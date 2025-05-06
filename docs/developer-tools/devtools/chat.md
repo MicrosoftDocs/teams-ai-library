@@ -103,17 +103,17 @@ Check your app's connectivity in three ways:
 
 ### Message reactions
 
-You can [react to messages](../../activity/message/message-reaction.md) selecting an emoji in the message actions menu.
+You can react to messages selecting an emoji in the message actions menu.
 
 ![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true)
 
 ### Edit your message
 
-[Edit messages](../../activity/message/message-update.md) by selecting the Edit (pencil) icon from the message actions menu. Press Enter or the checkmark button to send the edited message, or the Dismiss (X) button to cancel.
+Edit messages by selecting the Edit (pencil) icon from the message actions menu. Press Enter or the checkmark button to send the edited message, or the Dismiss (X) button to cancel.
 
 ### Delete your message
 
-Soft [delete messages](../../activity/message/message-delete.md) by hovering over your message, pressing the More (ellipsis) button, then the Delete (trash) button. Click "Undo" to restore the message.
+Soft delete messages by hovering over your message, pressing the More (ellipsis) button, then the Delete (trash) button. Click "Undo" to restore the message.
 
 ### Streaming
 
