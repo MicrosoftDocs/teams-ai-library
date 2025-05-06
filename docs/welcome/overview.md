@@ -1,4 +1,10 @@
-<center><h1>Teams AI Library v2</h1></center>
+---
+title: Teams AI Library v2 overview (preview)
+description: Learn about Teams AI Library v2 (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+# Teams AI Library v2
 
 Teams AI Library v2 is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
 
