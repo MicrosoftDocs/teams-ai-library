@@ -1,11 +1,11 @@
 ---
-title: Handle Dialog Submissions
-description: Learn how to handle submissions when a user submits a dialog.
+title: Handling Dialog Submissions (preview)
+description: Learn about Handling Dialog Submissions (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
-# Handle Dialog Submissions (preview)
+# Handling Dialog Submissions (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -13,7 +13,8 @@ Dialogs have a specific `dialog.submit` event to handle submissions. When a user
 
 In this example, we show how to handle dialog submissions from an Adaptive Card form:
 
-```ts
+<!-- langtabs-start -->
+```typescript
 app.on('dialog.submit', async ({ activity, send, next }) => {
   const dialogType = activity.value.data?.submissiondialogtype;
 
@@ -31,12 +32,13 @@ app.on('dialog.submit', async ({ activity, send, next }) => {
   }
 
 });
-
 ```
+<!-- langtabs-end -->
 
 Similarly, handling dialog submissions from rendered webpages is also possible:
 
-```ts
+<!-- langtabs-start -->
+```typescript
 // The submission from a webpage happens via the microsoftTeams.tasks.submitTask(formData)
 // call.
 app.on('dialog.submit', async ({ activity, send, next }) => {
@@ -54,5 +56,5 @@ app.on('dialog.submit', async ({ activity, send, next }) => {
   }
 
 });
-
 ```
+<!-- langtabs-end -->

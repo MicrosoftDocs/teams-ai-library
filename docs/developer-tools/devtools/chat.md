@@ -1,8 +1,8 @@
 ---
-title: DevTools Chat
-ms.topic: reference
-description: Learn how to use DevTools to test the chat functionality in your agent.
-ms.date: 05/02/2025
+title: Devtools Chat (preview)
+description: Learn about Devtools Chat (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Devtools Chat (preview)
@@ -24,9 +24,11 @@ Use the Teams AI v2 dev package as a plugin.
 
 Add the dev package to your Teams app.
 
+<!-- langtabs-start -->
 ```bash
-$: npm install @microsoft/teams.dev
+$: npm install @microsoft/teams.dev@preview
 ```
+<!-- langtabs-end -->
 
 ### Usage
 
@@ -35,6 +37,7 @@ In your app's main file, ensure DevTools plugin is added to the app.
 > [!CAUTION]
 > DevTools is not secure and should not be used in production environments. Remove the plugin before deploying your app to production.
 
+<!-- langtabs-start -->
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common/logging';
@@ -45,22 +48,25 @@ const app = new App({
   plugins: [new DevtoolsPlugin()],
 });
 ```
+<!-- langtabs-end -->
 
 When you run your app, for example `npm run dev`, devtools will be running on port 3001
 
+<!-- langtabs-start -->
 ```bash
 [nodemon] watching extensions: ts
 [nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
 [INFO] @samples/echo/http listening on port 3000 🚀
 [INFO] @samples/echo/devtools available at http://localhost:3001/devtools
 ```
+<!-- langtabs-end -->
 
 > [!NOTE]
-> If you used the [CLI](../cli/) to create a TTK configuration for your app, DevTools will run on port 3979 when you launch the debugger.
+> If you used the [CLI](../cli/overview.md) to create a TTK configuration for your app, DevTools will run on port 3979 when you launch the debugger.
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](../../assets/screenshots/devtools-echo-chat.png)
+![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
 
 ## Teams chat terminology
 
@@ -97,21 +103,21 @@ Check your app's connectivity in three ways:
 
 ### Message reactions
 
-You can [react to messages](../../activity/message/message-reaction.md) selecting an emoji in the message actions menu.
+You can react to messages selecting an emoji in the message actions menu.
 
 ![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true)
 
 ### Edit your message
 
-[Edit messages](../../activity/message/message-update.md) by selecting the Edit (pencil) icon from the message actions menu. Press Enter or the checkmark button to send the edited message, or the Dismiss (X) button to cancel.
+Edit messages by selecting the Edit (pencil) icon from the message actions menu. Press Enter or the checkmark button to send the edited message, or the Dismiss (X) button to cancel.
 
 ### Delete your message
 
-Soft [delete messages](../../activity/message/message-delete.md) by hovering over your message, pressing the More (ellipsis) button, then the Delete (trash) button. Click "Undo" to restore the message.
+Soft delete messages by hovering over your message, pressing the More (ellipsis) button, then the Delete (trash) button. Click "Undo" to restore the message.
 
 ### Streaming
 
-If your agent is using [streaming](../../in-depth-guides/ai/chat.md#streaming-chat-responses), DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](./inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
+If your agent is using [streaming](../../in-depth-guides/ai/chat.md#streaming-chat-responses),DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
 ### Send feedback
 

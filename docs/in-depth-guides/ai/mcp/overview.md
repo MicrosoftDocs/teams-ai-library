@@ -1,8 +1,8 @@
 ---
-title: Model Context Protocol
-description: Learn about Model Context Protocol. 
+title: MCP (preview)
+description: Learn about MCP (preview)
 ms.topic: overview
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # MCP (preview)

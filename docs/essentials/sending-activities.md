@@ -9,6 +9,8 @@ ms.date: 04/30/2025
 
 [This article is prerelease documentation and is subject to change.]
 
+[This article is prerelease documentation and is subject to change.]
+
 To send an activity you can either use the `send` or `reply` methods. You can also `stream` chunks of an activity.
 
 ## Send

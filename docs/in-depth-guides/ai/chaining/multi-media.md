@@ -1,8 +1,8 @@
 ---
-title: Multi-Media
-description: Learn about the Multi-Media assistant.
-ms.topic: reference
-ms.date: 05/02/2025
+title: Multi Media (preview)
+description: Learn about Multi Media (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Multi Media (preview)

@@ -1,39 +1,44 @@
 ---
-title: Sending Messages
-description: Learn how to send messages in your agent.
+title: Sending Messages (preview)
+description: Learn about Sending Messages (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
-# Send Messages (preview)
+# Sending Messages (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-Sending messages is a core part of an agent's functionality. With all activity handlers, a `send` method is provided which allows your handlers to send a message back to the user to the relevant conversation.
+Sending messages is a core part of an agent's functionality. With all activity handlers, a `send` method is provided which allows your handlers to send a message back to the user to the relevant conversation. 
 
-```ts
+<!-- langtabs-start -->
+```typescript
 app.on('message', async ({ activity, send }) => {
   await send(`You said: ${activity.text}`);
 });
 ```
+<!-- langtabs-end -->
 
 In the above example, the handler gets a `message` activity, and uses the `send` method to send a reply to the user.
 
-```ts
+<!-- langtabs-start -->
+```typescript
 app.on('signin.verify-state', async ({ send }) => {
   await send('You have successfully signed in!');
 });
 ```
+<!-- langtabs-end -->
 
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `signin.verify-state` events, which are sent when a user successfully signs in. 
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [Adaptive Cards](../in-depth-guides/cards/) by using the same `send` method. Look at the [Adaptive Card](../in-depth-guides) section for more details.
+> This shows an example of sending a text message. Additionally, you are able to send back things like Adaptive Cards by using the same `send` method. Look at the [Adaptive Card](../in-depth-guides/cards/overview.md) section for more details.
 
 ## Streaming
 
 You may also stream messages to the user which can be useful for long messages, or AI generated messages. The library makes this simple for you by providing a `stream` function which you can use to send messages in chunks.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('message', async ({ activity, stream }) => {
   stream.emit('hello');
@@ -43,6 +48,7 @@ app.on('message', async ({ activity, stream }) => {
   // result message: "hello, world!"
 });
 ```
+<!-- langtabs-end -->
 
 > [!NOTE]
 > Streaming is currently only supported in 1:1 conversations, not group chats or channels
@@ -53,8 +59,10 @@ app.on('message', async ({ activity, stream }) => {
 
 Sending a message at `@mentions` a user is as simple including the details of the user using the `addMention` method
 
+<!-- langtabs-start -->
 ```typescript
 app.on('message', async ({ send, activity }) => {
   await send(new MessageActivity('hi!').addMention(activity.from));
 });
 ```
+<!-- langtabs-end -->

@@ -1,8 +1,8 @@
 ---
-title: Cards
-ms.topic: reference
-description: Learn how to use Adaptive Cards in your agent.
-ms.date: 05/02/2025
+title: Cards (preview)
+description: Learn about Cards (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Cards (preview)

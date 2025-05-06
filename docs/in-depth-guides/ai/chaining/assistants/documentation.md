@@ -1,8 +1,8 @@
 ---
-title: Documentation
-description: Learn about the Documentation assistant that helps in searching documentation.
-ms.topic: reference
-ms.date: 05/02/2025
+title: Documentation (preview)
+description: Learn about Documentation (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Documentation (preview)
@@ -11,6 +11,7 @@ ms.date: 05/02/2025
 
 The assistant that specializes in documentation searching.
 
+<!-- langtabs-start -->
 ```bash
 src
 ├── prompts
@@ -19,9 +20,11 @@ src
 │   └── typescript.ts
 └── developer.ts
 ```
+<!-- langtabs-end -->
 
 ## `/src/prompts/documentation.ts`
 
+<!-- langtabs-start -->
 ```typescript
 import { ChatPrompt } from '@microsoft/teams.ai';
 import { OpenAIChatModel } from '@microsoft/teams.openai';
@@ -53,3 +56,4 @@ export const documentation = new ChatPrompt({
   }
 );
 ```
+<!-- langtabs-end -->

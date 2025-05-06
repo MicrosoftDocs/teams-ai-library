@@ -1,8 +1,8 @@
 ---
-title: Executing Actions
-description: Learn how to execute Adaptive Cards actions. 
+title: Executing Actions (preview)
+description: Learn about Executing Actions (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Executing Actions (preview)
@@ -18,8 +18,8 @@ You can use these to collect form input, trigger workflows, show task modules, o
 
 The Teams AI Library supports several action types for different interaction patterns:
 
-| Action Type | Purpose | Description |
-| --- | --- | --- |
+| Action Type               | Purpose                | Description                                                                  |
+| ------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
 | `Action.Execute`          | Server‑side processing | Send data to your bot for processing. Best for forms & multi‑step workflows. |
 | `Action.Submit`           | Simple data submission | Legacy action type. Prefer `Execute` for new projects.                       |
 | `Action.OpenUrl`          | External navigation    | Open a URL in the user's browser.                                            |
@@ -36,19 +36,21 @@ The Teams AI Library supports several action types for different interaction pat
 
 The SDK provides builder helpers that abstract the underlying JSON. For example:
 
-```ts
+<!-- langtabs-start -->
+```typescript
 /** import { ExecuteAction } from "@microsoft/teams.cards"; */
 new ExecuteAction({ title: 'Submit Feedback' })
   .withData({ action: 'submit_feedback' })
   .withAssociatedInputs('auto'),
-
 ```
+<!-- langtabs-end -->
 
 ### Action Sets
 
 Group actions together using `ActionSet`:
 
-```ts
+<!-- langtabs-start -->
+```typescript
 /**
  * import {
  *  Card,
@@ -63,21 +65,22 @@ new ActionSet(
     .withAssociatedInputs('auto'),
   new OpenUrlAction('https://adaptivecards.microsoft.com').withTitle('Learn More')
 )
-
 ```
+<!-- langtabs-end -->
 
 ### Raw JSON Alternative
 
 Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get typesafety for free in typescript.
 
-```ts
+<!-- langtabs-start -->
+```typescript
 {
   type: 'Action.OpenUrl',
   url: 'https://adaptivecards.microsoft.com',
   title: 'Learn More',
 } as const
-
 ```
+<!-- langtabs-end -->
 
 ---
 
@@ -87,7 +90,8 @@ Just like when building cards, if you prefer to work with raw JSON, you can do j
 
 Sometimes you want to send a card and have it be associated with some data. Set the `data` value to be sent back to the client so you can associate it with a particular entity.
 
-```ts
+<!-- langtabs-start -->
+```typescript
 function editProfileCard() {
   const card = new Card().withBody(
     new TextInput({ id: 'name' }).withLabel('Name').withValue('John Doe'),
@@ -116,14 +120,15 @@ function editProfileCard() {
 
   return card;
 }
-
 ```
+<!-- langtabs-end -->
 
 ### Input Validation
 
 Input Controls provide ways for you to validate. More details can be found on the Adaptive Cards [documentation](https://adaptivecards.microsoft.com/?topic=input-validation).
 
-```ts
+<!-- langtabs-start -->
+```typescript
 function createProfileCardInputValidation() {
   const ageInput = new NumberInput({ id: 'age' })
     .withLabel('Age')
@@ -150,8 +155,8 @@ function createProfileCardInputValidation() {
 
   return card;
 }
-
 ```
+<!-- langtabs-end -->
 
 ---
 
@@ -161,7 +166,8 @@ function createProfileCardInputValidation() {
 
 Card actions arrive as `card.action` activities in your app. These give you access to the validated input values plus any `data` values you had configured to be sent back to you.
 
-```ts
+<!-- langtabs-start -->
+```typescript
 app.on('card.action', async ({ activity, send }) => {
   const data = activity.value?.action?.data;
   if (!data?.action) {
@@ -217,8 +223,8 @@ app.on('card.action', async ({ activity, send }) => {
     value: 'Action processed successfully',
   } satisfies AdaptiveCardActionMessageResponse;
 });
-
 ```
+<!-- langtabs-end -->
 
 > [!NOTE]
 > The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.

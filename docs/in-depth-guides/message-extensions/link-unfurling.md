@@ -1,8 +1,8 @@
 ---
-title: Use Link Unfurling
-description: Learn how to use link unfurling to help your agent respond to URLs from registered domains.
+title: Link unfurling (preview)
+description: Learn about Link unfurling (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Link unfurling (preview)
@@ -13,6 +13,7 @@ Link unfurling lets your app respond when users paste URLs into Teams. When a UR
 
 ## Setting up your Teams app manifest
 
+<!-- langtabs-start -->
 ```json
 "composeExtensions": [
     {
@@ -30,6 +31,7 @@ Link unfurling lets your app respond when users paste URLs into Teams. When a UR
     }
 ]
 ```
+<!-- langtabs-end -->
 
 When a user pastes a URL from your registered domain (like `www.test.com`) into the Teams compose box, your app will receive a notification. Your app can then respond by returning an adaptive card that displays a preview of the linked content. This preview card appears before the user sends their message in the compose box, allowing them to see how the link will be displayed to others.
 
@@ -39,7 +41,8 @@ When a user pastes a URL from your registered domain (like `www.test.com`) into 
 
 Handle link unfurling when a URL from your registered domain is submited into the Teams compose box.
 
-```ts
+<!-- langtabs-start -->
+```typescript
 app.on('message.ext.query-link', async ({ activity }) => {
   const { url } = activity.value;
 
@@ -61,12 +64,13 @@ app.on('message.ext.query-link', async ({ activity }) => {
     },
   };
 });
-
 ```
+<!-- langtabs-end -->
 
 `createLinkUnfurlCard()` function
 
-```ts
+<!-- langtabs-start -->
+```typescript
 export function createLinkUnfurlCard(url: string) {
   const thumbnail = {
     title: 'Unfurled Link',
@@ -97,19 +101,19 @@ export function createLinkUnfurlCard(url: string) {
     thumbnail,
   };
 }
-
 ```
+<!-- langtabs-end -->
 
 The link unfurling response includes both a full adaptive card and a preview card. The preview card appears in the compose box when a user pastes a URL:
 
-![Link unfurl preview card](../../assets/screenshots/link-unfurl-preview.png)
+![Link unfurl preview card](~/assets/screenshots/link-unfurl-preview.png)
 
 The user can expand the preview card by clicking on the _expand_ button on the top right.
 
-![Link unfurl card in conversation](../../assets/screenshots/link-unfurl-card.png)
+![Link unfurl card in conversation](~/assets/screenshots/link-unfurl-card.png)
 
 The user can then choose to send entire the preview or the full adaptive card as a message.
 
 ## Resources
 
-- [Link unfurling](/messaging-extensions/how-to/link-unfurling?tabs=desktop%2Cjson%2Cadvantages)
+- [Link unfurling](/microsoftteams/platform/messaging-extensions/how-to/link-unfurling?tabs=desktop%2Cjson%2Cadvantages)

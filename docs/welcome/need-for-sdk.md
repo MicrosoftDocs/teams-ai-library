@@ -1,8 +1,8 @@
 ---
-title: Overview - SDK
-description: Learn how an SDK helps you build an agent.
-ms.topic: conceptual
-ms.date: 05/02/2025
+title: The need for an SDK (preview)
+description: Learn about The need for an SDK (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # The need for an SDK (preview)
@@ -23,7 +23,7 @@ An agent application is mainly able to do two things:
 To do this, we already need a few components:
 
 1. A public facing URL to our agent application - This is so that the Teams backend knows where to send messages to when an interesting event happens.
-2. A unique identifier for our agent application - Teams doesn't like to pass around this URL everywhere. Instead it hides this information behind a unique ID. This way, if your URL changes, all you need to do is update the URL and keep the ID the same.
+2. A unique idenfier for our agent application - Teams doesn't like to pass around this URL everywhere. Instead it hides this information behind a unique ID. This way, if your URL changes, all you need to do is update the URL and keep the ID the same.
 3. A way to authenticate to and from the Teams backend - This public facing URL may get hit in many different ways. We need some protections to make sure that the only messages that reach our main application are authenticated.
 
 ![alt-text for need-for-sdk-2.png](~/assets/diagrams/need-for-sdk-2.png)
@@ -34,9 +34,9 @@ Now, it's possible for your own application to handle all the nuances with these
 
 ![alt-text for need-for-sdk-3.png](~/assets/diagrams/need-for-sdk-3.png)
 
-Next, if you wanted to send messages to the user, you would need to make sure each call to the Teams backend is authenticated appropriately for your application.
+Next, if you wanted to send messages to the user, you would need to make sure each call to the Teams backend is authenticated approriately for your application.
 
-If your application wanted additional data from [Microsoft Graph](https://learn.microsoft.com/en-us/graph/overview), you would need to authenticate to that as well. Additionally, if you wanted the _user_ to authenticate and query Graph on their behalf, you would have to set up a solution to do the OAuth flow as well. For these complex flows, Teams offers a solution, but you must adhere to specific protocols and patterns to facilitate them.
+If your application wanted additional data from [Microsoft Graph](/graph/overview), you would need to authenticate to that as well. Additionally, if you wanted the _user_ to authenticate and query Graph on their behalf, you would have to set up a solution to do the OAuth flow as well. For these complex flows, Teams offers a solution, but you must adhere to specific protocols and patterns to facilitate them.
 
 ![alt-text for need-for-sdk-4.png](~/assets/diagrams/need-for-sdk-4.png)
 

@@ -9,6 +9,8 @@ ms.date: 04/30/2025
 
 [This article is prerelease documentation and is subject to change.]
 
+[This article is prerelease documentation and is subject to change.]
+
 A simple prompt for finding the right emojis.
 
 ```typescript
@@ -36,7 +38,7 @@ const generateEmojis = async (message: string) => {
 
 Somewhere else in the app:
 
-```ts
+```typescript
 app.on('message', async ({ send, activity }) => {
   await send({ type: 'typing' });
   const emoji = await generateEmojis(activity.text);

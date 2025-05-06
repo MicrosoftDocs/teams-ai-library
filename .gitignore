@@ -9,3 +9,5 @@ _repo.*/
 
 # Ignore all Python files
 *.py
+
+SUMMARY.md

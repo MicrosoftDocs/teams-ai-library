@@ -1,8 +1,8 @@
 ---
-title: Action commands
-description: Learn how to use Action commands to show modal pop-ups in Teams.
+title: Action commands (preview)
+description: Learn about Action commands (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Action commands (preview)
@@ -21,19 +21,20 @@ There are three different areas action commands can be invoked from:
 
 ### Compose Area and Box
 
-![compose area and box](../../assets/screenshots/compose-area.png)
+![compose area and box](~/assets/screenshots/compose-area.png)
 
 ### Message action command
 
-![message action command](../../assets/screenshots/message.png)
+![message action command](~/assets/screenshots/message.png)
 
 > [!tip]
-> See the [Invoke Locations](/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
+> See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
 
 ## Setting up your Teams app manifest
 
 To use action commands you have define them in the Teams app manifest. Here is an example:
 
+<!-- langtabs-start -->
 ```json
 "composeExtensions": [
     {
@@ -92,26 +93,28 @@ To use action commands you have define them in the Teams app manifest. Here is a
     }
 ]
 ```
+<!-- langtabs-end -->
 
 Here we are defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-![Parameters](../../assets/screenshots/parameters.png)
+![Parameters for createCard](~/assets/screenshots/parameters.png)
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`...etc.
 
-![Get Message Details Command](../../assets/screenshots/message-command.png)
+![Get Message Details Command](~/assets/screenshots/message-command.png)
 
 3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
-![Fetch conversation members](../../assets/screenshots/fetch-conversation-members.png)
+![Fetch conversation members](~/assets/screenshots/fetch-conversation-members.png)
 
 ## Handle submission
 
 Handle submission when the `createCard` or `getMessageDetails` actions commands are invoked.
 
-```ts
+<!-- langtabs-start -->
+```typescript
 app.on('message.ext.submit', async ({ activity }) => {
   const { commandId } = activity.value;
   let card: ICard;
@@ -134,12 +137,13 @@ app.on('message.ext.submit', async ({ activity }) => {
     },
   };
 });
-
 ```
+<!-- langtabs-end -->
 
 `createCard()` function
 
-```ts
+<!-- langtabs-start -->
+```typescript
 interface FormData {
   title: string;
   subtitle: string;
@@ -166,12 +170,13 @@ export function createCard(data: FormData) {
     })
   );
 }
-
 ```
+<!-- langtabs-end -->
 
 `createMessageDetailsCard()` function
 
-```ts
+<!-- langtabs-start -->
+```typescript
 export function createMessageDetailsCard(messagePayload: Message) {
   const cardElements: Element[] = [
     new TextBlock('Message Details', {
@@ -238,14 +243,15 @@ export function createMessageDetailsCard(messagePayload: Message) {
 
   return new Card(...cardElements);
 }
-
 ```
+<!-- langtabs-end -->
 
 ## Handle opening adaptive card dialog
 
 Handle opening adaptive card dialog when the `fetchConversationMembers` command is invoked.
 
-```ts
+<!-- langtabs-start -->
+```typescript
 app.on('message.ext.open', async ({ activity, api }) => {
   const conversationId = activity.conversation.id;
   const members = await api.conversations.members(conversationId).get();
@@ -263,12 +269,13 @@ app.on('message.ext.open', async ({ activity, api }) => {
     },
   };
 });
-
 ```
+<!-- langtabs-end -->
 
 `createConversationMembersCard()` function
 
-```ts
+<!-- langtabs-start -->
+```typescript
 export function createConversationMembersCard(members: Account[]) {
   const membersList = members.map((member) => member.name).join(', ');
 
@@ -285,9 +292,9 @@ export function createConversationMembersCard(members: Account[]) {
     })
   );
 }
-
 ```
+<!-- langtabs-end -->
 
 ## Resources
 
-[Action commands](/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)
+- [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)

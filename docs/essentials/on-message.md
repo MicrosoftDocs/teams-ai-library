@@ -9,6 +9,8 @@ ms.date: 04/30/2025
 
 [This article is prerelease documentation and is subject to change.]
 
+[This article is prerelease documentation and is subject to change.]
+
 You can listen/subscribe to messages using static text or `Regexp`. This is a shorthand for `app.on('message')` activity handler, where it will only trigger the handler if it matches the pattern you have provided. These types of handlers are common enough that we have provided a shorthand for them.
 
 > Example: when the user sends a message to the bot with the text `/logout`

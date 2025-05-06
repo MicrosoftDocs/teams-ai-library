@@ -1,8 +1,8 @@
 ---
-title: Use Custom Logger
-description: Learn about using default or custom logger for your agent.
-ms.topic: reference
-ms.date: 05/02/2025
+title: Custom Logger (preview)
+description: Learn about Custom Logger (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Custom Logger (preview)
@@ -13,6 +13,7 @@ The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the
 `@microsoft/teams.common` package.
 
+<!-- langtabs-start -->
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common';
@@ -33,3 +34,4 @@ app.on('message', async ({ send, activity, log }) => {
   await app.start();
 })();
 ```
+<!-- langtabs-end -->

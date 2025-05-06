@@ -1,8 +1,8 @@
 ---
-title: Image
-description: Learn how to use images in your agent. 
-ms.topic: how-to
-ms.date: 05/02/2025
+title: Image (preview)
+description: Learn about Image (preview)
+ms.topic: overview
+ms.date: 05/05/2025
 ---
 
 # Image (preview)

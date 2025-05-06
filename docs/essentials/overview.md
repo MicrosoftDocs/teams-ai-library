@@ -1,8 +1,8 @@
 ---
-title: Overview
+title: Essentials (preview)
+description: Learn about Essentials (preview)
 ms.topic: overview
-description: Learn about activity handlers and system events.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Essentials (preview)
@@ -19,6 +19,6 @@ Before diving in, let’s define a few key terms:
 • InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
 • Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
 
-![alt-text for README-1.png](~/assets/diagrams/README-1.png)
+![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.

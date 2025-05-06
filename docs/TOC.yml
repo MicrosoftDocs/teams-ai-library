@@ -28,14 +28,12 @@
       href: ./essentials/on-event.md
     - name: Listening To Activities
       href: ./essentials/on-activity.md
-      items:
-        - name: Activity Reference
-          href: ./essentials/activity-ref.md
+    - name: Activity Reference
+      href: ./essentials/activity-ref.md
     - name: Sending Messages
       href: ./essentials/sending-messages.md
-      items:
-        - name: Proactive Messages
-          href: ./essentials/proactive-messaging.md
+    - name: Proactive Messages
+      href: ./essentials/proactive-messaging.md
     - name: Using The API Client
       href: ./essentials/api.md
 - name: Teams
@@ -46,8 +44,6 @@
       href: ./teams/core-concepts.md
     - name: Teams Manifest
       href: ./teams/manifest.md
-    - name: Deployment
-      href: ./teams/deployment.md
     - name: Teams Toolkit
       href: ./teams/m365-toolkit.md
 - name: In-Depth Guides
@@ -117,7 +113,19 @@
             - name: MCP Client
               href: ./in-depth-guides/ai/mcp/mcp-client.md
     - name: Tabs
-      href: ./in-depth-guides/tabs.md
+      items:
+        - name: Overview
+          href: ./in-depth-guides/tabs/overview.md
+        - name: Getting started
+          href: ./in-depth-guides/tabs/getting-started.md
+        - name: Using the app
+          href: ./in-depth-guides/tabs/using-the-app.md
+        - name: App options
+          href: ./in-depth-guides/tabs/app-options.md
+        - name: Functions
+          href: ./in-depth-guides/tabs/function-calling.md
+        - name: Graph
+          href: ./in-depth-guides/tabs/graph.md
     - name: Feedback
       href: ./in-depth-guides/feedback.md
     - name: Observability

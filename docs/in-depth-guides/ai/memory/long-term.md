@@ -1,8 +1,8 @@
 ---
-title: Memory - Long Term 
-description: Learn about long term memory - Long Term that is used to store events, knowledge, and experiences.
+title: Memory - Long Term (preview)
+description: Learn about Memory - Long Term (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Memory: Long Term (preview)

@@ -1,8 +1,8 @@
 ---
-title: Use Search Commands
-description: Learn how to use Search commands in your agent.
+title: Search commands (preview)
+description: Learn about Search commands (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Search commands (preview)
@@ -20,12 +20,13 @@ There are three different areas search commands can be invoked from:
 
 ### Compose Area and Box
 
-![compose area and box](../../assets/screenshots/compose-area.png)
+![compose area and box](~/assets/screenshots/compose-area.png)
 
 ## Setting up your Teams app manifest
 
 To use search commands you have define them in the Teams app manifest. Here is an example:
 
+<!-- langtabs-start -->
 ```json
 "composeExtensions": [
     {
@@ -53,14 +54,16 @@ To use search commands you have define them in the Teams app manifest. Here is a
     }
 ]
 ```
+<!-- langtabs-end -->
 
 Here we are defining the `searchQuery` search (or query) command.
 
 ## Handle submission
 
-Handle opening Adaptive Card dialog when the `searchQuery` query is submitted.
+Handle opening adaptive card dialog when the `searchQuery` query is submitted.
 
-```ts
+<!-- langtabs-start -->
+```typescript
 app.on('message.ext.query', async ({ activity }) => {
   const { commandId } = activity.value;
   const searchQuery = activity.value.parameters![0].value;
@@ -85,12 +88,13 @@ app.on('message.ext.query', async ({ activity }) => {
 
   return { status: 400 };
 });
-
 ```
+<!-- langtabs-end -->
 
 `createDummyCards()` function
 
-```ts
+<!-- langtabs-start -->
+```typescript
 export async function createDummyCards(searchQuery: string) {
   const dummyItems = [
     {
@@ -126,17 +130,17 @@ export async function createDummyCards(searchQuery: string) {
 
   return cards;
 }
-
 ```
+<!-- langtabs-end -->
 
 The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
 
-![Search command preview card](../../assets/screenshots/preview-card.png)
+![Search command preview card](~/assets/screenshots/preview-card.png)
 
 When a user clicks on a list item the dummy adaptive card is added to the compose box:
 
-![Card in compose box](../../assets/screenshots/card-in-compose.png)
+![Card in compose box](~/assets/screenshots/card-in-compose.png)
 
 ## Resources
 
-- [Search command](/messaging-extensions/how-to/search-commands/define-search-command?tabs=Teams-toolkit%2Cdotnet)
+- [Search command](/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?tabs=Teams-toolkit%2Cdotnet)

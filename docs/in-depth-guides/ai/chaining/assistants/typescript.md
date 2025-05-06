@@ -1,8 +1,8 @@
 ---
-title: Typescript
-description: Learn about the Typescript assistant that helps with the TypeScript knowledge.
-ms.topic: reference
-ms.date: 05/02/2025
+title: Typescript (preview)
+description: Learn about Typescript (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Typescript (preview)
@@ -11,6 +11,7 @@ ms.date: 05/02/2025
 
 The assistant that specializes in Typescript syntax/error knowledge.
 
+<!-- langtabs-start -->
 ```bash
 src
 ├── prompts
@@ -19,9 +20,11 @@ src
 │   └── typescript.ts
 └── developer.ts
 ```
+<!-- langtabs-end -->
 
 ## `/src/prompts/typescript.ts`
 
+<!-- langtabs-start -->
 ```typescript
 import { ChatPrompt } from '@microsoft/teams.ai';
 import { OpenAIChatModel } from '@microsoft/teams.openai';
@@ -37,3 +40,4 @@ export const typescript = new ChatPrompt({
   }),
 });
 ```
+<!-- langtabs-end -->
