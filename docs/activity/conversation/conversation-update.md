@@ -35,7 +35,7 @@ The `membersAdded` field contains a list of channel participants (bots or users)
 
 ### Members removed
 
-The `membersRemoved` field contains a list of channel participants (bots or users) removed from the conversation. The value of the `membersRemoved` field is an array of type [`channelAccount`](#https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#channel-account).
+The `membersRemoved` field contains a list of channel participants (bots or users) removed from the conversation. The value of the `membersRemoved` field is an array of type `channelAccount`.
 
 ### Topic name
 
