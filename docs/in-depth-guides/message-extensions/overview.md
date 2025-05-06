@@ -1,11 +1,11 @@
 ---
-title: 📖 Message Extensions (preview)
-description: Learn about 📖 Message Extensions (preview)
+title: Message Extensions (preview)
+description: Learn about Message Extensions (preview)
 ms.topic: overview
 ms.date: 05/05/2025
 ---
 
-# 📖 Message Extensions (preview)
+# Message Extensions (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

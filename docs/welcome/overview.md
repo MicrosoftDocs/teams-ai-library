@@ -4,6 +4,7 @@ description: Learn about Teams AI Library v2 (preview)
 ms.topic: how-to
 ms.date: 05/05/2025
 ---
+
 # Teams AI Library v2
 
 Teams AI Library v2 is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
@@ -62,7 +63,7 @@ app.on('message', async ({ api, isSignedIn, send, signin }) => {
 ```
 <!-- langtabs-end -->
 
-## ⭐ What's new?
+## What's new?
 
 ### Streamlined Developer Experience
 
@@ -76,7 +77,7 @@ We’ve simplified complex integration workflows to help you deliver a richer, m
 
 Get your application up and running in under 30 seconds with our lightning-fast CLI—so you can spend more time on what really matters.
 
-## 🔎 Navigation Tips
+## Navigation Tips
 
 We encourage you to use the left sidebar to navigate to your desired section.
 

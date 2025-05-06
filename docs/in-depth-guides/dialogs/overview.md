@@ -21,5 +21,5 @@ Dialogs are a helpful paradigm in Teams which improve interactions between your 
 
 ## Resources
 
-- [Task Modules](/microsoftteams/platform/task-modules-and-cards/task-modules/what-are-task-modules)
+- [Task Modules](/microsoftteams/platform/task-modules-and-cards/what-are-task-modules)
 - [Invoking Task Modules](/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules)

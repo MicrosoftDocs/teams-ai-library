@@ -1,24 +1,24 @@
 ---
-title: 🤖 AI (preview)
-description: Learn about 🤖 AI (preview)
+title: AI (preview)
+description: Learn about AI (preview)
 ms.topic: overview
 ms.date: 05/05/2025
 ---
 
-# 🤖 AI (preview)
+# AI (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.
 The `@microsoft/teams.ai` package has two main components:
 
-## 📦 Prompts
+## Prompts
 
 A `Prompt` is the component that orchestrates everything, it handles state management,
 function definitions, and invokes the model/template when needed. This layer abstracts many of
 the complexities of the Models to provide a common interface.
 
-## 🧠 Models
+## Models
 
 A `Model` is the component that interfaces with the LLM, being given some `input` and returning the `output`.
 This layer deals with any of the nuances of the particular Models being used.

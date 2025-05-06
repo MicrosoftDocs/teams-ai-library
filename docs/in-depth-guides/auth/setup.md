@@ -14,11 +14,10 @@ There are a few ways you can enable your application to access secured external 
 > [!Note]
 > This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../../teams/core-concepts.md) before attempting this guide.
 
-
 ## Authenticate the user to Entra ID to access Microsoft Graph APIs
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
 
-> [!note]
+> [!NOTE]
 > See [How Auth Works](auth-sso.md) to learn more about how authentication works. 
 
 ### Manual setup
@@ -50,11 +49,9 @@ This [CLI](../../developer-tools/cli/overview.md) command adds configuration fil
 > [!Note]
 > Teams toolkit, in the debugging flow, will deploy the `aad.manifest.json` and `infra/azure.local.bicep` file to provision the Application Entra ID and Azure bot with oauth configurations.
 
-
 ## Authenticate the user to third-party identity provider
 
 You can follow the [Add authentication to bot app](/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-sample) Microsoft Learn guide.
-
 
 ## Resources
 

@@ -1,11 +1,11 @@
 ---
-title: 💬 Devtools Chat (preview)
-description: Learn about 💬 Devtools Chat (preview)
+title: Devtools Chat (preview)
+description: Learn about Devtools Chat (preview)
 ms.topic: how-to
 ms.date: 05/05/2025
 ---
 
-# 💬 Devtools Chat (preview)
+# Devtools Chat (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -80,7 +80,7 @@ Below is a brief list of the terminology used in the chat window and in Teams:
 The chat window emulates Teams features as closely as possible. Not all Teams features are available in DevTools, but we are working to add more features over time. The following capabilities are available:
 
 > [!IMPORTANT]
-> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize acessibility in future preview releases.
+> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize accessibility in future preview releases.
 
 ### Send messages
 
@@ -103,23 +103,23 @@ Check your app's connectivity in three ways:
 
 ### Message reactions
 
-You can [react to messages](../../activity/message/message-reaction.md) selecting an emoji in the message actions menu.
+You can react to messages selecting an emoji in the message actions menu.
 
 ![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true)
 
 ### Edit your message
 
-[Edit messages](../../activity/message/message-update.md) by selecting the Edit (pencil) icon from the message actions menu. Press Enter or the checkmark button to send the edited message, or the Dismiss (X) button to cancel.
+Edit messages by selecting the Edit (pencil) icon from the message actions menu. Press Enter or the checkmark button to send the edited message, or the Dismiss (X) button to cancel.
 
 ### Delete your message
 
-Soft [delete messages](../../activity/message/message-delete.md) by hovering over your message, pressing the More (ellipsis) button, then the Delete (trash) button. Click "Undo" to restore the message.
+Soft delete messages by hovering over your message, pressing the More (ellipsis) button, then the Delete (trash) button. Click "Undo" to restore the message.
 
 ### Streaming
 
 If your agent is using [streaming](../../in-depth-guides/ai/chat.md#streaming-chat-responses),DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Feedback
+### Send feedback
 
 Send [feedback](../../in-depth-guides/feedback.md) to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 

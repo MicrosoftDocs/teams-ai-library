@@ -1,11 +1,11 @@
 ---
-title: Functions (preview)
-description: Learn about Functions (preview)
+title: Call functions (preview)
+description: Learn how to link functions that LLM can call as needed. (preview)
 ms.topic: how-to
 ms.date: 05/05/2025
 ---
 
-# Functions (preview)
+# Call functions (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

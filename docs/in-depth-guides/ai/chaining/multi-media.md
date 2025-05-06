@@ -1,10 +1,10 @@
 ---
-title: 💬 🔈 📷 Multi Media (preview)
-description: Learn about 💬 🔈 📷 Multi Media (preview)
+title: Multi Media (preview)
+description: Learn about Multi Media (preview)
 ms.topic: how-to
 ms.date: 05/05/2025
 ---
 
-# 💬 🔈 📷 Multi Media (preview)
+# Multi Media (preview)
 
 [This article is prerelease documentation and is subject to change.]

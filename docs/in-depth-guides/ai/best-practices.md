@@ -51,4 +51,4 @@ for (let i = 0; i < citedDocs.length; i++) {
 ```
 <!-- langtabs-end -->
 
-![AI Generated Indicator](../../assets/screenshots/citation.gif)
+![This is an AI Generated Indicator](../../assets/screenshots/citation.gif)

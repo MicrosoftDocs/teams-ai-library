@@ -1,11 +1,11 @@
 ---
-title: 🪪 Cards (preview)
-description: Learn about 🪪 Cards (preview)
+title: Cards (preview)
+description: Learn about Cards (preview)
 ms.topic: how-to
 ms.date: 05/05/2025
 ---
 
-# 🪪 Cards (preview)
+# Cards (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,11 +1,11 @@
 ---
-title: Functions (preview)
+title: Calling functions (preview)
 description: Learn about Functions (preview)
 ms.topic: how-to
 ms.date: 05/05/2025
 ---
 
-# Functions (preview)
+# Calling functions (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

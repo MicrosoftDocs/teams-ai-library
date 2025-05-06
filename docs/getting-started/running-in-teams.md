@@ -109,22 +109,22 @@ Congratulations! Now you have a fully functional agent running in Microsoft Team
 
 ## Troubleshooting
 
-While Teams AI v2 SDK heavily endorses Teams Tookit (TTK), you can run your agent in Teams without it. However, using TTK saves time and effort.
+While Teams AI v2 SDK heavily endorses Teams Toolkit (TTK), you can run your agent in Teams without it. However, using TTK saves time and effort.
 
 > [!CAUTION]
-> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/microsoftteams/platform/toolkit/overview) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
+> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/microsoftteams/platform/toolkit/teams-toolkit-fundamentals) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
 
 > [!CAUTION]
 > Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview).
 
 ## Next steps
 
-Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/overview.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides/overview.md) for advanced topics like authentication, message extensions, and more.
+Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/overview.md) to understand how to build more complex agents. Explore the in-depth guides for advanced topics like [authentication](../in-depth-guides/auth/overview.md), [message extensions](../in-depth-guides/message-extensions/overview.md), and more.
 
 ## Resources
 
 - [Teams CLI documentation](../developer-tools/cli/overview.md)
-- [Teams Toolkit documentation](/microsoftteams/platform/toolkit/overview)
-- [Teams Toolkit CLI documentation](/microsoftteams/platform/toolkit/cli/overview.md)
+- [Teams Toolkit documentation](/microsoftteams/platform/toolkit/teams-toolkit-fundamentals)
+- [Teams Toolkit CLI documentation](/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
 - [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview)
