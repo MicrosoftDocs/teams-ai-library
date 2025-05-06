@@ -40,13 +40,33 @@ Import the relevant objects:
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.ai-imports.ts }}
+import { ChatPrompt } from "@microsoft/teams.ai";
+import { OpenAIChatModel } from "@microsoft/teams.openai";
 ```
 <!-- langtabs-end -->
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.simple-chat.ts }}
+app.on("message", async ({ send, activity, next }) => {
+  const model = new OpenAIChatModel({
+    apiKey: process.env.AZURE_OPENAI_API_KEY || process.env.OPENAI_API_KEY,
+    endpoint: process.env.AZURE_OPENAI_ENDPOINT,
+    apiVersion: process.env.AZURE_OPENAI_API_VERSION,
+    model: process.env.AZURE_OPENAI_MODEL_DEPLOYMENT_NAME!,
+  });
+
+  const prompt = new ChatPrompt({
+    instructions: "You are a friendly assistant who talks like a pirate",
+    model,
+  });
+
+  const response = await prompt.send(activity.text);
+  if (response.content) {
+    const activity = new MessageActivity(response.content).addAiGenerated();
+    await send(activity);
+    // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol’ salty sea dog help ye with? 🚢☠️
+  }
+});
 ```
 <!-- langtabs-end -->
 
@@ -62,7 +82,32 @@ LLMs can take a while to generate a response, so often streaming the response le
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.streaming-chat.ts }}
+app.on("message", async ({ stream, send, activity, next }) => {
+  // const query = activity.text;
+
+  const prompt = new ChatPrompt({
+    instructions: "You are a friendly assistant who responds in terse language",
+    model,
+  });
+
+  // Notice that we don't `send` the final response back, but
+  // `stream` the chunks as they come in
+  const response = await prompt.send(query, {
+    onChunk: (chunk) => {
+      stream.emit(chunk);
+    },
+  });
+
+  if (activity.conversation.isGroup) {
+    // If the conversation is a group chat, we need to send the final response
+    // back to the group chat
+    const activity = new MessageActivity(response.content).addAiGenerated();
+    await send(activity);
+  } else {
+    // We wrap the final response with an AI Generated indicator
+    stream.emit(new MessageActivity().addAiGenerated());
+  }
+});
 ```
 <!-- langtabs-end -->
 

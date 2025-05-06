@@ -12,7 +12,25 @@ Each helper wraps raw JSON and provides fluent, chainable methods that keep your
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.basic-card-building.ts }}
+  /**
+ import {
+  Card,
+  TextBlock,
+  ToggleInput,
+  ExecuteAction,
+  ActionSet,
+} from "@microsoft/teams.cards";
+*/
+
+  const card = new Card(
+    new TextBlock('Hello world', { wrap: true, weight: 'bolder' }),
+    new ToggleInput('Notify me').withId('notify'),
+    new ActionSet(
+      new ExecuteAction({ title: 'Submit' })
+        .withData({ action: 'submit_basic' })
+        .withAssociatedInputs('auto')
+    )
+  );
 ```
 <!-- langtabs-end -->
 
@@ -39,7 +57,8 @@ While coding you get:
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.improved-type-checking.ts }}
+// @ts-expect-error: "huge" is not a valid size for TextBlock
+const textBlock = new TextBlock('Valid', { size: 'huge' });
 ```
 <!-- langtabs-end -->
 
@@ -62,7 +81,49 @@ const card = new Card().withBody(cardJson);
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.raw-card-json.ts }}
+const rawCard: ICard = {
+  type: 'AdaptiveCard',
+  body: [
+    {
+      text: 'Please fill out the below form to send a game purchase request.',
+      wrap: true,
+      type: 'TextBlock',
+      style: 'heading',
+    },
+    {
+      columns: [
+        {
+          width: 'stretch',
+          items: [
+            {
+              choices: [
+                { title: 'Call of Duty', value: 'call_of_duty' },
+                { title: "Death's Door", value: 'deaths_door' },
+                { title: 'Grand Theft Auto V', value: 'grand_theft' },
+                { title: 'Minecraft', value: 'minecraft' },
+              ],
+              style: 'filtered',
+              placeholder: 'Search for a game',
+              id: 'choiceGameSingle',
+              type: 'Input.ChoiceSet',
+              label: 'Game:',
+            },
+          ],
+          type: 'Column',
+        },
+      ],
+      type: 'ColumnSet',
+    },
+  ],
+  actions: [
+    {
+      title: 'Request purchase',
+      type: 'Action.Execute',
+      data: { action: 'purchase_item' },
+    },
+  ],
+  version: '1.5',
+};
 ```
 <!-- langtabs-end -->
 
@@ -79,7 +140,41 @@ Below is a complete example showing a task management form. Notice how the build
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.sending-adaptive-card-e2e.ts }}
+app.on('message', async ({ send, activity }) => {
+  await send({ type: 'typing' });
+  const card = new Card().withBody(
+    new TextBlock('Create New Task', {
+      size: 'large',
+      weight: 'bolder',
+    }),
+    new TextInput({ id: 'title' }).withLabel('Task Title').withPlaceholder('Enter task title'),
+    new TextInput({ id: 'description' })
+      .withLabel('Description')
+      .withPlaceholder('Enter task details')
+      .withMultiLine(true),
+    new ChoiceSetInput(
+      { title: 'High', value: 'high' },
+      { title: 'Medium', value: 'medium' },
+      { title: 'Low', value: 'low' }
+    )
+      .withId('priority')
+      .withLabel('Priority')
+      .withValue('medium'),
+    new DateInput({ id: 'due_date' })
+      .withLabel('Due Date')
+      .withValue(new Date().toISOString().split('T')[0]),
+    new ActionSet(
+      new ExecuteAction({ title: 'Create Task' })
+        .withData({ action: 'create_task' })
+        .withAssociatedInputs('auto')
+        .withStyle('positive')
+    )
+  );
+  await send(card);
+  // Or build a complex activity out that includes the card:
+  // const message  = new MessageActivity('Enter this form').addCard('adaptive', card);
+  // await send(message);
+});
 ```
 <!-- langtabs-end -->
 

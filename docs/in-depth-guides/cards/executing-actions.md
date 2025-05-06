@@ -29,7 +29,10 @@ The SDK provides builder helpers that abstract the underlying JSON. For example:
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.single-action.ts }}
+/** import { ExecuteAction } from "@microsoft/teams.cards"; */
+new ExecuteAction({ title: 'Submit Feedback' })
+  .withData({ action: 'submit_feedback' })
+  .withAssociatedInputs('auto'),
 ```
 <!-- langtabs-end -->
 
@@ -39,7 +42,20 @@ Group actions together using `ActionSet`:
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.multiple-actions-card.ts }}
+/**
+ * import {
+ *  Card,
+ *  ExecuteAction,
+ *  OpenUrlAction,
+ *  ActionSet,
+ * } from "@microsoft/teams.cards";
+ */
+new ActionSet(
+  new ExecuteAction({ title: 'Submit Feedback' })
+    .withData({ action: 'submit_feedback' })
+    .withAssociatedInputs('auto'),
+  new OpenUrlAction('https://adaptivecards.microsoft.com').withTitle('Learn More')
+)
 ```
 <!-- langtabs-end -->
 
@@ -49,7 +65,11 @@ Just like when building cards, if you prefer to work with raw JSON, you can do j
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.raw-json-action.ts }}
+{
+  type: 'Action.OpenUrl',
+  url: 'https://adaptivecards.microsoft.com',
+  title: 'Learn More',
+} as const
 ```
 <!-- langtabs-end -->
 
@@ -63,7 +83,34 @@ Sometimes you want to send a card and have it be associated with some data. Set 
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.inputs-included.ts }}
+function editProfileCard() {
+  const card = new Card().withBody(
+    new TextInput({ id: 'name' }).withLabel('Name').withValue('John Doe'),
+    new TextInput({ id: 'email', label: 'Email', value: 'john@contoso.com' }),
+    new ToggleInput('Subscribe to newsletter').withId('subscribe').withValue('false'),
+    new ActionSet(
+      new ExecuteAction({ title: 'Save' })
+        .withData({
+          action: 'save_profile',
+          entityId: '12345', // This will come back once the user submits
+        })
+        .withAssociatedInputs('auto')
+    )
+  );
+
+  // Data received in handler
+  /**
+  {
+    action: "save_profile",
+    entityId: "12345",     // From action data
+    name: "John Doe",      // From name input
+    email: "john@doe.com", // From email input
+    subscribe: "true"      // From toggle input (as string)
+  }
+  */
+
+  return card;
+}
 ```
 <!-- langtabs-end -->
 
@@ -73,7 +120,32 @@ Input Controls provide ways for you to validate. More details can be found on th
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.input-validation.ts }}
+function createProfileCardInputValidation() {
+  const ageInput = new NumberInput({ id: 'age' })
+    .withLabel('Age')
+    .withRequired(true)
+    .withMin(0)
+    .withMax(120);
+
+  const nameInput = new TextInput({ id: 'name' })
+    .withLabel('Name')
+    .withRequired()
+    .withError('Name is required!'); // Custom error messages
+  const card = new Card().withBody(
+    nameInput,
+    ageInput,
+    new TextInput({ id: 'location' }).withLabel('Location'),
+    new ActionSet(
+      new ExecuteAction({ title: 'Save' })
+        .withData({
+          action: 'save_profile',
+        })
+        .withAssociatedInputs('auto') // All inputs should be validated
+    )
+  );
+
+  return card;
+}
 ```
 <!-- langtabs-end -->
 
@@ -87,7 +159,61 @@ Card actions arrive as `card.action` activities in your app. These give you acce
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.message-handler.ts }}
+app.on('card.action', async ({ activity, send }) => {
+  const data = activity.value?.action?.data;
+  if (!data?.action) {
+    return {
+      statusCode: 400,
+      type: 'application/vnd.microsoft.error',
+      value: {
+        code: 'BadRequest',
+        message: 'No action specified',
+        innerHttpError: {
+          statusCode: 400,
+          body: { error: 'No action specified' },
+        },
+      },
+    } satisfies AdaptiveCardActionErrorResponse;
+  }
+
+  console.debug('Received action data:', data);
+
+  switch (data.action) {
+    case 'submit_feedback':
+      await send(`Feedback received: ${data.feedback}`);
+      break;
+
+    case 'purchase_item':
+      await send(`Purchase request received for game: ${data.choiceGameSingle}`);
+      break;
+
+    case 'save_profile':
+      await send(
+        `Profile saved!\nName: ${data.name}\nEmail: ${data.email}\nSubscribed: ${data.subscribe}`
+      );
+      break;
+
+    default:
+      return {
+        statusCode: 400,
+        type: 'application/vnd.microsoft.error',
+        value: {
+          code: 'BadRequest',
+          message: 'Unknown action',
+          innerHttpError: {
+            statusCode: 400,
+            body: { error: 'Unknown action' },
+          },
+        },
+      } satisfies AdaptiveCardActionErrorResponse;
+  }
+
+  return {
+    statusCode: 200,
+    type: 'application/vnd.microsoft.activity.message',
+    value: 'Action processed successfully',
+  } satisfies AdaptiveCardActionMessageResponse;
+});
 ```
 <!-- langtabs-end -->
 

@@ -106,7 +106,28 @@ Handle submission when the `createCard` or `getMessageDetails` actions commands 
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.message-ext-submit.ts }}
+app.on('message.ext.submit', async ({ activity }) => {
+  const { commandId } = activity.value;
+  let card: ICard;
+
+  if (commandId === 'createCard') {
+    // activity.value.commandContext == "compose"
+    card = createCard(activity.value.data);
+  } else if (commandId === 'getMessageDetails' && activity.value.messagePayload) {
+    // activity.value.commandContext == "message"
+    card = createMessageDetailsCard(activity.value.messagePayload);
+  } else {
+    throw new Error(`Unknown commandId: ${commandId}`);
+  }
+
+  return {
+    composeExtension: {
+      type: 'result',
+      attachmentLayout: 'list',
+      attachments: [cardAttachment('adaptive', card)],
+    },
+  };
+});
 ```
 <!-- langtabs-end -->
 
@@ -114,7 +135,32 @@ Handle submission when the `createCard` or `getMessageDetails` actions commands 
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/card.snippet.message-ext-create-card.ts }}
+interface FormData {
+  title: string;
+  subtitle: string;
+  text: string;
+}
+
+export function createCard(data: FormData) {
+  return new Card(
+    new Image(IMAGE_URL),
+    new TextBlock(data.title, {
+      size: 'large',
+      weight: 'bolder',
+      color: 'accent',
+      style: 'heading',
+    }),
+    new TextBlock(data.subtitle, {
+      size: 'small',
+      weight: 'lighter',
+      color: 'good',
+    }),
+    new TextBlock(data.text, {
+      wrap: true,
+      spacing: 'medium',
+    })
+  );
+}
 ```
 <!-- langtabs-end -->
 
@@ -122,7 +168,72 @@ Handle submission when the `createCard` or `getMessageDetails` actions commands 
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/card.snippet.message-ext-create-message-details-card.ts }}
+export function createMessageDetailsCard(messagePayload: Message) {
+  const cardElements: Element[] = [
+    new TextBlock('Message Details', {
+      size: 'large',
+      weight: 'bolder',
+      color: 'accent',
+      style: 'heading',
+    }),
+  ];
+
+  if (messagePayload?.body?.content) {
+    cardElements.push(
+      new TextBlock('Content', {
+        size: 'medium',
+        weight: 'bolder',
+        spacing: 'medium',
+      }),
+      new TextBlock(messagePayload.body.content)
+    );
+  }
+
+  if (messagePayload?.attachments?.length) {
+    cardElements.push(
+      new TextBlock('Attachments', {
+        size: 'medium',
+        weight: 'bolder',
+        spacing: 'medium',
+      }),
+      new TextBlock(`Number of attachments: ${messagePayload.attachments.length}`, {
+        wrap: true,
+        spacing: 'small',
+      })
+    );
+  }
+
+  if (messagePayload?.createdDateTime) {
+    cardElements.push(
+      new TextBlock('Created Date', {
+        size: 'medium',
+        weight: 'bolder',
+        spacing: 'medium',
+      }),
+      new TextBlock(messagePayload.createdDateTime, {
+        wrap: true,
+        spacing: 'small',
+      })
+    );
+  }
+
+  if (messagePayload?.linkToMessage) {
+    cardElements.push(
+      new TextBlock('Message Link', {
+        size: 'medium',
+        weight: 'bolder',
+        spacing: 'medium',
+      }),
+      new ActionSet(
+        new OpenUrlAction(messagePayload.linkToMessage, {
+          title: 'Go to message',
+        })
+      )
+    );
+  }
+
+  return new Card(...cardElements);
+}
 ```
 <!-- langtabs-end -->
 
@@ -132,7 +243,23 @@ Handle opening adaptive card dialog when the `fetchConversationMembers` command 
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.message-ext-open.ts }}
+app.on('message.ext.open', async ({ activity, api }) => {
+  const conversationId = activity.conversation.id;
+  const members = await api.conversations.members(conversationId).get();
+  const card = createConversationMembersCard(members);
+
+  return {
+    task: {
+      type: 'continue',
+      value: {
+        title: 'Conversation members',
+        height: 'small',
+        width: 'small',
+        card: cardAttachment('adaptive', card),
+      },
+    },
+  };
+});
 ```
 <!-- langtabs-end -->
 
@@ -140,7 +267,22 @@ Handle opening adaptive card dialog when the `fetchConversationMembers` command 
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/card.snippet.message-ext-create-conversation-members-card.ts }}
+export function createConversationMembersCard(members: Account[]) {
+  const membersList = members.map((member) => member.name).join(', ');
+
+  return new Card(
+    new TextBlock('Conversation members', {
+      size: 'medium',
+      weight: 'bolder',
+      color: 'accent',
+      style: 'heading',
+    }),
+    new TextBlock(membersList, {
+      wrap: true,
+      spacing: 'small',
+    })
+  );
+}
 ```
 <!-- langtabs-end -->
 

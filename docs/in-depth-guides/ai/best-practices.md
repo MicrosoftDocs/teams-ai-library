@@ -29,7 +29,16 @@ AI generated messages can hallucinate even if messages are grounded in real data
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/simple-rag.snippet.citation-example.ts}}
+const messageActivity = new MessageActivity(result.content).addAiGenerated();
+for (let i = 0; i < citedDocs.length; i++) {
+  const doc = citedDocs[i];
+  // The corresponding citation needs to be added in the message content
+  messageActivity.text += `[${i + 1}]`;
+  messageActivity.addCitation(i + 1, {
+    name: doc.title,
+    abstract: doc.content,
+  });
+}
 ```
 <!-- langtabs-end -->
 

@@ -55,7 +55,30 @@ Handle opening adaptive card dialog when the `searchQuery` query is submitted.
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.message-ext-query.ts }}
+app.on('message.ext.query', async ({ activity }) => {
+  const { commandId } = activity.value;
+  const searchQuery = activity.value.parameters![0].value;
+
+  if (commandId == 'searchQuery') {
+    const cards = await createDummyCards(searchQuery);
+    const attachments = cards.map(({ card, thumbnail }) => {
+      return {
+        ...cardAttachment('adaptive', card), // expanded card in the compose box...
+        preview: cardAttachment('thumbnail', thumbnail), // preview card in the compose box...
+      };
+    });
+
+    return {
+      composeExtension: {
+        type: 'result',
+        attachmentLayout: 'list',
+        attachments: attachments,
+      },
+    };
+  }
+
+  return { status: 400 };
+});
 ```
 <!-- langtabs-end -->
 
@@ -63,7 +86,41 @@ Handle opening adaptive card dialog when the `searchQuery` query is submitted.
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/card.snippet.message-ext-create-dummy-cards.ts }}
+export async function createDummyCards(searchQuery: string) {
+  const dummyItems = [
+    {
+      title: 'Item 1',
+      description: `This is the first item and this is your search query: ${searchQuery}`,
+    },
+    { title: 'Item 2', description: 'This is the second item' },
+    { title: 'Item 3', description: 'This is the third item' },
+    { title: 'Item 4', description: 'This is the fourth item' },
+    { title: 'Item 5', description: 'This is the fifth item' },
+  ];
+
+  const cards = dummyItems.map((item) => {
+    return {
+      card: new Card(
+        new TextBlock(item.title, {
+          size: 'large',
+          weight: 'bolder',
+          color: 'accent',
+          style: 'heading',
+        }),
+        new TextBlock(item.description, {
+          wrap: true,
+          spacing: 'medium',
+        })
+      ),
+      thumbnail: {
+        title: item.title,
+        text: item.description,
+      } as ThumbnailCard,
+    };
+  });
+
+  return cards;
+}
 ```
 <!-- langtabs-end -->
 

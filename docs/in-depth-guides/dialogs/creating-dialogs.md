@@ -9,7 +9,46 @@ To open a dialog, you need to supply a special type of action as to the Adaptive
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.dialog-entry-point.ts }}
+app.on('message', async ({ send }) => {
+  await send({ type: 'typing' });
+
+  // Create the launcher adaptive card
+  const card: ICard = new Card()
+    .withBody({
+      type: 'TextBlock',
+      text: 'Select the examples you want to see!',
+      size: 'large',
+      weight: 'bolder',
+    })
+    .addActions(
+      // raw action
+      {
+        type: 'Action.Submit',
+        title: 'Simple form test',
+        data: {
+          msteams: {
+            type: 'task/fetch',
+          },
+          opendialogtype: 'simple_form',
+        },
+      },
+      // Special type of action to open a dialog
+      new TaskFetchAction({})
+        .withTitle('Webpage Dialog')
+        // This data will be passed back in an event so we can
+        // handle what to show in the dialog
+        .withValue(new TaskFetchData({ opendialogtype: 'webpage_dialog' })),
+      new TaskFetchAction({})
+        .withTitle('Multi-step Form')
+        .withValue(new TaskFetchData({ opendialogtype: 'multi_step_form' })),
+      new TaskFetchAction({})
+        .withTitle('Mixed Example')
+        .withValue(new TaskFetchData({ opendialogtype: 'mixed_example' }))
+    );
+
+  // Send the card as an attachment
+  await send(new MessageActivity('Enter this form').addCard('adaptive', card));
+});
 ```
 <!-- langtabs-end -->
 
@@ -42,7 +81,38 @@ You can render an Adaptive Card in a dialog by returning a card response.
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.dialog-simple-card.ts }}
+if (dialogType === 'simple_form') {
+  const dialogCard = new Card()
+    .withBody(
+      {
+        type: 'TextBlock',
+        text: 'This is a simple form',
+        size: 'large',
+        weight: 'bolder',
+      },
+      new TextInput()
+        .withLabel('Name')
+        .withRequired()
+        .withId('name')
+        .withPlaceholder('Enter your name')
+    )
+    // Inside the dialog, the card actions for submitting the card must be
+    // of type Action.Submit
+    .addActions(
+      new SubmitAction().withTitle('Submit').withData({ submissiondialogtype: 'simple_form' })
+    );
+
+  // Return an object with the task value that renders a card
+  return {
+    task: {
+      type: 'continue',
+      value: {
+        title: 'Simple Form Dialog',
+        card: cardAttachment('adaptive', dialogCard),
+      },
+    },
+  };
+}
 ```
 <!-- langtabs-end -->
 
@@ -58,6 +128,20 @@ You can render a webpage in a dialog as well. There are some security requiremen
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.dialog-webpage.ts }}
+return {
+  task: {
+    type: 'continue',
+    value: {
+      title: 'Webpage Dialog',
+      // Here we are using a webpage that is hosted in the same
+      // server as the agent. This server needs to be publicly accessible,
+      // needs to set up teams.js client library (https://www.npmjs.com/package/@microsoft/teams-js)
+      // and needs to be registered in the manifest.
+      url: `${process.env['BOT_ENDPOINT']}/tabs/dialog-form`,
+      width: 1000,
+      height: 800,
+    },
+  },
+};
 ```
 <!-- langtabs-end -->

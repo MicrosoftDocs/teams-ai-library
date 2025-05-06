@@ -10,7 +10,17 @@ Once you receive a feedback event, you can choose to store it in some persistent
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../generated-snippets/ts/feedback.snippet.feedback-loop-store.ts }}
+// This store would ideally be persisted in a database
+export const storedFeedbackByMessageId = new Map<
+  string,
+  {
+    incomingMessage: string;
+    outgoingMessage: string;
+    likes: number;
+    dislikes: number;
+    feedbacks: string[];
+  }
+>();
 ```
 <!-- langtabs-end -->
 
@@ -20,7 +30,23 @@ When sending a message that you want feedback in, simply `addFeedback()` to the 
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../generated-snippets/ts/feedback.snippet.feedback-loop.ts }}
+const { id: sentMessageId } = await send(
+  result.content != null
+    ? new MessageActivity(result.content)
+        .addAiGenerated()
+        /** Add feedback buttons via this method */
+        .addFeedback()
+    : 'I did not generate a response.'
+);
+
+storedFeedbackByMessageId.set(sentMessageId, {
+  incomingMessage: activity.text,
+  outgoingMessage: result.content ?? '',
+  likes: 0,
+  dislikes: 0,
+  feedbacks: [],
+});
+
 ```
 <!-- langtabs-end -->
 
@@ -30,6 +56,27 @@ Once the user decides to like/dislike the message, you can handle the feedback i
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../generated-snippets/ts/index.snippet.feedback-loop-handler.ts }}
+app.on("message.submit.feedback", async ({ activity, log }) => {
+  const { reaction, feedback: feedbackJson } = activity.value.actionValue;
+  if (activity.replyToId == null) {
+    log.warn(`No replyToId found for messageId ${activity.id}`);
+    return;
+  }
+  const existingFeedback = storedFeedbackByMessageId.get(activity.replyToId);
+  /**
+   * feedbackJson looks like:
+   * {"feedbackText":"Nice!"}
+   */
+  if (!existingFeedback) {
+    log.warn(`No feedback found for messageId ${activity.id}`);
+  } else {
+    storedFeedbackByMessageId.set(activity.id, {
+      ...existingFeedback,
+      likes: existingFeedback.likes + (reaction === "like" ? 1 : 0),
+      dislikes: existingFeedback.dislikes + (reaction === "dislike" ? 1 : 0),
+      feedbacks: [...existingFeedback.feedbacks, feedbackJson],
+    });
+  }
+});
 ```
 <!-- langtabs-end -->

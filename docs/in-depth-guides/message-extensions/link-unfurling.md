@@ -50,7 +50,27 @@ Handle link unfurling when a URL from your registered domain is submited into th
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.message-ext-query-link.ts }}
+app.on('message.ext.query-link', async ({ activity }) => {
+  const { url } = activity.value;
+
+  if (!url) {
+    return { status: 400 };
+  }
+
+  const { card, thumbnail } = createLinkUnfurlCard(url);
+  const attachment = {
+    ...cardAttachment('adaptive', card), // expanded card in the compose box...
+    preview: cardAttachment('thumbnail', thumbnail), //preview card in the compose box...
+  };
+
+  return {
+    composeExtension: {
+      type: 'result',
+      attachmentLayout: 'list',
+      attachments: [attachment],
+    },
+  };
+});
 ```
 <!-- langtabs-end -->
 
@@ -58,7 +78,36 @@ Handle link unfurling when a URL from your registered domain is submited into th
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/card.snippet.message-ext-create-link-unfurl-card.ts }}
+export function createLinkUnfurlCard(url: string) {
+  const thumbnail = {
+    title: 'Unfurled Link',
+    text: url,
+    images: [
+      {
+        url: IMAGE_URL,
+      },
+    ],
+  } as ThumbnailCard;
+
+  const card = new Card(
+    new TextBlock('Unfurled Link', {
+      size: 'large',
+      weight: 'bolder',
+      color: 'accent',
+      style: 'heading',
+    }),
+    new TextBlock(url, {
+      size: 'small',
+      weight: 'lighter',
+      color: 'good',
+    })
+  );
+
+  return {
+    card,
+    thumbnail,
+  };
+}
 ```
 <!-- langtabs-end -->
 

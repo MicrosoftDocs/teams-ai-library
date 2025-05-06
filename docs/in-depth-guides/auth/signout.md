@@ -4,6 +4,10 @@ Sign a user out by calling the `signout` method to discard the cached access tok
 
 <!-- langtabs-start -->
 ```typescript
-{{#include ../../../generated-snippets/ts/index.snippet.auth-signout.ts }}
+app.message('/signout', async ({ send, signout, isSignedIn }) => {
+  if (!isSignedIn) return;
+  await signout(); // call signout for your auth connection...
+  await send('you have been signed out!');
+});
 ```
 <!-- langtabs-end -->
