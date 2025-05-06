@@ -1,13 +1,4 @@
----
-title: Use Dialogs
-description: Learn how to use dialogs in your agent. 
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Dialogs (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Dialogs
 
 Dialogs are a helpful paradigm in Teams which improve interactions between your agent and users. When dialogs are **invoked**, they pop open a window for a user in the Teams client. The content of the dialog can be supplied by the agent application.
 
@@ -21,5 +12,5 @@ Dialogs are a helpful paradigm in Teams which improve interactions between your 
 
 ## Resources
 
-- [Task Modules](/task-modules-and-cards/task-modules/what-are-task-modules)
-- [Invoking Task Modules](/task-modules-and-cards/task-modules/invoking-task-modules)
+- [Task Modules](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/task-modules/what-are-task-modules)
+- [Invoking Task Modules](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules)

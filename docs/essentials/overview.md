@@ -1,13 +1,4 @@
----
-title: Overview
-ms.topic: overview
-description: Learn about activity handlers and system events.
-ms.date: 05/02/2025
----
-
-# Essentials (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Essentials
 
 At its core, an application that hosts an agent on Microsoft Teams exists to do three things well: listen to events, handle the ones that matter, and respond efficiently. Whether a user sends a message, opens a task module, or clicks a button — your app is there to interpret the event and act on it.
 
@@ -19,6 +10,29 @@ Before diving in, let’s define a few key terms:
 • InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
 • Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
 
-![alt-text for README-1.png](~/assets/diagrams/README-1.png)
+```mermaid
+flowchart LR
+    Teams["Teams"]
+    Server["App Server"]
+    AppEventHandlers["Event Handler (app.event())"]
+    AppRouter["Activity Event Router"]
+    AppActivityHandlers["Activity Handlers (app.on())"]
+
+    Teams --> |Activity| Server
+    Teams --> |Signed In| Server
+    Teams --> |...other<br/>incoming events| Server
+    Server --> |ActivityEvent<br/>or InvokeEvent| AppRouter
+    Server ---> |incoming<br/>events| AppEventHandlers
+    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
+    AppRouter --> |message activity| AppActivityHandlers
+    AppRouter --> |card activity| AppActivityHandlers
+    AppRouter --> |installation activity| AppActivityHandlers
+    AppRouter --> |...other activities| AppActivityHandlers
+
+
+    linkStyle 0,3 stroke:#66fdf3,stroke-width:1px,color:Tomato
+    linkStyle 1,2,4,5 stroke:#66fdf3,stroke-width:1px
+    linkStyle 6,7,8,9 color:Tomato
+```
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.

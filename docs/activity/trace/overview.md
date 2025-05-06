@@ -1,21 +1,14 @@
----
-title: Trace Activity
-ms.topic: overview
-description: Learn about the schema for the trace activity.
-ms.date: 05/02/2025
----
-
-# Activity: Trace (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Activity: Trace
 
 The Trace activity is an activity which the developer inserts in to the stream of activities to represent a point in the developers bot logic. The trace activity typically is logged by transcript history components to become part of a Transcript-Format history file. In remote debugging scenarios the Trace activity can be sent to the client so that the activity can be inspected as part of the debug flow.
 
 Trace activities are normally not shown to the user, and are internal to transcript logging and developer debugging.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('trace', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
 ## Schema
 
@@ -53,6 +46,6 @@ The `value` field contains an object for this trace, as defined by the `valueTyp
 
 ### Relates to
 
-The `relatesTo` field references another conversation, and optionally a specific activity within that conversation. The value of the `relatesTo` field is a complex object of the *Conversation reference* type.
+The `relatesTo` field references another conversation, and optionally a specific activity within that conversation. The value of the `relatesTo` field is a complex object of the [Conversation reference](#conversation-reference) type.
 
 `A6157`: `relatesTo` MAY reference an activity within the conversation identified by the `conversation` field.

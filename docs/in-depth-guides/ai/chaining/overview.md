@@ -1,13 +1,4 @@
----
-title: Chaining
-description: Learn about the Chaining assistant that helps to chain multiple prompts together.
-ms.topic: overview
-ms.date: 05/02/2025
----
-
-# Chaining (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 🔗 Chaining
 
 By using multiple prompts and at least one `ChatPrompt` for orchestration,
 you can chain your prompts together. This has many benefits, including:

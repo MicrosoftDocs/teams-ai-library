@@ -1,24 +1,17 @@
----
-title: Typing Activity
-ms.topic: overview
-description: Learn about the schema for the typing activity.
-ms.date: 05/02/2025
----
-
-# Activity: Typing (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Activity: Typing
 
 Typing activities represent ongoing input from a user or a bot. This activity is often sent when keystrokes are being entered by a user, although it's also used by bots to indicate they're "thinking," and could also be used to indicate processing, e.g. collecting audio from users.
 
 Typing activities are intended to persist within UIs for three seconds.
 
+<!-- langtabs-start -->
 ```typescript
 // Send a typing indicator to the user upon receiving a message
 app.on('message', async ({ send }) => {
   await send({ type: 'typing' });
 });
 ```
+<!-- langtabs-end -->
 
 ## Schema
 

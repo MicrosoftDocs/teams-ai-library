@@ -1,24 +1,17 @@
----
-title: Command Activity
-ms.topic: overview
-description: Learn about the schema and value for the command activity.
-ms.date: 05/02/2025
----
-
-# Activity: Command (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Activity: Command
 
 Command activities communicate a request to perform a specific action.
 
-Commands look similar in structure to events but have different semantics. Commands are requests to perform an action and receivers typically respond with one or more `commandResult` activities. Receivers are also expected to explicitly reject unsupported command activities.
+Commands look similar in structure to events but have different semantics. Commands are requests to perform an action and receivers typically respond with one or more commandResult activities. Receivers are also expected to explicitly reject unsupported command activities.
 
-> [!NOTE]
+> [**ℹ️ Note**]
 > This event type is not applicable to Teams.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('command', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
 ## Schema
 
@@ -38,7 +31,7 @@ The `name` field defines the meaning of the command activity. The value of the `
 
 `A6310`: Command activities MUST contain a `name` field.
 
-`A6311`: The `name` of a command activity MUST use a [MIME media type](https://www.iana.org/assignments/media-types/media-types.xhtml) [[8](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#referencess)] format.
+`A6311`: The `name` of a command activity MUST use a [MIME media type](https://www.iana.org/assignments/media-types/media-types.xhtml) [[8](#references)] format.
 
 `A6312`: Receivers MUST ignore command activities with missing or invalid `name` field.
 

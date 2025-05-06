@@ -1,13 +1,4 @@
----
-title: AI Packages
-description: Learn about the AI packages for prompts and models in Teams AI library v2.
-ms.topic: overview
-ms.date: 05/02/2025
----
-
-# AI (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 🤖 AI
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.
 The `@microsoft/teams.ai` package has two main components:
