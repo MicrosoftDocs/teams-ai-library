@@ -27,4 +27,4 @@ Please note that in Teams, the RSC `ChatMessageReadReceipt.Read.Chat` permission
 
 ## Resources
 
-- [Microsoft Teams: Read Receipts](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/build-conversational-capability#receive-a-read-receipt)
+- [Microsoft Teams: Read Receipts](/microsoftteams/platform/bots/build-conversational-capability#receive-a-read-receipt)

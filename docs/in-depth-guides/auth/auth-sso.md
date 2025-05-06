@@ -38,7 +38,7 @@ The SSO signin flow involves several components working together. Here's how it 
    - If token is valid, app uses it directly
    - If token expires, app silently signs the user in using the token exchange flow
 
-See the [SSO in Teams at runtime](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview#sso-in-teams-at-runtime) guide to learn more about the SSO signin flow
+See the [SSO in Teams at runtime](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview#sso-in-teams-at-runtime) guide to learn more about the SSO signin flow
 
 ## OAuth 
 
@@ -71,7 +71,7 @@ When an access token expires, the user will need to go through the sign-in proce
 
 ## Resources
 
-- [User Authentication Basics](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
-- [User Authentication in Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/authentication)
-- [Enable SSO for bot and message extension app using Entra ID](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
-- [Add authentication to your Teams bot](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)
+- [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
+- [Add authentication to your Teams bot](/microsoftteams/platform/bots/how-to/authentication/add-authentication)

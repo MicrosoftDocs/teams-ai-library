@@ -28,7 +28,7 @@ In this step you will have to tweak your Azure Bot service and App registration 
 > [!Note]
 > [Single Sign-On (SSO)](./auth-sso.md#single-sign-on-sso) within Teams is an authentication method that uses an app user's Teams identity to provide them with access to your app. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
 
-You can follow the [Enable SSO for bot and message extension app using Entra ID](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad?tabs=botid) guide in the Microsoft Learn docs.
+You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad?tabs=botid) guide in the Microsoft Learn docs.
 
 ### Using Teams Toolkit with the `teams` CLI
 
@@ -53,10 +53,10 @@ This [CLI](../../developer-tools/cli/overview.md) command adds configuration fil
 
 ## Authenticate the user to third-party identity provider
 
-You can follow the [Add authentication to bot app](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-sample) Microsoft Learn guide.
+You can follow the [Add authentication to bot app](/microsoftteams/platform/bots/how-to/authentication/add-authentication?tabs=dotnet%2Cdotnet-sample) Microsoft Learn guide.
 
 
 ## Resources
 
-- [User Authentication Basics](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
-- [User Authentication in Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/authentication)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)

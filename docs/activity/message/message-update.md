@@ -39,4 +39,4 @@ To save the changes, click the checkmark icon or to cancel, click the X icon.
 
 ## Resources
 
-- [Microsoft Teams: Message Update](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/build-conversational-capability#receive-edit-message-activity)
+- [Microsoft Teams: Message Update](/microsoftteams/platform/bots/build-conversational-capability#receive-edit-message-activity)

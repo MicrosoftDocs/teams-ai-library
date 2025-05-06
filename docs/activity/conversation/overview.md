@@ -15,4 +15,4 @@ Teams has several unique conversation update activities that are not found in th
 
 ## Resources
 
-- [Microsoft Learn: Conversation Update Events](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/subscribe-to-conversation-events#conversation-update-events)
+- [Microsoft Learn: Conversation Update Events](/microsoftteams/platform/bots/how-to/conversations/subscribe-to-conversation-events#conversation-update-events)
