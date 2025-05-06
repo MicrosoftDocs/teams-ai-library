@@ -58,11 +58,9 @@ This will add relevant Teams Toolkit files to your project.
 > [!tip]
 > See [App Setup](./setup.md#using-teams-toolkit-with-the-teams-cli) to learn more about what this command does.
 
-
-
 ## Interacting with the app in Teams
 
-Once you have successfully sideloaded the app into Teams you can now interact with it and sign the user in. 
+Once you have successfully sideloaded the app into Teams you can now interact with it and sign the user in.
 
 ### Signing the user in
 
