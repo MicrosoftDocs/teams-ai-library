@@ -1,8 +1,8 @@
 ---
-title: Chat Generation
-description: Learn how to create a chat prompt for simple chat generation and streaming chat responses.
+title: Chat Generation (preview)
+description: Learn about Chat Generation (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Chat Generation (preview)
@@ -23,12 +23,14 @@ Chat generation is the the most basic way of interacting with an LLM model. It i
 
 Import the relevant objects:
 
+<!-- langtabs-start -->
 ```typescript
 import { ChatPrompt } from "@microsoft/teams.ai";
 import { OpenAIChatModel } from "@microsoft/teams.openai";
-
 ```
+<!-- langtabs-end -->
 
+<!-- langtabs-start -->
 ```typescript
 app.on("message", async ({ send, activity, next }) => {
   const model = new OpenAIChatModel({
@@ -50,8 +52,8 @@ app.on("message", async ({ send, activity, next }) => {
     // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol’ salty sea dog help ye with? 🚢☠️
   }
 });
-
 ```
+<!-- langtabs-end -->
 
 > [!NOTE]
 > The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
@@ -63,6 +65,7 @@ LLMs can take a while to generate a response, so often streaming the response le
 > [!IMPORTANT]
 > Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
 
+<!-- langtabs-start -->
 ```typescript
 app.on("message", async ({ stream, send, activity, next }) => {
   // const query = activity.text;
@@ -90,7 +93,7 @@ app.on("message", async ({ stream, send, activity, next }) => {
     stream.emit(new MessageActivity().addAiGenerated());
   }
 });
-
 ```
+<!-- langtabs-end -->
 
 ![Streaming the response](../../assets/screenshots/streaming-chat.gif)

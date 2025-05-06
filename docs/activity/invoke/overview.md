@@ -1,8 +1,8 @@
 ---
-title: Invoke Activity
+title: Activity - Invoke (preview)
+description: Learn about Activity - Invoke (preview)
 ms.topic: overview
-description: Learn about the schema and value of the invoke activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Invoke (preview)
@@ -13,9 +13,11 @@ Invoke activities communicate programmatic information from a client or channel 
 
 Invoke activities are the synchronous counterpart to [event activities](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#event-activity). Event activities are designed to be extensible. Invoke activities differ only in their ability to return response payloads back to the channel; because the channel must decide where and how to process these response payloads, Invoke is useful only in cases where explicit support for each invoke name has been added to the channel. Thus, Invoke is not designed to be a generic application extensibility mechanism.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('invoke', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
 ## Schema
 
@@ -59,4 +61,4 @@ Please see the subsequent sections for more information on the aliases that are 
 
 ## Resources
 
-[Microsoft Learn: Graph API - Resource specific consent](/graph-api/rsc/resource-specific-consent)
+- [Microsoft Learn: Graph API - Resource specific consent](/microsoftteams/platform/graph-api/rsc/resource-specific-consent)

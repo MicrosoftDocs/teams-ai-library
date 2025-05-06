@@ -1,8 +1,8 @@
 ---
-title: Trace Activity
+title: Activity - Trace (preview)
+description: Learn about Activity - Trace (preview)
 ms.topic: overview
-description: Learn about the schema for the trace activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Trace (preview)
@@ -13,9 +13,11 @@ The Trace activity is an activity which the developer inserts in to the stream o
 
 Trace activities are normally not shown to the user, and are internal to transcript logging and developer debugging.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('trace', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
 ## Schema
 

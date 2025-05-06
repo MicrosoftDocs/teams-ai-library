@@ -9,6 +9,8 @@ ms.date: 04/30/2025
 
 [This article is prerelease documentation and is subject to change.]
 
+[This article is prerelease documentation and is subject to change.]
+
 > [!NOTE]
 > Currently, streaming in Teams is only supported in the personal scope, not group chats or channels.
 

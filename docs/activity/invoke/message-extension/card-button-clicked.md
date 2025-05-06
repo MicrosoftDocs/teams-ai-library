@@ -1,14 +1,16 @@
 ---
-title: Message Extension Card Button Clicked Invoke Activity
+title: Activity - Message Extension Card Button Clicked Invoke (preview)
+description: Learn about Activity - Message Extension Card Button Clicked Invoke (preview)
 ms.topic: reference
-description: Learn about the message extension card button clicked invoke activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Message Extension Card Button Clicked Invoke (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
+<!-- langtabs-start -->
 ```typescript
 app.on('message.ext.card-button-clicked', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->

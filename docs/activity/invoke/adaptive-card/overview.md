@@ -1,18 +1,19 @@
 ---
-title: Adaptive Card Invoke
+title: Activity - Adaptive Card Invoke (preview)
+description: Learn about Activity - Adaptive Card Invoke (preview)
 ms.topic: overview
-description: Learn about the Adaptive Card invoke activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Adaptive Card Invoke (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-[Adaptive Cards](/task-modules-and-cards/cards/cards-reference#adaptive-card) are a way to send rich content to users. They can be used to send messages, notifications, or to display information.
+[Adaptive Cards](/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#adaptive-card) are a way to send rich content to users. They can be used to send messages, notifications, or to display information.
 
 Invokes on Adaptive Cards are used to perform some action dependent on interaction from the user.
 
+<!-- langtabs-start -->
 ```typescript
 // Long-hand form of retrieving the invoke value
 app.on('invoke', async ({ activity }) => {
@@ -21,6 +22,7 @@ app.on('invoke', async ({ activity }) => {
   }
 });
 ```
+<!-- langtabs-end -->
 
 The name of the invoke activity for Adaptive Cards is `adaptiveCard/action`. However, the `@microsoft/teams.api` package includes an alias for this invoke activity, `card.action`.
 
@@ -28,4 +30,4 @@ See the next section for more information on the `value` field of the invoke act
 
 ## Resources
 
-[Microsoft Learn: AC invokes](/task-modules-and-cards/cards/cards-actions?tabs=json#action-type-invoke)
+- [Microsoft Learn: AC invokes](/microsoftteams/platform/task-modules-and-cards/cards/cards-actions?tabs=json#action-type-invoke)

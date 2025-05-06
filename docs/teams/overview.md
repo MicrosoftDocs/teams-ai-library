@@ -1,8 +1,8 @@
 ---
-title: Teams Integration
-description: Learn how your agent integrates with Teams platform.
-ms.topic: how-to
-ms.date: 05/02/2025
+title: Teams Integration (preview)
+description: Learn about Teams Integration (preview)
+ms.topic: overview
+ms.date: 05/05/2025
 ---
 
 # Teams Integration (preview)
@@ -23,7 +23,7 @@ When working with Teams, several key components come into play:
 ## In This Section
 
 1. [Running Your Agent]() - Understanding the Teams deployment process
-2. [Teams Manifest](./manifest.md) - Configuring your agent's Teams presence
-3. [Teams Toolkit](./m365-toolkit.md) - Using the Teams Toolkit extension for sideloading, deployment, and provisioning.
+2. [Teams Manifest](manifest.md) - Configuring your agent's Teams presence
+3. [Teams Toolkit](m365-toolkit.md) - Using the Teams Toolkit extension for sideloading, deployment, and provisioning.
 
 Each guide provides detailed information about specific aspects of Teams integration, from local development to production deployment.

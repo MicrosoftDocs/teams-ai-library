@@ -1,8 +1,8 @@
 ---
-title: Developer
-description: Learn about the Developer assistant that orchestrates the other assistance.
-ms.topic: reference
-ms.date: 05/02/2025
+title: Developer (preview)
+description: Learn about Developer (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Developer (preview)
@@ -12,6 +12,7 @@ ms.date: 05/02/2025
 The top level assistant that is responsible for orchestrating the
 other assistants.
 
+<!-- langtabs-start -->
 ```bash
 src
 ├── prompts
@@ -20,9 +21,11 @@ src
 │   └── typescript.ts
 └── developer.ts
 ```
+<!-- langtabs-end -->
 
 ## `/src/developer.ts`
 
+<!-- langtabs-start -->
 ```typescript
 import { ChatPrompt, ObjectSchema } from '@microsoft/teams.ai';
 import { OpenAIChatModel } from '@microsoft/teams.openai';
@@ -89,3 +92,4 @@ const developer = new ChatPrompt({
   process.stdout.write('\n');
 })();
 ```
+<!-- langtabs-end -->

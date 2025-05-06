@@ -24,7 +24,7 @@ landingContent:
             url: ./essentials/on-event.md
           - text: Sending Messages
             url: ./essentials/sending-messages.md
-          - text: Using the API Client
+          - text: Using The API Client
             url: ./essentials/api.md
           - text: Authentication
             url: ./in-depth-guides/auth/overview.md
@@ -48,20 +48,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Message
-            url: ./essentials/on-message.md
-          - text: Typing
-            url: ./activity/typing/overview.md
-          - text: Conversation
-            url: ./activity/conversation/overview.md
-          - text: Event
-            url: ./activity/event/overview.md
-          - text: Command
-            url: ./activity/command/overview.md
-          - text: Invoke
-            url: ./activity/invoke/overview.md
-          - text: Handoff
-            url: ./activity/handoff/overview.md
+          - text: Listening to Activities
+            url: ./essentials/on-activity.md
+          - text: Activity Reference
+            url: ./essentials/activity-ref.md
+          - text: Sending Messages
+            url: ./essentials/sending-messages.md
+          - text: Proactive Messages
+            url: ./essentials/proactive-messaging.md
 
   # DevTools
   - title: Use developer tools

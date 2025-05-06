@@ -1,8 +1,8 @@
 ---
-title: Tab Invoke Activity
+title: Activity - Tab Invoke (preview)
+description: Learn about Activity - Tab Invoke (preview)
 ms.topic: overview
-description: Learn about the tab invoke activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Tab Invoke (preview)

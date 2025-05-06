@@ -2,7 +2,7 @@
 title: Feedback (preview)
 description: Learn about Feedback (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Feedback (preview)
@@ -17,6 +17,7 @@ User feedback is essential for the improvement of any application. Teams provide
 
 Once you receive a feedback event, you can choose to store it in some persistent storage. In the example below, we are storing it in an in-memory store.
 
+<!-- langtabs-start -->
 ```typescript
 // This store would ideally be persisted in a database
 export const storedFeedbackByMessageId = new Map<
@@ -29,13 +30,14 @@ export const storedFeedbackByMessageId = new Map<
     feedbacks: string[];
   }
 >();
-
 ```
+<!-- langtabs-end -->
 
 ## Including Feedback Buttons
 
 When sending a message that you want feedback in, simply `addFeedback()` to the message you are sending.
 
+<!-- langtabs-start -->
 ```typescript
 const { id: sentMessageId } = await send(
   result.content != null
@@ -54,13 +56,14 @@ storedFeedbackByMessageId.set(sentMessageId, {
   feedbacks: [],
 });
 
-
 ```
+<!-- langtabs-end -->
 
 ## Handling the feedback
 
 Once the user decides to like/dislike the message, you can handle the feedback in a received event. Once received, you can choose to include it in your persistent store.
 
+<!-- langtabs-start -->
 ```typescript
 app.on("message.submit.feedback", async ({ activity, log }) => {
   const { reaction, feedback: feedbackJson } = activity.value.actionValue;
@@ -84,5 +87,5 @@ app.on("message.submit.feedback", async ({ activity, log }) => {
     });
   }
 });
-
 ```
+<!-- langtabs-end -->

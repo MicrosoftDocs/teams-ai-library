@@ -1,11 +1,11 @@
 ---
-title: User Authentication
-description: Learn about adding user authentication in your agent
+title: 🔒 User Authentication (preview)
+description: Learn about 🔒 User Authentication (preview)
 ms.topic: overview
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
-# User Authentication (preview)
+# 🔒 User Authentication (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -23,4 +23,4 @@ At times agents must access secured online resources on behalf of the user, such
 
 ## Resources
 
-[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)

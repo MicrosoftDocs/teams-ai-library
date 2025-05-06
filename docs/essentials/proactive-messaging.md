@@ -1,8 +1,8 @@
 ---
-title: Proactive Messages
-ms.topic: reference
-description: Learn how to send proactive messages in response to events.
-ms.date: 05/02/2025
+title: Proactive Messaging (preview)
+description: Learn about Proactive Messaging (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Proactive Messaging (preview)
@@ -13,6 +13,7 @@ In [Sending Messages](./sending-messages.md), we show how we can respond to an e
 
 The main thing to note is that you need to have the `conversationId` of the chat or channel you want to send the message to. It's a good idea to store this value somewhere from an activity handler so you can use it for proactive messaging later.
 
+<!-- langtabs-start -->
 ```typescript
 // This would be some persistent storage
 const myConversationIdStorage = new Map<string, string>();
@@ -26,11 +27,12 @@ app.on('install.add', async ({ activity, send}) => {
   await send('Hi! I am going to remind you to say something to me soon!');
   notificationQueue.addReminder(activity.from.aadObjectId!, sendProactiveNotification, 10_000);
 });
-
 ```
+<!-- langtabs-end -->
 
 Then, when you want to send a proactive message, you can retrieve the `conversationId` from storage and use it to send the message.
 
+<!-- langtabs-start -->
 ```typescript
 const sendProactiveNotification = async (userId: string) => {
   const conversationId = myConversationIdStorage.get(userId);
@@ -40,8 +42,8 @@ const sendProactiveNotification = async (userId: string) => {
   const activity = new MessageActivity(`Hey! It's been a while. How are you?`);
   await app.send(conversationId, activity);
 }
-
 ```
+<!-- langtabs-end -->
 
 > [!TIP]
 > In this example, we show that we get the conversation id using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.

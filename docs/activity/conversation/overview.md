@@ -1,8 +1,8 @@
 ---
-title: Conversation Activity
+title: Activity - Conversation (preview)
+description: Learn about Activity - Conversation (preview)
 ms.topic: overview
-description: Learn about the conversation activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Conversation (preview)
@@ -15,4 +15,4 @@ Teams has several unique conversation update activities that are not found in th
 
 ## Resources
 
-[Microsoft Learn: Conversation Update Events](/bots/how-to/conversations/subscribe-to-conversation-events#conversation-update-events)
+- [Microsoft Learn: Conversation Update Events](/microsoftteams/platform/bots/how-to/conversations/subscribe-to-conversation-events#conversation-update-events)

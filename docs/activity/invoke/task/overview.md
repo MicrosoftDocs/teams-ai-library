@@ -1,8 +1,8 @@
 ---
-title: Task Invoke Activity
+title: Activity - Task Invoke (preview)
+description: Learn about Activity - Task Invoke (preview)
 ms.topic: overview
-description: Learn about the task invoke activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Task Invoke (preview)

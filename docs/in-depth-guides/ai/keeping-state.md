@@ -1,8 +1,8 @@
 ---
-title: Keeping State
-description: Learn how to keep state of the conversation history in your agent.
+title: Keeping state (preview)
+description: Learn about Keeping state (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Keeping state (preview)
@@ -23,6 +23,7 @@ To avoid this, you need to get messages from your persistent (or in-memory) stor
 > [!NOTE]
 > The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
 
+<!-- langtabs-start -->
 ```typescript
 // Simple in-memory store for conversation histories
 // In your application, it may be a good idea to use a more
@@ -40,9 +41,10 @@ const getOrCreateConversationHistory = (conversationId: string) => {
   conversationStore.set(conversationId, newMessages);
   return newMessages;
 };
-
 ```
+<!-- langtabs-end -->
 
+<!-- langtabs-start -->
 ```typescript
 /**
  * Example of a stateful conversation handler that maintains conversation history
@@ -83,7 +85,7 @@ export const handleStatefulConversation = async (
 
   log.info('Messages after sending to prompt:', existingMessages);
 };
-
 ```
+<!-- langtabs-end -->
 
-![Stateful Chat Example](../../assets/screenshots/stateful-chat-example.png)
+![Stateful Chat Example](~/assets/screenshots/stateful-chat-example.png)

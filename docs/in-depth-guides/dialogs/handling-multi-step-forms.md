@@ -1,8 +1,8 @@
 ---
-title: Handle multi-step forms
-description: Learn how to handle multi-step forms in your agent.
+title: Handling multi-step forms (preview)
+description: Learn about Handling multi-step forms (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Handling multi-step forms (preview)
@@ -13,6 +13,7 @@ Dialogs can become complex yet powerful with multi-step forms. These forms can a
 
 Start off by sending an initial card in the `dialog.open` event.
 
+<!-- langtabs-start -->
 ```typescript
 const dialogCard = new Card()
   .withBody(
@@ -46,11 +47,12 @@ return {
     },
   },
 };
-
 ```
+<!-- langtabs-end -->
 
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('dialog.submit', async ({ activity, send, next }) => {
   const dialogType = activity.value.data.submissiondialogtype;
@@ -103,5 +105,5 @@ app.on('dialog.submit', async ({ activity, send, next }) => {
   }
 
 });
-
 ```
+<!-- langtabs-end -->

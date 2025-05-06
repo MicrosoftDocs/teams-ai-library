@@ -1,8 +1,8 @@
 ---
-title: Meeting Participant Events Activity
+title: Activity - Meeting Participant Events (preview)
+description: Learn about Activity - Meeting Participant Events (preview)
 ms.topic: reference
-description: Learn how participant events allow bots to receive meeting notifications about users in a meeting.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Meeting Participant Events (preview)
@@ -13,28 +13,32 @@ Meeting extensibility on Teams also provides events such as a user joining or le
 
 ## Meeting participant join event
 
+<!-- langtabs-start -->
 ```typescript
 app.on('meetingParticipantJoin', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
-The `meetingParticipantJoin` is the alias for the event name `application/vnd.microsoft.meetingParticipantJoin`. This event is sent when a user joins a meeting.
+The `'meetingParticipantJoin'` is the alias for the event name `'application/vnd.microsoft.meetingParticipantJoin'`. This event is sent when a user joins a meeting.
 
 ## Meeting participant leave event
 
+<!-- langtabs-start -->
 ```typescript
 app.on('meetingParticipantLeave', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
-The `meetingParticipantLeave` is the alias for the event name `application/vnd.microsoft.meetingParticipantLeave`. This event is sent when a user leaves a meeting.
+The `'meetingParticipantLeave'` is the alias for the event name `'application/vnd.microsoft.meetingParticipantLeave'`. This event is sent when a user leaves a meeting.
 
 ## App permissions
 
 In Teams, the app manifest requires specific setup to have meeting participant events permissions.
 
-- The `permissions` section under `authorization` must have the `OnlineMeetingParticipant.Read.Chat` permission.
+- The `'permissions'` section under `'authorization'` must have the `'OnlineMeetingParticipant.Read.Chat'` permission.
 - The bot must have participant meeting event subscriptions enabled in the [Developer Portal](https://dev.teams.microsoft.com/).
 
 ## Resources
 
-- [Microsoft Learn: Teams meeting extensibility participant events](/apps-in-teams-meetings/meeting-apps-apis#receive-meeting-participant-events)
-- [Microsoft Learn: Graph API - resource specific consent](/graph-api/rsc/resource-specific-consent)
+- [Microsoft Learn: Teams meeting extensibility participant events](/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis#receive-meeting-participant-events)
+- [Microsoft Learn: Graph API - resource specific consent](/microsoftteams/platform/graph-api/rsc/resource-specific-consent)

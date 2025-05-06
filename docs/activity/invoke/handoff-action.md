@@ -1,14 +1,16 @@
 ---
-title: Handoff Action Invoke
+title: Activity - Handoff Action Invoke (preview)
+description: Learn about Activity - Handoff Action Invoke (preview)
 ms.topic: reference
-description: Learn about the Handoff Action Invoke activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Handoff Action Invoke (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
+<!-- langtabs-start -->
 ```typescript
 app.on('handoff.action', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->

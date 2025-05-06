@@ -1,21 +1,22 @@
 ---
-title: Create Dialogs
-description: Learn how to create dialogs for your agent.
+title: Creating Dialogs (preview)
+description: Learn about Creating Dialogs (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
-# Create Dialogs (preview)
+# Creating Dialogs (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
 > [!TIP]
-> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../cards/). Understanding their basics is a prerequisite for this guide.
+> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../cards/overview.md). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 
 To open a dialog, you need to supply a special type of action as to the Adaptive Card. Once this button is clicked, the dialog will open and ask the application what to show.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('message', async ({ send }) => {
   await send({ type: 'typing' });
@@ -57,13 +58,14 @@ app.on('message', async ({ send }) => {
   // Send the card as an attachment
   await send(new MessageActivity('Enter this form').addCard('adaptive', card));
 });
-
 ```
+<!-- langtabs-end -->
 
 ## Handling Dialog Open Events
 
 Once an action is executed to open a dialog, the Teams client will send an event to the agent to request what the content of the dialog should be. Here is how to handle this event:
 
+<!-- langtabs-start -->
 ```typescript
 app.on('dialog.open', async ({ activity }) => {
   const card: ICard = new Card()...
@@ -80,11 +82,13 @@ app.on('dialog.open', async ({ activity }) => {
   };
 }
 ```
+<!-- langtabs-end -->
 
 ### Rendering A Card
 
 You can render an Adaptive Card in a dialog by returning a card response.
 
+<!-- langtabs-start -->
 ```typescript
 if (dialogType === 'simple_form') {
   const dialogCard = new Card()
@@ -118,8 +122,8 @@ if (dialogType === 'simple_form') {
     },
   };
 }
-
 ```
+<!-- langtabs-end -->
 
 > [!IMPORTANT]
 > The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
@@ -131,6 +135,7 @@ You can render a webpage in a dialog as well. There are some security requiremen
 1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](../../teams/manifest.md) for the agent
 2. The webpage must also host the [teams-js client library](https://www.npmjs.com/package/@microsoft/teams-js). The reason for this is that for security purposes, the Teams client will not render arbitrary webpages. As such, the webpage must explicitly opt-in to being rendered in the Teams client. Setting up the teams-js client library handles this for you.
 
+<!-- langtabs-start -->
 ```typescript
 return {
   task: {
@@ -147,5 +152,5 @@ return {
     },
   },
 };
-
 ```
+<!-- langtabs-end -->

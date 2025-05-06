@@ -1,11 +1,11 @@
 ---
-title: Memory
-description: Learn about short term and long term memory and the process of storing and retrieving information.
+title: 🧠 Memory (preview)
+description: Learn about 🧠 Memory (preview)
 ms.topic: overview
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
-# Memory (preview)
+# 🧠 Memory (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

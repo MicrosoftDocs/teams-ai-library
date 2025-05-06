@@ -1,8 +1,8 @@
 ---
-title: Typing Activity
+title: Activity - Typing (preview)
+description: Learn about Activity - Typing (preview)
 ms.topic: overview
-description: Learn about the schema for the typing activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Typing (preview)
@@ -13,12 +13,14 @@ Typing activities represent ongoing input from a user or a bot. This activity is
 
 Typing activities are intended to persist within UIs for three seconds.
 
+<!-- langtabs-start -->
 ```typescript
 // Send a typing indicator to the user upon receiving a message
 app.on('message', async ({ send }) => {
   await send({ type: 'typing' });
 });
 ```
+<!-- langtabs-end -->
 
 ## Schema
 

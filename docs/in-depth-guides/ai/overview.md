@@ -1,11 +1,11 @@
 ---
-title: AI Packages
-description: Learn about the AI packages for prompts and models in Teams AI library v2.
+title: 🤖 AI (preview)
+description: Learn about 🤖 AI (preview)
 ms.topic: overview
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
-# AI (preview)
+# 🤖 AI (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,8 +1,8 @@
 ---
-title: Add Authentication
-description: Learn how to implement single sign-on (SSO) or third-party OAuth authentication in your agent.
+title: How Auth Works (preview)
+description: Learn about How Auth Works (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # How Auth Works (preview)
@@ -18,12 +18,11 @@ The following table provides a clear comparison between OAuth and SSO authentica
 Single Sign-On (SSO) in Teams provides a seamless authentication experience by leveraging a user's existing Teams identity. Once a user is logged into Teams, they can access your app without needing to sign in again. The only requirement is a one-time consent from the user, after which your app can securely retrieve their access details from Microsoft Entra ID. This consent is device-agnostic - once granted, users can access your app from any device without additional authentication steps.
 
 When an access token expires, the app automatically initiates a token exchange flow. In this process:
+1. The Teams client sends an OAuth ID token containing the user's information
+2. Your app exchanges this ID token for a new access token with the previously consented scopes
+3. This exchange happens silently without requiring user interaction
 
-1. The Teams client sends an OAuth ID token containing the user's information.
-2. Your app exchanges this ID token for a new access token with the previously consented scopes.
-3. This exchange happens silently without requiring user interaction.
-
-> [!TIP]
+> [!tip]
 > Always use SSO if you authenticating the user with Microsoft Entra ID.
 
 ### The SSO Signin Flow
@@ -39,7 +38,7 @@ The SSO signin flow involves several components working together. Here's how it 
    - If token is valid, app uses it directly
    - If token expires, app silently signs the user in using the token exchange flow
 
-See the [SSO in Teams at runtime](/bots/how-to/authentication/bot-sso-overview#sso-in-teams-at-runtime) guide to learn more about the SSO signin flow
+See the [SSO in Teams at runtime](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview#sso-in-teams-at-runtime) guide to learn more about the SSO signin flow
 
 ## OAuth 
 
@@ -66,13 +65,13 @@ When an access token expires, the user will need to go through the sign-in proce
 | Authentication Flow | User is sent a card with a sign-in link | If user has already consent to the requested scopes in the past they will "silently" login through the token exchange flow. Otherwise user is shown a consent form |
 | User Experience | Requires explicit sign-in | Seamless authentication using existing Teams identity |
 | Conversation scopes (`personal`, `groupChat`, `teams`) | `personal` scope only | `personal` scope only |
-| Azure Configuration differences | Same configuration except `Token Exchange URL` is blank | Same configuration except `Token Exchange URL` is set |
+| Azure Configuration differences | Same configuration except `Token Exchange URL` is blank | Same configuration except `Token Exchange URL` is set
 
 
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
-- [User Authentication in Teams](/concepts/authentication/authentication)
-- [Enable SSO for bot and message extension app using Entra ID](/bots/how-to/authentication/bot-sso-overview)
-- [Add authentication to your Teams bot](/bots/how-to/authentication/add-authentication)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
+- [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)
+- [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
+- [Add authentication to your Teams bot](/microsoftteams/platform/bots/how-to/authentication/add-authentication)

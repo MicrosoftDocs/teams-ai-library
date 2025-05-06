@@ -1,8 +1,8 @@
 ---
-title: User Signout
-description: Learn how to signout a user to discard the cached access token.
+title: Signout (preview)
+description: Learn about Signout (preview)
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Signout (preview)
@@ -11,11 +11,12 @@ ms.date: 05/02/2025
 
 Sign a user out by calling the `signout` method to discard the cached access token in the Bot Framework token service.
 
+<!-- langtabs-start -->
 ```typescript
 app.message('/signout', async ({ send, signout, isSignedIn }) => {
   if (!isSignedIn) return;
   await signout(); // call signout for your auth connection...
   await send('you have been signed out!');
 });
-
 ```
+<!-- langtabs-end -->

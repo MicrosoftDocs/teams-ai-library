@@ -1,8 +1,8 @@
 ---
-title: Developer Tools Overview
+title: Developer Tools (preview)
+description: Learn about Developer Tools (preview)
 ms.topic: overview
-description: Learn about Developer tools and its features.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Developer Tools (preview)
@@ -13,5 +13,5 @@ One of the main motivations for Teams AI (v2) Library is to provide excellent to
 
 Learn more about the developer tools that come with Teams AI (v2) Library.
 
-1. [Teams CLI](./cli)
-2. [DevTools](./devtools)
+1. [Teams CLI](./cli/overview.md)
+2. [DevTools](./devtools/overview.md)

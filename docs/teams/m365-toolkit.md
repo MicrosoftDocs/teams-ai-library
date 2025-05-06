@@ -1,8 +1,8 @@
 ---
-title: Teams Toolkit
-description: Learn about Teams Toolkit.
-ms.topic: conceptual
-ms.date: 05/02/2025
+title: Teams Toolkit (preview)
+description: Learn about Teams Toolkit (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
 ---
 
 # Teams Toolkit (preview)
@@ -18,23 +18,23 @@ Teams Toolkit is a powerful extension and CLI app available for customers that h
 
 Teams toolkit can be installed as an extension and CLI. Please see the documentation linked below.
 
-- [Installing Teams Toolkit extension](/toolkit/install-teams-toolkit)
-- [Installing Teams Toolkit CLI](/toolkit/teams-toolkit-cli?pivots=version-three)
+- [Installing Teams Toolkit extension](/microsoftteams/platform/toolkit/install-teams-toolkit)
+- [Installing Teams Toolkit CLI](/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three)
 
 > [!CAUTION]
-> Teams Toolkit CLI is not to be confused with the [Teams AI v2 library CLI](../developer-tools/cli/), which is managed by our team.
+> Teams Toolkit CLI is not to be confused with the [Teams AI v2 library CLI](../developer-tools/cli/overview.md), which is managed by our team.
 
 ## Official documentation
 
-- Official [Teams Toolkit documentation](/toolkit/overview)
+- Official [Teams Toolkit documentation](/microsoftteams/platform/toolkit/overview)
 
 ## Deployment and provisioning
 
 Generally, you can use the toolkit to add required resources to Azure based on your app manifest setup. Teams Toolkit documents that in their documentation.
 
-- [Add cloud resources and API connection](/toolkit/add-resource)
+- [Add cloud resources and API connection](/microsoftteams/platform/toolkit/add-resource)
 
 ## Resources
 
-- [Teams Toolkit Overview](/toolkit/teams-toolkit-fundamentals) - these extensive docs cover many topics related to Teams Toolkit, so please explore their documentation at your convenience.
-- [Teams AI v2 CLI documentation](../developer-tools/cli/) - includes instructions on adding toolkit configurations to your Teams AI v2 agent.
+- [Teams Toolkit Overview](/microsoftteams/platform/toolkit/teams-toolkit-fundamentals) - these extensive docs cover many topics related to Teams Toolkit, so please explore their documentation at your convenience.
+- [Teams AI v2 CLI documentation](../developer-tools/cli/overview.md) - includes instructions on adding toolkit configurations to your Teams AI v2 agent.

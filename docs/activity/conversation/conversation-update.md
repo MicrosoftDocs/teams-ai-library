@@ -1,8 +1,8 @@
 ---
-title: Conversation Update Activity
+title: Activity - Conversation Update (preview)
+description: Learn about Activity - Conversation Update (preview)
 ms.topic: reference
-description: Learn about the schema of the conversation update activity.
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ---
 
 # Activity: Conversation Update (preview)
@@ -11,9 +11,11 @@ ms.date: 05/02/2025
 
 Conversation update activities describe a change in a conversation's members, description, existence, or otherwise. Conversation update activities generally do not contain user-generated content. The conversation being updated is described in the `conversation` field.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('conversationUpdate', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
 ## Schema
 
