@@ -8,6 +8,8 @@ ms.date: 05/05/2025
 
 Teams AI Library v2 is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
 
+:::image type="content" source="~/assets/teams-ai-library-v1-vs-v2.png" alt-text="Comparison of Teams AI Library v1 vs. v2 showing that the v2 version encapsulates Botbuilder, Teams AI v1, Grpah, Adaptive Cards, MSAL, and Teams JS functionality":::
+
 ## Quickstart
 
 The Teams CLI makes it easy to bootstrap your first agent. First, install the CLI via NPM:
