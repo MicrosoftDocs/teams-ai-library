@@ -11,7 +11,7 @@ ms.date: 05/05/2025
 
 Command result activities communicate the result of a [command activity](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#command-activity).
 
-> [**ℹ️ Note**]
+> [!NOTE]
 > This event type is not applicable to Teams.
 
 <!-- langtabs-start -->
