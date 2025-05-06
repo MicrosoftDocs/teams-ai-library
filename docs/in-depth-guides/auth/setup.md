@@ -58,5 +58,5 @@ You can follow the [Add authentication to bot app](/microsoftteams/platform/bots
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
 - [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)

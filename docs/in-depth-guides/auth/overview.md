@@ -23,4 +23,4 @@ At times agents must access secured online resources on behalf of the user, such
 
 ## Resources
 
-[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
