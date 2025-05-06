@@ -59,7 +59,7 @@ The `locale` field communicates the language code of the [`text`](#text) field. 
 
 ### Speak
 
-The `speak` field indicates how the activity should be spoken via a text-to-speech system. The field is only used to customize speech rendering when the default is deemed inadequate. It replaces speech synthesis for any content within the activity, including text, attachments, and summaries. The value of the `speak` field is either plain text or [SSML](https://www.w3.org/TR/speech-synthesis/) [[6](#references)] encoded within a string.
+The `speak` field indicates how the activity should be spoken via a text-to-speech system. The field is only used to customize speech rendering when the default is deemed inadequate. It replaces speech synthesis for any content within the activity, including text, attachments, and summaries. The value of the `speak` field is either plain text or [SSML](https://www.w3.org/TR/speech-synthesis/) [[6](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] encoded within a string.
 
 `A3030`: The `speak` field MAY contain an empty string to indicate no speech should be generated.
 
@@ -123,7 +123,7 @@ The `value` field contains a programmatic payload specific to the activity being
 
 ### Expiration
 
-The `expiration` field contains a time at which the activity should be considered to be "expired" and should not be presented to the recipient. The value of the `expiration` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html)[[2](#references)] encoded datetime within a string.
+The `expiration` field contains a time at which the activity should be considered to be "expired" and should not be presented to the recipient. The value of the `expiration` field is an [ISO 8601 date time format](https://www.iso.org/iso-8601-date-and-time-format.html)[[2](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#references)] encoded datetime within a string.
 
 `A3090`: Senders SHOULD always use encode the value of `expiration` fields as UTC, and they SHOULD always include Z as an explicit UTC mark within the value.
 
