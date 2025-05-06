@@ -24,7 +24,7 @@ For more information, follow our [quick start guide](../getting-started/quicksta
 
 ## Overview
 
-Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams AI v2. Whether you are building [AI-powered agents](../in-depth-guides/ai/README.md), [message extensions](../in-depth-guides/message-extensions/README.md), embedded web applications, or Graph, Teams AI v2 has you covered.
+Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams AI v2. Whether you are building [AI-powered agents](../in-depth-guides/ai/overview.md), [message extensions](../in-depth-guides/message-extensions/overview.md), embedded web applications, or Graph, Teams AI v2 has you covered.
 
 Here is a simple example, which responds to incoming messages with information retrieved from Graph.
 
