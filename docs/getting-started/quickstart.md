@@ -1,11 +1,11 @@
 ---
-title: Quickstart (preview)
-description: Learn about Quickstart (preview)
+title: Get started with Teams AI library v2 (preview)
+description: Learn how to build an agent using Teams AI library v2 and Teams CLI. (preview)
 ms.topic: get-started
 ms.date: 05/05/2025
 ---
 
-# Quickstart (preview)
+# Get started with Teams AI library v2 (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
