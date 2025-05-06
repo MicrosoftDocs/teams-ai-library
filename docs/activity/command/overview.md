@@ -13,7 +13,7 @@ Command activities communicate a request to perform a specific action.
 
 Commands look similar in structure to events but have different semantics. Commands are requests to perform an action and receivers typically respond with one or more commandResult activities. Receivers are also expected to explicitly reject unsupported command activities.
 
-> [**ℹ️ Note**]
+> [!NOTE]
 > This event type is not applicable to Teams.
 
 <!-- langtabs-start -->
