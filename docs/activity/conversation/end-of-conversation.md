@@ -1,3 +1,10 @@
+---
+title: Activity - End Of Conversation (preview)
+description: Learn about Activity - End Of Conversation (preview)
+ms.topic: reference
+ms.date: 05/05/2025
+---
+
 # Activity: End Of Conversation (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,3 +1,10 @@
+---
+title: Sending Messages (preview)
+description: Learn about Sending Messages (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Sending Messages (preview)
 
 [This article is prerelease documentation and is subject to change.]

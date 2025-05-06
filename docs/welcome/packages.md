@@ -1,3 +1,10 @@
+---
+title: Packages (preview)
+description: Learn about Packages (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Packages (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,3 +1,10 @@
+---
+title: Teams app manifest (preview)
+description: Learn about Teams app manifest (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Teams app manifest (preview)
 
 [This article is prerelease documentation and is subject to change.]

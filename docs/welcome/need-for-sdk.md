@@ -1,3 +1,10 @@
+---
+title: The need for an SDK (preview)
+description: Learn about The need for an SDK (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # The need for an SDK (preview)
 
 [This article is prerelease documentation and is subject to change.]

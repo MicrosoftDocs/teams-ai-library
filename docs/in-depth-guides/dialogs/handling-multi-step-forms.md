@@ -1,3 +1,10 @@
+---
+title: Handling multi-step forms (preview)
+description: Learn about Handling multi-step forms (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Handling multi-step forms (preview)
 
 [This article is prerelease documentation and is subject to change.]

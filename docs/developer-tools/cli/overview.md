@@ -1,3 +1,10 @@
+---
+title: Teams CLI (preview)
+description: Learn about Teams CLI (preview)
+ms.topic: overview
+ms.date: 05/05/2025
+---
+
 # Teams CLI (preview)
 
 [This article is prerelease documentation and is subject to change.]

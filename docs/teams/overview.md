@@ -1,3 +1,10 @@
+---
+title: Teams Integration (preview)
+description: Learn about Teams Integration (preview)
+ms.topic: overview
+ms.date: 05/05/2025
+---
+
 # Teams Integration (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,3 +1,10 @@
+---
+title: Using the API Client (preview)
+description: Learn about Using the API Client (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Using the API Client (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,3 +1,10 @@
+---
+title: About the `@microsoft/teams.client` App (preview)
+description: Learn about About the `@microsoft/teams.client` App (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # About the `@microsoft/teams.client` App (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,3 +1,10 @@
+---
+title: Microsoft Graph client (preview)
+description: Learn about Microsoft Graph client (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Microsoft Graph client (preview)
 
 [This article is prerelease documentation and is subject to change.]

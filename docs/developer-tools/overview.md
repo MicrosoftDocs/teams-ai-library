@@ -1,3 +1,10 @@
+---
+title: Developer Tools (preview)
+description: Learn about Developer Tools (preview)
+ms.topic: overview
+ms.date: 05/05/2025
+---
+
 # Developer Tools (preview)
 
 [This article is prerelease documentation and is subject to change.]

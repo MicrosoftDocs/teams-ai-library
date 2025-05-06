@@ -1,3 +1,10 @@
+---
+title: 🔍 Inspect activities (preview)
+description: Learn about 🔍 Inspect activities (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # 🔍 Inspect activities (preview)
 
 [This article is prerelease documentation and is subject to change.]

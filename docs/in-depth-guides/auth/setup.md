@@ -1,3 +1,10 @@
+---
+title: App setup (preview)
+description: Learn about App setup (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # App setup (preview)
 
 [This article is prerelease documentation and is subject to change.]

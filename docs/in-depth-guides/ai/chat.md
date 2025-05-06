@@ -1,3 +1,10 @@
+---
+title: Chat Generation (preview)
+description: Learn about Chat Generation (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Chat Generation (preview)
 
 [This article is prerelease documentation and is subject to change.]

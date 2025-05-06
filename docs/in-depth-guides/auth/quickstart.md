@@ -1,3 +1,10 @@
+---
+title: Quickstart (preview)
+description: Learn about Quickstart (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Quickstart (preview)
 
 [This article is prerelease documentation and is subject to change.]

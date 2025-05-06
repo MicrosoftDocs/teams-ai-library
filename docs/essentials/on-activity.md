@@ -1,3 +1,10 @@
+---
+title: Listening To Activities (preview)
+description: Learn about Listening To Activities (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Listening To Activities (preview)
 
 [This article is prerelease documentation and is subject to change.]

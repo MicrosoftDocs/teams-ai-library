@@ -1,3 +1,10 @@
+---
+title: Getting started (preview)
+description: Learn about Getting started (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Getting started (preview)
 
 [This article is prerelease documentation and is subject to change.]

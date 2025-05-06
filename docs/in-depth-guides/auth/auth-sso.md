@@ -1,3 +1,10 @@
+---
+title: How Auth Works (preview)
+description: Learn about How Auth Works (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # How Auth Works (preview)
 
 [This article is prerelease documentation and is subject to change.]

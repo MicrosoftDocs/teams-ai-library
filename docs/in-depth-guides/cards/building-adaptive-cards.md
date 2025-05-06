@@ -1,3 +1,10 @@
+---
+title: Building Adaptive Cards (preview)
+description: Learn about Building Adaptive Cards (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 # Building Adaptive Cards (preview)
 
 [This article is prerelease documentation and is subject to change.]

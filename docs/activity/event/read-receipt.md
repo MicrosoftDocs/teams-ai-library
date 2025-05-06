@@ -1,3 +1,10 @@
+---
+title: Activity - Read Receipt Event (preview)
+description: Learn about Activity - Read Receipt Event (preview)
+ms.topic: reference
+ms.date: 05/05/2025
+---
+
 # Activity: Read Receipt Event (preview)
 
 [This article is prerelease documentation and is subject to change.]

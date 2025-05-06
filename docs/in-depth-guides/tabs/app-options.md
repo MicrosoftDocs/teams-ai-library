@@ -1,3 +1,10 @@
+---
+title: App options (preview)
+description: Learn about App options (preview)
+ms.topic: how-to
+ms.date: 05/05/2025
+---
+
 
 # App options (preview)
 

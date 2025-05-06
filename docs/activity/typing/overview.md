@@ -1,3 +1,10 @@
+---
+title: Activity - Typing (preview)
+description: Learn about Activity - Typing (preview)
+ms.topic: overview
+ms.date: 05/05/2025
+---
+
 # Activity: Typing (preview)
 
 [This article is prerelease documentation and is subject to change.]
