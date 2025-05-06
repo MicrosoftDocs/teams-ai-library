@@ -25,7 +25,7 @@ The `Activity.value` field of the invoke activity for an Adaptive Card is `Adapt
 - `action`: `AdaptiveCardInvokeAction` - The action that was performed on the card.
 - `authentication`: `AdaptiveCardAuthentication` - The authentication request for the card.
 - `state`: `string` - magic code for OAuth.
-- `trigger`: `'manual'` - what triggered the action.
+- `trigger`: `manual` - what triggered the action.
 
 ## Resources
 

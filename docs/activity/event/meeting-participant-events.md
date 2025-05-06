@@ -19,7 +19,7 @@ app.on('meetingParticipantJoin', async ({ activity }) => {});
 ```
 <!-- langtabs-end -->
 
-The `'meetingParticipantJoin'` is the alias for the event name `'application/vnd.microsoft.meetingParticipantJoin'`. This event is sent when a user joins a meeting.
+The `meetingParticipantJoin` is the alias for the event name `application/vnd.microsoft.meetingParticipantJoin`. This event is sent when a user joins a meeting.
 
 ## Meeting participant leave event
 
@@ -29,13 +29,13 @@ app.on('meetingParticipantLeave', async ({ activity }) => {});
 ```
 <!-- langtabs-end -->
 
-The `'meetingParticipantLeave'` is the alias for the event name `'application/vnd.microsoft.meetingParticipantLeave'`. This event is sent when a user leaves a meeting.
+The `meetingParticipantLeave` is the alias for the event name `application/vnd.microsoft.meetingParticipantLeave`. This event is sent when a user leaves a meeting.
 
 ## App permissions
 
 In Teams, the app manifest requires specific setup to have meeting participant events permissions.
 
-- The `'permissions'` section under `'authorization'` must have the `'OnlineMeetingParticipant.Read.Chat'` permission.
+- The `permissions` section under `authorization` must have the `OnlineMeetingParticipant.Read.Chat` permission.
 - The bot must have participant meeting event subscriptions enabled in the [Developer Portal](https://dev.teams.microsoft.com/).
 
 ## Resources

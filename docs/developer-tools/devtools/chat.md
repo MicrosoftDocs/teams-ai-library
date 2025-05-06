@@ -80,7 +80,7 @@ Below is a brief list of the terminology used in the chat window and in Teams:
 The chat window emulates Teams features as closely as possible. Not all Teams features are available in DevTools, but we are working to add more features over time. The following capabilities are available:
 
 > [!IMPORTANT]
-> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize acessibility in future preview releases.
+> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize accessibility in future preview releases.
 
 ### Send messages
 

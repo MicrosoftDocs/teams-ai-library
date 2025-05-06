@@ -17,7 +17,7 @@ app.on('readReceipt', async ({ activity }) => {});
 ```
 <!-- langtabs-end -->
 
-`'readReceipt'` is alias for the event name `'application/vnd.microsoft.readReceipt'`.
+`readReceipt` is alias for the event name `application/vnd.microsoft.readReceipt`.
 
 ## Read receipts
 
