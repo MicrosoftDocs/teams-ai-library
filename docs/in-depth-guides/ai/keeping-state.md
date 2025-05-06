@@ -88,4 +88,4 @@ export const handleStatefulConversation = async (
 ```
 <!-- langtabs-end -->
 
-![Stateful Chat Example](../../assets/screenshots/stateful-chat-example.png)
+![Stateful Chat Example](~/assets/screenshots/stateful-chat-example.png)
