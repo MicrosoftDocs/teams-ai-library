@@ -1,13 +1,4 @@
----
-title: Memory - Long Term 
-description: Learn about long term memory - Long Term that is used to store events, knowledge, and experiences.
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Memory: Long Term (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 📚 Memory: Long Term
 
 Stores information for extended periods of time.
 It's where memories of events, knowledge, and experiences are stored and recalled.

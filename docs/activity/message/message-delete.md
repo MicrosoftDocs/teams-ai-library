@@ -1,19 +1,12 @@
----
-title: Message Delete
-ms.topic: reference
-description: Learn about the schema of the message delete activity that represent the deletion of an existing message.
-ms.date: 05/02/2025
----
-
-# Message Delete (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Message Delete
 
 Message delete activities represent a deletion of an existing message activity within a conversation. The deleted activity is referred to by the `id` and `conversation` fields within the activity.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('messageDelete', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
 ## Schema
 
@@ -29,6 +22,6 @@ Message delete activities are identified by a `type` value of `messageDelete`.
 
 ## Message delete UI in Teams
 
-To delete a message in Teams, hover over the message in the client, click on the three dots, and select **Delete** option in the dropdown menu.
+To delete a message in Teams, hover over the message in the client, click on the three dots, and select "Delete" option in the dropdown menu.
 
 ![Deleting a message in Teams](../../assets/screenshots/message-delete-ui.png)

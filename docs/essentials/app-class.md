@@ -1,13 +1,4 @@
----
-title: App class
-ms.topic: reference
-description: Learn how to use app class and its core components and plugins.
-ms.date: 05/02/2025
----
-
-# App class (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# App class
 
 The `App` class is the main entry point for your agent.
 
@@ -19,7 +10,39 @@ It is responsible for:
 4. Providing helpful utilities which simplify the ability for your application to interact with the Teams platform
 5. Managing plugins which can extend the functionality of your agent
 
-![alt-text for app-class-1.png](~/assets/diagrams/app-class-1.png)
+```mermaid
+flowchart LR
+    %% Layout Definitions
+    direction LR
+
+    Teams
+
+    subgraph AppClass
+        CorePlugins["Plugins"]
+        Events["Events"]
+        subgraph AppResponsbilities
+            direction TB
+            ActivityRouting["Activity Routing"]
+            Utilities["Utilities"]
+            Auth["Auth"]
+        end
+        Plugins2["Plugins"]
+    end
+    ApplicationLogic["Application Logic"]
+
+    %% Connections
+    Teams --> CorePlugins
+    CorePlugins --> Events
+    Events --> ActivityRouting
+    ActivityRouting --> Plugins2
+    Plugins2 --> ApplicationLogic
+    Auth --> ApplicationLogic
+    Utilities --> ApplicationLogic
+
+    %% Styling
+    style Teams fill:#2E86AB,stroke:#1B4F72,stroke-width:2px,color:#ffffff
+    style ApplicationLogic fill:#28B463,stroke:#1D8348,stroke-width:2px,color:#ffffff
+```
 
 ## Core Components
 

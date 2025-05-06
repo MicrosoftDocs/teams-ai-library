@@ -1,13 +1,4 @@
----
-title: MCP Client
-description: Learn about using MCP servers to leverage their tools remotely in your agent.
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# MCP Client (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# MCP Client
 
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 
@@ -29,47 +20,11 @@ The `MCPClientPlugin` (from `@microsoft/teams.mcpclient` package) integrates dir
 
 Once loaded, it treats these tools like any functions that are available to the `ChatPrompt` object. If the LLM then decides to call one of these remote MCP tools, the MCP Client plugin will call the remote MCP server and return the result back to the LLM. The LLM can then use this result in its response.
 
+<!-- langtabs-start -->
 ```typescript
-const prompt = new ChatPrompt(
-  {
-    instructions: 'You are a helpful assistant. You MUST use tool calls to do all your work.',
-    model: new OpenAIChatModel({
-      model: 'gpt-4o-mini',
-      apiKey: process.env.OPENAI_API_KEY,
-    }),
-  },
-  // Tell the prompt that the plugin needs to be used
-  // Here you may also pass in additional configurations such as
-  // a tool-cache, which can be used to limit the tools that are used
-  // or improve performance
-  [new McpClientPlugin()]
-)
-  // Here we are saying you can use any tool from localhost:3000/mcp
-  // (that is the URL for the server we built using the mcp plugin)
-  .usePlugin('mcpClient', { url: 'http://localhost:3000/mcp' })
-  // Alternatively, you can use a different server hosted somewhere else
-  // Here we are using the mcp server hosted on an Azure Function
-  .usePlugin('mcpClient', {
-    url: 'https://pokemonmcp.azurewebsites.net/runtime/webhooks/mcp/sse',
-    params: {
-      headers: {
-        // If your server requires authentication, you can pass in Bearer or other
-        // authentication headers here
-        'x-functions-key': process.env.AZURE_FUNCTION_KEY!,
-      },
-    },
-  });
-
-app.on('message', async ({ send, activity }) => {
-  await send({ type: 'typing' });
-
-  const result = await prompt.send(activity.text);
-  if (result.content) {
-    await send(result.content);
-  }
-});
-
+{{#include ../../../../generated-snippets/ts/index.snippet.mcp-client-prompt-config.ts  }}
 ```
+<!-- langtabs-end -->
 
 In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 
@@ -79,3 +34,4 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 ![MCP Client in Devtools](../../../assets/screenshots/mcp-client-pokemon.gif)
 
 In this example, our MCP server is a Pokemon API and our client knows how to call it. The LLM is able to call the `getPokemon` function exposed by the server and return the result back to the user.
+

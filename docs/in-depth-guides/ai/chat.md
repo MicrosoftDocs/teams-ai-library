@@ -1,13 +1,4 @@
----
-title: Chat Generation
-description: Learn how to create a chat prompt for simple chat generation and streaming chat responses.
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Chat Generation (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
@@ -15,7 +6,31 @@ Before going through this guide, please make sure you have completed the [setup 
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
-![alt-text for chat-1.png](~/assets/diagrams/chat-1.png)
+```mermaid
+flowchart LR
+    Prompt
+
+    subgraph Application
+        Send --> Prompt
+        UserMessage["User Message<br/>Hi how are you?"] --> Send
+        Send --> Content["Content<br/>I am doing great! How can I help you?"]
+
+        subgraph Setup
+            Messages --> Prompt
+            Instructions --> Prompt
+            Options["Other options..."] --> Prompt
+
+            Prompt --> Model
+        end
+    end
+
+    subgraph LLMProvider
+        Model --> AOAI["Azure Open AI"]
+        Model --> OAI["Open AI"]
+        Model --> Anthropic["Claude"]
+        Model --> OtherModels["..."]
+    end
+```
 
 ## Simple chat generation
 
@@ -23,35 +38,17 @@ Chat generation is the the most basic way of interacting with an LLM model. It i
 
 Import the relevant objects:
 
+<!-- langtabs-start -->
 ```typescript
-import { ChatPrompt } from "@microsoft/teams.ai";
-import { OpenAIChatModel } from "@microsoft/teams.openai";
-
+{{#include ../../../generated-snippets/ts/index.snippet.ai-imports.ts }}
 ```
+<!-- langtabs-end -->
 
+<!-- langtabs-start -->
 ```typescript
-app.on("message", async ({ send, activity, next }) => {
-  const model = new OpenAIChatModel({
-    apiKey: process.env.AZURE_OPENAI_API_KEY || process.env.OPENAI_API_KEY,
-    endpoint: process.env.AZURE_OPENAI_ENDPOINT,
-    apiVersion: process.env.AZURE_OPENAI_API_VERSION,
-    model: process.env.AZURE_OPENAI_MODEL_DEPLOYMENT_NAME!,
-  });
-
-  const prompt = new ChatPrompt({
-    instructions: "You are a friendly assistant who talks like a pirate",
-    model,
-  });
-
-  const response = await prompt.send(activity.text);
-  if (response.content) {
-    const activity = new MessageActivity(response.content).addAiGenerated();
-    await send(activity);
-    // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol’ salty sea dog help ye with? 🚢☠️
-  }
-});
-
+{{#include ../../../generated-snippets/ts/index.snippet.simple-chat.ts }}
 ```
+<!-- langtabs-end -->
 
 > [!NOTE]
 > The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
@@ -63,34 +60,10 @@ LLMs can take a while to generate a response, so often streaming the response le
 > [!IMPORTANT]
 > Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
 
+<!-- langtabs-start -->
 ```typescript
-app.on("message", async ({ stream, send, activity, next }) => {
-  // const query = activity.text;
-
-  const prompt = new ChatPrompt({
-    instructions: "You are a friendly assistant who responds in terse language",
-    model,
-  });
-
-  // Notice that we don't `send` the final response back, but
-  // `stream` the chunks as they come in
-  const response = await prompt.send(query, {
-    onChunk: (chunk) => {
-      stream.emit(chunk);
-    },
-  });
-
-  if (activity.conversation.isGroup) {
-    // If the conversation is a group chat, we need to send the final response
-    // back to the group chat
-    const activity = new MessageActivity(response.content).addAiGenerated();
-    await send(activity);
-  } else {
-    // We wrap the final response with an AI Generated indicator
-    stream.emit(new MessageActivity().addAiGenerated());
-  }
-});
-
+{{#include ../../../generated-snippets/ts/index.snippet.streaming-chat.ts }}
 ```
+<!-- langtabs-end -->
 
 ![Streaming the response](../../assets/screenshots/streaming-chat.gif)

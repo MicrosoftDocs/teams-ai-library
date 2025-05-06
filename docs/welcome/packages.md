@@ -1,13 +1,4 @@
----
-title: Teams AI Library v2 Packages
-description: Learn about the Teams AI library v2 packages.
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Packages (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Packages
 
 The SDK is broken down into the following packages.
 

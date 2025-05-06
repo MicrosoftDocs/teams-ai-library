@@ -1,13 +1,4 @@
----
-title: Cards
-ms.topic: reference
-description: Learn how to use Adaptive Cards in your agent.
-ms.date: 05/02/2025
----
-
-# Cards (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 🪪 Cards
 
 ![Card Designer Typescript](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/card_designer_typescript_editor.png?raw=true)
 

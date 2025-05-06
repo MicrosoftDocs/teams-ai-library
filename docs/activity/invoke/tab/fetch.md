@@ -1,14 +1,7 @@
----
-title: Tab Fetch Invoke Activity
-ms.topic: reference
-description: Learn about the tab fetch invoke activity.
-ms.date: 05/02/2025
----
+# Activity: Tab Fetch Invoke
 
-# Activity: Tab Fetch Invoke (preview)
-
-[This article is prerelease documentation and is subject to change.]
-
+<!-- langtabs-start -->
 ```typescript
 app.on('tab.open', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->

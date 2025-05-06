@@ -1,13 +1,4 @@
----
-title: Build Adaptive Cards
-description: Learn about building Adaptive Cards
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Build Adaptive Cards (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
 With `@microsoft/teams.cards` you can build these cards entirely in TypeScript / JavaScript while enjoying full IntelliSense and compiler safety.
@@ -19,34 +10,17 @@ With `@microsoft/teams.cards` you can build these cards entirely in TypeScript /
 `@microsoft/teams.cards` exposes small **builder helpers** (`Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._).
 Each helper wraps raw JSON and provides fluent, chainable methods that keep your code concise and readable.
 
+<!-- langtabs-start -->
 ```typescript
-  /**
- import {
-  Card,
-  TextBlock,
-  ToggleInput,
-  ExecuteAction,
-  ActionSet,
-} from "@microsoft/teams.cards";
-*/
-
-  const card = new Card(
-    new TextBlock('Hello world', { wrap: true, weight: 'bolder' }),
-    new ToggleInput('Notify me').withId('notify'),
-    new ActionSet(
-      new ExecuteAction({ title: 'Submit' })
-        .withData({ action: 'submit_basic' })
-        .withAssociatedInputs('auto')
-    )
-  );
-
+{{#include ../../../generated-snippets/ts/index.snippet.basic-card-building.ts }}
 ```
+<!-- langtabs-end -->
 
 Benefits:
 
-| Benefit | Description |
-| --- | --- |
-| Readability | No deep JSON trees; just chain simple methods.                                 |
+| Benefit     | Description                                                                   |
+| ----------- | ----------------------------------------------------------------------------- |
+| Readability | No deep JSON trees—just chain simple methods.                                 |
 | Re‑use      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
@@ -54,7 +28,7 @@ Benefits:
 
 ---
 
-## Type‑safe Authoring and IntelliSense
+## Type‑safe Authoring & IntelliSense
 
 The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript types.
 While coding you get:
@@ -63,15 +37,15 @@ While coding you get:
 - **In‑editor validation**—invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
+<!-- langtabs-start -->
 ```typescript
-// @ts-expect-error: "huge" is not a valid size for TextBlock
-const textBlock = new TextBlock('Valid', { size: 'huge' });
-
+{{#include ../../../generated-snippets/ts/index.snippet.improved-type-checking.ts }}
 ```
+<!-- langtabs-end -->
 
 ---
 
-## Visual Designer
+## The Visual Designer
 
 Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
@@ -79,57 +53,18 @@ Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](ht
 2. Copy the JSON payload from the editor pane.
 3. Paste the JSON into your project **or** convert it to builder calls:
 
+<!-- langtabs-start -->
 ```typescript
 const cardJson = /* copied JSON */;
 const card = new Card().withBody(cardJson);
 ```
+<!-- langtabs-end -->
 
+<!-- langtabs-start -->
 ```typescript
-const rawCard: ICard = {
-  type: 'AdaptiveCard',
-  body: [
-    {
-      text: 'Please fill out the below form to send a game purchase request.',
-      wrap: true,
-      type: 'TextBlock',
-      style: 'heading',
-    },
-    {
-      columns: [
-        {
-          width: 'stretch',
-          items: [
-            {
-              choices: [
-                { title: 'Call of Duty', value: 'call_of_duty' },
-                { title: "Death's Door", value: 'deaths_door' },
-                { title: 'Grand Theft Auto V', value: 'grand_theft' },
-                { title: 'Minecraft', value: 'minecraft' },
-              ],
-              style: 'filtered',
-              placeholder: 'Search for a game',
-              id: 'choiceGameSingle',
-              type: 'Input.ChoiceSet',
-              label: 'Game:',
-            },
-          ],
-          type: 'Column',
-        },
-      ],
-      type: 'ColumnSet',
-    },
-  ],
-  actions: [
-    {
-      title: 'Request purchase',
-      type: 'Action.Execute',
-      data: { action: 'purchase_item' },
-    },
-  ],
-  version: '1.5',
-};
-
+{{#include ../../../generated-snippets/ts/index.snippet.raw-card-json.ts }}
 ```
+<!-- langtabs-end -->
 
 This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `ICard`.
 
@@ -142,48 +77,15 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 
 Below is a complete example showing a task management form. Notice how the builder pattern keeps the file readable and maintainable:
 
+<!-- langtabs-start -->
 ```typescript
-app.on('message', async ({ send, activity }) => {
-  await send({ type: 'typing' });
-  const card = new Card().withBody(
-    new TextBlock('Create New Task', {
-      size: 'large',
-      weight: 'bolder',
-    }),
-    new TextInput({ id: 'title' }).withLabel('Task Title').withPlaceholder('Enter task title'),
-    new TextInput({ id: 'description' })
-      .withLabel('Description')
-      .withPlaceholder('Enter task details')
-      .withMultiLine(true),
-    new ChoiceSetInput(
-      { title: 'High', value: 'high' },
-      { title: 'Medium', value: 'medium' },
-      { title: 'Low', value: 'low' }
-    )
-      .withId('priority')
-      .withLabel('Priority')
-      .withValue('medium'),
-    new DateInput({ id: 'due_date' })
-      .withLabel('Due Date')
-      .withValue(new Date().toISOString().split('T')[0]),
-    new ActionSet(
-      new ExecuteAction({ title: 'Create Task' })
-        .withData({ action: 'create_task' })
-        .withAssociatedInputs('auto')
-        .withStyle('positive')
-    )
-  );
-  await send(card);
-  // Or build a complex activity out that includes the card:
-  // const message  = new MessageActivity('Enter this form').addCard('adaptive', card);
-  // await send(message);
-});
-
+{{#include ../../../generated-snippets/ts/index.snippet.sending-adaptive-card-e2e.ts }}
 ```
+<!-- langtabs-end -->
 
 ---
 
-## Additional resources
+## Additional Resources
 
 - **Official Adaptive Card Documentation** — <https://adaptivecards.microsoft.com/>
 - **Adaptive Cards Designer** — <https://adaptivecards.microsoft.com/designer.html>
@@ -196,4 +98,4 @@ app.on('message', async ({ send, activity }) => {
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building!
+Happy card building! 🎉

@@ -1,13 +1,4 @@
----
-title: Run Your Agent in Teams
-ms.topic: reference
-description: Learn how to deploy your agent in Teams for testing it.
-ms.date: 05/02/2025
----
-
-# Running in Teams (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Running in Teams
 
 Now that your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.
 
@@ -19,22 +10,24 @@ Teams Toolkit is a powerful tool that simplifies deploying and debugging Teams a
 
 First, you'll need to install the Teams Toolkit IDE extension:
 
-- Visit the [Teams Toolkit installation guide](/toolkit/install-teams-toolkit) to install on your preferred IDE.
+- Visit the [Teams Toolkit installation guide](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/install-teams-toolkit) to install on your preferred IDE.
 
 ## Adding Teams configuration files via `teams` CLI
 
 To configure your agent for Teams, run the following command in the terminal inside your quote-agent folder:
 
+<!-- langtabs-start -->
 ```bash
 # (if you have `teams` CLI installed globally, use `teams` instead of `npx`)
 npx @microsoft/teams.cli config add ttk.basic
 ```
+<!-- langtabs-end -->
 
 > [!TIP]
 > The `ttk.basic` configuration is a basic setup for Teams Toolkit. It includes the necessary files and configuration to get started with Teams development.<br/>
 > Explore more advanced configurations as needed with teams config --help.<br>
 
-This [CLI](../developer-tools/cli/overview.md) command adds configuration files required by Teams Toolkit, including:
+This [CLI](../developer-tools/cli/README.md) command adds configuration files required by Teams Toolkit, including:
 
 - Environment setup in the `env` folder and root `.env` file
 - Teams app manifest in the `appPackage` folder (if not already present)
@@ -42,13 +35,13 @@ This [CLI](../developer-tools/cli/overview.md) command adds configuration files 
 - TTK automation files to your project (e.g. `teamsapp.local.yml`)
 
 > [!NOTE]
-> Note that running `teams config add` command line via the Teams CLI is equivalent **but not equal** to initializing a Teams project using the Teams Toolkit extension or the [Teams Toolkit CLI](/toolkit/teams-toolkit-cli?pivots=version-three). **Depending on the sample you choose via Teams Toolkit, that project may or may not be using Teams AI v2 library.**
+> Note that running `teams config add` command line via the Teams CLI is equivalent **but not equal** to initializing a Teams project using the Teams Toolkit extension or the [Teams Toolkit CLI](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three). **Depending on the sample you choose via Teams Toolkit, that project may or may not be using Teams AI v2 library.**
 
 The Teams CLI (Teams AI v2 CLI) helps with TTK configuration, but it is not a replacement for the Teams Toolkit extension or the Teams Toolkit CLI itself. Both CLI tools will support development in different ways.
 
-| Cmd name | CLI name | Description |
-| --- | --- | --- |
-| `teams` | Teams AI v2 | A tool for setting up and utilizing the Teams AI v2 library including integration with TTK, if desired. |
+| Cmd name   | CLI name      | Description                                                                                                                                        |
+| ---------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `teams`    | Teams AI v2   | A tool for setting up and utilizing the Teams AI v2 library including integration with TTK, if desired.                                            |
 | `teamsapp` | Teams Toolkit | A tool for managing provisioning, deployment, and in-client debugging for Teams. These samples do **not** necessarily use the Teams AI v2 library. |
 
 ## Debugging in Teams
@@ -76,6 +69,7 @@ When debugging starts, the Teams Toolkit will:
 
 If you set up TTK via the Teams AI CLI, you should see something like the following in your terminal:
 
+<!-- langtabs-start -->
 ```sh
 [nodemon] 3.1.9
 [nodemon] to restart at any time, enter `rs`
@@ -86,6 +80,7 @@ If you set up TTK via the Teams AI CLI, you should see something like the follow
 [INFO] @teams/app/http listening on port 3978 🚀
 [INFO] @teams/app/devtools available at http://localhost:3979/devtools
 ```
+<!-- langtabs-end -->
 
 ## Testing your agent
 
@@ -101,25 +96,26 @@ After the debugging session starts:
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 
 > [!TIP]
-> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](../developer-tools/devtools/overview.md)! Note that the DevTools server is running on port 3979. You can open it in your browser to interact with your agent and monitor activities in real time.
+> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](../developer-tools/devtools/README.md)! Note that the DevTools server is running on port 3979. You can open it in your browser to interact with your agent and monitor activities in real time.
 
 ## Troubleshooting
 
 While Teams AI v2 SDK heavily endorses Teams Tookit (TTK), you can run your agent in Teams without it. However, using TTK saves time and effort.
 
 > [!CAUTION]
-> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/toolkit/overview) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
+> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
 
 > [!CAUTION]
-> Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview).
+> Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](https://learn.microsoft.com/en-us/microsoftteams/deploy-overview).
 
 ## Next steps
 
-Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/overview.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides/cards/overview.md) for advanced topics like authentication, message extensions, and more.
+Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/README.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides/README.md) for advanced topics like authentication, message extensions, and more.
 
 ## Resources
 
-- [Teams CLI documentation](../developer-tools/cli/overview.md)
-- [Teams Toolkit documentation](/toolkit/teams-toolkit-fundamentals)
-- [Teams Toolkit CLI documentation](/toolkit/teams-toolkit-cli)
+- [Teams CLI documentation](../developer-tools/cli/README.md)
+- [Teams Toolkit documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/overview)
+- [Teams Toolkit CLI documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/cli/README.md)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
+- [Microsoft Teams deployment documentation](https://learn.microsoft.com/en-us/microsoftteams/deploy-overview)

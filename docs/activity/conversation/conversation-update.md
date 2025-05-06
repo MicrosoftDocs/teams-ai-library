@@ -1,19 +1,12 @@
----
-title: Conversation Update Activity
-ms.topic: reference
-description: Learn about the schema of the conversation update activity.
-ms.date: 05/02/2025
----
-
-# Activity: Conversation Update (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Activity: Conversation Update
 
 Conversation update activities describe a change in a conversation's members, description, existence, or otherwise. Conversation update activities generally do not contain user-generated content. The conversation being updated is described in the `conversation` field.
 
+<!-- langtabs-start -->
 ```typescript
 app.on('conversationUpdate', async ({ activity }) => {});
 ```
+<!-- langtabs-end -->
 
 ## Schema
 
@@ -33,7 +26,7 @@ The `membersAdded` field contains a list of channel participants (bots or users)
 
 ### Members removed
 
-The `membersRemoved` field contains a list of channel participants (bots or users) removed from the conversation. The value of the `membersRemoved` field is an array of type `channelAccount`.
+The `membersRemoved` field contains a list of channel participants (bots or users) removed from the conversation. The value of the `membersRemoved` field is an array of type [`channelAccount`](#https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#channel-account).
 
 ### Topic name
 

@@ -1,17 +1,9 @@
----
-title: Project
-description: Learn about the Project assistant that helps with project operations.
-ms.topic: reference
-ms.date: 05/02/2025
----
-
-# Project (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Project
 
 The assistant that specializes in project operations like reading/writing
 a file/directory or running a build.
 
+<!-- langtabs-start -->
 ```bash
 src
 ├── prompts
@@ -20,9 +12,11 @@ src
 │   └── typescript.ts
 └── developer.ts
 ```
+<!-- langtabs-end -->
 
 ## `/src/prompts/project.ts`
 
+<!-- langtabs-start -->
 ```typescript
 import { ChatPrompt } from '@microsoft/teams.ai';
 import { OpenAIChatModel } from '@microsoft/teams.openai';
@@ -99,3 +93,4 @@ export const project = new ChatPrompt({
     // run build
   });
 ```
+<!-- langtabs-end -->

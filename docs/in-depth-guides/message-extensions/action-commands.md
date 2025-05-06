@@ -1,13 +1,4 @@
----
-title: Action commands
-description: Learn how to use Action commands to show modal pop-ups in Teams.
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Action commands (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Action commands
 
 Action commands allow you to present your users with a modal pop-up called a dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.
 
@@ -28,12 +19,13 @@ There are three different areas action commands can be invoked from:
 ![message action command](../../assets/screenshots/message.png)
 
 > [!tip]
-> See the [Invoke Locations](/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
+> See the [Invoke Locations](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
 
 ## Setting up your Teams app manifest
 
 To use action commands you have define them in the Teams app manifest. Here is an example:
 
+<!-- langtabs-start -->
 ```json
 "composeExtensions": [
     {
@@ -92,6 +84,7 @@ To use action commands you have define them in the Teams app manifest. Here is a
     }
 ]
 ```
+<!-- langtabs-end -->
 
 Here we are defining three different commands:
 
@@ -111,183 +104,46 @@ Here we are defining three different commands:
 
 Handle submission when the `createCard` or `getMessageDetails` actions commands are invoked.
 
+<!-- langtabs-start -->
 ```typescript
-app.on('message.ext.submit', async ({ activity }) => {
-  const { commandId } = activity.value;
-  let card: ICard;
-
-  if (commandId === 'createCard') {
-    // activity.value.commandContext == "compose"
-    card = createCard(activity.value.data);
-  } else if (commandId === 'getMessageDetails' && activity.value.messagePayload) {
-    // activity.value.commandContext == "message"
-    card = createMessageDetailsCard(activity.value.messagePayload);
-  } else {
-    throw new Error(`Unknown commandId: ${commandId}`);
-  }
-
-  return {
-    composeExtension: {
-      type: 'result',
-      attachmentLayout: 'list',
-      attachments: [cardAttachment('adaptive', card)],
-    },
-  };
-});
-
+{{#include ../../../generated-snippets/ts/index.snippet.message-ext-submit.ts }}
 ```
+<!-- langtabs-end -->
 
 `createCard()` function
 
+<!-- langtabs-start -->
 ```typescript
-interface FormData {
-  title: string;
-  subtitle: string;
-  text: string;
-}
-
-export function createCard(data: FormData) {
-  return new Card(
-    new Image(IMAGE_URL),
-    new TextBlock(data.title, {
-      size: 'large',
-      weight: 'bolder',
-      color: 'accent',
-      style: 'heading',
-    }),
-    new TextBlock(data.subtitle, {
-      size: 'small',
-      weight: 'lighter',
-      color: 'good',
-    }),
-    new TextBlock(data.text, {
-      wrap: true,
-      spacing: 'medium',
-    })
-  );
-}
-
+{{#include ../../../generated-snippets/ts/card.snippet.message-ext-create-card.ts }}
 ```
+<!-- langtabs-end -->
 
 `createMessageDetailsCard()` function
 
+<!-- langtabs-start -->
 ```typescript
-export function createMessageDetailsCard(messagePayload: Message) {
-  const cardElements: Element[] = [
-    new TextBlock('Message Details', {
-      size: 'large',
-      weight: 'bolder',
-      color: 'accent',
-      style: 'heading',
-    }),
-  ];
-
-  if (messagePayload?.body?.content) {
-    cardElements.push(
-      new TextBlock('Content', {
-        size: 'medium',
-        weight: 'bolder',
-        spacing: 'medium',
-      }),
-      new TextBlock(messagePayload.body.content)
-    );
-  }
-
-  if (messagePayload?.attachments?.length) {
-    cardElements.push(
-      new TextBlock('Attachments', {
-        size: 'medium',
-        weight: 'bolder',
-        spacing: 'medium',
-      }),
-      new TextBlock(`Number of attachments: ${messagePayload.attachments.length}`, {
-        wrap: true,
-        spacing: 'small',
-      })
-    );
-  }
-
-  if (messagePayload?.createdDateTime) {
-    cardElements.push(
-      new TextBlock('Created Date', {
-        size: 'medium',
-        weight: 'bolder',
-        spacing: 'medium',
-      }),
-      new TextBlock(messagePayload.createdDateTime, {
-        wrap: true,
-        spacing: 'small',
-      })
-    );
-  }
-
-  if (messagePayload?.linkToMessage) {
-    cardElements.push(
-      new TextBlock('Message Link', {
-        size: 'medium',
-        weight: 'bolder',
-        spacing: 'medium',
-      }),
-      new ActionSet(
-        new OpenUrlAction(messagePayload.linkToMessage, {
-          title: 'Go to message',
-        })
-      )
-    );
-  }
-
-  return new Card(...cardElements);
-}
-
+{{#include ../../../generated-snippets/ts/card.snippet.message-ext-create-message-details-card.ts }}
 ```
+<!-- langtabs-end -->
 
 ## Handle opening adaptive card dialog
 
 Handle opening adaptive card dialog when the `fetchConversationMembers` command is invoked.
 
+<!-- langtabs-start -->
 ```typescript
-app.on('message.ext.open', async ({ activity, api }) => {
-  const conversationId = activity.conversation.id;
-  const members = await api.conversations.members(conversationId).get();
-  const card = createConversationMembersCard(members);
-
-  return {
-    task: {
-      type: 'continue',
-      value: {
-        title: 'Conversation members',
-        height: 'small',
-        width: 'small',
-        card: cardAttachment('adaptive', card),
-      },
-    },
-  };
-});
-
+{{#include ../../../generated-snippets/ts/index.snippet.message-ext-open.ts }}
 ```
+<!-- langtabs-end -->
 
 `createConversationMembersCard()` function
 
+<!-- langtabs-start -->
 ```typescript
-export function createConversationMembersCard(members: Account[]) {
-  const membersList = members.map((member) => member.name).join(', ');
-
-  return new Card(
-    new TextBlock('Conversation members', {
-      size: 'medium',
-      weight: 'bolder',
-      color: 'accent',
-      style: 'heading',
-    }),
-    new TextBlock(membersList, {
-      wrap: true,
-      spacing: 'small',
-    })
-  );
-}
-
+{{#include ../../../generated-snippets/ts/card.snippet.message-ext-create-conversation-members-card.ts }}
 ```
+<!-- langtabs-end -->
 
 ## Resources
 
-[Action commands](/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)
+- [Action commands](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)

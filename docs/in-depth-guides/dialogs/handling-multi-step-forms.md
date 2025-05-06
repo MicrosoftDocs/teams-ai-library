@@ -1,107 +1,19 @@
----
-title: Handle multi-step forms
-description: Learn how to handle multi-step forms in your agent.
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Handling multi-step forms (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Handling multi-step forms
 
 Dialogs can become complex yet powerful with multi-step forms. These forms can alter the flow of the survey depending on the user's input or customize subsequent steps based on previous answers.
 
 Start off by sending an initial card in the `dialog.open` event.
 
+<!-- langtabs-start -->
 ```typescript
-const dialogCard = new Card()
-  .withBody(
-    {
-      type: 'TextBlock',
-      text: 'This is a multi-step form',
-      size: 'large',
-      weight: 'bolder',
-    },
-    new TextInput()
-      .withLabel('Name')
-      .withRequired()
-      .withId('name')
-      .withPlaceholder('Enter your name')
-  )
-  // Inside the dialog, the card actions for submitting the card must be
-  // of type Action.Submit
-  .addActions(
-    new SubmitAction()
-      .withTitle('Submit')
-      .withData({ submissiondialogtype: 'webpage_dialog_step_1' })
-  );
-
-// Return an object with the task value that renders a card
-return {
-  task: {
-    type: 'continue',
-    value: {
-      title: 'Multi-step Form Dialog',
-      card: cardAttachment('adaptive', dialogCard),
-    },
-  },
-};
-
+{{#include ../../../generated-snippets/ts/index.snippet.dialog-multi-step-step-1.ts }}
 ```
+<!-- langtabs-end -->
 
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
+<!-- langtabs-start -->
 ```typescript
-app.on('dialog.submit', async ({ activity, send, next }) => {
-  const dialogType = activity.value.data.submissiondialogtype;
-
-  if (dialogType === 'webpage_dialog_step_1') {
-    // This is data from the form that was submitted
-    const name = activity.value.data.name;
-    const nextStepCard = new Card()
-      .withBody(
-        {
-          type: 'TextBlock',
-          text: 'Email',
-          size: 'large',
-          weight: 'bolder',
-        },
-        new TextInput()
-          .withLabel('Email')
-          .withRequired()
-          .withId('email')
-          .withPlaceholder('Enter your email')
-      )
-      .addActions(
-        new SubmitAction().withTitle('Submit').withData({
-          // This same handler will get called, so we need to identify the step
-          // in the returned data
-          submissiondialogtype: 'webpage_dialog_step_2',
-          // Carry forward data from previous step
-          name,
-        })
-      );
-    return {
-      task: {
-        // This indicates that the dialog flow should continue
-        type: 'continue',
-        value: {
-          // Here we customize the title based on the previous response
-          title: `Thanks ${name} - Get Email`,
-          card: cardAttachment('adaptive', nextStepCard),
-        },
-      },
-    };
-  } else if (dialogType === 'webpage_dialog_step_2') {
-    const name = activity.value.data.name;
-    const email = activity.value.data.email;
-    await send(`Hi ${name}, thanks for submitting the form! We got that your email is ${email}`);
-    // You can also return a blank response
-    return {
-      status: 200,
-    };
-  }
-
-});
-
+{{#include ../../../generated-snippets/ts/index.snippet.dialog-submission-multistep.ts }}
 ```
+<!-- langtabs-end -->

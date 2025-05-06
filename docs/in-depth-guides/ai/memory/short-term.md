@@ -1,13 +1,4 @@
----
-title: Short Term Memory
-description: Learn about short term memory that is used for storing information while problem-solving or decision-making. 
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Memory: Short Term (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 📓 Memory: Short Term
 
 Stores a small amount of information for a brief period of time.
 It's often described as the brain's "working space" or "whiteboard".

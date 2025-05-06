@@ -1,13 +1,4 @@
----
-title: Use Middleware
-description: Learn about using the middleware tool for activties like logging or validation.
-ms.topic: how-to
-ms.date: 05/02/2025
----
-
-# Middleware (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Middleware
 
 Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.
@@ -15,6 +6,7 @@ You can easily register your own middleware using the `app.use` method.
 Below is an example of a middleware that will log the elapse time of all handers
 that come after it.
 
+<!-- langtabs-start -->
 ```typescript
 app.use(async ({ log, next }) => {
   const startedAt = new Date();
@@ -22,3 +14,4 @@ app.use(async ({ log, next }) => {
   log.debug(new Date().getTime() - startedAt.getTime());
 });
 ```
+<!-- langtabs-end -->
