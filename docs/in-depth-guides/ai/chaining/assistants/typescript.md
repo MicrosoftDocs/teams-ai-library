@@ -1,4 +1,6 @@
-# Typescript
+# Typescript (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The assistant that specializes in Typescript syntax/error knowledge.
 

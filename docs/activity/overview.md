@@ -1,4 +1,6 @@
-# Activity
+# Activity (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 <!--  The Activity protocol is defined by the [Agents SDK Activity Protocol](https://github.com/microsoft/Agents/blob/main/specs/activity/protocol-activity.md#introduction). -->
 

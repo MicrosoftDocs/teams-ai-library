@@ -1,4 +1,6 @@
-# 🪪 Cards
+# 🪪 Cards (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ![Card Designer Typescript](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/card_designer_typescript_editor.png?raw=true)
 

@@ -1,4 +1,6 @@
-# Chat Generation
+# Chat Generation (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 

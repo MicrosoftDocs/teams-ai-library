@@ -1,4 +1,6 @@
-# Activity: Message Extension Setting Invoke
+# Activity: Message Extension Setting Invoke (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 <!-- langtabs-start -->
 ```typescript

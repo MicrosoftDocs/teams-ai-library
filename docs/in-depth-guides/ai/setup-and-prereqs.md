@@ -1,4 +1,6 @@
-# Setup & Prerequisites
+# Setup & Prerequisites (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 There are a few prerequisites to getting started with integrating LLMs into your application:
 

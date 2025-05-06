@@ -1,4 +1,6 @@
-# Proactive Messaging
+# Proactive Messaging (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 In [Sending Messages](./sending-messages.md), we show how we can respond to an event when it happens. However, there are times when you want to send a message to the user without them sending a message first. This is called proactive messaging. You can do this by using the `send` method in the `app` instance. This is useful for sending notifications or reminders to the user.
 

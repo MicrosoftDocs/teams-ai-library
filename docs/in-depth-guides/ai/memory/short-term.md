@@ -1,4 +1,6 @@
-# 📓 Memory: Short Term
+# 📓 Memory: Short Term (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Stores a small amount of information for a brief period of time.
 It's often described as the brain's "working space" or "whiteboard".

@@ -1,4 +1,6 @@
-# 🔗 Chaining
+# 🔗 Chaining (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 By using multiple prompts and at least one `ChatPrompt` for orchestration,
 you can chain your prompts together. This has many benefits, including:

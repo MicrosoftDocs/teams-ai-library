@@ -1,4 +1,6 @@
-# Sending Messages
+# Sending Messages (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `send` method is provided which allows your handlers to send a message back to the user to the relevant conversation. 
 

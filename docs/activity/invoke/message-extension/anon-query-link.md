@@ -1,4 +1,6 @@
-# Activity: Message Extension Anon Query Link Invoke
+# Activity: Message Extension Anon Query Link Invoke (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 <!-- langtabs-start -->
 ```typescript

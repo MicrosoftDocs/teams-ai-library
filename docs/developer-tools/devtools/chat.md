@@ -1,4 +1,6 @@
-# 💬 Devtools Chat
+# 💬 Devtools Chat (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true)
 

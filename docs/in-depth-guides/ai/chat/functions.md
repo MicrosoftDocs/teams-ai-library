@@ -9,6 +9,8 @@ ms.date: 04/30/2025
 
 [This article is prerelease documentation and is subject to change.]
 
+[This article is prerelease documentation and is subject to change.]
+
 Now lets add GIF support via function calling...
 
 ```typescript

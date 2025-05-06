@@ -1,4 +1,6 @@
-# Using the API Client
+# Using the API Client (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 an instance of the web api client is passed to handlers that can be used
 to fetch team/meeting/conversation/etc... details.

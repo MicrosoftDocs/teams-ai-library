@@ -1,4 +1,6 @@
-# MCP Client
+# MCP Client (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 
@@ -71,4 +73,3 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 ![MCP Client in Devtools](../../../assets/screenshots/mcp-client-pokemon.gif)
 
 In this example, our MCP server is a Pokemon API and our client knows how to call it. The LLM is able to call the `getPokemon` function exposed by the server and return the result back to the user.
-

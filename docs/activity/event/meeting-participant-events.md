@@ -1,4 +1,6 @@
-# Activity: Meeting Participant Events
+# Activity: Meeting Participant Events (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Meeting extensibility on Teams also provides events such as a user joining or leaving a meeting.
 

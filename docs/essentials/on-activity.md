@@ -1,4 +1,6 @@
-# Listening To Activities
+# Listening To Activities (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  
 Where _events_ describe high‑level happenings inside your app, _activities_ are the raw Teams messages such as chat text, card actions, installs, or invoke calls.  

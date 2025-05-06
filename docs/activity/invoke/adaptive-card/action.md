@@ -1,4 +1,6 @@
-# Activity: Adaptive Card Action Invoke
+# Activity: Adaptive Card Action Invoke (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The invoke `name` for Adaptive Cards is `adaptiveCard/action`. However, it is also possible to use the alias `card.action` to invoke an Adaptive Card.
 

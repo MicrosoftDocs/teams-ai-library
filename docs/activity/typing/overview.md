@@ -1,4 +1,6 @@
-# Activity: Typing
+# Activity: Typing (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Typing activities represent ongoing input from a user or a bot. This activity is often sent when keystrokes are being entered by a user, although it's also used by bots to indicate they're "thinking," and could also be used to indicate processing, e.g. collecting audio from users.
 

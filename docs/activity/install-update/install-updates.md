@@ -1,4 +1,6 @@
-# Activity: Installation Updates
+# Activity: Installation Updates (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The `installationUpdate` event is sent to the bot when a bot is added or removed from a conversation thread
 
