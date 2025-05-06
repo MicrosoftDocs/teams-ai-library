@@ -32,11 +32,11 @@ app.on('signin.verify-state', async ({ send }) => {
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `signin.verify-state` events, which are sent when a user successfully signs in. 
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../in-depth-guides/cards/overview.md) by using the same `send` method. Look at the [adaptive card](../in-depth-guides/overview.md) section for more details.
+> This shows an example of sending a text message. Additionally, you are able to send back things like Adaptive Cards by using the same `send` method. Look at the [Adaptive Card](../in-depth-guides/cards/overview.md) section for more details.
 
 ## Streaming
 
-You may also stream messages to the user which can be useful for long messages, or AI generated messages. The library makes this simple for you by providing a `stream` function which you can use to send messages in chunks. 
+You may also stream messages to the user which can be useful for long messages, or AI generated messages. The library makes this simple for you by providing a `stream` function which you can use to send messages in chunks.
 
 <!-- langtabs-start -->
 ```typescript
