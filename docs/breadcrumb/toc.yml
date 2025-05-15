@@ -6,7 +6,3 @@ items:
   - name: Platform
     tocHref: /microsoftteams/platform/
     topicHref: /microsoftteams/platform/index
-    items:
-    - name: Teams AI Library v2 SDK
-      tocHref: /microsoftteams/platform/teams-ai-library
-      topicHref: /microsoftteams/platform/teams-ai-library/index
