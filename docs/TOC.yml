@@ -54,7 +54,7 @@
             - name: Overview
               href: typescript/essentials/sending-messages/overview.md
             - name: Proactive Messaging
-              href: typescript/essentials/sending-messages/proactive-messaging.mdx
+              href: typescript/essentials/sending-messages/proactive-messaging.md
     - name: Getting Started
       items:
         - name: Overview
@@ -74,9 +74,9 @@
             - name: Overview
               href: typescript/in-depth-guides/adaptive-cards/overview.md
             - name: Building Adaptive Cards
-              href: typescript/in-depth-guides/adaptive-cards/building-adaptive-cards.mdx
+              href: typescript/in-depth-guides/adaptive-cards/building-adaptive-cards.md
             - name: Executing Actions
-              href: typescript/in-depth-guides/adaptive-cards/executing-actions.mdx
+              href: typescript/in-depth-guides/adaptive-cards/executing-actions.md
         - name: AI
           items:
             - name: Overview
@@ -84,15 +84,15 @@
             - name: A2A
               items:
                 - name: A2A Client
-                  href: typescript/in-depth-guides/ai/a2a/a2a-client.mdx
+                  href: typescript/in-depth-guides/ai/a2a/a2a-client.md
             - name: Best Practices
-              href: typescript/in-depth-guides/ai/best-practices.mdx
+              href: typescript/in-depth-guides/ai/best-practices.md
             - name: Chat
-              href: typescript/in-depth-guides/ai/chat.mdx
+              href: typescript/in-depth-guides/ai/chat.md
             - name: Function Calling
-              href: typescript/in-depth-guides/ai/function-calling.mdx
+              href: typescript/in-depth-guides/ai/function-calling.md
             - name: Keeping State
-              href: typescript/in-depth-guides/ai/keeping-state.mdx
+              href: typescript/in-depth-guides/ai/keeping-state.md
             - name: MCP
               items:
                 - name: Overview
@@ -104,23 +104,23 @@
             - name: Overview
               href: typescript/in-depth-guides/dialogs/overview.md
             - name: Creating Dialogs
-              href: typescript/in-depth-guides/dialogs/creating-dialogs.mdx
+              href: typescript/in-depth-guides/dialogs/creating-dialogs.md
             - name: Handling Dialog Submissions
-              href: typescript/in-depth-guides/dialogs/handling-dialog-submissions.mdx
+              href: typescript/in-depth-guides/dialogs/handling-dialog-submissions.md
             - name: Handling Multi-Step Forms
-              href: typescript/in-depth-guides/dialogs/handling-multi-step-forms.mdx
+              href: typescript/in-depth-guides/dialogs/handling-multi-step-forms.md
         - name: Feedback
-          href: typescript/in-depth-guides/feedback.mdx
+          href: typescript/in-depth-guides/feedback.md
         - name: Message Extensions
           items:
             - name: Overview
               href: typescript/in-depth-guides/message-extensions/overview.md
             - name: Action Commands
-              href: typescript/in-depth-guides/message-extensions/action-commands.mdx
+              href: typescript/in-depth-guides/message-extensions/action-commands.md
             - name: Link Unfurling
-              href: typescript/in-depth-guides/message-extensions/link-unfurling.mdx
+              href: typescript/in-depth-guides/message-extensions/link-unfurling.md
             - name: Search Commands
-              href: typescript/in-depth-guides/message-extensions/search-commands.mdx
+              href: typescript/in-depth-guides/message-extensions/search-commands.md
         - name: Observability
           items:
             - name: Overview
@@ -152,11 +152,11 @@
             - name: Quickstart
               href: typescript/in-depth-guides/user-authentication/quickstart.md
             - name: Setup
-              href: typescript/in-depth-guides/user-authentication/setup.mdx
+              href: typescript/in-depth-guides/user-authentication/setup.md
             - name: Signin
-              href: typescript/in-depth-guides/user-authentication/signin.mdx
+              href: typescript/in-depth-guides/user-authentication/signin.md
             - name: Signout
-              href: typescript/in-depth-guides/user-authentication/signout.mdx
+              href: typescript/in-depth-guides/user-authentication/signout.md
     - name: Migrations
       items:
         - name: Overview
@@ -166,21 +166,21 @@
             - name: Overview
               href: typescript/migrations/BotBuilder/overview.md
             - name: Activity Handlers
-              href: typescript/migrations/BotBuilder/activity-handlers.mdx
+              href: typescript/migrations/BotBuilder/activity-handlers.md
             - name: Adapters
-              href: typescript/migrations/BotBuilder/adapters.mdx
+              href: typescript/migrations/BotBuilder/adapters.md
             - name: Turn Context
               items:
-                - name: README
-                  href: typescript/migrations/BotBuilder/turn-context/README.mdx
+                - name: Overview
+                  href: typescript/migrations/BotBuilder/turn-context/overview.md
                 - name: Proactive Activities
-                  href: typescript/migrations/BotBuilder/turn-context/proactive-activities.mdx
+                  href: typescript/migrations/BotBuilder/turn-context/proactive-activities.md
                 - name: Sending Activities
-                  href: typescript/migrations/BotBuilder/turn-context/sending-activities.mdx
+                  href: typescript/migrations/BotBuilder/turn-context/sending-activities.md
                 - name: The API Client
-                  href: typescript/migrations/BotBuilder/turn-context/the-api-client.mdx
+                  href: typescript/migrations/BotBuilder/turn-context/the-api-client.md
             - name: User Authentication
-              href: typescript/migrations/BotBuilder/user-authentication.mdx
+              href: typescript/migrations/BotBuilder/user-authentication.md
         - name: V1
           items:
             - name: Overview
@@ -192,29 +192,29 @@
         - name: Overview
           href: csharp/essentials/overview.md
         - name: API
-          href: csharp/essentials/api.mdx
+          href: csharp/essentials/api.md
         - name: App Basics
           href: csharp/essentials/app-basics.md
         - name: Graph
-          href: csharp/essentials/graph.mdx
+          href: csharp/essentials/graph.md
         - name: On Activity
           items:
-            - name: README
-              href: csharp/essentials/on-activity/README.mdx
+            - name: Overview
+              href: csharp/essentials/on-activity/overview.md
         - name: On Event
           href: csharp/essentials/on-event.md
         - name: Sending Messages
           items:
             - name: Proactive Messaging
-              href: csharp/essentials/sending-messages/proactive-messaging.mdx
-            - name: README
-              href: csharp/essentials/sending-messages/README.mdx
+              href: csharp/essentials/sending-messages/proactive-messaging.md
+            - name: Overview
+              href: csharp/essentials/sending-messages/overview.md
     - name: Getting Started
       items:
         - name: Overview
           href: csharp/getting-started/overview.md
         - name: Code Basics
-          href: csharp/getting-started/code-basics.mdx
+          href: csharp/getting-started/code-basics.md
         - name: Quickstart
           href: csharp/getting-started/quickstart.md
         - name: Running in Teams
@@ -228,29 +228,29 @@
             - name: Overview
               href: csharp/in-depth-guides/adaptive-cards/overview.md
             - name: Building Adaptive Cards
-              href: csharp/in-depth-guides/adaptive-cards/building-adaptive-cards.mdx
+              href: csharp/in-depth-guides/adaptive-cards/building-adaptive-cards.md
             - name: Executing Actions
-              href: csharp/in-depth-guides/adaptive-cards/executing-actions.mdx
+              href: csharp/in-depth-guides/adaptive-cards/executing-actions.md
         - name: AI
           items:
             - name: Overview
               href: csharp/in-depth-guides/ai/overview.md
             - name: Best Practices
-              href: csharp/in-depth-guides/ai/best-practices.mdx
+              href: csharp/in-depth-guides/ai/best-practices.md
             - name: Chat
-              href: csharp/in-depth-guides/ai/chat.mdx
+              href: csharp/in-depth-guides/ai/chat.md
             - name: Function Calling
-              href: csharp/in-depth-guides/ai/function-calling.mdx
+              href: csharp/in-depth-guides/ai/function-calling.md
             - name: Keeping State
-              href: csharp/in-depth-guides/ai/keeping-state.mdx
+              href: csharp/in-depth-guides/ai/keeping-state.md
             - name: MCP
               items:
                 - name: Overview
                   href: csharp/in-depth-guides/ai/mcp/overview.md
                 - name: MCP Client
-                  href: csharp/in-depth-guides/ai/mcp/mcp-client.mdx
+                  href: csharp/in-depth-guides/ai/mcp/mcp-client.md
                 - name: MCP Server
-                  href: csharp/in-depth-guides/ai/mcp/mcp-server.mdx
+                  href: csharp/in-depth-guides/ai/mcp/mcp-server.md
             - name: Setup and Prereqs
               href: csharp/in-depth-guides/ai/setup-and-prereqs.md
         - name: Dialogs
@@ -258,23 +258,23 @@
             - name: Overview
               href: csharp/in-depth-guides/dialogs/overview.md
             - name: Creating Dialogs
-              href: csharp/in-depth-guides/dialogs/creating-dialogs.mdx
+              href: csharp/in-depth-guides/dialogs/creating-dialogs.md
             - name: Handling Dialog Submissions
-              href: csharp/in-depth-guides/dialogs/handling-dialog-submissions.mdx
+              href: csharp/in-depth-guides/dialogs/handling-dialog-submissions.md
             - name: Handling Multi-Step Forms
-              href: csharp/in-depth-guides/dialogs/handling-multi-step-forms.mdx
+              href: csharp/in-depth-guides/dialogs/handling-multi-step-forms.md
         - name: Feedback
-          href: csharp/in-depth-guides/feedback.mdx
+          href: csharp/in-depth-guides/feedback.md
         - name: Message Extensions
           items:
             - name: Overview
               href: csharp/in-depth-guides/message-extensions/overview.md
             - name: Action Commands
-              href: csharp/in-depth-guides/message-extensions/action-commands.mdx
+              href: csharp/in-depth-guides/message-extensions/action-commands.md
             - name: Link Unfurling
-              href: csharp/in-depth-guides/message-extensions/link-unfurling.mdx
+              href: csharp/in-depth-guides/message-extensions/link-unfurling.md
             - name: Search Commands
-              href: csharp/in-depth-guides/message-extensions/search-commands.mdx
+              href: csharp/in-depth-guides/message-extensions/search-commands.md
         - name: Observability
           items:
             - name: Overview
@@ -306,11 +306,11 @@
             - name: Quickstart
               href: csharp/in-depth-guides/user-authentication/quickstart.md
             - name: Setup
-              href: csharp/in-depth-guides/user-authentication/setup.mdx
+              href: csharp/in-depth-guides/user-authentication/setup.md
             - name: Signin
-              href: csharp/in-depth-guides/user-authentication/signin.mdx
+              href: csharp/in-depth-guides/user-authentication/signin.md
             - name: Signout
-              href: csharp/in-depth-guides/user-authentication/signout.mdx
+              href: csharp/in-depth-guides/user-authentication/signout.md
 - name: Reference
   items:
     - name: TypeScript SDK
