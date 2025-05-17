@@ -2,8 +2,6 @@
 sidebar_position: 1
 ---
 
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
@@ -16,10 +14,27 @@ With `@microsoft/teams.cards` you can build these cards entirely in TypeScript /
 `@microsoft/teams.cards` exposes small **builder helpers** (`Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._).
 Each helper wraps raw JSON and provides fluent, chainable methods that keep your code concise and readable.
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/index.snippet.basic-card-building.ts"
-/>
+```ts
+/**
+ import {
+  AdaptiveCard,
+  TextBlock,
+  ToggleInput,
+  ExecuteAction,
+  ActionSet,
+} from "@microsoft/teams.cards";
+*/
+
+  const card = new AdaptiveCard(
+    new TextBlock("Hello world", { wrap: true, weight: "Bolder" }),
+    new ToggleInput("Notify me").withId("notify"),
+    new ActionSet(
+      new ExecuteAction({ title: "Submit" })
+        .withData({ action: "submit_basic" })
+        .withAssociatedInputs("auto")
+    )
+  );
+```
 
 Benefits:
 
@@ -42,10 +57,10 @@ While coding you get:
 - **In‑editor validation**—invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/index.snippet.improved-type-checking.ts"
-/>
+```ts
+// @ts-expect-error: "huge" is not a valid size for TextBlock
+const textBlock = new TextBlock("Valid", { size: "huge" });
+```
 
 ---
 
@@ -62,10 +77,51 @@ const cardJson = /* copied JSON */;
 const card = new AdaptiveCard().withBody(cardJson);
 ```
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/index.snippet.raw-card-json.ts"
-/>
+```ts
+const rawCard: IAdaptiveCard = {
+  type: "AdaptiveCard",
+  body: [
+    {
+      text: "Please fill out the below form to send a game purchase request.",
+      wrap: true,
+      type: "TextBlock",
+      style: "heading",
+    },
+    {
+      columns: [
+        {
+          width: "stretch",
+          items: [
+            {
+              choices: [
+                { title: "Call of Duty", value: "call_of_duty" },
+                { title: "Death's Door", value: "deaths_door" },
+                { title: "Grand Theft Auto V", value: "grand_theft" },
+                { title: "Minecraft", value: "minecraft" },
+              ],
+              style: "filtered",
+              placeholder: "Search for a game",
+              id: "choiceGameSingle",
+              type: "Input.ChoiceSet",
+              label: "Game:",
+            },
+          ],
+          type: "Column",
+        },
+      ],
+      type: "ColumnSet",
+    },
+  ],
+  actions: [
+    {
+      title: "Request purchase",
+      type: "Action.Execute",
+      data: { action: "purchase_item" },
+    },
+  ],
+  version: "1.5",
+};
+```
 
 This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `IAdaptiveCard`.
 
