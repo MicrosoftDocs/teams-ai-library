@@ -59,17 +59,74 @@ Here we are defining the `searchQuery` search (or query) command.
 
 Handle opening adaptive card dialog when the `searchQuery` query is submitted.
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/index.snippet.message-ext-query.ts"
-/>
+```typescript
+app.on("message.ext.query", async ({ activity }) => {
+  const { commandId } = activity.value;
+  const searchQuery = activity.value.parameters![0].value;
+
+  if (commandId == "searchQuery") {
+    const cards = await createDummyCards(searchQuery);
+    const attachments = cards.map(({ card, thumbnail }) => {
+      return {
+        ...cardAttachment("adaptive", card), // expanded card in the compose box...
+        preview: cardAttachment("thumbnail", thumbnail), // preview card in the compose box...
+      };
+    });
+
+    return {
+      composeExtension: {
+        type: "result",
+        attachmentLayout: "list",
+        attachments: attachments,
+      },
+    };
+  }
+
+  return { status: 400 };
+});
+
+```
 
 `createDummyCards()` function
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/card.snippet.message-ext-create-dummy-cards.ts"
-/>
+```typescript
+export async function createDummyCards(searchQuery: string) {
+  const dummyItems = [
+    {
+      title: "Item 1",
+      description: `This is the first item and this is your search query: ${searchQuery}`,
+    },
+    { title: "Item 2", description: "This is the second item" },
+    { title: "Item 3", description: "This is the third item" },
+    { title: "Item 4", description: "This is the fourth item" },
+    { title: "Item 5", description: "This is the fifth item" },
+  ];
+
+  const cards = dummyItems.map((item) => {
+    return {
+      card: new AdaptiveCard(
+        new TextBlock(item.title, {
+          size: "Large",
+          weight: "Bolder",
+          color: "Accent",
+          style: "heading",
+        }),
+        new TextBlock(item.description, {
+          wrap: true,
+          spacing: "Medium",
+        })
+      ),
+      thumbnail: {
+        title: item.title,
+        text: item.description,
+      } as ThumbnailCard,
+    };
+  });
+
+  return cards;
+}
+
+```
 
 The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
 

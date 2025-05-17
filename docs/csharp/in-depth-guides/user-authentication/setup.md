@@ -56,10 +56,19 @@ You can follow the [Add authentication to bot app](/microsoftteams/platform/bots
 
 In the [Using Teams Toolkit with `teams` CLI](#using-teams-toolkit-with-the-teams-cli) guide, you will notice that the OAuth Connection Name that was created in the Azure Bot configuration is `graph`. This is arbitrary and you can even create more than one configuration. You can specify which configuration to use by defining it in the app options on intialization:
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/index.snippet.auth-config.ts"
-/>
+```typescript
+const app = new App({ 
+  oauth: { // oauth configurations
+    /**
+     * The name of the auth connection to use.
+     * It should be the same as the OAuth connection name defined in the Azure Bot configuration.
+     */
+    defaultConnectionName: 'graph' 
+  },
+  logger: new ConsoleLogger('@tests/auth', { level: 'debug' })
+});
+
+```
 
 ## Resources
 
