@@ -1,15 +1,15 @@
 ---
-title: Devtools Chat (preview)
-description: Learn about Devtools Chat (preview)
+title: Devtools Chat
+description: Learn about Devtools Chat
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/17/2025
 ---
 
 # Devtools Chat (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_blank_chat.png?raw=true" alt-text="Empty DevTools chat":::
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 
@@ -24,20 +24,17 @@ Use the Teams AI v2 dev package as a plugin.
 
 Add the dev package to your Teams app.
 
-<!-- langtabs-start -->
 ```bash
 $: npm install @microsoft/teams.dev@preview
 ```
-<!-- langtabs-end -->
 
 ### Usage
 
 In your app's main file, ensure DevTools plugin is added to the app.
 
-> [!CAUTION]
+> [!WARNING]
 > DevTools is not secure and should not be used in production environments. Remove the plugin before deploying your app to production.
 
-<!-- langtabs-start -->
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common/logging';
@@ -48,25 +45,22 @@ const app = new App({
   plugins: [new DevtoolsPlugin()],
 });
 ```
-<!-- langtabs-end -->
 
-When you run your app, for example `npm run dev`, devtools will be running on port 3001
+When you run your app, for example `npm run dev`, devtools will be running on port 3979
 
-<!-- langtabs-start -->
 ```bash
 [nodemon] watching extensions: ts
 [nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
-[INFO] @samples/echo/http listening on port 3000 🚀
-[INFO] @samples/echo/devtools available at http://localhost:3001/devtools
+[INFO] @samples/echo/http listening on port 3978 🚀
+[INFO] @samples/echo/devtools available at http://localhost:3979/devtools
 ```
-<!-- langtabs-end -->
 
 > [!NOTE]
-> If you used the [CLI](../cli/overview.md) to create a TTK configuration for your app, DevTools will run on port 3979 when you launch the debugger.
+> If you used the [CLI](../cli.md) to create a TTK configuration for your app, DevTools will run on port 3979 when you launch the debugger.
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Devtools chat":::
 
 ## Teams chat terminology
 
@@ -79,12 +73,12 @@ Below is a brief list of the terminology used in the chat window and in Teams:
 
 The chat window emulates Teams features as closely as possible. Not all Teams features are available in DevTools, but we are working to add more features over time. The following capabilities are available:
 
-> [!IMPORTANT]
-> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize accessibility in future preview releases.
+> [!NOTE]
+> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize acessibility in future preview releases.
 
 ### Send messages
 
-You can [send messages](../../essentials/sending-messages.md) to your agent just like in Teams. In the compose box, type your message and press <kbd>Enter</kbd> to send it.
+You can send messages to your agent just like in Teams. In the compose box, type your message and press <kbd>Enter</kbd> to send it.
 
 ### Attachments
 
@@ -99,13 +93,13 @@ Check your app's connectivity in three ways:
 
 1. The DevTools banner shows a green badge or 'Connected' text when connected, and red or 'Disconnected' when not.
 2. Similarly, the agent's avatar shows a 'Connected' or 'Disconnected' badge.
-3. DevTools uses the [ConsoleLogger](../../in-depth-guides/observability/logging.md) that logs connectivity events to the console. Use the browser's console tool to see the logs.
+3. DevTools uses the `ConsoleLogger` that logs connectivity events to the console. Use the browser's console tool to see the logs.
 
 ### Message reactions
 
-You can react to messages selecting an emoji in the message actions menu.
+You can react to messages by selecting an emoji in the message actions menu.
 
-![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_message_reaction.gif?raw=true" alt-text="Devtools react to a message":::
 
 ### Edit your message
 
@@ -117,11 +111,11 @@ Soft delete messages by hovering over your message, pressing the More (ellipsis)
 
 ### Streaming
 
-If your agent is using [streaming](../../in-depth-guides/ai/chat.md#streaming-chat-responses),DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
+If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Send feedback
+### Feedback
 
-Send [feedback](../../in-depth-guides/feedback.md) to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
+Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 
 > [!NOTE]
 > The capabilities above will also populate activities to the Activities page, where you can inspect activity payloads and see the full activity history.
@@ -130,4 +124,4 @@ Send [feedback](../../in-depth-guides/feedback.md) to your app by clicking the F
 
 For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>↑</kbd> arrow key to cycle through your message history and resend messages.
 
-![Devtools Up Arrow Feature](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_uparrow_feature.gif?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_uparrow_feature.gif?raw=true" alt-text="Devtools Up Arrow Feature":::

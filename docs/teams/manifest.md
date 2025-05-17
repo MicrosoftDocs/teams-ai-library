@@ -1,11 +1,11 @@
 ---
-title: Teams app manifest (preview)
-description: Learn about Teams app manifest (preview)
+title: Teams Manifest
+description: Learn about Teams Manifest
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/17/2025
 ---
 
-# Teams app manifest (preview)
+# Teams Manifest (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -21,4 +21,4 @@ Sideloading is the ability to install and test your app before it is published t
 
 To sideload, the manifest mentioned above must have all information (such as app id, tenant information, permissions, etc.) filled out, and be placed in a zip with the icons, but the zip should **NOT** include a containing folder of those files.
 
-For convenient assistance with managing your manifest and automating important functionality like sideloading, deployment, and provisioning, we recommend the [Teams Toolkit extension](/microsoftteams/platform/toolkit/install-teams-toolkit)) and [CLI](/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three). Please continue to the [Toolkit documentation](./m365-toolkit.md) to learn more.
+For convenient assistance with managing your manifest and automating important functionality like sideloading, deployment, and provisioning, we recommend the [Teams Toolkit extension](/microsoftteams/platform/toolkit/install-teams-toolkit)) and [CLI](/microsoftteams/platform/toolkit/cli). Please continue to the [Toolkit documentation](./teams-toolkit.md) to learn more.
