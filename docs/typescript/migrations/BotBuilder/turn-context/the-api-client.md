@@ -10,7 +10,7 @@ BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. 
 we pass an instance of our `ApiClient` into all our activity handlers.
 
 
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import {
       CloudAdapter,
@@ -32,7 +32,7 @@ we pass an instance of our `ApiClient` into all our activity handlers.
     }
 ```
   
-  <TabItem value="Teams AI">
+# [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
@@ -43,4 +43,4 @@ we pass an instance of our `ApiClient` into all our activity handlers.
       const members = await api.conversations.members(activity.conversation.id).get();
     });
 ```
-  
+---

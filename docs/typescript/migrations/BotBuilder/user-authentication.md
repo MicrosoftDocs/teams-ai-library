@@ -9,7 +9,7 @@ ms.date: 05/17/2025
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams AI doesn't have any
 equivalent feature to dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
   
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import restify from 'restify';
     import {
@@ -144,7 +144,7 @@ equivalent feature to dialogs, but we do support auth flows in our own way via o
     });
 ```
   
-  <TabItem value="Teams AI">
+# [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
     import { ConsoleLogger } from '@microsoft/teams.common/logging';
@@ -175,6 +175,4 @@ equivalent feature to dialogs, but we do support auth flows in our own way via o
       await app.start();
     })();
 ```
-  
-
-## Teams AI
+---

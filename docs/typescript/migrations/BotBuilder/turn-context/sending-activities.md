@@ -12,7 +12,7 @@ to construct the entire activity yourself.
 
 
  
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
 
@@ -27,14 +27,14 @@ to construct the entire activity yourself.
     }
 ```
   
-  <TabItem value="Teams AI">
+# [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     app.on('message', async ({ send }) => {
       // highlight-next-line
       await send({ type: 'typing' });
     });
 ```
-  
+--- 
 
 ## Strings
 
@@ -60,7 +60,7 @@ to construct the entire activity yourself.
     // highlight-success-end
 ```
   
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
 
@@ -75,14 +75,14 @@ to construct the entire activity yourself.
     }
 ```
   
-  <TabItem value="Teams AI">
+# [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     app.on('message', async ({ send }) => {
       // highlight-next-line
       await send('hello world');
     });
 ```
-  
+---  
 
 ## Adaptive Cards
 
@@ -124,7 +124,7 @@ to construct the entire activity yourself.
     // highlight-success-end
 ```
   
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import { TeamsActivityHandler, CardFactory } from 'botbuilder';
 
@@ -153,7 +153,7 @@ to construct the entire activity yourself.
     }
 ```
   
-  <TabItem value="Teams AI">
+# [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -162,7 +162,7 @@ to construct the entire activity yourself.
       await send(new AdaptiveCard(new TextBlock('hello world')));
     });
 ```
-  
+--- 
 
 ## Attachments
 
@@ -196,7 +196,7 @@ to construct the entire activity yourself.
     // highlight-success-end
 ```
   
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
 
@@ -217,7 +217,7 @@ to construct the entire activity yourself.
     }
 ```
   
-  <TabItem value="Teams AI">
+# [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -226,4 +226,4 @@ to construct the entire activity yourself.
       await send(new MessageActivity().addAttachment(...));
     });
 ```
-  
+---

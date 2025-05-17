@@ -13,7 +13,7 @@ so all you need to store is that!
 
  
   
-  <TabItem value="BotBuilder">
+# [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import {
       CloudAdapter,
@@ -41,7 +41,7 @@ so all you need to store is that!
     // highlight-end
 ```
   
-  <TabItem value="Teams AI">
+# [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
@@ -54,4 +54,4 @@ so all you need to store is that!
     }());
     // highlight-end
 ```
-  
+---
