@@ -66,7 +66,7 @@ After installing Teams Toolkit and adding the configuration:
 When debugging starts, the Teams Toolkit will:
 
 - **Build** your application
-- **Start a [devtunnel](/teams/core-concepts#devtunnel)** which will assign a temporary public URL to your local server
+- **Start a [devtunnel](../../teams/core-concepts.md#devtunnel)** which will assign a temporary public URL to your local server
 - **Provision the Teams app** for your tenant so that it can be installed and be authenticated on Teams
 - **Set up the local variables** necessary for your agent to run in Teams in `env/.env.local` and `env/env.local.user`. This includes propagating the app manifest with your newly provisioned resources.
 - **Start** the local server.
@@ -100,14 +100,14 @@ After the debugging session starts:
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 
 > [!TIP]
-> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](/developer-tools/devtools)! Note that the DevTools server is running on port 3978. You can open it in your browser to interact with your agent and monitor activities in real time.
+> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](../../developer-tools/devtools/overview.md)! Note that the DevTools server is running on port 3978. You can open it in your browser to interact with your agent and monitor activities in real time.
 
 ## Troubleshooting
 
 While Teams AI v2 SDK heavily endorses Teams Tookit (TTK), you can run your agent in Teams without it. However, using TTK saves time and effort.
 
 > [!WARNING]
-> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/microsoftteams/platform/toolkit/overview) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
+> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](https://aka.ms/M365AgentsToolkit) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
 
 > [!WARNING]
 > Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview).
@@ -119,7 +119,7 @@ Now that your agent is running in Teams, you can learn more [essential concepts]
 ## Resources
 
 - [Teams CLI documentation](/developer-tools/cli)
-- [Teams Toolkit documentation](/microsoftteams/platform/toolkit/overview)
+- [Teams Toolkit documentation](https://aka.ms/M365AgentsToolkit)
 - [Teams Toolkit CLI documentation](/microsoftteams/platform/toolkit/cli)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
 - [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview)

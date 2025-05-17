@@ -110,19 +110,19 @@ Congratulations! Now you have a fully functional agent running in Microsoft Team
 While Teams AI v2 SDK heavily endorses Teams Tookit (TTK), you can run your agent in Teams without it. However, using TTK saves time and effort.
 
 > [!WARNING]
-> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/microsoftteams/platform/toolkit/overview) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
+> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](https://aka.ms/M365AgentsToolkit) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
 
 > [!WARNING]
 > Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview).
 
 ## Next steps
 
-Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/overview.md.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides/overview.md.md) for advanced topics like authentication, message extensions, and more.
+Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/overview.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides/overview.md) for advanced topics like authentication, message extensions, and more.
 
 ## Resources
 
 - [Teams CLI documentation](/developer-tools/cli)
-- [Teams Toolkit documentation](/microsoftteams/platform/toolkit/overview)
+- [Teams Toolkit documentation](https://aka.ms/M365AgentsToolkit)
 - [Teams Toolkit CLI documentation](/microsoftteams/platform/toolkit/cli)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
 - [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview)

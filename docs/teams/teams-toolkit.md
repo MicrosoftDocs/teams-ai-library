@@ -24,7 +24,7 @@ Teams toolkit can be installed as an extension and CLI. Please see the documenta
 
 ## Official documentation
 
-- Official [Teams Toolkit documentation](/microsoftteams/platform/toolkit/overview)
+- Official [Teams Toolkit documentation](https://aka.ms/M365AgentsToolkit)
 
 ## Deployment and provisioning
 
