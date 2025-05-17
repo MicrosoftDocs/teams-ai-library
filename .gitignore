@@ -10,4 +10,7 @@ _repo.*/
 # Ignore all Python files
 *.py
 
-SUMMARY.md
+# Ignore temp TOC files
+maintoc.yml
+tstoc.yml
+csharptoc.yml
