@@ -1,13 +1,8 @@
 ---
-title: Cards (preview)
-description: Learn about Cards (preview)
-ms.topic: how-to
-ms.date: 05/05/2025
+sidebar_position: 3
 ---
 
-# Cards (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 🪪 Cards
 
 ![Card Designer Typescript](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/card_designer_typescript_editor.png?raw=true)
 
@@ -17,9 +12,10 @@ Use the Cards page to design and test your cards. Then, use the "Attach card" bu
 
 Add an attachment to your message by clicking the attachment (paperclip) icon in the compose box. Select "Open card designer" from the dropdown menu, and your card will be added as an attachment to the same message you are composing or editing after you click "Attach card".
 
-> [!TIP]
-> DevTools stores your card attachment so you can use it between page navigation (Chat to Cards and back). Only the last card you designed will be stored, and only temporarily, so if you want to save a card, make sure to save the payload to a file or copy it to your clipboard.
-> Also check out the **[Adaptive Cards Designer](https://adaptivecards.microsoft.com/designer)** and [documentation](https://adaptivecards.microsoft.com/designer).
+:::tip
+DevTools stores your card attachment so you can use it between page navigation (Chat to Cards and back). Only the last card you designed will be stored, and only temporarily, so if you want to save a card, make sure to save the payload to a file or copy it to your clipboard.
+Also check out the **[Adaptive Cards Designer](https://adaptivecards.microsoft.com/designer)** and [documentation](https://adaptivecards.microsoft.com/designer).
+:::
 
 ## Pasting Adaptive Card JSON
 

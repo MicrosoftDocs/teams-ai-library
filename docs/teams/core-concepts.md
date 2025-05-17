@@ -1,19 +1,49 @@
 ---
-title: Core Teams Concepts (preview)
-description: Learn about Core Teams Concepts (preview)
-ms.topic: how-to
-ms.date: 05/05/2025
+sidebar_position: 1
 ---
 
-# Core Teams Concepts (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Teams Core Concepts
 
 When you run your agent on Teams using Teams Toolkit, several Teams-specific processes happen behind the scenes. Understanding these components will help you better debug and deploy your agents. Obviously, all these processes can be done manually, but Teams Toolkit automates them for you.
 
 ## Basic Flow
 
-![alt-text for core-concepts-1.png](~/assets/diagrams/core-concepts-1.png)
+```mermaid
+flowchart LR
+    %% Main actors
+    User([User])
+
+    %% Teams section
+    subgraph Teams ["Teams"]
+        TeamsClient["Teams Client"]
+        TeamsBackend["Teams Backend"]
+    end
+
+    %% Azure section
+    subgraph Azure ["Azure"]
+        AppReg["App Registration"]
+        AzureBot["Azure Bot"]
+    end
+
+    %% Local Server section
+    subgraph LocalServer ["Local Server"]
+        DevTunnel["DevTunnel"]
+        LocalApp["Your local application"]
+    end
+
+    %% Deployed Server section
+    subgraph DeployedServer ["Deployed Server"]
+        DeployedApp["Your deployed application"]
+    end
+
+    %% Define connections
+    User <--> TeamsClient
+    TeamsClient <--> TeamsBackend
+    TeamsBackend <--> AppReg
+    AppReg <--> AzureBot
+    AzureBot --> LocalServer
+    AzureBot --> DeployedServer
+```
 
 **Teams**
 
@@ -48,10 +78,11 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
+[DevTunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
 
-> [!NOTE]
-> DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
+:::info
+DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
+:::
 
 - Creates a secure public HTTPS endpoint that forwards to your local server
 - Manages SSL certificates automatically
@@ -77,9 +108,10 @@ Before your agent can interact with Teams, it needs to be properly registered an
 
 Sideloading is the process of installing your agent in Teams. You are able to pass in the manifest and icons (zipped up) to the Teams client. Sideloading an application automatically makes that application available to you. You are also able to sideload the application in a Team or a Group chat. In this case, the application will be available to all members of that Team or Group chat.
 
-> [!IMPORTANT]
-> Sideloading needs to be enabled in your tenant. If this is not the case, then you will need to contact your Teams administrator to enable it.
+:::warning
+Sideloading needs to be enabled in your tenant. If this is not the case, then you will need to contact your Teams administrator to enable it.
+:::
 
 ## Provisioning and Deployment
 
-To test your app in Teams, you will at minimum need to have a provisioned Azure bot. You are likely to have other provisionied resources such as storage. Please see the Microsoft Learn [Provision cloud resources](/microsoftteams/platform/toolkit/provision) documentation for provisioning and deployment using Visual Studio Code and to a container service.
+To test your app in Teams, you will at minimum need to have a provisioned Azure bot. You are likely to have other provisionied resources such as storage. Please see the Microsoft Learn [Provision cloud resources](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/provision) documentation for provisioning and deployment using Visual Studio Code and to a container service.
