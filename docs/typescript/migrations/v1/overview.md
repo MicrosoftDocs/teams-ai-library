@@ -7,6 +7,5 @@ ms.date: 05/17/2025
 
 # From Teams AI v1 (TypeScript)
 
-:::info
-Coming Soon!
-:::
+> [!NOTE]
+> Coming Soon!

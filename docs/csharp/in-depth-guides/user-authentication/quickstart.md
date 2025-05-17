@@ -9,29 +9,24 @@ ms.date: 05/17/2025
 
 In this section we will walk through creating an app that can access the [Microsoft Graph APIs](/graph/overview) on behalf of the user by authenticating them with the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) oauth provider. 
 
-:::info
-It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
-:::
+> [!NOTE]
+> It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 
-:::info
-This is an advanced guide. It is highly recommended that you are familiar with [creating an app](https://microsoft.github.io/teams-ai/2.getting-started/1.quickstart.html) and [running it in Teams](https://microsoft.github.io/teams-ai/2.getting-started/3.running-in-teams.html) before attempting to follow this guide.
-:::
+> [!NOTE]
+> This is an advanced guide. It is highly recommended that you are familiar with [creating an app](https://microsoft.github.io/teams-ai/2.getting-started/1.quickstart.html) and [running it in Teams](https://microsoft.github.io/teams-ai/2.getting-started/3.running-in-teams.html) before attempting to follow this guide.
 
-:::warning
-User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
-:::
+> [!WARNING]
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
 
 ## Setup Instructions
 
 ### Create an app with the `graph` template
 
-:::tip
-Skip this step if you want to add the auth configurations to an existing app.
-:::
+> [!TIP]
+> Skip this step if you want to add the auth configurations to an existing app.
 
-:::note
-In this template, `graph` is the default name of the OAuth connection, but you can change that by supplying `defaultOauthConnectionName` in the `app`.
-:::
+> [!NOTE]
+> In this template, `graph` is the default name of the OAuth connection, but you can change that by supplying `defaultOauthConnectionName` in the `app`.
 
 Use your terminal to run the following command: 
 
@@ -58,9 +53,8 @@ teams config add ttk.oauth
 
 This will add relevant Teams Toolkit files to your project.
 
-:::tip
-See [App Setup](./setup#using-teams-toolkit-with-the-teams-cli) to learn more about what this command does.
-:::
+> [!TIP]
+> See [App Setup](./setup#using-teams-toolkit-with-the-teams-cli) to learn more about what this command does.
 
 ## Interacting with the app in Teams
 
@@ -68,9 +62,8 @@ Once you have successfully sideloaded the app into Teams you can now interact wi
 
 ### Signing the user in
 
-:::note
-This is the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [How Auth Works](auth-sso) guide.
-:::
+> [!NOTE]
+> This is the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [How Auth Works](auth-sso) guide.
 
 When the user sends a message to the user a consent form will popup:
 
@@ -78,9 +71,8 @@ When the user sends a message to the user a consent form will popup:
 
 This will ask the user to consent to the `User.ReadBasic.All` Microsoft Graph scope:
 
-:::note
-The `ttk.oauth` configuration explicitly requests the `User.ReadBasic.All` permission. It is possible to request other permissions by modifying the App Registration for the bot on Azure.
-:::
+> [!NOTE]
+> The `ttk.oauth` configuration explicitly requests the `User.ReadBasic.All` permission. It is possible to request other permissions by modifying the App Registration for the bot on Azure.
 
 ![Entra ID signin](~assets/screenshots/auth-entra-id-signin.png)
 

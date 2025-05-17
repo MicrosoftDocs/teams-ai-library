@@ -28,9 +28,8 @@ This does involve thinking through a pipeline for gathering feedback and then au
 
 AI generated messages can hallucinate even if messages are grounded in real data. To help with this, Teams recommends including citations in the AI Generated messages. This is easy to do by simply using the `addCitations` method on the message. This will add a citation to the message, and the LLM will be able to use it to generate a citation for the user.
 
-:::warning
-Citations are added with a `position` property. This property value needs to also be included in the message text as `[<position>]`. If there is a citation that's added without the associated value in the message text, Teams will not render the citation
-:::
+> [!WARNING]
+> Citations are added with a `position` property. This property value needs to also be included in the message text as `[<position>]`. If there is a citation that's added without the associated value in the message text, Teams will not render the citation
 
 ```ts
 const messageActivity = new MessageActivity(result.content).addAiGenerated();
