@@ -89,4 +89,4 @@ app.on("message", async ({ stream, send, activity, next }) => {
 
 ```
 
-:::image type="content" source="~assets/screenshots/streaming-chat.gif" alt-text="Streaming the response":::
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Streaming the response":::

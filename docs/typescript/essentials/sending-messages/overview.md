@@ -45,7 +45,7 @@ app.on('message', async ({ activity, stream }) => {
 > [!NOTE]
 > Streaming is currently only supported in 1:1 conversations, not group chats or channels
 
-:::image type="content" source="~assets/screenshots/streaming-chat.gif" alt-text="Streaming Example":::
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Streaming Example":::
 
 ## @Mention
 

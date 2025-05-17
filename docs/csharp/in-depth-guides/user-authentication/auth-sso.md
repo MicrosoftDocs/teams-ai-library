@@ -42,7 +42,7 @@ See the [SSO in Teams at runtime](/microsoftteams/platform/bots/how-to/authentic
 
 This is what the SSO consent form looks like in Teams:
 
-:::image type="content" source="~assets/screenshots/auth-consent-popup.png" alt-text="SSO Consent Form":::
+:::image type="content" source="~/assets/screenshots/auth-consent-popup.png" alt-text="SSO Consent Form":::
 
 ## OAuth 
 
@@ -65,7 +65,7 @@ When an access token expires, the user will need to go through the sign-in proce
 
 This is what the OAuth card looks like in Teams:
 
-:::image type="content" source="~assets/screenshots/auth-explicit-signin.png" alt-text="OAuthCard":::
+:::image type="content" source="~/assets/screenshots/auth-explicit-signin.png" alt-text="OAuthCard":::
 
 ## OAuth vs SSO - Head-to-Head Comparison
 

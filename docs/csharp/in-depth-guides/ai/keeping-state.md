@@ -83,4 +83,4 @@ export const handleStatefulConversation = async (
 
 ```
 
-:::image type="content" source="~assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example":::
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example":::
