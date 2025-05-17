@@ -309,3 +309,9 @@
               href: csharp/in-depth-guides/user-authentication/signin.mdx
             - name: Signout
               href: csharp/in-depth-guides/user-authentication/signout.mdx
+- name: Reference
+  items:
+    - name: TypeScript SDK
+      href: /javascript/api/teams-sdk-typescript
+    - name: .NET SDK
+      href: /dotnet/api/?view=msteams-sdk-donet-latest
