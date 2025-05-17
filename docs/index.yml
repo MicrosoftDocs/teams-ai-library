@@ -8,7 +8,7 @@ metadata:
   description: Developer documentation for the Teams AI Library v2 SDK, which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
-  ms.date: 05/02/2025
+  ms.date: 05/17/2025
   ms.author: mosdevdocs
   author: surbhigupta12
 
@@ -18,74 +18,94 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Listening to Activities
-            url: ./essentials/on-activity.md
-          - text: Listening to Events
-            url: ./essentials/on-event.md
-          - text: Sending Messages
-            url: ./essentials/sending-messages.md
-          - text: Using The API Client
-            url: ./essentials/api.md
-          - text: Authentication
-            url: ./in-depth-guides/auth/overview.md
+          - text: Teams Integration Overview
+            url: ./teams/overview.md
+          - text: Teams Core Concepts
+            url: ./teams/core-concepts.md
 
-  # Overview
-  - title: Get started with Teams AI Library v2 SDK
+  # TypeScript Essentials
+  - title: TypeScript Essentials
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Overview
+            url: ./typescript/essentials/overview.md
+          - text: API
+            url: ./typescript/essentials/api.md
+          - text: Sending Messages
+            url: ./typescript/essentials/sending-messages/overview.md
+
+  # C# Essentials
+  - title: C# Essentials
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Overview
+            url: ./csharp/essentials/overview.md
+          - text: API
+            url: ./csharp/essentials/api.md
+          - text: Sending Messages
+            url: ./csharp/essentials/sending-messages/overview.md
+
+  # TypeScript Getting Started
+  - title: TypeScript Getting Started
     linkLists:
       - linkListType: overview
         links:
           - text: Overview
-            url: ./getting-started/overview.md
+            url: ./typescript/getting-started/overview.md
           - text: Quickstart
-            url: ./getting-started/quickstart.md
-          - text: Anatomy of an App
-            url: ./getting-started/code-basics.md
-          - text: Running in Teams
-            url: ./getting-started/running-in-teams.md
+            url: ./typescript/getting-started/quickstart.md
 
-  # Activity
-  - title: Handle activities in Teams
+  # C# Getting Started
+  - title: C# Getting Started
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: overview
         links:
-          - text: Listening to Activities
-            url: ./essentials/on-activity.md
-          - text: Activity Reference
-            url: ./essentials/activity-ref.md
-          - text: Sending Messages
-            url: ./essentials/sending-messages.md
-          - text: Proactive Messages
-            url: ./essentials/proactive-messaging.md
+          - text: Overview
+            url: ./csharp/getting-started/overview.md
+          - text: Quickstart
+            url: ./csharp/getting-started/quickstart.md
 
-  # DevTools
-  - title: Use developer tools
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Chat
-            url: ./developer-tools/devtools/chat.md
-          - text: Inspect
-            url: ./developer-tools/devtools/inspect.md
-          - text: Cards
-            url: ./developer-tools/devtools/cards.md
-          - text: CLI
-            url: ./developer-tools/cli/overview.md
-
-  # AI
-  - title: Integrate AI capabilities
+  # TypeScript In-Depth Guides
+  - title: TypeScript In-Depth Guides
     linkLists:
       - linkListType: concept
         links:
-          - text: Chat Generation
-            url: ./in-depth-guides/ai/chat.md
-          - text: Functions
-            url: ./in-depth-guides/ai/function-calling.md
-          - text: Keeping State
-            url: ./in-depth-guides/ai/keeping-state.md
-          - text: Best Practices
-            url: ./in-depth-guides/ai/best-practices.md
-          - text: MCP Overview
-            url: ./in-depth-guides/ai/mcp/overview.md
+          - text: Adaptive Cards
+            url: ./typescript/in-depth-guides/adaptive-cards/overview.md
+          - text: AI Overview
+            url: ./typescript/in-depth-guides/ai/overview.md
+          - text: Dialogs
+            url: ./typescript/in-depth-guides/dialogs/overview.md
+          - text: User Authentication
+            url: ./typescript/in-depth-guides/user-authentication/overview.md
+
+  # C# In-Depth Guides
+  - title: C# In-Depth Guides
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Adaptive Cards
+            url: ./csharp/in-depth-guides/adaptive-cards/overview.md
+          - text: AI Overview
+            url: ./csharp/in-depth-guides/ai/overview.md
+          - text: Dialogs
+            url: ./csharp/in-depth-guides/dialogs/overview.md
+          - text: User Authentication
+            url: ./csharp/in-depth-guides/user-authentication/overview.md
+
+  # Developer Tools
+  - title: Developer Tools
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Overview
+            url: ./developer-tools/overview.md
+          - text: Teams CLI
+            url: ./developer-tools/cli.md
+          - text: DevTools Chat
+            url: ./developer-tools/devtools/chat.md
 
   # Reference
   - title: Find reference
@@ -94,3 +114,5 @@ landingContent:
         links:
           - text: TypeScript SDK (preview)
             url: /javascript/api/teams-sdk-typescript
+          - text: .NET SDK (preview)
+            url: /dotnet/api/?view=msteams-sdk-donet-latest
