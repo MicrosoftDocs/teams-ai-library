@@ -117,7 +117,7 @@ While Teams AI v2 SDK heavily endorses Teams Tookit (TTK), you can run your agen
 
 ## Next steps
 
-Now that your agent is running in Teams, you can learn more [essential concepts](../essentials.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides.md) for advanced topics like authentication, message extensions, and more.
+Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/overview.md.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides/overview.md.md) for advanced topics like authentication, message extensions, and more.
 
 ## Resources
 
