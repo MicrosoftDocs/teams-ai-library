@@ -59,9 +59,8 @@ DevTools is a plugin that should only be used in development mode. It should not
 Teams applications respond to various types of activities. The most basic is handling messages:
 
 
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp title="MainController.cs" 
+# [Controller](#tab/controller)
+```csharp title="MainController.cs" 
     [TeamsController("main")]
     public class MainController
     {
@@ -72,18 +71,17 @@ Teams applications respond to various types of activities. The most basic is han
             await client.Send($"you said \"{activity.Text}\"");
         }
     }
-    ```
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp title="Program.cs" 
+```
+  
+# [Minimal](#tab/minimal)
+```csharp title="Program.cs" 
     app.OnMessage(async context =>
     {
         await context.Typing();
         await context.Send($"you said \"{context.activity.Text}\"");
     });
-    ```
-  </TabItem>
-</Tabs>
+```
+---
 
 
 This code:

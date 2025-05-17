@@ -10,9 +10,8 @@ this snippet shows how to use the `BotBuilderPlugin` to send/receive activities 
 botbuilder instead of the default Teams AI http plugin.
 :::
 
-<Tabs>
-  <TabItem value="index.ts" default>
-    ```typescript
+<TabItem value="index.ts" default>
+```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
 
@@ -31,10 +30,10 @@ botbuilder instead of the default Teams AI http plugin.
     (async () => {
       await app.start();
     })();
-    ```
-  </TabItem>
+```
+  
   <TabItem value="adapter.ts">
-    ```typescript
+```typescript
     import { CloudAdapter } from 'botbuilder';
 
     // replace with your BotAdapter
@@ -53,10 +52,10 @@ botbuilder instead of the default Teams AI http plugin.
     // highlight-end
 
     export default adapter;
-    ```
-  </TabItem>
+```
+  
   <TabItem value="activity-handler.ts">
-    ```typescript
+```typescript
     import { TeamsActivityHandler } from 'botbuilder';
 
     // replace with your TeamsActivityHandler
@@ -74,9 +73,8 @@ botbuilder instead of the default Teams AI http plugin.
 
     const handler = new ActivityHandler();
     export default handler;
-    ```
-  </TabItem>
-</Tabs>
+```
+  
 
 ```
 hi from botbuilder...

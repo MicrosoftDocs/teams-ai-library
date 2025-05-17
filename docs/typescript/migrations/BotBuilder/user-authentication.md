@@ -6,7 +6,7 @@ equivalent feature to dialogs, but we do support auth flows in our own way via o
 
 <Tabs groupId="sending-activities">
   <TabItem value="Diff" default>
-    ```typescript
+```typescript
     // highlight-error-start
 -    import restify from 'restify';
 -    import {
@@ -181,10 +181,10 @@ equivalent feature to dialogs, but we do support auth flows in our own way via o
 +      await app.start();
 +    })();
     // highlight-success-end
-    ```
-  </TabItem>
+```
+  
   <TabItem value="BotBuilder">
-    ```typescript showLineNumbers
+```typescript showLineNumbers
     import restify from 'restify';
     import {
       TeamsActivityHandler,
@@ -316,10 +316,10 @@ equivalent feature to dialogs, but we do support auth flows in our own way via o
     server.post('/api/messages', async (req, res) => {
         await adapter.process(req, res, (context) => bot.run(context));
     });
-    ```
-  </TabItem>
+```
+  
   <TabItem value="Teams AI">
-    ```typescript showLineNumbers
+```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
     import { ConsoleLogger } from '@microsoft/teams.common/logging';
 
@@ -348,8 +348,7 @@ equivalent feature to dialogs, but we do support auth flows in our own way via o
     (async () => {
       await app.start();
     })();
-    ```
-  </TabItem>
-</Tabs>
+```
+  
 
 ## Teams AI

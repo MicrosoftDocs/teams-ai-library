@@ -7,7 +7,7 @@ so all you need to store is that!
 
 <Tabs groupId="sending-activities">
   <TabItem value="Diff" default>
-    ```typescript
+```typescript
     // highlight-error-start
 -    import {
 -      CloudAdapter,
@@ -44,10 +44,10 @@ so all you need to store is that!
 +      await app.send('your-conversation-id', 'proactive hello');
       // highlight-success-end
     }());
-    ```
-  </TabItem>
+```
+  
   <TabItem value="BotBuilder">
-    ```typescript showLineNumbers
+```typescript showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -72,10 +72,10 @@ so all you need to store is that!
       });
     }());
     // highlight-end
-    ```
-  </TabItem>
+```
+  
   <TabItem value="Teams AI">
-    ```typescript showLineNumbers
+```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();
@@ -86,6 +86,5 @@ so all you need to store is that!
       await app.send('your-conversation-id', 'proactive hello');
     }());
     // highlight-end
-    ```
-  </TabItem>
-</Tabs>
+```
+  

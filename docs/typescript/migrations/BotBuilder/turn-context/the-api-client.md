@@ -6,7 +6,7 @@ we pass an instance of our `ApiClient` into all our activity handlers.
 
 <Tabs groupId="sending-activities">
   <TabItem value="Diff" default>
-  ```typescript
+```typescript
   // highlight-error-start
 -  import {
 -    CloudAdapter,
@@ -39,10 +39,10 @@ we pass an instance of our `ApiClient` into all our activity handlers.
 +    const members = await api.conversations.members(activity.conversation.id).get();
 +  });
   // highlight-success-end
-  ```
-  </TabItem>
+```
+  
   <TabItem value="BotBuilder">
-    ```typescript showLineNumbers
+```typescript showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -61,10 +61,10 @@ we pass an instance of our `ApiClient` into all our activity handlers.
         });
       }
     }
-    ```
-  </TabItem>
+```
+  
   <TabItem value="Teams AI">
-    ```typescript showLineNumbers
+```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();
@@ -73,6 +73,5 @@ we pass an instance of our `ApiClient` into all our activity handlers.
       // highlight-next-line
       const members = await api.conversations.members(activity.conversation.id).get();
     });
-    ```
-  </TabItem>
-</Tabs>
+```
+  
