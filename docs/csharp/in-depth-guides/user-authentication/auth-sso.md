@@ -37,7 +37,7 @@ The SSO signin flow involves several components working together. Here's how it 
    - If token is valid, app uses it directly
    - If token expires, app silently signs the user in using the token exchange flow
 
-See the [SSO in Teams at runtime](https:///microsoftteams/platform/bots/how-to/authentication/bot-sso-overview#sso-in-teams-at-runtime) guide to learn more about the SSO signin flow
+See the [SSO in Teams at runtime](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview#sso-in-teams-at-runtime) guide to learn more about the SSO signin flow
 
 ### The SSO consent form
 
@@ -82,7 +82,7 @@ This is what the OAuth card looks like in Teams:
 
 ## Resources
 
-- [User Authentication Basics](https:///azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
-- [User Authentication in Teams](https:///microsoftteams/platform/concepts/authentication/authentication)
-- [Enable SSO for bot and message extension app using Entra ID](https:///microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
-- [Add authentication to your Teams bot](https:///microsoftteams/platform/bots/how-to/authentication/add-authentication)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)
+- [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
+- [Add authentication to your Teams bot](/microsoftteams/platform/bots/how-to/authentication/add-authentication)

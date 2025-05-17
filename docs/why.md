@@ -34,7 +34,7 @@ Now, it's possible for your own application to handle all the nuances with these
 
 Next, if you wanted to send messages to the user, you would need to make sure each call to the Teams backend is authenticated approriately for your application.
 
-If your application wanted additional data from [Microsoft Graph](https:///graph/overview), you would need to authenticate to that as well. Additionally, if you wanted the _user_ to authenticate and query Graph on their behalf, you would have to set up a solution to do the OAuth flow as well. For these complex flows, Teams offers a solution, but you must adhere to specific protocols and patterns to facilitate them.
+If your application wanted additional data from [Microsoft Graph](/graph/overview), you would need to authenticate to that as well. Additionally, if you wanted the _user_ to authenticate and query Graph on their behalf, you would have to set up a solution to do the OAuth flow as well. For these complex flows, Teams offers a solution, but you must adhere to specific protocols and patterns to facilitate them.
 
 ![alt-text for why-4.png](~/assets/diagrams/why-4.png)
 

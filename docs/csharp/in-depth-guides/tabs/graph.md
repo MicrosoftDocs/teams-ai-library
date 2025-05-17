@@ -92,5 +92,5 @@ if (canReadChat) {
 
 
 ## References
- - [Graph API overview](https:///graph/api/overview)
- - [Graph API permissions overview](https:///graph/permissions-reference)
+ - [Graph API overview](/graph/api/overview)
+ - [Graph API permissions overview](/graph/permissions-reference)

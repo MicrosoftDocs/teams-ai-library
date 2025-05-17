@@ -30,5 +30,5 @@ If you're already using a current version of TeamsJS, that's fine. This package 
 If you're already using Microsoft Authentication Library (MSAL) in an NAA enabled app, that's great! The [App options](./app-options.md) page shows how you can use a single common MSAL instance.
 
 ## Resources
- - [Running and debugging local apps in Teams Toolkit](https:///microsoftteams/platform/toolkit/debug-local?tabs=Windows)
- - [Configuring an app for Nested App Authentication](https:///microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)
+ - [Running and debugging local apps in Teams Toolkit](/microsoftteams/platform/toolkit/debug-local?tabs=Windows)
+ - [Configuring an app for Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)

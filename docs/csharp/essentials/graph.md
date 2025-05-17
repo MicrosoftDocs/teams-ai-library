@@ -15,7 +15,7 @@ Microsoft Graph can be accessed by your application using its own application to
 To access the graph using the Graph using the app, you may use the `app.Graph` object. 
 
 ```csharp
-// Equivalent of https:///graph/api/user-get
+// Equivalent of /graph/api/user-get
 // Gets the details of the bot-user
 var user = app.Graph.Me.GetAsync().GetAwaiter().GetResult();
 Console.WriteLine($"User ID: {user.id}");
