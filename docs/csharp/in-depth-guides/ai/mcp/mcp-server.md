@@ -1,10 +1,10 @@
 ---
-title: MCP Server
-description: Learn about MCP Server
+title: MCP Server (C#)
+description: Learn about MCP Server (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# MCP Server
+# MCP Server (C#)
 
 You are able to convert any `App` into an MCP server by using the `McpPlugin` from the `@microsoft/teams.mcp` package. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications. 
 

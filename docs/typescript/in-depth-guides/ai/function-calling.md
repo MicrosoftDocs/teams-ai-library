@@ -1,10 +1,10 @@
 ---
-title: Functions
-description: Learn about Functions
+title: Functions (TypeScript)
+description: Learn about Functions (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Functions
+# Functions (TypeScript)
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 

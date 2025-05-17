@@ -1,4 +1,11 @@
-# Tabs
+---
+title: Tabs (C#)
+description: Learn about Tabs (C#)
+ms.topic: overview
+ms.date: 05/17/2025
+---
+
+# Tabs (C#)
 
 Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
 

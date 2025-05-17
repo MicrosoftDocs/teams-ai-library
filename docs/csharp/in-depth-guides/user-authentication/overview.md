@@ -1,4 +1,11 @@
-# User Authentication
+---
+title: User Authentication (C#)
+description: Learn about User Authentication (C#)
+ms.topic: overview
+ms.date: 05/17/2025
+---
+
+# User Authentication (C#)
 
 <!-- 
 Things to potentially add to this section:

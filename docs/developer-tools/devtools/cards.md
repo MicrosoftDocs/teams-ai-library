@@ -1,3 +1,10 @@
+---
+title: Cards
+description: Learn about Cards
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 # Cards
 
 ![Card Designer Typescript](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/card_designer_typescript_editor.png?raw=true)

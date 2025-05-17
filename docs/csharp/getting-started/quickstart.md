@@ -1,4 +1,11 @@
-# Quickstart
+---
+title: Quickstart (C#)
+description: Learn about Quickstart (C#)
+ms.topic: get-started
+ms.date: 05/17/2025
+---
+
+# Quickstart (C#)
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.
 

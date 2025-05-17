@@ -1,4 +1,11 @@
-# Middleware
+---
+title: Middleware (TypeScript)
+description: Learn about Middleware (TypeScript)
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
+# Middleware (TypeScript)
 
 Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.

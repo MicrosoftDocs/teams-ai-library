@@ -1,10 +1,10 @@
 ---
-title: Best Practices
-description: Learn about Best Practices
+title: Best Practices (TypeScript)
+description: Learn about Best Practices (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Best Practices
+# Best Practices (TypeScript)
 
 When sending messages using AI, Teams recommends a number of best practices to help with both user and developer experience.
 

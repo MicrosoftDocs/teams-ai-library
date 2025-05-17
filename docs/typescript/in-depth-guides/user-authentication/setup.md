@@ -1,10 +1,10 @@
 ---
-title: App Setup
-description: Learn about App Setup
+title: App Setup (TypeScript)
+description: Learn about App Setup (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# App Setup
+# App Setup (TypeScript)
 
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 

@@ -1,4 +1,11 @@
-# Custom Logger
+---
+title: Custom Logger (C#)
+description: Learn about Custom Logger (C#)
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
+# Custom Logger (C#)
 
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the

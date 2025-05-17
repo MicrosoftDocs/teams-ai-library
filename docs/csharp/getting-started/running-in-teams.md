@@ -1,4 +1,11 @@
-# Running In Teams
+---
+title: Running In Teams (C#)
+description: Learn about Running In Teams (C#)
+ms.topic: get-started
+ms.date: 05/17/2025
+---
+
+# Running In Teams (C#)
 
 Now that your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.
 

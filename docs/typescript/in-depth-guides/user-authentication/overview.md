@@ -1,4 +1,11 @@
-# User Authentication
+---
+title: User Authentication (TypeScript)
+description: Learn about User Authentication (TypeScript)
+ms.topic: overview
+ms.date: 05/17/2025
+---
+
+# User Authentication (TypeScript)
 
 <!-- 
 Things to potentially add to this section:

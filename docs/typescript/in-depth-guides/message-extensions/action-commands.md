@@ -1,10 +1,10 @@
 ---
-title: Action commands
-description: Learn about Action commands
+title: Action commands (TypeScript)
+description: Learn about Action commands (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Action commands
+# Action commands (TypeScript)
 
 Action commands allow you to present your users with a modal pop-up called a dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.
 

@@ -1,4 +1,11 @@
-# Custom Logger
+---
+title: Custom Logger (TypeScript)
+description: Learn about Custom Logger (TypeScript)
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
+# Custom Logger (TypeScript)
 
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the

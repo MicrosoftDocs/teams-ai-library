@@ -1,10 +1,10 @@
 ---
-title: A2A Server
-description: Learn about A2A Server
+title: A2A Server (TypeScript)
+description: Learn about A2A Server (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# A2A Server
+# A2A Server (TypeScript)
 
 ## What is an A2A Server?
 An A2A server is an agent that exposes its capabilities to other agents using the A2A protocol. With this package, you can make your Teams app accessible to A2A clients.

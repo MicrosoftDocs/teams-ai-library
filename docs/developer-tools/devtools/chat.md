@@ -1,3 +1,10 @@
+---
+title: Devtools Chat
+description: Learn about Devtools Chat
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 # Devtools Chat
 
 ![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true)

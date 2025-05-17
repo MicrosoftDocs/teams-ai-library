@@ -1,4 +1,11 @@
-# AI
+---
+title: AI (C#)
+description: Learn about AI (C#)
+ms.topic: overview
+ms.date: 05/17/2025
+---
+
+# AI (C#)
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.
 The `@microsoft/teams.ai` package has two main components:

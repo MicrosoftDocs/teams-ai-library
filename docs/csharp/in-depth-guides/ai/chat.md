@@ -1,10 +1,10 @@
 ---
-title: Chat Generation
-description: Learn about Chat Generation
+title: Chat Generation (C#)
+description: Learn about Chat Generation (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Chat Generation
+# Chat Generation (C#)
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 # Setup

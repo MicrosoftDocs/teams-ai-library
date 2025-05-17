@@ -1,10 +1,10 @@
 ---
-title: MCP Client
-description: Learn about MCP Client
+title: MCP Client (C#)
+description: Learn about MCP Client (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# MCP Client
+# MCP Client (C#)
 
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 

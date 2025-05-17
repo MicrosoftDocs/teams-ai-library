@@ -1,10 +1,10 @@
 ---
-title: Creating Dialogs
-description: Learn about Creating Dialogs
+title: Creating Dialogs (C#)
+description: Learn about Creating Dialogs (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Creating Dialogs
+# Creating Dialogs (C#)
 
 :::tip
 If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards). Understanding their basics is a prerequisite for this guide.

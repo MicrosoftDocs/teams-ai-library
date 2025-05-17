@@ -1,4 +1,11 @@
-# App Basics
+---
+title: App Basics (C#)
+description: Learn about App Basics (C#)
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
+# App Basics (C#)
 
 The `App` class is the main entry point for your agent.
 

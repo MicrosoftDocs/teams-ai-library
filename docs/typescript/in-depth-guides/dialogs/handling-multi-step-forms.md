@@ -1,10 +1,10 @@
 ---
-title: Handling Multi-Step Forms
-description: Learn about Handling Multi-Step Forms
+title: Handling Multi-Step Forms (TypeScript)
+description: Learn about Handling Multi-Step Forms (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Handling Multi-Step Forms
+# Handling Multi-Step Forms (TypeScript)
 
 Dialogs can become complex yet powerful with multi-step forms. These forms can alter the flow of the survey depending on the user's input or customize subsequent steps based on previous answers.
 

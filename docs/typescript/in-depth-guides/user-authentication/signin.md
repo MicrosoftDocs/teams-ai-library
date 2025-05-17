@@ -1,10 +1,10 @@
 ---
-title: Signing In
-description: Learn about Signing In
+title: Signing In (TypeScript)
+description: Learn about Signing In (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Signing In
+# Signing In (TypeScript)
 
 Prompting the user to sign in using an `OAuth` connection has
 never been easier! Just use the `signin` method to send the request

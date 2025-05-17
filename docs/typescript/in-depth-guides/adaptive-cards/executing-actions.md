@@ -1,10 +1,10 @@
 ---
-title: Executing Actions
-description: Learn about Executing Actions
+title: Executing Actions (TypeScript)
+description: Learn about Executing Actions (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Executing Actions
+# Executing Actions (TypeScript)
 
 Adaptive Cards support interactive elements through **actions**—buttons, links, and input submission triggers that respond to user interaction.  
 You can use these to collect form input, trigger workflows, show task modules, open URLs, and more.
