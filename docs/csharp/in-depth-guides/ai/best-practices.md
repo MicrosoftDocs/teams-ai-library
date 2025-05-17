@@ -18,8 +18,6 @@ const messageToBeSent = new Message().addAiGenerated().text('Hello!');
 
 :::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="AI Generated Indicator":::
 
-:::image type="content" source="../../../im" alt-text="{alt-text}":::
-
 ## Gather feedback to improve prompts
 
 AI Generated messages are not always perfect. Prompts can have gaps, and can sometimes lead to unexpected results. To help improve the prompts, Teams recommends gathering feedback from users on the AI-generated messages. See [Feedback](../feedback.md) for more information on how to gather feedback.
