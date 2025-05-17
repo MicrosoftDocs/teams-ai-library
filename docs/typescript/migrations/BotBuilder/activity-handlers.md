@@ -17,7 +17,8 @@ this snippet shows how to use the `BotBuilderPlugin` to route activities using
 botbuilder alongside the default Teams AI activity routing.
 :::
 
-<TabItem value="index.ts" default>
+# [index.ts](#tab/index)
+
 ```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
@@ -38,8 +39,9 @@ botbuilder alongside the default Teams AI activity routing.
       await app.start();
     })();
 ```
-  
-  <TabItem value="adapter.ts">
+
+# [adapter.ts](#tab/adapter)
+
 ```typescript
     import { CloudAdapter } from 'botbuilder';
 
@@ -61,7 +63,7 @@ botbuilder alongside the default Teams AI activity routing.
     export default adapter;
 ```
   
-  <TabItem value="activity-handler.ts">
+# [activity-handler.ts](#tab/activity-handler)
 ```typescript
     import { TeamsActivityHandler } from 'botbuilder';
 
@@ -81,7 +83,7 @@ botbuilder alongside the default Teams AI activity routing.
     const handler = new ActivityHandler();
     export default handler;
 ```
-  
+---
 
 ```
 hi from botbuilder...
