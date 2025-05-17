@@ -4,8 +4,6 @@ description: Learn about Listening To Activities
 ms.topic: overview
 ms.date: 05/17/2025
 ---
-
-
 # Listening To Activities
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  
@@ -15,7 +13,6 @@ The Teams AI Library v2 exposes a fluent router so you can subscribe to these 
 ![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
 
 Here is an example of a basic message handler:
-
 # [Controller](#tab/controller)
 ```csharp 
     [TeamsController]
@@ -28,7 +25,6 @@ Here is an example of a basic message handler:
         }
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -43,7 +39,6 @@ In the above example, the `activity` parameter is of type `MessageActivity`, whi
 ## Middleware pattern
 
 The `OnActivity` activity handlers (and attributes) follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `dotnet` middlewares work. This means that for each activity handler, a `Next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
-
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -53,7 +48,6 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         next(); // pass control onward
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -64,7 +58,6 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
     });
 ```
 ---
-
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -79,7 +72,6 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         context.Next();
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -94,7 +86,6 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
     });
 ```
 ---
-
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -104,7 +95,6 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         await context.Send($"Hello! you said {context.Activity.Text}");
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>

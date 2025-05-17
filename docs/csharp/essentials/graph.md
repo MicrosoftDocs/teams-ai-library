@@ -4,8 +4,6 @@ description: Learn about Graph API Client
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # Graph API Client
 
 [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
@@ -27,7 +25,6 @@ Console.WriteLine($"User Job Title: {user.jobTitle}");
 ```
 
 To access the graph using the user's token, you need to do this as part of a message handler:
-
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -40,7 +37,6 @@ To access the graph using the user's token, you need to do this as part of a mes
         Console.WriteLine($"User Job Title: {user.jobTitle}");
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>

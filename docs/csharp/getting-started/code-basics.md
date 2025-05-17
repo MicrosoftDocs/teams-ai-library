@@ -4,8 +4,6 @@ description: Learn about Code Basics
 ms.topic: get-started
 ms.date: 05/17/2025
 ---
-
-
 # Code Basics
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.
@@ -64,8 +62,6 @@ DevTools is a plugin that should only be used in development mode. It should not
 ### Message Handling
 
 Teams applications respond to various types of activities. The most basic is handling messages:
-
-
 # [Controller](#tab/controller)
 ```csharp title="MainController.cs" 
     [TeamsController("main")]
@@ -79,7 +75,6 @@ Teams applications respond to various types of activities. The most basic is han
         }
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp title="Program.cs" 
     app.OnMessage(async context =>

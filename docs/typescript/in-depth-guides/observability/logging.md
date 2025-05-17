@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # 🗃️ Custom Logger
 
 The `App` will provide a default logger, but you can also provide your own.

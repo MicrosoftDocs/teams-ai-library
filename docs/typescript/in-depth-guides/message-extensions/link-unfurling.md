@@ -4,8 +4,6 @@ description: Learn about 🔗 Link unfurling
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # 🔗 Link unfurling
 
 Link unfurling lets your app respond when users paste URLs into Teams. When a URL from your registered domain is pasted, your app receives the URL and can return a card with additional information or actions. This works like a search command where the URL acts as the search term. Users can use link unfurling without installing your app.

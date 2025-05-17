@@ -4,8 +4,6 @@ description: Learn about The API Client
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # The API Client
 
 BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams AI

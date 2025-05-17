@@ -4,8 +4,6 @@ description: Learn about Teams API Client
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # Teams API Client
 
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.Api` object. Here is a short summary of the different areas:
@@ -22,7 +20,6 @@ An instance of the Api Client is passed to handlers that can be used to fetch de
 ## Example
 
 In this example, we use the api client to fetch the members in a conversation. The `Api` object is passed to the activity handler in this case.
-
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -31,7 +28,6 @@ In this example, we use the api client to fetch the members in a conversation. T
         var members = await api.Conversations.Members.Get(context.Conversation.Id);
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>

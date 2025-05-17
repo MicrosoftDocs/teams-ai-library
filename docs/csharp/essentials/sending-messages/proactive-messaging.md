@@ -4,14 +4,11 @@ description: Learn about Proactive Messaging
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # Proactive Messaging
 
 In [Sending Messages](./), we show how we can respond to an event when it happens. However, there are times when you want to send a message to the user without them sending a message first. This is called proactive messaging. You can do this by using the `send` method in the `app` instance. This is useful for sending notifications or reminders to the user.
 
 The main thing to note is that you need to have the `conversationId` of the chat or channel you want to send the message to. It's a good idea to store this value somewhere from an activity handler so you can use it for proactive messaging later.
-
 # [Controller](#tab/controller)
 ```csharp
     // Installation is just one place to get the conversation id. All activities
@@ -25,7 +22,6 @@ The main thing to note is that you need to have the `conversationId` of the chat
         notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnInstall(async context =>

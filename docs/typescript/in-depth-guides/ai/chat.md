@@ -4,11 +4,9 @@ description: Learn about 💬 Chat Generation
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
 # 💬 Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
-
 # Setup
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.

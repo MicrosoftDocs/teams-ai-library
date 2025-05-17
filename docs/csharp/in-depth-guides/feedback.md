@@ -4,8 +4,6 @@ description: Learn about Feedback
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # Feedback
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.

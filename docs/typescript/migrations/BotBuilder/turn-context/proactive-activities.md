@@ -4,8 +4,6 @@ description: Learn about Proactive Activities
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # Proactive Activities
 
 The BotBuilder proactive message flow requires you to have a conversation reference stored somewhere. In Teams AI

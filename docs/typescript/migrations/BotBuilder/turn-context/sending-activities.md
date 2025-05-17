@@ -4,8 +4,6 @@ description: Learn about Sending Activities
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # Sending Activities
 
 BotBuilders pattern for sending activities via its `TurnContext` is similar to that

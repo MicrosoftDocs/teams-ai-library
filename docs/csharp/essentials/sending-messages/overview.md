@@ -4,12 +4,9 @@ description: Learn about Sending Messages
 ms.topic: overview
 ms.date: 05/17/2025
 ---
-
-
 # Sending Messages
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `Send` method is provided which allows your handlers to send a message back to the user to the relevant conversation. 
-
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -18,7 +15,6 @@ Sending messages is a core part of an agent's functionality. With all activity h
         await client.Send($"you said: {activity.Text}");
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -29,7 +25,6 @@ Sending messages is a core part of an agent's functionality. With all activity h
 ---
 
 In the above example, the handler gets a `message` activity, and uses the `send` method to send a reply to the user.
-
 # [Controller](#tab/controller)
 ```csharp 
     [SignIn.VerifyState]
@@ -38,7 +33,6 @@ In the above example, the handler gets a `message` activity, and uses the `send`
         await client.Send("You have successfully signed in!");
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnVerifyState(async context =>
@@ -57,7 +51,6 @@ This shows an example of sending a text message. Additionally, you are able to s
 ## Streaming
 
 You may also stream messages to the user which can be useful for long messages, or AI generated messages. The library makes this simple for you by providing a `Stream` function which you can use to send messages in chunks. 
-
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -69,7 +62,6 @@ You may also stream messages to the user which can be useful for long messages, 
         // result message: "hello, world!"
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -92,7 +84,6 @@ Streaming is currently only supported in 1:1 conversations, not group chats or c
 ## @Mention
 
 Sending a message at `@mentions` a user is as simple including the details of the user using the `AddMention` method
-
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -101,7 +92,6 @@ Sending a message at `@mentions` a user is as simple including the details of th
         await client.Send(new MessageActivity("hi!").AddMention(activity.From));
     }
 ```
-  
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>

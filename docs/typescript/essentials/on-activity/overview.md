@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Listening To Activities
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  

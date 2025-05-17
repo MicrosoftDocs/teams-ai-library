@@ -4,7 +4,6 @@ description: Learn about Activity Handlers
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
 # Activity Handlers
 
 

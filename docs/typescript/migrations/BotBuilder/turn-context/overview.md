@@ -4,8 +4,6 @@ description: Learn about Turn Context
 ms.topic: overview
 ms.date: 05/17/2025
 ---
-
-
 # Turn Context
 
 While BotBuilder has a `TurnContext`, Teams AI has `IActivityContext` which serves the same purpose.

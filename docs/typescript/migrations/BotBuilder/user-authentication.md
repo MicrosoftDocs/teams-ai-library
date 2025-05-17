@@ -4,8 +4,6 @@ description: Learn about User Authentication
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-
-
 # User Authentication
 
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams AI doesn't have any

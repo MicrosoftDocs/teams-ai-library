@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Code Basics
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.

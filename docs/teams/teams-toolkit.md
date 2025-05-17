@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Teams Toolkit
 
 Teams Toolkit is a powerful extension and CLI app available for customers that helps automate important tasks like manifest management, sideloading, deployment, and provisioning.

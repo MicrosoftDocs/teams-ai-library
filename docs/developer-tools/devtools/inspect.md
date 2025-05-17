@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # 🔍 Inspect activities
 
 Inspect incoming and outgoing activities on DevTools' Activities page. All interactions with your agent are logged here, including messages, reactions, and more.

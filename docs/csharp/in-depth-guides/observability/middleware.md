@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Middleware
 
 Middleware is a useful tool for logging, validation, and more.

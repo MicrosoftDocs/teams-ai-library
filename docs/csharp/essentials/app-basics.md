@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # App Basics
 
 The `App` class is the main entry point for your agent.

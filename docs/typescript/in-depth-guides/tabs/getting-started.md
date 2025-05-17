@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Getting started
 
 To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
