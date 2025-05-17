@@ -10,7 +10,7 @@ ms.date: 05/17/2025
 In this section we will walk through creating an app that can access the [Microsoft Graph APIs](/graph/overview) on behalf of the user by authenticating them with the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) oauth provider. 
 
 :::info
-It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
+It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 :::
 
 :::info
