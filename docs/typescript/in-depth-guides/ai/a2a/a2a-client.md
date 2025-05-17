@@ -1,3 +1,10 @@
+---
+title: A2A Client
+description: Learn about A2A Client
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 # A2A Client
 
 ## What is an A2A Client?

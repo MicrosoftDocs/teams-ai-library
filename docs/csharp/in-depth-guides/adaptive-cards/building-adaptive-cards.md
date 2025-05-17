@@ -1,3 +1,10 @@
+---
+title: Building Adaptive Cards
+description: Learn about Building Adaptive Cards
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Building Adaptive Cards
 

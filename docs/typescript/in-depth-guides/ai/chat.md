@@ -1,3 +1,10 @@
+---
+title: 💬 Chat Generation
+description: Learn about 💬 Chat Generation
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 # 💬 Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.

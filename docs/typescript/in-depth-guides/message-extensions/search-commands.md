@@ -1,3 +1,10 @@
+---
+title: 🔍 Search commands
+description: Learn about 🔍 Search commands
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 # 🔍 Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.

@@ -1,3 +1,10 @@
+---
+title: Signing Out
+description: Learn about Signing Out
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Signing Out
 

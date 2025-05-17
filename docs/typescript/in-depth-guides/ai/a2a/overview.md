@@ -1,3 +1,10 @@
+---
+title: A2A (Agent-to-Agent) Protocol
+description: Learn about A2A (Agent-to-Agent) Protocol
+ms.topic: overview
+ms.date: 05/17/2025
+---
+
 # A2A (Agent-to-Agent) Protocol
 
 :::caution

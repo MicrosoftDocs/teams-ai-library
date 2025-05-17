@@ -1,3 +1,10 @@
+---
+title: Functions
+description: Learn about Functions
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Functions
 

@@ -1,3 +1,10 @@
+---
+title: Handling Dialog Submissions
+description: Learn about Handling Dialog Submissions
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Handling Dialog Submissions
 

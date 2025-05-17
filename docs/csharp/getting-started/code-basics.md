@@ -1,3 +1,10 @@
+---
+title: Code Basics
+description: Learn about Code Basics
+ms.topic: get-started
+ms.date: 05/17/2025
+---
+
 
 # Code Basics
 

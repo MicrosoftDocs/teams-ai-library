@@ -1,3 +1,10 @@
+---
+title: User Authentication
+description: Learn about User Authentication
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # User Authentication
 

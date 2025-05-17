@@ -1,3 +1,10 @@
+---
+title: Sending Messages
+description: Learn about Sending Messages
+ms.topic: overview
+ms.date: 05/17/2025
+---
+
 
 # Sending Messages
 

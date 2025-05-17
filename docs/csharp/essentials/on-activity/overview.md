@@ -1,3 +1,10 @@
+---
+title: Listening To Activities
+description: Learn about Listening To Activities
+ms.topic: overview
+ms.date: 05/17/2025
+---
+
 
 # Listening To Activities
 

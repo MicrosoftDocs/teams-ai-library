@@ -1,3 +1,10 @@
+---
+title: A2A Server
+description: Learn about A2A Server
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 # A2A Server
 
 ## What is an A2A Server?

@@ -1,3 +1,10 @@
+---
+title: MCP Client
+description: Learn about MCP Client
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # MCP Client
 

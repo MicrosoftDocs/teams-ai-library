@@ -1,3 +1,10 @@
+---
+title: Sending Activities
+description: Learn about Sending Activities
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Sending Activities
 

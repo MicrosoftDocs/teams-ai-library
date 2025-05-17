@@ -1,3 +1,10 @@
+---
+title: Teams API Client
+description: Learn about Teams API Client
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Teams API Client
 

@@ -1,3 +1,10 @@
+---
+title: Proactive Messaging
+description: Learn about Proactive Messaging
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Proactive Messaging
 

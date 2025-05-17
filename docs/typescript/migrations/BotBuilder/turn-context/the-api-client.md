@@ -1,3 +1,10 @@
+---
+title: The API Client
+description: Learn about The API Client
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # The API Client
 

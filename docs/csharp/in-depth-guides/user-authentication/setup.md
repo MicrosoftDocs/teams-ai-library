@@ -1,3 +1,10 @@
+---
+title: App Setup
+description: Learn about App Setup
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # App Setup
 

@@ -1,3 +1,10 @@
+---
+title: 🔗 Link unfurling
+description: Learn about 🔗 Link unfurling
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # 🔗 Link unfurling
 

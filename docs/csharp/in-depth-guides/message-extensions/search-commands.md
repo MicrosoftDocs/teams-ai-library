@@ -1,3 +1,10 @@
+---
+title: 🔍 Search commands
+description: Learn about 🔍 Search commands
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # 🔍 Search commands
 

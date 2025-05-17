@@ -1,3 +1,10 @@
+---
+title: Adapters
+description: Learn about Adapters
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Adapters
 

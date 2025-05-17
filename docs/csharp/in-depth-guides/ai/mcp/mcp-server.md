@@ -1,3 +1,10 @@
+---
+title: MCP Server
+description: Learn about MCP Server
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # MCP Server
 

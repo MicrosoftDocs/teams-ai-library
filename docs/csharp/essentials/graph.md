@@ -1,3 +1,10 @@
+---
+title: Graph API Client
+description: Learn about Graph API Client
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Graph API Client
 

@@ -1,3 +1,10 @@
+---
+title: Handling Multi-Step Forms
+description: Learn about Handling Multi-Step Forms
+ms.topic: how-to
+ms.date: 05/17/2025
+---
+
 
 # Handling Multi-Step Forms
 
