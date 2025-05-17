@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# App Basics (TypeScript)
+# App Basics (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The `App` class is the main entry point for your agent.
 

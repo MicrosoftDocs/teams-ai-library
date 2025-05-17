@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# Teams CLI
+# Teams CLI (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:
 

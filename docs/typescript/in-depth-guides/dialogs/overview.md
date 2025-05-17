@@ -5,7 +5,9 @@ ms.topic: overview
 ms.date: 05/17/2025
 ---
 
-# Dialogs (Task Modules) (TypeScript)
+# Dialogs (Task Modules) (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Dialogs are a helpful paradigm in Teams which improve interactions between your agent and users. When dialogs are **invoked**, they pop open a window for a user in the Teams client. The content of the dialog can be supplied by the agent application.
 

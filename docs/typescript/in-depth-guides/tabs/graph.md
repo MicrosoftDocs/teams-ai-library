@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# Microsoft Graph Client (TypeScript)
+# Microsoft Graph Client (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The client App exposes a `graph` property that gives type-safe access to  Microsoft Graph functions. When graph functions are invoked, the app attaches an MSAL bearer token to the request so that the call can be authenticated and authorized. 
 

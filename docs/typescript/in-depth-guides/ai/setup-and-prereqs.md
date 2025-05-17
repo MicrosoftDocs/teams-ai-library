@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# Setup & Prerequisites (TypeScript)
+# Setup & Prerequisites (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 There are a few prerequisites to getting started with integrating LLMs into your application:
 

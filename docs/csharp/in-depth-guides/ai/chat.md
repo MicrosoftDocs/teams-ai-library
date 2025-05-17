@@ -4,7 +4,9 @@ description: Learn about Chat Generation (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Chat Generation (C#)
+# Chat Generation (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 ## Setup

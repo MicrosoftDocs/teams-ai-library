@@ -4,7 +4,9 @@ description: Learn about Activity Handlers (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Activity Handlers (TypeScript)
+# Activity Handlers (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 
 A BotBuilder `ActivityHandler` is similar to the activity routing of the Teams AI `App`.

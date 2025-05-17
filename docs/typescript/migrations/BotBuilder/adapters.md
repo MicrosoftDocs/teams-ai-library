@@ -4,7 +4,9 @@ description: Learn about Adapters (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Adapters (TypeScript)
+# Adapters (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 A BotBuilder `Adapter` is similar to a Teams AI `Plugin` in the sense that they are both
 an abstraction that is meant to send/receive activities. To make migrating stress free we have

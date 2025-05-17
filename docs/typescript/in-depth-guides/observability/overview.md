@@ -5,4 +5,6 @@ ms.topic: overview
 ms.date: 05/17/2025
 ---
 
-# Observability (TypeScript)
+# Observability (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]

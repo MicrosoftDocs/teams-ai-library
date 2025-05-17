@@ -5,7 +5,9 @@ ms.topic: get-started
 ms.date: 05/17/2025
 ---
 
-# Running In Teams (TypeScript)
+# Running In Teams (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Now that your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.
 

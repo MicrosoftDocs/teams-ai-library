@@ -4,7 +4,9 @@ description: Learn about Search commands (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Search commands (TypeScript)
+# Search commands (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 

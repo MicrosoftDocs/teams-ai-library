@@ -4,7 +4,9 @@ description: Learn about Functions (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Functions (C#)
+# Functions (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 

@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# Getting started (C#)
+# Getting started (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
 

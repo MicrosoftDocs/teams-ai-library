@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# Activity Type Reference (TypeScript)
+# Activity Type Reference (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The application supports a number of activity types, 
 

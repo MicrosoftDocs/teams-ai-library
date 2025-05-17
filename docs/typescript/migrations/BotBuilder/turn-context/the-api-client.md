@@ -4,7 +4,9 @@ description: Learn about The API Client (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# The API Client (TypeScript)
+# The API Client (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams AI
 we pass an instance of our `ApiClient` into all our activity handlers.

@@ -4,7 +4,9 @@ description: Learn about Graph API Client (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Graph API Client (C#)
+# Graph API Client (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 [Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
 

@@ -5,7 +5,9 @@ ms.topic: overview
 ms.date: 05/17/2025
 ---
 
-# DevTools
+# DevTools (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The developer tools can be used to locally interact with an app to streamline the testing/development process,
 preventing you from needing to deploy/register the app or expose a public endpoint.

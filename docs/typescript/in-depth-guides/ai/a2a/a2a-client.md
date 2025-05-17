@@ -4,7 +4,9 @@ description: Learn about A2A Client (TypeScript)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# A2A Client (TypeScript)
+# A2A Client (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ## What is an A2A Client?
 

@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# Teams Toolkit
+# Teams Toolkit (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Teams Toolkit is a powerful extension and CLI app available for customers that helps automate important tasks like manifest management, sideloading, deployment, and provisioning.
 

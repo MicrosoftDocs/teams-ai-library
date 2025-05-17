@@ -4,7 +4,9 @@ description: Learn about Building Adaptive Cards (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Building Adaptive Cards (C#)
+# Building Adaptive Cards (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
 With `@microsoft/teams.cards` you can build these cards entirely in TypeScript / JavaScript while enjoying full IntelliSense and compiler safety.

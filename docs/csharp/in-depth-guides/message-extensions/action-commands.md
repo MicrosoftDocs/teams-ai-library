@@ -4,7 +4,9 @@ description: Learn about Action commands (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
-# Action commands (C#)
+# Action commands (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Action commands allow you to present your users with a modal pop-up called a dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.
 
