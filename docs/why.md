@@ -16,7 +16,7 @@ An agent application is mainly able to do two things:
 1. Listen to events and respond to them
 2. Proactively send messages to the user
 
-![alt-text for why-1.png](~/assets/diagrams/why-1.png)
+:::image type="content" source="~/assets/diagrams/why-1.png" alt-text="Alt text for why-1.png":::
 
 To do this, we already need a few components:
 
