@@ -134,4 +134,4 @@ When a user clicks on a list item the dummy adaptive card is added to the compos
 
 ## Resources
 
-- [Search command](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?tabs=Teams-toolkit%2Cdotnet)
+- [Search command](https:///microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?tabs=Teams-toolkit%2Cdotnet)

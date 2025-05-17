@@ -7,10 +7,10 @@ ms.date: 05/17/2025
 
 # Quickstart (TypeScript)
 
-In this section we will walk through creating an app that can access the [Microsoft Graph APIs](https://learn.microsoft.com/en-us/graph/overview) on behalf of the user by authenticating them with the [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) oauth provider. 
+In this section we will walk through creating an app that can access the [Microsoft Graph APIs](https:///graph/overview) on behalf of the user by authenticating them with the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) oauth provider. 
 
 :::info
-It is possible to authenticate the user into [other auth providers](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
+It is possible to authenticate the user into [other auth providers](https:///azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 :::
 
 :::info
@@ -44,7 +44,7 @@ teams new oauth-app --template graph
 This command:
 1. Creates a new directory called `oauth-app`.
 2. Bootstraps the graph agent template files into it under `oauth-app/src`.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `oauth-app/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `oauth-app/appPackage` directory. The Teams [app manifest](https:///microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https:///microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 
 ### Add Teams toolkit auth configuration
 

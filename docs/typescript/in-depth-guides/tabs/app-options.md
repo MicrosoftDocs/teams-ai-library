@@ -230,4 +230,4 @@ Even if pre-warming is disabled and the user is not prompted to consent, a promp
 :::
 
 ## References
-[MSAL Configuration](https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-application-configuration)
+[MSAL Configuration](https:///entra/identity-platform/msal-client-application-configuration)

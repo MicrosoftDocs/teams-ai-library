@@ -62,4 +62,4 @@ The user can then choose to send entire the preview or the full adaptive card as
 
 ## Resources
 
-- [Link unfurling](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/link-unfurling?tabs=desktop%2Cjson%2Cadvantages)
+- [Link unfurling](https:///microsoftteams/platform/messaging-extensions/how-to/link-unfurling?tabs=desktop%2Cjson%2Cadvantages)
