@@ -61,7 +61,7 @@ After installing Teams Toolkit and adding the configuration:
 4. **Select "Local"** under Environment Settings of the TTK extension.
 5. **Click on Debug (Chrome) or Debug (Edge)** to start debugging via the 'play' button.
 
-![Teams Toolkit local environment UI](~assets/screenshots/teams-toolkit.png)
+:::image type="content" source="~assets/screenshots/teams-toolkit.png" alt-text="Teams Toolkit local environment UI":::
 
 When debugging starts, the Teams Toolkit will:
 
@@ -98,7 +98,7 @@ After the debugging session starts:
 3. Teams will ask permission to install the app
 4. Once installed, you can start chatting with your agent!
 
-![Agent running on Teams](~assets/screenshots/example-on-teams.png)
+:::image type="content" source="~assets/screenshots/example-on-teams.png" alt-text="Agent running on Teams":::
 
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 

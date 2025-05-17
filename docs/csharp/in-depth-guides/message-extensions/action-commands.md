@@ -18,11 +18,11 @@ There are three different areas action commands can be invoked from:
 
 ### Compose Area and Box
 
-![compose area and box](~assets/screenshots/compose-area.png)
+:::image type="content" source="~assets/screenshots/compose-area.png" alt-text="compose area and box":::
 
 ### Message action command
 
-![message action command](~assets/screenshots/message.png)
+:::image type="content" source="~assets/screenshots/message.png" alt-text="message action command":::
 
 > [!TIP]
 > See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
@@ -96,15 +96,15 @@ Here we are defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-![Parameters](~assets/screenshots/parameters.png)
+:::image type="content" source="~assets/screenshots/parameters.png" alt-text="Parameters":::
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`...etc.
 
-![Get Message Details Command](~assets/screenshots/message-command.png)
+:::image type="content" source="~assets/screenshots/message-command.png" alt-text="Get Message Details Command":::
 
 3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
-![Fetch conversation members](~assets/screenshots/fetch-conversation-members.png)
+:::image type="content" source="~assets/screenshots/fetch-conversation-members.png" alt-text="Fetch conversation members":::
 
 ## Handle submission
 

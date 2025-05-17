@@ -11,7 +11,7 @@ Before going through this guide, please make sure you have completed the [setup 
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
-![alt-text for chat-1.png](~/assets/diagrams/chat-1.png)
+:::image type="content" source="~/assets/diagrams/chat-1.png" alt-text="alt-text for chat-1.png":::
 
 ## Simple chat generation
 
@@ -84,4 +84,4 @@ app.on("message", async ({ stream, send, activity, next }) => {
 });
 ```
 
-![Streaming the response](~assets/screenshots/streaming-chat.gif)
+:::image type="content" source="~assets/screenshots/streaming-chat.gif" alt-text="Streaming the response":::

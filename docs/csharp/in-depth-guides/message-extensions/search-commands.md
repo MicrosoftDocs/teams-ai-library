@@ -17,7 +17,7 @@ There are three different areas search commands can be invoked from:
 
 ### Compose Area and Box
 
-![compose area and box](~assets/screenshots/compose-area.png)
+:::image type="content" source="~assets/screenshots/compose-area.png" alt-text="compose area and box":::
 
 ## Setting up your Teams app manifest
 
@@ -130,11 +130,11 @@ export async function createDummyCards(searchQuery: string) {
 
 The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
 
-![Search command preview card](~assets/screenshots/preview-card.png)
+:::image type="content" source="~assets/screenshots/preview-card.png" alt-text="Search command preview card":::
 
 When a user clicks on a list item the dummy adaptive card is added to the compose box:
 
-![Card in compose box](~assets/screenshots/card-in-compose.png)
+:::image type="content" source="~assets/screenshots/card-in-compose.png" alt-text="Card in compose box":::
 
 ## Resources
 

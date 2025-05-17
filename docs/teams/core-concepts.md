@@ -11,7 +11,7 @@ When you run your agent on Teams using Teams Toolkit, several Teams-specific pro
 
 ## Basic Flow
 
-![alt-text for core-concepts-1.png](~/assets/diagrams/core-concepts-1.png)
+:::image type="content" source="~/assets/diagrams/core-concepts-1.png" alt-text="alt-text for core-concepts-1.png":::
 
 **Teams**
 
