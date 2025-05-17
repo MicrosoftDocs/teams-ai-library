@@ -35,4 +35,3 @@ It's also possible to access the api client from outside a handler via the app i
 ```typescript
 const res = await app.api.graph.chats.getAllMessages.get();
 ```
-
