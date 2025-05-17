@@ -8,7 +8,7 @@ ms.date: 05/17/2025
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-![Feedback Message](/screenshots/feedback.gif)
+![Feedback Message](~assets/screenshots/feedback.gif)
 
 ## Storage
 

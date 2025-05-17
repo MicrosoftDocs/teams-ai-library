@@ -85,4 +85,4 @@ export const handleStatefulConversation = async (
 
 ```
 
-![Stateful Chat Example](/screenshots/stateful-chat-example.png)
+![Stateful Chat Example](~assets/screenshots/stateful-chat-example.png)
