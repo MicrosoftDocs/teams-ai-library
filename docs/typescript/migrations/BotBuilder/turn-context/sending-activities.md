@@ -10,28 +10,8 @@ BotBuilders pattern for sending activities via its `TurnContext` is similar to t
 in Teams AI, but one key difference is that when sending adaptive cards you don't need
 to construct the entire activity yourself.
 
-<Tabs groupId="sending-activities">
-  <TabItem value="Diff" default>
-```typescript
-    // highlight-error-start
--    import { TeamsActivityHandler } from 'botbuilder';
 
--    export class ActivityHandler extends TeamsActivityHandler {
--      constructor() {
--        super();
--        this.onMessage(async (context) => {
--          await context.sendActivity({ type: 'typing' });
--        });
--      }
--    }
-    // highlight-error-end
-    // highlight-success-start
-+    app.on('message', async ({ send }) => {
-+      await send({ type: 'typing' });
-+    });
-    // highlight-success-end
-```
-  
+ 
   <TabItem value="BotBuilder">
 ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
@@ -58,7 +38,7 @@ to construct the entire activity yourself.
 
 ## Strings
 
-<Tabs groupId="sending-activities">
+
   <TabItem value="Diff" default>
 ```typescript
     // highlight-error-start
@@ -106,7 +86,7 @@ to construct the entire activity yourself.
 
 ## Adaptive Cards
 
-<Tabs groupId="sending-activities">
+
   <TabItem value="Diff" default>
 ```typescript
     // highlight-error-line
@@ -186,7 +166,7 @@ to construct the entire activity yourself.
 
 ## Attachments
 
-<Tabs groupId="sending-activities">
+
   <TabItem value="Diff" default>
 ```typescript
     // highlight-error-line
