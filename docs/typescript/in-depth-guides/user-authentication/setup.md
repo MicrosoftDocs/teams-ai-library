@@ -15,14 +15,14 @@ There are a few ways you can enable your application to access secured external 
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
 
 > [!NOTE]
-> See [How Auth Works](auth-sso) to learn more about how authentication works. 
+> See [How Auth Works](auth-sso.md) to learn more about how authentication works. 
 
 ### Manual Setup
 
 In this step you will have to tweak your Azure Bot service and App registration to add authentication configurations and enable Single Sign-On (SSO).
 
 > [!NOTE]
-> [Single Sign-On (SSO)](./auth-sso#single-sign-on-sso) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
+> [Single Sign-On (SSO)](./auth-sso#single-sign-on-sso.md) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
 
 You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad?tabs=botid) guide in the Microsoft Learn docs.
 

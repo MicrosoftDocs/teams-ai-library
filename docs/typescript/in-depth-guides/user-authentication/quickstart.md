@@ -16,7 +16,7 @@ In this section we will walk through creating an app that can access the [Micros
 > This is an advanced guide. It is highly recommended that you are familiar with [creating an app](https://microsoft.github.io/teams-ai/2.getting-started/1.quickstart.html) and [running it in Teams](https://microsoft.github.io/teams-ai/2.getting-started/3.running-in-teams.html) before attempting to follow this guide.
 
 > [!WARNING]
-> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams#debugging-in-teams.md) to run your app in Teams.
 
 ## Setup Instructions
 
@@ -54,7 +54,7 @@ teams config add ttk.oauth
 This will add relevant Teams Toolkit files to your project.
 
 > [!TIP]
-> See [App Setup](./setup#using-teams-toolkit-with-the-teams-cli) to learn more about what this command does.
+> See [App Setup](./setup#using-teams-toolkit-with-the-teams-cli.md) to learn more about what this command does.
 
 ## Interacting with the app in Teams
 
@@ -63,7 +63,7 @@ Once you have successfully sideloaded the app into Teams you can now interact wi
 ### Signing the user in
 
 > [!NOTE]
-> This is the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [How Auth Works](auth-sso) guide.
+> This is the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [How Auth Works](auth-sso.md) guide.
 
 When the user sends a message to the user a consent form will popup:
 

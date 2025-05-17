@@ -20,7 +20,7 @@ Teams toolkit can be installed as an extension and CLI. Please see the documenta
 - [Installing Teams Toolkit CLI](/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three)
 
 > [!WARNING]
-> Teams Toolkit CLI is not to be confused with the [Teams AI v2 library CLI](../developer-tools/cli), which is managed by our team.
+> Teams Toolkit CLI is not to be confused with the [Teams AI v2 library CLI](../developer-tools/cli.md), which is managed by our team.
 
 ## Official documentation
 
@@ -35,4 +35,4 @@ Generally, you can use the toolkit to add required resources to Azure based on y
 ## Resources
 
 - [Teams Toolkit Overview](/microsoftteams/platform/toolkit/teams-toolkit-fundamentals) - these extensive docs cover many topics related to Teams Toolkit, so please explore their documentation at your convenience.
-- [Teams AI v2 CLI documentation](../developer-tools/cli) - includes instructions on adding toolkit configurations to your Teams AI v2 agent.
+- [Teams AI v2 CLI documentation](../developer-tools/cli.md) - includes instructions on adding toolkit configurations to your Teams AI v2 agent.
