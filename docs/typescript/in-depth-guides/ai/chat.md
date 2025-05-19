@@ -22,6 +22,8 @@ Chat generation is the the most basic way of interacting with an LLM model. It i
 Import the relevant objects:
 
 ```ts
+import { ChatPrompt } from "@microsoft/teams.ai";
+import { OpenAIChatModel } from "@microsoft/teams.openai";
 ```
 
 ```ts
