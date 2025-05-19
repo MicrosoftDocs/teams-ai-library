@@ -12,11 +12,11 @@ ms.date: 05/17/2025
 Teams Toolkit is a powerful extension and CLI app available for customers that helps automate important tasks like manifest management, sideloading, deployment, and provisioning.
 
 > [!NOTE]
-> Please note that the Teams AI v2 library team does **NOT** manage Teams Toolkit, it is managed by the toolkit team. If you run into issues using [Teams Toolkit](https://github.com/OfficeDev/Teams-Toolkit), please contact their team team for support. Topics that fall under Teams Toolkit include using the extension, running apps chosen from Teams Toolkit, deployment and provisioning, and running the debugger via F5.
+> Please note that the Teams AI v2 library team does **NOT** manage Teams Toolkit, it is managed by the toolkit team. If you run into issues using [Teams Toolkit](https://github.com/OfficeDev/Teams-Toolkit), please contact their team for support. Topics that fall under Teams Toolkit include using the extension, running apps chosen from Teams Toolkit, deployment and provisioning, and running the debugger via F5.
 
 ## Installing Teams Toolkit
 
-Teams toolkit can be installed as an extension and CLI. Please see the documentation linked below.
+Teams Toolkit can be installed as an extension and CLI. Please see the documentation linked below.
 
 - [Installing Teams Toolkit extension](/microsoftteams/platform/toolkit/install-teams-toolkit)
 - [Installing Teams Toolkit CLI](/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three)
@@ -26,7 +26,7 @@ Teams toolkit can be installed as an extension and CLI. Please see the documenta
 
 ## Official documentation
 
-- Official [Teams Toolkit documentation](https://aka.ms/M365AgentsToolkit)
+- Official [Teams Toolkit documentation](/microsoftteams/platform/toolkit/teams-toolkit-fundamentals)
 
 ## Deployment and provisioning
 

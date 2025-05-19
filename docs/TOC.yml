@@ -19,7 +19,6 @@
     - name: Teams CLI
       href: developer-tools/cli.md
     - name: DevTools
-      href: developer-tools/devtools/overview.md
       items:
         - name: Overview
           href: developer-tools/devtools/overview.md
@@ -316,4 +315,4 @@
     - name: TypeScript SDK
       href: /javascript/api/teams-sdk-typescript
     - name: .NET SDK
-      href: /dotnet/api/?view=msteams-sdk-donet-latest
+      href: /dotnet/api/?view=msteams-sdk-donet-latest&preserve-view=true

@@ -9,7 +9,7 @@ ms.date: 05/17/2025
 
 [This article is prerelease documentation and is subject to change.]
 
-The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:
+The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI's overarching features are:
 
 | Feature | Description |
 |---------|-------------|
@@ -41,7 +41,7 @@ teams new <app-name> <optional>
 The `new` token will create a brand new agent with `app-name` applied as the directory name and project name.
 
 > [!NOTE]
-> The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
+> The name you choose may have case changes when applied; for example, "My App" would become "my-app" due to the requirements for `package.json` files.
 
 ### Optional parameters
 
@@ -70,10 +70,11 @@ teams config add <config-name>
 | `ttk.embed` | Configuration for embedded Teams applications |
 | `ttk.oauth` | Configuration for OAuth-enabled applications |
 
-Using this command will include
+Using this command will include:
+
 - `env`: folders for managing multiple environments
 - `infra`: files for deployment and provisioning
-- `.yml` files for tasks, launch, deployment, etc.
+- `.yml`: files for tasks, launch, deployment, etc.
 
 ## Remove Teams Toolkit configuration files
 

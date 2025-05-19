@@ -48,14 +48,16 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
+[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams.
 
 > [!NOTE]
-> DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
+> DevTunnel is only one way of exposing your local running service to the internet. Other tools like ngrok can also accomplish the same thing.
 
-- Creates a secure public HTTPS endpoint that forwards to your local server
-- Manages SSL certificates automatically
-- Routes Teams messages and events to your local agent
+When you:
+
+- Create a secure public HTTPS endpoint that forwards to your local server
+- Manage SSL certificates automatically
+- Route Teams messages and events to your local agent
 
 ## Teams App Provisioning
 

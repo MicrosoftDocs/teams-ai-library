@@ -15,7 +15,7 @@ With Teams AI Library v2, we’ve made it easier than ever to build this kind of
 
 Before diving in, let’s define a few key terms:
 • Event: Anything interesting that happens on Teams — or within your application as a result of handling an earlier event.
-• Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and adaptive card actions.
+• Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and Adaptive Card actions.
 • InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
 • Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
 

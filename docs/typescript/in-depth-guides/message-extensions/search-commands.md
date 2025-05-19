@@ -57,7 +57,7 @@ Here we are defining the `searchQuery` search (or query) command.
 
 ## Handle submission
 
-Handle opening adaptive card dialog when the `searchQuery` query is submitted.
+Handle opening Adaptive Card dialog when the `searchQuery` query is submitted.
 
 ```ts
 app.on("message.ext.query", async ({ activity }) => {
@@ -126,11 +126,11 @@ export async function createDummyCards(searchQuery: string) {
 }
 ```
 
-The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
+The search results include both a full Adaptive Card and a preview card. The preview card appears as a list item in the search command area:
 
 :::image type="content" source="~/assets/screenshots/preview-card.png" alt-text="Search command preview card":::
 
-When a user clicks on a list item the dummy adaptive card is added to the compose box:
+When a user clicks on a list item the dummy Adaptive Card is added to the compose box:
 
 :::image type="content" source="~/assets/screenshots/card-in-compose.png" alt-text="Card in compose box":::
 

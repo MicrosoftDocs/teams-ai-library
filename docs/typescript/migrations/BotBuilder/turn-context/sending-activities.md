@@ -9,7 +9,7 @@ ms.date: 05/17/2025
 [This article is prerelease documentation and is subject to change.]
 
 BotBuilders pattern for sending activities via its `TurnContext` is similar to that
-in Teams AI, but one key difference is that when sending adaptive cards you don't need
+in Teams AI, but one key difference is that when sending Adaptive Cards you don't need
 to construct the entire activity yourself.
 
 # [BotBuilder](#tab/botbuilder)

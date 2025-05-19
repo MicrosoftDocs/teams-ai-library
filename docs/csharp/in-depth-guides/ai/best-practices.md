@@ -47,4 +47,4 @@ for (let i = 0; i < citedDocs.length; i++) {
 
 ```
 
-:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="AI Generated Indicator":::
+:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="Indicator for AI Generated message":::

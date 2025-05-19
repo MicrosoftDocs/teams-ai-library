@@ -1,6 +1,6 @@
 ---
 title: Quickstart (C#)
-description: Learn about Quickstart (C#)
+description: Learn how to get started with authentication (C#)
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
