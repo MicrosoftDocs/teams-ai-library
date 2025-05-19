@@ -15,7 +15,8 @@ In this section we will walk through creating an app that can access the [Micros
 > It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 
 > [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [creating an app](https://microsoft.github.io/teams-ai/2.getting-started/1.quickstart.html) and [running it in Teams](https://microsoft.github.io/teams-ai/2.getting-started/3.running-in-teams.html) before attempting to follow this guide.
+> This is an advanced guide. It is highly recommended that you are familiar with [creating an app](../../getting-started/quickstart.md) and [running it in Teams](../../getting-started/running-in-teams.md) before attempting to follow this guide.
+
 
 > [!WARNING]
 > User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams.md) to run your app in Teams.

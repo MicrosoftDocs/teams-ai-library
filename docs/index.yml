@@ -16,60 +16,52 @@ landingContent:
   # Basics
   - title: Learn the basics of Teams AI Library
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
+          - text: Why an SDK?
+            url: why.md
           - text: Teams Integration Overview
             url: ./teams/overview.md
           - text: Teams Core Concepts
             url: ./teams/core-concepts.md
-
-  # TypeScript Essentials
-  - title: TypeScript Essentials
-    linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Overview
+          - text: Developer Tools Overview
+            url: ./developer-tools/overview.md
+          - text: Teams CLI
+            url: ./developer-tools/cli.md
+          - text: DevTools Chat
+            url: ./developer-tools/devtools/chat.md
+      - linkListType: reference
+        links:
+          - text: TypeScript SDK (preview)
+            url: /javascript/api/teams-sdk-typescript
+          - text: .NET SDK (preview)
+            url: /dotnet/api/?view=msteams-sdk-donet-latest
+      - linkListType: overview
+        links:
+          - text: Teams Developer Documentation
+            url: /microsoftteams/platform/
+          - text: Microsoft 365 Copilot
+            url: /microsoft-365-copilot/extensibility/
+
+  # TypeScript
+  - title: Get started with TypeScript
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Developer Tools Overview
             url: ./typescript/essentials/overview.md
           - text: API
             url: ./typescript/essentials/api.md
           - text: Sending Messages
             url: ./typescript/essentials/sending-messages/overview.md
-
-  # C# Essentials
-  - title: C# Essentials
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Overview
-            url: ./csharp/essentials/overview.md
-          - text: API
-            url: ./csharp/essentials/api.md
-          - text: Sending Messages
-            url: ./csharp/essentials/sending-messages/overview.md
-
-  # TypeScript Getting Started
-  - title: TypeScript Getting Started
-    linkLists:
-      - linkListType: overview
+      - linkListType: get-started
         links:
           - text: Overview
             url: ./typescript/getting-started/overview.md
           - text: Quickstart
             url: ./typescript/getting-started/quickstart.md
-
-  # C# Getting Started
-  - title: C# Getting Started
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Overview
-            url: ./csharp/getting-started/overview.md
-          - text: Quickstart
-            url: ./csharp/getting-started/quickstart.md
-
-  # TypeScript In-Depth Guides
-  - title: TypeScript In-Depth Guides
-    linkLists:
       - linkListType: concept
         links:
           - text: Adaptive Cards
@@ -81,9 +73,23 @@ landingContent:
           - text: User Authentication
             url: ./typescript/in-depth-guides/user-authentication/overview.md
 
-  # C# In-Depth Guides
-  - title: C# In-Depth Guides
+  # C#
+  - title: Get started with C#
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: ./csharp/essentials/overview.md
+          - text: API
+            url: ./csharp/essentials/api.md
+          - text: Sending Messages
+            url: ./csharp/essentials/sending-messages/overview.md
+      - linkListType: get-started
+        links:
+          - text: Overview
+            url: ./csharp/getting-started/overview.md
+          - text: Quickstart
+            url: ./csharp/getting-started/quickstart.md
       - linkListType: concept
         links:
           - text: Adaptive Cards
@@ -94,31 +100,3 @@ landingContent:
             url: ./csharp/in-depth-guides/dialogs/overview.md
           - text: User Authentication
             url: ./csharp/in-depth-guides/user-authentication/overview.md
-
-  # Developer Tools
-  - title: Developer Tools
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Overview
-            url: ./developer-tools/overview.md
-          - text: Teams CLI
-            url: ./developer-tools/cli.md
-          - text: DevTools Chat
-            url: ./developer-tools/devtools/chat.md
-
-  # Reference
-  - title: Find resources
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: TypeScript SDK (preview)
-            url: /javascript/api/teams-sdk-typescript
-          - text: .NET SDK (preview)
-            url: /dotnet/api/?view=msteams-sdk-donet-latest
-      - linkListType: reference
-        links:
-          - text: Teams Developer Documentation
-            url: /microsoftteams/platform/
-          - text: Microsoft 365 Copilot
-            url: /microsoft-365-copilot/extensibility/

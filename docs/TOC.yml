@@ -1,3 +1,5 @@
+- name: Teams AI Library v2 SDK (Preview)
+  href: index.yml
 - name: Welcome
   href: welcome.md
 - name: Why An SDK?
@@ -204,10 +206,10 @@
           href: csharp/essentials/on-event.md
         - name: Sending Messages
           items:
-            - name: Proactive Messaging
-              href: csharp/essentials/sending-messages/proactive-messaging.md
             - name: Overview
               href: csharp/essentials/sending-messages/overview.md
+            - name: Proactive Messaging
+              href: csharp/essentials/sending-messages/proactive-messaging.md
     - name: Getting Started
       items:
         - name: Overview

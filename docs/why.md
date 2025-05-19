@@ -1,11 +1,11 @@
 ---
-title: Why An SDK?
-description: Learn about Why An SDK?
+title: Why an SDK?
+description: Learn about the goals behind the second version of Teams AI Library and everything that's changed since the first version.
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# Why An SDK? (preview)
+# Why an SDK? (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -44,7 +44,8 @@ This [CLI](../../developer-tools/cli.md) command adds configuration files requir
 - TTK automation files to your project (e.g. `teamsapp.local.yml`)
 
 > [!NOTE]
-> Note that running `teams config add` command line via the Teams CLI is equivalent **but not equal** to initializing a Teams project using the Teams Toolkit extension or the [Teams Toolkit CLI](/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three). **Depending on the sample you choose via Teams Toolkit, that project may or may not be using Teams AI v2 library.**
+> Note that running `teams config add` command line via the Teams CLI is equivalent **but not equal** to initializing a Teams project using the Teams Toolkit extension or the [Teams Toolkit CLI](/microsoftteams/platform/toolkit/Agents-Toolkit-CLI). **Depending on the sample you choose via Teams Toolkit, that project may or may not be using Teams AI v2 library.**
+
 
 The Teams CLI (Teams AI v2 CLI) helps with TTK configuration, but it is not a replacement for the Teams Toolkit extension or the Teams Toolkit CLI itself. Both CLI tools will support development in different ways.
 
@@ -109,7 +110,9 @@ Congratulations! Now you have a fully functional agent running in Microsoft Team
 While Teams AI v2 SDK heavily endorses Teams Tookit (TTK), you can run your agent in Teams without it. However, using TTK saves time and effort.
 
 > [!WARNING]
-> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/microsoftteams/platform/toolkit/teams-toolkit-fundamentals) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
+
+> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/microsoftteams/platform/toolkit/agents-toolkit-fundamentals) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
+
 
 > [!WARNING]
 > Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview).
@@ -122,6 +125,6 @@ Now that your agent is running in Teams, you can learn more [essential concepts]
 
 - [Teams CLI documentation](../../developer-tools/cli.md)
 - [Teams Toolkit documentation](https://aka.ms/M365AgentsToolkit)
-- [Teams Toolkit CLI documentation](/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three)
+- [Teams Toolkit CLI documentation](/microsoftteams/platform/toolkit/Agents-Toolkit-CLI)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
 - [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview)
