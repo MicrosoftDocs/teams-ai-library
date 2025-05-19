@@ -1,15 +1,15 @@
 ---
-title: Cards (preview)
-description: Learn about Cards (preview)
+title: Cards
+description: Learn about Cards
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/17/2025
 ---
 
 # Cards (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-![Card Designer Typescript](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/card_designer_typescript_editor.png?raw=true)
+:::image type="content" source="~/assets/screenshots/card_designer_typescript_editor.png" alt-text="Card Designer Typescript":::
 
 Use the Cards page to design and test your cards. Then, use the "Attach card" button to add that card as an attachment to your message. By default, the card will be attached in the new message compose box, but you can also attach a card when editing an existing message.
 

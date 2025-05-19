@@ -1,11 +1,11 @@
 ---
-title: Core Teams Concepts (preview)
-description: Learn about Core Teams Concepts (preview)
+title: Teams Core Concepts
+description: Learn about Teams Core Concepts
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/17/2025
 ---
 
-# Core Teams Concepts (preview)
+# Teams Core Concepts (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -13,7 +13,7 @@ When you run your agent on Teams using Teams Toolkit, several Teams-specific pro
 
 ## Basic Flow
 
-![alt-text for core-concepts-1.png](~/assets/diagrams/core-concepts-1.png)
+:::image type="content" source="~/assets/diagrams/core-concepts-1.png" alt-text="alt-text for core-concepts-1.png":::
 
 **Teams**
 
@@ -48,14 +48,16 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
+[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams.
 
 > [!NOTE]
-> DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
+> DevTunnel is only one way of exposing your local running service to the internet. Other tools like ngrok can also accomplish the same thing.
 
-- Creates a secure public HTTPS endpoint that forwards to your local server
-- Manages SSL certificates automatically
-- Routes Teams messages and events to your local agent
+When you:
+
+- Create a secure public HTTPS endpoint that forwards to your local server
+- Manage SSL certificates automatically
+- Route Teams messages and events to your local agent
 
 ## Teams App Provisioning
 
@@ -77,7 +79,7 @@ Before your agent can interact with Teams, it needs to be properly registered an
 
 Sideloading is the process of installing your agent in Teams. You are able to pass in the manifest and icons (zipped up) to the Teams client. Sideloading an application automatically makes that application available to you. You are also able to sideload the application in a Team or a Group chat. In this case, the application will be available to all members of that Team or Group chat.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Sideloading needs to be enabled in your tenant. If this is not the case, then you will need to contact your Teams administrator to enable it.
 
 ## Provisioning and Deployment
