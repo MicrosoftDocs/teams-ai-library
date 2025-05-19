@@ -108,7 +108,7 @@ landingContent:
             url: ./developer-tools/devtools/chat.md
 
   # Reference
-  - title: Find reference
+  - title: Find resources
     linkLists:
       - linkListType: reference
         links:
@@ -116,3 +116,9 @@ landingContent:
             url: /javascript/api/teams-sdk-typescript
           - text: .NET SDK (preview)
             url: /dotnet/api/?view=msteams-sdk-donet-latest
+      - linkListType: reference
+        links:
+          - text: Teams Developer Documentation
+            url: /microsoftteams/platform/
+          - text: Microsoft 365 Copilot
+            url: /microsoft-365-copilot/extensibility/

@@ -316,3 +316,9 @@
       href: /javascript/api/teams-sdk-typescript
     - name: .NET SDK
       href: /dotnet/api/?view=msteams-sdk-donet-latest&preserve-view=true
+- name: Resources
+  items:
+    - name: Teams Developer Documentation
+      href: /microsoftteams/platform/
+    - name: Microsoft 365 Copilot
+      href: /microsoft-365-copilot/extensibility/
