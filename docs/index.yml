@@ -73,7 +73,6 @@ landingContent:
           - text: User Authentication
             url: ./typescript/in-depth-guides/user-authentication/overview.md
 
-
   # C#
   - title: Get started with C#
     linkLists:
@@ -101,5 +100,3 @@ landingContent:
             url: ./csharp/in-depth-guides/dialogs/overview.md
           - text: User Authentication
             url: ./csharp/in-depth-guides/user-authentication/overview.md
-
-
