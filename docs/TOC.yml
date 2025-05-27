@@ -98,6 +98,10 @@
               items:
                 - name: Overview
                   href: typescript/in-depth-guides/ai/mcp/overview.md
+                - name: MCP Client
+                  href: typescript/in-depth-guides/ai/mcp/mcp-client.md
+                - name: MCP Server
+                  href: typescript/in-depth-guides/ai/mcp/mcp-server.md                  
             - name: Setup and Prereqs
               href: typescript/in-depth-guides/ai/setup-and-prereqs.md
         - name: Dialogs
