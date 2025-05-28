@@ -112,9 +112,6 @@ Congratulations! Now you have a fully functional agent running in Microsoft Team
 While Teams AI v2 SDK heavily endorses Teams Tookit (TTK), you can run your agent in Teams without it. However, using TTK saves time and effort.
 
 > [!WARNING]
-> Please note that TTK is not managed by the Teams AI team. For problems running TTK, please refer to the [Teams Toolkit documentation](/microsoftteams/platform/toolkit/agents-toolkit-fundamentals) or contact the [Teams Toolkit team](https://github.com/OfficeDev/Teams-Toolkit).
-
-> [!WARNING]
 > Teams AI v2 library focuses on building agents and does not support manual resource management. If you are having trouble with provisioning or deployment, please refer to the Teams Toolkit documentation or the [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview).
 
 ## Next steps
