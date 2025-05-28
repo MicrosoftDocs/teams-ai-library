@@ -1,11 +1,11 @@
 ---
-title: Welcome
-description: Learn about Welcome
+title: Welcome to Teams AI Library v2
+description: Learn what's new in Teams AI Library v2 and how to get started
 ms.topic: how-to
 ms.date: 05/17/2025
 ---
 
-# Welcome (preview)
+# Welcome to Teams AI Library v2 (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
