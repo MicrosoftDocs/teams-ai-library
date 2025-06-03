@@ -30,12 +30,12 @@
   items:
     - name: Essentials
       items:
-        - name: App Basics
-          href: typescript/essentials/app-basics.md
         - name: Overview
           href: typescript/essentials/overview.md
+        - name: App Basics
+          href: typescript/essentials/app-basics.md
         - name: On Activity
-          href: typescript/essentials/on-activity.md
+          href: typescript/essentials/on-activity/overview.md
         - name: On Event
           href: typescript/essentials/on-event.md
         - name: API
@@ -199,9 +199,7 @@
         - name: On Event
           href: csharp/essentials/on-event.md
         - name: On Activity
-          items:
-            - name: Overview
-              href: csharp/essentials/on-activity/overview.md
+          href: csharp/essentials/on-activity.md
         - name: API
           href: csharp/essentials/api.md
         - name: Graph

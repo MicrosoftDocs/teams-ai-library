@@ -26,12 +26,10 @@ landingContent:
             url: ./teams/core-concepts.md
       - linkListType: how-to-guide
         links:
-          - text: Developer Tools Overview
-            url: ./developer-tools/overview.md
           - text: Teams CLI
             url: ./developer-tools/cli.md
-          - text: DevTools Chat
-            url: ./developer-tools/devtools/chat.md
+          - text: DevTools Overview
+            url: ./developer-tools/devtools/overview.md
       - linkListType: reference
         links:
           - text: TypeScript SDK (preview)

@@ -54,7 +54,7 @@ In the above example, the handler gets a `message` activity, and uses the `send`
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `SignIn.VerifyState` events, which are sent when a user successfully signs in. 
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md.md) by using the same `Send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md.md) section for more details.
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `Send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
 
 ## Streaming
 
