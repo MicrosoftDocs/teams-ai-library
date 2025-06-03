@@ -83,7 +83,7 @@ This is what the OAuth card looks like in Teams:
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0&preserve-view=true)
 - [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)
 - [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
 - [Add authentication to your Teams bot](/microsoftteams/platform/bots/how-to/authentication/add-authentication)

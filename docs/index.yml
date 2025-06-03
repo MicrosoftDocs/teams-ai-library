@@ -37,7 +37,7 @@ landingContent:
           - text: TypeScript SDK (preview)
             url: /javascript/api/teams-sdk-typescript
           - text: .NET SDK (preview)
-            url: /dotnet/api/?view=msteams-sdk-donet-latest
+            url: /dotnet/api/?view=msteams-sdk-dotnet-latest
       - linkListType: overview
         links:
           - text: Teams Developer Documentation

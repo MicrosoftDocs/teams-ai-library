@@ -325,7 +325,7 @@
     - name: TypeScript SDK
       href: /javascript/api/teams-sdk-typescript
     - name: .NET SDK
-      href: /dotnet/api/?view=msteams-sdk-donet-latest&preserve-view=true
+      href: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
 - name: Resources
   items:
     - name: Teams Developer Documentation
