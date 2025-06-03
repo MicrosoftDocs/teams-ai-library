@@ -1,6 +1,6 @@
 ---
-title: Quickstart (TypeScript)
-description: Learn about Quickstart (TypeScript)
+title: Teams AI Library v2 TypeScript Quickstart
+description: Learn how to quickly get started with Teams AI Library v2 for TypeScript
 ms.topic: get-started
 ms.date: 06/03/2025
 ---

@@ -1,6 +1,6 @@
 ---
-title: Quickstart (TypeScript)
-description: Learn about Quickstart (TypeScript)
+title: User authentication quickstart (TypeScript)
+description: Learn how to get started quickly with user authentication (TypeScript)
 ms.topic: how-to
 ms.date: 06/03/2025
 ---
