@@ -12,7 +12,7 @@ ms.date: 06/03/2025
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 
 > [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
+> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../../../teams/core-concepts.md) before attempting this guide.
 
 ## Authenticate the user to Entra ID to access Microsoft Graph APIs
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
@@ -25,9 +25,9 @@ A very common use case is to access enterprise related information about the use
 In this step you will have to tweak your Azure Bot service and App registration to add authentication configurations and enable Single Sign-On (SSO).
 
 > [!NOTE]
-> [Single Sign-On (SSO)](./auth-sso#single-sign-on-sso.md) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
+> [Single Sign-On (SSO)](./auth-sso.md#single-sign-on-sso) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
 
-You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad?tabs=botid) guide in the Microsoft Learn docs.
+You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad) guide in the Microsoft Learn docs.
 
 ### Using Microsoft 365 Agents Toolkit with the `teams` CLI
 
@@ -39,7 +39,7 @@ teams config add atk.oauth
 
 The `atk.oauth` configuration is a basic setup for Agents Toolkit along with configurations to authenticate the user with Microsoft Entra ID to access Microsoft Graph APIs.
 
-This [CLI](/developer-tools/cli) command adds configuration files required by Agents Toolkit, including:
+This [CLI](../../../developer-tools/cli.md) command adds configuration files required by Agents Toolkit, including:
 
 - Azure Application Entra ID manifest file `aad.manifest.json`.
 - Azure bicep files to provision Azure bot in `infra/` folder.
@@ -53,7 +53,7 @@ You can follow the [Add authentication to bot app](/microsoftteams/platform/bots
 
 ## Configure the OAuth Connection Name in the `App` instance
 
-In the [Using Agents Toolkit with `teams` CLI](#using-m365-agents-toolkit-with-the-teams-cli) guide, you will notice that the OAuth Connection Name that was created in the Azure Bot configuration is `graph`. This is arbitrary and you can even create more than one configuration. You can specify which configuration to use by defining it in the app options on intialization:
+In the [Using Agents Toolkit with `teams` CLI](#using-microsoft-365-agents-toolkit-with-the-teams-cli) guide, you will notice that the OAuth Connection Name that was created in the Azure Bot configuration is `graph`. This is arbitrary and you can even create more than one configuration. You can specify which configuration to use by defining it in the app options on intialization:
 
 ```ts
 const app = new App({ 

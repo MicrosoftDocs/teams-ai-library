@@ -1,11 +1,11 @@
 ---
-title: User Authentication (TypeScript)
-description: Learn about User Authentication (TypeScript)
+title: Migrating user authentication code from BotBuilder (TypeScript)
+description: Learn about migrating user authentication code from BotBuilder (TypeScript)
 ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# User Authentication (TypeScript) (preview)
+# Migrating user authentication code from BotBuilder (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

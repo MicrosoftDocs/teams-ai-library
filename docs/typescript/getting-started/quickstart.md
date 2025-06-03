@@ -5,7 +5,7 @@ ms.topic: get-started
 ms.date: 06/03/2025
 ---
 
-# Quickstart (TypeScript) (preview)
+# Teams AI Library quickstart (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

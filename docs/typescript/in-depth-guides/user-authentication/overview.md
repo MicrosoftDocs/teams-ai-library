@@ -1,11 +1,11 @@
 ---
-title: User Authentication (TypeScript)
-description: Learn about User Authentication (TypeScript)
+title: User authentication (TypeScript)
+description: Learn about user authentication (TypeScript)
 ms.topic: overview
 ms.date: 06/03/2025
 ---
 
-# User Authentication (TypeScript) (preview)
+# User authentication (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
