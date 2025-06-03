@@ -78,7 +78,7 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
 :::
 
-![MCP Client in Devtools](/screenshots/mcp-client-pokemon.gif)
+![MCP Client in Devtools](~/assets/screenshots/mcp-client-pokemon.gif)
 
 In this example, our MCP server is a Pokemon API and our client knows how to call it. The LLM is able to call the `getPokemon` function exposed by the server and return the result back to the user.
 

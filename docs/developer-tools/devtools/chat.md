@@ -7,7 +7,7 @@ ms.date: 06/03/2025
 
 # Devtools chat
 
-![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true)
+![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_blank_chat.png?raw=true)
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 
@@ -61,7 +61,7 @@ If you used the [CLI](../cli) to create a atk configuration for your app, DevToo
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](/screenshots/devtools-echo-chat.png)
+![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
 
 ## Teams chat terminology
 
@@ -102,7 +102,7 @@ Check your app's connectivity in three ways:
 
 You can react to messages by selecting an emoji in the message actions menu.
 
-![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true)
+![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_message_reaction.gif?raw=true)
 
 ### Edit your message
 
@@ -128,4 +128,4 @@ The capabilities above will also populate activities to the Activities page, whe
 
 For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>↑</kbd> arrow key to cycle through your message history and resend messages.
 
-![Devtools Up Arrow Feature](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_uparrow_feature.gif?raw=true)
+![Devtools Up Arrow Feature](https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_uparrow_feature.gif?raw=true)

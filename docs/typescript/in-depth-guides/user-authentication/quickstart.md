@@ -74,7 +74,7 @@ This is the Single Sign-On (SSO) authentication flow. To learn more about all th
 
 When the user sends a message to the user a consent form will popup:
 
-![Consent popup](/screenshots/auth-consent-popup.png)
+![Consent popup](~/assets/screenshots/auth-consent-popup.png)
 
 This will ask the user to consent to the `User.ReadBasic.All` Microsoft Graph scope:
 
@@ -82,12 +82,12 @@ This will ask the user to consent to the `User.ReadBasic.All` Microsoft Graph sc
 The `atk.oauth` configuration explicitly requests the `User.ReadBasic.All` permission. It is possible to request other permissions by modifying the App Registration for the bot on Azure.
 :::
 
-![Entra ID signin](/screenshots/auth-entra-id-signin.png)
+![Entra ID signin](~/assets/screenshots/auth-entra-id-signin.png)
 
 Once the user signs in and grants the app access, they will be redirected back to the Teams client and the app will send back the user's information as retrieved from the graph client:
 
-![Graph message](/screenshots/auth-graph-message.png)
+![Graph message](~/assets/screenshots/auth-graph-message.png)
 
 The user can then signout by sending the `signout` command to the app:
 
-![Signout message](/screenshots/auth-signout-message.png)
+![Signout message](~/assets/screenshots/auth-signout-message.png)
