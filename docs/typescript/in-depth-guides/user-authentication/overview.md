@@ -1,4 +1,4 @@
-# 🔒 User Authentication
+# User Authentication
 
 <!-- 
 Things to potentially add to this section:
