@@ -112,5 +112,5 @@ The `exec()` function supports incremental, just-in-time consent such that the u
 If you find that you'd rather test for consent or request consent before making the `exec()` call, the `hasConsentForScopes` and  `ensureConsentForScopes` can be used. More details about those are given in the [Graph](./graph.md) section.
 
 ## References
-- [Graph API overview](https://learn.microsoft.com/en-us/graph/api/overview)
-- [Graph API permissions overview](https://learn.microsoft.com/en-us/graph/permissions-reference)
+- [Graph API overview](/graph/api/overview)
+- [Graph API permissions overview](/graph/permissions-reference)

@@ -17,7 +17,7 @@ Microsoft 365 Agents Toolkit is a powerful tool that simplifies deploying and de
 
 First, you'll need to install the Microsoft 365 Agents Toolkit IDE extension:
 
-- Visit the [Microsoft 365 Agents Toolkit installation guide](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/install-teams-toolkit) to install on your preferred IDE.
+- Visit the [Microsoft 365 Agents Toolkit installation guide](/microsoftteams/platform/toolkit/install-teams-toolkit) to install on your preferred IDE.
 
 ## Adding Teams configuration files via `teams` CLI
 
@@ -105,7 +105,7 @@ If you want to monitor the activities and events in your app, you can still use 
 
 ## Troubleshooting
 
-For deployment and resource management we recommend the Microsoft 365 Agents Toolkit. If you prefer to set everything up by hand, follow the standard [Teams app documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-publish-overview). The Teams AI library itself doesn't handle deployment or Azure resources, so you'll need to rely on the general [Microsoft Teams deployment documentation](https://learn.microsoft.com/en-us/microsoftteams/deploy-overview).
+For deployment and resource management we recommend the Microsoft 365 Agents Toolkit. If you prefer to set everything up by hand, follow the standard [Teams app documentation](/microsoftteams/platform/concepts/deploy-and-publish/apps-publish-overview). The Teams AI library itself doesn't handle deployment or Azure resources, so you'll need to rely on the general [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview).
 
 ## Next steps
 
@@ -114,7 +114,7 @@ Now that your agent is running in Teams, you can learn more [essential concepts]
 ## Resources
 
 - [Teams CLI documentation](/developer-tools/cli)
-- [Microsoft 365 Agents Toolkit documentation](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
-- [Microsoft 365 Agents Toolkit CLI documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
+- [Microsoft 365 Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
+- [Microsoft 365 Agents Toolkit CLI documentation](/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
-- [Microsoft Teams deployment documentation](https://learn.microsoft.com/en-us/microsoftteams/deploy-overview)
+- [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview)
