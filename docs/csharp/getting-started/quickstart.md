@@ -1,11 +1,11 @@
 ---
-title: Quick start guide (C#)
-description: Learn how to get started with Teams AI library v2(C#).
+title: Teams AI Library v2 C# Quickstart
+description: Learn how to quickly get started with Teams AI Library v2 for C#
 ms.topic: get-started
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
-# Quick start guide (C#) (preview)
+# Quickstart (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -28,9 +28,9 @@ Use your terminal to install the Teams CLI globally using npm:
 npm install -g @microsoft/teams.cli@preview
 ```
 
-
 > [!NOTE]
-> _The [Teams CLI](../../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+> The [Teams CLI](../../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process.
+>
 > After installation, you can run `teams --version` to verify the installation.
 
 ## Creating Your First Agent

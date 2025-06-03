@@ -2,8 +2,9 @@
 title: Keeping State (C#)
 description: Learn about Keeping State (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Keeping State (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -22,7 +23,7 @@ To avoid this, you need to get messages from your persistent (or in-memory) stor
 > [!NOTE]
 > The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
 
-```typescript
+```ts
 // Simple in-memory store for conversation histories
 // In your application, it may be a good idea to use a more
 // persistent store backed by a database or other storage solution
@@ -39,10 +40,9 @@ const getOrCreateConversationHistory = (conversationId: string) => {
   conversationStore.set(conversationId, newMessages);
   return newMessages;
 };
-
 ```
 
-```typescript
+```ts
 /**
  * Example of a stateful conversation handler that maintains conversation history
  * using an in-memory store keyed by conversation ID.
@@ -82,7 +82,6 @@ export const handleStatefulConversation = async (
 
   log.info('Messages after sending to prompt:', existingMessages);
 };
-
 ```
 
 :::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example":::

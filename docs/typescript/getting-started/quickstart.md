@@ -1,11 +1,11 @@
 ---
-title: Quickstart (TypeScript)
-description: Learn about Quickstart (TypeScript)
+title: Teams AI Library v2 TypeScript Quickstart
+description: Learn how to quickly get started with Teams AI Library v2 for TypeScript
 ms.topic: get-started
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
-# Quickstart (TypeScript) (preview)
+# Teams AI Library quickstart (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -30,7 +30,8 @@ npm install -g @microsoft/teams.cli@preview
 
 
 > [!NOTE]
-> _The [Teams CLI](../../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+> The [Teams CLI](../../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process.
+>
 > After installation, you can run `teams --version` to verify the installation.
 
 ## Creating Your First Agent
@@ -39,7 +40,7 @@ Let's create a simple echo agent that responds to messages. Run:
 
 
 ```sh
-teams new quote-agent --template echo
+teams new typescript quote-agent --template echo
 ```
 
 

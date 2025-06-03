@@ -1,9 +1,10 @@
 ---
-title: Function call (TypeScript)
-description: Learn about calling Functions (TypeScript)
+title: Function calling (TypeScript)
+description: Learn about function calling (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Function calling (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -51,6 +52,9 @@ const prompt = new ChatPrompt({
   );
 
 // The LLM will then produce a final response to be sent back to the user
+// activity.text could have text like 'pikachu'
+const result = await prompt.send(activity.text);
+await send(result.content ?? 'Sorry I could not find that pokemon');
 ```
 
 ## Multiple functions
@@ -98,6 +102,7 @@ const prompt = new ChatPrompt({
         'San Francisco': { temperature: 60, condition: 'foggy' },
         'New York': { temperature: 75, condition: 'rainy' },
       };
+
       const weather = weatherByLocation[location];
       if (!weather) {
         return 'Sorry, I could not find the weather for that location';

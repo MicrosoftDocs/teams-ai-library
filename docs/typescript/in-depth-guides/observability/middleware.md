@@ -2,7 +2,7 @@
 title: Middleware (TypeScript)
 description: Learn about Middleware (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Middleware (TypeScript) (preview)

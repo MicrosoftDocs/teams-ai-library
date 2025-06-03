@@ -2,8 +2,9 @@
 title: Handling Multi-Step Forms (C#)
 description: Learn about Handling Multi-Step Forms (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Handling Multi-Step Forms (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -12,7 +13,7 @@ Dialogs can become complex yet powerful with multi-step forms. These forms can a
 
 Start off by sending an initial card in the `dialog.open` event.
 
-```typescript
+```ts
 const dialogCard = new AdaptiveCard(
   {
     type: "TextBlock",
@@ -44,12 +45,11 @@ return {
     },
   },
 };
-
 ```
 
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
-```typescript
+```ts
 app.on("dialog.submit", async ({ activity, send, next }) => {
   const dialogType = activity.value.data.submissiondialogtype;
 
@@ -101,5 +101,4 @@ app.on("dialog.submit", async ({ activity, send, next }) => {
   }
 
 });
-
 ```

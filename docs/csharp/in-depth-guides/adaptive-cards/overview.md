@@ -2,7 +2,7 @@
 title: Adaptive Cards (C#)
 description: Learn about Adaptive Cards (C#)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Adaptive Cards (C#) (preview)

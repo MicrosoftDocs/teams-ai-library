@@ -2,8 +2,9 @@
 title: A2A Client (TypeScript)
 description: Learn about A2A Client (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # A2A Client (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -58,13 +59,14 @@ const prompt = new ChatPrompt(
     url: "http://localhost:4000/a2a",
   });
 ```
-
 ```ts
 // Now we can send the message to the prompt and it will decide if
 // the a2a agent should be used or not and also manages contacting the agent
 const result = await prompt.send(message);
 return result;
 ```
+
+
 
 ## Sequence Diagram
 
@@ -83,4 +85,4 @@ To understand how the A2A client works with the `ChatPrompt`, `A2AClientPlugin`,
 
 ## Further Reading
 
--   [A2A Protocol](https://google.github.io/A2A)
+-   [A2A Protocol](https://google.github.io/A2A) 

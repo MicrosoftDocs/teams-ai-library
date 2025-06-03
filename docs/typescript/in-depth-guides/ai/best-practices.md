@@ -2,8 +2,9 @@
 title: Best Practices (TypeScript)
 description: Learn about Best Practices (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Best Practices (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -46,4 +47,4 @@ for (let i = 0; i < citedDocs.length; i++) {
 }
 ```
 
-:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="Indicator for AI Generated message":::
+:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="AI Generated Indicator":::

@@ -2,7 +2,7 @@
 title: Message Extensions (TypeScript)
 description: Learn about Message Extensions (TypeScript)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Message Extensions (TypeScript) (preview)

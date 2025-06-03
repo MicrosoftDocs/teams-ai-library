@@ -2,7 +2,7 @@
 title: Listening To Activities (TypeScript)
 description: Learn about Listening To Activities (TypeScript)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Listening To Activities (TypeScript) (preview)
@@ -29,7 +29,7 @@ In the above example, the `activity` parameter is of type `MessageActivity`, whi
 
 ## Middleware pattern
 
-The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `express` middlewares work. This means that for each activity handler, a `next` function is passed in which it can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
+The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `express` middlewares work. This means that for each activity handler, a `next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
 
 ```typescript
 app.on('message', async ({ next }) => {

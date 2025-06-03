@@ -2,7 +2,7 @@
 title: From BotBuilder (TypeScript)
 description: Learn about From BotBuilder (TypeScript)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # From BotBuilder (TypeScript) (preview)
@@ -15,5 +15,5 @@ and `adapter` to send/receive activities through our new abstractions.
 
 ## Why A Plugin?
 
-Because by using a plugin we are able to leveral all our new features while allowing developers to easily and incrementally
+Because by using a plugin we are able to leverage all our new features while allowing developers to easily and incrementally
 migration activity handlers from the legacy activity handlers to our new `App` class handlers.

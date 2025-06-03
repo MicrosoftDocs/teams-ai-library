@@ -2,7 +2,7 @@
 title: Getting Started (TypeScript)
 description: Learn about Getting Started (TypeScript)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Getting Started (TypeScript) (preview)

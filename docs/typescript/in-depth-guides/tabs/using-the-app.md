@@ -2,7 +2,7 @@
 title: Using The App (TypeScript)
 description: Learn about Using The App (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Using The App (TypeScript) (preview)

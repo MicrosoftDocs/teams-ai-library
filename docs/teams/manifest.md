@@ -2,7 +2,7 @@
 title: Teams Manifest
 description: Learn about Teams Manifest
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Teams Manifest (preview)
@@ -13,7 +13,7 @@ Every app or agent installed on Teams requires an app manifest json file, which 
 
 ## Manifest
 
-There are many permissions and details that an app manifest may have added to the `manifest.json`, including the app ID, url, and much more. Please review the comprehensive documentation in the [app manifest schema reference](/microsoft-365/extensibility/schema).
+There are many permissions and details that an app manifest may have added to the `manifest.json`, including the app ID, url, and much more. Please review the comprehensive documentation on the [manifest schema](/microsoft-365/extensibility/schema/).
 
 ## Sideloading
 
@@ -21,4 +21,4 @@ Sideloading is the ability to install and test your app before it is published t
 
 To sideload, the manifest mentioned above must have all information (such as app id, tenant information, permissions, etc.) filled out, and be placed in a zip with the icons, but the zip should **NOT** include a containing folder of those files.
 
-For convenient assistance with managing your manifest and automating important functionality like sideloading, deployment, and provisioning, we recommend the [Teams Toolkit extension](/microsoftteams/platform/toolkit/install-teams-toolkit)) and [CLI](/microsoftteams/platform/toolkit/Agents-Toolkit-CLI). Please continue to the [Toolkit documentation](./teams-toolkit.md) to learn more.
+For convenient assistance with managing your manifest and automating important functionality like sideloading, deployment, and provisioning, we recommend the [Microsoft 365 Agents Toolkit extension](/microsoftteams/platform/toolkit/install-teams-toolkit)) and [CLI](/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli). Please continue to the [Toolkit documentation](./agents-toolkit.md) to learn more.

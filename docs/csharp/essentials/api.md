@@ -2,8 +2,9 @@
 title: Teams API Client (C#)
 description: Learn about Teams API Client (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Teams API Client (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -22,6 +23,8 @@ An instance of the Api Client is passed to handlers that can be used to fetch de
 ## Example
 
 In this example, we use the api client to fetch the members in a conversation. The `Api` object is passed to the activity handler in this case.
+
+
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -38,6 +41,7 @@ In this example, we use the api client to fetch the members in a conversation. T
     });
 ```
 ---
+
 
 ## Proactive API
 

@@ -2,7 +2,7 @@
 title: Listening To Events (C#)
 description: Learn about Listening To Events (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Listening To Events (C#) (preview)

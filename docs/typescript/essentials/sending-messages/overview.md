@@ -2,7 +2,7 @@
 title: Sending Messages (TypeScript)
 description: Learn about Sending Messages (TypeScript)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Sending Messages (TypeScript) (preview)
@@ -28,7 +28,7 @@ app.on('signin.verify-state', async ({ send }) => {
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `signin.verify-state` events, which are sent when a user successfully signs in. 
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [Adaptive Cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [Adaptive Card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
 
 ## Streaming
 

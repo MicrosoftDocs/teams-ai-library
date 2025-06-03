@@ -2,7 +2,7 @@
 title: Teams API Client (TypeScript)
 description: Learn about Teams API Client (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Teams API Client (TypeScript) (preview)

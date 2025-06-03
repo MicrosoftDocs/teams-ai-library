@@ -2,7 +2,7 @@
 title: How Auth Works (C#)
 description: Learn about How Auth Works (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # How Auth Works (C#) (preview)
@@ -83,7 +83,7 @@ This is what the OAuth card looks like in Teams:
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0&preserve-view=true)
 - [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)
 - [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
 - [Add authentication to your Teams bot](/microsoftteams/platform/bots/how-to/authentication/add-authentication)

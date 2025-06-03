@@ -1,11 +1,11 @@
 ---
 title: Why an SDK?
-description: Learn about the goals behind the second version of Teams AI Library and everything that's changed since the first version.
+description: Learn about the benefits of using the Teams SDK (Teams AI Library) to build a Teams agent application.
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
-# Why an SDK? (preview)
+# Why An SDK? (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -18,12 +18,12 @@ An agent application is mainly able to do two things:
 1. Listen to events and respond to them
 2. Proactively send messages to the user
 
-:::image type="content" source="~/assets/diagrams/why-1.png" alt-text="Alt text for why-1.png":::
+:::image type="content" source="~/assets/diagrams/why-1.png" alt-text="alt-text for why-1.png":::
 
 To do this, we already need a few components:
 
 1. A public facing URL to our agent application - This is so that the Teams backend knows where to send messages to when an interesting event happens.
-2. A unique identifier for our agent application - Teams doesn't like to pass around this URL everywhere. Instead it hides this information behind a unique ID. This way, if your URL changes, all you need to do is update the URL and keep the ID the same.
+2. A unique idenfier for our agent application - Teams doesn't like to pass around this URL everywhere. Instead it hides this information behind a unique ID. This way, if your URL changes, all you need to do is update the URL and keep the ID the same.
 3. A way to authenticate to and from the Teams backend - This public facing URL may get hit in many different ways. We need some protections to make sure that the only messages that reach our main application are authenticated.
 
 :::image type="content" source="~/assets/diagrams/why-2.png" alt-text="alt-text for why-2.png":::
@@ -34,7 +34,7 @@ Now, it's possible for your own application to handle all the nuances with these
 
 :::image type="content" source="~/assets/diagrams/why-3.png" alt-text="alt-text for why-3.png":::
 
-Next, if you wanted to send messages to the user, you would need to make sure each call to the Teams backend is authenticated appropriately for your application.
+Next, if you wanted to send messages to the user, you would need to make sure each call to the Teams backend is authenticated approriately for your application.
 
 If your application wanted additional data from [Microsoft Graph](/graph/overview), you would need to authenticate to that as well. Additionally, if you wanted the _user_ to authenticate and query Graph on their behalf, you would have to set up a solution to do the OAuth flow as well. For these complex flows, Teams offers a solution, but you must adhere to specific protocols and patterns to facilitate them.
 

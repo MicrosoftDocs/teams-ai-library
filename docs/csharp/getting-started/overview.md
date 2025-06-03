@@ -2,7 +2,7 @@
 title: Getting Started (C#)
 description: Learn about Getting Started (C#)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Getting Started (C#) (preview)

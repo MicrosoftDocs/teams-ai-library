@@ -8,7 +8,7 @@ metadata:
   description: Developer documentation for the Teams AI Library v2 SDK, which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
-  ms.date: 05/17/2025
+  ms.date: 06/03/2025
   ms.author: mosdevdocs
   author: surbhigupta12
 
@@ -26,18 +26,16 @@ landingContent:
             url: ./teams/core-concepts.md
       - linkListType: how-to-guide
         links:
-          - text: Developer Tools Overview
-            url: ./developer-tools/overview.md
           - text: Teams CLI
             url: ./developer-tools/cli.md
-          - text: DevTools Chat
-            url: ./developer-tools/devtools/chat.md
+          - text: DevTools Overview
+            url: ./developer-tools/devtools/overview.md
       - linkListType: reference
         links:
           - text: TypeScript SDK (preview)
             url: /javascript/api/teams-sdk-typescript
           - text: .NET SDK (preview)
-            url: /dotnet/api/?view=msteams-sdk-donet-latest
+            url: /dotnet/api/?view=msteams-sdk-dotnet-latest
       - linkListType: overview
         links:
           - text: Teams Developer Documentation
@@ -63,13 +61,15 @@ landingContent:
           - text: Quickstart
             url: ./typescript/getting-started/quickstart.md
       - linkListType: concept
-        links:
-          - text: Adaptive Cards
-            url: ./typescript/in-depth-guides/adaptive-cards/overview.md
+        links:          
           - text: AI Overview
             url: ./typescript/in-depth-guides/ai/overview.md
-          - text: Dialogs
-            url: ./typescript/in-depth-guides/dialogs/overview.md
+          - text: Agent-to-Agent Protocol
+            url: ./typescript/in-depth-guides/ai/a2a/overview.md
+          - text: Model Context Protocol
+            url: ./typescript/in-depth-guides/ai/mcp/overview.md
+          - text: Adaptive Cards
+            url: ./typescript/in-depth-guides/adaptive-cards/overview.md
           - text: User Authentication
             url: ./typescript/in-depth-guides/user-authentication/overview.md
 
@@ -92,11 +92,11 @@ landingContent:
             url: ./csharp/getting-started/quickstart.md
       - linkListType: concept
         links:
-          - text: Adaptive Cards
-            url: ./csharp/in-depth-guides/adaptive-cards/overview.md
           - text: AI Overview
             url: ./csharp/in-depth-guides/ai/overview.md
-          - text: Dialogs
-            url: ./csharp/in-depth-guides/dialogs/overview.md
+          - text: Model Context Protocol
+            url: ./csharp/in-depth-guides/ai/mcp/overview.md          
+          - text: Adaptive Cards
+            url: ./csharp/in-depth-guides/adaptive-cards/overview.md
           - text: User Authentication
             url: ./csharp/in-depth-guides/user-authentication/overview.md

@@ -2,8 +2,9 @@
 title: A2A (Agent-to-Agent) Protocol (TypeScript)
 description: Learn about A2A (Agent-to-Agent) Protocol (TypeScript)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # A2A (Agent-to-Agent) Protocol (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]

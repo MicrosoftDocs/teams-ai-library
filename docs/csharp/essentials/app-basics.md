@@ -2,7 +2,7 @@
 title: App Basics (C#)
 description: Learn about App Basics (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # App Basics (C#) (preview)

@@ -2,14 +2,14 @@
 title: Teams Core Concepts
 description: Learn about Teams Core Concepts
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Teams Core Concepts (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
-When you run your agent on Teams using Teams Toolkit, several Teams-specific processes happen behind the scenes. Understanding these components will help you better debug and deploy your agents. Obviously, all these processes can be done manually, but Teams Toolkit automates them for you.
+When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Teams-specific processes happen behind the scenes. Understanding these components will help you better debug and deploy your agents. Obviously, all these processes can be done manually, but Agents Toolkit automates them for you.
 
 ## Basic Flow
 
@@ -48,16 +48,14 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams.
+[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
 
 > [!NOTE]
-> DevTunnel is only one way of exposing your local running service to the internet. Other tools like ngrok can also accomplish the same thing.
+> DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
 
-When you:
-
-- Create a secure public HTTPS endpoint that forwards to your local server
-- Manage SSL certificates automatically
-- Route Teams messages and events to your local agent
+- Creates a secure public HTTPS endpoint that forwards to your local server
+- Manages SSL certificates automatically
+- Routes Teams messages and events to your local agent
 
 ## Teams App Provisioning
 
@@ -67,7 +65,7 @@ Before your agent can interact with Teams, it needs to be properly registered an
 
 - Creates an App ID (i.e. Client ID) in the Teams platform
 - Sets up a bot registration with the Bot Framework
-- Creates a client secret that your agent can use to authenticate to be able to send and receive messages. Teams Toolkit will automatically get this value and store it in the `.env` file for you.
+- Creates a client secret that your agent can use to authenticate to be able to send and receive messages. Agents Toolkit will automatically get this value and store it in the `.env` file for you.
 
 ### Azure Bot
 

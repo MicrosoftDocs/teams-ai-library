@@ -2,8 +2,9 @@
 title: Action commands (TypeScript)
 description: Learn about Action commands (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Action commands (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -98,13 +99,13 @@ Here we are defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Image shows parameters":::
+:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Parameters":::
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`...etc.
 
 :::image type="content" source="~/assets/screenshots/message-command.png" alt-text="Get Message Details Command":::
 
-3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an Adaptive Card in the form of a dialog with the conversation roster.
+3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
 :::image type="content" source="~/assets/screenshots/fetch-conversation-members.png" alt-text="Fetch conversation members":::
 
@@ -245,9 +246,9 @@ export function createMessageDetailsCard(messagePayload: Message) {
 }
 ```
 
-## Handle opening Adaptive Card dialog
+## Handle opening adaptive card dialog
 
-Handle opening Adaptive Card dialog when the `fetchConversationMembers` command is invoked.
+Handle opening adaptive card dialog when the `fetchConversationMembers` command is invoked.
 
 ```ts
 app.on("message.ext.open", async ({ activity, api }) => {
@@ -293,3 +294,4 @@ export function createConversationMembersCard(members: Account[]) {
 ## Resources
 
 - [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)
+- [Returning Adaptive Card Previews in Task Modules](/microsoftteams/platform/messaging-extensions/how-to/action-commands/respond-to-task-module-submit?tabs=dotnet%2Cdotnet-1#bot-response-with-adaptive-card)

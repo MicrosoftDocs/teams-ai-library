@@ -2,7 +2,7 @@
 title: Microsoft Graph Client (C#)
 description: Learn about Microsoft Graph Client (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Microsoft Graph Client (C#) (preview)

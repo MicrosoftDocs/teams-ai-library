@@ -2,8 +2,9 @@
 title: Executing Actions (TypeScript)
 description: Learn about Executing Actions (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Executing Actions (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -35,19 +36,18 @@ The Teams AI Library supports several action types for different interaction pat
 
 The SDK provides builder helpers that abstract the underlying JSON. For example:
 
-```typescript
+```ts
 /** import { ExecuteAction } from "@microsoft/teams.cards"; */
 new ExecuteAction({ title: "Submit Feedback" })
   .withData({ action: "submit_feedback" })
   .withAssociatedInputs("auto"),
-
 ```
 
 ### Action Sets
 
 Group actions together using `ActionSet`:
 
-```typescript
+```ts
 /**
  * import {
  *  AdaptiveCard,
@@ -64,20 +64,18 @@ new ActionSet(
     "Learn More"
   )
 )
-
 ```
 
 ### Raw JSON Alternative
 
 Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get typesafety for free in typescript.
 
-```typescript
+```ts
 {
   type: "Action.OpenUrl",
   url: "https://adaptivecards.microsoft.com",
   title: "Learn More",
 } as const
-
 ```
 
 ---
@@ -88,7 +86,7 @@ Just like when building cards, if you prefer to work with raw JSON, you can do j
 
 Sometimes you want to send a card and have it be associated with some data. Set the `data` value to be sent back to the client so you can associate it with a particular entity.
 
-```typescript
+```ts
 function editProfileCard() {
   const card = new AdaptiveCard(
     new TextInput({ id: "name" }).withLabel("Name").withValue("John Doe"),
@@ -119,14 +117,13 @@ function editProfileCard() {
 
   return card;
 }
-
 ```
 
 ### Input Validation
 
 Input Controls provide ways for you to validate. More details can be found on the Adaptive Cards [documentation](https://adaptivecards.microsoft.com/?topic=input-validation).
 
-```typescript
+```ts
 function createProfileCardInputValidation() {
   const ageInput = new NumberInput({ id: "age" })
     .withLabel("Age")
@@ -153,7 +150,6 @@ function createProfileCardInputValidation() {
 
   return card;
 }
-
 ```
 
 ---
@@ -164,7 +160,7 @@ function createProfileCardInputValidation() {
 
 Card actions arrive as `card.action` activities in your app. These give you access to the validated input values plus any `data` values you had configured to be sent back to you.
 
-```typescript
+```ts
 app.on("card.action", async ({ activity, send }) => {
   const data = activity.value?.action?.data;
   if (!data?.action) {
@@ -222,7 +218,6 @@ app.on("card.action", async ({ activity, send }) => {
     value: "Action processed successfully",
   } satisfies AdaptiveCardActionMessageResponse;
 });
-
 ```
 
 > [!NOTE]

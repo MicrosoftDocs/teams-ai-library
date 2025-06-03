@@ -2,8 +2,9 @@
 title: App Setup (TypeScript)
 description: Learn about App Setup (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # App Setup (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -24,27 +25,27 @@ A very common use case is to access enterprise related information about the use
 In this step you will have to tweak your Azure Bot service and App registration to add authentication configurations and enable Single Sign-On (SSO).
 
 > [!NOTE]
-> [Single Sign-On (SSO)](../user-authentication/auth-sso.md) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
+> [Single Sign-On (SSO)](./auth-sso.md#single-sign-on-sso) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
 
-You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad?tabs=botid) guide in the Microsoft Learn docs.
+You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad) guide in the Microsoft Learn docs.
 
-### Using Teams Toolkit with the `teams` CLI
+### Using Microsoft 365 Agents Toolkit with the `teams` CLI
 
 Open your terminal and navigate to the root folder of your app and run the following command:
 
 ```sh
-teams config add ttk.oauth
+teams config add atk.oauth
 ```
 
-The `ttk.oauth` configuration is a basic setup for Teams Toolkit along with configurations to authenticate the user with Microsoft Entra ID to access Microsoft Graph APIs.
+The `atk.oauth` configuration is a basic setup for Agents Toolkit along with configurations to authenticate the user with Microsoft Entra ID to access Microsoft Graph APIs.
 
-This [CLI](../../../developer-tools/cli.md) command adds configuration files required by Teams Toolkit, including:
+This [CLI](../../../developer-tools/cli.md) command adds configuration files required by Agents Toolkit, including:
 
 - Azure Application Entra ID manifest file `aad.manifest.json`.
 - Azure bicep files to provision Azure bot in `infra/` folder.
 
 > [!NOTE]
-> Teams toolkit, in the debugging flow, will deploy the `aad.manifest.json` and `infra/azure.local.bicep` file to provision the Application Entra ID and Azure bot with oauth configurations.
+> Agents Toolkit, in the debugging flow, will deploy the `aad.manifest.json` and `infra/azure.local.bicep` file to provision the Application Entra ID and Azure bot with oauth configurations.
 
 ## Authenticate the user to third-party identity provider
 
@@ -52,7 +53,7 @@ You can follow the [Add authentication to bot app](/microsoftteams/platform/bots
 
 ## Configure the OAuth Connection Name in the `App` instance
 
-In the [Using Teams Toolkit with `teams` CLI](#using-teams-toolkit-with-the-teams-cli) guide, you will notice that the OAuth Connection Name that was created in the Azure Bot configuration is `graph`. This is arbitrary and you can even create more than one configuration. You can specify which configuration to use by defining it in the app options on intialization:
+In the [Using Agents Toolkit with `teams` CLI](#using-microsoft-365-agents-toolkit-with-the-teams-cli) guide, you will notice that the OAuth Connection Name that was created in the Azure Bot configuration is `graph`. This is arbitrary and you can even create more than one configuration. You can specify which configuration to use by defining it in the app options on intialization:
 
 ```ts
 const app = new App({ 
@@ -69,5 +70,5 @@ const app = new App({
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0&preserve-view=true)
 - [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)

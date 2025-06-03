@@ -2,7 +2,7 @@
 title: Custom Logger (C#)
 description: Learn about Custom Logger (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Custom Logger (C#) (preview)

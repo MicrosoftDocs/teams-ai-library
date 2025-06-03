@@ -2,8 +2,9 @@
 title: MCP Server (TypeScript)
 description: Learn about MCP Server (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # MCP Server (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -48,7 +49,7 @@ const mcpServerPlugin = new McpPlugin({
 ```
 
 > [!NOTE]
-> > By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
+> By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
 
 And included in the app like any other plugin:
 
@@ -79,7 +80,7 @@ Here is an example of how to do this. Configure your plugin so that:
 2. It fetches the correct conversation ID for the given user. 
 3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging.md) for more details.
 
-```typescript
+```ts
 // Keep a store of the user to the conversation id
 // In a production app, you probably would want to use a
 // persistent store like a database
@@ -124,10 +125,9 @@ mcpServerPlugin.tool(
     };
   }
 );
-
 ```
 
-```typescript
+```ts
 app.on('message', async ({ send, activity }) => {
   await send({ type: 'typing' });
   await send(`you said "${activity.text}"`);
@@ -138,5 +138,4 @@ app.on('message', async ({ send, activity }) => {
     );
   }
 });
-
 ```

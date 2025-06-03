@@ -2,8 +2,9 @@
 title: MCP Server (C#)
 description: Learn about MCP Server (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # MCP Server (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -12,7 +13,7 @@ You are able to convert any `App` into an MCP server by using the `McpPlugin` fr
 
 Your plugin can be configured as follows:
 
-```typescript
+```ts
 const mcpServerPlugin = new McpPlugin({
   // Describe the MCP server with a helpful name and description
   // for MCP clients to discover and use it.
@@ -39,7 +40,6 @@ const mcpServerPlugin = new McpPlugin({
     };
   }
 );
-
 ```
 
 > [!NOTE]
@@ -47,7 +47,7 @@ const mcpServerPlugin = new McpPlugin({
 
 And included in the app like any other plugin:
 
-```typescript
+```ts
 const app = new App({
   plugins: [
     new DevtoolsPlugin(),
@@ -55,7 +55,6 @@ const app = new App({
     mcpServerPlugin,
   ],
 });
-
 ```
 
 > [!TIP]
@@ -75,7 +74,7 @@ Here is an example of how to do this. Configure your plugin so that:
 2. It fetches the correct conversation ID for the given user. 
 3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging.md) for more details.
 
-```typescript
+```ts
 // Keep a store of the user to the conversation id
 // In a production app, you probably would want to use a
 // persistent store like a database
@@ -120,10 +119,9 @@ mcpServerPlugin.tool(
     };
   }
 );
-
 ```
 
-```typescript
+```ts
 app.on('message', async ({ send, activity }) => {
   await send({ type: 'typing' });
   await send(`you said "${activity.text}"`);
@@ -134,5 +132,4 @@ app.on('message', async ({ send, activity }) => {
     );
   }
 });
-
 ```

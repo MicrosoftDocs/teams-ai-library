@@ -2,8 +2,9 @@
 title: Listening To Activities (C#)
 description: Learn about Listening To Activities (C#)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Listening To Activities (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -15,6 +16,8 @@ The Teams AI Library v2 exposes a fluent router so you can subscribe to these 
 :::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png":::
 
 Here is an example of a basic message handler:
+
+
 # [Controller](#tab/controller)
 ```csharp 
     [TeamsController]
@@ -36,11 +39,14 @@ Here is an example of a basic message handler:
 ```
 ---
 
+
 In the above example, the `activity` parameter is of type `MessageActivity`, which has a `Text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 
 ## Middleware pattern
 
 The `OnActivity` activity handlers (and attributes) follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `dotnet` middlewares work. This means that for each activity handler, a `Next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
+
+
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -60,6 +66,9 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
     });
 ```
 ---
+
+
+
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -88,6 +97,9 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
     });
 ```
 ---
+
+
+
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -106,6 +118,7 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
     });
 ```
 ---
+
 
 > [!NOTE]
 > Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler.
