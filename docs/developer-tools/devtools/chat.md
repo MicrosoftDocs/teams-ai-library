@@ -7,7 +7,7 @@ ms.date: 06/03/2025
 
 # Devtools chat
 
-![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_blank_chat.png?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_blank_chat.png?raw=true" alt-text="Empty DevTools chat":::
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 
@@ -58,7 +58,7 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Devtools chat":::
 
 ## Teams chat terminology
 
@@ -97,7 +97,7 @@ Check your app's connectivity in three ways:
 
 You can react to messages by selecting an emoji in the message actions menu.
 
-![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_message_reaction.gif?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_message_reaction.gif?raw=true" alt-text="Devtools react to a message":::
 
 ### Edit your message
 
@@ -122,4 +122,4 @@ Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in t
 
 For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>↑</kbd> arrow key to cycle through your message history and resend messages.
 
-![Devtools Up Arrow Feature](https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_uparrow_feature.gif?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_uparrow_feature.gif?raw=true" alt-text="Devtools Up Arrow Feature":::

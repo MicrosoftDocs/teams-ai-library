@@ -17,6 +17,6 @@ Before diving in, let’s define a few key terms:
 • InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
 • Handler: The logic in your application that reacts to events or activities. Handlers decide what to do, when, and how to respond.
 
-![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
+:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png":::
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.

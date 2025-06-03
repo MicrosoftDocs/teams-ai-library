@@ -87,7 +87,7 @@ app.event('a2a:message', async ({ respond, taskContext }) => {
 
 ## Sequence Diagram
 
-![alt-text for a2a-server-1.png](~/assets/diagrams/a2a-server-1.png)
+:::image type="content" source="~/assets/diagrams/a2a-server-1.png" alt-text="alt-text for a2a-server-1.png":::
 
 ## Further Reading
 

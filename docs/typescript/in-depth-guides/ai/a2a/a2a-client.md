@@ -74,7 +74,7 @@ To understand how the A2A client works with the `ChatPrompt`, `A2AClientPlugin`,
 3. It configures the tool calls for the LLM to decide if it needs to call a particular A2A agent.
 4. If the LLM decides to call an A2A agent, the plugin will use the `AgentManager` to call the agent and return the result.
 
-![alt-text for a2a-client-1.png](~/assets/diagrams/a2a-client-1.png)
+:::image type="content" source="~/assets/diagrams/a2a-client-1.png" alt-text="alt-text for a2a-client-1.png":::
 
 ## Notes
 
