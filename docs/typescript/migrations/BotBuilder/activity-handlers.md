@@ -2,12 +2,15 @@
 title: Activity Handlers (TypeScript)
 description: Learn about Activity Handlers (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Activity Handlers (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 A BotBuilder `ActivityHandler` is similar to the activity routing of the Teams AI `App`.
 The `BotBuilderPlugin` accepts a botbuilder Activity Handler instance so you can keep using your
@@ -18,8 +21,8 @@ a more incremental migration strategy.
 > this snippet shows how to use the `BotBuilderPlugin` to route activities using
 > botbuilder alongside the default Teams AI activity routing.
 
-# [index.ts](#tab/index)
 
+# [index.ts](#tab/index)
 ```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
@@ -40,9 +43,7 @@ a more incremental migration strategy.
       await app.start();
     })();
 ```
-
 # [adapter.ts](#tab/adapter)
-
 ```typescript
     import { CloudAdapter } from 'botbuilder';
 
@@ -63,7 +64,6 @@ a more incremental migration strategy.
 
     export default adapter;
 ```
-  
 # [activity-handler.ts](#tab/activity-handler)
 ```typescript
     import { TeamsActivityHandler } from 'botbuilder';
@@ -85,6 +85,7 @@ a more incremental migration strategy.
     export default handler;
 ```
 ---
+
 
 ```
 hi from botbuilder...

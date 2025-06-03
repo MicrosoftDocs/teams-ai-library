@@ -2,7 +2,7 @@
 title: App Options (TypeScript)
 description: Learn about App Options (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # App Options (TypeScript) (preview)

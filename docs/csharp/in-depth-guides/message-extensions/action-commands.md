@@ -2,8 +2,9 @@
 title: Action commands (C#)
 description: Learn about Action commands (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Action commands (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -98,13 +99,13 @@ Here we are defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Image shows parameters":::
+:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Parameters":::
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`...etc.
 
 :::image type="content" source="~/assets/screenshots/message-command.png" alt-text="Get Message Details Command":::
 
-3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an Adaptive Card in the form of a dialog with the conversation roster.
+3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
 :::image type="content" source="~/assets/screenshots/fetch-conversation-members.png" alt-text="Fetch conversation members":::
 
@@ -112,7 +113,7 @@ Here we are defining three different commands:
 
 Handle submission when the `createCard` or `getMessageDetails` actions commands are invoked.
 
-```typescript
+```ts
 app.on("message.ext.submit", async ({ activity }) => {
   const { commandId } = activity.value;
   let card: IAdaptiveCard;
@@ -138,12 +139,11 @@ app.on("message.ext.submit", async ({ activity }) => {
     },
   };
 });
-
 ```
 
 `createCard()` function
 
-```typescript
+```ts
 interface FormData {
   title: string;
   subtitle: string;
@@ -170,12 +170,11 @@ export function createCard(data: FormData) {
     })
   );
 }
-
 ```
 
 `createMessageDetailsCard()` function
 
-```typescript
+```ts
 export function createMessageDetailsCard(messagePayload: Message) {
   const cardElements: CardElement[] = [
     new TextBlock("Message Details", {
@@ -245,14 +244,13 @@ export function createMessageDetailsCard(messagePayload: Message) {
 
   return new AdaptiveCard(...cardElements);
 }
-
 ```
 
-## Handle opening Adaptive Card dialog
+## Handle opening adaptive card dialog
 
-Handle opening Adaptive Card dialog when the `fetchConversationMembers` command is invoked.
+Handle opening adaptive card dialog when the `fetchConversationMembers` command is invoked.
 
-```typescript
+```ts
 app.on("message.ext.open", async ({ activity, api }) => {
   const conversationId = activity.conversation.id;
   const members = await api.conversations.members(conversationId).get();
@@ -270,12 +268,11 @@ app.on("message.ext.open", async ({ activity, api }) => {
     },
   };
 });
-
 ```
 
 `createConversationMembersCard()` function
 
-```typescript
+```ts
 export function createConversationMembersCard(members: Account[]) {
   const membersList = members.map((member) => member.name).join(", ");
 
@@ -292,9 +289,9 @@ export function createConversationMembersCard(members: Account[]) {
     })
   );
 }
-
 ```
 
 ## Resources
 
 - [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)
+- [Returning Adaptive Card Previews in Task Modules](/microsoftteams/platform/messaging-extensions/how-to/action-commands/respond-to-task-module-submit?tabs=dotnet%2Cdotnet-1#bot-response-with-adaptive-card)

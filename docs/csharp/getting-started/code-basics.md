@@ -2,8 +2,9 @@
 title: Code Basics (C#)
 description: Learn about Code Basics (C#)
 ms.topic: get-started
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Code Basics (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -26,7 +27,7 @@ Quote.Agent/
 
 ## Core Components
 
-Let's break down the simple application we created in the [quickstart](quickstart.md) into its core components.
+Let's break down the simple application we created in the [quickstart](quickstart.md) into its core components.:
 
 ### The App Class
 
@@ -63,6 +64,9 @@ Plugins are a core part of the Teams AI v2 SDK. They allow you to hook into vari
 ### Message Handling
 
 Teams applications respond to various types of activities. The most basic is handling messages:
+
+
+
 # [Controller](#tab/controller)
 ```csharp title="MainController.cs" 
     [TeamsController("main")]
@@ -85,6 +89,7 @@ Teams applications respond to various types of activities. The most basic is han
     });
 ```
 ---
+
 
 
 This code:
@@ -113,13 +118,13 @@ This part initializes your application server and, when configured for Teams, al
 
 ## Next Steps
 
-Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams.md). You will learn about Teams Toolkit and other important tools that help you with deployment and testing your application.
+Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
 
 After that, you can:
 
-- Add more activity handlers for different types of interactions. See [Listening to Activities](../essentials/on-activity/overview.md) for more details.
+- Add more activity handlers for different types of interactions. See [Listening to Activities](../essentials/on-activity.md) for more details.
 - Integrate with external services using the [API Client](../essentials/api.md).
-- Add interactive [cards](../in-depth-guides/adaptive-cards/overview.md) and [dialogs](../in-depth-guides/dialogs/overview.md).
+- Add interactive [cards](../in-depth-guides/adaptive-cards/overview.md) and [dialogs](../in-depth-guides/dialogs/overview.md). See and for more information.
 - Implement [AI](../in-depth-guides/ai/overview.md).
 
 Continue on to the next page to learn about these advanced features.
@@ -128,4 +133,4 @@ Continue on to the next page to learn about these advanced features.
 
 - [Essentials](../essentials/overview.md)
 - [Teams concepts](../../teams/overview.md)
-- [Teams developer tools](../../developer-tools/overview.md)
+- [Teams developer tools](../../developer-tools/cli.md)

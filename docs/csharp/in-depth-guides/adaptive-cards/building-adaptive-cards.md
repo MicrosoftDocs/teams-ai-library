@@ -2,8 +2,9 @@
 title: Building Adaptive Cards (C#)
 description: Learn about Building Adaptive Cards (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Building Adaptive Cards (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -18,8 +19,8 @@ With `@microsoft/teams.cards` you can build these cards entirely in TypeScript /
 `@microsoft/teams.cards` exposes small **builder helpers** (`Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._).
 Each helper wraps raw JSON and provides fluent, chainable methods that keep your code concise and readable.
 
-```typescript
-  /**
+```ts
+/**
  import {
   AdaptiveCard,
   TextBlock,
@@ -38,7 +39,6 @@ Each helper wraps raw JSON and provides fluent, chainable methods that keep your
         .withAssociatedInputs("auto")
     )
   );
-
 ```
 
 Benefits:
@@ -62,10 +62,9 @@ While coding you get:
 - **In‑editor validation**—invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
-```typescript
+```ts
 // @ts-expect-error: "huge" is not a valid size for TextBlock
 const textBlock = new TextBlock("Valid", { size: "huge" });
-
 ```
 
 ---
@@ -83,7 +82,7 @@ const cardJson = /* copied JSON */;
 const card = new AdaptiveCard().withBody(cardJson);
 ```
 
-```typescript
+```ts
 const rawCard: IAdaptiveCard = {
   type: "AdaptiveCard",
   body: [
@@ -127,7 +126,6 @@ const rawCard: IAdaptiveCard = {
   ],
   version: "1.5",
 };
-
 ```
 
 This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `IAdaptiveCard`.
@@ -141,7 +139,7 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 
 Below is a complete example showing a task management form. Notice how the builder pattern keeps the file readable and maintainable:
 
-```typescript
+```ts
 app.on("message", async ({ send, activity }) => {
   await send({ type: "typing" });
   const card = new AdaptiveCard(
@@ -179,7 +177,6 @@ app.on("message", async ({ send, activity }) => {
   // const message  = new MessageActivity('Enter this form').addCard('adaptive', card);
   // await send(message);
 });
-
 ```
 
 ---

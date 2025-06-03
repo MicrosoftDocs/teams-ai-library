@@ -2,14 +2,15 @@
 title: Sending Activities (TypeScript)
 description: Learn about Sending Activities (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Sending Activities (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
 BotBuilders pattern for sending activities via its `TurnContext` is similar to that
-in Teams AI, but one key difference is that when sending Adaptive Cards you don't need
+in Teams AI, but one key difference is that when sending adaptive cards you don't need
 to construct the entire activity yourself.
 
 # [BotBuilder](#tab/botbuilder)
@@ -26,7 +27,6 @@ to construct the entire activity yourself.
       }
     }
 ```
-  
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     app.on('message', async ({ send }) => {
@@ -34,10 +34,11 @@ to construct the entire activity yourself.
       await send({ type: 'typing' });
     });
 ```
---- 
+---
+
 
 ## Strings
-  
+
 # [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
@@ -52,7 +53,6 @@ to construct the entire activity yourself.
       }
     }
 ```
-  
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     app.on('message', async ({ send }) => {
@@ -60,10 +60,11 @@ to construct the entire activity yourself.
       await send('hello world');
     });
 ```
----  
+---
+
 
 ## Adaptive Cards
-  
+
 # [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import { TeamsActivityHandler, CardFactory } from 'botbuilder';
@@ -92,7 +93,6 @@ to construct the entire activity yourself.
       }
     }
 ```
-  
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
@@ -102,10 +102,11 @@ to construct the entire activity yourself.
       await send(new AdaptiveCard(new TextBlock('hello world')));
     });
 ```
---- 
+---
+
 
 ## Attachments
-  
+
 # [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
@@ -126,7 +127,6 @@ to construct the entire activity yourself.
       }
     }
 ```
-  
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';

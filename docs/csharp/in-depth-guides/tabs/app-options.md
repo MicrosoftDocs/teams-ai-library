@@ -2,7 +2,7 @@
 title: App Options (C#)
 description: Learn about App Options (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # App Options (C#) (preview)

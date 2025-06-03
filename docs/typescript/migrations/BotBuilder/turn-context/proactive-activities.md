@@ -2,8 +2,9 @@
 title: Proactive Activities (TypeScript)
 description: Learn about Proactive Activities (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Proactive Activities (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -12,9 +13,6 @@ The BotBuilder proactive message flow requires you to have a conversation refere
 we expose a `send` method almost identical to the one passed into our activity handlers that accepts a `conversationId`,
 so all you need to store is that!
 
-
- 
-  
 # [BotBuilder](#tab/botbuilder)
 ```typescript showLineNumbers
     import {
@@ -42,7 +40,6 @@ so all you need to store is that!
     }());
     // highlight-end
 ```
-  
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';

@@ -2,7 +2,7 @@
 title: Custom Logger (TypeScript)
 description: Learn about Custom Logger (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Custom Logger (TypeScript) (preview)

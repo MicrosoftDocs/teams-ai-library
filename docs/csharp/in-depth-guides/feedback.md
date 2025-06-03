@@ -2,8 +2,9 @@
 title: Feedback (C#)
 description: Learn about Feedback (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Feedback (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,11 +1,11 @@
 ---
-title: Overview to User Authentication (TypeScript)
-description: Learn how to implement User Authentication (TypeScript)
+title: User authentication (TypeScript)
+description: Learn about user authentication (TypeScript)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
-# User Authentication Overview (TypeScript) (preview)
+# User authentication (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -23,4 +23,4 @@ At times agents must access secured online resources on behalf of the user, such
 
 ## Resources
 
-[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
+[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0&preserve-view=true)

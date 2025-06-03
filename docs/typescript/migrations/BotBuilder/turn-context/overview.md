@@ -2,8 +2,9 @@
 title: Turn Context (TypeScript)
 description: Learn about Turn Context (TypeScript)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Turn Context (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]

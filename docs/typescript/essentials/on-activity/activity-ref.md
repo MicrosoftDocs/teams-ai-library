@@ -2,7 +2,7 @@
 title: Activity Type Reference (TypeScript)
 description: Learn about Activity Type Reference (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Activity Type Reference (TypeScript) (preview)

@@ -2,8 +2,9 @@
 title: MCP Client (C#)
 description: Learn about MCP Client (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # MCP Client (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -28,7 +29,7 @@ The `MCPClientPlugin` (from `@microsoft/teams.mcpclient` package) integrates dir
 
 Once loaded, it treats these tools like any functions that are available to the `ChatPrompt` object. If the LLM then decides to call one of these remote MCP tools, the MCP Client plugin will call the remote MCP server and return the result back to the LLM. The LLM can then use this result in its response.
 
-```typescript
+```ts
 const logger = new ConsoleLogger('mcp-client', { level: 'debug' });
 const prompt = new ChatPrompt(
   {
@@ -70,7 +71,6 @@ app.on("message", async ({ send, activity }) => {
     await send(result.content);
   }
 });
-
 ```
 
 In this example, we augment the `ChatPrompt` with a few remote MCP Servers.

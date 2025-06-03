@@ -2,8 +2,9 @@
 title: Search commands (C#)
 description: Learn about Search commands (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Search commands (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -59,9 +60,9 @@ Here we are defining the `searchQuery` search (or query) command.
 
 ## Handle submission
 
-Handle opening Adaptive Card dialog when the `searchQuery` query is submitted.
+Handle opening adaptive card dialog when the `searchQuery` query is submitted.
 
-```typescript
+```ts
 app.on("message.ext.query", async ({ activity }) => {
   const { commandId } = activity.value;
   const searchQuery = activity.value.parameters![0].value;
@@ -86,12 +87,11 @@ app.on("message.ext.query", async ({ activity }) => {
 
   return { status: 400 };
 });
-
 ```
 
 `createDummyCards()` function
 
-```typescript
+```ts
 export async function createDummyCards(searchQuery: string) {
   const dummyItems = [
     {
@@ -121,23 +121,47 @@ export async function createDummyCards(searchQuery: string) {
       thumbnail: {
         title: item.title,
         text: item.description,
-      } as ThumbnailCard,
+        // When a user clicks on a list item in Teams:
+        // - If the thumbnail has a `tap` property: Teams will trigger the `message.ext.select-item` activity
+        // - If no `tap` property: Teams will insert the full adaptive card into the compose box
+        // tap: { 
+        //   type: "invoke",
+        //   title: item.title,
+        //   value: {
+        //     "option": index,
+        //   },
+        // },
+      } satisfies ThumbnailCard,
     };
   });
 
   return cards;
 }
-
 ```
 
-The search results include both a full Adaptive Card and a preview card. The preview card appears as a list item in the search command area:
+The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
 
 :::image type="content" source="~/assets/screenshots/preview-card.png" alt-text="Search command preview card":::
 
-When a user clicks on a list item the dummy Adaptive Card is added to the compose box:
+When a user clicks on a list item the dummy adaptive card is added to the compose box:
 
 :::image type="content" source="~/assets/screenshots/card-in-compose.png" alt-text="Card in compose box":::
+
+To implement custom actions when a user clicks on a search result item, you can add the `tap` property to the preview card. This allows you to handle the click event with custom logic:
+
+```ts
+app.on("message.ext.select-item", async ({ activity, send }) => {
+  const { option } = activity.value;
+
+  await send(`Selected item: ${option}`);
+
+  return {
+    status: 200,
+  }
+});
+```
 
 ## Resources
 
 - [Search command](/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?tabs=Teams-toolkit%2Cdotnet)
+- [Just-In-Time Install](/microsoftteams/platform/messaging-extensions/how-to/search-commands/universal-actions-for-search-based-message-extensions#just-in-time-install)

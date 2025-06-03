@@ -2,8 +2,9 @@
 title: Best Practices (C#)
 description: Learn about Best Practices (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Best Practices (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -33,7 +34,7 @@ AI generated messages can hallucinate even if messages are grounded in real data
 > [!WARNING]
 > Citations are added with a `position` property. This property value needs to also be included in the message text as `[<position>]`. If there is a citation that's added without the associated value in the message text, Teams will not render the citation
 
-```typescript
+```ts
 const messageActivity = new MessageActivity(result.content).addAiGenerated();
 for (let i = 0; i < citedDocs.length; i++) {
   const doc = citedDocs[i];
@@ -44,7 +45,6 @@ for (let i = 0; i < citedDocs.length; i++) {
     abstract: doc.content,
   });
 }
-
 ```
 
-:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="Indicator for AI Generated message":::
+:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="AI Generated Indicator":::

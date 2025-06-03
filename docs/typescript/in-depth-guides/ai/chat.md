@@ -2,13 +2,15 @@
 title: Chat Generation (TypeScript)
 description: Learn about Chat Generation (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Chat Generation (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
+
 ## Setup
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.

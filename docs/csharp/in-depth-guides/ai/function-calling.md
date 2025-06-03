@@ -1,16 +1,17 @@
 ---
 title: Function calling (C#)
-description: Learn more about function calling (C#)
+description: Learn about Function calling (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Function calling (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 
-```typescript
+```ts
 const prompt = new ChatPrompt({
   instructions: 'You are a helpful assistant that can look up Pokemon for the user.',
   model,
@@ -54,14 +55,13 @@ const prompt = new ChatPrompt({
 // activity.text could have text like 'pikachu'
 const result = await prompt.send(activity.text);
 await send(result.content ?? 'Sorry I could not find that pokemon');
-
 ```
 
 ## Multiple functions
 
 Additionally, for complex scenarios, you can add multiple functions to the `ChatPrompt`. The LLM will then decide which function to call based on the context of the conversation. The LLM can pick one or more functions to call before returning the final response.
 
-```typescript
+```ts
 // activity.text could be something like "what's my weather?"
 // The LLM will need to first figure out the user's location
 // Then pass that in to the weatherSearch
@@ -116,5 +116,4 @@ const prompt = new ChatPrompt({
 // The LLM will then produce a final response to be sent back to the user
 const result = await prompt.send(activity.text);
 await send(result.content ?? 'Sorry I could not figure it out');
-
 ```

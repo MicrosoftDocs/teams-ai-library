@@ -2,8 +2,9 @@
 title: Graph API Client (C#)
 description: Learn about Graph API Client (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Graph API Client (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -17,7 +18,7 @@ Microsoft Graph can be accessed by your application using its own application to
 To access the graph using the Graph using the app, you may use the `app.Graph` object. 
 
 ```csharp
-// Equivalent of /graph/api/user-get
+// Equivalent of https://learn.microsoft.com/en-us/graph/api/user-get
 // Gets the details of the bot-user
 var user = app.Graph.Me.GetAsync().GetAwaiter().GetResult();
 Console.WriteLine($"User ID: {user.id}");
@@ -27,6 +28,8 @@ Console.WriteLine($"User Job Title: {user.jobTitle}");
 ```
 
 To access the graph using the user's token, you need to do this as part of a message handler:
+
+
 # [Controller](#tab/controller)
 ```csharp 
     [Message]
@@ -51,6 +54,7 @@ To access the graph using the user's token, you need to do this as part of a mes
     });
 ```
 ---
+
 
 Here, the `userGraph` object is a scoped graph client for the user that sent the message.
 

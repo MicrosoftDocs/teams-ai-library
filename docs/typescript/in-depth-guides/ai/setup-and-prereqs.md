@@ -2,7 +2,7 @@
 title: Setup & Prerequisites (TypeScript)
 description: Learn about Setup & Prerequisites (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Setup & Prerequisites (TypeScript) (preview)

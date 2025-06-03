@@ -1,21 +1,18 @@
 ---
-title: Get Started with Authentication (TypeScript)
-description: Learn how to get started with authentication (TypeScript)
+title: User authentication quickstart (TypeScript)
+description: Learn how to get started quickly with user authentication (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
-# Quick start with authentication (TypeScript) (preview)
+# User authentication quickstart (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
 In this section we will walk through creating an app that can access the [Microsoft Graph APIs](/graph/overview) on behalf of the user by authenticating them with the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) oauth provider. 
 
 > [!NOTE]
-> It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv2%2Cga2&preserve-view=true) like Facebook, Github, Google, Dropbox, and so on.
-
-> [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [creating an app](../../getting-started/quickstart.md) and [running it in Teams](../../getting-started/running-in-teams.md) before attempting to follow this guide.
+> It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&preserve-view=true&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 
 > [!WARNING]
 > User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams.md#debugging-in-teams) to run your app in Teams.
@@ -43,24 +40,24 @@ This command:
 2. Bootstraps the graph agent template files into it under `oauth-app/src`.
 3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `oauth-app/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 
-### Add Teams toolkit auth configuration
+### Add Microsoft 365 Agents Toolkit auth configuration
 
 Open your terminal with the `oauth-app/` folder set as the current working directory and run the following command:
 
 
 ```sh
-teams config add ttk.oauth
+teams config add atk.oauth
 ```
 
 
-This will add relevant Teams Toolkit files to your project.
+This will add relevant Agents Toolkit files to your project.
 
 > [!TIP]
-> See [App Setup](./setup.md#using-teams-toolkit-with-the-teams-cli) to learn more about what this command does.
+> See [App Setup](./setup.md#using-microsoft-365-agents-toolkit-with-the-teams-cli) to learn more about what this command does.
 
 ## Interacting with the app in Teams
 
-Once you have successfully sideloaded the app into Teams you can now interact with it and sign the user in.
+Once you have successfully sideloaded the app into Teams you can now interact with it and sign the user in. 
 
 ### Signing the user in
 
@@ -74,7 +71,7 @@ When the user sends a message to the user a consent form will popup:
 This will ask the user to consent to the `User.ReadBasic.All` Microsoft Graph scope:
 
 > [!NOTE]
-> The `ttk.oauth` configuration explicitly requests the `User.ReadBasic.All` permission. It is possible to request other permissions by modifying the App Registration for the bot on Azure.
+> The `atk.oauth` configuration explicitly requests the `User.ReadBasic.All` permission. It is possible to request other permissions by modifying the App Registration for the bot on Azure.
 
 :::image type="content" source="~/assets/screenshots/auth-entra-id-signin.png" alt-text="Entra ID signin":::
 

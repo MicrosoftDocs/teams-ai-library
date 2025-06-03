@@ -2,8 +2,9 @@
 title: A2A Server (TypeScript)
 description: Learn about A2A Server (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # A2A Server (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -92,4 +93,4 @@ app.event('a2a:message', async ({ respond, taskContext }) => {
 
 ## Further Reading
 
--   [A2A Protocol](https://google.github.io/A2A)
+-   [A2A Protocol](https://google.github.io/A2A) 

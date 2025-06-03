@@ -2,8 +2,9 @@
 title: MCP Client (TypeScript)
 description: Learn about MCP Client (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # MCP Client (TypeScript) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -75,6 +76,7 @@ app.on("message", async ({ send, activity }) => {
   if (result.content) {
     await send(result.content);
   }
+});
 ```
 
 In this example, we augment the `ChatPrompt` with a few remote MCP Servers.

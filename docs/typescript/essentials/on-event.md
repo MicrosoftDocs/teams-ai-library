@@ -2,7 +2,7 @@
 title: Listening To Events (TypeScript)
 description: Learn about Listening To Events (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Listening To Events (TypeScript) (preview)

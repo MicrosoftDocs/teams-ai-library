@@ -2,7 +2,7 @@
 title: Tabs (C#)
 description: Learn about Tabs (C#)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Tabs (C#) (preview)

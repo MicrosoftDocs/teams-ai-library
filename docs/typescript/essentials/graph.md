@@ -2,7 +2,7 @@
 title: Graph API Client (TypeScript)
 description: Learn about Graph API Client (TypeScript)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Graph API Client (TypeScript) (preview)

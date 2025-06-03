@@ -2,7 +2,7 @@
 title: Dialogs (Task Modules) (C#)
 description: Learn about Dialogs (Task Modules) (C#)
 ms.topic: overview
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
 
 # Dialogs (Task Modules) (C#) (preview)

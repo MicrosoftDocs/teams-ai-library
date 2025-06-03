@@ -2,8 +2,9 @@
 title: Creating Dialogs (C#)
 description: Learn about Creating Dialogs (C#)
 ms.topic: how-to
-ms.date: 05/17/2025
+ms.date: 06/03/2025
 ---
+
 # Creating Dialogs (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
@@ -15,7 +16,7 @@ ms.date: 05/17/2025
 
 To open a dialog, you need to supply a special type of action as to the Adaptive Card. Once this button is clicked, the dialog will open and ask the application what to show.
 
-```typescript
+```ts
 app.on("message", async ({ send }) => {
   await send({ type: "typing" });
 
@@ -54,7 +55,6 @@ app.on("message", async ({ send }) => {
   // Send the card as an attachment
   await send(new MessageActivity("Enter this form").addCard("adaptive", card));
 });
-
 ```
 
 ## Handling Dialog Open Events
@@ -82,7 +82,7 @@ app.on('dialog.open', async ({ activity }) => {
 
 You can render an Adaptive Card in a dialog by returning a card response.
 
-```typescript
+```ts
 if (dialogType === "simple_form") {
   const dialogCard = new AdaptiveCard(
     {
@@ -116,7 +116,6 @@ if (dialogType === "simple_form") {
     },
   };
 }
-
 ```
 
 > [!NOTE]
@@ -126,10 +125,10 @@ if (dialogType === "simple_form") {
 
 You can render a webpage in a dialog as well. There are some security requirements to be aware of:
 
-1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](../../../teams/manifest.md) for the agent.
+1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](../../../teams/manifest.md) for the agent
 2. The webpage must also host the [teams-js client library](https://www.npmjs.com/package/@microsoft/teams-js). The reason for this is that for security purposes, the Teams client will not render arbitrary webpages. As such, the webpage must explicitly opt-in to being rendered in the Teams client. Setting up the teams-js client library handles this for you.
 
-```typescript
+```ts
 return {
   task: {
     type: "continue",
@@ -145,5 +144,4 @@ return {
     },
   },
 };
-
 ```
