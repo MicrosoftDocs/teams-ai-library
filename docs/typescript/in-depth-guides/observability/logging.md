@@ -32,4 +32,3 @@ app.on('message', async ({ send, activity, log }) => {
   await app.start();
 })();
 ```
-

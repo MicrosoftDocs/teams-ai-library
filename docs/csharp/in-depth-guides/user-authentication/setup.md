@@ -9,24 +9,21 @@ ms.date: 06/03/2025
 
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 
-:::note
-This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
-:::
+> [!NOTE]
+> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
 
 ## Authenticate the user to Entra ID to access Microsoft Graph APIs
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
 
-:::note
-See [How Auth Works](auth-sso) to learn more about how authentication works. 
-:::
+> [!NOTE]
+> See [How Auth Works](auth-sso) to learn more about how authentication works. 
 
 ### Manual Setup
 
 In this step you will have to tweak your Azure Bot service and App registration to add authentication configurations and enable Single Sign-On (SSO).
 
-:::info
-[Single Sign-On (SSO)](./auth-sso#single-sign-on-sso) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
-:::
+> [!NOTE]
+> [Single Sign-On (SSO)](./auth-sso#single-sign-on-sso) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
 
 You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad?tabs=botid) guide in the Microsoft Learn docs.
 
@@ -45,9 +42,8 @@ This [CLI](/developer-tools/cli) command adds configuration files required by Ag
 - Azure Application Entra ID manifest file `aad.manifest.json`.
 - Azure bicep files to provision Azure bot in `infra/` folder.
 
-:::info
-Agents Toolkit, in the debugging flow, will deploy the `aad.manifest.json` and `infra/azure.local.bicep` file to provision the Application Entra ID and Azure bot with oauth configurations.
-:::
+> [!NOTE]
+> Agents Toolkit, in the debugging flow, will deploy the `aad.manifest.json` and `infra/azure.local.bicep` file to provision the Application Entra ID and Azure bot with oauth configurations.
 
 ## Authenticate the user to third-party identity provider
 

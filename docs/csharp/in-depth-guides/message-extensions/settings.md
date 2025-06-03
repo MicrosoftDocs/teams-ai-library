@@ -49,9 +49,8 @@ You can serve it by adding the following code to your app:
 app.tab(`settings`, path.resolve(__dirname));
 ```
 
-:::note
-This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/README.md) to learn more.
-:::
+> [!NOTE]
+> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/README.md) to learn more.
 
 ## 3. Specify the URL to the settings page
 

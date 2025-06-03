@@ -40,9 +40,8 @@ const mcpServerPlugin = new McpPlugin({
 );
 ```
 
-:::note
-> By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
-:::
+> [!NOTE]
+> > By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
 
 And included in the app like any other plugin:
 
@@ -56,9 +55,8 @@ const app = new App({
 });
 ```
 
-:::tip
-Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
-:::
+> [!TIP]
+> Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
 
 ![MCP Server in Devtools](~/assets/screenshots/mcp-devtools.gif)
 
@@ -133,4 +131,3 @@ app.on('message', async ({ send, activity }) => {
   }
 });
 ```
-

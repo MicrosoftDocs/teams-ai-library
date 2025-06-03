@@ -51,9 +51,8 @@ In the above example, the handler gets a `message` activity, and uses the `send`
 
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `SignIn.VerifyState` events, which are sent when a user successfully signs in. 
 
-:::tip
-This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards) by using the same `Send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards) section for more details.
-:::
+> [!TIP]
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards) by using the same `Send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards) section for more details.
 
 ## Streaming
 
@@ -85,9 +84,8 @@ You may also stream messages to the user which can be useful for long messages, 
 ---
 
 
-:::note
-Streaming is currently only supported in 1:1 conversations, not group chats or channels
-:::
+> [!NOTE]
+> Streaming is currently only supported in 1:1 conversations, not group chats or channels
 
 ![Streaming Example](~/assets/screenshots/streaming-chat.gif)
 
@@ -112,4 +110,3 @@ Sending a message at `@mentions` a user is as simple including the details of th
     });
     ```
 ---
-

@@ -15,9 +15,8 @@ The Teams CLI was created with the intent of supporting developers by making com
 | `config` | Add Microsoft 365 Agents Toolkit configuration files to your existing Teams AI v2 agent project. |
 | `environment` | Manage multiple environments (e.g. dev, prod) and their keys for your agent. |
 
-:::tip
-With the CLI installed, you can enter `teams <token-arguments> --help` at any command level to access information about the command, tokens, or required arguments.
-:::
+> [!TIP]
+> With the CLI installed, you can enter `teams <token-arguments> --help` at any command level to access information about the command, tokens, or required arguments.
 
 ## Installation
 
@@ -27,10 +26,9 @@ Install the Teams CLI globally using npm:
 npm install -g @microsoft/teams.cli@preview
 ```
 
-:::tip
-If you prefer not to install globally, all commands below can replace `teams` with npx:
-`npx @microsoft/teams.cli@preview <arguments>`
-:::
+> [!TIP]
+> If you prefer not to install globally, all commands below can replace `teams` with npx:
+> `npx @microsoft/teams.cli@preview <arguments>`
 
 ## Create an agent with one command line
 
@@ -40,15 +38,13 @@ teams new <typscript | csharp> <app-name> <optional>
 
 The `new` token will create a brand new agent with `app-name` applied as the directory name and project name.
 
-:::note
-The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
-:::
+> [!NOTE]
+> The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
 
 ### Optional parameters
 
-:::tip
-Use command line `teams new --help` to see the latest options for all optional params.
-:::
+> [!TIP]
+> Use command line `teams new --help` to see the latest options for all optional params.
 
 | Parameter | Description |
 |-----------|-------------|

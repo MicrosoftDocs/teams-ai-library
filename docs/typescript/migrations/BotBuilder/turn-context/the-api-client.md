@@ -43,4 +43,3 @@ we pass an instance of our `ApiClient` into all our activity handlers.
     });
     ```
 ---
-

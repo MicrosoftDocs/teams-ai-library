@@ -135,4 +135,3 @@ to construct the entire activity yourself.
     });
     ```
 ---
-
