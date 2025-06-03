@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Teams Manifest
+# Teams Manifest (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Every app or agent installed on Teams requires an app manifest json file, which provides important information and permissions to that app. When sideloading the app, you are required to provide the app manifest via zip which also includes the icons for the app.
 

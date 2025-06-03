@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Teams API Client (TypeScript)
+# Teams API Client (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.api` object. Here is a short summary of the different areas:
 
@@ -35,4 +37,3 @@ It's also possible to access the api client from outside a handler via the app i
 ```typescript
 const res = await app.api.graph.chats.getAllMessages.get();
 ```
-

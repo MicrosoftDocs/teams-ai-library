@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# App Setup (C#)
+# App Setup (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 

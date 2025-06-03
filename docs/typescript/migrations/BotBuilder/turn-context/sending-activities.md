@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Sending Activities (TypeScript)
+# Sending Activities (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 BotBuilders pattern for sending activities via its `TurnContext` is similar to that
 in Teams AI, but one key difference is that when sending adaptive cards you don't need

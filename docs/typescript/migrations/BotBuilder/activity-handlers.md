@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Activity Handlers (TypeScript)
+# Activity Handlers (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

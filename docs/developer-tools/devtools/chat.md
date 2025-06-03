@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Devtools chat
+# Devtools chat (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 :::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_blank_chat.png?raw=true" alt-text="Empty DevTools chat":::
 

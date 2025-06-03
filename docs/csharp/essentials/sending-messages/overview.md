@@ -5,7 +5,9 @@ ms.topic: overview
 ms.date: 06/03/2025
 ---
 
-# Sending Messages (C#)
+# Sending Messages (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `Send` method is provided which allows your handlers to send a message back to the user to the relevant conversation. 
 

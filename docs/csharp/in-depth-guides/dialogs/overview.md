@@ -5,7 +5,9 @@ ms.topic: overview
 ms.date: 06/03/2025
 ---
 
-# Dialogs (Task Modules) (C#)
+# Dialogs (Task Modules) (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Dialogs are a helpful paradigm in Teams which improve interactions between your agent and users. When dialogs are **invoked**, they pop open a window for a user in the Teams client. The content of the dialog can be supplied by the agent application.
 

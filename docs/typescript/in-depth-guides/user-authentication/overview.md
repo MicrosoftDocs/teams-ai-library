@@ -5,7 +5,9 @@ ms.topic: overview
 ms.date: 06/03/2025
 ---
 
-# User Authentication (TypeScript)
+# User Authentication (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 <!-- 
 Things to potentially add to this section:

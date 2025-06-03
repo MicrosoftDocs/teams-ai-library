@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Functions (C#)
+# Functions (C#) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The client App exposes an `exec()` method that can be used to call functions implemented in an agent created with this library. The function call uses the `app.http` client to make a request, attaching a bearer token created from the `app.msalInstance` MSAL public client application, so that the remote function can authenticate and authorize the caller.
 

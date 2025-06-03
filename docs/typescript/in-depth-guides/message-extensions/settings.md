@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Settings (TypeScript)
+# Settings (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 You can add a settings page that allows users to configure settings for your app.
 

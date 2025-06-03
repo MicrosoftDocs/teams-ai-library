@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Graph API Client (TypeScript)
+# Graph API Client (TypeScript) (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 [Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
 
