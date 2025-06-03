@@ -56,7 +56,7 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 ```
 
 > [!NOTE]
-> If you used the [CLI](../cli) to create a atk configuration for your app, DevTools will run on port 3979 when you launch the debugger.
+> If you used the [CLI](../cli.md) to create a atk configuration for your app, DevTools will run on port 3979 when you launch the debugger.
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
@@ -82,7 +82,7 @@ You can send messages to your agent just like in Teams. In the compose box, type
 
 ### Attachments
 
-Attach up to 10 files to your message using the Attach (paperclip) button. DevTools supports pasting an Adaptive Card JSON or attaching a card from the card designer. See the [Cards page](./cards) for more.
+Attach up to 10 files to your message using the Attach (paperclip) button. DevTools supports pasting an Adaptive Card JSON or attaching a card from the card designer. See the [Cards page](./cards.md) for more.
 
 > [!NOTE]
 > More attachments support is coming soon!
@@ -111,7 +111,7 @@ Soft delete messages by hovering over your message, pressing the More (ellipsis)
 
 ### Streaming
 
-If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
+If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
 ### Feedback
 

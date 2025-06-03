@@ -19,7 +19,7 @@ Agents Toolkit can be installed as an extension and CLI. Please see the document
 - [Installing Agents Toolkit CLI](/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
 
 > [!NOTE]
-> * [Teams AI v2 CLI](../developer-tools/cli) - helper for the new v2 library. It scaffolds agents, wires in deep Teams features (Adaptive Cards, Conversation History, Memory...etc), and adds all the config files you need while you're coding.
+> * [Teams AI v2 CLI](../developer-tools/cli.md) - helper for the new v2 library. It scaffolds agents, wires in deep Teams features (Adaptive Cards, Conversation History, Memory...etc), and adds all the config files you need while you're coding.
 > * Agents Toolkit CLI - app deployment helper. It sideloads, provisions Azure resources, handles manfiest/tenant plumbing, and keeps your dev, test, and prod environments in sync.
 
 ## Official documentation
@@ -35,4 +35,4 @@ Generally, you can use the toolkit to add required resources to Azure based on y
 ## Resources
 
 - [Agents Toolkit Overview](/microsoftteams/platform/toolkit/teams-toolkit-fundamentals) - these extensive docs cover many topics related to Agents Toolkit, so please explore their documentation at your convenience.
-- [Teams AI v2 CLI documentation](../developer-tools/cli) - includes instructions on adding toolkit configurations to your Teams AI v2 agent.
+- [Teams AI v2 CLI documentation](../developer-tools/cli.md) - includes instructions on adding toolkit configurations to your Teams AI v2 agent.
