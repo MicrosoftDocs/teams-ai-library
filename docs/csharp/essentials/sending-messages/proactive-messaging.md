@@ -26,7 +26,7 @@ The main thing to note is that you need to have the `conversationId` of the chat
         await client.Send("Hi! I am going to remind you to say something to me soon!");
         notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnInstall(async context =>
@@ -36,7 +36,7 @@ The main thing to note is that you need to have the `conversationId` of the chat
         await context.Send("Hi! I am going to remind you to say something to me soon!");
         notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
     });
-    ```
+```
 ---
 
 

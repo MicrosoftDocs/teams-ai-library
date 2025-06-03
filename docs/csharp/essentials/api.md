@@ -32,14 +32,14 @@ In this example, we use the api client to fetch the members in a conversation. T
     {
         var members = await api.Conversations.Members.Get(context.Conversation.Id);
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
     {
         var members = await context.Api.Conversations.Members.Get(context.Conversation.Id);
     });
-    ```
+```
 ---
 
 

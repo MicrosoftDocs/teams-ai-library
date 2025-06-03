@@ -145,7 +145,7 @@ equivalent feature to dialogs, but we do support auth flows in our own way via o
     server.post('/api/messages', async (req, res) => {
         await adapter.process(req, res, (context) => bot.run(context));
     });
-    ```
+```
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
@@ -176,7 +176,7 @@ equivalent feature to dialogs, but we do support auth flows in our own way via o
     (async () => {
       await app.start();
     })();
-    ```
+```
 ---
 
 

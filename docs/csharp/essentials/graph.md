@@ -41,7 +41,7 @@ To access the graph using the user's token, you need to do this as part of a mes
         Console.WriteLine($"User Email: {user.mail}");
         Console.WriteLine($"User Job Title: {user.jobTitle}");
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -52,7 +52,7 @@ To access the graph using the user's token, you need to do this as part of a mes
         Console.WriteLine($"User Email: {user.mail}");
         Console.WriteLine($"User Job Title: {user.jobTitle}");
     });
-    ```
+```
 ---
 
 

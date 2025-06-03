@@ -39,7 +39,7 @@ so all you need to store is that!
       });
     }());
     // highlight-end
-    ```
+```
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
@@ -52,5 +52,5 @@ so all you need to store is that!
       await app.send('your-conversation-id', 'proactive hello');
     }());
     // highlight-end
-    ```
+```
 ---

@@ -26,14 +26,14 @@ to construct the entire activity yourself.
         });
       }
     }
-    ```
+```
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     app.on('message', async ({ send }) => {
       // highlight-next-line
       await send({ type: 'typing' });
     });
-    ```
+```
 ---
 
 
@@ -52,14 +52,14 @@ to construct the entire activity yourself.
         });
       }
     }
-    ```
+```
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     app.on('message', async ({ send }) => {
       // highlight-next-line
       await send('hello world');
     });
-    ```
+```
 ---
 
 
@@ -92,7 +92,7 @@ to construct the entire activity yourself.
         });
       }
     }
-    ```
+```
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
@@ -101,7 +101,7 @@ to construct the entire activity yourself.
       // highlight-next-line
       await send(new AdaptiveCard(new TextBlock('hello world')));
     });
-    ```
+```
 ---
 
 
@@ -126,7 +126,7 @@ to construct the entire activity yourself.
         });
       }
     }
-    ```
+```
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
@@ -135,5 +135,5 @@ to construct the entire activity yourself.
       // highlight-next-line
       await send(new MessageActivity().addAttachment(...));
     });
-    ```
+```
 ---

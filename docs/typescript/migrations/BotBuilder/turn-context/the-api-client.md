@@ -32,7 +32,7 @@ we pass an instance of our `ApiClient` into all our activity handlers.
         });
       }
     }
-    ```
+```
 # [Teams AI](#tab/teamsai)
 ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
@@ -43,5 +43,5 @@ we pass an instance of our `ApiClient` into all our activity handlers.
       // highlight-next-line
       const members = await api.conversations.members(activity.conversation.id).get();
     });
-    ```
+```
 ---

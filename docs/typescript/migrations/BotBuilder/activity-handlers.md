@@ -42,7 +42,7 @@ a more incremental migration strategy.
     (async () => {
       await app.start();
     })();
-    ```
+```
 # [adapter.ts](#tab/adapter)
 ```typescript
     import { CloudAdapter } from 'botbuilder';
@@ -63,7 +63,7 @@ a more incremental migration strategy.
     // highlight-end
 
     export default adapter;
-    ```
+```
 # [activity-handler.ts](#tab/activity-handler)
 ```typescript
     import { TeamsActivityHandler } from 'botbuilder';
@@ -83,7 +83,7 @@ a more incremental migration strategy.
 
     const handler = new ActivityHandler();
     export default handler;
-    ```
+```
 ---
 
 
