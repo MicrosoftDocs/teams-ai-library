@@ -1,17 +1,27 @@
 ---
-title: Listening To Events (TypeScript)
-description: Learn about Listening To Events (TypeScript)
-ms.topic: how-to
-ms.date: 05/17/2025
+sidebar_position: 2
 ---
 
-# Listening To Events (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Listening To Events
 
 An **event** is a foundational concept in building agents — it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).
 
-:::image type="content" source="~/assets/diagrams/on-event-1.png" alt-text="alt-text for on-event-1.png":::
+```mermaid
+flowchart LR
+    Teams["Teams"]:::less-interesting
+    Server["App Server"]:::interesting
+    AppEventHandlers["Event Handler (app.event())"]:::interesting
+
+    Teams --> |Activity| Server
+    Teams --> |Signed In| Server
+    Teams --> |...other<br/>incoming events| Server
+    Server ---> |incoming<br/>events| AppEventHandlers
+    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
+
+
+    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
+    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
+```
 
 The Teams AI Library v2 makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.
 

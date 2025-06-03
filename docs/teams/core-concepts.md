@@ -1,19 +1,49 @@
 ---
-title: Teams Core Concepts
-description: Learn about Teams Core Concepts
-ms.topic: how-to
-ms.date: 05/17/2025
+sidebar_position: 1
 ---
 
-# Teams Core Concepts (preview)
+# Teams Core Concepts
 
-[This article is prerelease documentation and is subject to change.]
-
-When you run your agent on Teams using Teams Toolkit, several Teams-specific processes happen behind the scenes. Understanding these components will help you better debug and deploy your agents. Obviously, all these processes can be done manually, but Teams Toolkit automates them for you.
+When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Teams-specific processes happen behind the scenes. Understanding these components will help you better debug and deploy your agents. Obviously, all these processes can be done manually, but Agents Toolkit automates them for you.
 
 ## Basic Flow
 
-:::image type="content" source="~/assets/diagrams/core-concepts-1.png" alt-text="alt-text for core-concepts-1.png":::
+```mermaid
+flowchart LR
+    %% Main actors
+    User([User])
+
+    %% Teams section
+    subgraph Teams ["Teams"]
+        TeamsClient["Teams Client"]
+        TeamsBackend["Teams Backend"]
+    end
+
+    %% Azure section
+    subgraph Azure ["Azure"]
+        AppReg["App Registration"]
+        AzureBot["Azure Bot"]
+    end
+
+    %% Local Server section
+    subgraph LocalServer ["Local Server"]
+        DevTunnel["DevTunnel"]
+        LocalApp["Your local application"]
+    end
+
+    %% Deployed Server section
+    subgraph DeployedServer ["Deployed Server"]
+        DeployedApp["Your deployed application"]
+    end
+
+    %% Define connections
+    User <--> TeamsClient
+    TeamsClient <--> TeamsBackend
+    TeamsBackend <--> AppReg
+    AppReg <--> AzureBot
+    AzureBot --> LocalServer
+    AzureBot --> DeployedServer
+```
 
 **Teams**
 
@@ -48,16 +78,15 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams.
+[DevTunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
 
-> [!NOTE]
-> DevTunnel is only one way of exposing your local running service to the internet. Other tools like ngrok can also accomplish the same thing.
+:::info
+DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
+:::
 
-When you:
-
-- Create a secure public HTTPS endpoint that forwards to your local server
-- Manage SSL certificates automatically
-- Route Teams messages and events to your local agent
+- Creates a secure public HTTPS endpoint that forwards to your local server
+- Manages SSL certificates automatically
+- Routes Teams messages and events to your local agent
 
 ## Teams App Provisioning
 
@@ -67,7 +96,7 @@ Before your agent can interact with Teams, it needs to be properly registered an
 
 - Creates an App ID (i.e. Client ID) in the Teams platform
 - Sets up a bot registration with the Bot Framework
-- Creates a client secret that your agent can use to authenticate to be able to send and receive messages. Teams Toolkit will automatically get this value and store it in the `.env` file for you.
+- Creates a client secret that your agent can use to authenticate to be able to send and receive messages. Agents Toolkit will automatically get this value and store it in the `.env` file for you.
 
 ### Azure Bot
 
@@ -79,9 +108,10 @@ Before your agent can interact with Teams, it needs to be properly registered an
 
 Sideloading is the process of installing your agent in Teams. You are able to pass in the manifest and icons (zipped up) to the Teams client. Sideloading an application automatically makes that application available to you. You are also able to sideload the application in a Team or a Group chat. In this case, the application will be available to all members of that Team or Group chat.
 
-> [!WARNING]
-> Sideloading needs to be enabled in your tenant. If this is not the case, then you will need to contact your Teams administrator to enable it.
+:::warning
+Sideloading needs to be enabled in your tenant. If this is not the case, then you will need to contact your Teams administrator to enable it.
+:::
 
 ## Provisioning and Deployment
 
-To test your app in Teams, you will at minimum need to have a provisioned Azure bot. You are likely to have other provisionied resources such as storage. Please see the Microsoft Learn [Provision cloud resources](/microsoftteams/platform/toolkit/provision) documentation for provisioning and deployment using Visual Studio Code and to a container service.
+To test your app in Teams, you will at minimum need to have a provisioned Azure bot. You are likely to have other provisionied resources such as storage. Please see the Microsoft Learn [Provision cloud resources](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/provision) documentation for provisioning and deployment using Visual Studio Code and to a container service.

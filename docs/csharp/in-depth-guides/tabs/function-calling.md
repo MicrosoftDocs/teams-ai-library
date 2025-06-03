@@ -1,13 +1,8 @@
 ---
-title: Functions (C#)
-description: Learn about Functions (C#)
-ms.topic: how-to
-ms.date: 05/17/2025
+sidebar_position: 4
 ---
 
-# Functions (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Functions
 
 The client App exposes an `exec()` method that can be used to call functions implemented in an agent created with this library. The function call uses the `app.http` client to make a request, attaching a bearer token created from the `app.msalInstance` MSAL public client application, so that the remote function can authenticate and authorize the caller.
 
@@ -114,5 +109,5 @@ The `exec()` function supports incremental, just-in-time consent such that the u
 If you find that you'd rather test for consent or request consent before making the `exec()` call, the `hasConsentForScopes` and  `ensureConsentForScopes` can be used. More details about those are given in the [Graph](./graph.md) section.
 
 ## References
-- [Graph API overview](/graph/api/overview)
-- [Graph API permissions overview](/graph/permissions-reference)
+- [Graph API overview](https://learn.microsoft.com/en-us/graph/api/overview)
+- [Graph API permissions overview](https://learn.microsoft.com/en-us/graph/permissions-reference)

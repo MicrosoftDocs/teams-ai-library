@@ -1,13 +1,8 @@
 ---
-title: How Auth Works (C#)
-description: Learn about How Auth Works (C#)
-ms.topic: how-to
-ms.date: 05/17/2025
+sidebar_position: 2
 ---
 
-# How Auth Works (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# How Auth Works
 
 When building Teams applications, choosing the right authentication method is crucial for both security and user experience. Teams supports two primary authentication approaches: OAuth and Single Sign-On (SSO). While both methods serve the same fundamental purpose of validating user identity, they differ significantly in their implementation, supported identity providers, and user experience. Understanding these differences is essential for making the right choice for your application.
 
@@ -22,8 +17,9 @@ When an access token expires, the app automatically initiates a token exchange f
 2. Your app exchanges this ID token for a new access token with the previously consented scopes
 3. This exchange happens silently without requiring user interaction
 
-> [!TIP]
-> Always use SSO if you authenticating the user with Microsoft Entra ID.
+:::tip
+Always use SSO if you authenticating the user with Microsoft Entra ID.
+:::
 
 ### The SSO Signin Flow
 
@@ -38,13 +34,13 @@ The SSO signin flow involves several components working together. Here's how it 
    - If token is valid, app uses it directly
    - If token expires, app silently signs the user in using the token exchange flow
 
-See the [SSO in Teams at runtime](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview#sso-in-teams-at-runtime) guide to learn more about the SSO signin flow
+See the [SSO in Teams at runtime](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview#sso-in-teams-at-runtime) guide to learn more about the SSO signin flow
 
 ### The SSO consent form
 
 This is what the SSO consent form looks like in Teams:
 
-:::image type="content" source="~/assets/screenshots/auth-consent-popup.png" alt-text="SSO Consent Form":::
+![SSO Consent Form](/screenshots/auth-consent-popup.png)
 
 ## OAuth 
 
@@ -67,7 +63,7 @@ When an access token expires, the user will need to go through the sign-in proce
 
 This is what the OAuth card looks like in Teams:
 
-:::image type="content" source="~/assets/screenshots/auth-explicit-signin.png" alt-text="OAuthCard":::
+![OAuthCard](/screenshots/auth-explicit-signin.png)
 
 ## OAuth vs SSO - Head-to-Head Comparison
 
@@ -83,7 +79,7 @@ This is what the OAuth card looks like in Teams:
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
-- [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)
-- [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
-- [Add authentication to your Teams bot](/microsoftteams/platform/bots/how-to/authentication/add-authentication)
+- [User Authentication Basics](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication in Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/authentication)
+- [Enable SSO for bot and message extension app using Entra ID](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/bot-sso-overview)
+- [Add authentication to your Teams bot](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/authentication/add-authentication)

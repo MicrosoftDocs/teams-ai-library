@@ -1,13 +1,8 @@
 ---
-title: Custom Logger (TypeScript)
-description: Learn about Custom Logger (TypeScript)
-ms.topic: how-to
-ms.date: 05/17/2025
+sidebar_position: 2
 ---
 
-# Custom Logger (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 🗃️ Custom Logger
 
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the
@@ -34,3 +29,4 @@ app.on('message', async ({ send, activity, log }) => {
   await app.start();
 })();
 ```
+
