@@ -13,7 +13,7 @@ ms.date: 06/03/2025
 
 The library gives your application easy access to the Microsoft Graph API via the `Microsoft.Graph` package.
 
-Microsoft Graph can be accessed by your application using its own application token, or by using the user's token. If you need access to resources that your application may not have, but your user does, you will need to use the user's scoped graph client. To grant explicit consent for your application to access resources on behalf of a user, follow the [auth guide](../in-depth-guides/user-authentication.md).
+Microsoft Graph can be accessed by your application using its own application token, or by using the user's token. If you need access to resources that your application may not have, but your user does, you will need to use the user's scoped graph client. To grant explicit consent for your application to access resources on behalf of a user, follow the [auth guide](../in-depth-guides/user-authentication/overview.md).
 
 To access the graph using the Graph using the app, you may use the `app.Graph` object. 
 

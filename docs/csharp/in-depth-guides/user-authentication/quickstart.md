@@ -1,11 +1,11 @@
 ---
-title: Quickstart (C#)
-description: Learn about Quickstart (C#)
+title: User authentication quickstart (C#)
+description: Get started quickly with user authentication in Teams AI Library (C#)
 ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Quickstart (C#) (preview)
+# User authentication quickstart (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -14,11 +14,8 @@ In this section we will walk through creating an app that can access the [Micros
 > [!NOTE]
 > It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&preserve-view=true&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 
-> [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [creating an app](https://microsoft.github.io/teams-ai/2.getting-started/1.quickstart.html) and [running it in Teams](https://microsoft.github.io/teams-ai/2.getting-started/3.running-in-teams.html) before attempting to follow this guide.
-
 > [!WARNING]
-> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams#debugging-in-teams.md) to run your app in Teams.
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams.md#debugging-in-teams to run your app in Teams.
 
 ## Setup Instructions
 
@@ -56,7 +53,7 @@ teams config add atk.oauth
 This will add relevant Agents Toolkit files to your project.
 
 > [!TIP]
-> See [App Setup](./setup#using-m365-agents-toolkit-with-the-teams-cli.md) to learn more about what this command does.
+> See [App Setup](./setup.md#using-m365-agents-toolkit-with-the-teams-cli) to learn more about what this command does.
 
 ## Interacting with the app in Teams
 

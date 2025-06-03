@@ -1,11 +1,11 @@
 ---
-title: Functions (C#)
-description: Learn about Functions (C#)
+title: Function calling (C#)
+description: Learn about Function calling (C#)
 ms.topic: how-to
 ms.date: 06/03/2025
 ---
 
-# Functions (C#) (preview)
+# Function calling (C#) (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

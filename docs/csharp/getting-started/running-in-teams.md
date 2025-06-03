@@ -105,11 +105,11 @@ For deployment and resource management we recommend the Microsoft 365 Agents Too
 
 ## Next steps
 
-Now that your agent is running in Teams, you can learn more [essential concepts](../essentials.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides.md) for advanced topics like authentication, message extensions, and more.
+Now that your agent is running in Teams, you can learn more [essential concepts](../essentials/overview.md) to understand how to build more complex agents. Explore the [in-depth guides](../in-depth-guides/overview.md.md) for advanced topics like authentication, message extensions, and more.
 
 ## Resources
 
-- [Teams CLI documentation](/developer-tools/cli)
+- [Teams CLI documentation](../../developer-tools/cli.md)
 - [Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
 - [Agents Toolkit CLI documentation](/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)

@@ -10,7 +10,7 @@ ms.date: 06/03/2025
 [This article is prerelease documentation and is subject to change.]
 
 > [!TIP]
-> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards.md). Understanding their basics is a prerequisite for this guide.
+> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards/overview.md.md). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 
@@ -125,7 +125,7 @@ if (dialogType === "simple_form") {
 
 You can render a webpage in a dialog as well. There are some security requirements to be aware of:
 
-1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](/teams/manifest) for the agent
+1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](../../../teams/manifest.md) for the agent
 2. The webpage must also host the [teams-js client library](https://www.npmjs.com/package/@microsoft/teams-js). The reason for this is that for security purposes, the Teams client will not render arbitrary webpages. As such, the webpage must explicitly opt-in to being rendered in the Teams client. Setting up the teams-js client library handles this for you.
 
 ```ts
