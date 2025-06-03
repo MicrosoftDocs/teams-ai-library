@@ -1,4 +1,11 @@
-# Creating Dialogs
+---
+title: Creating Dialogs (TypeScript)
+description: Learn about Creating Dialogs (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Creating Dialogs (TypeScript)
 
 :::tip
 If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards). Understanding their basics is a prerequisite for this guide.

@@ -1,4 +1,11 @@
-# Middleware
+---
+title: Middleware (C#)
+description: Learn about Middleware (C#)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Middleware (C#)
 
 Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.

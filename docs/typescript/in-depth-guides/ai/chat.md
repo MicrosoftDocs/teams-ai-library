@@ -1,4 +1,11 @@
-# Chat Generation
+---
+title: Chat Generation (TypeScript)
+description: Learn about Chat Generation (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Chat Generation (TypeScript)
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 

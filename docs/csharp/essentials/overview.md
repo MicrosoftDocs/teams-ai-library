@@ -1,4 +1,11 @@
-# Essentials
+---
+title: Essentials (C#)
+description: Learn about Essentials (C#)
+ms.topic: overview
+ms.date: 06/03/2025
+---
+
+# Essentials (C#)
 
 At its core, an application that hosts an agent on Microsoft Teams exists to do three things well: listen to events, handle the ones that matter, and respond efficiently. Whether a user sends a message, opens a task module, or clicks a button — your app is there to interpret the event and act on it.
 

@@ -1,4 +1,11 @@
-# Quickstart
+---
+title: Quickstart (TypeScript)
+description: Learn about Quickstart (TypeScript)
+ms.topic: get-started
+ms.date: 06/03/2025
+---
+
+# Quickstart (TypeScript)
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.
 

@@ -1,4 +1,11 @@
-# A2A Client
+---
+title: A2A Client (TypeScript)
+description: Learn about A2A Client (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# A2A Client (TypeScript)
 
 ## What is an A2A Client?
 

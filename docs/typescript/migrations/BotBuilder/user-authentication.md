@@ -1,4 +1,11 @@
-# User Authentication
+---
+title: User Authentication (TypeScript)
+description: Learn about User Authentication (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# User Authentication (TypeScript)
 
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams AI doesn't have any
 equivalent feature to dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.

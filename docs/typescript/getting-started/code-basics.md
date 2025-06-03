@@ -1,4 +1,11 @@
-# Code Basics
+---
+title: Code Basics (TypeScript)
+description: Learn about Code Basics (TypeScript)
+ms.topic: get-started
+ms.date: 06/03/2025
+---
+
+# Code Basics (TypeScript)
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.
 

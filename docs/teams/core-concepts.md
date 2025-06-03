@@ -1,3 +1,10 @@
+---
+title: Teams Core Concepts
+description: Learn about Teams Core Concepts
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
 # Teams Core Concepts
 
 When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Teams-specific processes happen behind the scenes. Understanding these components will help you better debug and deploy your agents. Obviously, all these processes can be done manually, but Agents Toolkit automates them for you.

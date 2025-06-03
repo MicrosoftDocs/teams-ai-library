@@ -1,4 +1,11 @@
-# App Setup
+---
+title: App Setup (C#)
+description: Learn about App Setup (C#)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# App Setup (C#)
 
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 

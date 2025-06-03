@@ -1,4 +1,11 @@
-# Settings
+---
+title: Settings (C#)
+description: Learn about Settings (C#)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Settings (C#)
 
 You can add a settings page that allows users to configure settings for your app.
 

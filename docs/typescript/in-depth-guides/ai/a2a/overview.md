@@ -1,4 +1,11 @@
-# A2A (Agent-to-Agent) Protocol
+---
+title: A2A (Agent-to-Agent) Protocol (TypeScript)
+description: Learn about A2A (Agent-to-Agent) Protocol (TypeScript)
+ms.topic: overview
+ms.date: 06/03/2025
+---
+
+# A2A (Agent-to-Agent) Protocol (TypeScript)
 
 :::caution
 This package is experimental and the A2A protocol is still in early development. Use with caution in production environments.

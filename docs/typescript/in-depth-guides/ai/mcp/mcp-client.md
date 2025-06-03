@@ -1,4 +1,11 @@
-# MCP Client
+---
+title: MCP Client (TypeScript)
+description: Learn about MCP Client (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# MCP Client (TypeScript)
 
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 

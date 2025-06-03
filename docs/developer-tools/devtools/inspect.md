@@ -1,3 +1,10 @@
+---
+title: Inspect activities
+description: Learn about Inspect activities
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
 # Inspect activities
 
 Inspect incoming and outgoing activities on DevTools' Activities page. All interactions with your agent are logged here, including messages, reactions, and more.

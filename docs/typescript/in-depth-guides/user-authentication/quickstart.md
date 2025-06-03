@@ -1,4 +1,11 @@
-# Quickstart
+---
+title: Quickstart (TypeScript)
+description: Learn about Quickstart (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Quickstart (TypeScript)
 
 In this section we will walk through creating an app that can access the [Microsoft Graph APIs](https://learn.microsoft.com/en-us/graph/overview) on behalf of the user by authenticating them with the [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) oauth provider. 
 

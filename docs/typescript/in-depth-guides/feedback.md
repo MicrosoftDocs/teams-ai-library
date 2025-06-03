@@ -1,4 +1,11 @@
-# Feedback
+---
+title: Feedback (TypeScript)
+description: Learn about Feedback (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Feedback (TypeScript)
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 

@@ -1,4 +1,11 @@
-# Activity Type Reference
+---
+title: Activity Type Reference (TypeScript)
+description: Learn about Activity Type Reference (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Activity Type Reference (TypeScript)
 
 The application supports a number of activity types, 
 

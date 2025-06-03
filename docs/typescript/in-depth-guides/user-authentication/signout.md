@@ -1,4 +1,11 @@
-# Signing Out
+---
+title: Signing Out (TypeScript)
+description: Learn about Signing Out (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Signing Out (TypeScript)
 
 Sign a user out by calling the `signout` method to discard the cached access token in the Bot Framework token service.
 

@@ -1,4 +1,11 @@
-# Getting started
+---
+title: Getting started (TypeScript)
+description: Learn about Getting started (TypeScript)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Getting started (TypeScript)
 
 To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
 

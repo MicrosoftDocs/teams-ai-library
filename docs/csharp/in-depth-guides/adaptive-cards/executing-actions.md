@@ -1,4 +1,11 @@
-# Executing Actions
+---
+title: Executing Actions (C#)
+description: Learn about Executing Actions (C#)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Executing Actions (C#)
 
 Adaptive Cards support interactive elements through **actions**—buttons, links, and input submission triggers that respond to user interaction.  
 You can use these to collect form input, trigger workflows, show task modules, open URLs, and more.

@@ -1,4 +1,11 @@
-# Getting started
+---
+title: Getting started (C#)
+description: Learn about Getting started (C#)
+ms.topic: how-to
+ms.date: 06/03/2025
+---
+
+# Getting started (C#)
 
 To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
 
