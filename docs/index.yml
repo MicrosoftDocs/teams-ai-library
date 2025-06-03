@@ -8,7 +8,7 @@ metadata:
   description: Developer documentation for the Teams AI Library v2 SDK, which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
-  ms.date: 05/17/2025
+  ms.date: 06/03/2025
   ms.author: mosdevdocs
   author: surbhigupta12
 
@@ -63,13 +63,15 @@ landingContent:
           - text: Quickstart
             url: ./typescript/getting-started/quickstart.md
       - linkListType: concept
-        links:
-          - text: Adaptive Cards
-            url: ./typescript/in-depth-guides/adaptive-cards/overview.md
+        links:          
           - text: AI Overview
             url: ./typescript/in-depth-guides/ai/overview.md
-          - text: Dialogs
-            url: ./typescript/in-depth-guides/dialogs/overview.md
+          - text: Agent-to-Agent Protocol
+            url: ./typescript/in-depth-guides/ai/a2a/overview.md
+          - text: Model Context Protocol
+            url: ./typescript/in-depth-guides/ai/mcp/overview.md
+          - text: Adaptive Cards
+            url: ./typescript/in-depth-guides/adaptive-cards/overview.md
           - text: User Authentication
             url: ./typescript/in-depth-guides/user-authentication/overview.md
 
@@ -92,11 +94,11 @@ landingContent:
             url: ./csharp/getting-started/quickstart.md
       - linkListType: concept
         links:
-          - text: Adaptive Cards
-            url: ./csharp/in-depth-guides/adaptive-cards/overview.md
           - text: AI Overview
             url: ./csharp/in-depth-guides/ai/overview.md
-          - text: Dialogs
-            url: ./csharp/in-depth-guides/dialogs/overview.md
+          - text: Model Context Protocol
+            url: ./csharp/in-depth-guides/ai/mcp/overview.md          
+          - text: Adaptive Cards
+            url: ./csharp/in-depth-guides/adaptive-cards/overview.md
           - text: User Authentication
             url: ./csharp/in-depth-guides/user-authentication/overview.md
