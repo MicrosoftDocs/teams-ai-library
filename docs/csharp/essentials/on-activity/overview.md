@@ -1,10 +1,3 @@
----
-sidebar_position: 3
----
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Listening To Activities
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  

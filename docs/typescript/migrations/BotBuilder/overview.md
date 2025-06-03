@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # From BotBuilder
 
 This new iteration of Teams AI has been rebuilt from the ground up. To easy the migration process

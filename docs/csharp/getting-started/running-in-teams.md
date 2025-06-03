@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Running In Teams
 
 Now that your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.

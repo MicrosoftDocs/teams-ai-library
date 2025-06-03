@@ -1,10 +1,3 @@
----
-sidebar_position: 4
----
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Sending Messages
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `Send` method is provided which allows your handlers to send a message back to the user to the relevant conversation. 

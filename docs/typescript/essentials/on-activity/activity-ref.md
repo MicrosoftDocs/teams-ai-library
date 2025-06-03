@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Activity Type Reference
 
 The application supports a number of activity types, 

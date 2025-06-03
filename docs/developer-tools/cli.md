@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Teams CLI
 
 The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:

@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # 🛠️ DevTools
 
 The developer tools can be used to locally interact with an app to streamline the testing/development process,

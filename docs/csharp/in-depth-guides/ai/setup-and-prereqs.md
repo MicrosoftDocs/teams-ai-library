@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Setup & Prerequisites
 
 There are a few prerequisites to getting started with integrating LLMs into your application:

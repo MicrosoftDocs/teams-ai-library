@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Quickstart
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.
