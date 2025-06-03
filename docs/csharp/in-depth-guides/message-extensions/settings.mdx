@@ -45,10 +45,9 @@ Save it in the `index.html` file in the same folder as where your app is initial
 
 You can serve it by adding the following code to your app:
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/index.snippet.message-ext-serve-html.ts"
-/>
+```ts
+app.tab(`settings`, path.resolve(__dirname));
+```
 
 :::note
 This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/README.md) to learn more.
@@ -58,16 +57,52 @@ This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as
 
 To enable the settings page, your app needs to handle the `message.ext.query-settings-url` activity that Teams sends when a user right-clicks the app in the compose box. Your app must respond with the URL to your settings page. Here's how to implement this:
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/index.snippet.message-ext-query-settings-url.ts"
-/>
+```ts
+app.on("message.ext.query-settings-url", async ({ activity }) => {
+  // Get user settings from storage if available
+  const userSettings = await app.storage.get(activity.from.id) || { selectedOption: '' }
+  const escapedSelectedOption = encodeURIComponent(userSettings.selectedOption);
+
+  return {
+    composeExtension: {
+      type: "config",
+      suggestedActions: {
+        actions: [
+          {
+            type: "openUrl",
+            title: "Settings",
+            // ensure the bot endpoint is set in the environment variables
+            // process.env.BOT_ENDPOINT is not populated by default in the Teams Toolkit setup. 
+            value: `${process.env.BOT_ENDPOINT}/tabs/settings?selectedOption=${escapedSelectedOption}`
+          }
+        ]
+      }
+    }
+  };
+});
+```
 
 ## 4. Handle Form Submission
 
 When a user submits the settings form, Teams sends a `message.ext.setting` activity with the selected option in the `activity.value.state` property. Handle it to save the user's selection:
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/index.snippet.message-ext-setting.ts"
-/>
+```ts
+app.on("message.ext.setting", async ({ activity, send }) => {
+  const { state } = activity.value
+  if (state == "CancelledByUser") {
+    return {
+      status: 400
+    }
+  }
+  const selectedOption = state;
+  
+  // Save the selected option to storage
+  await app.storage.set(activity.from.id, { selectedOption })
+  
+  await send(`Selected option: ${selectedOption}`)
+
+  return {
+    status: 200
+  }
+});
+```

@@ -14,23 +14,54 @@ An A2A client is an agent or application that can proactively send tasks to A2A 
 
 You can use the `AgentManager` to register and send tasks to different A2A servers:
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/client-example.snippet.a2a-client-directly-use-agent-manager-example.ts"
-/>
+```ts
+// import { AgentManager } from "@microsoft/teams.a2a";
+const directlyUserAgentManager = async (message: string) => {
+  const agentManager = new AgentManager();
+  agentManager.use("my-agent", "https://my-agent.com/a2a");
+
+  const taskId = "my-task-id"; // Generated or reused from previous task
+  await agentManager.sendTask("my-agent", {
+    id: taskId,
+    message: {
+      role: 'user',
+      parts: [{ type: 'text' as const, text: message }],
+    },
+  });
+}
+```
 
 ## Using A2AClientPlugin with ChatPrompt
 
 A2A is most effective when used with an LLM. The `A2AClientPlugin` can be added to your chat prompt to allow interaction with A2A agents. Once added, the plugin will automatically configure the system prompt and tool calls to determine if the a2a server is needed for a particular task, and if so, it will do the work of orchestrating the call to the A2A server.
 
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/client-example.snippet.a2a-client-use-with-chat-prompt-example.ts"
-/>
-<FileCodeBlock
-    lang="typescript"
-    src="/generated-snippets/ts/client-example.snippet.a2a-client-use-with-chat-prompt-example-send.ts"
-/>
+```ts
+// import { ChatPrompt } from "@microsoft/teams.ai";
+// import { OpenAIChatModel } from "@microsoft/teams.openai";
+// import { A2AClientPlugin } from "@microsoft/teams.a2a";
+const prompt = new ChatPrompt(
+  {
+    logger,
+    model: new OpenAIChatModel({
+      apiKey: process.env.OPENAI_API_KEY,
+      model: "gpt-4o-mini",
+    }),
+  },
+  // Add the A2AClientPlugin to the prompt
+  [new A2AClientPlugin()]
+)
+  // Provide the agent's server URL
+  .usePlugin("a2a", {
+    key: "my-weather-agent",
+    url: "http://localhost:4000/a2a",
+  });
+```
+```ts
+// Now we can send the message to the prompt and it will decide if
+// the a2a agent should be used or not and also manages contacting the agent
+const result = await prompt.send(message);
+return result;
+```
 
 
 
