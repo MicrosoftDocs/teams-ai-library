@@ -1,4 +1,6 @@
-# Why An SDK?
+# Why An SDK? (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Before getting into the basics, it's important to understand how an SDK can be helpful when building an agent application. For this, it's a good exercise to understand the basic messaging and event flow of a Teams agent application.
 

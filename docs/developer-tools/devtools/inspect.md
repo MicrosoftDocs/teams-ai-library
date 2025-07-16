@@ -1,4 +1,6 @@
-# Inspect activities
+# Inspect activities (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Inspect incoming and outgoing activities on DevTools' Activities page. All interactions with your agent are logged here, including messages, reactions, and more.
 :::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/inspect_activity.png?raw=true" alt-text="Inspect Activities view":::

@@ -1,4 +1,6 @@
-# A2A Client
+# A2A Client (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ## What is an A2A Client?
 

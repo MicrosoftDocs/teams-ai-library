@@ -1,4 +1,6 @@
-# The API Client
+# The API Client (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams AI
 we pass an instance of our `ApiClient` into all our activity handlers.

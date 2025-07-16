@@ -1,4 +1,6 @@
-# Settings
+# Settings (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 You can add a settings page that allows users to configure settings for your app.
 

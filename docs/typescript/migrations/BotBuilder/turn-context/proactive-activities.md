@@ -1,4 +1,6 @@
-# Proactive Activities
+# Proactive Activities (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The BotBuilder proactive message flow requires you to have a conversation reference stored somewhere. In Teams AI
 we expose a `send` method almost identical to the one passed into our activity handlers that accepts a `conversationId`,

@@ -1,4 +1,6 @@
-# From BotBuilder
+# From BotBuilder (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 This new iteration of Teams AI has been rebuilt from the ground up. To easy the migration process
 we have created a plugin `@microsoft/teams.botbuilder`, which allows you to use a botbuilder `activity handler`

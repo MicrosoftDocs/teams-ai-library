@@ -1,4 +1,6 @@
-# Tabs
+# Tabs (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
 
@@ -17,4 +19,3 @@ The `@microsoft/teams.client` package in this library builds on TeamsJS and MSAL
 - [Microsoft Graph overview](https://learn.microsoft.com/en-us/graph/overview)
 - [Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/en-us/entra/identity-platform/msal-overview)
 - [Nested App Authentication (NAA)](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/nested-authentication)
-

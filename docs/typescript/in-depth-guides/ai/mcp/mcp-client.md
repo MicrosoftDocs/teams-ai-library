@@ -1,4 +1,6 @@
-# MCP Client
+# MCP Client (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 You are able to leverage other MCP servers that expose tools via the Streamable HTTP protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 

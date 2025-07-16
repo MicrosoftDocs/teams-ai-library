@@ -1,4 +1,6 @@
-# Microsoft 365 Agents Toolkit
+# Microsoft 365 Agents Toolkit (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Agents Toolkit is a powerful extension and CLI app that helps automate important tasks like manifest management, sideloading, deployment, and provisioning - if you encounter any issues while using it (such as problems with the extension, running apps, deployment and provisioning, or debugging via F5), please file them in the [Agents Toolkit GitHub repository](https://github.com/OfficeDev/microsoft-365-agents-toolkit).
 

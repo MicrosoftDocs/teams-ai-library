@@ -1,4 +1,6 @@
-# Quickstart
+# Quickstart (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.
 

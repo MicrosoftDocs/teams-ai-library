@@ -1,4 +1,6 @@
-# A2A Server
+# A2A Server (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 ## What is an A2A Server?
 An A2A server is an agent that exposes its capabilities to other agents using the A2A protocol. With this package, you can make your Teams app accessible to A2A clients.

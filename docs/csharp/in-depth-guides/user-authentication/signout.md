@@ -1,4 +1,6 @@
-# Signing Out
+# Signing Out (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Sign a user out by calling the `signout` method to discard the cached access token in the Bot Framework token service.
 

@@ -1,4 +1,6 @@
-# Best Practices
+# Best Practices (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 When sending messages using AI, Teams recommends a number of best practices to help with both user and developer experience.
 

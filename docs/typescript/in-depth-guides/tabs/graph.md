@@ -1,4 +1,6 @@
-# Microsoft Graph Client
+# Microsoft Graph Client (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The client App exposes a `graph` property that gives type-safe access to  Microsoft Graph functions. When graph functions are invoked, the app attaches an MSAL bearer token to the request so that the call can be authenticated and authorized. 
 

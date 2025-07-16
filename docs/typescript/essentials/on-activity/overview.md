@@ -1,4 +1,6 @@
-# Listening To Activitiesidebar_position: 3
+# Listening To Activitiesidebar_position: 3 (preview)
+
+[This article is prerelease documentation and is subject to change.]
 ---
 
 # Listening To Activities

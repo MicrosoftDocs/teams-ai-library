@@ -1,4 +1,6 @@
-# Signing In
+# Signing In (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 Prompting the user to sign in using an `OAuth` connection has
 never been easier! Just use the `signin` method to send the request

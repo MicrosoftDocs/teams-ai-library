@@ -1,4 +1,6 @@
-# Graph API Client
+# Graph API Client (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
 

@@ -1,4 +1,6 @@
-# Activity Type Reference
+# Activity Type Reference (preview)
+
+[This article is prerelease documentation and is subject to change.]
 
 The application supports a number of activity types, 
 
