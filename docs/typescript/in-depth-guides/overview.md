@@ -1,10 +1,6 @@
 ---
-title: In-Depth Guides (TypeScript)
-description: Learn about In-Depth Guides (TypeScript)
-ms.topic: overview
-ms.date: 06/03/2025
+sidebar_position: 3
+summary: Advanced guides covering complex topics like AI integration, adaptive cards, dialogs, message extensions, and user authentication.
 ---
 
-# In-Depth Guides (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# In-Depth Guides

@@ -1,10 +1,6 @@
 ---
-title: Observability (TypeScript)
-description: Learn about Observability (TypeScript)
-ms.topic: overview
-ms.date: 06/03/2025
+sidebar_position: 8
+summary: Monitor and track your Teams app performance with logging, middleware, and observability tools.
 ---
 
-# Observability (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Observability

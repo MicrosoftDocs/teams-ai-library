@@ -1,10 +1,6 @@
 ---
-title: In-Depth Guides (C#)
-description: Learn about In-Depth Guides (C#)
-ms.topic: overview
-ms.date: 06/03/2025
+sidebar_position: 3
+summary: Detailed technical guides covering advanced features and capabilities of Teams AI Library in C#, including AI integration, adaptive cards, dialogs, authentication, and message extensions.
 ---
 
-# In-Depth Guides (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# In-Depth Guides

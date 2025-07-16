@@ -1,13 +1,9 @@
 ---
-title: Sending Messages (TypeScript)
-description: Learn about Sending Messages (TypeScript)
-ms.topic: overview
-ms.date: 06/03/2025
+sidebar_position: 4
+summary: Guide to sending messages from your Teams AI agent, including replies, proactive messages, and different message types.
 ---
 
-# Sending Messages (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Sending Messages
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `send` method is provided which allows your handlers to send a message back to the user to the relevant conversation. 
 
@@ -27,8 +23,9 @@ app.on('signin.verify-state', async ({ send }) => {
 
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `signin.verify-state` events, which are sent when a user successfully signs in. 
 
-> [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
+:::tip
+This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards) section for more details.
+:::
 
 ## Streaming
 
@@ -44,10 +41,11 @@ app.on('message', async ({ activity, stream }) => {
 });
 ```
 
-> [!NOTE]
-> Streaming is currently only supported in 1:1 conversations, not group chats or channels
+:::note
+Streaming is currently only supported in 1:1 conversations, not group chats or channels
+:::
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Streaming Example":::
+![Streaming Example](/screenshots/streaming-chat.gif)
 
 ## @Mention
 

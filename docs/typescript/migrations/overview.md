@@ -1,10 +1,7 @@
 ---
-title: Migrations (TypeScript)
-description: Learn about Migrations (TypeScript)
-ms.topic: overview
-ms.date: 06/03/2025
+sidebar_position: 4
+summary: Migration guides for transitioning from older versions and frameworks to Teams AI Library v2.
+llms: ignore
 ---
 
-# Migrations (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Migrations

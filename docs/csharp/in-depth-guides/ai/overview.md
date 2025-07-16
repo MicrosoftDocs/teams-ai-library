@@ -1,13 +1,9 @@
 ---
-title: AI (C#)
-description: Learn about AI (C#)
-ms.topic: overview
-ms.date: 06/03/2025
+sidebar_position: 5
+summary: Overview of AI components in C# Teams AI, including Prompts for orchestration and Models for LLM interfaces.
 ---
 
-# AI (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 🤖 AI
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.
 The `@microsoft/teams.ai` package has two main components:
@@ -26,5 +22,6 @@ This layer deals with any of the nuances of the particular Models being used.
 It is in the model implementation that the individual LLM features (i.e. streaming/tools etc.)
 are made compatible with the more general features of the `@microsoft/teams.ai` package.
 
-> [!NOTE]
-> You are not restricted to use the `@microsoft/teams.ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
+:::note
+You are not restricted to use the `@microsoft/teams.ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
+:::

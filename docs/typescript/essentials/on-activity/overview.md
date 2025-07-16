@@ -1,19 +1,31 @@
 ---
-title: Listening To Activities (TypeScript)
-description: Learn about Listening To Activities (TypeScript)
-ms.topic: overview
-ms.date: 06/03/2025
+sidebar_position: 3
+summary: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
 ---
 
-# Listening To Activities (TypeScript) (preview)
+# Listening To Activitiesidebar_position: 3
+---
 
-[This article is prerelease documentation and is subject to change.]
+# Listening To Activities
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  
 Where _events_ describe high‑level happenings inside your app, _activities_ are the raw Teams messages such as chat text, card actions, installs, or invoke calls.  
 The Teams AI Library v2 exposes a fluent router so you can subscribe to these activities with `app.on('<route>', …)`.
 
-:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png":::
+```mermaid
+flowchart LR
+    Teams["Teams"]:::less-interesting
+    Server["App Server"]:::interesting
+    ActivityRouter["Activity Router (app.on())"]:::interesting
+    Handlers["Your Activity Handlers"]:::interesting
+
+    Teams --> |Events| Server
+    Server --> |Activity Event| ActivityRouter
+    ActivityRouter --> |handler invoked| Handlers
+
+    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
+    classDef less-interesting fill:#666,stroke:#333,stroke-width:4px;
+```
 
 Here is an example of a basic message handler:
 
@@ -57,8 +69,9 @@ app.on('message', async ({ activity }) => {
 });
 ```
 
-> [!NOTE]
-> Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler.
+:::info
+Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler.
+:::
 
 ## Activity Reference
 

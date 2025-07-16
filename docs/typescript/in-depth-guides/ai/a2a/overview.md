@@ -1,16 +1,12 @@
 ---
-title: A2A (Agent-to-Agent) Protocol (TypeScript)
-description: Learn about A2A (Agent-to-Agent) Protocol (TypeScript)
-ms.topic: overview
-ms.date: 06/03/2025
+summary: Overview of the experimental A2A (Agent-to-Agent) protocol for enabling programmatic communication between AI agents.
 ---
 
-# A2A (Agent-to-Agent) Protocol (TypeScript) (preview)
+# A2A (Agent-to-Agent) Protocol
 
-[This article is prerelease documentation and is subject to change.]
-
-> [!CAUTION]
-> This package is experimental and the A2A protocol is still in early development. Use with caution in production environments.
+:::caution
+This package is experimental and the A2A protocol is still in early development. Use with caution in production environments.
+:::
 
 [What is A2A?](https://google.github.io/A2A)
 
@@ -30,8 +26,38 @@ npm install @microsoft/teams.a2a@preview
 ## High-level Architecture
 
 ### A2A Server
-:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png":::
+```mermaid
+flowchart RL
+    A_S[TeamsApp]
+    B[A2APlugin]
+    D[External A2A Client]
+
+
+    D -- "task/send" message --> A_S
+    subgraph A2A Server
+        direction LR
+        A_S --> B
+    end
+    B -- AgentCard --> D
+    B -- "task/send" response --> D
+```
 
 ### A2A Client
 
-:::image type="content" source="~/assets/diagrams/overview-2.png" alt-text="alt-text for overview-2.png":::
+```mermaid
+flowchart LR
+    A_C[TeamsApp]
+    C[A2AClientPlugin]
+    E[External A2A Server]
+    U[Teams User]
+
+    U --> A_C
+    subgraph A2A Client
+        direction LR
+        A_C -- message --> C
+        C -- response from server --> A_C
+    end
+    C -- message task/send --> E
+    E -- AgentCard --> C
+    E -- task/send response --> C
+```

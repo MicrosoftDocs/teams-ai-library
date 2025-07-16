@@ -1,13 +1,9 @@
 ---
-title: User Authentication (C#)
-description: Learn about User Authentication (C#)
-ms.topic: overview
-ms.date: 06/03/2025
+sidebar_position: 4
+summary: Enable user authentication in Teams apps to access secured resources like email, flight status, and online services.
 ---
 
-# User Authentication (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 🔒 User Authentication
 
 <!-- 
 Things to potentially add to this section:
@@ -23,4 +19,4 @@ At times agents must access secured online resources on behalf of the user, such
 
 ## Resources
 
-[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0&preserve-view=true)
+[User Authentication Basics](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
