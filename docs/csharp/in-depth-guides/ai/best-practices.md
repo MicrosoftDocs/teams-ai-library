@@ -10,7 +10,7 @@ When sending messages using AI, Teams recommends including an indicator that the
 const messageToBeSent = new Message().addAiGenerated().text('Hello!');
 ```
 
-![AI Generated Indicator](/screenshots/ai-generated.gif)
+![AI Generated Indicator](~/assets/screenshots/ai-generated.gif)
 
 ## Gather feedback to improve prompts
 
@@ -39,4 +39,4 @@ for (let i = 0; i < citedDocs.length; i++) {
 }
 ```
 
-![AI Generated Indicator](/screenshots/citation.gif)
+![AI Generated Indicator](~/assets/screenshots/citation.gif)

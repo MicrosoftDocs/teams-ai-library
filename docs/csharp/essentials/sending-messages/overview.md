@@ -82,7 +82,7 @@ You may also stream messages to the user which can be useful for long messages, 
 Streaming is currently only supported in 1:1 conversations, not group chats or channels
 :::
 
-![Streaming Example](/screenshots/streaming-chat.gif)
+![Streaming Example](~/assets/screenshots/streaming-chat.gif)
 
 ## @Mention
 

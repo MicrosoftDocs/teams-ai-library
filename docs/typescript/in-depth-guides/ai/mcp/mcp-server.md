@@ -63,7 +63,7 @@ const app = new App({
 Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
 :::
 
-![MCP Server in Devtools](/screenshots/mcp-devtools.gif)
+![MCP Server in Devtools](~/assets/screenshots/mcp-devtools.gif)
 
 ## Piping messages to the user
 
