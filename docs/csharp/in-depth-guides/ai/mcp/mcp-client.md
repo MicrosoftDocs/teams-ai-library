@@ -5,7 +5,7 @@
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 
 > [!NOTE]
-> Take a look at [Function calling](../function-calling) to understand how the `ChatPrompt` leverages tools to enhance the LLM's capabilities. MCP extends this functionality by allowing remote tools, that may or may not be developed or maintained by you, to be used by your application.
+> Take a look at [Function calling](../function-calling.md) to understand how the `ChatPrompt` leverages tools to enhance the LLM's capabilities. MCP extends this functionality by allowing remote tools, that may or may not be developed or maintained by you, to be used by your application.
 
 ## Remote MCP Server
 
@@ -78,7 +78,7 @@ app.on('message', async ({ send, activity }) => {
 In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 
 > [!NOTE]
-> Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
+> Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server.md). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
 
 :::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="MCP Client in Devtools":::
 

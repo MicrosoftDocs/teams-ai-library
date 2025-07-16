@@ -3,7 +3,7 @@
 [This article is prerelease documentation and is subject to change.]
 
 > [!TIP]
-> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards). Understanding their basics is a prerequisite for this guide.
+> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards.md). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 

@@ -69,7 +69,7 @@ Since your agent is provisioned to work on Teams, one very helpful feature is to
 Here is an example of how to do this. Configure your plugin so that:
 1. It can validate if the incoming request is allowed to send messages to the user
 2. It fetches the correct conversation ID for the given user. 
-3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging) for more details.
+3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging.md) for more details.
 
 ```ts
 // Keep a store of the user to the conversation id
