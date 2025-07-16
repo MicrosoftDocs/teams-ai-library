@@ -17,3 +17,6 @@ csharptoc.yml
 
 # Ignore Copilot instructions
 .github/copilot-instructions.md
+
+# Ignore generated-snippets intermediate source
+docs/assets/generated-snippets/
