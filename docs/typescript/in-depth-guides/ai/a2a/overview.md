@@ -26,38 +26,8 @@ npm install @microsoft/teams.a2a@preview
 ## High-level Architecture
 
 ### A2A Server
-```mermaid
-flowchart RL
-    A_S[TeamsApp]
-    B[A2APlugin]
-    D[External A2A Client]
-
-
-    D -- "task/send" message --> A_S
-    subgraph A2A Server
-        direction LR
-        A_S --> B
-    end
-    B -- AgentCard --> D
-    B -- "task/send" response --> D
-```
+![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
 
 ### A2A Client
 
-```mermaid
-flowchart LR
-    A_C[TeamsApp]
-    C[A2AClientPlugin]
-    E[External A2A Server]
-    U[Teams User]
-
-    U --> A_C
-    subgraph A2A Client
-        direction LR
-        A_C -- message --> C
-        C -- response from server --> A_C
-    end
-    C -- message task/send --> E
-    E -- AgentCard --> C
-    E -- task/send response --> C
-```
+![alt-text for overview-2.png](~/assets/diagrams/overview-2.png)

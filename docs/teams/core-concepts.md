@@ -4,42 +4,7 @@ When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Tea
 
 ## Basic Flow
 
-```mermaid
-flowchart LR
-    %% Main actors
-    User([User])
-
-    %% Teams section
-    subgraph Teams ["Teams"]
-        TeamsClient["Teams Client"]
-        TeamsBackend["Teams Backend"]
-    end
-
-    %% Azure section
-    subgraph Azure ["Azure"]
-        AppReg["App Registration"]
-        AzureBot["Azure Bot"]
-    end
-
-    %% Local Server section
-    subgraph LocalServer ["Local Server"]
-        DevTunnel["DevTunnel"]
-        LocalApp["Your local application"]
-    end
-
-    %% Deployed Server section
-    subgraph DeployedServer ["Deployed Server"]
-        DeployedApp["Your deployed application"]
-    end
-
-    %% Define connections
-    User <--> TeamsClient
-    TeamsClient <--> TeamsBackend
-    TeamsBackend <--> AppReg
-    AppReg <--> AzureBot
-    AzureBot --> LocalServer
-    AzureBot --> DeployedServer
-```
+![alt-text for core-concepts-1.png](~/assets/diagrams/core-concepts-1.png)
 
 **Teams**
 
