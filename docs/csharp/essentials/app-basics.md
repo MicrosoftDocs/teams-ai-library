@@ -10,7 +10,7 @@ It is responsible for:
 4. Providing helpful utilities which simplify the ability for your application to interact with the Teams platform
 5. Managing plugins which can extend the functionality of your agent
 
-![alt-text for app-basics-1.png](~/assets/diagrams/app-basics-1.png)
+:::image type="content" source="~/assets/diagrams/app-basics-1.png" alt-text="alt-text for app-basics-1.png":::
 
 ## Core Components
 

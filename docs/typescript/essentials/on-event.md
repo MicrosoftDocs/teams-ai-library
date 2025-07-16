@@ -2,7 +2,7 @@
 
 An **event** is a foundational concept in building agents — it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).
 
-![alt-text for on-event-1.png](~/assets/diagrams/on-event-1.png)
+:::image type="content" source="~/assets/diagrams/on-event-1.png" alt-text="alt-text for on-event-1.png":::
 
 The Teams AI Library v2 makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.
 

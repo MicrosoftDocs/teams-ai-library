@@ -104,4 +104,4 @@ app.on('message', async ({ stream, send, activity, next }) => {
 });
 ```
 
-![Streaming the response](~/assets/screenshots/streaming-chat.gif)
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Streaming the response":::

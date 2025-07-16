@@ -9,7 +9,7 @@ The user can access the settings by right-clicking the app item in the compose b
 
 This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
-![Settings Page](~/assets/screenshots/settings-page.png)
+:::image type="content" source="~/assets/screenshots/settings-page.png" alt-text="Settings Page":::
 
 ## 1. Update the Teams Manifest
 

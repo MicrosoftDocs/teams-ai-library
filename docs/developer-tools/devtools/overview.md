@@ -3,7 +3,7 @@
 The developer tools can be used to locally interact with an app to streamline the testing/development process,
 preventing you from needing to deploy/register the app or expose a public endpoint.
 
-![DevTools chat with sent messages](~/assets/screenshots/devtools-echo-chat.png)
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="DevTools chat with sent messages":::
 
 ## Basic features
 

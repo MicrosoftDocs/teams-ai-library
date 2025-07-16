@@ -112,11 +112,11 @@ export function createLinkUnfurlCard(url: string) {
 
 The link unfurling response includes both a full adaptive card and a preview card. The preview card appears in the compose box when a user pastes a URL:
 
-![Link unfurl preview card](~/assets/screenshots/link-unfurl-preview.png)
+:::image type="content" source="~/assets/screenshots/link-unfurl-preview.png" alt-text="Link unfurl preview card":::
 
 The user can expand the preview card by clicking on the _expand_ button on the top right.
 
-![Link unfurl card in conversation](~/assets/screenshots/link-unfurl-card.png)
+:::image type="content" source="~/assets/screenshots/link-unfurl-card.png" alt-text="Link unfurl card in conversation":::
 
 The user can then choose to send entire the preview or the full adaptive card as a message.
 

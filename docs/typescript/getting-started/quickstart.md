@@ -96,7 +96,7 @@ When the application starts, you'll see:
 
 Let's navigate to the devtools server. Open your browser and head to [http://localhost:3979/devtools](http://localhost:3979/devtools). You should see a simple interface where you can interact with your agent. Send it a message!
 
-![devtools](~/assets/screenshots/devtools-echo-chat.png)
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="devtools":::
 
 ## Next steps
 

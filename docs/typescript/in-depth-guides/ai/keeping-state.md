@@ -75,4 +75,4 @@ export const handleStatefulConversation = async (
 };
 ```
 
-![Stateful Chat Example](~/assets/screenshots/stateful-chat-example.png)
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example":::
