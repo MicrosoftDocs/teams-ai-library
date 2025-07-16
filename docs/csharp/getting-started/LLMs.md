@@ -3,7 +3,7 @@ summary: Links to LLM context files for coding assistants to access C# Teams AI 
 ignore: true
 ---
 
-# LLMs.txt (preview)
+# LLMs.txt (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

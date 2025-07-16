@@ -1,4 +1,11 @@
-# Activity Type Reference (preview)
+---
+title: Activity Type Reference (preview) (TypeScript)
+description: Learn about Activity Type Reference (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Activity Type Reference (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

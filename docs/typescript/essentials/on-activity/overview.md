@@ -1,4 +1,11 @@
-# Listening To Activitiesidebar_position: 3 (preview)
+---
+title: Listening To Activitiesidebar_position - 3 (preview) (TypeScript)
+description: Learn about Listening To Activitiesidebar_position - 3 (preview) (TypeScript)
+ms.topic: overview
+ms.date: 07/16/2025
+---
+
+# Listening To Activitiesidebar_position: 3 (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 ---

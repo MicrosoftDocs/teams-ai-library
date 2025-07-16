@@ -1,4 +1,11 @@
-# Code Basics (preview)
+---
+title: Code Basics (preview) (C#)
+description: Learn about Code Basics (preview) (C#)
+ms.topic: get-started
+ms.date: 07/16/2025
+---
+
+# Code Basics (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

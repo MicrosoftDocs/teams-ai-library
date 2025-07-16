@@ -1,4 +1,11 @@
-# Microsoft Graph Client (preview)
+---
+title: Microsoft Graph Client (preview) (TypeScript)
+description: Learn about Microsoft Graph Client (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Microsoft Graph Client (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

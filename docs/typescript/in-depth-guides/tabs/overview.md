@@ -1,4 +1,11 @@
-# Tabs (preview)
+---
+title: Tabs (preview) (TypeScript)
+description: Learn about Tabs (preview) (TypeScript)
+ms.topic: overview
+ms.date: 07/16/2025
+---
+
+# Tabs (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

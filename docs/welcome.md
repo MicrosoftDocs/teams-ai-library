@@ -1,3 +1,10 @@
+---
+title: Welcome (preview)
+description: Learn about Welcome (preview)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
 # Welcome (preview)
 
 [This article is prerelease documentation and is subject to change.]

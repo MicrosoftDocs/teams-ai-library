@@ -1,3 +1,10 @@
+---
+title: Microsoft 365 Agents Toolkit (preview)
+description: Learn about Microsoft 365 Agents Toolkit (preview)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
 # Microsoft 365 Agents Toolkit (preview)
 
 [This article is prerelease documentation and is subject to change.]

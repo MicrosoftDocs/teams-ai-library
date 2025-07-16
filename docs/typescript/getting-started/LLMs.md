@@ -3,7 +3,7 @@ summary: Links to LLM context files that provide coding assistants with document
 llms: ignore
 ---
 
-# LLMs.txt (preview)
+# LLMs.txt (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

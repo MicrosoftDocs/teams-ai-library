@@ -1,4 +1,11 @@
-# MCP Server (preview)
+---
+title: MCP Server (preview) (TypeScript)
+description: Learn about MCP Server (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# MCP Server (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,4 +1,11 @@
-# Best Practices (preview)
+---
+title: Best Practices (preview) (TypeScript)
+description: Learn about Best Practices (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Best Practices (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

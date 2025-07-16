@@ -1,4 +1,11 @@
-# The API Client (preview)
+---
+title: The API Client (preview) (TypeScript)
+description: Learn about The API Client (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# The API Client (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

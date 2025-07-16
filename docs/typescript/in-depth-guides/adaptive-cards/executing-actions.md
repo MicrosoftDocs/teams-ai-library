@@ -1,4 +1,11 @@
-# Executing Actions (preview)
+---
+title: Executing Actions (preview) (TypeScript)
+description: Learn about Executing Actions (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Executing Actions (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

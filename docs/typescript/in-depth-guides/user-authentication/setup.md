@@ -1,4 +1,11 @@
-# App Setup (preview)
+---
+title: App Setup (preview) (TypeScript)
+description: Learn about App Setup (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# App Setup (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

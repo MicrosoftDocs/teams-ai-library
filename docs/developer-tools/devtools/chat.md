@@ -1,3 +1,10 @@
+---
+title: Devtools chat (preview)
+description: Learn about Devtools chat (preview)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
 # Devtools chat (preview)
 
 [This article is prerelease documentation and is subject to change.]

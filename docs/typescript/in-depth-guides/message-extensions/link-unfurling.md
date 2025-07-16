@@ -1,4 +1,11 @@
-# Link unfurling (preview)
+---
+title: Link unfurling (preview) (TypeScript)
+description: Learn about Link unfurling (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Link unfurling (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

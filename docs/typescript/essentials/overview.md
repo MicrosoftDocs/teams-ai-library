@@ -1,4 +1,11 @@
-# Essentials (preview)
+---
+title: Essentials (preview) (TypeScript)
+description: Learn about Essentials (preview) (TypeScript)
+ms.topic: overview
+ms.date: 07/16/2025
+---
+
+# Essentials (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

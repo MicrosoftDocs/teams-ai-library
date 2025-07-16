@@ -1,4 +1,11 @@
-# Setup & Prerequisites (preview)
+---
+title: Setup & Prerequisites (preview) (TypeScript)
+description: Learn about Setup & Prerequisites (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Setup & Prerequisites (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

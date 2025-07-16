@@ -1,4 +1,11 @@
-# Handling Multi-Step Forms (preview)
+---
+title: Handling Multi-Step Forms (preview) (TypeScript)
+description: Learn about Handling Multi-Step Forms (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Handling Multi-Step Forms (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

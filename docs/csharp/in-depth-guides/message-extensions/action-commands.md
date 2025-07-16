@@ -1,4 +1,11 @@
-# Action commands (preview)
+---
+title: Action commands (preview) (C#)
+description: Learn about Action commands (preview) (C#)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Action commands (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

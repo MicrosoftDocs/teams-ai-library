@@ -1,3 +1,10 @@
+---
+title: Why An SDK? (preview)
+description: Learn about Why An SDK? (preview)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
 # Why An SDK? (preview)
 
 [This article is prerelease documentation and is subject to change.]

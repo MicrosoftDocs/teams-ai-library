@@ -1,4 +1,11 @@
-# Signing Out (preview)
+---
+title: Signing Out (preview) (C#)
+description: Learn about Signing Out (preview) (C#)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Signing Out (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

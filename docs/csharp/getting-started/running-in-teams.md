@@ -1,4 +1,11 @@
-# Running In Teams (preview)
+---
+title: Running In Teams (preview) (C#)
+description: Learn about Running In Teams (preview) (C#)
+ms.topic: get-started
+ms.date: 07/16/2025
+---
+
+# Running In Teams (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,4 +1,11 @@
-# Proactive Activities (preview)
+---
+title: Proactive Activities (preview) (TypeScript)
+description: Learn about Proactive Activities (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Proactive Activities (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

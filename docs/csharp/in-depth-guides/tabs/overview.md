@@ -1,4 +1,11 @@
-# Tabs (preview)
+---
+title: Tabs (preview) (C#)
+description: Learn about Tabs (preview) (C#)
+ms.topic: overview
+ms.date: 07/16/2025
+---
+
+# Tabs (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

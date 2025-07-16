@@ -1,3 +1,10 @@
+---
+title: Teams Core Concepts (preview)
+description: Learn about Teams Core Concepts (preview)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
 # Teams Core Concepts (preview)
 
 [This article is prerelease documentation and is subject to change.]

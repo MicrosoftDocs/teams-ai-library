@@ -1,4 +1,11 @@
-# Settings (preview)
+---
+title: Settings (preview) (TypeScript)
+description: Learn about Settings (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Settings (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

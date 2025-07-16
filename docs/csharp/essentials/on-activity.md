@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 06/03/2025
 ---
 
-# Listening To Activities (C#) (preview)
+# Listening To Activities (C#) (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,4 +1,11 @@
-# Using The App (preview)
+---
+title: Using The App (preview) (TypeScript)
+description: Learn about Using The App (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Using The App (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,4 +1,11 @@
-# Building Adaptive Cards (preview)
+---
+title: Building Adaptive Cards (preview) (TypeScript)
+description: Learn about Building Adaptive Cards (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Building Adaptive Cards (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

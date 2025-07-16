@@ -1,4 +1,11 @@
-# Chat Generation (preview)
+---
+title: Chat Generation (preview) (C#)
+description: Learn about Chat Generation (preview) (C#)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Chat Generation (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,4 +1,11 @@
-# Message Extensions (preview)
+---
+title: Message Extensions (preview) (TypeScript)
+description: Learn about Message Extensions (preview) (TypeScript)
+ms.topic: overview
+ms.date: 07/16/2025
+---
+
+# Message Extensions (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

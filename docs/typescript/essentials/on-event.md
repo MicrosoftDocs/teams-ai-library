@@ -1,4 +1,11 @@
-# Listening To Events (preview)
+---
+title: Listening To Events (preview) (TypeScript)
+description: Learn about Listening To Events (preview) (TypeScript)
+ms.topic: how-to
+ms.date: 07/16/2025
+---
+
+# Listening To Events (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
