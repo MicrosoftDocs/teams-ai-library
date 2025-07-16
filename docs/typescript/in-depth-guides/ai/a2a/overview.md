@@ -4,9 +4,8 @@ summary: Overview of the experimental A2A (Agent-to-Agent) protocol for enabling
 
 # A2A (Agent-to-Agent) Protocol
 
-:::caution
-This package is experimental and the A2A protocol is still in early development. Use with caution in production environments.
-:::
+> [!CAUTION]
+> This package is experimental and the A2A protocol is still in early development. Use with caution in production environments.
 
 [What is A2A?](https://google.github.io/A2A)
 

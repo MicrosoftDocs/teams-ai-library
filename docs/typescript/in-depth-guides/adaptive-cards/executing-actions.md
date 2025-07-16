@@ -211,6 +211,5 @@ app.on('card.action', async ({ activity, send }) => {
 });
 ```
 
-:::note
-The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
-:::
+> [!NOTE]
+> The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.

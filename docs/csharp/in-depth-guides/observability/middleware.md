@@ -14,4 +14,3 @@ app.use(async ({ log, next }) => {
   log.debug(new Date().getTime() - startedAt.getTime());
 });
 ```
-
