@@ -1,15 +1,26 @@
----
-title: Function calling (TypeScript)
-description: Learn about function calling (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Function calling (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Functions
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
+
+```mermaid
+sequenceDiagram
+  participant User
+  participant ChatPrompt
+  participant LLM
+  participant Function-PokemonSearch
+  participant ExternalAPI
+
+  User->>ChatPrompt: send(activity.text)
+  ChatPrompt->>LLM: Provide instructions, message, and available functions
+    LLM->>ChatPrompt: Decide to call `pokemonSearch` with parameters
+    ChatPrompt->>Function-PokemonSearch: Execute with pokemonName
+    Function-PokemonSearch->>ExternalAPI: fetch pokemon data
+    ExternalAPI-->>Function-PokemonSearch: return pokemon info
+    Function-PokemonSearch-->>ChatPrompt: return result
+  ChatPrompt->>LLM: Send function result(s)
+  LLM-->>ChatPrompt: Final user-facing response
+  ChatPrompt-->>User: send(result.content)
+```
 
 ```ts
 const prompt = new ChatPrompt({
@@ -34,7 +45,7 @@ const prompt = new ChatPrompt({
     },
     // The cooresponding function will be called
     // automatically if the LLM decides to call this function
-    async ({ pokemonName }: PokemonSearch) => {
+    async ({ pokemonName }: IPokemonSearch) => {
       log.info('Searching for pokemon', pokemonName);
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       if (!response.ok) {
@@ -116,4 +127,32 @@ const prompt = new ChatPrompt({
 // The LLM will then produce a final response to be sent back to the user
 const result = await prompt.send(activity.text);
 await send(result.content ?? 'Sorry I could not figure it out');
+```
+
+## Stopping Funcitons early
+
+You'll notice that after the function responds, `ChatPrompt` re-sends the response from the function invocation back to the LLM which responds back with the user-facing message. It's possible to prevent this "automatic" function calling by passing in a flag
+
+```ts
+const result = await prompt.send(activity.text, {
+  autoFunctionCalling: false // Disable automatic function calling
+});
+// Extract the function call arguments from the result
+const functionCallArgs = result.function_calls?.[0].arguments;
+
+const firstCall = result.function_calls?.[0];
+  const fnResult = actualFunction(firstCall.arguments);
+  messages.push({
+    role: 'function',
+    function_id: firstCall.id,
+    content: fnResult,
+  });
+
+  // Optionally, you can call the chat prompt again after updating the messages with the results
+  const result = await prompt.send('What should we do next?', {
+    messages,
+    autoFunctionCalling: true // You can enable it here if you want
+  });
+  const functionCallArgs = result.function_calls?.[0].arguments; // Extract the function call arguments
+  await send(`The LLM responed with the following structured output: ${JSON.stringify(functionCallArgs, undefined, 2)}.`);
 ```

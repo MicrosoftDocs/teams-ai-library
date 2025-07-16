@@ -1,13 +1,4 @@
----
-title: Signing In (C#)
-description: Learn about Signing In (C#)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Signing In (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Signing In
 
 Prompting the user to sign in using an `OAuth` connection has
 never been easier! Just use the `signin` method to send the request

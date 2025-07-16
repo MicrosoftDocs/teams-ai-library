@@ -1,13 +1,4 @@
----
-title: A2A Client (TypeScript)
-description: Learn about A2A Client (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# A2A Client (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# A2A Client
 
 ## What is an A2A Client?
 
@@ -21,17 +12,17 @@ You can use the `AgentManager` to register and send tasks to different A2A serve
 // import { AgentManager } from "@microsoft/teams.a2a";
 const directlyUserAgentManager = async (message: string) => {
   const agentManager = new AgentManager();
-  agentManager.use("my-agent", "https://my-agent.com/a2a");
+  agentManager.use('my-agent', 'https://my-agent.com/a2a');
 
-  const taskId = "my-task-id"; // Generated or reused from previous task
-  await agentManager.sendTask("my-agent", {
+  const taskId = 'my-task-id'; // Generated or reused from previous task
+  await agentManager.sendTask('my-agent', {
     id: taskId,
     message: {
       role: 'user',
       parts: [{ type: 'text' as const, text: message }],
     },
   });
-}
+};
 ```
 
 ## Using A2AClientPlugin with ChatPrompt
@@ -47,16 +38,16 @@ const prompt = new ChatPrompt(
     logger,
     model: new OpenAIChatModel({
       apiKey: process.env.OPENAI_API_KEY,
-      model: "gpt-4o-mini",
+      model: 'gpt-4o-mini',
     }),
   },
   // Add the A2AClientPlugin to the prompt
   [new A2AClientPlugin()]
 )
   // Provide the agent's server URL
-  .usePlugin("a2a", {
-    key: "my-weather-agent",
-    url: "http://localhost:4000/a2a",
+  .usePlugin('a2a', {
+    key: 'my-weather-agent',
+    url: 'http://localhost:4000/a2a',
   });
 ```
 ```ts
@@ -76,7 +67,43 @@ To understand how the A2A client works with the `ChatPrompt`, `A2AClientPlugin`,
 3. It configures the tool calls for the LLM to decide if it needs to call a particular A2A agent.
 4. If the LLM decides to call an A2A agent, the plugin will use the `AgentManager` to call the agent and return the result.
 
-:::image type="content" source="~/assets/diagrams/a2a-client-1.png" alt-text="alt-text for a2a-client-1.png":::
+```mermaid
+sequenceDiagram
+    participant User
+    participant ChatPrompt
+    participant A2AClientPlugin
+    participant AgentManager
+    participant AgentClient
+    participant LLM
+    participant TargetAgent
+
+    alt config
+        User->>ChatPrompt: "use" with A2A server details
+        ChatPrompt->>A2AClientPlugin: configure usable a2a server
+        A2AClientPlugin->>AgentManager: register new potential client
+    end
+    alt send
+        User->>ChatPrompt: Send initial message
+        ChatPrompt->>A2AClientPlugin: configure system prompt
+        A2AClientPlugin->>AgentManager: get agent cards
+        AgentManager->>AgentClient: for each get agent card
+        AgentClient-->>AgentManager: agent card
+        AgentManager-->>A2AClientPlugin: all agent cards
+        A2AClientPlugin-->>ChatPrompt: updated system prompt
+        ChatPrompt->>A2AClientPlugin: configure tool-calls (onBuildFunctions)
+        A2AClientPlugin-->>ChatPrompt: Configured tool calls
+        ChatPrompt->>LLM: send-message
+        LLM-->>ChatPrompt: Call A2A TargetAgent
+        ChatPrompt->>A2AClientPlugin: Handler for calling A2A TargetAgent
+        A2AClientPlugin->>AgentManager: Call TargetAgent with message
+        AgentManager->>AgentClient: Call TargetAgent with message
+        TargetAgent-->>AgentClient: Return task (e.g., completed, input-required)
+        AgentClient->>AgentManager: Result task
+        AgentManager->>A2AClientPlugin: Result task
+        A2AClientPlugin->>ChatPrompt: Result task
+        ChatPrompt-->>User: Respond with final result or follow-up
+    end
+```
 
 ## Notes
 

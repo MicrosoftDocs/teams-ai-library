@@ -1,20 +1,33 @@
----
-title: Sending Activities (TypeScript)
-description: Learn about Sending Activities (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Sending Activities (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Sending Activities
 
 BotBuilders pattern for sending activities via its `TurnContext` is similar to that
 in Teams AI, but one key difference is that when sending adaptive cards you don't need
 to construct the entire activity yourself.
 
-# [BotBuilder](#tab/botbuilder)
-```typescript showLineNumbers
+<Tabs groupId="sending-activities">
+  <TabItem value="Diff" default>
+    ```typescript
+    // highlight-error-start
+-    import { TeamsActivityHandler } from 'botbuilder';
+
+-    export class ActivityHandler extends TeamsActivityHandler {
+-      constructor() {
+-        super();
+-        this.onMessage(async (context) => {
+-          await context.sendActivity({ type: 'typing' });
+-        });
+-      }
+-    }
+    // highlight-error-end
+    // highlight-success-start
++    app.on('message', async ({ send }) => {
++      await send({ type: 'typing' });
++    });
+    // highlight-success-end
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
 
     export class ActivityHandler extends TeamsActivityHandler {
@@ -26,21 +39,44 @@ to construct the entire activity yourself.
         });
       }
     }
-```
-# [Teams AI](#tab/teamsai)
-```typescript showLineNumbers
+    ```
+  </TabItem>
+  <TabItem value="Teams AI">
+    ```typescript showLineNumbers
     app.on('message', async ({ send }) => {
       // highlight-next-line
       await send({ type: 'typing' });
     });
-```
----
-
+    ```
+  </TabItem>
+</Tabs>
 
 ## Strings
 
-# [BotBuilder](#tab/botbuilder)
-```typescript showLineNumbers
+<Tabs groupId="sending-activities">
+  <TabItem value="Diff" default>
+    ```typescript
+    // highlight-error-start
+-    import { TeamsActivityHandler } from 'botbuilder';
+
+-    export class ActivityHandler extends TeamsActivityHandler {
+-      constructor() {
+-        super();
+-        this.onMessage(async (context) => {
+-          await context.sendActivity('hello world');
+-        });
+-      }
+-    }
+    // highlight-error-end
+    // highlight-success-start
++    app.on('message', async ({ send }) => {
++      await send('hello world');
++    });
+    // highlight-success-end
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
 
     export class ActivityHandler extends TeamsActivityHandler {
@@ -52,21 +88,60 @@ to construct the entire activity yourself.
         });
       }
     }
-```
-# [Teams AI](#tab/teamsai)
-```typescript showLineNumbers
+    ```
+  </TabItem>
+  <TabItem value="Teams AI">
+    ```typescript showLineNumbers
     app.on('message', async ({ send }) => {
       // highlight-next-line
       await send('hello world');
     });
-```
----
-
+    ```
+  </TabItem>
+</Tabs>
 
 ## Adaptive Cards
 
-# [BotBuilder](#tab/botbuilder)
-```typescript showLineNumbers
+<Tabs groupId="sending-activities">
+  <TabItem value="Diff" default>
+    ```typescript
+    // highlight-error-line
+-    import { TeamsActivityHandler, CardFactory } from 'botbuilder';
+    // highlight-success-line
++    import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+
+    // highlight-error-start
+-    export class ActivityHandler extends TeamsActivityHandler {
+-      constructor() {
+-        super();
+-        this.onMessage(async (context) => {
+-          await context.sendActivity({
+-            type: 'message',
+-            attachments: [
+-              CardFactory.adaptiveCard({
+-                $schema: 'http://adaptivecards.io/schemas/adaptive-card.json',
+-                type: 'AdaptiveCard',
+-                version: '1.0',
+-                body: [{
+-                  type: 'TextBlock',
+-                  text: 'hello world'
+-                }]
+-              })
+-            ]
+-          });
+-        });
+-      }
+-    }
+    // highlight-error-end
+    // highlight-success-start
++    app.on('message', async ({ send }) => {
++      await send(new AdaptiveCard(new TextBlock('hello world')));
++    });
+    // highlight-success-end
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```typescript showLineNumbers
     import { TeamsActivityHandler, CardFactory } from 'botbuilder';
 
     export class ActivityHandler extends TeamsActivityHandler {
@@ -92,23 +167,54 @@ to construct the entire activity yourself.
         });
       }
     }
-```
-# [Teams AI](#tab/teamsai)
-```typescript showLineNumbers
+    ```
+  </TabItem>
+  <TabItem value="Teams AI">
+    ```typescript showLineNumbers
     import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
     app.on('message', async ({ send }) => {
       // highlight-next-line
       await send(new AdaptiveCard(new TextBlock('hello world')));
     });
-```
----
-
+    ```
+  </TabItem>
+</Tabs>
 
 ## Attachments
 
-# [BotBuilder](#tab/botbuilder)
-```typescript showLineNumbers
+<Tabs groupId="sending-activities">
+  <TabItem value="Diff" default>
+    ```typescript
+    // highlight-error-line
+-    import { TeamsActivityHandler } from 'botbuilder';
+    // highlight-success-line
++    import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+
+    // highlight-error-start
+-    export class ActivityHandler extends TeamsActivityHandler {
+-      constructor() {
+-        super();
+-        this.onMessage(async (context) => {
+-          await context.sendActivity({
+-            type: 'message',
+-            attachments: [
+-              ...
+-            ]
+-          });
+-        });
+-      }
+-    }
+    // highlight-error-end
+    // highlight-success-start
++    app.on('message', async ({ send }) => {
++      await send(new MessageActivity().addAttachment(...));
++    });
+    // highlight-success-end
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```typescript showLineNumbers
     import { TeamsActivityHandler } from 'botbuilder';
 
     export class ActivityHandler extends TeamsActivityHandler {
@@ -126,14 +232,16 @@ to construct the entire activity yourself.
         });
       }
     }
-```
-# [Teams AI](#tab/teamsai)
-```typescript showLineNumbers
+    ```
+  </TabItem>
+  <TabItem value="Teams AI">
+    ```typescript showLineNumbers
     import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
     app.on('message', async ({ send }) => {
       // highlight-next-line
       await send(new MessageActivity().addAttachment(...));
     });
-```
----
+    ```
+  </TabItem>
+</Tabs>

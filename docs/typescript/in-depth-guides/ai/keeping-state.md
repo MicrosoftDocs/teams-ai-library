@@ -1,13 +1,4 @@
----
-title: Keeping State (TypeScript)
-description: Learn about Keeping State (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Keeping State (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Keeping State
 
 By default, LLMs are not stateful. This means that they do not remember previous messages or context when generating a response.
 It's common practice to keep state of the conversation history in your application and pass it to the LLM each time you make a request.
@@ -15,13 +6,15 @@ It's common practice to keep state of the conversation history in your applicati
 By default, the `ChatPrompt` instance will create a temporary in-memory store to keep track of the conversation history. This is beneficial
 when you want to use it to generate an LLM response, but not persist the conversation history. But in other cases, you may want to keep the conversation history
 
-> [!WARNING]
-> By reusing the same `ChatPrompt` class instance across multiple conversations will lead to the conversation history being shared across all conversations. Which is usually not the desired behavior.
+:::warning
+By reusing the same `ChatPrompt` class instance across multiple conversations will lead to the conversation history being shared across all conversations. Which is usually not the desired behavior.
+:::
 
 To avoid this, you need to get messages from your persistent (or in-memory) store and pass it in to the `ChatPrompt`.
 
-> [!NOTE]
-> The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
+:::note
+The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
+:::
 
 ```ts
 // Simple in-memory store for conversation histories
@@ -84,4 +77,4 @@ export const handleStatefulConversation = async (
 };
 ```
 
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example":::
+![Stateful Chat Example](/screenshots/stateful-chat-example.png)

@@ -1,13 +1,4 @@
----
-title: Best Practices (TypeScript)
-description: Learn about Best Practices (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Best Practices (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Best Practices
 
 When sending messages using AI, Teams recommends a number of best practices to help with both user and developer experience.
 
@@ -19,11 +10,11 @@ When sending messages using AI, Teams recommends including an indicator that the
 const messageToBeSent = new Message().addAiGenerated().text('Hello!');
 ```
 
-:::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="AI Generated Indicator":::
+![AI Generated Indicator](/screenshots/ai-generated.gif)
 
 ## Gather feedback to improve prompts
 
-AI Generated messages are not always perfect. Prompts can have gaps, and can sometimes lead to unexpected results. To help improve the prompts, Teams recommends gathering feedback from users on the AI-generated messages. See [Feedback](../feedback.md) for more information on how to gather feedback.
+AI Generated messages are not always perfect. Prompts can have gaps, and can sometimes lead to unexpected results. To help improve the prompts, Teams recommends gathering feedback from users on the AI-generated messages. See [Feedback](../feedback) for more information on how to gather feedback.
 
 This does involve thinking through a pipeline for gathering feedback and then automatically, or manually, updating prompts based on the feedback. The feedback system is an point of entry to your eval pipeline.
 
@@ -31,8 +22,9 @@ This does involve thinking through a pipeline for gathering feedback and then au
 
 AI generated messages can hallucinate even if messages are grounded in real data. To help with this, Teams recommends including citations in the AI Generated messages. This is easy to do by simply using the `addCitations` method on the message. This will add a citation to the message, and the LLM will be able to use it to generate a citation for the user.
 
-> [!WARNING]
-> Citations are added with a `position` property. This property value needs to also be included in the message text as `[<position>]`. If there is a citation that's added without the associated value in the message text, Teams will not render the citation
+:::warning
+Citations are added with a `position` property. This property value needs to also be included in the message text as `[<position>]`. If there is a citation that's added without the associated value in the message text, Teams will not render the citation
+:::
 
 ```ts
 const messageActivity = new MessageActivity(result.content).addAiGenerated();
@@ -47,4 +39,4 @@ for (let i = 0; i < citedDocs.length; i++) {
 }
 ```
 
-:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="AI Generated Indicator":::
+![AI Generated Indicator](/screenshots/citation.gif)

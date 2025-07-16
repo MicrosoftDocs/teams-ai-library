@@ -1,15 +1,6 @@
----
-title: MCP Client (TypeScript)
-description: Learn about MCP Client (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
+# MCP Client
 
-# MCP Client (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
-
-You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
+You are able to leverage other MCP servers that expose tools via the Streamable HTTP protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 
 Install it to your application:
 
@@ -17,17 +8,18 @@ Install it to your application:
 npm install @microsoft/teams.mcpclient@preview
 ```
 
-> [!NOTE]
-> Take a look at [Function calling](../function-calling.md) to understand how the `ChatPrompt` leverages tools to enhance the LLM's capabilities. MCP extends this functionality by allowing remote tools, that may or may not be developed or maintained by you, to be used by your application.
+:::info
+Take a look at [Function calling](../function-calling) to understand how the `ChatPrompt` leverages tools to enhance the LLM's capabilities. MCP extends this functionality by allowing remote tools, that may or may not be developed or maintained by you, to be used by your application.
+:::
 
 ## Remote MCP Server
 
 The first thing that's needed is access to a **remote** MCP server. MCP Servers (at present) come using two main types protocols:
 
 1. StandardIO - This is a _local_ MCP server, which runs on your machine. An MCP client may connect to this server, and use standard input and outputs to communicate with it. Since our application is running remotely, this is not something that we want to use
-2. SSE - This is a _remote_ MCP server. An MCP client may send it requests and the server responds in the expected MCP protocol.
+2. Streamable HTTP - This is a _remote_ MCP server. An MCP client may send it requests and the server responds in the expected MCP protocol.
 
-For hooking up to your a valid SSE server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
+For hooking up to your valid remote server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
 
 ## MCP Client Plugin
 
@@ -40,9 +32,9 @@ const logger = new ConsoleLogger('mcp-client', { level: 'debug' });
 const prompt = new ChatPrompt(
   {
     instructions:
-      "You are a helpful assistant. You MUST use tool calls to do all your work.",
+      'You are a helpful assistant. You MUST use tool calls to do all your work.',
     model: new OpenAIChatModel({
-      model: "gpt-4o-mini",
+      model: 'gpt-4o-mini',
       apiKey: process.env.OPENAI_API_KEY,
     }),
     logger
@@ -53,24 +45,33 @@ const prompt = new ChatPrompt(
   // or improve performance
   [new McpClientPlugin({ logger })],
 )
-  // Here we are saying you can use any tool from localhost:3000/mcp
+  // Here we are saying you can use any tool from localhost:3978/mcp
   // (that is the URL for the server we built using the mcp plugin)
-  .usePlugin("mcpClient", { url: "http://localhost:3000/mcp" })
+  .usePlugin('mcpClient', { url: 'http://localhost:3978/mcp' })
   // Alternatively, you can use a different server hosted somewhere else
   // Here we are using the mcp server hosted on an Azure Function
-  .usePlugin("mcpClient", {
-    url: "https://aiacceleratormcp.azurewebsites.net/runtime/webhooks/mcp/sse",
+  .usePlugin('mcpClient', {
+    url: 'https://aiacceleratormcp.azurewebsites.net/runtime/webhooks/mcp/sse',
     params: {
       headers: {
         // If your server requires authentication, you can pass in Bearer or other
         // authentication headers here
-        "x-functions-key": process.env.AZURE_FUNCTION_KEY!,
+        'x-functions-key': process.env.AZURE_FUNCTION_KEY!,
       },
     },
+  }).usePlugin('mcpClient', {
+    url: 'https://aiacceleratormcp.azurewebsites.net/runtime/webhooks/mcp/sse',
+    params: {
+      headers: {
+        'x-functions-key': process.env.AZURE_FUNCTION_KEY!,
+      },
+    },
+  }).usePlugin('mcpClient', {
+    url: 'https://learn.microsoft.com/api/mcp',
   });
 
-app.on("message", async ({ send, activity }) => {
-  await send({ type: "typing" });
+app.on('message', async ({ send, activity }) => {
+  await send({ type: 'typing' });
 
   const result = await prompt.send(activity.text);
   if (result.content) {
@@ -81,9 +82,11 @@ app.on("message", async ({ send, activity }) => {
 
 In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 
-> [!NOTE]
-> Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server.md). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
+:::note
+Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
+:::
 
-:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="MCP Client in Devtools":::
+![MCP Client in Devtools](/screenshots/mcp-client-pokemon.gif)
 
 In this example, our MCP server is a Pokemon API and our client knows how to call it. The LLM is able to call the `getPokemon` function exposed by the server and return the result back to the user.
+

@@ -1,17 +1,8 @@
----
-title: Feedback (C#)
-description: Learn about Feedback (C#)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Feedback (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Feedback
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Feedback Message":::
+![Feedback Message](/screenshots/feedback.gif)
 
 ## Storage
 
@@ -59,7 +50,7 @@ storedFeedbackByMessageId.set(sentMessageId, {
 Once the user decides to like/dislike the message, you can handle the feedback in a received event. Once received, you can choose to include it in your persistent store.
 
 ```ts
-app.on("message.submit.feedback", async ({ activity, log }) => {
+app.on('message.submit.feedback', async ({ activity, log }) => {
   const { reaction, feedback: feedbackJson } = activity.value.actionValue;
   if (activity.replyToId == null) {
     log.warn(`No replyToId found for messageId ${activity.id}`);
@@ -75,8 +66,8 @@ app.on("message.submit.feedback", async ({ activity, log }) => {
   } else {
     storedFeedbackByMessageId.set(activity.id, {
       ...existingFeedback,
-      likes: existingFeedback.likes + (reaction === "like" ? 1 : 0),
-      dislikes: existingFeedback.dislikes + (reaction === "dislike" ? 1 : 0),
+      likes: existingFeedback.likes + (reaction === 'like' ? 1 : 0),
+      dislikes: existingFeedback.dislikes + (reaction === 'dislike' ? 1 : 0),
       feedbacks: [...existingFeedback.feedbacks, feedbackJson],
     });
   }

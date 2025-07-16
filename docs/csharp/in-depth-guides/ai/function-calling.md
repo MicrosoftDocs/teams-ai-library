@@ -1,13 +1,4 @@
----
-title: Function calling (C#)
-description: Learn about Function calling (C#)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Function calling (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Functions
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 
@@ -34,7 +25,7 @@ const prompt = new ChatPrompt({
     },
     // The cooresponding function will be called
     // automatically if the LLM decides to call this function
-    async ({ pokemonName }: PokemonSearch) => {
+    async ({ pokemonName }: IPokemonSearch) => {
       log.info('Searching for pokemon', pokemonName);
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       if (!response.ok) {

@@ -1,25 +1,17 @@
----
-title: Adapters (TypeScript)
-description: Learn about Adapters (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Adapters (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Adapters
 
 A BotBuilder `Adapter` is similar to a Teams AI `Plugin` in the sense that they are both
 an abstraction that is meant to send/receive activities. To make migrating stress free we have
 shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter instance.
 
-> [!NOTE]
-> this snippet shows how to use the `BotBuilderPlugin` to send/receive activities using
-> botbuilder instead of the default Teams AI http plugin.
+:::info
+this snippet shows how to use the `BotBuilderPlugin` to send/receive activities using
+botbuilder instead of the default Teams AI http plugin.
+:::
 
 
-# [index.ts](#tab/index)
-```typescript
+  <TabItem value="index.ts" default>
+    ```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
 
@@ -38,9 +30,9 @@ shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter inst
     (async () => {
       await app.start();
     })();
-```
-# [adapter.ts](#tab/adapter)
-```typescript
+    ```
+  <TabItem value="adapter.ts">
+    ```typescript
     import { CloudAdapter } from 'botbuilder';
 
     // replace with your BotAdapter
@@ -59,9 +51,9 @@ shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter inst
     // highlight-end
 
     export default adapter;
-```
-# [activity-handler.ts](#tab/activity-handler)
-```typescript
+    ```
+  <TabItem value="activity-handler.ts">
+    ```typescript
     import { TeamsActivityHandler } from 'botbuilder';
 
     // replace with your TeamsActivityHandler
@@ -79,8 +71,7 @@ shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter inst
 
     const handler = new ActivityHandler();
     export default handler;
-```
----
+    ```
 
 
 ```

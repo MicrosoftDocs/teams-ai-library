@@ -1,20 +1,52 @@
----
-title: Proactive Activities (TypeScript)
-description: Learn about Proactive Activities (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Proactive Activities (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Proactive Activities
 
 The BotBuilder proactive message flow requires you to have a conversation reference stored somewhere. In Teams AI
 we expose a `send` method almost identical to the one passed into our activity handlers that accepts a `conversationId`,
 so all you need to store is that!
 
-# [BotBuilder](#tab/botbuilder)
-```typescript showLineNumbers
+<Tabs groupId="sending-activities">
+  <TabItem value="Diff" default>
+    ```typescript
+    // highlight-error-start
+-    import {
+-      CloudAdapter,
+-      ConfigurationBotFrameworkAuthentication,
+-      ConversationReference,
+-    } from 'botbuilder';
+    // highlight-error-end
+    // highlight-success-line
++    import { App } from '@microsoft/teams.apps';
+
+    // highlight-error-start
+-    const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+-    const adapter = new CloudAdapter(auth);
+    // highlight-error-end
+    // highlight-success-line
++    const app = new App();
+
+    (async () => {
+      // highlight-error-start
+-      const conversationReference: ConversationReference = {
+-        serviceUrl: '...',
+-        bot: { ... },
+-        channelId: 'msteams',
+-        conversation: { ... },
+-        user: { ... },
+-      };
+
+-      await adapter.continueConversationAsync(process.env.MicrosoftAppId ?? '', conversationReference, async context => {
+-        await context.sendActivity('proactive hello');
+-      });
+      // highlight-error-end
+      // highlight-success-start
++      await app.start();
++      await app.send('your-conversation-id', 'proactive hello');
+      // highlight-success-end
+    }());
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```typescript showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -39,9 +71,10 @@ so all you need to store is that!
       });
     }());
     // highlight-end
-```
-# [Teams AI](#tab/teamsai)
-```typescript showLineNumbers
+    ```
+  </TabItem>
+  <TabItem value="Teams AI">
+    ```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();
@@ -52,5 +85,6 @@ so all you need to store is that!
       await app.send('your-conversation-id', 'proactive hello');
     }());
     // highlight-end
-```
----
+    ```
+  </TabItem>
+</Tabs>

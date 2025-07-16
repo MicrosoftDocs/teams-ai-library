@@ -1,13 +1,4 @@
----
-title: MCP Server (C#)
-description: Learn about MCP Server (C#)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# MCP Server (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# MCP Server
 
 You are able to convert any `App` into an MCP server by using the `McpPlugin` from the `@microsoft/teams.mcp` package. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications. 
 
@@ -29,6 +20,10 @@ const mcpServerPlugin = new McpPlugin({
   {
     input: z.string().describe('the text to echo back'),
   },
+  {
+    readOnlyHint: true,
+    idempotentHint: true
+  },
   async ({ input }) => {
     return {
       content: [
@@ -42,8 +37,9 @@ const mcpServerPlugin = new McpPlugin({
 );
 ```
 
-> [!NOTE]
-> > By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
+:::note
+> By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
+:::
 
 And included in the app like any other plugin:
 
@@ -57,10 +53,11 @@ const app = new App({
 });
 ```
 
-> [!TIP]
-> Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
+:::tip
+Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
+:::
 
-:::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="MCP Server in Devtools":::
+![MCP Server in Devtools](/screenshots/mcp-devtools.gif)
 
 ## Piping messages to the user
 
@@ -72,7 +69,7 @@ Since your agent is provisioned to work on Teams, one very helpful feature is to
 Here is an example of how to do this. Configure your plugin so that:
 1. It can validate if the incoming request is allowed to send messages to the user
 2. It fetches the correct conversation ID for the given user. 
-3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging.md) for more details.
+3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging) for more details.
 
 ```ts
 // Keep a store of the user to the conversation id
@@ -87,6 +84,10 @@ mcpServerPlugin.tool(
   {
     input: z.string().describe('the text to echo back'),
     userAadObjectId: z.string().describe('the user to alert'),
+  },
+  {
+    readOnlyHint: true,
+    idempotentHint: true
   },
   async ({ input, userAadObjectId }, { authInfo }) => {
     if (!isAuthValid(authInfo)) {
@@ -113,7 +114,7 @@ mcpServerPlugin.tool(
       content: [
         {
           type: 'text',
-          text: `User was notified`,
+          text: 'User was notified',
         },
       ],
     };
@@ -133,3 +134,4 @@ app.on('message', async ({ send, activity }) => {
   }
 });
 ```
+

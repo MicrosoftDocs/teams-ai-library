@@ -1,13 +1,4 @@
----
-title: Teams API Client (C#)
-description: Learn about Teams API Client (C#)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Teams API Client (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Teams API Client
 
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.Api` object. Here is a short summary of the different areas:
 
@@ -32,14 +23,14 @@ In this example, we use the api client to fetch the members in a conversation. T
     {
         var members = await api.Conversations.Members.Get(context.Conversation.Id);
     }
-```
+    ```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
     {
         var members = await context.Api.Conversations.Members.Get(context.Conversation.Id);
     });
-```
+    ```
 ---
 
 

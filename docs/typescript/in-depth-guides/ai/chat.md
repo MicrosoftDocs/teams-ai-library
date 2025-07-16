@@ -1,21 +1,36 @@
----
-title: Chat Generation (TypeScript)
-description: Learn about Chat Generation (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
----
-
-# Chat Generation (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 💬 Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
-## Setup
+# Setup
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
-:::image type="content" source="~/assets/diagrams/chat-1.png" alt-text="alt-text for chat-1.png":::
+```mermaid
+flowchart LR
+    Prompt
+
+    subgraph Application
+        Send --> Prompt
+        UserMessage["User Message<br/>Hi how are you?"] --> Send
+        Send --> Content["Content<br/>I am doing great! How can I help you?"]
+
+        subgraph Setup
+            Messages --> Prompt
+            Instructions --> Prompt
+            Options["Other options..."] --> Prompt
+
+            Prompt --> Model
+        end
+    end
+
+    subgraph LLMProvider
+        Model --> AOAI["Azure Open AI"]
+        Model --> OAI["Open AI"]
+        Model --> Anthropic["Claude"]
+        Model --> OtherModels["..."]
+    end
+```
 
 ## Simple chat generation
 
@@ -24,12 +39,11 @@ Chat generation is the the most basic way of interacting with an LLM model. It i
 Import the relevant objects:
 
 ```ts
-import { ChatPrompt } from "@microsoft/teams.ai";
-import { OpenAIChatModel } from "@microsoft/teams.openai";
+import { OpenAIChatModel } from '@microsoft/teams.openai';
 ```
 
 ```ts
-app.on("message", async ({ send, activity, next }) => {
+app.on('message', async ({ send, activity, next }) => {
   const model = new OpenAIChatModel({
     apiKey: process.env.AZURE_OPENAI_API_KEY || process.env.OPENAI_API_KEY,
     endpoint: process.env.AZURE_OPENAI_ENDPOINT,
@@ -38,7 +52,7 @@ app.on("message", async ({ send, activity, next }) => {
   });
 
   const prompt = new ChatPrompt({
-    instructions: "You are a friendly assistant who talks like a pirate",
+    instructions: 'You are a friendly assistant who talks like a pirate',
     model,
   });
 
@@ -51,22 +65,24 @@ app.on("message", async ({ send, activity, next }) => {
 });
 ```
 
-> [!NOTE]
-> The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
+:::note
+The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
+:::
 
 ## Streaming chat responses
 
 LLMs can take a while to generate a response, so often streaming the response leads to a better, more responsive user experience.
 
-> [!WARNING]
-> Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
+:::warning
+Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
+:::
 
 ```ts
-app.on("message", async ({ stream, send, activity, next }) => {
+app.on('message', async ({ stream, send, activity, next }) => {
   // const query = activity.text;
 
   const prompt = new ChatPrompt({
-    instructions: "You are a friendly assistant who responds in terse language",
+    instructions: 'You are a friendly assistant who responds in terse language',
     model,
   });
 
@@ -90,4 +106,4 @@ app.on("message", async ({ stream, send, activity, next }) => {
 });
 ```
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Streaming the response":::
+![Streaming the response](/screenshots/streaming-chat.gif)
