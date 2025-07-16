@@ -1,13 +1,9 @@
 ---
-title: Teams AI Library v2 C# Quickstart
-description: Learn how to quickly get started with Teams AI Library v2 for C#
-ms.topic: get-started
-ms.date: 06/03/2025
+sidebar_position: 1
+summary: Quick start guide for C# Teams AI Library v2 using the Teams CLI to create and run your first .NET agent.
 ---
 
-# Quickstart (C#) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Quickstart
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.
 
@@ -15,7 +11,11 @@ Get started with Teams AI Library (v2) quickly using the Teams CLI.
 
 ### Prerequisites
 
-- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/download).
+- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/en-us/download).
+
+:::note
+If you are using LLMs to aid you in using this library, consider using the [llms.txt files](./LLMs.md) to provide context about the library to your coding assistant.
+:::
 
 ## Instructions
 
@@ -28,10 +28,11 @@ Use your terminal to install the Teams CLI globally using npm:
 npm install -g @microsoft/teams.cli@preview
 ```
 
-> [!NOTE]
-> The [Teams CLI](../../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process.
->
-> After installation, you can run `teams --version` to verify the installation.
+
+:::info
+_The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+After installation, you can run `teams --version` to verify the installation.
+:::
 
 ## Creating Your First Agent
 
@@ -47,7 +48,7 @@ This command:
 
 1. Creates a new directory called `Quote.Agent`.
 2. Bootstraps the echo agent template files into your project directory.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 
 > The `echo` template creates a basic agent that repeats back any message it receives - perfect for learning the fundamentals.
 
@@ -96,17 +97,17 @@ When the application starts, you'll see:
 
 Let's navigate to the devtools server. Open your browser and head to [http://localhost:3978/devtools](http://localhost:3978/devtools). You should see a simple interface where you can interact with your agent. Send it a message!
 
-:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="devtools":::
+![devtools](/screenshots/devtools-echo-chat.png)
 
 ## Next steps
 
-Now that you have your first agent running, learn about [the code basics](code-basics.md) to understand its components and structure.
+Now that you have your first agent running, learn about [the code basics](code-basics) to understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, check out the [Running in Teams](running-in-teams.md) guide.
+Otherwise, if you want to run your agent in Teams, check out the [Running in Teams](running-in-teams) guide.
 
 ## Resources
 
-- [Teams CLI documentation](../../developer-tools/cli.md)
-- [Teams DevTools documentation](../../developer-tools/devtools/overview.md)
-- [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
-- [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
+- [Teams CLI documentation](/developer-tools/cli)
+- [Teams DevTools documentation](/developer-tools/devtools)
+- [Teams manifest schema](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema)
+- [Teams sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

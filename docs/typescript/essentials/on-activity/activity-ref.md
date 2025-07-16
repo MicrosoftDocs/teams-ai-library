@@ -1,13 +1,9 @@
 ---
-title: Activity Type Reference (TypeScript)
-description: Learn about Activity Type Reference (TypeScript)
-ms.topic: how-to
-ms.date: 06/03/2025
+sidebar_position: 1
+summary: Complete reference guide for all activity types and routes available in Teams AI applications, including core activities and configuration routes.
 ---
 
-# Activity Type Reference (TypeScript) (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Activity Type Reference
 
 The application supports a number of activity types, 
 

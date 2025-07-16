@@ -1,16 +1,13 @@
 ---
-title: Inspect activities
-description: Learn about Inspect activities
-ms.topic: how-to
-ms.date: 06/03/2025
+sidebar_position: 2
+summary: Inspect all incoming and outgoing activities with your agent using DevTools Activities page for debugging.
+llms: ignore
 ---
 
-# Inspect activities (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 🔍 Inspect activities
 
 Inspect incoming and outgoing activities on DevTools' Activities page. All interactions with your agent are logged here, including messages, reactions, and more.
-:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/inspect_activity.png?raw=true" alt-text="Inspect Activities view":::
+![Inspect Activities view](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/inspect_activity.png?raw=true)
 
 ## View all activity
 
@@ -24,7 +21,7 @@ The Activities page displays all activities sent to and from your agent in a gri
 
 ### Monitor activity while testing Teams in browser
 
-When testing your sideloaded app in the Teams web client, you can monitor activities in DevTools. Once your agent has launched, the agent server will indicate what port DevTools is running on). Open another browser tab and navigate to the DevTools Activities URL. Interact with your agent in the Teams web client and see the activities in DevTools. To learn more, review the [Agents Toolkit](../../teams/agents-toolkit.md) page.
+When testing your sideloaded app in the Teams web client, you can monitor activities in DevTools. Once your agent has launched, the agent server will indicate what port DevTools is running on). Open another browser tab and navigate to the DevTools Activities URL. Interact with your agent in the Teams web client and see the activities in DevTools. To learn more, review the [Agents Toolkit](../../teams/agents-toolkit) page.
 
 You can filter activities by type using the filter icon in the Type column header.
 
@@ -42,6 +39,6 @@ Press the Copy button in the top right corner of the Activity details view to co
 
 ### Inspect activities by ID
 
-When in [Chat](chat.md), you can inspect activities by ID by clicking the magnifying glass icon in the message actions menu. This opens the Activities page with the activity ID filtered in the list, which is useful for inspecting streamed messages, which have multiple activities.
+When in [Chat](chat), you can inspect activities by ID by clicking the magnifying glass icon in the message actions menu. This opens the Activities page with the activity ID filtered in the list, which is useful for inspecting streamed messages, which have multiple activities.
 
 To reset the filter, use the filter button in the Type column header and de-select the activity ID to show all activities again.

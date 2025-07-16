@@ -1,13 +1,10 @@
 ---
-title: Welcome to Teams AI Library
-description: Learn about Teams AI Library and what's new in version 2
-ms.topic: how-to
-ms.date: 06/03/2025
+sidebar_position: 1
+summary: Welcome guide to Teams AI Library v2, covering the quickstart process and how to build agents and applications for Microsoft Teams.
+llms: ignore
 ---
 
-# Welcome (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# 👋 Welcome
 
 Teams AI Library v2 is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
 
@@ -27,7 +24,7 @@ teams new (typescript|csharp) quote-agent --template echo
 
 ## Overview
 
-Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams AI v2. Whether you are building [AI-powered agents](./typescript/in-depth-guides/ai/overview.md), [message extensions](./typescript/in-depth-guides/message-extensions/overview.md), embedded web applications, or Graph, Teams AI v2 has you covered.
+Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams AI v2. Whether you are building [AI-powered agents](/typescript/in-depth-guides/ai), [message extensions](/typescript/in-depth-guides/message-extensions), embedded web applications, or Graph, Teams AI v2 has you covered.
 
 ## ⭐ What's new?
 
