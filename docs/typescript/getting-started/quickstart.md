@@ -43,7 +43,7 @@ This command:
 
 1. Creates a new directory called `quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 
 > The `echo` template creates a basic agent that repeats back any message it receives - perfect for learning the fundamentals.
 
@@ -110,5 +110,5 @@ Otherwise, if you want to run your agent in Teams, check out the [Running in Tea
 
 - [Teams CLI documentation](/developer-tools/cli)
 - [Teams DevTools documentation](/developer-tools/devtools)
-- [Teams manifest schema](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema)
-- [Teams sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
+- [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
+- [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

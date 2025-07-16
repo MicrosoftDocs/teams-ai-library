@@ -8,8 +8,8 @@ Agents Toolkit is a powerful extension and CLI app that helps automate important
 
 Agents Toolkit can be installed as an extension and CLI. Please see the documentation linked below.
 
-- [Installing Agents Toolkit extension](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/install-teams-toolkit)
-- [Installing Agents Toolkit CLI](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
+- [Installing Agents Toolkit extension](/microsoftteams/platform/toolkit/install-teams-toolkit)
+- [Installing Agents Toolkit CLI](/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
 
 > [!NOTE]
 > * [Teams AI v2 CLI](../developer-tools/cli) - helper for the new v2 library. It scaffolds agents, wires in deep Teams features (Adaptive Cards, Conversation History, Memory...etc), and adds all the config files you need while you're coding.
@@ -17,15 +17,15 @@ Agents Toolkit can be installed as an extension and CLI. Please see the document
 
 ## Official documentation
 
-- Official [Agents Toolkit documentation](https://learn.microsoft.com/en-us/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
+- Official [Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
 
 ## Deployment and provisioning
 
 Generally, you can use the toolkit to add required resources to Azure based on your app manifest setup. Agents Toolkit documents that in their documentation.
 
-- [Add cloud resources and API connection](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/add-resource)
+- [Add cloud resources and API connection](/microsoftteams/platform/toolkit/add-resource)
 
 ## Resources
 
-- [Agents Toolkit Overview](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/teams-toolkit-fundamentals) - these extensive docs cover many topics related to Agents Toolkit, so please explore their documentation at your convenience.
+- [Agents Toolkit Overview](/microsoftteams/platform/toolkit/teams-toolkit-fundamentals) - these extensive docs cover many topics related to Agents Toolkit, so please explore their documentation at your convenience.
 - [Teams AI v2 CLI documentation](../developer-tools/cli) - includes instructions on adding toolkit configurations to your Teams AI v2 agent.
