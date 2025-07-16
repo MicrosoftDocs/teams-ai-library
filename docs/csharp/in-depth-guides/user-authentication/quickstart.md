@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Create a Teams app with Microsoft Graph authentication using the Agents Toolkit and SSO flow.
----
-
 # Quickstart
 
 In this section we will walk through creating an app that can access the [Microsoft Graph APIs](https://learn.microsoft.com/en-us/graph/overview) on behalf of the user by authenticating them with the [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) oauth provider. 

@@ -1,11 +1,3 @@
----
-sidebar_position: 3
-summary: How to add configurable settings pages to your message extension app for user customization and preferences.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-import SettingsImgUrl from '@site/static/screenshots/settings.png';
-
 # ⚙️ Settings
 
 You can add a settings page that allows users to configure settings for your app.

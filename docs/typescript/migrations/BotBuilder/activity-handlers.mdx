@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-summary: How to migrate BotBuilder ActivityHandler patterns to Teams AI Library v2 activity routing system.
----
-
 # Activity Handlers
 
 import Tabs from '@theme/Tabs';

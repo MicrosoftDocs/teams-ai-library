@@ -1,8 +1,3 @@
----
-sidebar_position: 3
-summary: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
----
-
 # Listening To Activitiesidebar_position: 3
 ---
 

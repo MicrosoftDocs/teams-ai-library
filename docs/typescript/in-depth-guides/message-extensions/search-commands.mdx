@@ -1,10 +1,3 @@
----
-sidebar_position: 2
-summary: How to implement search commands in message extensions to allow users to search external systems and insert results as cards.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # 🔍 Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.

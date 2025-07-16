@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-summary: How to implement an A2A server to expose your Teams app capabilities to other agents using the A2A protocol.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # A2A Server
 
 ## What is an A2A Server?

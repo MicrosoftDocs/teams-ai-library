@@ -1,8 +1,3 @@
----
-sidebar_position: 6
-summary: Overview of Tabs in C# Teams AI for building host-aware web apps with authentication, Graph integration, and agent function calls.
----
-
 # Tabs
 
 Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.

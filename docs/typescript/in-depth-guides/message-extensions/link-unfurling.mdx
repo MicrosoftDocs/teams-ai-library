@@ -1,10 +1,3 @@
----
-sidebar_position: 4
-summary: How to implement link unfurling to automatically enhance pasted URLs with rich cards containing additional information and actions.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # 🔗 Link unfurling
 
 Link unfurling lets your app respond when users paste URLs into Teams. When a URL from your registered domain is pasted, your app receives the URL and can return a card with additional information or actions. This works like a search command where the URL acts as the search term.

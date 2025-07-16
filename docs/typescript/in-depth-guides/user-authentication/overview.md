@@ -1,8 +1,3 @@
----
-sidebar_position: 4
-summary: Overview of user authentication in Teams AI applications, including OAuth, SSO, and secure resource access.
----
-
 # 🔒 User Authentication
 
 <!-- 

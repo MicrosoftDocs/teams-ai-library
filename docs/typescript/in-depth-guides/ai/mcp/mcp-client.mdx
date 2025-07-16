@@ -1,10 +1,3 @@
----
-sidebar_position: 2
-summary: How to implement an MCP client to leverage remote MCP servers and their tools in your AI agent application.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # MCP Client
 
 You are able to leverage other MCP servers that expose tools via the Streamable HTTP protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.

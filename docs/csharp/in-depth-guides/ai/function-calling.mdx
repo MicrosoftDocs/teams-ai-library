@@ -1,10 +1,3 @@
----
-sidebar_position: 3
-summary: Guide to implementing function calling in LLMs, showing how to integrate custom functions into ChatPrompt for task automation, including both single and multiple function scenarios with context-aware execution.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Functions
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.

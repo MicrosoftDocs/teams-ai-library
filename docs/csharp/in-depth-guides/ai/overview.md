@@ -1,8 +1,3 @@
----
-sidebar_position: 5
-summary: Overview of AI components in C# Teams AI, including Prompts for orchestration and Models for LLM interfaces.
----
-
 # 🤖 AI
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.

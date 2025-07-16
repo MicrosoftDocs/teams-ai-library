@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-summary: Overview of dialogs (task modules) in Teams for creating pop-up windows that improve user interactions and data collection.
----
-
 # Dialogs (Task Modules)
 
 Dialogs are a helpful paradigm in Teams which improve interactions between your agent and users. When dialogs are **invoked**, they pop open a window for a user in the Teams client. The content of the dialog can be supplied by the agent application.

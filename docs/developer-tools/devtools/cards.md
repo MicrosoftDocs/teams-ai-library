@@ -1,9 +1,3 @@
----
-sidebar_position: 3
-summary: Design and test Adaptive Cards using the DevTools card designer with live preview and JSON editing.
-llms: ignore
----
-
 # 🪪 Cards
 
 ![Card Designer Typescript](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/card_designer_typescript_editor.png?raw=true)

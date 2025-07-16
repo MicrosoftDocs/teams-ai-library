@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
----
-
 # Middleware
 
 Middleware is a useful tool for logging, validation, and more.
