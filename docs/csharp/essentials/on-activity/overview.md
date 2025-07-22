@@ -29,14 +29,14 @@ Here is an example of a basic message handler:
             await client.Send($"you said: {activity.Text}");
         }
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
     {
         await context.Send($"you said: {context.activity.Text}");
     });
-    ```
+```
 ---
 
 
@@ -55,7 +55,7 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         Console.WriteLine("global logger");
         next(); // pass control onward
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -64,7 +64,7 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         context.Next(); // pass control onward
         return Task.CompletedTask;
     });
-    ```
+```
 ---
 
 
@@ -82,7 +82,7 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         // Conditionally pass control to the next handler
         context.Next();
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -95,7 +95,7 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         // Conditionally pass control to the next handler
         context.Next();
     });
-    ```
+```
 ---
 
 
@@ -108,7 +108,7 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         // Fallthrough to the final handler
         await context.Send($"Hello! you said {context.Activity.Text}");
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -116,7 +116,7 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
         // Fallthrough to the final handler
         await context.Send($"Hello! you said {context.Activity.Text}");
     });
-    ```
+```
 ---
 
 

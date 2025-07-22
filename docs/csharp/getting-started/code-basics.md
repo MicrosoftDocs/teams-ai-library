@@ -79,7 +79,7 @@ Teams applications respond to various types of activities. The most basic is han
             await client.Send($"you said \"{activity.Text}\"");
         }
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp title="Program.cs" 
     app.OnMessage(async context =>
@@ -87,7 +87,7 @@ Teams applications respond to various types of activities. The most basic is han
         await context.Typing();
         await context.Send($"you said \"{context.activity.Text}\"");
     });
-    ```
+```
 ---
 
 

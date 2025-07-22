@@ -19,14 +19,14 @@ Sending messages is a core part of an agent's functionality. With all activity h
     {
         await client.Send($"you said: {activity.Text}");
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
     {
         await context.Send($"you said: {context.activity.Text}");
     });
-    ```
+```
 ---
 
 
@@ -40,14 +40,14 @@ In the above example, the handler gets a `message` activity, and uses the `send`
     {
         await client.Send("You have successfully signed in!");
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnVerifyState(async context =>
     {
         await context.Send("You have successfully signed in!");
     });
-    ```
+```
 ---
 
 
@@ -71,7 +71,7 @@ You may also stream messages to the user which can be useful for long messages, 
         stream.Emit("world!");
         // result message: "hello, world!"
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
@@ -82,7 +82,7 @@ You may also stream messages to the user which can be useful for long messages, 
         // result message: "hello, world!"
         return Task.CompletedTask;
     });
-    ```
+```
 ---
 
 
@@ -103,12 +103,12 @@ Sending a message at `@mentions` a user is as simple including the details of th
     {
         await client.Send(new MessageActivity("hi!").AddMention(activity.From));
     }
-    ```
+```
 # [Minimal](#tab/minimal)
 ```csharp 
     app.OnMessage(async context =>
     {
         await context.Send(new MessageActivity("hi!").AddMention(activity.From));
     });
-    ```
+```
 ---

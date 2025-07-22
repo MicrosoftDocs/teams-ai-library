@@ -23,7 +23,7 @@ a more incremental migration strategy.
 
 
   <TabItem value="index.ts" default>
-    ```typescript
+```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
 
@@ -42,9 +42,9 @@ a more incremental migration strategy.
     (async () => {
       await app.start();
     })();
-    ```
+```
   <TabItem value="adapter.ts">
-    ```typescript
+```typescript
     import { CloudAdapter } from 'botbuilder';
 
     // replace with your BotAdapter
@@ -63,9 +63,9 @@ a more incremental migration strategy.
     // highlight-end
 
     export default adapter;
-    ```
+```
   <TabItem value="activity-handler.ts">
-    ```typescript
+```typescript
     import { TeamsActivityHandler } from 'botbuilder';
 
     // replace with your TeamsActivityHandler
@@ -83,7 +83,7 @@ a more incremental migration strategy.
 
     const handler = new ActivityHandler();
     export default handler;
-    ```
+```
 
 
 ```

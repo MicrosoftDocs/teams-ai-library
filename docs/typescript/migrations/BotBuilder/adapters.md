@@ -19,7 +19,7 @@ shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter inst
 
 
   <TabItem value="index.ts" default>
-    ```typescript
+```typescript
     import { App } from '@microsoft/teams.apps';
     import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
 
@@ -38,9 +38,9 @@ shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter inst
     (async () => {
       await app.start();
     })();
-    ```
+```
   <TabItem value="adapter.ts">
-    ```typescript
+```typescript
     import { CloudAdapter } from 'botbuilder';
 
     // replace with your BotAdapter
@@ -59,9 +59,9 @@ shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter inst
     // highlight-end
 
     export default adapter;
-    ```
+```
   <TabItem value="activity-handler.ts">
-    ```typescript
+```typescript
     import { TeamsActivityHandler } from 'botbuilder';
 
     // replace with your TeamsActivityHandler
@@ -79,7 +79,7 @@ shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter inst
 
     const handler = new ActivityHandler();
     export default handler;
-    ```
+```
 
 
 ```
