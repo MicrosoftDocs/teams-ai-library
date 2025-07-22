@@ -1,11 +1,11 @@
 ---
-title: Feedback (preview) (C#)
-description: Learn about Feedback (preview) (C#)
+title: User feedback events (preview) (C#)
+description: Learn about user feedback events (preview) (C#)
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
 
-# Feedback (preview) (C#)
+# User feedback events(preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

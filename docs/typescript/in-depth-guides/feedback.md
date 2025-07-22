@@ -1,11 +1,11 @@
 ---
-title: Feedback (preview) (TypeScript)
-description: Learn about Feedback (preview) (TypeScript)
+title: User feedback events (preview) (TypeScript)
+description: Learn about user feedback events (preview) (TypeScript)
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
 
-# Feedback (preview) (TypeScript)
+# User feedback events (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
