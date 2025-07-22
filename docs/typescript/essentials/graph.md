@@ -49,7 +49,7 @@ Here, the `userGraph` object is a scoped graph client for the user that sent the
 
 The Graph Client is a wrapper around the Microsoft Graph API. It provides a fluent API for accessing the Graph API and is scoped to a specific user or application. Having an understanding of [how the graph API works](/graph/use-the-api) will help you make the most of the library. Microsoft Graph exposes resources using the OData standard, and the graph client exposes type-safe access to these resources.
 
-For example, to get the `id` of the chat instance between a user and an app, [Microsoft Graph](/graph/api/userscopeteamsappinstallation-get-chat?view=graph-rest-1.0&tabs=http) exposes it via:
+For example, to get the `id` of the chat instance between a user and an app, [Microsoft Graph](/graph/api/userscopeteamsappinstallation-get-chat) exposes it via:
 
 ```
 GET /users/{user-id | user-principal-name}/teamwork/installedApps/{app-installation-id}/chat
@@ -73,15 +73,15 @@ The following clients are currently exposed:
 
 | Client Name | Graph endpoint | Description |
 |-------------|----------------|-------------|
-| appCatalogs | [/appCatalogs](/graph/api/appcatalogs-list-teamsapps?view=graph-rest-1.0) | Apps from Teams App Catalog |
-| appRoleAssignments | [/appRoleAssignments](/graph/api/serviceprincipal-list-approleassignments?view=graph-rest-1.0) | List app role assignments |
-| applicationTemplates | [/applicationTemplates](/graph/api/resources/applicationtemplate?view=graph-rest-1.0) | Application in the Microsoft Entra App Gallery |
-| applications | [/applications](/graph/api/resources/application?view=graph-rest-1.0) | Application Resources |
-| chats | [/chats](/graph/api/chat-list?view=graph-rest-1.0&tabs=http) | Chat resources between users |
-| communications | [/communications](/graph/api/application-post-calls?view=graph-rest-1.0) | Calls and Online meetings |
-| employeeExperience | [/employeeExperience](/graph/api/resources/engagement-api-overview?view=graph-rest-1.0) |  Employee Experience and Engagement |
-| me | [/me](/graph/api/user-get?view=graph-rest-1.0&tabs=http) | Same as `/users` but scoped to one user (who is making the request) |
-| teams | [/teams](/graph/api/resources/team?view=graph-rest-1.0) | A Team resource  |
+| appCatalogs | [/appCatalogs](/graph/api/appcatalogs-list-teamsapps) | Apps from Teams App Catalog |
+| appRoleAssignments | [/appRoleAssignments](/graph/api/serviceprincipal-list-approleassignments) | List app role assignments |
+| applicationTemplates | [/applicationTemplates](/graph/api/resources/applicationtemplate) | Application in the Microsoft Entra App Gallery |
+| applications | [/applications](/graph/api/resources/application) | Application Resources |
+| chats | [/chats](/graph/api/chat-list) | Chat resources between users |
+| communications | [/communications](/graph/api/application-post-calls) | Calls and Online meetings |
+| employeeExperience | [/employeeExperience](/graph/api/resources/engagement-api-overview) |  Employee Experience and Engagement |
+| me | [/me](/graph/api/user-get) | Same as `/users` but scoped to one user (who is making the request) |
+| teams | [/teams](/graph/api/resources/team) | A Team resource  |
 | teamsTemplates | [/teamsTemplates](/microsoftteams/get-started-with-teams-templates) | A Team Template resource |
-| teamwork | [/teamwork](/graph/api/resources/teamwork?view=graph-rest-1.0) | A range of Microsoft Teams functionalities |
-| users | [/users](/graph/api/resources/users?view=graph-rest-1.0) | A user resource |
+| teamwork | [/teamwork](/graph/api/resources/teamwork) | A range of Microsoft Teams functionalities |
+| users | [/users](/graph/api/resources/users) | A user resource |
