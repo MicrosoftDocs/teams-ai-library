@@ -1,11 +1,11 @@
 ---
-title: Function calling (C#)
-description: Learn about Function calling (C#)
+title: Function calling (preview) (C#)
+description: Learn about function calling (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Function calling (C#) (preview)
+# Function calling (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -34,7 +34,7 @@ const prompt = new ChatPrompt({
     },
     // The cooresponding function will be called
     // automatically if the LLM decides to call this function
-    async ({ pokemonName }: PokemonSearch) => {
+    async ({ pokemonName }: IPokemonSearch) => {
       log.info('Searching for pokemon', pokemonName);
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       if (!response.ok) {

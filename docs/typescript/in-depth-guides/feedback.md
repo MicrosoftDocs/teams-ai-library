@@ -1,11 +1,11 @@
 ---
-title: Feedback (TypeScript)
-description: Learn about Feedback (TypeScript)
+title: User feedback events (preview) (TypeScript)
+description: Learn about user feedback events (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Feedback (TypeScript) (preview)
+# User feedback events (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -59,7 +59,7 @@ storedFeedbackByMessageId.set(sentMessageId, {
 Once the user decides to like/dislike the message, you can handle the feedback in a received event. Once received, you can choose to include it in your persistent store.
 
 ```ts
-app.on("message.submit.feedback", async ({ activity, log }) => {
+app.on('message.submit.feedback', async ({ activity, log }) => {
   const { reaction, feedback: feedbackJson } = activity.value.actionValue;
   if (activity.replyToId == null) {
     log.warn(`No replyToId found for messageId ${activity.id}`);
@@ -75,8 +75,8 @@ app.on("message.submit.feedback", async ({ activity, log }) => {
   } else {
     storedFeedbackByMessageId.set(activity.id, {
       ...existingFeedback,
-      likes: existingFeedback.likes + (reaction === "like" ? 1 : 0),
-      dislikes: existingFeedback.dislikes + (reaction === "dislike" ? 1 : 0),
+      likes: existingFeedback.likes + (reaction === 'like' ? 1 : 0),
+      dislikes: existingFeedback.dislikes + (reaction === 'dislike' ? 1 : 0),
       feedbacks: [...existingFeedback.feedbacks, feedbackJson],
     });
   }

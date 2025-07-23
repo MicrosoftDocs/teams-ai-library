@@ -1,11 +1,11 @@
 ---
-title: Getting Started (C#)
-description: Learn about Getting Started (C#)
+title: Getting Started (preview) (C#)
+description: Learn about Getting Started (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Getting Started (C#) (preview)
+# Getting Started (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

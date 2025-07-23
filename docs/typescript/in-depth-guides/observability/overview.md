@@ -1,10 +1,10 @@
 ---
-title: Observability (TypeScript)
-description: Learn about Observability (TypeScript)
+title: Observability (preview) (TypeScript)
+description: Learn about Observability (preview) (TypeScript)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Observability (TypeScript) (preview)
+# Observability (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

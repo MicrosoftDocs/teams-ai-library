@@ -1,13 +1,16 @@
 ---
-title: Listening To Activities (TypeScript)
-description: Learn about Listening To Activities (TypeScript)
+title: Listening To Activitiesidebar_position - 3 (preview) (TypeScript)
+description: Learn about Listening To Activitiesidebar_position - 3 (preview) (TypeScript)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Listening To Activities (TypeScript) (preview)
+# Listening To Activitiesidebar_position: 3 (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
+---
+
+## Listening To Activities
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  
 Where _events_ describe high‑level happenings inside your app, _activities_ are the raw Teams messages such as chat text, card actions, installs, or invoke calls.  

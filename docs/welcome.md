@@ -1,8 +1,8 @@
 ---
-title: Welcome to Teams AI Library
-description: Learn about Teams AI Library and what's new in version 2
+title: Welcome (preview)
+description: Learn about Welcome (preview)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # Welcome (preview)

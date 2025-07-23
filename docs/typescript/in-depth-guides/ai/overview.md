@@ -1,11 +1,11 @@
 ---
-title: AI (TypeScript)
-description: Learn about AI (TypeScript)
+title: AI (preview) (TypeScript)
+description: Learn about AI (preview) (TypeScript)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# AI (TypeScript) (preview)
+# AI (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

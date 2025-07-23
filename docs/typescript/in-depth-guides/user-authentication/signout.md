@@ -1,11 +1,11 @@
 ---
-title: Signing Out (TypeScript)
-description: Learn about Signing Out (TypeScript)
+title: Signing Out (preview) (TypeScript)
+description: Learn about Signing Out (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Signing Out (TypeScript) (preview)
+# Signing Out (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

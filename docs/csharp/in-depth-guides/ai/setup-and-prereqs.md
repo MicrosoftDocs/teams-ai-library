@@ -1,11 +1,11 @@
 ---
-title: Setup & Prerequisites (C#)
-description: Learn about Setup & Prerequisites (C#)
+title: Setup & Prerequisites (preview) (C#)
+description: Learn about Setup & Prerequisites (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Setup & Prerequisites (C#) (preview)
+# Setup & Prerequisites (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,11 +1,11 @@
 ---
-title: Dialogs (Task Modules) (C#)
-description: Learn about Dialogs (Task Modules) (C#)
+title: Dialogs (Task Modules) (preview) (C#)
+description: Learn about Dialogs (Task Modules) (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Dialogs (Task Modules) (C#) (preview)
+# Dialogs (Task Modules) (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

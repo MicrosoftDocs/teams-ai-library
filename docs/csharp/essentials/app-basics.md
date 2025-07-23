@@ -1,11 +1,11 @@
 ---
-title: App Basics (C#)
-description: Learn about App Basics (C#)
+title: App Basics (preview) (C#)
+description: Learn about App Basics (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# App Basics (C#) (preview)
+# App Basics (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,8 +1,8 @@
 ---
-title: Teams Manifest
-description: Learn about Teams Manifest
+title: Teams Manifest (preview)
+description: Learn about Teams Manifest (preview)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # Teams Manifest (preview)
@@ -13,7 +13,7 @@ Every app or agent installed on Teams requires an app manifest json file, which 
 
 ## Manifest
 
-There are many permissions and details that an app manifest may have added to the `manifest.json`, including the app ID, url, and much more. Please review the comprehensive documentation on the [manifest schema](/microsoft-365/extensibility/schema/).
+There are many permissions and details that an app manifest may have added to the `manifest.json`, including the app ID, url, and much more. Please review the comprehensive documentation on the [manifest schema](/microsoft-365/extensibility/schema).
 
 ## Sideloading
 

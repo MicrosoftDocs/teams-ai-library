@@ -1,11 +1,11 @@
 ---
-title: Adaptive Cards (C#)
-description: Learn about Adaptive Cards (C#)
+title: Adaptive Cards (preview) (C#)
+description: Learn about Adaptive Cards (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Adaptive Cards (C#) (preview)
+# Adaptive Cards (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

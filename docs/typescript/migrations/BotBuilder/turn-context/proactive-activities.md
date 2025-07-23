@@ -1,11 +1,11 @@
 ---
-title: Proactive Activities (TypeScript)
-description: Learn about Proactive Activities (TypeScript)
+title: Proactive Activities (preview) (TypeScript)
+description: Learn about Proactive Activities (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Proactive Activities (TypeScript) (preview)
+# Proactive Activities (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -14,43 +14,45 @@ we expose a `send` method almost identical to the one passed into our activity h
 so all you need to store is that!
 
 # [BotBuilder](#tab/botbuilder)
-```typescript showLineNumbers
-    import {
-      CloudAdapter,
-      ConfigurationBotFrameworkAuthentication,
-      ConversationReference,
-    } from 'botbuilder';
 
-    const auth = new ConfigurationBotFrameworkAuthentication(process.env);
-    const adapter = new CloudAdapter(auth);
+```typescript
+import {
+  CloudAdapter,
+  ConfigurationBotFrameworkAuthentication,
+  ConversationReference,
+} from 'botbuilder';
 
-    // highlight-start
-    (async () => {
-      const conversationReference: ConversationReference = {
-        serviceUrl: '...',
-        bot: { ... },
-        channelId: 'msteams',
-        conversation: { ... },
-        user: { ... },
-      };
+const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+const adapter = new CloudAdapter(auth);
 
-      await adapter.continueConversationAsync(process.env.MicrosoftAppId ?? '', conversationReference, async context => {
-        await context.sendActivity('proactive hello');
-      });
-    }());
-    // highlight-end
+// highlight-start
+(async () => {
+  const conversationReference: ConversationReference = {
+    serviceUrl: '...',
+    bot: { ... },
+    channelId: 'msteams',
+    conversation: { ... },
+    user: { ... },
+  };
+
+  await adapter.continueConversationAsync(process.env.MicrosoftAppId ?? '', conversationReference, async context => {
+    await context.sendActivity('proactive hello');
+  });
+}());
+// highlight-end
 ```
-# [Teams AI](#tab/teamsai)
-```typescript showLineNumbers
-    import { App } from '@microsoft/teams.apps';
 
-    const app = new App();
+# [Teams AI](#tab/teams-ai)
 
-    // highlight-start
-    (async () => {
-      await app.start();
-      await app.send('your-conversation-id', 'proactive hello');
-    }());
-    // highlight-end
+```typescript
+import { App } from '@microsoft/teams.apps';
+
+const app = new App();
+
+// highlight-start
+(async () => {
+  await app.start();
+  await app.send('your-conversation-id', 'proactive hello');
+}());
+// highlight-end
 ```
----

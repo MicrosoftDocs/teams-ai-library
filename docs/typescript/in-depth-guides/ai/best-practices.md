@@ -1,11 +1,11 @@
 ---
-title: Best Practices (TypeScript)
-description: Learn about Best Practices (TypeScript)
+title: Best Practices (preview) (TypeScript)
+description: Learn about Best Practices (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Best Practices (TypeScript) (preview)
+# Best Practices (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -19,7 +19,7 @@ When sending messages using AI, Teams recommends including an indicator that the
 const messageToBeSent = new Message().addAiGenerated().text('Hello!');
 ```
 
-:::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="AI Generated Indicator":::
+:::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="AI- generated indicator":::
 
 ## Gather feedback to improve prompts
 
@@ -47,4 +47,4 @@ for (let i = 0; i < citedDocs.length; i++) {
 }
 ```
 
-:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="AI Generated Indicator":::
+:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="AI-generated citation":::

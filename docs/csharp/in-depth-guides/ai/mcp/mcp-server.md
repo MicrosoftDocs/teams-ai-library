@@ -1,11 +1,11 @@
 ---
-title: MCP Server (C#)
-description: Learn about MCP Server (C#)
+title: MCP Server (preview) (C#)
+description: Learn about MCP Server (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# MCP Server (C#) (preview)
+# MCP Server (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -28,6 +28,10 @@ const mcpServerPlugin = new McpPlugin({
   'echos back whatever you said',
   {
     input: z.string().describe('the text to echo back'),
+  },
+  {
+    readOnlyHint: true,
+    idempotentHint: true
   },
   async ({ input }) => {
     return {
@@ -88,6 +92,10 @@ mcpServerPlugin.tool(
     input: z.string().describe('the text to echo back'),
     userAadObjectId: z.string().describe('the user to alert'),
   },
+  {
+    readOnlyHint: true,
+    idempotentHint: true
+  },
   async ({ input, userAadObjectId }, { authInfo }) => {
     if (!isAuthValid(authInfo)) {
       throw new Error('Not allowed to call this tool');
@@ -113,7 +121,7 @@ mcpServerPlugin.tool(
       content: [
         {
           type: 'text',
-          text: `User was notified`,
+          text: 'User was notified',
         },
       ],
     };

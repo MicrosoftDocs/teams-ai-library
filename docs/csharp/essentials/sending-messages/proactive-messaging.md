@@ -1,11 +1,11 @@
 ---
-title: Proactive Messaging (C#)
-description: Learn about Proactive Messaging (C#)
+title: Proactive Messaging (preview) (C#)
+description: Learn about Proactive Messaging (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Proactive Messaging (C#) (preview)
+# Proactive Messaging (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

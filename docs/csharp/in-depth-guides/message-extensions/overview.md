@@ -1,11 +1,11 @@
 ---
-title: Message Extensions (C#)
-description: Learn about Message Extensions (C#)
+title: Message Extensions (preview) (C#)
+description: Learn about Message Extensions (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Message Extensions (C#) (preview)
+# Message Extensions (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

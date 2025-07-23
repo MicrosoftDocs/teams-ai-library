@@ -1,11 +1,11 @@
 ---
-title: Building Adaptive Cards (TypeScript)
-description: Learn about Building Adaptive Cards (TypeScript)
+title: Building Adaptive Cards (preview) (TypeScript)
+description: Learn about Building Adaptive Cards (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Building Adaptive Cards (TypeScript) (preview)
+# Building Adaptive Cards (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -31,12 +31,12 @@ Each helper wraps raw JSON and provides fluent, chainable methods that keep your
 */
 
   const card = new AdaptiveCard(
-    new TextBlock("Hello world", { wrap: true, weight: "Bolder" }),
-    new ToggleInput("Notify me").withId("notify"),
+    new TextBlock('Hello world', { wrap: true, weight: 'Bolder' }),
+    new ToggleInput('Notify me').withId('notify'),
     new ActionSet(
-      new ExecuteAction({ title: "Submit" })
-        .withData({ action: "submit_basic" })
-        .withAssociatedInputs("auto")
+      new ExecuteAction({ title: 'Submit' })
+        .withData({ action: 'submit_basic' })
+        .withAssociatedInputs('auto')
     )
   );
 ```
@@ -64,7 +64,7 @@ While coding you get:
 
 ```ts
 // @ts-expect-error: "huge" is not a valid size for TextBlock
-const textBlock = new TextBlock("Valid", { size: "huge" });
+const textBlock = new TextBlock('Valid', { size: 'huge' });
 ```
 
 ---
@@ -84,47 +84,47 @@ const card = new AdaptiveCard().withBody(cardJson);
 
 ```ts
 const rawCard: IAdaptiveCard = {
-  type: "AdaptiveCard",
+  type: 'AdaptiveCard',
   body: [
     {
-      text: "Please fill out the below form to send a game purchase request.",
+      text: 'Please fill out the below form to send a game purchase request.',
       wrap: true,
-      type: "TextBlock",
-      style: "heading",
+      type: 'TextBlock',
+      style: 'heading',
     },
     {
       columns: [
         {
-          width: "stretch",
+          width: 'stretch',
           items: [
             {
               choices: [
-                { title: "Call of Duty", value: "call_of_duty" },
-                { title: "Death's Door", value: "deaths_door" },
-                { title: "Grand Theft Auto V", value: "grand_theft" },
-                { title: "Minecraft", value: "minecraft" },
+                { title: 'Call of Duty', value: 'call_of_duty' },
+                { title: 'Death\'s Door', value: 'deaths_door' },
+                { title: 'Grand Theft Auto V', value: 'grand_theft' },
+                { title: 'Minecraft', value: 'minecraft' },
               ],
-              style: "filtered",
-              placeholder: "Search for a game",
-              id: "choiceGameSingle",
-              type: "Input.ChoiceSet",
-              label: "Game:",
+              style: 'filtered',
+              placeholder: 'Search for a game',
+              id: 'choiceGameSingle',
+              type: 'Input.ChoiceSet',
+              label: 'Game:',
             },
           ],
-          type: "Column",
+          type: 'Column',
         },
       ],
-      type: "ColumnSet",
+      type: 'ColumnSet',
     },
   ],
   actions: [
     {
-      title: "Request purchase",
-      type: "Action.Execute",
-      data: { action: "purchase_item" },
+      title: 'Request purchase',
+      type: 'Action.Execute',
+      data: { action: 'purchase_item' },
     },
   ],
-  version: "1.5",
+  version: '1.5',
 };
 ```
 
@@ -140,36 +140,36 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 Below is a complete example showing a task management form. Notice how the builder pattern keeps the file readable and maintainable:
 
 ```ts
-app.on("message", async ({ send, activity }) => {
-  await send({ type: "typing" });
+app.on('message', async ({ send, activity }) => {
+  await send({ type: 'typing' });
   const card = new AdaptiveCard(
-    new TextBlock("Create New Task", {
-      size: "Large",
-      weight: "Bolder",
+    new TextBlock('Create New Task', {
+      size: 'Large',
+      weight: 'Bolder',
     }),
-    new TextInput({ id: "title" })
-      .withLabel("Task Title")
-      .withPlaceholder("Enter task title"),
-    new TextInput({ id: "description" })
-      .withLabel("Description")
-      .withPlaceholder("Enter task details")
+    new TextInput({ id: 'title' })
+      .withLabel('Task Title')
+      .withPlaceholder('Enter task title'),
+    new TextInput({ id: 'description' })
+      .withLabel('Description')
+      .withPlaceholder('Enter task details')
       .withIsMultiline(true),
     new ChoiceSetInput(
-      { title: "High", value: "high" },
-      { title: "Medium", value: "medium" },
-      { title: "Low", value: "low" }
+      { title: 'High', value: 'high' },
+      { title: 'Medium', value: 'medium' },
+      { title: 'Low', value: 'low' }
     )
-      .withId("priority")
-      .withLabel("Priority")
-      .withValue("medium"),
-    new DateInput({ id: "due_date" })
-      .withLabel("Due Date")
-      .withValue(new Date().toISOString().split("T")[0]),
+      .withId('priority')
+      .withLabel('Priority')
+      .withValue('medium'),
+    new DateInput({ id: 'due_date' })
+      .withLabel('Due Date')
+      .withValue(new Date().toISOString().split('T')[0]),
     new ActionSet(
-      new ExecuteAction({ title: "Create Task" })
-        .withData({ action: "create_task" })
-        .withAssociatedInputs("auto")
-        .withStyle("positive")
+      new ExecuteAction({ title: 'Create Task' })
+        .withData({ action: 'create_task' })
+        .withAssociatedInputs('auto')
+        .withStyle('positive')
     )
   );
   await send(card);

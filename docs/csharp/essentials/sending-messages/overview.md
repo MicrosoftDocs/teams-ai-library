@@ -1,11 +1,11 @@
 ---
-title: Sending Messages (C#)
-description: Learn about Sending Messages (C#)
+title: Sending Messages (preview) (C#)
+description: Learn about Sending Messages (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Sending Messages (C#) (preview)
+# Sending Messages (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

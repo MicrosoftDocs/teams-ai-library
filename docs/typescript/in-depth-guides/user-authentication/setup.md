@@ -1,11 +1,11 @@
 ---
-title: App Setup (TypeScript)
-description: Learn about App Setup (TypeScript)
+title: App Setup (preview) (TypeScript)
+description: Learn about App Setup (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# App Setup (TypeScript) (preview)
+# App Setup (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -27,7 +27,7 @@ In this step you will have to tweak your Azure Bot service and App registration 
 > [!NOTE]
 > [Single Sign-On (SSO)](./auth-sso.md#single-sign-on-sso) in Teams allows users to access your app seamlessly by using their existing Teams account credentials for authentication. A user who has logged into Teams doesn't need to log in again to your app within the Teams environment.
 
-You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad) guide in the Microsoft Learn docs.
+You can follow the [Enable SSO for bot and message extension app using Entra ID](/microsoftteams/platform/bots/how-to/authentication/bot-sso-register-aad?tabs=botid) guide in the Microsoft Learn docs.
 
 ### Using Microsoft 365 Agents Toolkit with the `teams` CLI
 
@@ -70,5 +70,5 @@ const app = new App({
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0&preserve-view=true)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
 - [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)

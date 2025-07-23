@@ -1,8 +1,8 @@
 ---
-title: Teams CLI
-description: Learn about Teams CLI
+title: Teams CLI (preview)
+description: Learn about Teams CLI (preview)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # Teams CLI (preview)

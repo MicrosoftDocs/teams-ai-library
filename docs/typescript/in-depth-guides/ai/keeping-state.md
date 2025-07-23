@@ -1,11 +1,11 @@
 ---
-title: Keeping State (TypeScript)
-description: Learn about Keeping State (TypeScript)
+title: Keeping State (preview) (TypeScript)
+description: Learn about Keeping State (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Keeping State (TypeScript) (preview)
+# Keeping State (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

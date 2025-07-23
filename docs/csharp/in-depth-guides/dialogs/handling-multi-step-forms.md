@@ -1,11 +1,11 @@
 ---
-title: Handling Multi-Step Forms (C#)
-description: Learn about Handling Multi-Step Forms (C#)
+title: Handling Multi-Step Forms (preview) (C#)
+description: Learn about Handling Multi-Step Forms (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Handling Multi-Step Forms (C#) (preview)
+# Handling Multi-Step Forms (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -16,32 +16,32 @@ Start off by sending an initial card in the `dialog.open` event.
 ```ts
 const dialogCard = new AdaptiveCard(
   {
-    type: "TextBlock",
-    text: "This is a multi-step form",
-    size: "Large",
-    weight: "Bolder",
+    type: 'TextBlock',
+    text: 'This is a multi-step form',
+    size: 'Large',
+    weight: 'Bolder',
   },
   new TextInput()
-    .withLabel("Name")
+    .withLabel('Name')
     .withIsRequired()
-    .withId("name")
-    .withPlaceholder("Enter your name")
+    .withId('name')
+    .withPlaceholder('Enter your name')
 )
   // Inside the dialog, the card actions for submitting the card must be
   // of type Action.Submit
   .withActions(
     new SubmitAction()
-      .withTitle("Submit")
-      .withData({ submissiondialogtype: "webpage_dialog_step_1" })
+      .withTitle('Submit')
+      .withData({ submissiondialogtype: 'webpage_dialog_step_1' })
   );
 
 // Return an object with the task value that renders a card
 return {
   task: {
-    type: "continue",
+    type: 'continue',
     value: {
-      title: "Multi-step Form Dialog",
-      card: cardAttachment("adaptive", dialogCard),
+      title: 'Multi-step Form Dialog',
+      card: cardAttachment('adaptive', dialogCard),
     },
   },
 };
@@ -50,29 +50,29 @@ return {
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
 ```ts
-app.on("dialog.submit", async ({ activity, send, next }) => {
+app.on('dialog.submit', async ({ activity, send, next }) => {
   const dialogType = activity.value.data.submissiondialogtype;
 
-  if (dialogType === "webpage_dialog_step_1") {
+  if (dialogType === 'webpage_dialog_step_1') {
     // This is data from the form that was submitted
     const name = activity.value.data.name;
     const nextStepCard = new AdaptiveCard(
       {
-        type: "TextBlock",
-        text: "Email",
-        size: "Large",
-        weight: "Bolder",
+        type: 'TextBlock',
+        text: 'Email',
+        size: 'Large',
+        weight: 'Bolder',
       },
       new TextInput()
-        .withLabel("Email")
+        .withLabel('Email')
         .withIsRequired()
-        .withId("email")
-        .withPlaceholder("Enter your email")
+        .withId('email')
+        .withPlaceholder('Enter your email')
     ).withActions(
-      new SubmitAction().withTitle("Submit").withData({
+      new SubmitAction().withTitle('Submit').withData({
         // This same handler will get called, so we need to identify the step
         // in the returned data
-        submissiondialogtype: "webpage_dialog_step_2",
+        submissiondialogtype: 'webpage_dialog_step_2',
         // Carry forward data from previous step
         name,
       })
@@ -80,15 +80,15 @@ app.on("dialog.submit", async ({ activity, send, next }) => {
     return {
       task: {
         // This indicates that the dialog flow should continue
-        type: "continue",
+        type: 'continue',
         value: {
           // Here we customize the title based on the previous response
           title: `Thanks ${name} - Get Email`,
-          card: cardAttachment("adaptive", nextStepCard),
+          card: cardAttachment('adaptive', nextStepCard),
         },
       },
     };
-  } else if (dialogType === "webpage_dialog_step_2") {
+  } else if (dialogType === 'webpage_dialog_step_2') {
     const name = activity.value.data.name;
     const email = activity.value.data.email;
     await send(

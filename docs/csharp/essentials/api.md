@@ -1,11 +1,11 @@
 ---
-title: Teams API Client (C#)
-description: Learn about Teams API Client (C#)
+title: Teams API Client (preview) (C#)
+description: Learn about Teams API Client (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Teams API Client (C#) (preview)
+# Teams API Client (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

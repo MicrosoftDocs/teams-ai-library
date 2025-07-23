@@ -1,11 +1,11 @@
 ---
-title: Action commands (TypeScript)
-description: Learn about Action commands (TypeScript)
+title: Action commands (preview) (TypeScript)
+description: Learn about Action commands (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Action commands (TypeScript) (preview)
+# Action commands (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -99,7 +99,7 @@ Here we are defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Parameters":::
+:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Dialog with fields for title, subtitle, and text":::
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`...etc.
 
@@ -114,15 +114,15 @@ Here we are defining three different commands:
 Handle submission when the `createCard` or `getMessageDetails` actions commands are invoked.
 
 ```ts
-app.on("message.ext.submit", async ({ activity }) => {
+app.on('message.ext.submit', async ({ activity }) => {
   const { commandId } = activity.value;
   let card: IAdaptiveCard;
 
-  if (commandId === "createCard") {
+  if (commandId === 'createCard') {
     // activity.value.commandContext == "compose"
     card = createCard(activity.value.data);
   } else if (
-    commandId === "getMessageDetails" &&
+    commandId === 'getMessageDetails' &&
     activity.value.messagePayload
   ) {
     // activity.value.commandContext == "message"
@@ -133,9 +133,9 @@ app.on("message.ext.submit", async ({ activity }) => {
 
   return {
     composeExtension: {
-      type: "result",
-      attachmentLayout: "list",
-      attachments: [cardAttachment("adaptive", card)],
+      type: 'result',
+      attachmentLayout: 'list',
+      attachments: [cardAttachment('adaptive', card)],
     },
   };
 });
@@ -144,29 +144,29 @@ app.on("message.ext.submit", async ({ activity }) => {
 `createCard()` function
 
 ```ts
-interface FormData {
+interface IFormData {
   title: string;
   subtitle: string;
   text: string;
 }
 
-export function createCard(data: FormData) {
+export function createCard(data: IFormData) {
   return new AdaptiveCard(
     new Image(IMAGE_URL),
     new TextBlock(data.title, {
-      size: "Large",
-      weight: "Bolder",
-      color: "Accent",
-      style: "heading",
+      size: 'Large',
+      weight: 'Bolder',
+      color: 'Accent',
+      style: 'heading',
     }),
     new TextBlock(data.subtitle, {
-      size: "Small",
-      weight: "Lighter",
-      color: "Good",
+      size: 'Small',
+      weight: 'Lighter',
+      color: 'Good',
     }),
     new TextBlock(data.text, {
       wrap: true,
-      spacing: "Medium",
+      spacing: 'Medium',
     })
   );
 }
@@ -177,20 +177,20 @@ export function createCard(data: FormData) {
 ```ts
 export function createMessageDetailsCard(messagePayload: Message) {
   const cardElements: CardElement[] = [
-    new TextBlock("Message Details", {
-      size: "Large",
-      weight: "Bolder",
-      color: "Accent",
-      style: "heading",
+    new TextBlock('Message Details', {
+      size: 'Large',
+      weight: 'Bolder',
+      color: 'Accent',
+      style: 'heading',
     }),
   ];
 
   if (messagePayload?.body?.content) {
     cardElements.push(
-      new TextBlock("Content", {
-        size: "Medium",
-        weight: "Bolder",
-        spacing: "Medium",
+      new TextBlock('Content', {
+        size: 'Medium',
+        weight: 'Bolder',
+        spacing: 'Medium',
       }),
       new TextBlock(messagePayload.body.content)
     );
@@ -198,16 +198,16 @@ export function createMessageDetailsCard(messagePayload: Message) {
 
   if (messagePayload?.attachments?.length) {
     cardElements.push(
-      new TextBlock("Attachments", {
-        size: "Medium",
-        weight: "Bolder",
-        spacing: "Medium",
+      new TextBlock('Attachments', {
+        size: 'Medium',
+        weight: 'Bolder',
+        spacing: 'Medium',
       }),
       new TextBlock(
         `Number of attachments: ${messagePayload.attachments.length}`,
         {
           wrap: true,
-          spacing: "Small",
+          spacing: 'Small',
         }
       )
     );
@@ -215,28 +215,28 @@ export function createMessageDetailsCard(messagePayload: Message) {
 
   if (messagePayload?.createdDateTime) {
     cardElements.push(
-      new TextBlock("Created Date", {
-        size: "Medium",
-        weight: "Bolder",
-        spacing: "Medium",
+      new TextBlock('Created Date', {
+        size: 'Medium',
+        weight: 'Bolder',
+        spacing: 'Medium',
       }),
       new TextBlock(messagePayload.createdDateTime, {
         wrap: true,
-        spacing: "Small",
+        spacing: 'Small',
       })
     );
   }
 
   if (messagePayload?.linkToMessage) {
     cardElements.push(
-      new TextBlock("Message Link", {
-        size: "Medium",
-        weight: "Bolder",
-        spacing: "Medium",
+      new TextBlock('Message Link', {
+        size: 'Medium',
+        weight: 'Bolder',
+        spacing: 'Medium',
       }),
       new ActionSet(
         new OpenUrlAction(messagePayload.linkToMessage, {
-          title: "Go to message",
+          title: 'Go to message',
         })
       )
     );
@@ -251,19 +251,19 @@ export function createMessageDetailsCard(messagePayload: Message) {
 Handle opening adaptive card dialog when the `fetchConversationMembers` command is invoked.
 
 ```ts
-app.on("message.ext.open", async ({ activity, api }) => {
+app.on('message.ext.open', async ({ activity, api }) => {
   const conversationId = activity.conversation.id;
   const members = await api.conversations.members(conversationId).get();
   const card = createConversationMembersCard(members);
 
   return {
     task: {
-      type: "continue",
+      type: 'continue',
       value: {
-        title: "Conversation members",
-        height: "small",
-        width: "small",
-        card: cardAttachment("adaptive", card),
+        title: 'Conversation members',
+        height: 'small',
+        width: 'small',
+        card: cardAttachment('adaptive', card),
       },
     },
   };
@@ -274,18 +274,18 @@ app.on("message.ext.open", async ({ activity, api }) => {
 
 ```ts
 export function createConversationMembersCard(members: Account[]) {
-  const membersList = members.map((member) => member.name).join(", ");
+  const membersList = members.map((member) => member.name).join(', ');
 
   return new AdaptiveCard(
-    new TextBlock("Conversation members", {
-      size: "Medium",
-      weight: "Bolder",
-      color: "Accent",
-      style: "heading",
+    new TextBlock('Conversation members', {
+      size: 'Medium',
+      weight: 'Bolder',
+      color: 'Accent',
+      style: 'heading',
     }),
     new TextBlock(membersList, {
       wrap: true,
-      spacing: "Small",
+      spacing: 'Small',
     })
   );
 }

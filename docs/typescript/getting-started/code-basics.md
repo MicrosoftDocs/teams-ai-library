@@ -1,11 +1,11 @@
 ---
-title: Code Basics (TypeScript)
-description: Learn about Code Basics (TypeScript)
+title: Code Basics (preview) (TypeScript)
+description: Learn about Code Basics (preview) (TypeScript)
 ms.topic: get-started
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Code Basics (TypeScript) (preview)
+# Code Basics (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -108,5 +108,5 @@ Continue on to the next page to learn about these advanced features.
 ## Other Resources
 
 - [Essentials](../essentials/overview.md)
-- [Teams concepts](../../teams/overview.md)
-- [Teams developer tools](../../developer-tools/cli.md)
+- [Teams concepts](../../teams/core-concepts.md)
+- [Teams developer tools](../../developer-tools/overview.md)

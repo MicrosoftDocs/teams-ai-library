@@ -1,11 +1,11 @@
 ---
-title: Custom Logger (C#)
-description: Learn about Custom Logger (C#)
+title: Custom Logger (preview) (C#)
+description: Learn about Custom Logger (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Custom Logger (C#) (preview)
+# Custom Logger (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

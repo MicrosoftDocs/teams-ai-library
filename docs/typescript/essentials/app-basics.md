@@ -1,11 +1,11 @@
 ---
-title: App Basics (TypeScript)
-description: Learn about App Basics (TypeScript)
+title: App Basics (preview) (TypeScript)
+description: Learn about App Basics (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# App Basics (TypeScript) (preview)
+# App Basics (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,11 +1,11 @@
 ---
-title: MCP (C#)
-description: Learn about MCP (C#)
+title: MCP (preview) (C#)
+description: Learn about MCP (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# MCP (C#) (preview)
+# MCP (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,11 +1,11 @@
 ---
-title: Middleware (C#)
-description: Learn about Middleware (C#)
+title: Middleware (preview) (C#)
+description: Learn about Middleware (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Middleware (C#) (preview)
+# Middleware (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

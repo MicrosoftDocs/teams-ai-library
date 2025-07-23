@@ -1,11 +1,11 @@
 ---
-title: The API Client (TypeScript)
-description: Learn about The API Client (TypeScript)
+title: The API Client (preview) (TypeScript)
+description: Learn about The API Client (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# The API Client (TypeScript) (preview)
+# The API Client (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -13,35 +13,37 @@ BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. 
 we pass an instance of our `ApiClient` into all our activity handlers.
 
 # [BotBuilder](#tab/botbuilder)
-```typescript showLineNumbers
-    import {
-      CloudAdapter,
-      ConfigurationBotFrameworkAuthentication,
-      TeamsInfo,
-    } from 'botbuilder';
 
-    const auth = new ConfigurationBotFrameworkAuthentication(process.env);
-    const adapter = new CloudAdapter(auth);
+```typescript
+import {
+  CloudAdapter,
+  ConfigurationBotFrameworkAuthentication,
+  TeamsInfo,
+} from 'botbuilder';
 
-    export class ActivityHandler extends TeamsActivityHandler {
-      constructor() {
-        super();
-        this.onMessage(async (context) => {
-          // highlight-next-line
-          const members = await TeamsInfo.getMembers(context);
-        });
-      }
-    }
-```
-# [Teams AI](#tab/teamsai)
-```typescript showLineNumbers
-    import { App } from '@microsoft/teams.apps';
+const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+const adapter = new CloudAdapter(auth);
 
-    const app = new App();
-
-    app.on('message', async ({ api, activity }) => {
+export class ActivityHandler extends TeamsActivityHandler {
+  constructor() {
+    super();
+    this.onMessage(async (context) => {
       // highlight-next-line
-      const members = await api.conversations.members(activity.conversation.id).get();
+      const members = await TeamsInfo.getMembers(context);
     });
+  }
+}
 ```
----
+
+# [Teams AI](#tab/teams-ai)
+
+```typescript
+import { App } from '@microsoft/teams.apps';
+
+const app = new App();
+
+app.on('message', async ({ api, activity }) => {
+  // highlight-next-line
+  const members = await api.conversations.members(activity.conversation.id).get();
+});
+```

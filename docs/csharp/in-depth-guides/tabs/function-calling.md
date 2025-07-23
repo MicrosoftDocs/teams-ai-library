@@ -1,11 +1,11 @@
 ---
-title: Function calling in tab apps (C#)
-description: Learn about function calling in tab apps (C#)
+title: Functions (preview) (C#)
+description: Learn about Functions (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Function calling in tab apps (C#) (preview)
+# Functions (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

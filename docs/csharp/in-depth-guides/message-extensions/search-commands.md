@@ -1,11 +1,11 @@
 ---
-title: Search commands (C#)
-description: Learn about Search commands (C#)
+title: Search commands (preview) (C#)
+description: Learn about Search commands (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Search commands (C#) (preview)
+# Search commands (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -63,23 +63,23 @@ Here we are defining the `searchQuery` search (or query) command.
 Handle opening adaptive card dialog when the `searchQuery` query is submitted.
 
 ```ts
-app.on("message.ext.query", async ({ activity }) => {
+app.on('message.ext.query', async ({ activity }) => {
   const { commandId } = activity.value;
   const searchQuery = activity.value.parameters![0].value;
 
-  if (commandId == "searchQuery") {
+  if (commandId == 'searchQuery') {
     const cards = await createDummyCards(searchQuery);
     const attachments = cards.map(({ card, thumbnail }) => {
       return {
-        ...cardAttachment("adaptive", card), // expanded card in the compose box...
-        preview: cardAttachment("thumbnail", thumbnail), // preview card in the compose box...
+        ...cardAttachment('adaptive', card), // expanded card in the compose box...
+        preview: cardAttachment('thumbnail', thumbnail), // preview card in the compose box...
       };
     });
 
     return {
       composeExtension: {
-        type: "result",
-        attachmentLayout: "list",
+        type: 'result',
+        attachmentLayout: 'list',
         attachments: attachments,
       },
     };
@@ -95,27 +95,27 @@ app.on("message.ext.query", async ({ activity }) => {
 export async function createDummyCards(searchQuery: string) {
   const dummyItems = [
     {
-      title: "Item 1",
+      title: 'Item 1',
       description: `This is the first item and this is your search query: ${searchQuery}`,
     },
-    { title: "Item 2", description: "This is the second item" },
-    { title: "Item 3", description: "This is the third item" },
-    { title: "Item 4", description: "This is the fourth item" },
-    { title: "Item 5", description: "This is the fifth item" },
+    { title: 'Item 2', description: 'This is the second item' },
+    { title: 'Item 3', description: 'This is the third item' },
+    { title: 'Item 4', description: 'This is the fourth item' },
+    { title: 'Item 5', description: 'This is the fifth item' },
   ];
 
   const cards = dummyItems.map((item) => {
     return {
       card: new AdaptiveCard(
         new TextBlock(item.title, {
-          size: "Large",
-          weight: "Bolder",
-          color: "Accent",
-          style: "heading",
+          size: 'Large',
+          weight: 'Bolder',
+          color: 'Accent',
+          style: 'heading',
         }),
         new TextBlock(item.description, {
           wrap: true,
-          spacing: "Medium",
+          spacing: 'Medium',
         })
       ),
       thumbnail: {
@@ -150,14 +150,14 @@ When a user clicks on a list item the dummy adaptive card is added to the compos
 To implement custom actions when a user clicks on a search result item, you can add the `tap` property to the preview card. This allows you to handle the click event with custom logic:
 
 ```ts
-app.on("message.ext.select-item", async ({ activity, send }) => {
+app.on('message.ext.select-item', async ({ activity, send }) => {
   const { option } = activity.value;
 
   await send(`Selected item: ${option}`);
 
   return {
     status: 200,
-  }
+  };
 });
 ```
 

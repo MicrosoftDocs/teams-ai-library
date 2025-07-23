@@ -1,11 +1,11 @@
 ---
-title: Essentials (C#)
-description: Learn about Essentials (C#)
+title: Essentials (preview) (C#)
+description: Learn about Essentials (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Essentials (C#) (preview)
+# Essentials (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

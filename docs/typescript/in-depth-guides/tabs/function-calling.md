@@ -1,11 +1,11 @@
 ---
-title: Function calling in tab apps (TypeScript)
-description: Learn about function calling in tab apps (TypeScript)
+title: Functions (preview) (TypeScript)
+description: Learn about Functions (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Function calling in tab apps (TypeScript) (preview)
+# Functions (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
