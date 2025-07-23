@@ -39,7 +39,7 @@ teams config add atk.oauth
 
 The `atk.oauth` configuration is a basic setup for Agents Toolkit along with configurations to authenticate the user with Microsoft Entra ID to access Microsoft Graph APIs.
 
-This [CLI](/developer-tools/cli) command adds configuration files required by Agents Toolkit, including:
+This [CLI](../../../developer-tools/cli.md) command adds configuration files required by Agents Toolkit, including:
 
 - Azure Application Entra ID manifest file `aad.manifest.json`.
 - Azure bicep files to provision Azure bot in `infra/` folder.

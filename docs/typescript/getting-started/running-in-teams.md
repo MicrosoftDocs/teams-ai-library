@@ -36,7 +36,7 @@ npx @microsoft/teams.cli config add atk.basic
 > The `atk.basic` configuration is a basic setup for Microsoft 365 Agents Toolkit. It includes the necessary files and configuration to get started with Teams development.<br/>
 > Explore more advanced configurations as needed with teams config --help.<br />
 
-This [CLI](/developer-tools/cli) command adds configuration files required by Microsoft 365 Agents Toolkit, including:
+This [CLI](../../developer-tools/cli.md) command adds configuration files required by Microsoft 365 Agents Toolkit, including:
 
 - Environment setup in the `env` folder and root `.env` file
 - Teams app manifest in the `appPackage` folder (if not already present)
@@ -112,7 +112,7 @@ Now that your agent is running in Teams, you can learn more [essential concepts]
 
 ## Resources
 
-- [Teams CLI documentation](/developer-tools/cli)
+- [Teams CLI documentation](../../developer-tools/cli.md)
 - [Microsoft 365 Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
 - [Microsoft 365 Agents Toolkit CLI documentation](/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
