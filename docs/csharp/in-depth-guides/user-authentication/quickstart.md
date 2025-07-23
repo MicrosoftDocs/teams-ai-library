@@ -1,11 +1,11 @@
 ---
-title: Quickstart (preview) (C#)
-description: Learn about Quickstart (preview) (C#)
+title: User authentication quickstart (preview) (C#)
+description: Get started with user authentication in C#
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
 
-# Quickstart (preview) (C#)
+# User authentication quickstart (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

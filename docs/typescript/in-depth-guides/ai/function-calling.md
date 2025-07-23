@@ -1,11 +1,11 @@
 ---
-title: Functions (preview) (TypeScript)
-description: Learn about Functions (preview) (TypeScript)
+title: Function calling (preview) (TypeScript)
+description: Learn about function calling (preview) (TypeScript)
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
 
-# Functions (preview) (TypeScript)
+# Function calling (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

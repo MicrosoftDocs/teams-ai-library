@@ -1,11 +1,11 @@
 ---
-title: Functions (preview) (C#)
-description: Learn about Functions (preview) (C#)
+title: Function calling (preview) (C#)
+description: Learn about function calling (preview) (C#)
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
 
-# Functions (preview) (C#)
+# Function calling (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 
