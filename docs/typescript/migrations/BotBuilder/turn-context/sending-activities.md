@@ -40,7 +40,7 @@ app.on('message', async ({ send }) => {
 
 ## Strings
 
-# [BotBuilder](#tab/botbuilder)
+# [BotBuilder](#tab/strings-botbuilder)
 
 ```typescript
 import { TeamsActivityHandler } from 'botbuilder';
@@ -56,7 +56,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams AI](#tab/strings-teams-ai)
 
 ```typescript
 app.on('message', async ({ send }) => {
@@ -67,7 +67,7 @@ app.on('message', async ({ send }) => {
 
 ## Adaptive Cards
 
-# [BotBuilder](#tab/botbuilder)
+# [BotBuilder](#tab/ac-botbuilder)
 
 ```typescript
 import { TeamsActivityHandler, CardFactory } from 'botbuilder';
@@ -97,7 +97,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams AI](#tab/ac-teams-ai)
 
 ```typescript
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
@@ -110,7 +110,7 @@ app.on('message', async ({ send }) => {
 
 ## Attachments
 
-# [BotBuilder](#tab/botbuilder)
+# [BotBuilder](#tab/attachments-botbuilder)
 
 ```typescript
 import { TeamsActivityHandler } from 'botbuilder';
@@ -132,7 +132,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams AI](#tab/attachments-teams-ai)
 
 ```typescript
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';

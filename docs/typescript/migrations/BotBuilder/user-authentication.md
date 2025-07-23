@@ -1,16 +1,15 @@
 ---
-title: User Authentication (preview) (TypeScript)
-description: Learn about User Authentication (preview) (TypeScript)
+title: BotBuilder migration for user authentication (preview) (TypeScript)
+description: Learn how to migrate your BotBuilder authentication flow to Teams AI Library (preview) (TypeScript)
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
 
-# User Authentication (preview) (TypeScript)
+# BotBuilder migration for user authentication (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
-BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams AI doesn't have any
-equivalent feature to dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
+BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams AI doesn't have any equivalent feature to dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
 
 # [BotBuilder](#tab/botbuilder)
 
