@@ -1,13 +1,11 @@
 ---
-title: Listening To Activities (C#)
-description: Learn about Listening To Activities (C#)
+title: Listening To Activities (preview) (C#)
+description: Learn about Listening To Activities (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Listening To Activities (C#) (preview) (C#)
-
-[This article is prerelease documentation and is subject to change.]
+# Listening To Activities (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,11 +1,11 @@
 ---
-title: Sending Messages (TypeScript)
-description: Learn about Sending Messages (TypeScript)
+title: Sending Messages (preview) (TypeScript)
+description: Learn about Sending Messages (preview) (TypeScript)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Sending Messages (TypeScript) (preview)
+# Sending Messages (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

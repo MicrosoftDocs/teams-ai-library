@@ -1,11 +1,11 @@
 ---
-title: App Setup (C#)
-description: Learn about App Setup (C#)
+title: App Setup (preview) (C#)
+description: Learn about App Setup (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# App Setup (C#) (preview)
+# App Setup (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -70,5 +70,5 @@ const app = new App({
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0&preserve-view=true)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
 - [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)

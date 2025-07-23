@@ -1,11 +1,11 @@
 ---
-title: Keeping State (C#)
-description: Learn about Keeping State (C#)
+title: Keeping State (preview) (C#)
+description: Learn about Keeping State (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Keeping State (C#) (preview)
+# Keeping State (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

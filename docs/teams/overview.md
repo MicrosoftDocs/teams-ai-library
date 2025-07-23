@@ -1,8 +1,8 @@
 ---
-title: Teams Integration
-description: Learn about Teams Integration
+title: Teams Integration (preview)
+description: Learn about Teams Integration (preview)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # Teams Integration (preview)

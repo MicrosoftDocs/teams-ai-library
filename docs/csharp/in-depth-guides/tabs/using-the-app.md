@@ -1,11 +1,11 @@
 ---
-title: Using The App (C#)
-description: Learn about Using The App (C#)
+title: Using The App (preview) (C#)
+description: Learn about Using The App (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Using The App (C#) (preview)
+# Using The App (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

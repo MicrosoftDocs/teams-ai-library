@@ -1,10 +1,10 @@
 ---
-title: Observability (C#)
-description: Learn about Observability (C#)
+title: Observability (preview) (C#)
+description: Learn about Observability (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Observability (C#) (preview)
+# Observability (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

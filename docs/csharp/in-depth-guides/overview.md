@@ -1,10 +1,10 @@
 ---
-title: In-Depth Guides (C#)
-description: Learn about In-Depth Guides (C#)
+title: In-Depth Guides (preview) (C#)
+description: Learn about In-Depth Guides (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# In-Depth Guides (C#) (preview)
+# In-Depth Guides (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

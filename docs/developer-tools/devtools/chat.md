@@ -1,8 +1,8 @@
 ---
-title: Devtools chat
-description: Learn about Devtools chat
+title: Devtools chat (preview)
+description: Learn about Devtools chat (preview)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # Devtools chat (preview)
@@ -113,7 +113,7 @@ Soft delete messages by hovering over your message, pressing the More (ellipsis)
 
 If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Sending feedback
+### User feedback
 
 Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 

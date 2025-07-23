@@ -1,11 +1,11 @@
 ---
-title: Teams AI Library v2 TypeScript Quickstart
-description: Learn how to quickly get started with Teams AI Library v2 for TypeScript
+title: Quickstart (preview) (TypeScript)
+description: Learn about Quickstart (preview) (TypeScript)
 ms.topic: get-started
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Teams AI Library quickstart (TypeScript) (preview)
+# Quickstart (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -30,8 +30,7 @@ npm install -g @microsoft/teams.cli@preview
 
 
 > [!NOTE]
-> The [Teams CLI](../../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process.
->
+> _The [Teams CLI](../../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
 > After installation, you can run `teams --version` to verify the installation.
 
 ## Creating Your First Agent
@@ -48,7 +47,7 @@ This command:
 
 1. Creates a new directory called `quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoft-365/extensibility/schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 
 > The `echo` template creates a basic agent that repeats back any message it receives - perfect for learning the fundamentals.
 
@@ -115,5 +114,5 @@ Otherwise, if you want to run your agent in Teams, check out the [Running in Tea
 
 - [Teams CLI documentation](../../developer-tools/cli.md)
 - [Teams DevTools documentation](../../developer-tools/devtools/overview.md)
-- [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
+- [Teams manifest schema](/microsoft-365/extensibility/schema)
 - [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

@@ -1,11 +1,11 @@
 ---
-title: AI (C#)
-description: Learn about AI (C#)
+title: AI (preview) (C#)
+description: Learn about AI (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# AI (C#) (preview)
+# AI (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,11 +1,11 @@
 ---
-title: MCP (TypeScript)
-description: Learn about MCP (TypeScript)
+title: MCP (preview) (TypeScript)
+description: Learn about MCP (preview) (TypeScript)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# MCP (TypeScript) (preview)
+# MCP (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

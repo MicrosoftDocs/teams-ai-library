@@ -1,8 +1,8 @@
 ---
-title: Inspect activities
-description: Learn about Inspect activities
+title: Inspect activities (preview)
+description: Learn about Inspect activities (preview)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # Inspect activities (preview)

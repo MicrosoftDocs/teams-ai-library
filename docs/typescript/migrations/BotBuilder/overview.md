@@ -1,11 +1,11 @@
 ---
-title: From BotBuilder (TypeScript)
-description: Learn about From BotBuilder (TypeScript)
+title: From BotBuilder (preview) (TypeScript)
+description: Learn about From BotBuilder (preview) (TypeScript)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# From BotBuilder (TypeScript) (preview)
+# From BotBuilder (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

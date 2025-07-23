@@ -1,8 +1,8 @@
 ---
-title: DevTools
-description: Learn about DevTools
+title: DevTools (preview)
+description: Learn about DevTools (preview)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # DevTools (preview)

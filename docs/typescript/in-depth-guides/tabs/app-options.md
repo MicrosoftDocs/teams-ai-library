@@ -1,11 +1,11 @@
 ---
-title: App Options (TypeScript)
-description: Learn about App Options (TypeScript)
+title: App Options (preview) (TypeScript)
+description: Learn about App Options (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# App Options (TypeScript) (preview)
+# App Options (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and 

@@ -1,8 +1,8 @@
 ---
-title: Cards
-description: Learn about Cards
+title: Cards (preview)
+description: Learn about Cards (preview)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # Cards (preview)

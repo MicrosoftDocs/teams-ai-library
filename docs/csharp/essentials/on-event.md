@@ -1,11 +1,11 @@
 ---
-title: Listening To Events (C#)
-description: Learn about Listening To Events (C#)
+title: Listening To Events (preview) (C#)
+description: Learn about Listening To Events (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Listening To Events (C#) (preview)
+# Listening To Events (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,11 +1,11 @@
 ---
-title: User Authentication (C#)
-description: Learn about User Authentication (C#)
+title: User Authentication (preview) (C#)
+description: Learn about User Authentication (preview) (C#)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# User Authentication (C#) (preview)
+# User Authentication (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 
@@ -23,4 +23,4 @@ At times agents must access secured online resources on behalf of the user, such
 
 ## Resources
 
-[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0&preserve-view=true)
+[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)

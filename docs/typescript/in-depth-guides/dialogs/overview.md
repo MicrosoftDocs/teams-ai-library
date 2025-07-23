@@ -1,11 +1,11 @@
 ---
-title: Dialogs (Task Modules) (TypeScript)
-description: Learn about Dialogs (Task Modules) (TypeScript)
+title: Dialogs (Task Modules) (preview) (TypeScript)
+description: Learn about Dialogs (Task Modules) (preview) (TypeScript)
 ms.topic: overview
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Dialogs (Task Modules) (TypeScript) (preview)
+# Dialogs (Task Modules) (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

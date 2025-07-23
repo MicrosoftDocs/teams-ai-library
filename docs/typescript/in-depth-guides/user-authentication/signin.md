@@ -1,11 +1,11 @@
 ---
-title: Signing In (TypeScript)
-description: Learn about Signing In (TypeScript)
+title: Signing In (preview) (TypeScript)
+description: Learn about Signing In (preview) (TypeScript)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# Signing In (TypeScript) (preview)
+# Signing In (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 

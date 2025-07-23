@@ -1,11 +1,11 @@
 ---
-title: App Options (C#)
-description: Learn about App Options (C#)
+title: App Options (preview) (C#)
+description: Learn about App Options (preview) (C#)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
-# App Options (C#) (preview)
+# App Options (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and 

@@ -1,8 +1,8 @@
 ---
-title: Why an SDK?
-description: Learn about the benefits of using the Teams SDK (Teams AI Library) to build a Teams agent application.
+title: Why An SDK? (preview)
+description: Learn about Why An SDK? (preview)
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/16/2025
 ---
 
 # Why An SDK? (preview)
