@@ -12,7 +12,7 @@ ms.date: 07/16/2025
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 
 > [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
+> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../../../teams/core-concepts.md) before attempting this guide.
 
 ## Authenticate the user to Entra ID to access Microsoft Graph APIs
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
@@ -39,7 +39,7 @@ teams config add atk.oauth
 
 The `atk.oauth` configuration is a basic setup for Agents Toolkit along with configurations to authenticate the user with Microsoft Entra ID to access Microsoft Graph APIs.
 
-This [CLI](/developer-tools/cli.md) command adds configuration files required by Agents Toolkit, including:
+This [CLI](../../../developer-tools/cli.md) command adds configuration files required by Agents Toolkit, including:
 
 - Azure Application Entra ID manifest file `aad.manifest.json`.
 - Azure bicep files to provision Azure bot in `infra/` folder.

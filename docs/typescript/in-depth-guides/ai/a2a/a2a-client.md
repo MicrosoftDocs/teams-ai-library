@@ -121,4 +121,4 @@ sequenceDiagram
 
 ## Further Reading
 
--   [A2A Protocol](https://google.github.io/A2A) 
+- [A2A Protocol](https://a2a-protocol.org/)

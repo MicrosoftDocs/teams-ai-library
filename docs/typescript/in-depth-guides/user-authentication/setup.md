@@ -12,7 +12,7 @@ ms.date: 07/16/2025
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 
 > [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
+> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../../../teams/core-concepts.md) before attempting this guide.
 
 ## Authenticate the user to Entra ID to access Microsoft Graph APIs
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
@@ -53,7 +53,7 @@ You can follow the [Add authentication to bot app](/microsoftteams/platform/bots
 
 ## Configure the OAuth Connection Name in the `App` instance
 
-In the [Using Agents Toolkit with `teams` CLI](#using-m365-agents-toolkit-with-the-teams-cli) guide, you will notice that the OAuth Connection Name that was created in the Azure Bot configuration is `graph`. This is arbitrary and you can even create more than one configuration. You can specify which configuration to use by defining it in the app options on intialization:
+In the [Using Agents Toolkit with `teams` CLI](#using-microsoft-365-agents-toolkit-with-the-teams-cli) guide, you will notice that the OAuth Connection Name that was created in the Azure Bot configuration is `graph`. This is arbitrary and you can even create more than one configuration. You can specify which configuration to use by defining it in the app options on intialization:
 
 ```ts
 const app = new App({ 
