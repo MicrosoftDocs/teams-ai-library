@@ -99,7 +99,7 @@ Here we are defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Parameters":::
+:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Dialog with fields for title, subtitle, and text":::
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`...etc.
 
