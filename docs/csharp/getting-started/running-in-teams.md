@@ -1,10 +1,9 @@
 ---
 title: Running In Teams (preview) (C#)
-description: Learn about Running In Teams (preview) (C#)
+description: Learn about running your Teams AI Library for C# app in Teams.
 ms.topic: get-started
 ms.date: 07/16/2025
 ---
-
 # Running In Teams (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

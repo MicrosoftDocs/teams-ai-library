@@ -1,10 +1,9 @@
 ---
 title: Teams API Client (preview) (C#)
-description: Learn about Teams API Client (preview) (C#)
+description: Work with Teams APIs to integrate Teams data to your application.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Teams API Client (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

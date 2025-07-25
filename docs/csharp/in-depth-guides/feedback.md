@@ -1,11 +1,11 @@
 ---
 title: User feedback events (preview) (C#)
-description: Learn about user feedback events (preview) (C#)
+description: Handle user feedback events in Teams applications using the Teams AI
+  Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
-# User feedback events(preview) (C#)
+# User feedback events (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
 

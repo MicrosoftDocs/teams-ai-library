@@ -1,10 +1,9 @@
 ---
 title: Building Adaptive Cards (preview) (C#)
-description: Learn about Building Adaptive Cards (preview) (C#)
+description: Build interactive user interfaces using Adaptive Cards and the Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Building Adaptive Cards (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

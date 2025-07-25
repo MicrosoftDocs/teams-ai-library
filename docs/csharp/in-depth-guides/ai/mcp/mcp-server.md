@@ -1,10 +1,9 @@
 ---
 title: MCP Server (preview) (C#)
-description: Learn about MCP Server (preview) (C#)
+description: Learn how to build a MCP server in Teams applications using the Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # MCP Server (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

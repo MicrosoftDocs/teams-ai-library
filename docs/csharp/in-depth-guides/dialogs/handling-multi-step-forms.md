@@ -1,10 +1,9 @@
 ---
 title: Handling Multi-Step Forms (preview) (C#)
-description: Learn about Handling Multi-Step Forms (preview) (C#)
+description: Learn how to build logic to support multi-step dialog flows in Teams applications using the Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Handling Multi-Step Forms (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

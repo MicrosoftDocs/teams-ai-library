@@ -1,6 +1,6 @@
 ---
 title: Quickstart (preview) (C#)
-description: Learn about Quickstart (preview) (C#)
+description: Quickly build your first Teams application with the Microsoft Teams AI Library for C#.
 ms.topic: get-started
 ms.date: 07/16/2025
 ---
