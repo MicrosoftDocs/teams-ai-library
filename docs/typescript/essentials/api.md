@@ -1,10 +1,10 @@
 ---
 title: Teams API Client (preview) (TypeScript)
-description: Learn about Teams API Client (preview) (TypeScript)
+description: Work with Teams APIs in your applications built with
+Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Teams API Client (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

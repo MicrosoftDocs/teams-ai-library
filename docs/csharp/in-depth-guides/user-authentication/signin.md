@@ -1,10 +1,9 @@
 ---
 title: Signing In (preview) (C#)
-description: Learn about Signing In (preview) (C#)
+description: Implement user authentication logic for signing in a user using Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Signing In (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

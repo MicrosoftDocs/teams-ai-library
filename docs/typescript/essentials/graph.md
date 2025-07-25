@@ -1,10 +1,10 @@
 ---
 title: Graph API Client (preview) (TypeScript)
-description: Learn about Graph API Client (preview) (TypeScript)
+description: Work with the Graph API Client using the Teams
+  AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Graph API Client (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

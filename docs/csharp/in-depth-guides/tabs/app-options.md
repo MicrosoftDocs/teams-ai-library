@@ -1,10 +1,10 @@
 ---
 title: App Options (preview) (C#)
-description: Learn about App Options (preview) (C#)
+description: App options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and 
+remote agent function calling.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # App Options (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
