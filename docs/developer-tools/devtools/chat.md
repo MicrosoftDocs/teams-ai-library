@@ -1,10 +1,9 @@
 ---
-title: Devtools chat (preview)
-description: Learn about Devtools chat (preview)
+title: DevTools chat (preview)
+description: Use DevTools chat to test chat functionality of your agent without the need to sideload your application in Teams.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Devtools chat (preview)
 
 [This article is prerelease documentation and is subject to change.]

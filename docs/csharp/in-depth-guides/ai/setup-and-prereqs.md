@@ -1,10 +1,9 @@
 ---
 title: Setup & Prerequisites (preview) (C#)
-description: Learn about Setup & Prerequisites (preview) (C#)
+description: Set up the preqs for integrating LLMs into your application using Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Setup & Prerequisites (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

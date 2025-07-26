@@ -1,6 +1,6 @@
 ---
 title: Essentials (preview) (TypeScript)
-description: Learn about Essentials (preview) (TypeScript)
+description: Learn the essentials of the Microsoft Teams AI Library for TypeScript.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

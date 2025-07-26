@@ -1,10 +1,9 @@
 ---
 title: Activity Handlers (preview) (TypeScript)
-description: Learn about Activity Handlers (preview) (TypeScript)
+description: Migration guide for upgrading BotBuilder activity handlers to the Microsoft Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Activity Handlers (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

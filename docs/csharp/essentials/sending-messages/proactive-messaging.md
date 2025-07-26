@@ -1,10 +1,9 @@
 ---
 title: Proactive Messaging (preview) (C#)
-description: Learn about Proactive Messaging (preview) (C#)
+description: Implement proactive messaging and communication features in Teams applications using the Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Proactive Messaging (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

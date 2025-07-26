@@ -1,10 +1,9 @@
 ---
 title: Turn Context (preview) (TypeScript)
-description: Learn about Turn Context (preview) (TypeScript)
+description: While BotBuilder has a `TurnContext`, Teams AI has `IActivityContext` which serves the same purpose.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
-
 # Turn Context (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

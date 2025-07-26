@@ -1,10 +1,9 @@
 ---
 title: Activity Type Reference (preview) (TypeScript)
-description: Learn about Activity Type Reference (preview) (TypeScript)
-ms.topic: how-to
+description: Reference for all the activity types of the Teams AI Library for TypeScript.
+ms.topic: reference
 ms.date: 07/16/2025
 ---
-
 # Activity Type Reference (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

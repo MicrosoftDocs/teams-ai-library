@@ -1,10 +1,9 @@
 ---
 title: Running In Teams (preview) (TypeScript)
-description: Learn about Running In Teams (preview) (TypeScript)
+description: Learn about running your Teams AI Library for TypeScript app in Microsoft Teams.
 ms.topic: get-started
 ms.date: 07/16/2025
 ---
-
 # Running In Teams (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

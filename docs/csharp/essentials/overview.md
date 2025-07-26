@@ -1,6 +1,6 @@
 ---
 title: Essentials (preview) (C#)
-description: Learn about Essentials (preview) (C#)
+description: Learn the essentials of working with Microsoft Teams AI Library for C#.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

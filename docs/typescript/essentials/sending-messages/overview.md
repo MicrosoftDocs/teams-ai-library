@@ -1,10 +1,9 @@
 ---
 title: Sending Messages (preview) (TypeScript)
-description: Learn about Sending Messages (preview) (TypeScript)
+description: Learn how agents can send and handle messages using the Microsoft Teams AI Library for TypeScript.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
-
 # Sending Messages (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,10 +1,9 @@
 ---
 title: App Setup (preview) (TypeScript)
-description: Learn about App Setup (preview) (TypeScript)
+description: Configure and customize your application to access secured external services on the user's behalf using Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # App Setup (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

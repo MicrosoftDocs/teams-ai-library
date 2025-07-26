@@ -1,6 +1,6 @@
 ---
-title: Teams CLI (preview)
-description: Learn about Teams CLI (preview)
+title: Teams AI Library CLI (preview)
+description: The Teams AI LIbrary CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. Learn how to use the Teams AI Library CLI for building Teams AI applications.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---

@@ -1,10 +1,9 @@
 ---
 title: Code Basics (preview) (C#)
-description: Learn about Code Basics (preview) (C#)
+description: Get familiar with the basics of Teams AI Library for C# application code.
 ms.topic: get-started
 ms.date: 07/16/2025
 ---
-
 # Code Basics (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,10 +1,9 @@
 ---
 title: The API Client (preview) (TypeScript)
-description: Learn about The API Client (preview) (TypeScript)
+description: Migration guide for upgrading BotBuilder `TeamsInfo` logic to use the `ApiClient` for Microsoft Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # The API Client (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

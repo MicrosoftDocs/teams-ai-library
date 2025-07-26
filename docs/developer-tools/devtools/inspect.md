@@ -1,10 +1,9 @@
 ---
 title: Inspect activities (preview)
-description: Learn about Inspect activities (preview)
+description: Inspect incoming and outgoing activities o the DevTools' Activities page.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Inspect activities (preview)
 
 [This article is prerelease documentation and is subject to change.]

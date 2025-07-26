@@ -1,6 +1,6 @@
 ---
 title: Teams Core Concepts (preview)
-description: Learn about Teams Core Concepts (preview)
+description: When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Teams-specific processes happen behind the scenes. Understanding these core concepts is essential for building effective Teams AI applications.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---

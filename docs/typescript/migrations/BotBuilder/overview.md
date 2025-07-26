@@ -1,6 +1,6 @@
 ---
 title: From BotBuilder (preview) (TypeScript)
-description: Learn about From BotBuilder (preview) (TypeScript)
+description: Learn how to migrate your code from BotBuilder to the Microsoft Teams AI Library for TypeScript.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

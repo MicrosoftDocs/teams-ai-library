@@ -1,6 +1,6 @@
 ---
 title: In-Depth Guides (preview) (C#)
-description: Learn about In-Depth Guides (preview) (C#)
+description: Overview of in-depth guides for Microsoft Teams AI Library for C#.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

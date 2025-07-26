@@ -1,10 +1,9 @@
 ---
 title: Dialogs (Task Modules) (preview) (C#)
-description: Learn about Dialogs (Task Modules) (preview) (C#)
+description: Overview of dialogs functionality in the Microsoft Teams AI Library for C#.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
-
 # Dialogs (Task Modules) (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

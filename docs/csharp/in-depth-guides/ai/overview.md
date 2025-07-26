@@ -1,6 +1,6 @@
 ---
 title: AI (preview) (C#)
-description: Learn about AI (preview) (C#)
+description: Overview of AI capabilities and features in the Microsoft Teams AI Library for C#.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

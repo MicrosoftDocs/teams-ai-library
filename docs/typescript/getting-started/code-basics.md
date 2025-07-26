@@ -1,10 +1,9 @@
 ---
 title: Code Basics (preview) (TypeScript)
-description: Learn about Code Basics (preview) (TypeScript)
+description: Learn the basics of coding with the Microsoft Teams AI Library for TypeScript.
 ms.topic: get-started
 ms.date: 07/16/2025
 ---
-
 # Code Basics (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

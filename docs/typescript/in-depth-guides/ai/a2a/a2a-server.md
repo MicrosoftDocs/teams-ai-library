@@ -1,10 +1,9 @@
 ---
 title: A2A Server (preview) (TypeScript)
-description: Learn about A2A Server (preview) (TypeScript)
+description: Learn how to implement an A2A server in Teams applications using the Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # A2A Server (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

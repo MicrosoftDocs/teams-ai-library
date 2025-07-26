@@ -1,10 +1,9 @@
 ---
 title: Sending Activities (preview) (TypeScript)
-description: Learn about Sending Activities (preview) (TypeScript)
+description: Migration guide for updating BotBuilder TurnContext logic to use Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Sending Activities (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

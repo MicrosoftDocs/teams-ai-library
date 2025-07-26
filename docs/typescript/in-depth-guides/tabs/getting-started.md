@@ -1,10 +1,9 @@
 ---
 title: Getting started (preview) (TypeScript)
-description: Learn about Getting started (preview) (TypeScript)
+description: Get started building Teams tab applications with the Microsoft Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Getting started (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,10 +1,10 @@
 ---
 title: Message Extensions (preview) (C#)
-description: Learn about Message Extensions (preview) (C#)
+description: Overview of message extensions functionality in the Microsoft Teams AI
+  Library for C#.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
-
 # Message Extensions (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

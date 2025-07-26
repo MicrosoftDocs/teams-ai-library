@@ -1,10 +1,9 @@
 ---
 title: Cards (preview)
-description: Learn about Cards (preview)
+description: Use the DevTools Cards page to design and test your Adaptive Cards for your Teams AI Library applications.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Cards (preview)
 
 [This article is prerelease documentation and is subject to change.]

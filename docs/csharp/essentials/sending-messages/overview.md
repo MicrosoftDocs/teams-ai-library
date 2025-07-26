@@ -1,10 +1,9 @@
 ---
 title: Sending Messages (preview) (C#)
-description: Learn about Sending Messages (preview) (C#)
+description: Overview of sending messages functionality in the Microsoft Teams AI  Library for C#.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
-
 # Sending Messages (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,11 +1,11 @@
 ---
-title: Developer Tools (preview)
-description: Learn about Developer Tools (preview)
+title: Teams AI Library Developer Tools (preview)
+description: Overview of Developer Tools in the Microsoft Teams AI Library for development. Explore the developer tools available for building and debugging Teams AI applications.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
 
-# Developer Tools (preview)
+# Teams AI Library Developer Tools (preview)
 
 [This article is prerelease documentation and is subject to change.]
 

@@ -1,10 +1,9 @@
 ---
 title: Handling Dialog Submissions (preview) (TypeScript)
-description: Learn about Handling Dialog Submissions (preview) (TypeScript)
+description: Handle dialog submissions using the Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Handling Dialog Submissions (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

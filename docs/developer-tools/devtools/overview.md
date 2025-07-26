@@ -1,10 +1,9 @@
 ---
 title: DevTools (preview)
-description: Learn about DevTools (preview)
+description: Overview of DevTools features for the Microsoft Teams AI Library.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
-
 # DevTools (preview)
 
 [This article is prerelease documentation and is subject to change.]

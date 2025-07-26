@@ -1,11 +1,10 @@
 ---
-title: Listening To Activitiesidebar_position - 3 (preview) (TypeScript)
-description: Learn about Listening To Activitiesidebar_position - 3 (preview) (TypeScript)
+title: Listening To Activities (preview) (TypeScript)
+description: Learn how to listen to activities in the Microsoft Teams AI Library for TypeScript.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
-
-# Listening To Activitiesidebar_position: 3 (preview) (TypeScript)
+# Listening To Activities (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
 ---
