@@ -1,6 +1,6 @@
 ---
 title: Setup & Prerequisites (preview) (C#)
-description: Configure and customize Teams AI Library applications for C# development.
+description: Set up the preqs for integrating LLMs into your application using Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---

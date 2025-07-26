@@ -1,7 +1,6 @@
 ---
 title: Settings (preview) (TypeScript)
-description: Configure and customize Teams AI Library applications for TypeScript
-development.
+description: Configure and customize Teams AI Library applications for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
