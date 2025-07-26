@@ -20,3 +20,8 @@ csharptoc.yml
 
 # Ignore generated-snippets intermediate source
 docs/assets/generated-snippets/
+
+# Ignore porting scripts
+description-enhancement/
+porting/
+earlier-scripts/

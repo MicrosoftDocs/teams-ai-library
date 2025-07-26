@@ -1,10 +1,9 @@
 ---
 title: Using The App (preview) (C#)
-description: Learn about Using The App (preview) (C#)
+description: Learn about the App class in your client- and server-side logic using Microsoft Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Using The App (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

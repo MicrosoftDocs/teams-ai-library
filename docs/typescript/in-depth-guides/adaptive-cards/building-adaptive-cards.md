@@ -1,10 +1,9 @@
 ---
 title: Building Adaptive Cards (preview) (TypeScript)
-description: Learn about Building Adaptive Cards (preview) (TypeScript)
+description: Build interactive user interfaces with Adaptive Cards using the Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Building Adaptive Cards (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

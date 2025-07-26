@@ -1,10 +1,9 @@
 ---
 title: User authentication quickstart (preview) (C#)
-description: Get started with user authentication in C#
+description: Build a quick example of user authentication using Microsoft Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # User authentication quickstart (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

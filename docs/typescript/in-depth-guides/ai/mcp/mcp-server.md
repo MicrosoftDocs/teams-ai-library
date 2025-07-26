@@ -1,10 +1,9 @@
 ---
 title: MCP Server (preview) (TypeScript)
-description: Learn about MCP Server (preview) (TypeScript)
+description: Learn how to implement a MCP server using the Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # MCP Server (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

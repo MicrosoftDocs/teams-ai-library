@@ -1,10 +1,9 @@
 ---
 title: Executing Actions (preview) (TypeScript)
-description: Learn about Executing Actions (preview) (TypeScript)
+description: Learn how to build Adaptive Cards that respond to user interaction using Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Executing Actions (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

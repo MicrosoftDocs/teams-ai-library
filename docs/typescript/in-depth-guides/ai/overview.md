@@ -1,6 +1,6 @@
 ---
 title: AI (preview) (TypeScript)
-description: Learn about AI (preview) (TypeScript)
+description: Overview of AI capabilities and features in the Microsoft Teams AI Library for TypeScript.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

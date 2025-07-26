@@ -1,6 +1,6 @@
 ---
 title: Microsoft 365 Agents Toolkit (preview)
-description: Learn about Microsoft 365 Agents Toolkit (preview)
+description: Microsoft 365 Agents Toolkit simplifies building and deploying AI agents for Microsoft Teams. Learn how to use the toolkit to streamline your Teams AI development workflow.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---

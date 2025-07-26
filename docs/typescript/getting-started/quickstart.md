@@ -1,6 +1,6 @@
 ---
 title: Quickstart (preview) (TypeScript)
-description: Learn about Quickstart (preview) (TypeScript)
+description: Quickly build your first app using the Microsoft Teams AI Library for TypeScript.
 ms.topic: get-started
 ms.date: 07/16/2025
 ---

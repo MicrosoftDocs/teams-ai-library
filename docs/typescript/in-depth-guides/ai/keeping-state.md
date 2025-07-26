@@ -1,10 +1,10 @@
 ---
 title: Keeping State (preview) (TypeScript)
-description: Learn about Keeping State (preview) (TypeScript)
+description: Learn how to manage state in Teams applications using the
+  Microsoft Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Keeping State (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

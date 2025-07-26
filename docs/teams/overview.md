@@ -1,6 +1,6 @@
 ---
 title: Teams Integration (preview)
-description: Learn about Teams Integration (preview)
+description: Overview of Teams Integration in the Microsoft Teams AI Library for development. Learn how to integrate your AI applications with Microsoft Teams using the Teams AI Library.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

@@ -1,10 +1,10 @@
 ---
 title: Link unfurling (preview) (C#)
-description: Learn about Link unfurling (preview) (C#)
+description: Learn how to implement link unfurling in Teams applications using the
+  Microsoft Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Link unfurling (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

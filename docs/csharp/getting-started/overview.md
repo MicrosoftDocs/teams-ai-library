@@ -1,6 +1,6 @@
 ---
 title: Getting Started (preview) (C#)
-description: Learn about Getting Started (preview) (C#)
+description: Get started building Teams applications with the Microsoft Teams AI Library for C#.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

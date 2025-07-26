@@ -1,10 +1,9 @@
 ---
 title: Microsoft Graph Client (preview) (C#)
-description: Learn about Microsoft Graph Client (preview) (C#)
+description: Work with Graph APIs in Teams tab applications using the Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Microsoft Graph Client (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]

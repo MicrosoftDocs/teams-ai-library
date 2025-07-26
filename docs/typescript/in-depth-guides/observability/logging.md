@@ -1,10 +1,10 @@
 ---
 title: Custom Logger (preview) (TypeScript)
-description: Learn about Custom Logger (preview) (TypeScript)
+description: Implement custom logging in Teams applications using the Teams
+  AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Custom Logger (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

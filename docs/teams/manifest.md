@@ -1,6 +1,6 @@
 ---
 title: Teams Manifest (preview)
-description: Learn about Teams Manifest (preview)
+description: Every app or agent installed on Teams requires an app manifest json file, which provides important information and permissions to that app. Learn how to configure your Teams app manifest for AI applications.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---

@@ -1,10 +1,9 @@
 ---
 title: Proactive Messaging (preview) (TypeScript)
-description: Learn about Proactive Messaging (preview) (TypeScript)
+description: Implement proactive messaging and communication features in Teams applications using the Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Proactive Messaging (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

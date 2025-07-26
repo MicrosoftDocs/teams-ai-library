@@ -1,10 +1,9 @@
 ---
 title: Proactive Activities (preview) (TypeScript)
-description: Learn about Proactive Activities (preview) (TypeScript)
+description: Migration guide for updating BotBuilder proactive messages to use Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Proactive Activities (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

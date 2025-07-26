@@ -1,10 +1,9 @@
 ---
 title: Executing Actions (preview) (C#)
-description: Learn about Executing Actions (preview) (C#)
+description: Learn how to implement Adaptive Cards that respond to user interaction using the Teams AI Library for C#.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Executing Actions (preview) (C#)
 
 [This article is prerelease documentation and is subject to change.]
