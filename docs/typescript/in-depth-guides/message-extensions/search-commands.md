@@ -1,10 +1,9 @@
 ---
 title: Search commands (preview) (TypeScript)
-description: Learn about Search commands (preview) (TypeScript)
+description: Learn about message extension search commands in the Microsoft Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Search commands (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

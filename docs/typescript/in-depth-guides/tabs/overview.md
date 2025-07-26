@@ -1,10 +1,10 @@
 ---
 title: Tabs (preview) (TypeScript)
-description: Learn about Tabs (preview) (TypeScript)
+description: Overview of tabs functionality in the Microsoft Teams AI Library for
+ TypeScript.
 ms.topic: overview
 ms.date: 07/16/2025
 ---
-
 # Tabs (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

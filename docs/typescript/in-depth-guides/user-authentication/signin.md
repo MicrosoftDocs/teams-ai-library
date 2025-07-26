@@ -1,10 +1,10 @@
 ---
 title: Signing In (preview) (TypeScript)
-description: Learn about Signing In (preview) (TypeScript)
+description: Implement authentication code to sign in your user using the
+  Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Signing In (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

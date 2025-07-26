@@ -1,10 +1,10 @@
 ---
 title: Using The App (preview) (TypeScript)
-description: Learn about Using The App (preview) (TypeScript)
+description: Learn about the App class for client- and server-side logic using the
+ Microsoft Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Using The App (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

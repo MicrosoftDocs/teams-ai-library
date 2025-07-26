@@ -1,10 +1,10 @@
 ---
 title: User authentication quickstart (preview) (TypeScript)
-description: Get started with user authentication in TypeScript
+description: Build a quick example of user authentication using Teams AI Library
+  for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # User authentication quickstart (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

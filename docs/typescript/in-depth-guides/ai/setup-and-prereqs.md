@@ -1,10 +1,9 @@
 ---
 title: Setup & Prerequisites (preview) (TypeScript)
-description: Learn about Setup & Prerequisites (preview) (TypeScript)
+description: Configure and customize AI applications built with Teams AI Library for TypeScripts.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Setup & Prerequisites (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]

@@ -1,6 +1,6 @@
 ---
 title: User Authentication (preview) (TypeScript)
-description: Learn about User Authentication (preview) (TypeScript)
+description: Overview of user authentication in the Microsoft Teams AI Library for TypeScript.
 ms.topic: overview
 ms.date: 07/16/2025
 ---

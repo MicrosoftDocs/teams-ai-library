@@ -1,10 +1,9 @@
 ---
 title: Creating Dialogs (preview) (TypeScript)
-description: Learn about Creating Dialogs (preview) (TypeScript)
+description: Create dialogs with Adaptive Cards using the Teams AI Library for TypeScript.
 ms.topic: how-to
 ms.date: 07/16/2025
 ---
-
 # Creating Dialogs (preview) (TypeScript)
 
 [This article is prerelease documentation and is subject to change.]
