@@ -35,7 +35,7 @@ npm install -g @microsoft/teams.cli@preview
 ## Create an agent with one command line
 
 ```sh
-teams new <typscript | csharp> <app-name> <optional>
+teams new <typescript | csharp> <app-name> <optional>
 ```
 
 The `new` token will create a brand new agent with `app-name` applied as the directory name and project name.
