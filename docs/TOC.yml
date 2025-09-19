@@ -50,8 +50,6 @@
           href: typescript/getting-started/code-basics.md
         - name: Quickstart
           href: typescript/getting-started/quickstart.md
-        - name: LLMs
-          href: typescript/getting-started/LLMs.md
         - name: Running in Teams
           items:
             - name: Running in Teams
@@ -214,8 +212,6 @@
           href: csharp/getting-started/quickstart.md
         - name: Code Basics
           href: csharp/getting-started/code-basics.md
-        - name: LLMs
-          href: csharp/getting-started/LLMs.md
         - name: Running in Teams
           items:
             - name: Running in Teams
