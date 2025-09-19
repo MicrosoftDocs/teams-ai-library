@@ -1,10 +1,3 @@
----
-sidebar_position: 5
-summary: Best practices for AI integration in Teams applications, including AI-generated indicators and user experience guidelines.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Best Practices
 
 When sending messages using AI, Teams recommends a number of best practices to help with both user and developer experience.

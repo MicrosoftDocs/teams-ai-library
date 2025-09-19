@@ -1,9 +1,3 @@
----
-sidebar_position: 1
-summary: Guide to creating and handling dialogs in Teams applications, covering dialog opening mechanisms, content rendering using Adaptive Cards or webpages, and security considerations for web content integration.
----
-
-
 # Creating Dialogs
 
 :::tip

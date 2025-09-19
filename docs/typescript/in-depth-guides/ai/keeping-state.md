@@ -1,10 +1,3 @@
----
-sidebar_position: 4
-summary: Guide to managing conversation state and history in AI applications, including persistent storage options for conversation context.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Keeping State
 
 By default, LLMs are not stateful. This means that they do not remember previous messages or context when generating a response.

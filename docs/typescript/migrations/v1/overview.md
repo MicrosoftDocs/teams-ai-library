@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-summary: Migration guide from Teams AI v1 to v2 highlighting the key changes and upgrade steps.
----
-
 # Migrating from Teams AI v1
 
 Welcome, fellow agent developer! You've made it through a full major release of Teams AI, and now you want to take the plunge into v2. In this guide, we'll walk you through everything you need to know, from migrating core features like message handlers and auth, to optional AI features like `ActionPlanner`. We'll also discuss how you can migrate features over incrementally via the [botbuilder adapter](../BotBuilder/README.md).

@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-summary: Guide to integrating remote MCP (Machine Conversation Protocol) servers into Teams applications, enabling AI agents to access external tools through SSE protocol, with practical examples of configuring the MCPClientPlugin.
----
-
 # MCP Client
 
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.

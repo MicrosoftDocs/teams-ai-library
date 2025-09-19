@@ -1,10 +1,3 @@
----
-sidebar_position: 2
-summary: Guide to implementing chat generation with AI models in Teams applications using ChatPrompt and Model components.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # 💬 Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.

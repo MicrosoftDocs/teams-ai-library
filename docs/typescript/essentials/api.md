@@ -1,8 +1,3 @@
----
-sidebar_position: 5
-summary: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
----
-
 # Teams API Client
 
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.api` object. Here is a short summary of the different areas:

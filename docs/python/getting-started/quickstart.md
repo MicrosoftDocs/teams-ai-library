@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Quick start guide for Python Teams AI Library v2 using the Teams CLI to create and run your first Python agent.
----
-
 # Quickstart
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.

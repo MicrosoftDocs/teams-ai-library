@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
----
-
 # Action commands
 
 Action commands allow you to present your users with a modal pop-up called a dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.

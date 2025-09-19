@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Getting started guide for Python Teams AI Library covering application setup, structure, and local development.
----
-
 # 🚀 Getting Started
 
 :::warning

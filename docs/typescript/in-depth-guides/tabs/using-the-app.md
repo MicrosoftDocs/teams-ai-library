@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-summary: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
----
-
 # Using The App
 
 The `@microsoft/teams.client` App class helps solve common challenges when building Single Page Applications hosted in Microsoft Teams, Outlook, and Microsoft 365. It is the client-side counterpart to the `@microsoft/teams.app` App that you can use to build AI agents.

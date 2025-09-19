@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-summary: Tutorial on implementing an MCP (Machine Conversation Protocol) server in Teams applications using the McpPlugin, covering server configuration, tool exposure, and message handling for features like human-in-the-loop interactions and notifications.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # MCP Server
 
 You are able to convert any `App` into an MCP server by using the `McpPlugin` from the `@microsoft/teams.mcp` package. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications. 

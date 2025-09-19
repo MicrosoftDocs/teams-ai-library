@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Overview of the App class in Python Teams AI, covering server hosting, request routing, authentication, and plugin management.
----
-
 # App Basics
 
 The `App` class is the main entry point for your agent.

@@ -1,8 +1,3 @@
----
-sidebar_position: 3
-summary: Configure app settings for observability, MSAL authentication, and remote agent function calling.
----
-
 # App Options
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and 
 remote agent function calling. Each setting is optional, with the app using a reasonable default as needed.

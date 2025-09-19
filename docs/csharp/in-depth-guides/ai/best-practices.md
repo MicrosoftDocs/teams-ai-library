@@ -1,10 +1,3 @@
----
-sidebar_position: 5
-summary: Best practices for AI integration in Teams applications, including streaming responses, state management, function calling, command handling, and citation handling using real examples from the Samples.Lights reference implementation.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Best Practices
 
 When sending messages using AI, Teams recommends a number of best practices to help with both user and developer experience.

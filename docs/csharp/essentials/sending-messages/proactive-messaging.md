@@ -1,12 +1,3 @@
----
-sidebar_position: 1
-summary: Guide to implementing proactive messaging in C# Teams applications, demonstrating how to store conversation IDs and send messages to users without requiring a trigger message, useful for notifications and reminders.
----
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Proactive Messaging
 
 In [Sending Messages](./), you were shown how to respond to an event when it happens. However, there are times when you want to send a message to the user without them sending a message first. This is called proactive messaging. You can do this by using the `send` method in the `app` instance. This approach is useful for sending notifications or reminders to the user.

@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-summary: Guide to implementing interactive elements in Adaptive Cards using Python, covering action types (Execute, Submit, OpenUrl), input validation, data association, and server-side handling of card actions.
----
-
 # Executing Actions
 
 Adaptive Cards support interactive elements through **actions**—buttons, links, and input submission triggers that respond to user interaction.  

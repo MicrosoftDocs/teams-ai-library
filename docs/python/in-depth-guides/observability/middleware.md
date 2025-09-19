@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Guide to using middleware in Python Teams AI for logging, validation, and extending app functionality.
----
-
 # Middleware
 
 Middleware is a useful tool for logging, validation, and more.

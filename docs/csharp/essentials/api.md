@@ -1,11 +1,3 @@
----
-sidebar_position: 5
-summary: Guide to using the Teams API Client in C#, covering conversation management, meeting access, and team/channel operations through the app.Api object, with examples of both handler-based and proactive API usage.
----
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Teams API Client
 
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.Api` object. Here is a short summary of the different areas:

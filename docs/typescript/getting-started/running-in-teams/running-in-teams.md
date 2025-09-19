@@ -1,9 +1,3 @@
----
-sidebar_position: 3
-summary: Guide to deploying and testing your locally running agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
-llms: ignore
----
-
 # Running In Teams
 
 Now that your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.

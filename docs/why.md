@@ -1,9 +1,3 @@
----
-sidebar_position: 2
-summary: Explanation of why an SDK is beneficial for building Teams agent applications, covering event handling and proactive messaging patterns.
-llms: ignore
----
-
 # Why An SDK?
 
 Before getting into the basics, it's important to understand how an SDK can be helpful when building an agent application. For this, it's a good exercise to understand the basic messaging and event flow of a Teams agent application.

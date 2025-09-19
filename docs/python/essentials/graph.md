@@ -1,8 +1,3 @@
----
-sidebar_position: 6
-summary: A guide to using the Microsoft Graph API in Python, explaining the methods for accessing Microsoft 365 data using application or user tokens, with sample code for retrieving user details and integrating Graph API within message handlers.
----
-
 # Graph API Client
 
 [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.

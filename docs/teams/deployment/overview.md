@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-summary: Describe how to deploy the Azure Bot Service resource required for Teams bot apps
----
-
 # Deployment
 
 As described in the [Core Concepts](../core-concepts) article, the first step you need is an Azure Bot Service resource and associate it to an Entra ID App registration.

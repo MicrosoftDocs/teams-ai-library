@@ -1,9 +1,3 @@
----
-sidebar_position: 3
-summary: 
-llms: ignore
----
-
 # Deployment Guide
 
 We cover the most common setup and deployment steps for testing in Teams, including configuration instructions, and references for handling potential issues during deployment.

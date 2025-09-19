@@ -1,8 +1,3 @@
----
-sidebar_position: 3
-summary: Guide to configuring user authentication in Python Teams AI applications, including OAuth setup and secure API access.
----
-
 # App Setup
 
 There are a few ways you can enable your application to access secured external services on the user's behalf.

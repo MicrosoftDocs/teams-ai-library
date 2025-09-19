@@ -1,11 +1,3 @@
----
-sidebar_position: 2
-summary: Understanding the structure and key components of a C# Teams AI application including the Application class, dependency injection, and project organization.
----
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Code Basics
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.

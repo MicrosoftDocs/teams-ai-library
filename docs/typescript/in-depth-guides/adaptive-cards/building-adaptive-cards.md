@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-summary: Guide to building Adaptive Cards using TypeScript/JavaScript with full IntelliSense and compiler safety for rich, interactive UI fragments.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.

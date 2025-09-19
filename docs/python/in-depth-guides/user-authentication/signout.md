@@ -1,8 +1,3 @@
----
-sidebar_position: 5
-summary: Sign users out of your Teams app by discarding cached access tokens in the Bot Framework token service.
----
-
 # Signing Out
 
 Sign a user out by calling the `sign_out` method to discard the cached access token in the Bot Framework token service.

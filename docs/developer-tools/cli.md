@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Comprehensive guide to the Teams CLI tool for creating, managing, and deploying Teams AI applications with simple command-line operations. Use this when you need to set up a new Teams AI agent or manage existing ones.
----
-
 # Teams CLI
 
 The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:

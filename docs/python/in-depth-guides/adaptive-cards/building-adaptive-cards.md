@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-summary: Learn to create Adaptive Cards in Python using builder helpers, enabling type-safe, maintainable UI development with IntelliSense support, visual designer integration, and end-to-end examples for interactive forms.
----
-
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.

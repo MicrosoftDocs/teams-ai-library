@@ -1,8 +1,3 @@
----
-sidebar_position: 3
-summary: Learn how to handle Teams activities in Python using activity handlers, which process Teams-specific payloads like chat messages, card actions, and app installations through a middleware pattern that supports both controller and minimal API styles.
----
-
 # Listening To Activities
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  

@@ -1,9 +1,3 @@
----
-sidebar_position: 4
-summary: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
----
-
-
 # Keeping State
 
 By default, LLMs are not stateful. This means that they do not remember previous messages or context when generating a response.

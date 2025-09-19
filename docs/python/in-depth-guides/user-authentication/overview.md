@@ -1,8 +1,3 @@
----
-sidebar_position: 4
-summary: Enable user authentication in Teams apps to access secured resources like email, flight status, and online services.
----
-
 # 🔒 User Authentication
 
 <!-- 

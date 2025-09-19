@@ -1,8 +1,3 @@
----
-sidebar_position: 6
-summary: Guide to using the Microsoft Graph API client to access Microsoft 365 data and services from your Teams AI application.
----
-
 # Graph API Client
 
 [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.

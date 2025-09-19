@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-summary: How to implement action commands in message extensions to present users with modal dialogs for collecting and processing information.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Action commands
 
 Action commands allow you to present your users with a modal pop-up called as dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.

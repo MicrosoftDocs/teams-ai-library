@@ -1,10 +1,3 @@
----
-sidebar_position: 2
-summary: How to implement an A2A client to proactively send tasks to A2A servers using the AgentManager.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # A2A Client
 
 ## What is an A2A Client?

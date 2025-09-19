@@ -1,9 +1,3 @@
----
-sidebar_position: 1
-summary: Migration guide from BotBuilder to Teams AI Library v2, including the BotBuilder plugin for compatibility with existing activity handlers and adapters.
-llms: ignore
----
-
 # From BotBuilder
 
 This new iteration of Teams AI has been rebuilt from the ground up. To easy the migration process

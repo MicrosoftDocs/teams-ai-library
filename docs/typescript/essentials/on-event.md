@@ -1,8 +1,3 @@
----
-sidebar_position: 2
-summary: Understanding how to listen to and handle events in Teams AI applications, including user actions and application server events.
----
-
 # Listening To Events
 
 An **event** is a foundational concept in building agents — it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).

@@ -1,10 +1,3 @@
----
-sidebar_position: 1
-summary: Step-by-step guide to creating dialogs in Teams using Adaptive Cards for interactive user experiences and data collection.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Creating Dialogs
 
 :::tip

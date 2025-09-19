@@ -1,10 +1,3 @@
----
-sidebar_position: 3
-summary: How to create complex multi-step dialog forms with dynamic flow control based on user input and previous answers.
----
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # Handling Multi-Step Forms
 
 Dialogs can become complex yet powerful with multi-step forms. These forms can alter the flow of the survey depending on the user's input or customize subsequent steps based on previous answers.
