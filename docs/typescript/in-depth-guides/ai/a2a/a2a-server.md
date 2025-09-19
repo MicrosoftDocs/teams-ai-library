@@ -83,4 +83,4 @@ app.event('a2a:message', async ({ respond, requestContext }) => {
 
 ## Further Reading
 
--   [A2A Protocol](https://google.github.io/A2A)
+-   [A2A Protocol](https://a2a-protocol.com/)

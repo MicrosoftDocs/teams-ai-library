@@ -43,7 +43,6 @@ The `create_token_factory` function provides a method to retrieve access tokens 
 This error occurs when the application has a single-tenant Azure Bot Service (`msaAppType: 'SingleTenant'`) instance, but your app registration has not yet been linked to a Service Principal in the tenant.  
 
 ```sh
-```
 [ERROR] @teams/app Failed to refresh bot token: Client error '401 Unauthorized' for url 'https://login.microsoftonline.com/50612dbb-0237-4969-b378-8d42590f9c00/oauth2/v2.0/token'
 [ERROR] @teams/app For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
 ```

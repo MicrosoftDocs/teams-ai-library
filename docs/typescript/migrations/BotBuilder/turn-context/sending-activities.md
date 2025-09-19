@@ -34,7 +34,7 @@ app.on('message', async ({ send }) => {
 });
 ```
 
-
+---
 
 ## Strings
 
@@ -60,7 +60,7 @@ app.on('message', async ({ send }) => {
   await send('hello world');
 });
 ```
-
+---
 
 
 ## Adaptive Cards
@@ -103,7 +103,7 @@ app.on('message', async ({ send }) => {
   await send(new AdaptiveCard(new TextBlock('hello world')));
 });
 ```
-
+---
 
 
 ## Attachments
@@ -138,3 +138,4 @@ app.on('message', async ({ send }) => {
   await send(new MessageActivity().addAttachment(...));
 });
 ```
+---

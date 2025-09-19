@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Quickstart (Python)
+# User authentication quickstart (Python)
 
 In this section we will walk through creating an app that can access the [Microsoft Graph APIs](/graph/overview) on behalf of the user by authenticating them with the [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id) oauth provider. 
 
@@ -16,7 +16,7 @@ In this section we will walk through creating an app that can access the [Micros
 > This is an advanced guide. It is highly recommended that you are familiar with [creating an app](https://microsoft.github.io/teams-ai/2.getting-started/1.quickstart.html) and [running it in Teams](https://microsoft.github.io/teams-ai/2.getting-started/3.running-in-teams.html) before attempting to follow this guide.
 
 > [!WARNING]
-> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams/running-in-teams.md#debugging-in-teams.md) to run your app in Teams.
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../../getting-started/running-in-teams/running-in-teams.md#debugging-in-teams) to run your app in Teams.
 
 ## Setup Instructions
 
