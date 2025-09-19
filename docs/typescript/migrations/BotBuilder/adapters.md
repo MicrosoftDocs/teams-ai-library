@@ -1,12 +1,11 @@
 ---
-title: Adapters (preview) (TypeScript)
-description: Migration guide for upgrading otBuilder adapters to the Microsoft Teams AI Library for TypeScript.
+title: Adapters (TypeScript)
+description: Learn about Adapters (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Adapters (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Adapters (TypeScript)
 
 A BotBuilder `Adapter` is similar to a Teams AI `Plugin` in the sense that they are both
 an abstraction that is meant to send/receive activities. To make migrating stress free we have
@@ -17,7 +16,6 @@ shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter inst
 > botbuilder instead of the default Teams AI http plugin.
 
 # [index.ts](#tab/indexts)
-
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
@@ -40,7 +38,6 @@ app.on('message', async ({ send }) => {
 ```
 
 # [adapter.ts](#tab/adapterts)
-
 ```typescript
 import { CloudAdapter } from 'botbuilder';
 
@@ -62,8 +59,7 @@ const adapter = new CloudAdapter(
 export default adapter;
 ```
 
-# [activity-handler.ts](#tab/activityhandlerts)
-
+# [activity-handler.ts](#tab/activity-handlerts)
 ```typescript
 import { TeamsActivityHandler } from 'botbuilder';
 
@@ -84,9 +80,9 @@ const handler = new ActivityHandler();
 export default handler;
 ```
 
----
 
-```text
+
+```
 hi from botbuilder...
 hi from teams...
 ```

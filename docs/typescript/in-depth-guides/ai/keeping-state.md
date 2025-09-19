@@ -1,13 +1,11 @@
 ---
-title: Keeping State (preview) (TypeScript)
-description: Learn how to manage state in Teams applications using the
-  Microsoft Teams AI Library for TypeScript.
+title: Keeping State (TypeScript)
+description: Learn about Keeping State (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Keeping State (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Keeping State (TypeScript)
 
 By default, LLMs are not stateful. This means that they do not remember previous messages or context when generating a response.
 It's common practice to keep state of the conversation history in your application and pass it to the LLM each time you make a request.
@@ -84,4 +82,4 @@ export const handleStatefulConversation = async (
 };
 ```
 
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example":::
+![Stateful Chat Example](~/assets/screenshots/stateful-chat-example.png)

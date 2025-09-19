@@ -1,19 +1,17 @@
 ---
-title: Sending Activities (preview) (TypeScript)
-description: Migration guide for updating BotBuilder TurnContext logic to use Teams AI Library for TypeScript.
+title: Sending Activities (TypeScript)
+description: Learn about Sending Activities (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Sending Activities (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Sending Activities (TypeScript)
 
 BotBuilders pattern for sending activities via its `TurnContext` is similar to that
 in Teams AI, but one key difference is that when sending adaptive cards you don't need
 to construct the entire activity yourself.
 
 # [BotBuilder](#tab/botbuilder)
-
 ```typescript
 import { TeamsActivityHandler } from 'botbuilder';
 
@@ -29,7 +27,6 @@ export class ActivityHandler extends TeamsActivityHandler {
 ```
 
 # [Teams AI](#tab/teams-ai)
-
 ```typescript
 app.on('message', async ({ send }) => {
   // highlight-next-line
@@ -37,10 +34,11 @@ app.on('message', async ({ send }) => {
 });
 ```
 
+---
+
 ## Strings
 
-# [BotBuilder](#tab/strings-botbuilder)
-
+# [BotBuilder](#tab/botbuilder)
 ```typescript
 import { TeamsActivityHandler } from 'botbuilder';
 
@@ -55,19 +53,19 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/strings-teams-ai)
-
+# [Teams AI](#tab/teams-ai)
 ```typescript
 app.on('message', async ({ send }) => {
   // highlight-next-line
   await send('hello world');
 });
 ```
+---
+
 
 ## Adaptive Cards
 
-# [BotBuilder](#tab/ac-botbuilder)
-
+# [BotBuilder](#tab/botbuilder)
 ```typescript
 import { TeamsActivityHandler, CardFactory } from 'botbuilder';
 
@@ -96,8 +94,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/ac-teams-ai)
-
+# [Teams AI](#tab/teams-ai)
 ```typescript
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -106,11 +103,12 @@ app.on('message', async ({ send }) => {
   await send(new AdaptiveCard(new TextBlock('hello world')));
 });
 ```
+---
+
 
 ## Attachments
 
-# [BotBuilder](#tab/attachments-botbuilder)
-
+# [BotBuilder](#tab/botbuilder)
 ```typescript
 import { TeamsActivityHandler } from 'botbuilder';
 
@@ -131,8 +129,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/attachments-teams-ai)
-
+# [Teams AI](#tab/teams-ai)
 ```typescript
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -141,3 +138,4 @@ app.on('message', async ({ send }) => {
   await send(new MessageActivity().addAttachment(...));
 });
 ```
+---

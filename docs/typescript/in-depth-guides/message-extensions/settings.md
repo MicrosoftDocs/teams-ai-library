@@ -1,22 +1,21 @@
 ---
-title: Settings (preview) (TypeScript)
-description: Configure and customize Teams AI Library applications for TypeScript.
+title: Settings (TypeScript)
+description: Learn about Settings (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Settings (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Settings (TypeScript)
 
 You can add a settings page that allows users to configure settings for your app.
 
-The user can access the settings by right-clicking the app item in the compose box
+The user can access the settings by right-clicking the app item in the compose box.
 
 :::image type="content" source="~/assets/screenshots/settings.png" alt-text="Settings control":::
 
 This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
-:::image type="content" source="~/assets/screenshots/settings-page.png" alt-text="Settings Page":::
+![Settings Page](~/assets/screenshots/settings-page.png)
 
 ## 1. Update the Teams Manifest
 
@@ -37,60 +36,10 @@ Set the `canUpdateConfiguration` field to `true` in the desired message extensio
 This is the code snippet for the settings `html` page:
 
 ```html
-<html>
-  <body>
-    <form>
-      <fieldset>
-        <legend>What programming language do you prefer?</legend>
-        <input type="radio" name="selectedOption" value="typescript" />Typescript<br />
-        <input type="radio" name="selectedOption" value="csharp" />C#<br />
-      </fieldset>
-
-      <br />
-      <input type="button" onclick="onSubmit()" value="Save" /> <br />
-    </form>
-
-    <script src="https://res.cdn.office.net/teams-js/2.34.0/js/MicrosoftTeams.min.js" integrity="sha384-brW9AazbKR2dYw2DucGgWCCcmrm2oBFV4HQidyuyZRI/TnAkmOOnTARSTdps3Hwt" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function () {
-        // Get the selected option from the URL
-        var urlParams = new URLSearchParams(window.location.search);
-        var selectedOption = urlParams.get("selectedOption");
-        if (selectedOption) {
-          var checkboxes = document.getElementsByName("selectedOption");
-          for (var i = 0; i < checkboxes.length; i++) {
-            var thisCheckbox = checkboxes[i];
-            if (selectedOption.includes(thisCheckbox.value)) {
-              checkboxes[i].checked = true;
-            }
-          }
-        }
-      });
-    </script>
-
-    <script type="text/javascript">
-      // initialize the Teams JS SDK
-      microsoftTeams.app.initialize();
-
-      // Run when the user clicks the submit button
-      function onSubmit() {
-        var newSettings = "";
-
-        var checkboxes = document.getElementsByName("selectedOption");
-
-        for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].checked) {
-            newSettings = checkboxes[i].value;
-          }
-        }
-
-        // Closes the settings page and returns the selected option to the bot
-        microsoftTeams.authentication.notifySuccess(newSettings);
-      }
-    </script>
-  </body>
-</html>
+<FileCodeBlock
+    lang="html"
+    src="/generated-snippets/ts/index.snippet.message-ext-settings-page.html"
+/>
 ```
 
 Save it in the `index.html` file in the same folder as where your app is initialized.
@@ -123,7 +72,7 @@ app.on('message.ext.query-settings-url', async ({ activity }) => {
             type: 'openUrl',
             title: 'Settings',
             // ensure the bot endpoint is set in the environment variables
-            // process.env.BOT_ENDPOINT is not populated by default in the Teams Toolkit setup. 
+            // process.env.BOT_ENDPOINT is not populated by default in the Microsoft 365 Agents Toolkit setup. 
             value: `${process.env.BOT_ENDPOINT}/tabs/settings?selectedOption=${escapedSelectedOption}`
           }
         ]

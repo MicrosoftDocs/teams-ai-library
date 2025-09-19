@@ -1,13 +1,11 @@
 ---
-title: Custom Logger (preview) (TypeScript)
-description: Implement custom logging in Teams applications using the Teams
-  AI Library for TypeScript.
+title: Custom Logger (TypeScript)
+description: Learn about Custom Logger (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Custom Logger (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Custom Logger (TypeScript)
 
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the

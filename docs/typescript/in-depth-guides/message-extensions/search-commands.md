@@ -1,29 +1,28 @@
 ---
-title: Search commands (preview) (TypeScript)
-description: Learn about message extension search commands in the Microsoft Teams AI Library for TypeScript.
+title: Search commands (TypeScript)
+description: Learn about Search commands (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Search commands (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Search commands (TypeScript)
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 
 ## Search command invocation locations
 
-There are three different areas search commands can be invoked from:
+There are two different areas search commands can be invoked from:
 
 1. Compose Area
 2. Compose Box
 
 ### Compose Area and Box
 
-:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="compose area and box":::
+![compose area and box](~/assets/screenshots/compose-area.png)
 
 ## Setting up your Teams app manifest
 
-To use search commands you have define them in the Teams app manifest. Here is an example:
+To use search commands you have to define them in the Teams app manifest. Here is an example:
 
 
 ```json
@@ -140,11 +139,11 @@ export async function createDummyCards(searchQuery: string) {
 
 The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
 
-:::image type="content" source="~/assets/screenshots/preview-card.png" alt-text="Search command preview card":::
+![Search command preview card](~/assets/screenshots/preview-card.png)
 
 When a user clicks on a list item the dummy adaptive card is added to the compose box:
 
-:::image type="content" source="~/assets/screenshots/card-in-compose.png" alt-text="Card in compose box":::
+![Card in compose box](~/assets/screenshots/card-in-compose.png)
 
 To implement custom actions when a user clicks on a search result item, you can add the `tap` property to the preview card. This allows you to handle the click event with custom logic:
 

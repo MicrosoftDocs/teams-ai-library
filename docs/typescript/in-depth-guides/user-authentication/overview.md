@@ -1,26 +1,85 @@
 ---
-title: User Authentication (preview) (TypeScript)
-description: Overview of user authentication in the Microsoft Teams AI Library for TypeScript.
+title: User Authentication (TypeScript)
+description: Learn about User Authentication (TypeScript)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# User Authentication (preview) (TypeScript)
+# User Authentication (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+Once you have configured your Azure Bot resource OAuth settings, as described in [User Authentication Setup](~/teams/user-authentication/sso-setup.md), add the following code to your `App`:
 
-<!-- 
-Things to potentially add to this section:
 
-- The name of the auth is fixed to `graph` here, but it can easily be changed by supplying a value when building the App.
+## Configure the OAuth connection
 
-- Show that for explicit oauth you can configure the oauth card that is sent to the user via the options to the signin function.
+```ts
+const app = new App({
+  oauth: { 
+    defaultConnectionName: 'graph'
+  }
+});
+```
+> [!TIP]
+> Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
 
-- Create mermaid diagrams for how sso and oauth works
---->
+## Signing In
 
-At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
+You must call the `signin` method inside your route handler, for example: to signin when receiving the `/signin` message:
 
-## Resources
+```ts
+app.message('/signin', async ({ send, signin, isSignedIn }) => {
+  if (isSignedIn) {
+    send('you are already signed in!');
+  } else {
+    await signin();
+  }
+});
+```
 
-[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
+## Subscribe to the SignIn event
+
+You can subscribe to the `signin` event, that will be triggered once the OAuth flow completes.
+
+```ts
+app.event('signin', async ({ send, token }) => {
+  await send(`Signed in using OAuth connection ${token.connectionName}. Please type **/whoami** to see your profile or **/signout** to sign out.`);
+});
+```
+
+## Start using the graph client
+
+From this point, you can use the `IsSignedIn` flag and the `userGraph` client to query graph, for example to reply to the `/whoami` message, or in any other route.
+
+```ts
+app.message('/whoami', async ({ send, userGraph, isSignedIn}) => {
+  if (!isSignedIn) {
+    await send('you are not signed in! please type **/signin** to sign in.');
+    return;
+  }
+  const me = await userGraph.call(endpoints.me.get);
+  await send(`you are signed in as "${me.displayName}" and your email is "${me.mail || me.userPrincipalName}"`);
+});
+
+app.on('message', async ({ send, activity, isSignedIn }) => {
+  if (isSignedIn) {
+    await send(`You said: "${activity.text}". Please type **/whoami** to see your profile or **/signout** to sign out.`);
+  } else {
+    await send(`You said: "${activity.text}". Please type **/signin** to sign in.`);
+  }
+});
+```
+
+## Singing Out
+
+You can signout by calling the `signout` method, this will remove the token from the User Token service cache
+
+```ts
+app.message('/signout', async ({ send, signout, isSignedIn }) => {
+  if (!isSignedIn) {
+    await send('you are not signed in! please type **/signin** to sign in.');
+    return;
+  }
+  await signout(); // call signout for your auth connection...
+  await send('you have been signed out!');
+});
+```

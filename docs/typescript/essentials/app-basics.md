@@ -1,12 +1,11 @@
 ---
-title: App Basics (preview) (TypeScript)
-description: Learn the basics and main components of the App class in Teams AI Library for TypeScript.
+title: App Basics (TypeScript)
+description: Learn about App Basics (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# App Basics (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# App Basics (TypeScript)
 
 The `App` class is the main entry point for your agent.
 
@@ -18,7 +17,7 @@ It is responsible for:
 4. Providing helpful utilities which simplify the ability for your application to interact with the Teams platform
 5. Managing plugins which can extend the functionality of your agent
 
-:::image type="content" source="~/assets/diagrams/app-basics-1.png" alt-text="alt-text for app-basics-1.png":::
+![alt-text for app-basics-1.png](~/assets/diagrams/app-basics-1.png)
 
 ## Core Components
 

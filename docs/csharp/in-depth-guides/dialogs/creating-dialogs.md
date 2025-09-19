@@ -1,79 +1,90 @@
 ---
-title: Creating Dialogs (preview) (C#)
-description: Build interactive dialogs in Teams applications using the Teams AI Library for C#.
+title: Creating Dialogs (C#)
+description: Learn about Creating Dialogs (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Creating Dialogs (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Creating Dialogs (C#)
 
 > [!TIP]
 > If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards/overview.md). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 
-To open a dialog, you need to supply a special type of action as to the Adaptive Card. Once this button is clicked, the dialog will open and ask the application what to show.
+To open a dialog, you need to supply a special type of action to the Adaptive Card. The `TaskFetchAction` is specifically designed for this purpose - it automatically sets up the proper Teams data structure to trigger a dialog. Once this button is clicked, the dialog will open and ask the application what to show.
 
-```ts
-app.on('message', async ({ send }) => {
-  await send({ type: 'typing' });
+```csharp
+[Message]
+public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client, [Context] ILogger log)
+{
+    // Create the launcher adaptive card
+    var card = CreateDialogLauncherCard();
+    await client.Send(card);
+}
 
-  // Create the launcher adaptive card
-  const card: IAdaptiveCard = new AdaptiveCard({
-    type: 'TextBlock',
-    text: 'Select the examples you want to see!',
-    size: 'Large',
-    weight: 'Bolder',
-  }).withActions(
-    // raw action
+private static AdaptiveCard CreateDialogLauncherCard()
+{
+    var card = new AdaptiveCard
     {
-      type: 'Action.Submit',
-      title: 'Simple form test',
-      data: {
-        msteams: {
-          type: 'task/fetch',
+        Body = new List<CardElement>
+        {
+            new TextBlock("Select the examples you want to see!")
+            {
+                Size = TextSize.Large,
+                Weight = TextWeight.Bolder
+            }
         },
-        opendialogtype: 'simple_form',
-      },
-    },
-    // Special type of action to open a dialog
-    new TaskFetchAction({})
-      .withTitle('Webpage Dialog')
-      // This data will be passed back in an event so we can
-      // handle what to show in the dialog
-      .withValue(new TaskFetchData({ opendialogtype: 'webpage_dialog' })),
-    new TaskFetchAction({})
-      .withTitle('Multi-step Form')
-      .withValue(new TaskFetchData({ opendialogtype: 'multi_step_form' })),
-    new TaskFetchAction({})
-      .withTitle('Mixed Example')
-      .withValue(new TaskFetchData({ opendialogtype: 'mixed_example' }))
-  );
+        Actions = new List<Action>
+        {
+            new TaskFetchAction(new { opendialogtype = "simple_form" })
+            {
+                Title = "Simple form test"
+            },
+            new TaskFetchAction(new { opendialogtype = "webpage_dialog" })
+            {
+                Title = "Webpage Dialog"
+            },
+            new TaskFetchAction(new { opendialogtype = "multi_step_form" })
+            {
+                Title = "Multi-step Form"
+            }
+        }
+    };
 
-  // Send the card as an attachment
-  await send(new MessageActivity('Enter this form').addCard('adaptive', card));
-});
+    return card;
+}
 ```
 
 ## Handling Dialog Open Events
 
-Once an action is executed to open a dialog, the Teams client will send an event to the agent to request what the content of the dialog should be. Here is how to handle this event:
+Once an action is executed to open a dialog, the Teams client will send an event to the agent to request what the content of the dialog should be. When using `TaskFetchAction`, the data is nested inside an `MsTeams` property structure.
 
-```typescript
-app.on('dialog.open', async ({ activity }) => {
-  const card: IAdaptiveCard = new AdaptiveCard()...
+```csharp
+[TaskFetch]
+public Microsoft.Teams.Api.TaskModules.Response OnTaskFetch([Context] Tasks.FetchActivity activity, [Context] IContext.Client client, [Context] ILogger log)
+{
+    var data = activity.Value?.Data as JsonElement?;
+    if (data == null)
+    {
+        log.Info("[TASK_FETCH] No data found in the activity value");
+        return new Microsoft.Teams.Api.TaskModules.Response(new Microsoft.Teams.Api.TaskModules.MessageTask("No data found in the activity value"));
+    }
 
-  // Return an object with the task value that renders a card
-  return {
-    task: {
-      type: 'continue',
-      value: {
-        title: 'Title of Dialog',
-        card: cardAttachment('adaptive', card),
-      },
-    },
-  };
+    var dialogType = data.Value.TryGetProperty("opendialogtype", out var dialogTypeElement) && dialogTypeElement.ValueKind == JsonValueKind.String
+        ? dialogTypeElement.GetString()
+        : null;
+
+    log.Info($"[TASK_FETCH] Dialog type: {dialogType}");
+
+    return dialogType switch
+    {
+        "simple_form" => CreateSimpleFormDialog(),
+        "webpage_dialog" => CreateWebpageDialog(_configuration, log),
+        "multi_step_form" => CreateMultiStepFormDialog(),
+        "mixed_example" => CreateMixedExampleDialog(),
+        _ => new Microsoft.Teams.Api.TaskModules.Response(new Microsoft.Teams.Api.TaskModules.MessageTask("Unknown dialog type"))
+    };
 }
 ```
 
@@ -81,39 +92,48 @@ app.on('dialog.open', async ({ activity }) => {
 
 You can render an Adaptive Card in a dialog by returning a card response.
 
-```ts
-if (dialogType === 'simple_form') {
-  const dialogCard = new AdaptiveCard(
+```csharp
+private static Microsoft.Teams.Api.TaskModules.Response CreateSimpleFormDialog()
+{
+    var cardJson = """
     {
-      type: 'TextBlock',
-      text: 'This is a simple form',
-      size: 'Large',
-      weight: 'Bolder',
-    },
-    new TextInput()
-      .withLabel('Name')
-      .withIsRequired()
-      .withId('name')
-      .withPlaceholder('Enter your name')
-  )
-    // Inside the dialog, the card actions for submitting the card must be
-    // of type Action.Submit
-    .withActions(
-      new SubmitAction()
-        .withTitle('Submit')
-        .withData({ submissiondialogtype: 'simple_form' })
-    );
+        "type": "AdaptiveCard",
+        "version": "1.4",
+        "body": [
+            {
+                "type": "TextBlock", 
+                "text": "This is a simple form", 
+                "size": "Large", 
+                "weight": "Bolder"
+            },
+            {
+                "type": "Input.Text",
+                "id": "name",
+                "label": "Name",
+                "placeholder": "Enter your name",
+                "isRequired": true
+            }
+        ],
+        "actions": [
+            {"type": "Action.Submit", "title": "Submit", "data": {"submissiondialogtype": "simple_form"}}
+        ]
+    }
+    """;
 
-  // Return an object with the task value that renders a card
-  return {
-    task: {
-      type: 'continue',
-      value: {
-        title: 'Simple Form Dialog',
-        card: cardAttachment('adaptive', dialogCard),
-      },
-    },
-  };
+    var dialogCard = JsonSerializer.Deserialize<AdaptiveCard>(cardJson)
+        ?? throw new InvalidOperationException("Failed to deserialize simple form card");
+
+    var taskInfo = new TaskInfo
+    {
+        Title = "Simple Form Dialog",
+        Card = new Attachment
+        {
+            ContentType = new ContentType("application/vnd.microsoft.card.adaptive"),
+            Content = dialogCard
+        }
+    };
+
+    return new Response(new ContinueTask(taskInfo));
 }
 ```
 
@@ -124,23 +144,51 @@ if (dialogType === 'simple_form') {
 
 You can render a webpage in a dialog as well. There are some security requirements to be aware of:
 
-1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](../../../teams/manifest.md) for the agent
+1. The webpage must be hosted on a domain that is allow-listed as `validDomains` in the Teams app [manifest](~/teams/deployment/manifest.md) for the agent
 2. The webpage must also host the [teams-js client library](https://www.npmjs.com/package/@microsoft/teams-js). The reason for this is that for security purposes, the Teams client will not render arbitrary webpages. As such, the webpage must explicitly opt-in to being rendered in the Teams client. Setting up the teams-js client library handles this for you.
 
-```ts
-return {
-  task: {
-    type: 'continue',
-    value: {
-      title: 'Webpage Dialog',
-      // Here we are using a webpage that is hosted in the same
-      // server as the agent. This server needs to be publicly accessible,
-      // needs to set up teams.js client library (https://www.npmjs.com/package/@microsoft/teams-js)
-      // and needs to be registered in the manifest.
-      url: `${process.env['BOT_ENDPOINT']}/tabs/dialog-form`,
-      width: 1000,
-      height: 800,
-    },
-  },
-};
+```csharp
+private static Microsoft.Teams.Api.TaskModules.Response CreateWebpageDialog(IConfiguration configuration, ILogger log)
+{
+    var botEndpoint = configuration["BotEndpoint"];
+    if (string.IsNullOrEmpty(botEndpoint))
+    {
+        log.Warn("No remote endpoint detected. Using webpages for dialog will not work as expected");
+        botEndpoint = "http://localhost:3978"; // Fallback for local development
+    }
+    else
+    {
+        log.Info($"Using BotEndpoint: {botEndpoint}/tabs/dialog-form");
+    }
+
+    var taskInfo = new TaskInfo
+    {
+        Title = "Webpage Dialog",
+        Width = new Union<int, Size>(1000),
+        Height = new Union<int, Size>(800),
+        // Here we are using a webpage that is hosted in the same
+        // server as the agent. This server needs to be publicly accessible,
+        // needs to set up teams.js client library (https://www.npmjs.com/package/@microsoft/teams-js)
+        // and needs to be registered in the manifest.
+        Url = $"{botEndpoint}/tabs/dialog-form"
+    };
+
+    return new Response(new ContinueTask(taskInfo));
+}
+```
+
+### Setting up Embedded Web Content
+
+To serve web content for dialogs, you can use the `AddTab` functionality to embed HTML files as resources:
+
+```csharp
+// In Program.cs when building your app 
+app.UseTeams();
+app.AddTab("dialog-form", "Web/dialog-form");
+
+// Configure project file to embed web resources
+// In .csproj:
+// <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+// <EmbeddedResource Include="Web/**" />
+// <Content Remove="Web/**" />
 ```

@@ -1,12 +1,11 @@
 ---
-title: Teams API Client (preview) (TypeScript)
-description: Work with Teams APIs in your applications built with Teams AI Library for TypeScript.
+title: Teams API Client (TypeScript)
+description: Learn about Teams API Client (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Teams API Client (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Teams API Client (TypeScript)
 
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.api` object. Here is a short summary of the different areas:
 
@@ -17,11 +16,11 @@ Teams has a number of areas that your application has access to via its API. The
 | `teams` | Gives your application access to team or channel details |
 
 
-An instance of the Api Client is passed to handlers that can be used to fetch details:
+An instance of the API client is passed to handlers that can be used to fetch details:
 
 ## Example
 
-In this example, we use the api client to fetch the members in a conversation. The `api` object is passed to the activity handler in this case.
+In this example, we use the API client to fetch the members in a conversation. The `api` object is passed to the activity handler in this case.
 
 ```typescript
 app.on('message', async ({ activity, api }) => {
@@ -31,8 +30,10 @@ app.on('message', async ({ activity, api }) => {
 
 ## Proactive API
 
-It's also possible to access the api client from outside a handler via the app instance. Here we have the same example as above, but we're access the api client via the app instance.
+It's also possible to access the API client from outside a handler via the app instance. Here we have the same example as above, but we're access the API client via the app instance.
 
 ```typescript
-const res = await app.api.graph.chats.getAllMessages.get();
+import * as endpoints from '@microsoft/teams.graph-endpoints';
+
+const res = await app.api.graph.call(endpoints.chats.getAllMessages.get);
 ```

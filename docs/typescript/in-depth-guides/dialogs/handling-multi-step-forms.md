@@ -1,12 +1,11 @@
 ---
-title: Handling Multi-Step Forms (preview) (TypeScript)
-description: Handle multi-step form dialogs using the Teams AI Library for TypeScript.
+title: Handling Multi-Step Forms (TypeScript)
+description: Learn about Handling Multi-Step Forms (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Handling Multi-Step Forms (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Handling Multi-Step Forms (TypeScript)
 
 Dialogs can become complex yet powerful with multi-step forms. These forms can alter the flow of the survey depending on the user's input or customize subsequent steps based on previous answers.
 

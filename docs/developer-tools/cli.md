@@ -1,13 +1,11 @@
 ---
-title: Teams AI Library CLI (preview)
-description: The Teams AI LIbrary CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. Learn how to use the Teams AI Library CLI for building Teams AI applications.
+title: Teams CLI
+description: Learn about Teams CLI
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# Teams CLI (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Teams CLI
 
 The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:
 
@@ -25,23 +23,31 @@ The Teams CLI was created with the intent of supporting developers by making com
 Install the Teams CLI globally using npm:
 
 ```sh
-npm install -g @microsoft/teams.cli@preview
+npm install -g @microsoft/teams.cli
 ```
 
 > [!TIP]
 > If you prefer not to install globally, all commands below can replace `teams` with npx:
-> `npx @microsoft/teams.cli@preview <arguments>`
+> `npx @microsoft/teams.cli <arguments>`
 
 ## Create an agent with one command line
 
 ```sh
-teams new <typescript | csharp> <app-name> <optional>
+teams new <typscript | csharp | python> <app-name> <optional>
 ```
 
 The `new` token will create a brand new agent with `app-name` applied as the directory name and project name.
 
 > [!NOTE]
 > The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
+
+> [!WARNING]
+> Our Python SDK is currently in Public Preview. As a result, we have the CLI under a feature flag.
+> Please run the below command to enable this language.
+
+```sh
+$env:ENABLE_EXPERIMENTAL_PYTHON_OPTIONS = 1
+```
 
 ### Optional parameters
 

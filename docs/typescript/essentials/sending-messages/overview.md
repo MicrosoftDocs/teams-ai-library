@@ -1,12 +1,11 @@
 ---
-title: Sending Messages (preview) (TypeScript)
-description: Learn how agents can send and handle messages using the Microsoft Teams AI Library for TypeScript.
+title: Sending Messages (TypeScript)
+description: Learn about Sending Messages (TypeScript)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Sending Messages (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Sending Messages (TypeScript)
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `send` method is provided which allows your handlers to send a message back to the user to the relevant conversation. 
 
@@ -46,7 +45,7 @@ app.on('message', async ({ activity, stream }) => {
 > [!NOTE]
 > Streaming is currently only supported in 1:1 conversations, not group chats or channels
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Streaming Example":::
+![Streaming Example](~/assets/screenshots/streaming-chat.gif)
 
 ## @Mention
 

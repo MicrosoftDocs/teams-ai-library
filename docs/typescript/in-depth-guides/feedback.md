@@ -1,17 +1,15 @@
 ---
-title: User feedback events (preview) (TypeScript)
-description: Handle user feedback events in Teams applications using the Teams AI
-  Library for TypeScript.
+title: Feedback (TypeScript)
+description: Learn about Feedback (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# User feedback events (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Feedback (TypeScript)
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Feedback Message":::
+![Feedback Message](~/assets/screenshots/feedback.gif)
 
 ## Storage
 

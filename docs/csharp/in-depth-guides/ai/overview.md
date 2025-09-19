@@ -1,30 +1,28 @@
 ---
-title: AI (preview) (C#)
-description: Overview of AI capabilities and features in the Microsoft Teams AI Library for C#.
+title: AI (C#)
+description: Learn about AI (C#)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# AI (preview) (C#)
+# AI (C#)
 
-[This article is prerelease documentation and is subject to change.]
+The AI components in this library are designed to make it easier to build C# applications with LLMs.
+The `Microsoft.Teams.AI` library has two main components:
 
-The AI packages in this library are designed to make it easier to build applications with LLMs.
-The `@microsoft/teams.ai` package has two main components:
-
-## 📦 Prompts
+## Prompts
 
 A `Prompt` is the component that orchestrates everything, it handles state management,
 function definitions, and invokes the model/template when needed. This layer abstracts many of
 the complexities of the Models to provide a common interface.
 
-## 🧠 Models
+## Models
 
 A `Model` is the component that interfaces with the LLM, being given some `input` and returning the `output`.
 This layer deals with any of the nuances of the particular Models being used.
 
 It is in the model implementation that the individual LLM features (i.e. streaming/tools etc.)
-are made compatible with the more general features of the `@microsoft/teams.ai` package.
+are made compatible with the more general features of the `Microsoft.Teams.AI` library.
 
 > [!NOTE]
-> You are not restricted to use the `@microsoft/teams.ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
+> You are not restricted to use the `Microsoft.Teams.AI` library to build your Teams Agent applications. You can use models directly if you choose. This library is there to simplify the interactions with the models and Teams.

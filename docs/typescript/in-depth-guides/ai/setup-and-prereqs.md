@@ -1,12 +1,11 @@
 ---
-title: Setup & Prerequisites (preview) (TypeScript)
-description: Configure and customize AI applications built with Teams AI Library for TypeScripts.
+title: Setup & Prerequisites (TypeScript)
+description: Learn about Setup & Prerequisites (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Setup & Prerequisites (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Setup & Prerequisites (TypeScript)
 
 There are a few prerequisites to getting started with integrating LLMs into your application:
 

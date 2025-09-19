@@ -1,9 +1,8 @@
 ---
-title: Observability (preview) (C#)
-description: Overview of observability functionality in the Microsoft Teams AI Library for C#.
+title: Observability (C#)
+description: Learn about Observability (C#)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Observability (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Observability (C#)

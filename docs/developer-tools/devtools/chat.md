@@ -1,16 +1,15 @@
 ---
-title: DevTools chat (preview)
-description: Use DevTools chat to test chat functionality of your agent without the need to sideload your application in Teams.
+title: Devtools chat
+description: Learn about Devtools chat
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Devtools chat (preview)
 
-[This article is prerelease documentation and is subject to change.]
-
-:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_blank_chat.png?raw=true" alt-text="Empty DevTools chat":::
+# Devtools chat
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
+
+![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true)
 
 > [!NOTE]
 > We plan to add more features to DevTools for a wider variety of testing. Stay tuned!
@@ -24,7 +23,7 @@ Use the Teams AI v2 dev package as a plugin.
 Add the dev package to your Teams app.
 
 ```bash
-$: npm install @microsoft/teams.dev@preview
+$: npm install @microsoft/teams.dev
 ```
 
 ### Usage
@@ -55,11 +54,11 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 ```
 
 > [!NOTE]
-> If you used the [CLI](../cli.md) to create a atk configuration for your app, DevTools will run on port 3979 when you launch the debugger.
+> If you used the [CLI](../cli.md) to create an `atk` configuration for your app, DevTools will run on port 3979 when you launch the debugger.
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Devtools chat":::
+![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
 
 ## Teams chat terminology
 
@@ -84,7 +83,7 @@ You can send messages to your agent just like in Teams. In the compose box, type
 Attach up to 10 files to your message using the Attach (paperclip) button. DevTools supports pasting an Adaptive Card JSON or attaching a card from the card designer. See the [Cards page](./cards.md) for more.
 
 > [!NOTE]
-> More attachments support is coming soon!
+> Further support for attachments is coming soon!
 
 ### Connectivity
 
@@ -98,7 +97,7 @@ Check your app's connectivity in three ways:
 
 You can react to messages by selecting an emoji in the message actions menu.
 
-:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_message_reaction.gif?raw=true" alt-text="Devtools react to a message":::
+![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true)
 
 ### Edit your message
 
@@ -112,7 +111,7 @@ Soft delete messages by hovering over your message, pressing the More (ellipsis)
 
 If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### User feedback
+### Send feedback
 
 Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 
@@ -123,4 +122,4 @@ Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in t
 
 For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>↑</kbd> arrow key to cycle through your message history and resend messages.
 
-:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets~/assets/screenshots/devtools_uparrow_feature.gif?raw=true" alt-text="Devtools Up Arrow Feature":::
+![Devtools Up Arrow Feature](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_uparrow_feature.gif?raw=true)

@@ -1,13 +1,11 @@
 ---
-title: Action commands (preview) (C#)
-description: Learn how to implement action commands in Teams applications using the
-  Microsoft Teams AI Library for C#.
+title: Action commands (C#)
+description: Learn about Action commands (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Action commands (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Action commands (C#)
 
 Action commands allow you to present your users with a modal pop-up called a dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.
 
@@ -21,11 +19,11 @@ There are three different areas action commands can be invoked from:
 
 ### Compose Area and Box
 
-:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="compose area and box":::
+![compose area and box](~/assets/screenshots/compose-area.png)
 
 ### Message action command
 
-:::image type="content" source="~/assets/screenshots/message.png" alt-text="message action command":::
+![message action command](~/assets/screenshots/message.png)
 
 > [!TIP]
 > See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
@@ -99,195 +97,229 @@ Here we are defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Dialog with fields for title, subtitle, and text":::
+![Parameters](~/assets/screenshots/parameters.png)
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`...etc.
 
-:::image type="content" source="~/assets/screenshots/message-command.png" alt-text="Get Message Details Command":::
+![Get Message Details Command](~/assets/screenshots/message-command.png)
 
 3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
-:::image type="content" source="~/assets/screenshots/fetch-conversation-members.png" alt-text="Fetch conversation members":::
+![Fetch conversation members](~/assets/screenshots/fetch-conversation-members.png)
 
 ## Handle submission
 
 Handle submission when the `createCard` or `getMessageDetails` actions commands are invoked.
 
-```ts
-app.on('message.ext.submit', async ({ activity }) => {
-  const { commandId } = activity.value;
-  let card: IAdaptiveCard;
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Api.Cards;
+using Microsoft.Teams.Cards;
 
-  if (commandId === 'createCard') {
-    // activity.value.commandContext == "compose"
-    card = createCard(activity.value.data);
-  } else if (
-    commandId === 'getMessageDetails' &&
-    activity.value.messagePayload
-  ) {
-    // activity.value.commandContext == "message"
-    card = createMessageDetailsCard(activity.value.messagePayload);
-  } else {
-    throw new Error(`Unknown commandId: ${commandId}`);
-  }
+[MessageExtension.SubmitAction]
+public Microsoft.Teams.Api.MessageExtensions.Response OnMessageExtensionSubmit(
+    [Context] Microsoft.Teams.Api.Activities.Invokes.MessageExtensions.SubmitActionActivity activity,
+    [Context] IContext.Client client,
+    [Context] Microsoft.Teams.Common.Logging.ILogger log)
+{
+    log.Info("[MESSAGE_EXT_SUBMIT] Action submit received");
 
-  return {
-    composeExtension: {
-      type: 'result',
-      attachmentLayout: 'list',
-      attachments: [cardAttachment('adaptive', card)],
-    },
-  };
-});
-```
+    var commandId = activity.Value?.CommandId;
+    var data = activity.Value?.Data as JsonElement?;
 
-`createCard()` function
+    log.Info($"[MESSAGE_EXT_SUBMIT] Command: {commandId}");
+    log.Info($"[MESSAGE_EXT_SUBMIT] Data: {JsonSerializer.Serialize(data)}");
 
-```ts
-interface IFormData {
-  title: string;
-  subtitle: string;
-  text: string;
-}
+    switch (commandId)
+    {
+        case "createCard":
+            return HandleCreateCard(data, log);
 
-export function createCard(data: IFormData) {
-  return new AdaptiveCard(
-    new Image(IMAGE_URL),
-    new TextBlock(data.title, {
-      size: 'Large',
-      weight: 'Bolder',
-      color: 'Accent',
-      style: 'heading',
-    }),
-    new TextBlock(data.subtitle, {
-      size: 'Small',
-      weight: 'Lighter',
-      color: 'Good',
-    }),
-    new TextBlock(data.text, {
-      wrap: true,
-      spacing: 'Medium',
-    })
-  );
+        case "getMessageDetails":
+            return HandleGetMessageDetails(activity, log);
+
+        default:
+            log.Error($"[MESSAGE_EXT_SUBMIT] Unknown command: {commandId}");
+            return CreateErrorActionResponse("Unknown command");
+    }
 }
 ```
 
-`createMessageDetailsCard()` function
+`HandleCreateCard()` method
 
-```ts
-export function createMessageDetailsCard(messagePayload: Message) {
-  const cardElements: CardElement[] = [
-    new TextBlock('Message Details', {
-      size: 'Large',
-      weight: 'Bolder',
-      color: 'Accent',
-      style: 'heading',
-    }),
-  ];
+```csharp
+private static Microsoft.Teams.Api.MessageExtensions.Response HandleCreateCard(JsonElement? data, Microsoft.Teams.Common.Logging.ILogger log)
+{
+    var title = GetJsonValue(data, "title") ?? "Default Title";
+    var description = GetJsonValue(data, "description") ?? "Default Description";
 
-  if (messagePayload?.body?.content) {
-    cardElements.push(
-      new TextBlock('Content', {
-        size: 'Medium',
-        weight: 'Bolder',
-        spacing: 'Medium',
-      }),
-      new TextBlock(messagePayload.body.content)
-    );
-  }
+    log.Info($"[CREATE_CARD] Title: {title}, Description: {description}");
 
-  if (messagePayload?.attachments?.length) {
-    cardElements.push(
-      new TextBlock('Attachments', {
-        size: 'Medium',
-        weight: 'Bolder',
-        spacing: 'Medium',
-      }),
-      new TextBlock(
-        `Number of attachments: ${messagePayload.attachments.length}`,
+    var card = new Microsoft.Teams.Cards.AdaptiveCard
+    {
+        Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+        Body = new List<CardElement>
         {
-          wrap: true,
-          spacing: 'Small',
+            new TextBlock("Custom Card Created")
+            {
+                Weight = TextWeight.Bolder,
+                Size = TextSize.Large,
+                Color = TextColor.Good
+            },
+            new TextBlock(title)
+            {
+                Weight = TextWeight.Bolder,
+                Size = TextSize.Medium
+            },
+            new TextBlock(description)
+            {
+                Wrap = true,
+                IsSubtle = true
+            }
         }
-      )
-    );
-  }
+    };
 
-  if (messagePayload?.createdDateTime) {
-    cardElements.push(
-      new TextBlock('Created Date', {
-        size: 'Medium',
-        weight: 'Bolder',
-        spacing: 'Medium',
-      }),
-      new TextBlock(messagePayload.createdDateTime, {
-        wrap: true,
-        spacing: 'Small',
-      })
-    );
-  }
+    var attachment = new Microsoft.Teams.Api.MessageExtensions.Attachment
+    {
+        ContentType = Microsoft.Teams.Api.ContentType.AdaptiveCard,
+        Content = card
+    };
 
-  if (messagePayload?.linkToMessage) {
-    cardElements.push(
-      new TextBlock('Message Link', {
-        size: 'Medium',
-        weight: 'Bolder',
-        spacing: 'Medium',
-      }),
-      new ActionSet(
-        new OpenUrlAction(messagePayload.linkToMessage, {
-          title: 'Go to message',
-        })
-      )
-    );
-  }
-
-  return new AdaptiveCard(...cardElements);
+    return new Microsoft.Teams.Api.MessageExtensions.Response
+    {
+        ComposeExtension = new Microsoft.Teams.Api.MessageExtensions.Result
+        {
+            Type = Microsoft.Teams.Api.MessageExtensions.ResultType.Result,
+            AttachmentLayout = Microsoft.Teams.Api.Attachment.Layout.List,
+            Attachments = new List<Microsoft.Teams.Api.MessageExtensions.Attachment> { attachment }
+        }
+    };
 }
 ```
+
+`HandleGetMessageDetails()` method
+
+```csharp
+private static Microsoft.Teams.Api.MessageExtensions.Response HandleGetMessageDetails(Microsoft.Teams.Api.Activities.Invokes.MessageExtensions.SubmitActionActivity activity, Microsoft.Teams.Common.Logging.ILogger log)
+{
+    var messageText = activity.Value?.MessagePayload?.Body?.Content ?? "No message content";
+    var messageId = activity.Value?.MessagePayload?.Id ?? "Unknown";
+
+    log.Info($"[GET_MESSAGE_DETAILS] Message ID: {messageId}");
+
+    var card = new Microsoft.Teams.Cards.AdaptiveCard
+    {
+        Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+        Body = new List<CardElement>
+        {
+            new TextBlock("Message Details")
+            {
+                Weight = TextWeight.Bolder,
+                Size = TextSize.Large,
+                Color = TextColor.Accent
+            },
+            new TextBlock($"Message ID: {messageId}")
+            {
+                Wrap = true
+            },
+            new TextBlock($"Content: {messageText}")
+            {
+                Wrap = true
+            }
+        }
+    };
+
+    var attachment = new Microsoft.Teams.Api.MessageExtensions.Attachment
+    {
+        ContentType = new Microsoft.Teams.Api.ContentType("application/vnd.microsoft.card.adaptive"),
+        Content = card
+    };
+
+    return new Microsoft.Teams.Api.MessageExtensions.Response
+    {
+        ComposeExtension = new Microsoft.Teams.Api.MessageExtensions.Result
+        {
+            Type = Microsoft.Teams.Api.MessageExtensions.ResultType.Result,
+            AttachmentLayout = Microsoft.Teams.Api.Attachment.Layout.List,
+            Attachments = new List<Microsoft.Teams.Api.MessageExtensions.Attachment> { attachment }
+        }
+    };
+}
+```
+
 
 ## Handle opening adaptive card dialog
 
 Handle opening adaptive card dialog when the `fetchConversationMembers` command is invoked.
 
-```ts
-app.on('message.ext.open', async ({ activity, api }) => {
-  const conversationId = activity.conversation.id;
-  const members = await api.conversations.members(conversationId).get();
-  const card = createConversationMembersCard(members);
+```csharp
+[MessageExtension.FetchTask]
+public async Task<Microsoft.Teams.Api.MessageExtensions.ActionResponse> OnMessageExtensionFetchTask(
+    [Context] Microsoft.Teams.Api.Activities.Invokes.MessageExtensions.FetchTaskActivity activity,
+    [Context] Microsoft.Teams.Common.Logging.ILogger log)
+{
+    log.Info("[MESSAGE_EXT_FETCH_TASK] Fetch task received");
 
-  return {
-    task: {
-      type: 'continue',
-      value: {
-        title: 'Conversation members',
-        height: 'small',
-        width: 'small',
-        card: cardAttachment('adaptive', card),
-      },
-    },
-  };
-});
+    var commandId = activity.Value?.CommandId;
+    log.Info($"[MESSAGE_EXT_FETCH_TASK] Command: {commandId}");
+
+    return CreateFetchTaskResponse(commandId, log);
+}
 ```
 
-`createConversationMembersCard()` function
+`CreateFetchTaskResponse()` method
 
-```ts
-export function createConversationMembersCard(members: Account[]) {
-  const membersList = members.map((member) => member.name).join(', ');
+```csharp
+private static Microsoft.Teams.Api.MessageExtensions.ActionResponse CreateFetchTaskResponse(string? commandId, Microsoft.Teams.Common.Logging.ILogger log)
+{
+    log.Info($"[CREATE_FETCH_TASK] Creating task for command: {commandId}");
 
-  return new AdaptiveCard(
-    new TextBlock('Conversation members', {
-      size: 'Medium',
-      weight: 'Bolder',
-      color: 'Accent',
-      style: 'heading',
-    }),
-    new TextBlock(membersList, {
-      wrap: true,
-      spacing: 'Small',
-    })
-  );
+    // Create an adaptive card for the task module
+    var card = new Microsoft.Teams.Cards.AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("Conversation Members is not implemented in C# yet :(")
+            {
+                Weight = TextWeight.Bolder,
+                Color = TextColor.Accent
+            },
+        }
+    };
+
+    return new Microsoft.Teams.Api.MessageExtensions.ActionResponse
+    {
+        Task = new Microsoft.Teams.Api.TaskModules.ContinueTask(new Microsoft.Teams.Api.TaskModules.TaskInfo
+        {
+            Title = "Fetch Task Dialog",
+            Height = new Microsoft.Teams.Common.Union<int, Microsoft.Teams.Api.TaskModules.Size>(Microsoft.Teams.Api.TaskModules.Size.Small),
+            Width = new Microsoft.Teams.Common.Union<int, Microsoft.Teams.Api.TaskModules.Size>(Microsoft.Teams.Api.TaskModules.Size.Small),
+            Card = new Microsoft.Teams.Api.Attachment(card)
+        })
+    };
+}
+
+// Helper method to extract JSON values
+private static string? GetJsonValue(JsonElement? data, string key)
+{
+    if (data?.ValueKind == JsonValueKind.Object && data.Value.TryGetProperty(key, out var value))
+    {
+        return value.GetString();
+    }
+    return null;
+}
+
+// Helper method to create error responses
+private static Microsoft.Teams.Api.MessageExtensions.Response CreateErrorActionResponse(string message)
+{
+    return new Microsoft.Teams.Api.MessageExtensions.Response
+    {
+        ComposeExtension = new Microsoft.Teams.Api.MessageExtensions.Result
+        {
+            Type = Microsoft.Teams.Api.MessageExtensions.ResultType.Message,
+            Text = message
+        }
+    };
 }
 ```
 

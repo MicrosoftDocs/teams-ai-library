@@ -1,43 +1,56 @@
 ---
-title: Building Adaptive Cards (preview) (C#)
-description: Build interactive user interfaces using Adaptive Cards and the Teams AI Library for C#.
+title: Building Adaptive Cards (C#)
+description: Learn about Building Adaptive Cards (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Building Adaptive Cards (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Building Adaptive Cards (C#)
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
-With `@microsoft/teams.cards` you can build these cards entirely in TypeScript / JavaScript while enjoying full IntelliSense and compiler safety.
+With `Microsoft.Teams.Cards` you can build these cards entirely in C# while enjoying full IntelliSense and compiler safety.
 
 ---
 
 ## The Builder Pattern
 
-`@microsoft/teams.cards` exposes small **builder helpers** (`Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._).
+`Microsoft.Teams.Cards` exposes small **builder helpers** (`AdaptiveCard`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._).
 Each helper wraps raw JSON and provides fluent, chainable methods that keep your code concise and readable.
 
-```ts
-/**
- import {
-  AdaptiveCard,
-  TextBlock,
-  ToggleInput,
-  ExecuteAction,
-  ActionSet,
-} from "@microsoft/teams.cards";
-*/
+```csharp
+using Microsoft.Teams.Cards;
 
-  const card = new AdaptiveCard(
-    new TextBlock('Hello world', { wrap: true, weight: 'Bolder' }),
-    new ToggleInput('Notify me').withId('notify'),
-    new ActionSet(
-      new ExecuteAction({ title: 'Submit' })
-        .withData({ action: 'submit_basic' })
-        .withAssociatedInputs('auto')
-    )
-  );
+var card = new AdaptiveCard
+{
+    Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+    Body = new List<CardElement>
+    {
+        new TextBlock("Hello world")
+        {
+            Wrap = true,
+            Weight = TextWeight.Bolder
+        },
+        new ToggleInput("Notify me")
+        {
+            Id = "notify"
+        }
+    },
+    Actions = new List<Microsoft.Teams.Cards.Action>
+    {
+        new ExecuteAction
+        {
+            Title = "Submit",
+            Data = new Union<string, SubmitActionData>(new SubmitActionData 
+            { 
+                NonSchemaProperties = new Dictionary<string, object?> 
+                { 
+                    { "action", "submit_basic" } 
+                } 
+            }),
+            AssociatedInputs = AssociatedInputs.Auto
+        }
+    }
+};
 ```
 
 Benefits:
@@ -48,25 +61,28 @@ Benefits:
 | Re‑use      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
-> Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
+> Source code lives in `Microsoft.Teams.Cards`. Feel free to inspect or extend the helpers for your own needs.
 
 ---
 
 ## Type‑safe Authoring & IntelliSense
 
-The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript types.
+The package bundles the **Adaptive Card v1.5 schema** as strict C# types.
 While coding you get:
 
 - **Autocomplete** for every element and attribute.
-- **In‑editor validation**—invalid enum values or missing required properties produce build errors.
+- **In‑editor validation**—invalid enum values or missing required properties produce compilation errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
-```ts
-// @ts-expect-error: "huge" is not a valid size for TextBlock
-const textBlock = new TextBlock('Valid', { size: 'huge' });
+```csharp
+// "Huge" is not a valid size for TextBlock - this will cause a compilation error
+var textBlock = new TextBlock("Test") 
+{ 
+    Wrap = true, 
+    Weight = TextWeight.Bolder, 
+    Size = "Huge" // This is invalid - should be TextSize enum
+};
 ```
-
----
 
 ## The Visual Designer
 
@@ -76,58 +92,72 @@ Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](ht
 2. Copy the JSON payload from the editor pane.
 3. Paste the JSON into your project **or** convert it to builder calls:
 
-```typescript
-const cardJson = /* copied JSON */;
-const card = new AdaptiveCard().withBody(cardJson);
-```
-
-```ts
-const rawCard: IAdaptiveCard = {
-  type: 'AdaptiveCard',
-  body: [
-    {
-      text: 'Please fill out the below form to send a game purchase request.',
-      wrap: true,
-      type: 'TextBlock',
-      style: 'heading',
-    },
-    {
-      columns: [
+```csharp
+var cardJson = """
+{
+    "type": "AdaptiveCard",
+    "body": [
         {
-          width: 'stretch',
-          items: [
-            {
-              choices: [
-                { title: 'Call of Duty', value: 'call_of_duty' },
-                { title: 'Death\'s Door', value: 'deaths_door' },
-                { title: 'Grand Theft Auto V', value: 'grand_theft' },
-                { title: 'Minecraft', value: 'minecraft' },
-              ],
-              style: 'filtered',
-              placeholder: 'Search for a game',
-              id: 'choiceGameSingle',
-              type: 'Input.ChoiceSet',
-              label: 'Game:',
-            },
-          ],
-          type: 'Column',
-        },
-      ],
-      type: 'ColumnSet',
-    },
-  ],
-  actions: [
-    {
-      title: 'Request purchase',
-      type: 'Action.Execute',
-      data: { action: 'purchase_item' },
-    },
-  ],
-  version: '1.5',
-};
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "verticalContentAlignment": "center",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "style": "Person",
+                            "url": "https://aka.ms/AAp9xo4",
+                            "size": "Small",
+                            "altText": "Portrait of David Claux"
+                        }
+                    ],
+                    "width": "auto"
+                },
+                {
+                    "type": "Column",
+                    "spacing": "medium",
+                    "verticalContentAlignment": "center",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "text": "David Claux",
+                            "wrap": true
+                        }
+                    ],
+                    "width": "auto"
+                },
+                {
+                    "type": "Column",
+                    "spacing": "medium",
+                    "verticalContentAlignment": "center",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Principal Platform Architect at Microsoft",
+                            "isSubtle": true,
+                            "wrap": true
+                        }
+                    ],
+                    "width": "stretch"
+                }
+            ]
+        }
+    ],
+    "version": "1.5",
+    "schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}
+""";
+
+// Deserialize the JSON into an AdaptiveCard object
+var card = System.Text.Json.JsonSerializer.Deserialize<AdaptiveCard>(cardJson);
+
+// Send the card
+await client.Send(card);
 ```
 
-This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `IAdaptiveCard`.
+This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `AdaptiveCard`.
 
 > [!TIP]
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
@@ -138,47 +168,84 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 
 Below is a complete example showing a task management form. Notice how the builder pattern keeps the file readable and maintainable:
 
-```ts
-app.on('message', async ({ send, activity }) => {
-  await send({ type: 'typing' });
-  const card = new AdaptiveCard(
-    new TextBlock('Create New Task', {
-      size: 'Large',
-      weight: 'Bolder',
-    }),
-    new TextInput({ id: 'title' })
-      .withLabel('Task Title')
-      .withPlaceholder('Enter task title'),
-    new TextInput({ id: 'description' })
-      .withLabel('Description')
-      .withPlaceholder('Enter task details')
-      .withIsMultiline(true),
-    new ChoiceSetInput(
-      { title: 'High', value: 'high' },
-      { title: 'Medium', value: 'medium' },
-      { title: 'Low', value: 'low' }
-    )
-      .withId('priority')
-      .withLabel('Priority')
-      .withValue('medium'),
-    new DateInput({ id: 'due_date' })
-      .withLabel('Due Date')
-      .withValue(new Date().toISOString().split('T')[0]),
-    new ActionSet(
-      new ExecuteAction({ title: 'Create Task' })
-        .withData({ action: 'create_task' })
-        .withAssociatedInputs('auto')
-        .withStyle('positive')
-    )
-  );
-  await send(card);
-  // Or build a complex activity out that includes the card:
-  // const message  = new MessageActivity('Enter this form').addCard('adaptive', card);
-  // await send(message);
-});
+```csharp
+[Message]
+public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
+{
+    var text = activity.Text?.ToLowerInvariant() ?? "";
+
+    if (text.Contains("form"))
+    {
+        await client.Typing();
+        var card = CreateTaskFormCard();
+        await client.Send(card);
+    }
+}
+
+private static AdaptiveCard CreateTaskFormCard()
+{
+    return new AdaptiveCard
+    {
+        Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+        Body = new List<CardElement>
+        {
+            new TextBlock("Create New Task")
+            {
+                Weight = TextWeight.Bolder,
+                Size = TextSize.Large
+            },
+            new TextInput
+            {
+                Id = "title",
+                Label = "Task Title",
+                Placeholder = "Enter task title"
+            },
+            new TextInput
+            {
+                Id = "description",
+                Label = "Description",
+                Placeholder = "Enter task details",
+                IsMultiline = true
+            },
+            new ChoiceSetInput
+            {
+                Id = "priority",
+                Label = "Priority",
+                Value = "medium",
+                Choices = new List<Choice>
+                {
+                    new() { Title = "High", Value = "high" },
+                    new() { Title = "Medium", Value = "medium" },
+                    new() { Title = "Low", Value = "low" }
+                }
+            },
+            new DateInput
+            {
+                Id = "due_date",
+                Label = "Due Date",
+                Value = DateTime.Now.ToString("yyyy-MM-dd")
+            }
+        },
+        Actions = new List<Microsoft.Teams.Cards.Action>
+        {
+            new ExecuteAction
+            {
+                Title = "Create Task",
+                Data = new Union<string, SubmitActionData>(new SubmitActionData 
+                { 
+                    NonSchemaProperties = new Dictionary<string, object?> 
+                    { 
+                        { "action", "create_task" } 
+                    } 
+                }),
+                AssociatedInputs = AssociatedInputs.Auto,
+                Style = ActionStyle.Positive
+            }
+        }
+    };
+}
 ```
 
----
 
 ## Additional Resources
 

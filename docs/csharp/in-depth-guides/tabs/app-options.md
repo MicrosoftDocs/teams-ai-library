@@ -1,14 +1,11 @@
 ---
-title: App Options (preview) (C#)
-description: App options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and remote agent function calling using Teams AI Library for C#.
+title: App Options (C#)
+description: Learn about App Options (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# App Options (preview) (C#)
-
-[This article is prerelease documentation and is subject to change.]
-
+# App Options (C#)
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and 
 remote agent function calling. Each setting is optional, with the app using a reasonable default as needed.
 

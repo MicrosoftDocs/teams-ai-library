@@ -1,19 +1,17 @@
 ---
-title: Listening To Events (preview) (TypeScript)
-description: Learn how to listen to events using the Teams AI
- Library for TypeScript.
+title: Listening To Events (TypeScript)
+description: Learn about Listening To Events (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Listening To Events (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Listening To Events (TypeScript)
 
 An **event** is a foundational concept in building agents — it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).
 
-:::image type="content" source="~/assets/diagrams/on-event-1.png" alt-text="alt-text for on-event-1.png":::
+![alt-text for on-event-1.png](~/assets/diagrams/on-event-1.png)
 
-The Teams AI Library v2 makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.
+The Teams AI Library makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.
 
 Here are the events that you can start building handlers for:
 
@@ -42,8 +40,10 @@ app.event('error', ({ err, log }) => {
 When a user signs in using `OAuth` or `SSO`, use the graph api to fetch their profile and say hello.
 
 ```typescript
-app.event('signin', async ({ activity, send, api }) => {
-  const me = await api.user.me.get();
+
+import * as endpoints from '@microsoft/teams.graph-endpoints';
+app.event('signin', async ({ activity, send, userGraph }) => {
+  const me = await userGraph.call(endpoints.me.get);
   await send(`👋 Hello ${me.name}`);
 });
 ```

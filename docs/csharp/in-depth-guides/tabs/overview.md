@@ -1,13 +1,11 @@
 ---
-title: Tabs (preview) (C#)
-description: Overview of tabs functionality in the Microsoft Teams AI Library for
- C#.
+title: Tabs (C#)
+description: Learn about Tabs (C#)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Tabs (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Tabs (C#)
 
 Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
 

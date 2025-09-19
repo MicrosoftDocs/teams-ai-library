@@ -1,17 +1,16 @@
 ---
-title: DevTools (preview)
-description: Overview of DevTools features for the Microsoft Teams AI Library.
+title: DevTools
+description: Learn about DevTools
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# DevTools (preview)
 
-[This article is prerelease documentation and is subject to change.]
+# DevTools
 
 The developer tools can be used to locally interact with an app to streamline the testing/development process,
 preventing you from needing to deploy/register the app or expose a public endpoint.
 
-:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="DevTools chat with sent messages":::
+![DevTools chat with sent messages](~/assets/screenshots/devtools-echo-chat.png)
 
 ## Basic features
 

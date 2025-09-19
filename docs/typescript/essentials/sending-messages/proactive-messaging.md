@@ -1,16 +1,15 @@
 ---
-title: Proactive Messaging (preview) (TypeScript)
-description: Implement proactive messaging and communication features in Teams applications using the Teams AI Library for TypeScript.
+title: Proactive Messaging (TypeScript)
+description: Learn about Proactive Messaging (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Proactive Messaging (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Proactive Messaging (TypeScript)
 
-In [Sending Messages](./overview.md), we show how we can respond to an event when it happens. However, there are times when you want to send a message to the user without them sending a message first. This is called proactive messaging. You can do this by using the `send` method in the `app` instance. This is useful for sending notifications or reminders to the user.
+In [Sending Messages](./overview.md), you were shown how to respond to an event when it happens. However, there are times when you want to send a message to the user without them sending a message first. This is called proactive messaging. You can do this by using the `send` method in the `app` instance. This approach is useful for sending notifications or reminders to the user.
 
-The main thing to note is that you need to have the `conversationId` of the chat or channel you want to send the message to. It's a good idea to store this value somewhere from an activity handler so you can use it for proactive messaging later.
+The main thing to note is that you need to have the `conversationId` of the chat or channel that you want to send the message to. It's a good idea to store this value somewhere from an activity handler so that you can use it for proactive messaging later.
 
 ```ts
 // This would be some persistent storage
@@ -41,4 +40,4 @@ const sendProactiveNotification = async (userId: string) => {
 ```
 
 > [!TIP]
-> In this example, we show that we get the conversation id using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.
+> In this example, you see how to get the conversation id using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.

@@ -1,19 +1,17 @@
 ---
-title: Teams Core Concepts (preview)
-description: When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Teams-specific processes happen behind the scenes. Understanding these core concepts is essential for building effective Teams AI applications.
+title: Teams Core Concepts
+description: Learn about Teams Core Concepts
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# Teams Core Concepts (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Teams Core Concepts
 
 When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Teams-specific processes happen behind the scenes. Understanding these components will help you better debug and deploy your agents. Obviously, all these processes can be done manually, but Agents Toolkit automates them for you.
 
 ## Basic Flow
 
-:::image type="content" source="~/assets/diagrams/core-concepts-1.png" alt-text="alt-text for core-concepts-1.png":::
+![alt-text for core-concepts-1.png](~/assets/diagrams/core-concepts-1.png)
 
 **Teams**
 
@@ -48,14 +46,14 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you
-
-> [!NOTE]
-> DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
+[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you set up a DevTunnel, it:
 
 - Creates a secure public HTTPS endpoint that forwards to your local server
 - Manages SSL certificates automatically
 - Routes Teams messages and events to your local agent
+
+> [!NOTE]
+> DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
 
 ## Teams App Provisioning
 

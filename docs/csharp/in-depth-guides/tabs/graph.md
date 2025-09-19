@@ -1,12 +1,11 @@
 ---
-title: Microsoft Graph Client (preview) (C#)
-description: Work with Graph APIs in Teams tab applications using the Teams AI Library for C#.
+title: Microsoft Graph Client (C#)
+description: Learn about Microsoft Graph Client (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Microsoft Graph Client (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Microsoft Graph Client (C#)
 
 The client App exposes a `graph` property that gives type-safe access to  Microsoft Graph functions. When graph functions are invoked, the app attaches an MSAL bearer token to the request so that the call can be authenticated and authorized. 
 

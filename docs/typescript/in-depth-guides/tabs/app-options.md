@@ -1,12 +1,11 @@
 ---
-title: App Options (preview) (TypeScript)
-description: App options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and remote agent function calling using Teams AI Library for TypeScript.
+title: App Options (TypeScript)
+description: Learn about App Options (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# App Options (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# App Options (TypeScript)
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and 
 remote agent function calling. Each setting is optional, with the app using a reasonable default as needed.
 
@@ -210,6 +209,7 @@ Scope pre-warming can be disabled if needed. This is useful if your app doesn't 
 
 ```typescript
 import { App } from '@microsoft/teams.client';
+import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 const app = new App(clientId, {
   msalOptions: { prewarmScopes: false },
@@ -220,7 +220,7 @@ await app.start();
 
 // this will prompt for the '.default' scope if the user hasn't already
 // consented to any scope
-const top10Chats = await app.graph.chats.list( { $top: 10 });
+const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 ```
 
 

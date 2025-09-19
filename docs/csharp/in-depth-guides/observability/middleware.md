@@ -1,12 +1,11 @@
 ---
-title: Middleware (preview) (C#)
-description: Implement middleware for logging, validation, and more in Teams applications using the Teams AI Library for C#.
+title: Middleware (C#)
+description: Learn about Middleware (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Middleware (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Middleware (C#)
 
 Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.

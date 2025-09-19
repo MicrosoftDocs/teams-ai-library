@@ -1,12 +1,11 @@
 ---
-title: Adaptive Cards (preview) (C#)
-description: Overview of Adaptive Cards functionality in the Microsoft Teams AI Library for C#.
+title: Adaptive Cards (C#)
+description: Learn about Adaptive Cards (C#)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Adaptive Cards (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Adaptive Cards (C#)
 
 Adaptive Cards provide a flexible, cross-platform content format for creating rich, interactive experiences. They consist of a customizable body of card elements combined with optional action sets, all fully serializable for delivery to clients. Through a powerful combination of text, graphics, and interactive buttons, Adaptive Cards enable compelling user experiences across various platforms.
 

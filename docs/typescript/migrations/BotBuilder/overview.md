@@ -1,13 +1,11 @@
 ---
-title: From BotBuilder (preview) (TypeScript)
-description: Learn how to migrate your code from BotBuilder to the Microsoft Teams AI Library for TypeScript.
+title: From BotBuilder (TypeScript)
+description: Learn about From BotBuilder (TypeScript)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# From BotBuilder (preview) (TypeScript)
-
-[This article is prerelease documentation and is subject to change.]
+# From BotBuilder (TypeScript)
 
 This new iteration of Teams AI has been rebuilt from the ground up. To easy the migration process
 we have created a plugin `@microsoft/teams.botbuilder`, which allows you to use a botbuilder `activity handler`

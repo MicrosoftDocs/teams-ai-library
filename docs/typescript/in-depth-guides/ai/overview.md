@@ -1,24 +1,22 @@
 ---
-title: AI (preview) (TypeScript)
-description: Overview of AI capabilities and features in the Microsoft Teams AI Library for TypeScript.
+title: AI (TypeScript)
+description: Learn about AI (TypeScript)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# AI (preview) (TypeScript)
-
-[This article is prerelease documentation and is subject to change.]
+# AI (TypeScript)
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.
 The `@microsoft/teams.ai` package has two main components:
 
-## 📦 Prompts
+## Prompts
 
 A `Prompt` is the component that orchestrates everything, it handles state management,
 function definitions, and invokes the model/template when needed. This layer abstracts many of
 the complexities of the Models to provide a common interface.
 
-## 🧠 Models
+## Models
 
 A `Model` is the component that interfaces with the LLM, being given some `input` and returning the `output`.
 This layer deals with any of the nuances of the particular Models being used.
