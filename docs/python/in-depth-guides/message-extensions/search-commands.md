@@ -79,7 +79,7 @@ async def handle_message_ext_query(ctx: ActivityContext[MessageExtensionQueryInv
 
         return MessagingExtensionInvokeResponse(compose_extension=result)
 
-    return InvokeResponse[MessagingExtensionInvokeResponse](status=400)
+    return InvokeResponse[MessagingExtensionInvokeResponse](status=400.md)
 
 ```
 

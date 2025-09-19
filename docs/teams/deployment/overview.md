@@ -1,6 +1,6 @@
 # Deployment
 
-As described in the [Core Concepts](../core-concepts) article, the first step you need is an Azure Bot Service resource and associate it to an Entra ID App registration.
+As described in the [Core Concepts](../core-concepts.md) article, the first step you need is an Azure Bot Service resource and associate it to an Entra ID App registration.
 
 ## Requirements
 

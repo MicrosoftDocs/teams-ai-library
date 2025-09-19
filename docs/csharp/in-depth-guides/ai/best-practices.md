@@ -36,7 +36,7 @@ public class Controller(OpenAIChatPrompt _prompt)
 
 ## Gather feedback to improve prompts
 
-AI Generated messages are not always perfect. Prompts can have gaps, and can sometimes lead to unexpected results. To help improve the prompts, Teams recommends gathering feedback from users on the AI-generated messages. See [Feedback](../feedback) for more information on how to gather feedback.
+AI Generated messages are not always perfect. Prompts can have gaps, and can sometimes lead to unexpected results. To help improve the prompts, Teams recommends gathering feedback from users on the AI-generated messages. See [Feedback](../feedback.md) for more information on how to gather feedback.
 
 This does involve thinking through a pipeline for gathering feedback and then automatically, or manually, updating prompts based on the feedback. The feedback system is an point of entry to your eval pipeline.
 

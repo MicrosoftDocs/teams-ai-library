@@ -42,7 +42,7 @@ async def handle_message_ext_query_link(ctx: ActivityContext[MessageExtensionQue
     url = ctx.activity.value.url
 
     if not url:
-        return InvokeResponse[MessagingExtensionInvokeResponse](status=400)
+        return InvokeResponse[MessagingExtensionInvokeResponse](status=400.md)
 
     card_data = create_link_unfurl_card(url)
     main_attachment = card_attachment(AdaptiveCardAttachment(content=card_data["card"]))
