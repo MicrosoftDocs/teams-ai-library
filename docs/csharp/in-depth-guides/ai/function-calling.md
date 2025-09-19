@@ -7,25 +7,7 @@ summary: Guide to implementing function calling in LLMs, showing how to integrat
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by creating a class with the [`[Prompt]`](https://github.com/microsoft/teams.net/blob/main/Libraries/Microsoft.Teams.AI/Annotations/PromptAttribute.cs) attribute and adding functions with the [`[Function]`](https://github.com/microsoft/teams.net/blob/main/Libraries/Microsoft.Teams.AI/Annotations/FunctionAttribute.cs) attribute.
 
-```mermaid
-sequenceDiagram
-  participant User
-  participant ChatPrompt
-  participant LLM
-  participant Function-GetWeather
-  participant ExternalAPI
-
-  User->>ChatPrompt: send(activity.text)
-  ChatPrompt->>LLM: Provide instructions, message, and available functions
-    LLM->>ChatPrompt: Decide to call `GetWeather` with parameters
-    ChatPrompt->>Function-GetWeather: Execute with location
-    Function-GetWeather->>ExternalAPI: fetch weather data
-    ExternalAPI-->>Function-GetWeather: return weather info
-    Function-GetWeather-->>ChatPrompt: return result
-  ChatPrompt->>LLM: Send function result(s)
-  LLM-->>ChatPrompt: Final user-facing response
-  ChatPrompt-->>User: send(result.content)
-```
+![alt-text for function-calling-1.png](~/assets/diagrams/function-calling-1.png)
 
 ## Single Function Example
 
