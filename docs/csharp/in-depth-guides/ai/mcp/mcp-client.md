@@ -1,12 +1,11 @@
 ---
-title: MCP Client (preview) (C#)
-description: Learn how to build a MCP Client using Teams AI Library for C#.
+title: MCP Client (C#)
+description: Learn about MCP Client (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# MCP Client (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# MCP Client (C#)
 
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 
@@ -86,6 +85,6 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 > [!NOTE]
 > Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server.md). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
 
-:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="MCP Client in Devtools":::
+![MCP Client in Devtools](~/assets/screenshots/mcp-client-pokemon.gif)
 
 In this example, our MCP server is a Pokemon API and our client knows how to call it. The LLM is able to call the `getPokemon` function exposed by the server and return the result back to the user.

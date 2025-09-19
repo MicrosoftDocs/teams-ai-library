@@ -1,12 +1,11 @@
 ---
-title: Middleware (preview) (TypeScript)
-description: Learn about building middleware for logging and validation using the Teams AI Library for TypeScript.
+title: Middleware (TypeScript)
+description: Learn about Middleware (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Middleware (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Middleware (TypeScript)
 
 Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.

@@ -1,18 +1,16 @@
 ---
-title: BotBuilder migration for user authentication (preview) (TypeScript)
-description: Learn how to migrate your BotBuilder authentication flow to Teams AI Library (preview) (TypeScript)
+title: Migration guide for user authentication (TypeScript)
+description: Learn about migrating user authentication from BotBuilder to Teams AI Library (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# BotBuilder migration for user authentication (preview) (TypeScript)
+# Migration guide for user authentication (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
-
-BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams AI doesn't have any equivalent feature to dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
+BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams AI doesn't have any
+equivalent feature to dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
 
 # [BotBuilder](#tab/botbuilder)
-
 ```typescript
 import restify from 'restify';
 import {
@@ -139,8 +137,7 @@ const handler = new ActivityHandler(
 
 server.use(restify.plugins.bodyParser());
 server.listen(process.env.port || process.env.PORT || 3978, function() {
-    console.log(`
-${ server.name } listening to ${ server.url }`);
+    console.log(`\n${ server.name } listening to ${ server.url }`);
 });
 
 server.post('/api/messages', async (req, res) => {
@@ -149,7 +146,6 @@ server.post('/api/messages', async (req, res) => {
 ```
 
 # [Teams AI](#tab/teams-ai)
-
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common/logging';
@@ -180,5 +176,4 @@ app.event('signin', async ({ send }) => {
   await app.start();
 })();
 ```
-
-## Teams AI
+---

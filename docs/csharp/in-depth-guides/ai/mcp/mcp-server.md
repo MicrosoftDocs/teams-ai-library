@@ -1,12 +1,11 @@
 ---
-title: MCP Server (preview) (C#)
-description: Learn how to build a MCP server in Teams applications using the Teams AI Library for C#.
+title: MCP Server (C#)
+description: Learn about MCP Server (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# MCP Server (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# MCP Server (C#)
 
 You are able to convert any `App` into an MCP server by using the `McpPlugin` from the `@microsoft/teams.mcp` package. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications. 
 
@@ -63,7 +62,7 @@ const app = new App({
 > [!TIP]
 > Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
 
-:::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="MCP Server in Devtools":::
+![MCP Server in Devtools](~/assets/screenshots/mcp-devtools.gif)
 
 ## Piping messages to the user
 

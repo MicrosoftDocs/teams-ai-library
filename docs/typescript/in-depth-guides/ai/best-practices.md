@@ -1,13 +1,11 @@
 ---
-title: Best Practices (preview) (TypeScript)
-description: Learn how to implement best practices in Teams applications using the
-  Microsoft Teams AI Library for TypeScript.
+title: Best Practices (TypeScript)
+description: Learn about Best Practices (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Best Practices (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Best Practices (TypeScript)
 
 When sending messages using AI, Teams recommends a number of best practices to help with both user and developer experience.
 
@@ -19,7 +17,7 @@ When sending messages using AI, Teams recommends including an indicator that the
 const messageToBeSent = new Message().addAiGenerated().text('Hello!');
 ```
 
-:::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="AI- generated indicator":::
+![AI Generated Indicator](~/assets/screenshots/ai-generated.gif)
 
 ## Gather feedback to improve prompts
 
@@ -47,4 +45,4 @@ for (let i = 0; i < citedDocs.length; i++) {
 }
 ```
 
-:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="AI-generated citation":::
+![AI Generated Indicator](~/assets/screenshots/citation.gif)

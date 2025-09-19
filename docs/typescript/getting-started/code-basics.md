@@ -1,12 +1,11 @@
 ---
-title: Code Basics (preview) (TypeScript)
-description: Learn the basics of coding with the Microsoft Teams AI Library for TypeScript.
+title: Code Basics (TypeScript)
+description: Learn about Code Basics (TypeScript)
 ms.topic: get-started
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Code Basics (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Code Basics (TypeScript)
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.
 
@@ -27,7 +26,7 @@ quote-agent/
 
 ## Core Components
 
-Let's break down the simple application we created in the [quickstart](quickstart.md) into its core components.:
+Let's break down the simple application we created in the [quickstart](quickstart.md) into its core components:
 
 ### The App Class
 
@@ -49,7 +48,7 @@ The app configuration includes a variety of options that allow you to customize 
 
 ### Plugins
 
-Plugins are a core part of the Teams AI v2 SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](../../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+Plugins are a core part of the Teams AI v2 SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](~/developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 
 > [!WARNING]
 > DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.\
@@ -93,7 +92,7 @@ This part initializes your application server and, when configured for Teams, al
 
 ## Next Steps
 
-Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
+Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](./running-in-teams/running-in-teams.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
 
 After that, you can:
 
@@ -107,5 +106,5 @@ Continue on to the next page to learn about these advanced features.
 ## Other Resources
 
 - [Essentials](../essentials/overview.md)
-- [Teams concepts](../../teams/core-concepts.md)
-- [Teams developer tools](../../developer-tools/overview.md)
+- [Teams concepts](~/teams/core-concepts.md)
+- [Teams developer tools](~/developer-tools/overview.md)

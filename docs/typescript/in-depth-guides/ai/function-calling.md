@@ -1,34 +1,15 @@
 ---
-title: Function calling (preview) (TypeScript)
-description: Learn how to implement AI function calling using the Microsoft Teams AI Library for TypeScript.
+title: Function calling with LLMs (TypeScript)
+description: Learn about function calling with LLMs (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Function calling (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Function calling with LLMs (TypeScript)
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 
-```mermaid
-sequenceDiagram
-  participant User
-  participant ChatPrompt
-  participant LLM
-  participant Function-PokemonSearch
-  participant ExternalAPI
-
-  User->>ChatPrompt: send(activity.text)
-  ChatPrompt->>LLM: Provide instructions, message, and available functions
-    LLM->>ChatPrompt: Decide to call `pokemonSearch` with parameters
-    ChatPrompt->>Function-PokemonSearch: Execute with pokemonName
-    Function-PokemonSearch->>ExternalAPI: fetch pokemon data
-    ExternalAPI-->>Function-PokemonSearch: return pokemon info
-    Function-PokemonSearch-->>ChatPrompt: return result
-  ChatPrompt->>LLM: Send function result(s)
-  LLM-->>ChatPrompt: Final user-facing response
-  ChatPrompt-->>User: send(result.content)
-```
+![alt-text for function-calling-1.png](~/assets/diagrams/function-calling-1.png)
 
 ```ts
 const prompt = new ChatPrompt({
@@ -137,7 +118,7 @@ const result = await prompt.send(activity.text);
 await send(result.content ?? 'Sorry I could not figure it out');
 ```
 
-## Stopping Funcitons early
+## Stopping Functions early
 
 You'll notice that after the function responds, `ChatPrompt` re-sends the response from the function invocation back to the LLM which responds back with the user-facing message. It's possible to prevent this "automatic" function calling by passing in a flag
 

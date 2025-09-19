@@ -1,12 +1,11 @@
 ---
-title: Functions (preview) (C#)
-description: Learn how to implement functions in Teams applications using the Microsoft Teams AI Library for C#.
+title: Functions (C#)
+description: Learn about Functions (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Functions (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Functions (C#)
 
 The client App exposes an `exec()` method that can be used to call functions implemented in an agent created with this library. The function call uses the `app.http` client to make a request, attaching a bearer token created from the `app.msalInstance` MSAL public client application, so that the remote function can authenticate and authorize the caller.
 

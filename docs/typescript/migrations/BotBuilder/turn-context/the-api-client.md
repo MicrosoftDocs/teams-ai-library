@@ -1,18 +1,16 @@
 ---
-title: The API Client (preview) (TypeScript)
-description: Migration guide for upgrading BotBuilder `TeamsInfo` logic to use the `ApiClient` for Microsoft Teams AI Library for TypeScript.
+title: The API Client (TypeScript)
+description: Learn about The API Client (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# The API Client (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# The API Client (TypeScript)
 
 BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams AI
 we pass an instance of our `ApiClient` into all our activity handlers.
 
 # [BotBuilder](#tab/botbuilder)
-
 ```typescript
 import {
   CloudAdapter,
@@ -35,7 +33,6 @@ export class ActivityHandler extends TeamsActivityHandler {
 ```
 
 # [Teams AI](#tab/teams-ai)
-
 ```typescript
 import { App } from '@microsoft/teams.apps';
 

@@ -1,13 +1,11 @@
 ---
-title: Message Extensions (preview) (C#)
-description: Overview of message extensions functionality in the Microsoft Teams AI
-  Library for C#.
+title: Message Extensions (C#)
+description: Learn about Message Extensions (C#)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Message Extensions (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Message Extensions (C#)
 
 Message extensions (or Compose Extensions) allow your application to hook into messages that users can send or perform actions on messages that users have already sent. They enhance user productivity by providing quick access to information and actions directly within the Teams interface. Users can search or initiate actions from the compose message area, the command box, or directly from a message, with the results returned as richly formatted cards that make information more accessible and actionable.
 

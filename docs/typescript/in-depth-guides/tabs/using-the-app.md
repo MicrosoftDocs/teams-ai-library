@@ -1,13 +1,11 @@
 ---
-title: Using The App (preview) (TypeScript)
-description: Learn about the App class for client- and server-side logic using the
- Microsoft Teams AI Library for TypeScript.
+title: Using The App (TypeScript)
+description: Learn about Using The App (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Using The App (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Using The App (TypeScript)
 
 The `@microsoft/teams.client` App class helps solve common challenges when building Single Page Applications hosted in Microsoft Teams, Outlook, and Microsoft 365. It is the client-side counterpart to the `@microsoft/teams.app` App that you can use to build AI agents.
 
@@ -51,6 +49,7 @@ When the `app.start()` call has completed, you can use the app instance to call 
 ```typescript
 import * as teamsJs from '@microsoft/teams-js';
 import { App } from '@microsoft/teams.client';
+import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 const app = new App(clientId);
 await app.start();
@@ -59,8 +58,8 @@ await app.start();
 const context = await teamsJs.app.getContext();
 
 // ...call Graph end points...
-const presenceResult = await app.graph.me.presence.get();
+const presenceResult = await app.graph.call(endpoints.me.presence.get);
 
-// ...end call remote agent functions...
+// ...and call remote agent functions...
 const agentResult = await app.exec<string>('hello-world');
 ```

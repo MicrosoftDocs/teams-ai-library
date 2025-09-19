@@ -1,12 +1,11 @@
 ---
-title: App Basics (preview) (C#)
-description: Learn the basics of building applications using Microsoft Teams AI Library for C#.
+title: App Basics (C#)
+description: Learn about App Basics (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# App Basics (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# App Basics (C#)
 
 The `App` class is the main entry point for your agent.
 
@@ -18,7 +17,7 @@ It is responsible for:
 4. Providing helpful utilities which simplify the ability for your application to interact with the Teams platform
 5. Managing plugins which can extend the functionality of your agent
 
-:::image type="content" source="~/assets/diagrams/app-basics-1.png" alt-text="alt-text for app-basics-1.png":::
+![alt-text for app-basics-1.png](~/assets/diagrams/app-basics-1.png)
 
 ## Core Components
 

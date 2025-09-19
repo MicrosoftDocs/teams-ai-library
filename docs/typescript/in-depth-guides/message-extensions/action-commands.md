@@ -1,19 +1,17 @@
 ---
-title: Action commands (preview) (TypeScript)
-description: Learn how to implement action commands in Teams applications using the
-  Microsoft Teams AI Library for TypeScript.
+title: Action commands (TypeScript)
+description: Learn about Action commands (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Action commands (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Action commands (TypeScript)
 
-Action commands allow you to present your users with a modal pop-up called a dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.
+Action commands allow you to present your users with a modal pop-up called as dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.
 
 ## Action command invocation locations
 
-There are three different areas action commands can be invoked from:
+There are three different areas from which action commands can be invoked from:
 
 1. Compose Area
 2. Compose Box
@@ -21,11 +19,11 @@ There are three different areas action commands can be invoked from:
 
 ### Compose Area and Box
 
-:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="compose area and box":::
+![compose area and box](~/assets/screenshots/compose-area.png)
 
 ### Message action command
 
-:::image type="content" source="~/assets/screenshots/message.png" alt-text="message action command":::
+![message action command](~/assets/screenshots/message.png)
 
 > [!TIP]
 > See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
@@ -99,19 +97,19 @@ Here we are defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Dialog with fields for title, subtitle, and text":::
+![Parameters](~/assets/screenshots/parameters.png)
 
-2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`...etc.
+2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`,etc.
 
-:::image type="content" source="~/assets/screenshots/message-command.png" alt-text="Get Message Details Command":::
+![Get Message Details Command](~/assets/screenshots/message-command.png)
 
 3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
-:::image type="content" source="~/assets/screenshots/fetch-conversation-members.png" alt-text="Fetch conversation members":::
+![Fetch conversation members](~/assets/screenshots/fetch-conversation-members.png)
 
 ## Handle submission
 
-Handle submission when the `createCard` or `getMessageDetails` actions commands are invoked.
+Handle submission when the `createCard` or `getMessageDetails` action commands are invoked.
 
 ```ts
 app.on('message.ext.submit', async ({ activity }) => {

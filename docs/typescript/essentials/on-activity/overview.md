@@ -1,21 +1,17 @@
 ---
-title: Listening To Activities (preview) (TypeScript)
-description: Learn how to listen to activities in the Microsoft Teams AI Library for TypeScript.
+title: Listening To Activities (TypeScript)
+description: Learn about Listening To Activities (TypeScript)
 ms.topic: overview
-ms.date: 07/16/2025
----
-# Listening To Activities (preview) (TypeScript)
-
-[This article is prerelease documentation and is subject to change.]
+ms.date: 09/18/2025
 ---
 
-## Listening To Activities
+# Listening To Activities (TypeScript)
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  
 Where _events_ describe high‑level happenings inside your app, _activities_ are the raw Teams messages such as chat text, card actions, installs, or invoke calls.  
 The Teams AI Library v2 exposes a fluent router so you can subscribe to these activities with `app.on('<route>', …)`.
 
-:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png":::
+![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
 
 Here is an example of a basic message handler:
 

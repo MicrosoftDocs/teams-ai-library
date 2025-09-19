@@ -1,12 +1,11 @@
 ---
-title: Graph API Client (preview) (C#)
-description: Work with Graph APIs in your Teams application using the Teams AI Library for C#.
+title: Graph API Client (C#)
+description: Learn about Graph API Client (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Graph API Client (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Graph API Client (C#)
 
 [Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
 
@@ -17,7 +16,7 @@ Microsoft Graph can be accessed by your application using its own application to
 To access the graph using the Graph using the app, you may use the `app.Graph` object. 
 
 ```csharp
-// Equivalent of /graph/api/user-get
+// Equivalent of https://learn.microsoft.com/graph/api/user-get
 // Gets the details of the bot-user
 var user = app.Graph.Me.GetAsync().GetAwaiter().GetResult();
 Console.WriteLine($"User ID: {user.id}");
@@ -28,31 +27,31 @@ Console.WriteLine($"User Job Title: {user.jobTitle}");
 
 To access the graph using the user's token, you need to do this as part of a message handler:
 
-
 # [Controller](#tab/controller)
 ```csharp 
-    [Message]
-    public async Task OnMessage([Context] MessageActivity activity, [Context] GraphClient userGraph)
-    {
-        var user = await userGraph.Me.GetAsync();
-        Console.WriteLine($"User ID: {user.id}");
-        Console.WriteLine($"User Display Name: {user.displayName}");
-        Console.WriteLine($"User Email: {user.mail}");
-        Console.WriteLine($"User Job Title: {user.jobTitle}");
-    }
+[Message]
+public async Task OnMessage([Context] MessageActivity activity, [Context] GraphClient userGraph)
+{
+    var user = await userGraph.Me.GetAsync();
+    Console.WriteLine($"User ID: {user.id}");
+    Console.WriteLine($"User Display Name: {user.displayName}");
+    Console.WriteLine($"User Email: {user.mail}");
+    Console.WriteLine($"User Job Title: {user.jobTitle}");
+}
 ```
+
 # [Minimal](#tab/minimal)
 ```csharp 
-    app.OnMessage(async context =>
-    {
-        var user = await context.UserGraph.Me.GetAsync();
-        Console.WriteLine($"User ID: {user.id}");
-        Console.WriteLine($"User Display Name: {user.displayName}");
-        Console.WriteLine($"User Email: {user.mail}");
-        Console.WriteLine($"User Job Title: {user.jobTitle}");
-    });
+app.OnMessage(async context =>
+{
+    var user = await context.UserGraph.Me.GetAsync();
+    Console.WriteLine($"User ID: {user.id}");
+    Console.WriteLine($"User Display Name: {user.displayName}");
+    Console.WriteLine($"User Email: {user.mail}");
+    Console.WriteLine($"User Job Title: {user.jobTitle}");
+});
 ```
----
+
 
 
 Here, the `userGraph` object is a scoped graph client for the user that sent the message.

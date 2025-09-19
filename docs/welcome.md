@@ -1,22 +1,20 @@
 ---
-title: Overview of Teams AI Library v2 (preview)
-description: Teams AI Library v2 is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, making it easier to build AI-powered applications and agents for Microsoft Teams.
-ms.topic: how-to
-ms.date: 07/16/2025
+title: Overview of Teams AI Library
+description: Teams AI Library is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, making it easier to build AI-powered applications and agents for Microsoft Teams.
+ms.topic: overview
+ms.date: 09/18/2025
 ---
 
-# Overview of Teams AI Library v2 (preview)
+# Overview of Teams AI Library
 
-[This article is prerelease documentation and is subject to change.]
-
-Teams AI Library v2 is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
+Teams AI Library is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
 
 ## Quickstart
 
 The Teams CLI makes it easy to bootstrap your first agent. First, install the CLI via NPM:
 
 ```bash
-npm install -g @microsoft/teams.cli@preview
+npm install -g @microsoft/teams.cli
 ```
 
 Next, use the CLI to create your agent:
@@ -27,7 +25,7 @@ teams new (typescript|csharp) quote-agent --template echo
 
 ## Overview
 
-Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams AI v2. Whether you are building [AI-powered agents](./typescript/in-depth-guides/ai/overview.md), [message extensions](./typescript/in-depth-guides/message-extensions/overview.md), embedded web applications, or Graph, Teams AI v2 has you covered.
+Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams AI library v2. Whether you are building [AI-powered agents](./typescript/in-depth-guides/ai/overview.md), [message extensions](./typescript/in-depth-guides/message-extensions/overview.md), embedded web applications, or Graph, Teams AI library v2 has you covered.
 
 ## ⭐ What's new?
 

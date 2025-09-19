@@ -1,12 +1,11 @@
 ---
-title: Getting started (preview) (TypeScript)
-description: Get started building Teams tab applications with the Microsoft Teams AI Library for TypeScript.
+title: Getting started (TypeScript)
+description: Learn about Getting started (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Getting started (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Getting started (TypeScript)
 
 To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
 
@@ -15,7 +14,7 @@ The Teams CLI contains a Microsoft 365 Agents Toolkit configuration and a templa
 
 
 ```sh
-teams new my-first-tab-app --tk embed --template tab
+teams new typescript my-first-tab-app --atk embed --template tab
 ```
 
 

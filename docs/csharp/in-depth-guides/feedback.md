@@ -1,17 +1,15 @@
 ---
-title: User feedback events (preview) (C#)
-description: Handle user feedback events in Teams applications using the Teams AI
-  Library for C#.
+title: Feedback (C#)
+description: Learn about Feedback (C#)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# User feedback events (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Feedback (C#)
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Feedback Message":::
+![Feedback Message](~/assets/screenshots/feedback.gif)
 
 ## Storage
 

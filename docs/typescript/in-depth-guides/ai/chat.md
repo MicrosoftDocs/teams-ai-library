@@ -1,12 +1,11 @@
 ---
-title: Chat Generation (preview) (TypeScript)
-description: Implement chat generation using the Teams AI Library for TypeScript.
+title: Chat Generation (TypeScript)
+description: Learn about Chat Generation (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# Chat Generation (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Chat Generation (TypeScript)
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
@@ -14,31 +13,7 @@ Before going through this guide, please make sure you have completed the [setup 
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
-```mermaid
-flowchart LR
-    Prompt
-
-    subgraph Application
-        Send --> Prompt
-        UserMessage["User Message<br/>Hi how are you?"] --> Send
-        Send --> Content["Content<br/>I am doing great! How can I help you?"]
-
-        subgraph Setup
-            Messages --> Prompt
-            Instructions --> Prompt
-            Options["Other options..."] --> Prompt
-
-            Prompt --> Model
-        end
-    end
-
-    subgraph LLMProvider
-        Model --> AOAI["Azure Open AI"]
-        Model --> OAI["Open AI"]
-        Model --> Anthropic["Claude"]
-        Model --> OtherModels["..."]
-    end
-```
+![alt-text for chat-1.png](~/assets/diagrams/chat-1.png)
 
 ## Simple chat generation
 
@@ -51,7 +26,7 @@ import { OpenAIChatModel } from '@microsoft/teams.openai';
 ```
 
 ```ts
-app.on('message', async ({ send, activity, next }) => {
+app.on('message', async ({ send, activity, next, log }) => {
   const model = new OpenAIChatModel({
     apiKey: process.env.AZURE_OPENAI_API_KEY || process.env.OPENAI_API_KEY,
     endpoint: process.env.AZURE_OPENAI_ENDPOINT,
@@ -84,11 +59,11 @@ LLMs can take a while to generate a response, so often streaming the response le
 > Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
 
 ```ts
-app.on('message', async ({ stream, send, activity, next }) => {
+app.on('message', async ({ stream, send, activity, next, log }) => {
   // const query = activity.text;
 
   const prompt = new ChatPrompt({
-    instructions: 'You are a friendly assistant who responds in terse language',
+    instructions: 'You are a friendly assistant who responds in extremely verbose language',
     model,
   });
 
@@ -112,4 +87,4 @@ app.on('message', async ({ stream, send, activity, next }) => {
 });
 ```
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Streaming the response":::
+![Streaming the response](~/assets/screenshots/streaming-chat.gif)

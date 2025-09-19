@@ -1,26 +1,104 @@
 ---
-title: User Authentication (preview) (C#)
-description: Overview of User Authentication in the Microsoft Teams AI Library for C#.
+title: User Authentication (C#)
+description: Learn about User Authentication (C#)
 ms.topic: overview
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
 
-# User Authentication (preview) (C#)
+# User Authentication (C#)
 
-[This article is prerelease documentation and is subject to change.]
+Once you have configured your Azure Bot resource and OAuth settings, as described in [User Authentication Setup](~/teams/user-authentication/sso-setup.md), add the following code to your `App`:
 
-<!-- 
-Things to potentially add to this section:
 
-- The name of the auth is fixed to `graph` here, but it can easily be changed by supplying a value when building the App.
+## Configure the OAuth connection
 
-- Show that for explicit oauth you can configure the oauth card that is sent to the user via the options to the signin function.
+```cs
+var builder = WebApplication.CreateBuilder(args);
 
-- Create mermaid diagrams for how sso and oauth works
---->
+var appBuilder = App.Builder()
+    .AddOAuth("graph");
 
-At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
+builder.AddTeams(appBuilder);
+var app = builder.Build();
+var teams = app.UseTeams();
+```
+> [!TIP]
+> Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
 
-## Resources
+## Signing In
 
-[User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
+You must call the `signin` method inside your route handler, for example: to signin when receiving the `/signin` message:
+
+```cs
+teams.OnMessage("/signin", async context =>
+{
+    if (context.IsSignedIn)
+    {
+        await context.Send("you are already signed in!");
+        return;
+    }
+    else
+    {
+        await context.SignIn();
+    }
+});
+```
+
+## Subscribe to the SignIn event
+
+You can subscribe to the `signin` event, that will be triggered once the OAuth flow completes.
+
+```cs
+teams.OnSignIn(async (_, teamsEvent) =>
+{
+    var context = teamsEvent.Context;
+    await context.Send($"Signed in using OAuth connection {context.ConnectionName}. Please type **/whoami** to see your profile or **/signout** to sign out.");
+});
+```
+
+## Start using the graph client
+
+From this point, you can use the `IsSignedIn` flag and the `userGraph` client to query graph, for example to reply to the `/whoami` message, or in any other route.
+
+```cs
+teams.OnMessage("/whoami", async context =>
+{
+    if (!context.IsSignedIn)
+    {
+        await context.Send("you are not signed in!. Please type **/signin** to sign in");
+        return;
+    }
+    var me = await context.GetUserGraphClient().Me.GetAsync();
+    await context.Send($"user \"{me!.DisplayName}\" signed in.");
+});
+
+teams.OnMessage(async context =>
+{
+    if (context.IsSignedIn)
+    {
+        await context.Send($"You said : {context.Activity.Text}.  Please type **/whoami** to see your profile or **/signout** to sign out.");
+    }
+    else
+    {
+        await context.Send($"You said : {context.Activity.Text}.  Please type **/signin** to sign in.");
+    }
+});
+```
+
+## Signing Out
+
+You can signout by calling the `signout` method, this will remove the token from the User Token service cache
+
+```cs
+teams.OnMessage("/signout", async context =>
+{
+    if (!context.IsSignedIn)
+    {
+        await context.Send("you are not signed in!");
+        return;
+    }
+
+    await context.SignOut();
+    await context.Send("you have been signed out!");
+});
+```

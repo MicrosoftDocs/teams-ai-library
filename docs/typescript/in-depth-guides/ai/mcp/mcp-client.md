@@ -1,12 +1,11 @@
 ---
-title: MCP Client (preview) (TypeScript)
-description: Learn how to implement a MCP client using the Teams AI Library for TypeScript.
+title: MCP Client (TypeScript)
+description: Learn about MCP Client (TypeScript)
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 09/18/2025
 ---
-# MCP Client (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# MCP Client (TypeScript)
 
 You are able to leverage other MCP servers that expose tools via the Streamable HTTP protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 
@@ -24,7 +23,7 @@ npm install @microsoft/teams.mcpclient@preview
 The first thing that's needed is access to a **remote** MCP server. MCP Servers (at present) come using two main types protocols:
 
 1. StandardIO - This is a _local_ MCP server, which runs on your machine. An MCP client may connect to this server, and use standard input and outputs to communicate with it. Since our application is running remotely, this is not something that we want to use
-2. Streamable HTTP - This is a _remote_ MCP server. An MCP client may send it requests and the server responds in the expected MCP protocol.
+2. Streamable HTTP/SSE - This is a _remote_ MCP server. An MCP client may send it requests and the server responds in the expected MCP protocol.
 
 For hooking up to your valid remote server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
 
@@ -92,6 +91,6 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 > [!NOTE]
 > Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server.md). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
 
-:::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="MCP Client in Devtools":::
+![MCP Client in Devtools](~/assets/screenshots/mcp-client-pokemon.gif)
 
 In this example, our MCP server is a Pokemon API and our client knows how to call it. The LLM is able to call the `getPokemon` function exposed by the server and return the result back to the user.
