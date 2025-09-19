@@ -87,4 +87,4 @@ app.on('message', async ({ stream, send, activity, next, log }) => {
 });
 ```
 
-![Streaming the response](/screenshots/streaming-chat.gif)
+![Streaming the response](~/assets/screenshots/streaming-chat.gif)

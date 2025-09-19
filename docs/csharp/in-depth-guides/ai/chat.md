@@ -81,4 +81,4 @@ LLMs can take a while to generate a response, so often streaming the response le
             context.CancellationToken);
 ```
 ### User experience
-![Streaming the response](/screenshots/streaming-chat.gif)
+![Streaming the response](~/assets/screenshots/streaming-chat.gif)

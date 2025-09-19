@@ -53,7 +53,7 @@ app = App(plugins=[mcp_server_plugin, DevToolsPlugin()])
 > [!TIP]
 > You may use the [MCP-Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) to test functionality with your server.
 
-![MCP Server in Devtools](/screenshots/mcp-inspector.gif)
+![MCP Server in Devtools](~/assets/screenshots/mcp-inspector.gif)
 
 ## Piping messages to the user
 

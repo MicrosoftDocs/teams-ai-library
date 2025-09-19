@@ -39,7 +39,7 @@ public class Controller(OpenAIChatPrompt _prompt)
 }
 ```
 
-![AI Generated Indicator](/screenshots/ai-generated.gif)
+![AI Generated Indicator](~/assets/screenshots/ai-generated.gif)
 
 ## Gather feedback to improve prompts
 
@@ -240,4 +240,4 @@ public string GetCitations(string topic)
 }
 ```
 
-![AI Generated Indicator](/screenshots/citation.gif)
+![AI Generated Indicator](~/assets/screenshots/citation.gif)

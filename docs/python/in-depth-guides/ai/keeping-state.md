@@ -93,4 +93,4 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
     await handle_stateful_conversation(ai_model, ctx)
 ```
 
-![Stateful Chat Example](/screenshots/stateful-chat-example.png)
+![Stateful Chat Example](~/assets/screenshots/stateful-chat-example.png)

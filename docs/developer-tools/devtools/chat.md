@@ -58,7 +58,7 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](/screenshots/devtools-echo-chat.png)
+![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
 
 ## Teams chat terminology
 

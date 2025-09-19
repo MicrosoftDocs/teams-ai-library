@@ -80,4 +80,4 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
         ctx.stream.emit(MessageActivityInput().add_ai_generated())
 ```
 
-![Streaming the response](/screenshots/streaming-chat.gif)
+![Streaming the response](~/assets/screenshots/streaming-chat.gif)
