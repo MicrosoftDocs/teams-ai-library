@@ -1,6 +1,6 @@
 ---
-title: User Authentication
-description: Learn about User Authentication
+title: User Authentication in Teams
+description: Learn about User Authentication in Teams
 ms.topic: overview
 ms.date: 09/18/2025
 ---

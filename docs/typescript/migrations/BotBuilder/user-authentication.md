@@ -1,6 +1,6 @@
 ---
-title: User Authentication (TypeScript)
-description: Learn about User Authentication (TypeScript)
+title: Migration guide for user authentication (TypeScript)
+description: Learn about migrating user authentication from BotBuilder to Teams AI Library (TypeScript)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
