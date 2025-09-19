@@ -4,7 +4,7 @@ Link unfurling lets your app respond when users paste URLs into Teams. When a UR
 
 
 > [!NOTE]
-> Users can use link unfurling even before they discover or install your app in Teams. This is called [Zero install link unfurling](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/link-unfurling?tabs=desktop%2Cjson%2Cadvantages#zero-install-for-link-unfurling). 
+> Users can use link unfurling even before they discover or install your app in Teams. This is called [Zero install link unfurling](/microsoftteams/platform/messaging-extensions/how-to/link-unfurling?tabs=desktop%2Cjson%2Cadvantages#zero-install-for-link-unfurling). 
 > In this scenario, your app will receive a `message.ext.anon-query-link` activity instead of the usual `message.ext.query-link`.
 
 ## Setting up your Teams app manifest
@@ -132,4 +132,4 @@ The user can then choose to send entire the preview or the full adaptive card as
 
 ## Resources
 
-- [Link unfurling](https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/link-unfurling?tabs=desktop%2Cjson%2Cadvantages)
+- [Link unfurling](/microsoftteams/platform/messaging-extensions/how-to/link-unfurling?tabs=desktop%2Cjson%2Cadvantages)

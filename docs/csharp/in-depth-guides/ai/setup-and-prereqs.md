@@ -28,7 +28,7 @@ myapp/
 
 ### Azure OpenAI
 
-You will need to deploy a model in Azure OpenAI. [Here](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model 'Azure OpenAI Model Deployment Guide') is a guide on how to do this.
+You will need to deploy a model in Azure OpenAI. [Here](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model 'Azure OpenAI Model Deployment Guide') is a guide on how to do this.
 
 Once you have deployed a model, configure your application using either `appsettings.json` or environment variables:
 
@@ -41,7 +41,7 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 ```
 
 > [!NOTE]
-> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
+> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
 
 ### OpenAI
 
