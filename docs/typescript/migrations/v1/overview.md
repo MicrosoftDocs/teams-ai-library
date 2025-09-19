@@ -686,7 +686,7 @@ app.on('message', async (client) => {
 </tr>
 </table>
 
-### Feedback
+### Migrating feedback support
 
 If you supported feedback for AI generated messages, migrating is simple.
 

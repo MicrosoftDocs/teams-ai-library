@@ -35,10 +35,12 @@ Set the `canUpdateConfiguration` field to `true` in the desired message extensio
 
 This is the code snippet for the settings `html` page:
 
+```html
 <FileCodeBlock
     lang="html"
     src="/generated-snippets/ts/index.snippet.message-ext-settings-page.html"
 />
+```
 
 Save it in the `index.html` file in the same folder as where your app is initialized.
 

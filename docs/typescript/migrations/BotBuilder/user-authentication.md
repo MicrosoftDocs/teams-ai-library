@@ -176,7 +176,4 @@ app.event('signin', async ({ send }) => {
   await app.start();
 })();
 ```
-
-
-
-## Teams AI
+---
