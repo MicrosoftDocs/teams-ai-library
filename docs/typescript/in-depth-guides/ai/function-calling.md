@@ -1,11 +1,11 @@
 ---
-title: Functions (TypeScript)
-description: Learn about Functions (TypeScript)
+title: Function calling with LLMs (TypeScript)
+description: Learn about function calling with LLMs (TypeScript)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Functions (TypeScript)
+# Function calling with LLMs (TypeScript)
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 

@@ -1,11 +1,11 @@
 ---
-title: Functions (Python)
-description: Learn about Functions (Python)
+title: Function calling with LLMs (Python)
+description: Learn about Function calling with LLMs (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Functions (Python)
+# Function calling with LLMs (Python)
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 

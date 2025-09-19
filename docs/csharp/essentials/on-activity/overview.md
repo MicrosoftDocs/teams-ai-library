@@ -35,7 +35,7 @@ app.OnMessage(async context =>
     await context.Send($"you said: {context.activity.Text}");
 });
 ```
-
+---
 
 
 In the above example, the `activity` parameter is of type `MessageActivity`, which has a `Text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
@@ -63,7 +63,7 @@ app.OnMessage(async context =>
     return Task.CompletedTask;
 });
 ```
-
+---
 
 
 # [Controller](#tab/controller)
@@ -94,7 +94,7 @@ app.OnMessage(async context =>
     context.Next();
 });
 ```
-
+---
 
 
 # [Controller](#tab/controller)
@@ -115,7 +115,7 @@ app.OnMessage(async context =>
     await context.Send($"Hello! you said {context.Activity.Text}");
 });
 ```
-
+---
 
 
 > [!NOTE]

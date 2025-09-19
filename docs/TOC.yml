@@ -139,7 +139,7 @@
             - name: Overview
               href: typescript/in-depth-guides/tabs/overview.md
             - name: Getting started
-              href: typescript/in-depth-guides/tabs/getting-started/overview.md
+              href: typescript/in-depth-guides/tabs/getting-started.md
             - name: Using The App
               href: typescript/in-depth-guides/tabs/using-the-app.md
             - name: App Options
@@ -299,7 +299,7 @@
             - name: Overview
               href: csharp/in-depth-guides/tabs/overview.md
             - name: Getting Started
-              href: csharp/in-depth-guides/tabs/getting-started/overview.md
+              href: csharp/in-depth-guides/tabs/getting-started.md
             - name: Using the App
               href: csharp/in-depth-guides/tabs/using-the-app.md
             - name: App Options
