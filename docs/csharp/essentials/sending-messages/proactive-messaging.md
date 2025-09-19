@@ -13,33 +13,32 @@ In [Sending Messages](./), you were shown how to respond to an event when it hap
 
 The main thing to note is that you need to have the `conversationId` of the chat or channel that you want to send the message to. It's a good idea to store this value somewhere from an activity handler so that you can use it for proactive messaging later.
 
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp
-    // Installation is just one place to get the conversation id. All activities
-    // have the conversation id, so you can use any activity to get it.
-    [Install]
-    public async Task OnInstall([Context] InstallUpdateActivity activity, [Context] IContext.Client client, [Context] IStorage<string, object> storage)
-    {
-        // Save the conversation id in 
-        storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
-        await client.Send("Hi! I am going to remind you to say something to me soon!");
-        notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
-    }
-    ```
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp 
-    app.OnInstall(async context =>
-    {
-        // Save the conversation id in 
-        context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
-        await context.Send("Hi! I am going to remind you to say something to me soon!");
-        notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
-    });
-    ```
-  </TabItem>
-</Tabs>
+# [Controller](#tab/controller)
+```csharp
+// Installation is just one place to get the conversation id. All activities
+// have the conversation id, so you can use any activity to get it.
+[Install]
+public async Task OnInstall([Context] InstallUpdateActivity activity, [Context] IContext.Client client, [Context] IStorage<string, object> storage)
+{
+    // Save the conversation id in 
+    storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
+    await client.Send("Hi! I am going to remind you to say something to me soon!");
+    notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
+}
+```
+
+# [Minimal](#tab/minimal)
+```csharp 
+app.OnInstall(async context =>
+{
+    // Save the conversation id in 
+    context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
+    await context.Send("Hi! I am going to remind you to say something to me soon!");
+    notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
+});
+```
+
+
 
 Then, when you want to send a proactive message, you can retrieve the `conversationId` from storage and use it to send the message.
 

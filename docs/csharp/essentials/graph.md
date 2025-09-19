@@ -28,33 +28,32 @@ Console.WriteLine($"User Job Title: {user.jobTitle}");
 
 To access the graph using the user's token, you need to do this as part of a message handler:
 
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp 
-    [Message]
-    public async Task OnMessage([Context] MessageActivity activity, [Context] GraphClient userGraph)
-    {
-        var user = await userGraph.Me.GetAsync();
-        Console.WriteLine($"User ID: {user.id}");
-        Console.WriteLine($"User Display Name: {user.displayName}");
-        Console.WriteLine($"User Email: {user.mail}");
-        Console.WriteLine($"User Job Title: {user.jobTitle}");
-    }
-    ```
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp 
-    app.OnMessage(async context =>
-    {
-        var user = await context.UserGraph.Me.GetAsync();
-        Console.WriteLine($"User ID: {user.id}");
-        Console.WriteLine($"User Display Name: {user.displayName}");
-        Console.WriteLine($"User Email: {user.mail}");
-        Console.WriteLine($"User Job Title: {user.jobTitle}");
-    });
-    ```
-  </TabItem>
-</Tabs>
+# [Controller](#tab/controller)
+```csharp 
+[Message]
+public async Task OnMessage([Context] MessageActivity activity, [Context] GraphClient userGraph)
+{
+    var user = await userGraph.Me.GetAsync();
+    Console.WriteLine($"User ID: {user.id}");
+    Console.WriteLine($"User Display Name: {user.displayName}");
+    Console.WriteLine($"User Email: {user.mail}");
+    Console.WriteLine($"User Job Title: {user.jobTitle}");
+}
+```
+
+# [Minimal](#tab/minimal)
+```csharp 
+app.OnMessage(async context =>
+{
+    var user = await context.UserGraph.Me.GetAsync();
+    Console.WriteLine($"User ID: {user.id}");
+    Console.WriteLine($"User Display Name: {user.displayName}");
+    Console.WriteLine($"User Email: {user.mail}");
+    Console.WriteLine($"User Job Title: {user.jobTitle}");
+});
+```
+
+
 
 Here, the `userGraph` object is a scoped graph client for the user that sent the message.
 
