@@ -1,4 +1,11 @@
-# Proactive Activities
+---
+title: Proactive Activities (TypeScript)
+description: Learn about Proactive Activities (TypeScript)
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
+# Proactive Activities (TypeScript)
 
 The BotBuilder proactive message flow requires you to have a conversation reference stored somewhere. In Teams AI
 we expose a `send` method almost identical to the one passed into our activity handlers that accepts a `conversationId`,

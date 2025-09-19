@@ -1,3 +1,10 @@
+---
+title: Executing Actions
+description: Learn about Executing Actions
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Executing Actions
 
 Adaptive Cards support interactive elements through **actions**—buttons, links, and input submission triggers that respond to user interaction.  

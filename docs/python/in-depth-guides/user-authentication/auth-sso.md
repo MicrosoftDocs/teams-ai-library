@@ -1,3 +1,10 @@
+---
+title: How Auth Works
+description: Learn about How Auth Works
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # How Auth Works
 
 When building Teams applications, choosing the right authentication method is crucial for both security and user experience. Teams supports two primary authentication approaches: OAuth and Single Sign-On (SSO). While both methods serve the same fundamental purpose of validating user identity, they differ significantly in their implementation, supported identity providers, and user experience. Understanding these differences is essential for making the right choice for your application.

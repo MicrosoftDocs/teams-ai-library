@@ -1,4 +1,11 @@
-# Deployment Guide
+---
+title: Deployment Guide (TypeScript)
+description: Learn about Deployment Guide (TypeScript)
+ms.topic: get-started
+ms.date: 09/18/2025
+---
+
+# Deployment Guide (TypeScript)
 
 We cover the most common setup and deployment steps for testing in teams, including configuration instructions, and references for handling potential issues during deployment.
 

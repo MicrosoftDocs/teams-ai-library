@@ -1,3 +1,10 @@
+---
+title: Signing Out
+description: Learn about Signing Out
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Signing Out
 
 Sign a user out by calling the `sign_out` method to discard the cached access token in the Bot Framework token service.

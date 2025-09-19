@@ -1,3 +1,10 @@
+---
+title: Getting Started
+description: Learn about Getting Started
+ms.topic: overview
+ms.date: 09/18/2025
+---
+
 # Getting Started
 
 > [!WARNING]

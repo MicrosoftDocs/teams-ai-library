@@ -1,4 +1,11 @@
-# Deployment Guide
+---
+title: Deployment Guide (C#)
+description: Learn about Deployment Guide (C#)
+ms.topic: get-started
+ms.date: 09/18/2025
+---
+
+# Deployment Guide (C#)
 
 We cover the most common setup and deployment steps for testing in Teams, including configuration instructions, and references for handling potential issues during deployment.
 

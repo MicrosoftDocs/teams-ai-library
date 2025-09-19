@@ -1,3 +1,10 @@
+---
+title: Deployment
+description: Learn about Deployment
+ms.topic: overview
+ms.date: 09/18/2025
+---
+
 # Deployment
 
 As described in the [Core Concepts](../core-concepts.md) article, the first step you need is an Azure Bot Service resource and associate it to an Entra ID App registration.

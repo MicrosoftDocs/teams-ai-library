@@ -1,4 +1,11 @@
-# Activity Handlers
+---
+title: Activity Handlers (TypeScript)
+description: Learn about Activity Handlers (TypeScript)
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
+# Activity Handlers (TypeScript)
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

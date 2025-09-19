@@ -1,4 +1,11 @@
-# From V2 Previews
+---
+title: From V2 Previews (TypeScript)
+description: Learn about From V2 Previews (TypeScript)
+ms.topic: overview
+ms.date: 09/18/2025
+---
+
+# From V2 Previews (TypeScript)
 
 If you're moving from preview versions of Teams AI v2, you may encounter a few breaking changes along the way. This page outlines those and shows how to get back on track.
 

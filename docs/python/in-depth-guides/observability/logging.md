@@ -1,3 +1,10 @@
+---
+title: Custom Logger
+description: Learn about Custom Logger
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Custom Logger
 
 The `App` will provide a default logger, but you can also provide your own.

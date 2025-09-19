@@ -1,3 +1,10 @@
+---
+title: Listening To Activities
+description: Learn about Listening To Activities
+ms.topic: overview
+ms.date: 09/18/2025
+---
+
 # Listening To Activities
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.  

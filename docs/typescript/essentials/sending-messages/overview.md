@@ -1,4 +1,11 @@
-# Sending Messages
+---
+title: Sending Messages (TypeScript)
+description: Learn about Sending Messages (TypeScript)
+ms.topic: overview
+ms.date: 09/18/2025
+---
+
+# Sending Messages (TypeScript)
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `send` method is provided which allows your handlers to send a message back to the user to the relevant conversation. 
 

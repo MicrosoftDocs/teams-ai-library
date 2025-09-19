@@ -1,4 +1,11 @@
-# AI
+---
+title: AI (C#)
+description: Learn about AI (C#)
+ms.topic: overview
+ms.date: 09/18/2025
+---
+
+# AI (C#)
 
 The AI components in this library are designed to make it easier to build C# applications with LLMs.
 The `Microsoft.Teams.AI` library has two main components:

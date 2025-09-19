@@ -1,4 +1,11 @@
-# Setup & Prerequisites
+---
+title: Setup & Prerequisites (C#)
+description: Learn about Setup & Prerequisites (C#)
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
+# Setup & Prerequisites (C#)
 
 There are a few prerequisites to getting started with integrating LLMs into your C# application:
 

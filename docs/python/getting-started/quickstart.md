@@ -1,3 +1,10 @@
+---
+title: Quickstart
+description: Learn about Quickstart
+ms.topic: get-started
+ms.date: 09/18/2025
+---
+
 # Quickstart
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.

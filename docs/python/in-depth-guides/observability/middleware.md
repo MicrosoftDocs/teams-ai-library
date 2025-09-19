@@ -1,3 +1,10 @@
+---
+title: Middleware
+description: Learn about Middleware
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Middleware
 
 Middleware is a useful tool for logging, validation, and more.

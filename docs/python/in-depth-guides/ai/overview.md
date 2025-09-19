@@ -1,3 +1,10 @@
+---
+title: AI
+description: Learn about AI
+ms.topic: overview
+ms.date: 09/18/2025
+---
+
 # AI
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.

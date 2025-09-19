@@ -1,3 +1,10 @@
+---
+title: Settings
+description: Learn about Settings
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Settings
 
 You can add a settings page that allows users to configure settings for your app.

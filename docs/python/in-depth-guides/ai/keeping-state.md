@@ -1,3 +1,10 @@
+---
+title: Keeping State
+description: Learn about Keeping State
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Keeping State
 
 By default, LLMs are not stateful. This means that they do not remember previous messages or context when generating a response.

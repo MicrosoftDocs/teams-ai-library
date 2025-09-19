@@ -1,4 +1,11 @@
-# Settings
+---
+title: Settings (TypeScript)
+description: Learn about Settings (TypeScript)
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
+# Settings (TypeScript)
 
 You can add a settings page that allows users to configure settings for your app.
 

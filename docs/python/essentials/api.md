@@ -1,3 +1,10 @@
+---
+title: Teams API Client
+description: Learn about Teams API Client
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Teams API Client
 
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.api` object. Here is a short summary of the different areas:

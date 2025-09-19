@@ -1,4 +1,11 @@
-# Handling Dialog Submissions
+---
+title: Handling Dialog Submissions (C#)
+description: Learn about Handling Dialog Submissions (C#)
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
+# Handling Dialog Submissions (C#)
 
 Dialogs have a specific `TaskSubmit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
 

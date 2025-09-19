@@ -1,4 +1,11 @@
-# Code Basics
+---
+title: Code Basics (C#)
+description: Learn about Code Basics (C#)
+ms.topic: get-started
+ms.date: 09/18/2025
+---
+
+# Code Basics (C#)
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.
 

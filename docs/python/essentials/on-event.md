@@ -1,3 +1,10 @@
+---
+title: Listening To Events
+description: Learn about Listening To Events
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Listening To Events
 
 An **event** is a foundational concept in building agents — it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).

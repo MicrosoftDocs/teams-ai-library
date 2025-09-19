@@ -1,4 +1,11 @@
-# Keeping State
+---
+title: Keeping State (C#)
+description: Learn about Keeping State (C#)
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
+# Keeping State (C#)
 
 By default, LLMs are not stateful. This means that they do not remember previous messages or context when generating a response.
 It's common practice to keep state of the conversation history in your application and pass it to the LLM each time you make a request.

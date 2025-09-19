@@ -1,3 +1,10 @@
+---
+title: Deployment Guide
+description: Learn about Deployment Guide
+ms.topic: get-started
+ms.date: 09/18/2025
+---
+
 # Deployment Guide
 
 We cover the most common setup and deployment steps for testing in teams, including configuration instructions, and references for handling potential issues during deployment.

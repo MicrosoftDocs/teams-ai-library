@@ -1,3 +1,10 @@
+---
+title: Setup & Prerequisites
+description: Learn about Setup & Prerequisites
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Setup & Prerequisites
 
 There are a few prerequisites to getting started with integrating LLMs into your application:

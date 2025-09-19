@@ -1,3 +1,10 @@
+---
+title: App Basics
+description: Learn about App Basics
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # App Basics
 
 The `App` class is the main entry point for your agent.

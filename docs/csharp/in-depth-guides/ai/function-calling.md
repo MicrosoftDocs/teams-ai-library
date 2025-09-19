@@ -1,4 +1,11 @@
-# Functions
+---
+title: Functions (C#)
+description: Learn about Functions (C#)
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
+# Functions (C#)
 
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by creating a class with the [`[Prompt]`](https://github.com/microsoft/teams.net/blob/main/Libraries/Microsoft.Teams.AI/Annotations/PromptAttribute.cs) attribute and adding functions with the [`[Function]`](https://github.com/microsoft/teams.net/blob/main/Libraries/Microsoft.Teams.AI/Annotations/FunctionAttribute.cs) attribute.
 

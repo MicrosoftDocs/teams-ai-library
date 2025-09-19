@@ -1,4 +1,11 @@
-# Using The App
+---
+title: Using The App (TypeScript)
+description: Learn about Using The App (TypeScript)
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
+# Using The App (TypeScript)
 
 The `@microsoft/teams.client` App class helps solve common challenges when building Single Page Applications hosted in Microsoft Teams, Outlook, and Microsoft 365. It is the client-side counterpart to the `@microsoft/teams.app` App that you can use to build AI agents.
 

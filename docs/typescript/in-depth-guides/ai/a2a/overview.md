@@ -2,7 +2,7 @@
 summary: Overview of the experimental A2A (Agent-to-Agent) protocol for enabling programmatic communication between AI agents.
 ---
 
-# A2A (Agent-to-Agent) Protocol
+# A2A (Agent-to-Agent) Protocol (TypeScript)
 
 > [!CAUTION]
 > This package is experimental and the A2A protocol is still in early development. Use with caution in production environments.

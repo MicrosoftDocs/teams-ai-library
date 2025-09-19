@@ -1,3 +1,10 @@
+---
+title: Graph API Client
+description: Learn about Graph API Client
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Graph API Client
 
 [Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.

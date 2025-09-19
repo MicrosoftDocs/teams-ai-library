@@ -1,4 +1,11 @@
-# User Authentication
+---
+title: User Authentication (TypeScript)
+description: Learn about User Authentication (TypeScript)
+ms.topic: overview
+ms.date: 09/18/2025
+---
+
+# User Authentication (TypeScript)
 
 Once you have configured your Azure Bot resource OAuth settings, as described in [User Authentication Setup](/teams/user-authentication/sso-setup), add the following code to your `App`:
 

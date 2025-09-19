@@ -1,3 +1,10 @@
+---
+title: Running In Teams
+description: Learn about Running In Teams
+ms.topic: get-started
+ms.date: 09/18/2025
+---
+
 # Running In Teams
 
 Now that your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.

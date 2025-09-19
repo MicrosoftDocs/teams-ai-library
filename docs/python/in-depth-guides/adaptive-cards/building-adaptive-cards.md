@@ -1,3 +1,10 @@
+---
+title: Building Adaptive Cards
+description: Learn about Building Adaptive Cards
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.

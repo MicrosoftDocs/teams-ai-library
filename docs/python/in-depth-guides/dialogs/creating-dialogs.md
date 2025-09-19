@@ -1,3 +1,10 @@
+---
+title: Creating Dialogs
+description: Learn about Creating Dialogs
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # Creating Dialogs
 
 > [!TIP]

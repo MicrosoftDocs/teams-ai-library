@@ -1,3 +1,10 @@
+---
+title: App Setup
+description: Learn about App Setup
+ms.topic: how-to
+ms.date: 09/18/2025
+---
+
 # App Setup
 
 There are a few ways you can enable your application to access secured external services on the user's behalf.
