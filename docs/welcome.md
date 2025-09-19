@@ -1,11 +1,11 @@
 ---
-title: Welcome
+title: Overview of Teams AI Library
 description: Teams AI Library is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, making it easier to build AI-powered applications and agents for Microsoft Teams.
-ms.topic: how-to
+ms.topic: overview
 ms.date: 09/18/2025
 ---
 
-# Welcome
+# Overview of Teams AI Library
 
 Teams AI Library is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
 
