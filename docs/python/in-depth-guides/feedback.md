@@ -52,7 +52,7 @@ Once the user decides to like/dislike the message, you can handle the feedback i
 from microsoft.teams.api import MessageSubmitActionInvokeActivity
 from microsoft.teams.apps import ActivityContext
 
-# Handle feedback submission events 
+## Handle feedback submission events 
 @app.on_message_submit_feedback
 async def handle_message_feedback(ctx: ActivityContext[MessageSubmitActionInvokeActivity]):
     """Handle feedback submission events"""

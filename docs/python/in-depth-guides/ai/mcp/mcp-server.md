@@ -16,7 +16,7 @@ from microsoft.teams.ai import Function
 from microsoft.teams.mcpplugin import McpServerPlugin
 from pydantic import BaseModel
 
-# Configure MCP server with custom name
+## Configure MCP server with custom name
 mcp_server_plugin = McpServerPlugin(
     name="test-mcp",
 )
@@ -27,7 +27,7 @@ class EchoParams(BaseModel):
 async def echo_handler(params: EchoParams) -> str:
     return f"You said {params.input}"
 
-# Register the echo tool
+## Register the echo tool
 mcp_server_plugin.use_tool(
     Function(
         name="echo",
@@ -72,7 +72,7 @@ Here is an example of how to do this. Configure your plugin so that:
 ```python
 from typing import Dict
 
-# Storage for conversation IDs (for proactive messaging)
+## Storage for conversation IDs (for proactive messaging)
 conversation_storage: Dict[str, str] = {}
 
 class AlertParams(BaseModel):
@@ -97,7 +97,7 @@ async def alert_handler(params: AlertParams) -> str:
     await app.send(conversation_id=conversation_id, activity=params.message)
     return f"Alert sent to user {params.user_id}: {params.message}"
 
-# Register the alert tool
+## Register the alert tool
 mcp_server_plugin.use_tool(
     Function(
         name="alert",

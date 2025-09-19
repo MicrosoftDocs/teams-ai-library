@@ -13,10 +13,10 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 
 
 ```python
-# This would be some persistent storage
+## This would be some persistent storage
 storage = dict[str, str]()
 
-# Installation is just one place to get the conversation_id. All activities have this field as well.
+## Installation is just one place to get the conversation_id. All activities have this field as well.
 @app.on_install_add
 async def handle_install_add(ctx: ActivityContext[InstalledActivity]):
     # Save the conversation_id

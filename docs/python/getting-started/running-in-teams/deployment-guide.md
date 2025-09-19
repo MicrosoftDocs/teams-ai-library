@@ -19,7 +19,7 @@ app = App(plugins=[DevToolsPlugin()])
 ```
 with the following code to enable User Assigned Managed Identity authentication: 
 ```python
-# Create token factory function for Azure Identity
+## Create token factory function for Azure Identity
 def create_token_factory():
     def get_token(scopes, tenant_id=None):
         credential = ManagedIdentityCredential(client_id=os.environ.get("CLIENT_ID"))

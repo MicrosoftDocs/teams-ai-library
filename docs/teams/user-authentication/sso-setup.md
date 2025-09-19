@@ -37,7 +37,7 @@ You need an Entra ID App Registration to configure the OAuth Connection in Azure
 
 az ad app update --id $appId --web-redirect-uris "https://token.botframework.com/.auth/web/redirect"
 az ad app update --id $appId --identifier-uris "api://$appId"
-# TODO: add oauthpermission settings and client applications.
+## TODO: add oauthpermission settings and client applications.
 ```
 
 ## Create the OAuth connection in Azure Bot Service

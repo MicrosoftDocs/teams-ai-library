@@ -58,7 +58,7 @@ While coding you get:
 - Automatic upgrades when the schema evolves; simply update the package.
 
 ```python
-# "huge" is not a valid size for TextBlock
+## "huge" is not a valid size for TextBlock
 text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 ```
 
@@ -120,7 +120,7 @@ card = AdaptiveCard.model_validate(
         "version": "1.5",
     }
 )
-# Send the card as an attachment
+## Send the card as an attachment
 message = MessageActivityInput(text="Hello text!").add_card(card)
 ```
 

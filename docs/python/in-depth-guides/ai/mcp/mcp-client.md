@@ -32,18 +32,18 @@ from microsoft.teams.ai import ChatPrompt
 from microsoft.teams.mcpplugin import McpClientPlugin
 from microsoft.teams.openai import OpenAICompletionsAIModel
 
-# Set up AI model
+## Set up AI model
 completions_model = OpenAICompletionsAIModel(model="gpt-4")
 
-# Configure MCP Client Plugin with multiple remote servers
+## Configure MCP Client Plugin with multiple remote servers
 mcp_plugin = McpClientPlugin()
 
-# Add multiple MCP servers
+## Add multiple MCP servers
 mcp_plugin.use_mcp_server("https://learn.microsoft.com/api/mcp")
 mcp_plugin.use_mcp_server("https://example.com/mcp/weather")
 mcp_plugin.use_mcp_server("https://example.com/mcp/pokemon")
 
-# ChatPrompt with MCP tools
+## ChatPrompt with MCP tools
 chat_prompt = ChatPrompt(
     completions_model,
     plugins=[mcp_plugin]
@@ -60,12 +60,12 @@ Many MCP servers require authentication via headers (such as API keys or Bearer 
 from os import getenv
 from microsoft.teams.mcpplugin import McpClientPluginParams
 
-# This example uses a PersonalAccessToken, but you may get
-# the user's oauth token as well by getting them to sign in
-# and then using app.sign_in to get their token.
+## This example uses a PersonalAccessToken, but you may get
+## the user's oauth token as well by getting them to sign in
+## and then using app.sign_in to get their token.
 GITHUB_PAT = getenv("GITHUB_PAT")
 
-# MCP server with authentication headers
+## MCP server with authentication headers
 if GITHUB_PAT:
     mcp_plugin.use_mcp_server(
         "https://api.githubcopilot.com/mcp/",
@@ -74,7 +74,7 @@ if GITHUB_PAT:
         })
     )
 
-# Other authentication examples:
+## Other authentication examples:
 mcp_plugin.use_mcp_server(
     "https://example.com/api/mcp",
     McpClientPluginParams(headers={

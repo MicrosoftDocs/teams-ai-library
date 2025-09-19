@@ -30,12 +30,12 @@ from microsoft.teams.ai import ChatPrompt, ListMemory
 from microsoft.teams.ai.ai_model import AIModel
 from microsoft.teams.openai import OpenAICompletionsAIModel
 
-# Simple in-memory store for conversation histories
-# In your application, it may be a good idea to use a more
-# persistent store backed by a database or other storage solution
+## Simple in-memory store for conversation histories
+## In your application, it may be a good idea to use a more
+## persistent store backed by a database or other storage solution
 conversation_store: dict[str, ListMemory] = {}
 
-# Initialize AI model
+## Initialize AI model
 ai_model = OpenAICompletionsAIModel(model="gpt-4")
 
 def get_or_create_conversation_memory(conversation_id: str) -> ListMemory:
