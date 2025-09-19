@@ -72,7 +72,7 @@ Here, the `userGraph` object is a scoped graph client for the user that sent the
 
 The Graph Client provides a straight-forward `call` method to interact with Microsoft Graph and issue requests scoped to a specific user or application. Paired with the Graph Endpoints packages, it offers discoverable and type-safe access to the vast Microsoft Graph API surface.
 
-Having an understanding of [how the graph API works](/graph/use-the-api) will help you make the most of the library. For example, to get the `id` of the chat instance between a user and an app, [Microsoft Graph](/graph/api/userscopeteamsappinstallation-get-chat&tabs=http) exposes it via:
+Having an understanding of [how the graph API works](/graph/use-the-api) will help you make the most of the library. For example, to get the `id` of the chat instance between a user and an app, [Microsoft Graph](/graph/api/userscopeteamsappinstallation-get-chat) exposes it via:
 
 ```
 GET /users/{user-id | user-principal-name}/teamwork/installedApps/{app-installation-id}/chat
