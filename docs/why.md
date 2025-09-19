@@ -1,7 +1,7 @@
 ---
 title: Why An SDK?
 description: Before getting into the basics, it's important to understand how an SDK can be helpful when building an agent application. Learn about the benefits of using the Teams AI Library for developing Microsoft Teams applications and agents.
-ms.topic: concept
+ms.topic: overview
 ms.date: 09/18/2025
 ---
 
