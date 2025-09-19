@@ -1,6 +1,6 @@
 # Graph API Client
 
-[Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
+[Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
 
 The library gives your application easy access to the Microsoft Graph API via the `Microsoft.Graph` package.
 
@@ -9,7 +9,7 @@ Microsoft Graph can be accessed by your application using its own application to
 To access the graph using the Graph using the app, you may use the `app.Graph` object. 
 
 ```csharp
-// Equivalent of https://learn.microsoft.com/en-us/graph/api/user-get
+// Equivalent of https://learn.microsoft.com/graph/api/user-get
 // Gets the details of the bot-user
 var user = app.Graph.Me.GetAsync().GetAwaiter().GetResult();
 Console.WriteLine($"User ID: {user.id}");

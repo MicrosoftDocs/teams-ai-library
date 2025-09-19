@@ -1,6 +1,6 @@
 # Graph API Client
 
-[Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
+[Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
 
 The library gives your application easy access to the Microsoft Graph API via the `microsoft-teams-graph` package.
 

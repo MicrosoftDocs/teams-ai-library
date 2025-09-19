@@ -6,7 +6,7 @@ Get started with Teams AI Library (v2) quickly using the Teams CLI.
 
 ### Prerequisites
 
-- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/en-us/download).
+- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/download).
 
 > [!NOTE]
 > If you are using LLMs to aid you in using this library, consider using the [llms.txt files](./LLMs.md) to provide context about the library to your coding assistant.

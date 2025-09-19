@@ -3,7 +3,7 @@
 There are a few prerequisites to getting started with integrating LLMs into your application:
 
 - LLM API Key - To generate messages using an LLM, you will need to have an API Key for the LLM you are using.
-  - [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
+  - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
   - [OpenAI](https://platform.openai.com/)
 - In your application, you should include your keys in a secure way. We recommend putting it in an .env file at the root level of your project
 

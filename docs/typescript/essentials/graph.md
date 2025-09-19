@@ -1,6 +1,6 @@
 # Graph API Client
 
-[Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
+[Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.
 
 The library gives your application easy access to the Microsoft Graph API via the `@microsoft/teams.graph`, `@microsoft/teams.graph-endpoints` and `@microsoft/teams.graph-endpoints-beta` packages.
 
@@ -31,7 +31,7 @@ To access the graph using the Graph using the app, you may use the `app.graph` o
 ```typescript
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
-// Equivalent of https://learn.microsoft.com/en-us/graph/api/user-get
+// Equivalent of https://learn.microsoft.com/graph/api/user-get
 // Gets the details of the bot-user
 app.graph.call(endpoints.me.get).then((user) => {
   console.log(`User ID: ${user.id}`);
@@ -132,7 +132,7 @@ const { displayName } = await app.graph.call(getMyDisplayName);
 Microsoft Graph offers an extensive and thoroughly documented API surface. These essential resources will serve as your go-to references for any Graph development work:
  - The [Microsoft Graph Rest API reference documentation](/graph/api/overview) gives details for each API, including permissions requirements.
  - The [Microsoft Graph REST API beta endpoint reference](/graph/api/overview?view=graph-rest-beta) gives similar information for preview APIs.
- - The [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) lets you discover and test drive APIs.
+ - The [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) lets you discover and test drive APIs.
 
 In addition, the following endpoints may be especially interesting to Teams developers:
 
