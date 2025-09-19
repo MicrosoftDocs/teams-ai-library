@@ -50,7 +50,7 @@ public class WeatherPrompt(IContext.Accessor accessor)
 }
 ```
 
-### Program Setup {#program-setup}
+### Program Setup
 
 **Program.cs**
 ```csharp
@@ -71,7 +71,7 @@ app.UseTeams();
 app.Run();
 ```
 
-### Controller Implementation {#controller-implementation}
+### Controller Implementation
 
 **Controller.cs**
 ```csharp
