@@ -96,7 +96,7 @@ Let's navigate to the devtools server. Open your browser and head to [http://loc
 
 Now that you have your first agent running, learn about [the code basics](code-basics.md) to understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, check out the [Running in Teams](./running-in-teams/overview.md) guide.
+Otherwise, if you want to run your agent in Teams, check out the [Running in Teams](./running-in-teams/running-in-teams.md) guide.
 
 ## Resources
 
