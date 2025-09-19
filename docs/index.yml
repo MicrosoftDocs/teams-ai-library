@@ -5,7 +5,7 @@ summary: Simplify the development of AI-driven bots for Microsoft Teams with our
 
 metadata:
   title: Teams AI Library
-  description: Developer documentation for the Teams AI Library v2 SDK, which simplifies the development of AI-driven bots for Microsoft Teams.
+  description: Developer documentation for the Teams AI Library, which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
   ms.date: 09/18/2025
