@@ -225,7 +225,7 @@
         - name: App Basics
           href: csharp/essentials/app-basics.md
         - name: On Activity
-          href: csharp/essentials/on-activity.md
+          href: csharp/essentials/on-activity/overview.md
         - name: On Event
           href: csharp/essentials/on-event.md
         - name: API
