@@ -1,11 +1,11 @@
 ---
-title: Chat Generation
-description: Learn about Chat Generation
+title: Chat Generation (Python)
+description: Learn about Chat Generation (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Chat Generation
+# Chat Generation (Python)
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 

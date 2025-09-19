@@ -1,11 +1,11 @@
 ---
-title: Creating Dialogs
-description: Learn about Creating Dialogs
+title: Creating Dialogs (Python)
+description: Learn about Creating Dialogs (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Creating Dialogs
+# Creating Dialogs (Python)
 
 > [!TIP]
 > If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards.md). Understanding their basics is a prerequisite for this guide.

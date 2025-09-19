@@ -1,11 +1,11 @@
 ---
-title: MCP Client
-description: Learn about MCP Client
+title: MCP Client (Python)
+description: Learn about MCP Client (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# MCP Client
+# MCP Client (Python)
 
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 

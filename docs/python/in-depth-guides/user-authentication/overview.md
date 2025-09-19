@@ -1,11 +1,11 @@
 ---
-title: User Authentication
-description: Learn about User Authentication
+title: User Authentication (Python)
+description: Learn about User Authentication (Python)
 ms.topic: overview
 ms.date: 09/18/2025
 ---
 
-# User Authentication
+# User Authentication (Python)
 
 <!-- 
 Things to potentially add to this section:

@@ -1,11 +1,11 @@
 ---
-title: AI
-description: Learn about AI
+title: AI (Python)
+description: Learn about AI (Python)
 ms.topic: overview
 ms.date: 09/18/2025
 ---
 
-# AI
+# AI (Python)
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.
 The `microsoft-teams-ai` package has two main components:

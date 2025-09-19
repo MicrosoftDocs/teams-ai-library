@@ -1,11 +1,11 @@
 ---
-title: Signing In
-description: Learn about Signing In
+title: Signing In (Python)
+description: Learn about Signing In (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Signing In
+# Signing In (Python)
 
 Prompting the user to sign in using an `OAuth` connection has
 never been easier! Just use the `sign_in` method to send the request

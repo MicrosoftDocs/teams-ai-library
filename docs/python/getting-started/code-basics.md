@@ -1,11 +1,11 @@
 ---
-title: Code Basics
-description: Learn about Code Basics
+title: Code Basics (Python)
+description: Learn about Code Basics (Python)
 ms.topic: get-started
 ms.date: 09/18/2025
 ---
 
-# Code Basics
+# Code Basics (Python)
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.
 

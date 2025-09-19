@@ -1,11 +1,11 @@
 ---
-title: App Setup
-description: Learn about App Setup
+title: App Setup (Python)
+description: Learn about App Setup (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# App Setup
+# App Setup (Python)
 
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 

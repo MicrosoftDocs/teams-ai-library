@@ -1,11 +1,11 @@
 ---
-title: Deployment Guide
-description: Learn about Deployment Guide
+title: Deployment Guide (Python)
+description: Learn about Deployment Guide (Python)
 ms.topic: get-started
 ms.date: 09/18/2025
 ---
 
-# Deployment Guide
+# Deployment Guide (Python)
 
 We cover the most common setup and deployment steps for testing in teams, including configuration instructions, and references for handling potential issues during deployment.
 

@@ -1,11 +1,11 @@
 ---
-title: Best Practices
-description: Learn about Best Practices
+title: Best Practices (Python)
+description: Learn about Best Practices (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Best Practices
+# Best Practices (Python)
 
 When sending messages using AI, Teams recommends a number of best practices to help with both user and developer experience.
 

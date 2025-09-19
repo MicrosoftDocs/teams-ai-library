@@ -1,11 +1,11 @@
 ---
-title: Getting Started
-description: Learn about Getting Started
+title: Getting Started (Python)
+description: Learn about Getting Started (Python)
 ms.topic: overview
 ms.date: 09/18/2025
 ---
 
-# Getting Started
+# Getting Started (Python)
 
 > [!WARNING]
 > Our Python SDK is currently in Public Preview. We're going to do our best to not ship breaking changes, but breaking changes may happen from time to time 

@@ -1,11 +1,11 @@
 ---
-title: Running In Teams
-description: Learn about Running In Teams
+title: Running In Teams (Python)
+description: Learn about Running In Teams (Python)
 ms.topic: get-started
 ms.date: 09/18/2025
 ---
 
-# Running In Teams
+# Running In Teams (Python)
 
 Now that your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.
 

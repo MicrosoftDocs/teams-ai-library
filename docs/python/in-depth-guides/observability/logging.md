@@ -1,11 +1,11 @@
 ---
-title: Custom Logger
-description: Learn about Custom Logger
+title: Custom Logger (Python)
+description: Learn about Custom Logger (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Custom Logger
+# Custom Logger (Python)
 
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the

@@ -1,11 +1,11 @@
 ---
-title: Building Adaptive Cards
-description: Learn about Building Adaptive Cards
+title: Building Adaptive Cards (Python)
+description: Learn about Building Adaptive Cards (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Building Adaptive Cards
+# Building Adaptive Cards (Python)
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.
 With `microsoft-teams-cards` you can build these cards entirely in Python while enjoying full IntelliSense and compiler safety.

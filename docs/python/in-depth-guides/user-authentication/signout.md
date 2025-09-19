@@ -1,11 +1,11 @@
 ---
-title: Signing Out
-description: Learn about Signing Out
+title: Signing Out (Python)
+description: Learn about Signing Out (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Signing Out
+# Signing Out (Python)
 
 Sign a user out by calling the `sign_out` method to discard the cached access token in the Bot Framework token service.
 

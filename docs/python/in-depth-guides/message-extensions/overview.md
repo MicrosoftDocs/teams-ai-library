@@ -1,11 +1,11 @@
 ---
-title: Message Extensions
-description: Learn about Message Extensions
+title: Message Extensions (Python)
+description: Learn about Message Extensions (Python)
 ms.topic: overview
 ms.date: 09/18/2025
 ---
 
-# Message Extensions
+# Message Extensions (Python)
 
 Message extensions (or Compose Extensions) allow your application to hook into messages that users can send or perform actions on messages that users have already sent. They enhance user productivity by providing quick access to information and actions directly within the Teams interface. Users can search or initiate actions from the compose message area, the command box, or directly from a message, with the results returned as richly formatted cards that make information more accessible and actionable.
 

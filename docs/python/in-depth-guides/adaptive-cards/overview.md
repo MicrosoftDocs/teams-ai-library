@@ -1,11 +1,11 @@
 ---
-title: Adaptive Cards
-description: Learn about Adaptive Cards
+title: Adaptive Cards (Python)
+description: Learn about Adaptive Cards (Python)
 ms.topic: overview
 ms.date: 09/18/2025
 ---
 
-# Adaptive Cards
+# Adaptive Cards (Python)
 
 Adaptive Cards provide a flexible, cross-platform content format for creating rich, interactive experiences. They consist of a customizable body of card elements combined with optional action sets, all fully serializable for delivery to clients. Through a powerful combination of text, graphics, and interactive buttons, Adaptive Cards enable compelling user experiences across various platforms.
 

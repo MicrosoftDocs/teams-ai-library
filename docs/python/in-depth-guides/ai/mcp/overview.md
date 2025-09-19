@@ -1,11 +1,11 @@
 ---
-title: MCP
-description: Learn about MCP
+title: MCP (Python)
+description: Learn about MCP (Python)
 ms.topic: overview
 ms.date: 09/18/2025
 ---
 
-# MCP
+# MCP (Python)
 
 Teams AI Library has optional packages which support the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as a service or client. This allows you to use MCP to call functions and tools in your application. 
 

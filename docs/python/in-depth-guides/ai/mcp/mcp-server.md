@@ -1,11 +1,11 @@
 ---
-title: MCP Server
-description: Learn about MCP Server
+title: MCP Server (Python)
+description: Learn about MCP Server (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# MCP Server
+# MCP Server (Python)
 
 You are able to convert any `App` into an MCP server by using the `McpPlugin` from the `microsoft-teams-mcp` package. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications. 
 

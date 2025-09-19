@@ -1,11 +1,11 @@
 ---
-title: Setup & Prerequisites
-description: Learn about Setup & Prerequisites
+title: Setup & Prerequisites (Python)
+description: Learn about Setup & Prerequisites (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Setup & Prerequisites
+# Setup & Prerequisites (Python)
 
 There are a few prerequisites to getting started with integrating LLMs into your application:
 

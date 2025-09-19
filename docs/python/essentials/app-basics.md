@@ -1,11 +1,11 @@
 ---
-title: App Basics
-description: Learn about App Basics
+title: App Basics (Python)
+description: Learn about App Basics (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# App Basics
+# App Basics (Python)
 
 The `App` class is the main entry point for your agent.
 

@@ -1,11 +1,11 @@
 ---
-title: Quickstart
-description: Learn about Quickstart
+title: Quickstart (Python)
+description: Learn about Quickstart (Python)
 ms.topic: get-started
 ms.date: 09/18/2025
 ---
 
-# Quickstart
+# Quickstart (Python)
 
 Get started with Teams AI Library (v2) quickly using the Teams CLI.
 

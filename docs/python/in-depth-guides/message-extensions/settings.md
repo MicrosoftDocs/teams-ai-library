@@ -1,11 +1,11 @@
 ---
-title: Settings
-description: Learn about Settings
+title: Settings (Python)
+description: Learn about Settings (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
-# Settings
+# Settings (Python)
 
 You can add a settings page that allows users to configure settings for your app.
 
