@@ -122,13 +122,13 @@ After that, you can:
 
 - Add more activity handlers for different types of interactions. See [Listening to Activities](../essentials/on-activity.md) for more details.
 - Integrate with external services using the [API Client](../essentials/api.md).
-- Add interactive [cards](../in-depth-guides/adaptive-cards.md) and [dialogs](../in-depth-guides/dialogs.md).
-- Implement [AI](../in-depth-guides/ai.md).
+- Add interactive [cards](../in-depth-guides/adaptive-cards/overview.md) and [dialogs](../in-depth-guides/dialogs/overview.md).
+- Implement [AI](../in-depth-guides/ai/overview.md).
 
 Continue on to the next page to learn about these advanced features.
 
 ## Other Resources
 
-- [Essentials](../essentials.md)
+- [Essentials](../essentials/overview.md)
 - [Teams concepts](/teams)
 - [Teams developer tools](/developer-tools)

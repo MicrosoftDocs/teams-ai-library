@@ -7,7 +7,7 @@ ms.date: 09/18/2025
 
 # Migrating from Teams AI v1 (TypeScript)
 
-Welcome, fellow agent developer! You've made it through a full major release of Teams AI, and now you want to take the plunge into v2. In this guide, we'll walk you through everything you need to know, from migrating core features like message handlers and auth, to optional AI features like `ActionPlanner`. We'll also discuss how you can migrate features over incrementally via the [botbuilder adapter](../BotBuilder/README.md).
+Welcome, fellow agent developer! You've made it through a full major release of Teams AI, and now you want to take the plunge into v2. In this guide, we'll walk you through everything you need to know, from migrating core features like message handlers and auth, to optional AI features like `ActionPlanner`. We'll also discuss how you can migrate features over incrementally via the [botbuilder adapter](../BotBuilder/overview.md).
 
 ## Installing Teams AI v2
 
@@ -243,7 +243,7 @@ app.on("dialog.submit", async (client) => {
 </tr>
 </table>
 
-Learn more [here](../../in-depth-guides/dialogs/README.md).
+Learn more [here](../../in-depth-guides/dialogs/overview.md).
 
 ## Adaptive cards
 
@@ -331,7 +331,7 @@ app.message("/card", async (client) => {
 </tr>
 </table>
 
-Learn more [here](../../in-depth-guides/adaptive-cards/README.md).
+Learn more [here](../../in-depth-guides/adaptive-cards/overview.md).
 
 ## Authentication
 
@@ -751,11 +751,11 @@ app.on('message.submit.feedback', async ({ activity, log }) => {
 </tr>
 </table>
 
-You can learn more about feedback in Teams AI v2 [here](../../in-depth-guides/feedback.mdx).
+You can learn more about feedback in Teams AI v2 [here](../../in-depth-guides/feedback.md).
 
 ## Incrementally migrating code via botbuilder plugin
 
 > [!NOTE]
 > Comparison code coming soon!
 
-If you aren't ready to migrate all of your code, you can run your existing Teams AI v1 code in parallel with Teams AI v2. Learn more [here](../BotBuilder/adapters.mdx).
+If you aren't ready to migrate all of your code, you can run your existing Teams AI v1 code in parallel with Teams AI v2. Learn more [here](../BotBuilder/adapters.md).
