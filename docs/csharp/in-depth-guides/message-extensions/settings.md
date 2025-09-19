@@ -93,9 +93,8 @@ app.MapGet("/tabs/settings", async context =>
 });
 ```
 
-:::note
-This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. 
-:::
+> [!NOTE]
+> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. 
 
 ## 3. Specify the URL to the settings page
 

@@ -78,4 +78,3 @@ async def handle_message_feedback(ctx: ActivityContext[MessageSubmitActionInvoke
 
     await ctx.reply(f"✅ Thank you for your feedback{reaction_text}{text_part}!")
 ```
-

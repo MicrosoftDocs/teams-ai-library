@@ -8,9 +8,8 @@ Get started with Teams AI Library (v2) quickly using the Teams CLI.
 
 - **Node.js** v.20 or higher. Install or upgrade from [nodejs.org](https://nodejs.org/).
 
-:::note
-If you are using LLMs to aid you in using this library, consider using the [llms.txt files](./LLMs.md) to provide context about the library to your coding assistant.
-:::
+> [!NOTE]
+> If you are using LLMs to aid you in using this library, consider using the [llms.txt files](./LLMs.md) to provide context about the library to your coding assistant.
 
 ## Instructions
 
@@ -24,10 +23,9 @@ npm install -g @microsoft/teams.cli
 ```
 
 
-:::info
-_The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
-After installation, you can run `teams --version` to verify the installation.
-:::
+> [!NOTE]
+> _The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+> After installation, you can run `teams --version` to verify the installation.
 
 ## Creating Your First Agent
 

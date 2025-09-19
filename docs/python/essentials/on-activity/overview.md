@@ -43,7 +43,6 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
     await ctx.send(f"You said '{ctx.activity.text}'")
 ```
 
-:::info
-Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler.
-The order of registration for the handlers also matters as that determines how the handlers will be called.
-:::
+> [!NOTE]
+> Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler.
+> The order of registration for the handlers also matters as that determines how the handlers will be called.

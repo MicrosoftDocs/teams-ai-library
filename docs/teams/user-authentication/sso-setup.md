@@ -74,4 +74,3 @@ The Teams application manifest needs to be updated to reflect the settings confi
     "resource": "api://<Your-Application-Id>"
   }
 ```
-

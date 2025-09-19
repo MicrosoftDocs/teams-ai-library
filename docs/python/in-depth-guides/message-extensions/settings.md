@@ -86,9 +86,8 @@ You can serve it by adding the following code to your app:
 app.page("settings", str(Path(__file__).parent), "/tabs/settings")
 ```
 
-:::note
-This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. 
-:::
+> [!NOTE]
+> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. 
 
 ## 3. Specify the URL to the settings page
 

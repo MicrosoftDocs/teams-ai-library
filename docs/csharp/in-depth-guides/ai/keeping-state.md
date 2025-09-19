@@ -6,15 +6,13 @@ It's common practice to keep state of the conversation history in your applicati
 By default, the `ChatPrompt` instance will create a temporary in-memory store to keep track of the conversation history. This is beneficial
 when you want to use it to generate an LLM response, but not persist the conversation history. But in other cases, you may want to keep the conversation history
 
-:::warning
-By reusing the same `ChatPrompt` class instance across multiple conversations will lead to the conversation history being shared across all conversations. Which is usually not the desired behavior.
-:::
+> [!WARNING]
+> By reusing the same `ChatPrompt` class instance across multiple conversations will lead to the conversation history being shared across all conversations. Which is usually not the desired behavior.
 
 To avoid this, you need to get messages from your persistent (or in-memory) store and pass it in to the `ChatPrompt`.
 
-:::note
-The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
-:::
+> [!NOTE]
+> The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
 
 ```csharp
 using Microsoft.Teams.AI;

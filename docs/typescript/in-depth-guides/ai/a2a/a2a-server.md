@@ -66,10 +66,9 @@ app.event('a2a:message', async ({ respond, requestContext }) => {
 });
 ```
 
-:::note
--   You must have only a single handler that calls `respond`.
--   You **must** call `respond` as the last step in your handler. This resolves the open request to the caller.
-:::
+> [!NOTE]
+> -   You must have only a single handler that calls `respond`.
+> -   You **must** call `respond` as the last step in your handler. This resolves the open request to the caller.
 
 ## Sequence Diagram
 
@@ -77,4 +76,4 @@ app.event('a2a:message', async ({ respond, requestContext }) => {
 
 ## Further Reading
 
--   [A2A Protocol](https://google.github.io/A2A) 
+-   [A2A Protocol](https://google.github.io/A2A)

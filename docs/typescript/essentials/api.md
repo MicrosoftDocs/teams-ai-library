@@ -30,5 +30,3 @@ import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 const res = await app.api.graph.call(endpoints.chats.getAllMessages.get);
 ```
-
-

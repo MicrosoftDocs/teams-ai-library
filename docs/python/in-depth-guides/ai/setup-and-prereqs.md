@@ -28,9 +28,8 @@ AZURE_OPENAI_ENDPOINT=your-azure-openai-endpoint
 AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 ```
 
-:::info
-The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
-:::
+> [!NOTE]
+> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
 
 ### OpenAI
 
@@ -42,20 +41,18 @@ OPENAI_API_KEY=sk-your-openai-api-key
 OPENAI_MODEL=gpt-4  # Optional: defaults to gpt-4o if not specified
 ```
 
-:::note
-**Automatic Environment Variable Loading**: The AI models automatically read these environment variables when initialized. You can also pass these values explicitly as constructor parameters if needed for advanced configurations.
-
-```python
-# Automatic (recommended)
-model = OpenAICompletionsAIModel(model="your-model-name")
-
-# Explicit (for advanced use cases)
-model = OpenAICompletionsAIModel(
-    key="your-api-key",
-    model="your-model-name",
-    azure_endpoint="your-endpoint",  # Azure only
-    api_version="your-api-version"   # Azure only
-)
-```
-:::
-
+> [!NOTE]
+> **Automatic Environment Variable Loading**: The AI models automatically read these environment variables when initialized. You can also pass these values explicitly as constructor parameters if needed for advanced configurations.
+>
+> ```python
+> # Automatic (recommended)
+> model = OpenAICompletionsAIModel(model="your-model-name")
+>
+> # Explicit (for advanced use cases)
+> model = OpenAICompletionsAIModel(
+>     key="your-api-key",
+>     model="your-model-name",
+>     azure_endpoint="your-endpoint",  # Azure only
+>     api_version="your-api-version"   # Azure only
+> )
+> ```

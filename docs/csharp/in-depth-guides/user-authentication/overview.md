@@ -15,9 +15,8 @@ builder.AddTeams(appBuilder);
 var app = builder.Build();
 var teams = app.UseTeams();
 ```
-:::tip
-Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
-:::
+> [!TIP]
+> Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
 
 ## Signing In
 
@@ -96,4 +95,3 @@ teams.OnMessage("/signout", async context =>
     await context.Send("you have been signed out!");
 });
 ```
-

@@ -111,6 +111,5 @@ app.OnMessage(async context =>
 
 
 
-:::info
-Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler.
-:::
+> [!NOTE]
+> Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler.

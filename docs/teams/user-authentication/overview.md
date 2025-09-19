@@ -17,9 +17,8 @@ When an access token expires, the app automatically initiates a token exchange f
 2. Your app exchanges this ID token for a new access token with the previously consented scopes
 3. This exchange happens silently without requiring user interaction
 
-:::tip
-Always use SSO if you're authenticating the user with Microsoft Entra ID.
-:::
+> [!TIP]
+> Always use SSO if you're authenticating the user with Microsoft Entra ID.
 
 #### The SSO Signin Flow
 

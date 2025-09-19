@@ -85,4 +85,3 @@ await app.graph.call(presence.setPresence.create, newPresence);
 await app.graph.call(setPresence.create, newPresence);
 await app.graph.call(updatePresence, newPresence);
 ```
-

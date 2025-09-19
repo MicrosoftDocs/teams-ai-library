@@ -48,10 +48,9 @@ The app configuration includes a variety of options that allow you to customize 
 
 Plugins are a core part of the Teams AI v2 SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](/developer-tools/devtools) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 
-:::warning
-DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.\
-**Be sure to remove the DevTools plugin from your production code.**
-:::
+> [!WARNING]
+> DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.\
+> **Be sure to remove the DevTools plugin from your production code.**
 
 ### Message Handling
 
@@ -90,10 +89,9 @@ This code:
 2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
 3. Responds by echoing back the received message.
 
-:::info
-Each activity type has both an attribute and a functional method for type safety/simplicity
-of routing logic!
-:::
+> [!NOTE]
+> Each activity type has both an attribute and a functional method for type safety/simplicity
+> of routing logic!
 
 ### Application Lifecycle
 

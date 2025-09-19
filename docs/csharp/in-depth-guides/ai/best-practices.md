@@ -191,9 +191,8 @@ public class Controller(OpenAIChatPrompt _prompt)
 
 AI generated messages can hallucinate even if messages are grounded in real data. To help with this, Teams recommends including citations in the AI Generated messages. When using the modern Teams AI framework, citations can be integrated through your prompt design and response formatting.
 
-:::warning
-Citations are added with a `position` property. This property value needs to also be included in the message text as `[<position>]`. If there is a citation that's added without the associated value in the message text, Teams will not render the citation
-:::
+> [!WARNING]
+> Citations are added with a `position` property. This property value needs to also be included in the message text as `[<position>]`. If there is a citation that's added without the associated value in the message text, Teams will not render the citation
 
 ```csharp
 using Microsoft.Teams.Api.Activities;

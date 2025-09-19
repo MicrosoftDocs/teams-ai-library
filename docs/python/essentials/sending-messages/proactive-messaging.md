@@ -30,6 +30,5 @@ async def send_proactive_notification(user_id: str):
     await app.send(conversation_id, activity)
 ```
 
-:::tip
-In this example, you see how to get the conversation_id using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.
-:::
+> [!TIP]
+> In this example, you see how to get the conversation_id using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.

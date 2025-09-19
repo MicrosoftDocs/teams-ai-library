@@ -748,8 +748,7 @@ You can learn more about feedback in Teams AI v2 [here](../../in-depth-guides/fe
 
 ## Incrementally migrating code via botbuilder plugin
 
-:::info
-Comparison code coming soon!
-:::
+> [!NOTE]
+> Comparison code coming soon!
 
 If you aren't ready to migrate all of your code, you can run your existing Teams AI v1 code in parallel with Teams AI v2. Learn more [here](../BotBuilder/adapters.mdx).

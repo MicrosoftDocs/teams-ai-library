@@ -78,4 +78,4 @@ To understand how the A2A client works with the `ChatPrompt`, `A2AClientPlugin`,
 
 ## Further Reading
 
--   [A2A Protocol](https://google.github.io/A2A) 
+-   [A2A Protocol](https://google.github.io/A2A)

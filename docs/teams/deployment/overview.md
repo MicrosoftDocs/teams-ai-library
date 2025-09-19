@@ -40,9 +40,8 @@ clientSecret=$(echo $appCred | jq -r '.password')
    2. In creation type select `Use existing app registration` and provide the `Application Id` obtained in the previous step
 
 
-:::tip
-You can create the Azure Bot Service resource and the Entra App Registration from this screen, and then you will have to create a new client secret.
-:::
+> [!TIP]
+> You can create the Azure Bot Service resource and the Entra App Registration from this screen, and then you will have to create a new client secret.
 
 #### Create the Azure Bot Service resource using the Azure CLI
 

@@ -17,5 +17,3 @@ The `@microsoft/teams.client` package in this library builds on TeamsJS and MSAL
 - [Microsoft Graph overview](https://learn.microsoft.com/en-us/graph/overview)
 - [Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/en-us/entra/identity-platform/msal-overview)
 - [Nested App Authentication (NAA)](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/nested-authentication)
-
-

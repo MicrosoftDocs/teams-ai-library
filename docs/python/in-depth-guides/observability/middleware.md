@@ -13,4 +13,3 @@ async def log_activity(ctx: ActivityContext[MessageActivity]):
     await ctx.next()
     ctx.logger.debug(f"{datetime.now() - started_at}")
 ```
-

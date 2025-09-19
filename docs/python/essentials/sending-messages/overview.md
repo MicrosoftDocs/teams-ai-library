@@ -19,9 +19,8 @@ async def handle_sign_in(event: SignInEvent):
 
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `sign_in` events, which are sent when a user successfully signs in. 
 
-:::tip
-This shows an example of sending a text message. Additionally, you are able to send back things like Adaptive Cards by using the same `send` method. Look at the [Adaptive Card](../../in-depth-guides/adaptive-cards) section for more details.
-:::
+> [!TIP]
+> This shows an example of sending a text message. Additionally, you are able to send back things like Adaptive Cards by using the same `send` method. Look at the [Adaptive Card](../../in-depth-guides/adaptive-cards) section for more details.
 
 ## Streaming
 
@@ -41,9 +40,8 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
         ctx.stream.emit(message)
 ```
 
-:::note
-Streaming is currently only supported in 1:1 conversations, not group chats or channels
-:::
+> [!NOTE]
+> Streaming is currently only supported in 1:1 conversations, not group chats or channels
 
 ![Streaming Example](/screenshots/streaming-chat.gif)
 

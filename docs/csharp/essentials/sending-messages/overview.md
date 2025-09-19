@@ -44,9 +44,8 @@ app.OnVerifyState(async context =>
 
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `SignIn.VerifyState` events, which are sent when a user successfully signs in. 
 
-:::tip
-This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards) by using the same `Send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards) section for more details.
-:::
+> [!TIP]
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards) by using the same `Send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards) section for more details.
 
 ## Streaming
 
@@ -78,9 +77,8 @@ app.OnMessage(async context =>
 
 
 
-:::note
-Streaming is currently only supported in 1:1 conversations, not group chats or channels
-:::
+> [!NOTE]
+> Streaming is currently only supported in 1:1 conversations, not group chats or channels
 
 ![Streaming Example](/screenshots/streaming-chat.gif)
 

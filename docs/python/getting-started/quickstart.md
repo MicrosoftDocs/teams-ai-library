@@ -21,10 +21,9 @@ npm install -g @microsoft/teams.cli
 ```
 
 
-:::info
-_The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
-After installation, you can run `teams --version` to verify the installation.
-:::
+> [!NOTE]
+> _The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+> After installation, you can run `teams --version` to verify the installation.
 
 ## Creating Your First Agent
 

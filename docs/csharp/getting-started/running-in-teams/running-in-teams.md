@@ -16,18 +16,16 @@ First, you'll need to install the Agents Toolkit IDE extension:
 
 To configure your agent for Teams, run the following command in the terminal inside your quote-agent folder:
 
-:::tip
-(if you have `teams` CLI installed globally, use `teams` instead of `npx`)
-:::
+> [!TIP]
+> (if you have `teams` CLI installed globally, use `teams` instead of `npx`)
 
 ```bash
 npx @microsoft/teams.cli config add atk.basic
 ```
 
-:::tip
-The `atk.basic` configuration is a basic setup for Agents Toolkit. It includes the necessary files and configuration to get started with Teams development.<br/>
-Explore more advanced configurations as needed with teams config --help.<br />
-:::
+> [!TIP]
+> The `atk.basic` configuration is a basic setup for Agents Toolkit. It includes the necessary files and configuration to get started with Teams development.<br/>
+> Explore more advanced configurations as needed with teams config --help.<br />
 
 This [CLI](/developer-tools/cli) command adds configuration files required by Agents Toolkit, including:
 
@@ -89,9 +87,8 @@ After the debugging session starts:
 
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 
-:::tip
-If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](/developer-tools/devtools)! Note that the DevTools server is running on port 3978. You can open it in your browser to interact with your agent and monitor activities in real time.
-:::
+> [!TIP]
+> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](/developer-tools/devtools)! Note that the DevTools server is running on port 3978. You can open it in your browser to interact with your agent and monitor activities in real time.
 
 ## Troubleshooting
 

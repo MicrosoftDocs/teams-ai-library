@@ -12,9 +12,8 @@ const app = new App({
   }
 });
 ```
-:::tip
-Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
-:::
+> [!TIP]
+> Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
 
 ## Signing In
 
@@ -77,4 +76,3 @@ app.message('/signout', async ({ send, signout, isSignedIn }) => {
   await send('you have been signed out!');
 });
 ```
-

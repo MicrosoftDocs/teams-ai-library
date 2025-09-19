@@ -31,9 +31,8 @@ mcp_server_plugin.use_tool(
 )
 ```
 
-:::note
-> By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `path` property in the plugin configuration.
-:::
+> [!NOTE]
+> > By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `path` property in the plugin configuration.
 
 And included in the app like any other plugin:
 
@@ -44,9 +43,8 @@ from microsoft.teams.devtools import DevToolsPlugin
 app = App(plugins=[mcp_server_plugin, DevToolsPlugin()])
 ```
 
-:::tip
-You may use the [MCP-Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) to test functionality with your server.
-:::
+> [!TIP]
+> You may use the [MCP-Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) to test functionality with your server.
 
 ![MCP Server in Devtools](/screenshots/mcp-inspector.gif)
 
@@ -126,4 +124,3 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
         f"(for proactive messaging via MCP alert tool)"
     )
 ```
-

@@ -4,9 +4,8 @@
 
 The library gives your application easy access to the Microsoft Graph API via the `@microsoft/teams.graph`, `@microsoft/teams.graph-endpoints` and `@microsoft/teams.graph-endpoints-beta` packages.
 
-:::note
-If you're migrating from an earlier preview version of the Teams AI v2 library, please see the [migration guide](../migrations/preview/) for details on breaking changes.
-:::
+> [!NOTE]
+> If you're migrating from an earlier preview version of the Teams AI v2 library, please see the [migration guide](../migrations/preview/) for details on breaking changes.
 
 ## Package overview
 The Graph API surface is vast, and this is reflected in the size of the endpoints packages. To help you manage the size of your product, we made sure that the endpoints code is tree-shakable. We also made most of the code into an optional dependency, in case tree-shaking is not supported in your environment.
@@ -59,9 +58,8 @@ app.on('message', async ({ activity, userGraph }) => {
 
 Here, the `userGraph` object is a scoped graph client for the user that sent the message.
 
-:::tip
-You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.graph`.
-:::
+> [!TIP]
+> You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.graph`.
 
 ## The Graph Client
 
@@ -152,4 +150,3 @@ In addition, the following endpoints may be especially interesting to Teams deve
 | [teamsTemplates](https://learn.microsoft.com/en-us/microsoftteams/get-started-with-teams-templates) | Templates used to create teams |
 | [teamwork](https://learn.microsoft.com/en-us/graph/api/resources/teamwork?view=graph-rest-1.0) | A range of Microsoft Teams functionalities |
 | [users](https://learn.microsoft.com/en-us/graph/api/resources/users?view=graph-rest-1.0) | User resources |
-
