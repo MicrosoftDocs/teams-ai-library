@@ -1,13 +1,9 @@
 ---
-title: Teams AI Library CLI (preview)
-description: The Teams AI LIbrary CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. Learn how to use the Teams AI Library CLI for building Teams AI applications.
-ms.topic: how-to
-ms.date: 07/16/2025
+sidebar_position: 1
+summary: Comprehensive guide to the Teams CLI tool for creating, managing, and deploying Teams AI applications with simple command-line operations. Use this when you need to set up a new Teams AI agent or manage existing ones.
 ---
 
-# Teams CLI (preview)
-
-[This article is prerelease documentation and is subject to change.]
+# Teams CLI
 
 The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:
 
@@ -17,36 +13,49 @@ The Teams CLI was created with the intent of supporting developers by making com
 | `config` | Add Microsoft 365 Agents Toolkit configuration files to your existing Teams AI v2 agent project. |
 | `environment` | Manage multiple environments (e.g. dev, prod) and their keys for your agent. |
 
-> [!TIP]
-> With the CLI installed, you can enter `teams <token-arguments> --help` at any command level to access information about the command, tokens, or required arguments.
+:::tip
+With the CLI installed, you can enter `teams <token-arguments> --help` at any command level to access information about the command, tokens, or required arguments.
+:::
 
 ## Installation
 
 Install the Teams CLI globally using npm:
 
 ```sh
-npm install -g @microsoft/teams.cli@preview
+npm install -g @microsoft/teams.cli
 ```
 
-> [!TIP]
-> If you prefer not to install globally, all commands below can replace `teams` with npx:
-> `npx @microsoft/teams.cli@preview <arguments>`
+:::tip
+If you prefer not to install globally, all commands below can replace `teams` with npx:
+`npx @microsoft/teams.cli <arguments>`
+:::
 
 ## Create an agent with one command line
 
 ```sh
-teams new <typescript | csharp> <app-name> <optional>
+teams new <typscript | csharp | python> <app-name> <optional>
 ```
 
 The `new` token will create a brand new agent with `app-name` applied as the directory name and project name.
 
-> [!NOTE]
-> The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
+:::note
+The name you choose may have case changes when applied; for example, "My App" would become "my-app' due to the requirements for `package.json` files.
+:::
+
+:::warning
+Our Python SDK is currently in Public Preview. As a result, we have the CLI under a feature flag.
+Please run the below command to enable this language.
+:::
+
+```sh
+$env:ENABLE_EXPERIMENTAL_PYTHON_OPTIONS = 1
+```
 
 ### Optional parameters
 
-> [!TIP]
-> Use command line `teams new --help` to see the latest options for all optional params.
+:::tip
+Use command line `teams new --help` to see the latest options for all optional params.
+:::
 
 | Parameter | Description |
 |-----------|-------------|

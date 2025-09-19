@@ -1,17 +1,13 @@
 ---
-title: Chat Generation (preview) (C#)
-description: Implement AI chat support in Teams applications
-  using the Teams AI Library for C#.
-ms.topic: how-to
-ms.date: 07/16/2025
+sidebar_position: 2
+summary: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
 ---
-# Chat Generation (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# 💬 Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
-## Setup
+# Setup
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
@@ -45,72 +41,68 @@ flowchart LR
 
 Chat generation is the the most basic way of interacting with an LLM model. It involves setting up your ChatPrompt, the Model, and sending it the message.
 
-Import the relevant objects:
-
-```ts
-import { OpenAIChatModel } from '@microsoft/teams.openai';
+ Import the relevant namespaces:
+ ```csharp
+// AI
+using Microsoft.Teams.AI.Models.OpenAI;
+using Microsoft.Teams.AI.Prompts;
+// Teams
+using Microsoft.Teams.Api.Activities;
+using Microsoft.Teams.Apps;
+using Microsoft.Teams.Apps.Activities;
+using Microsoft.Teams.Apps.Annotations;
 ```
 
-```ts
-app.on('message', async ({ send, activity, next }) => {
-  const model = new OpenAIChatModel({
-    apiKey: process.env.AZURE_OPENAI_API_KEY || process.env.OPENAI_API_KEY,
-    endpoint: process.env.AZURE_OPENAI_ENDPOINT,
-    apiVersion: process.env.AZURE_OPENAI_API_VERSION,
-    model: process.env.AZURE_OPENAI_MODEL_DEPLOYMENT_NAME!,
-  });
+Create a ChatModel, ChatPrompt, and handle user - LLM interactions:
 
-  const prompt = new ChatPrompt({
-    instructions: 'You are a friendly assistant who talks like a pirate',
-    model,
-  });
+```csharp
+[TeamsController("main")]
+public class MainController
+{
+    [Message]
+    public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
+    {
+        // Create the OpenAI chat model
+        var model = new OpenAIChatModel(
+            model: "gpt-4o",
+            apiKey: Environment.GetEnvironmentVariable("OPENAI_API_KEY")!
+        );
 
-  const response = await prompt.send(activity.text);
-  if (response.content) {
-    const activity = new MessageActivity(response.content).addAiGenerated();
-    await send(activity);
-    // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol’ salty sea dog help ye with? 🚢☠️
-  }
-});
+        // Create a chat prompt
+        var prompt = new OpenAIChatPrompt(
+            model, 
+            new ChatPromptOptions().WithInstructions("You are a friendly assistant who talks like a pirate.")
+        );
+
+        // Send the user's message to the prompt and get a response
+        var response = await prompt.Send(activity.Text);
+        if (!string.IsNullOrEmpty(response.Content))
+        {
+            var responseActivity = new MessageActivity { Text = response.Content }.AddAIGenerated();
+            await client.Send(responseActivity);
+            // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol’ salty sea dog help ye with? 🚢☠️
+        }
+    }
+}
 ```
 
-> [!NOTE]
-> The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
+:::note
+The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
+:::
 
 ## Streaming chat responses
 
 LLMs can take a while to generate a response, so often streaming the response leads to a better, more responsive user experience.
 
-> [!WARNING]
-> Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
+:::warning
+Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
+:::
 
-```ts
-app.on('message', async ({ stream, send, activity, next }) => {
-  // const query = activity.text;
-
-  const prompt = new ChatPrompt({
-    instructions: 'You are a friendly assistant who responds in terse language',
-    model,
-  });
-
-  // Notice that we don't `send` the final response back, but
-  // `stream` the chunks as they come in
-  const response = await prompt.send(query, {
-    onChunk: (chunk) => {
-      stream.emit(chunk);
-    },
-  });
-
-  if (activity.conversation.isGroup) {
-    // If the conversation is a group chat, we need to send the final response
-    // back to the group chat
-    const activity = new MessageActivity(response.content).addAiGenerated();
-    await send(activity);
-  } else {
-    // We wrap the final response with an AI Generated indicator
-    stream.emit(new MessageActivity().addAiGenerated());
-  }
-});
+```csharp
+        // Send the user's message to the prompt and stream the response back
+        var response = await prompt.Send(activity.Text, null, 
+            (chunk) => Task.Run(() => context.Stream.Emit(chunk)), 
+            context.CancellationToken);
 ```
-
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Streaming the response":::
+### User experience
+![Streaming the response](/screenshots/streaming-chat.gif)

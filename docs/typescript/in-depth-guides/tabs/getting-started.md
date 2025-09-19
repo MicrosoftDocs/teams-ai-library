@@ -1,12 +1,9 @@
 ---
-title: Getting started (preview) (TypeScript)
-description: Get started building Teams tab applications with the Microsoft Teams AI Library for TypeScript.
-ms.topic: how-to
-ms.date: 07/16/2025
+sidebar_position: 1
+summary: Set up new tab app projects or add Teams client capabilities to existing tab applications.
 ---
-# Getting started (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Getting started
 
 To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
 
@@ -15,7 +12,7 @@ The Teams CLI contains a Microsoft 365 Agents Toolkit configuration and a templa
 
 
 ```sh
-teams new my-first-tab-app --tk embed --template tab
+teams new typescript my-first-tab-app --atk embed --template tab
 ```
 
 
@@ -31,5 +28,5 @@ If you're already using a current version of TeamsJS, that's fine. This package 
 If you're already using Microsoft Authentication Library (MSAL) in an NAA enabled app, that's great! The [App options](./app-options.md) page shows how you can use a single common MSAL instance.
 
 ## Resources
- - [Running and debugging local apps in Agents Toolkit](/microsoftteams/platform/toolkit/debug-local?tabs=Windows)
- - [Configuring an app for Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)
+ - [Running and debugging local apps in Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/debug-local?tabs=Windows)
+ - [Configuring an app for Nested App Authentication](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)

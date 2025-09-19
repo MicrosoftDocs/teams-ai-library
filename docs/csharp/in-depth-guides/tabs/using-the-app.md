@@ -1,18 +1,15 @@
 ---
-title: Using The App (preview) (C#)
-description: Learn about the App class in your client- and server-side logic using Microsoft Teams AI Library for C#.
-ms.topic: how-to
-ms.date: 07/16/2025
+sidebar_position: 2
+summary: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
 ---
-# Using The App (preview) (C#)
 
-[This article is prerelease documentation and is subject to change.]
+# Using The App
 
 The `@microsoft/teams.client` App class helps solve common challenges when building Single Page Applications hosted in Microsoft Teams, Outlook, and Microsoft 365. It is the client-side counterpart to the `@microsoft/teams.app` App that you can use to build AI agents.
 
 These two App classes are designed to work well together. For instance, when you use the `@microsoft/teams.app` App to expose a server-side function, you can then use the `@microsoft/teams.client` App `exec` method to easily invoke that function, as the client-side app knows how to construct an HTTP request that the server-side app can process. It can issue a request to the right URL, with the expected payload and contextual headers. The client-side app even includes a bearer token that the server side app uses to authenticate the caller.
 
-## Starting the app
+# Starting the app
 
 To use the `@microsoft/teams.client` package, you first create an App instance and then call `app.start()`. 
 
@@ -60,6 +57,6 @@ const context = await teamsJs.app.getContext();
 // ...call Graph end points...
 const presenceResult = await app.graph.me.presence.get();
 
-// ...end call remote agent functions...
+// ...and call remote agent functions...
 const agentResult = await app.exec<string>('hello-world');
 ```

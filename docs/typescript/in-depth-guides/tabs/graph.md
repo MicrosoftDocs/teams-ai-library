@@ -1,13 +1,9 @@
 ---
-title: Microsoft Graph Client (preview) (TypeScript)
-description: Work with Microsoft Graph client using the Teams
- AI Library for TypeScript.
-ms.topic: how-to
-ms.date: 07/16/2025
+sidebar_position: 5
+summary: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
 ---
-# Microsoft Graph Client (preview) (TypeScript)
 
-[This article is prerelease documentation and is subject to change.]
+# Microsoft Graph Client
 
 The client App exposes a `graph` property that gives type-safe access to  Microsoft Graph functions. When graph functions are invoked, the app attaches an MSAL bearer token to the request so that the call can be authenticated and authorized. 
 
@@ -17,11 +13,12 @@ After constructing and starting an App instance, you can invoke any graph functi
 
 ```typescript
 import { App } from '@microsoft/teams.client';
+import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 const app = new App(clientId);
 await app.start();
 
-const top10Chats = await app.graph.chats.list( { $top: 10 });
+const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 ```
 
 
@@ -46,6 +43,7 @@ This method is useful for building an incremental, just-in-time, consent model, 
 
 ```typescript
 import { App } from '@microsoft/teams.client';
+import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 const app = new App(clientId, {
   msalOptions: { prewarmScopes: ['User.Read'] },
@@ -60,7 +58,7 @@ const canReadChat = await app.ensureConsentForScopes(
   );
 
 if (canReadChat) {
-  const top10Chats = await app.graph.chats.list( { $top: 10 });
+  const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
   // ... do something useful ...
 }
 ```
@@ -73,6 +71,7 @@ The app also provides a `hasConsentForScopes` method to test for consent without
 
 ```typescript
 import { App } from '@microsoft/teams.client';
+import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 const app = new App(clientId);
 
@@ -86,7 +85,7 @@ const canReadChat = await app.hasConsentForScopes(
   );
 
 if (canReadChat) {
-  const top10Chats = await app.graph.chats.list( { $top: 10 });
+  const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
   // ... do something useful ...
 }
 ```
@@ -94,5 +93,5 @@ if (canReadChat) {
 
 
 ## References
- - [Graph API overview](/graph/api/overview)
- - [Graph API permissions overview](/graph/permissions-reference)
+ - [Graph API overview](https://learn.microsoft.com/en-us/graph/api/overview)
+ - [Graph API permissions overview](https://learn.microsoft.com/en-us/graph/permissions-reference)

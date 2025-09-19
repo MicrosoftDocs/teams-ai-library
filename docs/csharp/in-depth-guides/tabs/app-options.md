@@ -1,14 +1,9 @@
 ---
-title: App Options (preview) (C#)
-description: App options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and remote agent function calling using Teams AI Library for C#.
-ms.topic: how-to
-ms.date: 07/16/2025
+sidebar_position: 3
+summary: Configure app settings for observability, MSAL authentication, and remote agent function calling.
 ---
 
-# App Options (preview) (C#)
-
-[This article is prerelease documentation and is subject to change.]
-
+# App Options
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and 
 remote agent function calling. Each setting is optional, with the app using a reasonable default as needed.
 
@@ -183,8 +178,9 @@ await app.start();
 ```
 
 
-> [!NOTE]
-> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::info
+The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::
 
 #### Pre-warm a specific set of scopes
 If your app requires a specific set of scopes in order to run well, you can list those in the set of scopes to pre-warm. 
@@ -203,8 +199,9 @@ await app.start();
 ```
 
 
-> [!NOTE]
-> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::info
+The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::
 
 #### Disabling pre-warming
 Scope pre-warming can be disabled if needed. This is useful if your app doesn't use graph APIs, or if you want more control over the consent prompt.
@@ -226,8 +223,9 @@ const top10Chats = await app.graph.chats.list( { $top: 10 });
 ```
 
 
-> [!NOTE]
-> Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
+:::info
+Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
+:::
 
 ## References
-[MSAL Configuration](/entra/identity-platform/msal-client-application-configuration)
+[MSAL Configuration](https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-application-configuration)
