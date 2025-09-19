@@ -1,6 +1,6 @@
 ---
-title: Quickstart (Python)
-description: Learn about Quickstart (Python)
+title: User authentication quickstart (Python)
+description: Get started quickly with user authentication in Teams AI Library (Python)
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

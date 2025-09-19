@@ -1,6 +1,6 @@
 ---
 title: Quickstart (C#)
-description: Learn about Quickstart (C#)
+description: Get started quickly with Teams AI Library (C#)
 ms.topic: get-started
 ms.date: 09/18/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: Quickstart (Python)
-description: Learn about Quickstart (Python)
+description: Get started quickly with Teams AI Library (Python)
 ms.topic: get-started
 ms.date: 09/18/2025
 ---

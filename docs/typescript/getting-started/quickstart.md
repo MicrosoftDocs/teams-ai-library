@@ -1,6 +1,6 @@
 ---
 title: Quickstart (TypeScript)
-description: Learn about Quickstart (TypeScript)
+description: Get started quickly with Teams AI Library (TypeScript)
 ms.topic: get-started
 ms.date: 09/18/2025
 ---
