@@ -1,4 +1,4 @@
-# 🤖 AI
+# AI
 
 The AI components in this library are designed to make it easier to build C# applications with LLMs.
 The `Microsoft.Teams.AI` library has two main components:

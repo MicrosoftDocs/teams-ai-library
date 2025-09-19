@@ -1,4 +1,4 @@
-# 🔍 Search commands
+# Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 

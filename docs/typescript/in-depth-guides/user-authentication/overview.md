@@ -1,4 +1,4 @@
-# 🔒 User Authentication
+# User Authentication
 
 Once you have configured your Azure Bot resource OAuth settings, as described in [User Authentication Setup](/teams/user-authentication/sso-setup), add the following code to your `App`:
 

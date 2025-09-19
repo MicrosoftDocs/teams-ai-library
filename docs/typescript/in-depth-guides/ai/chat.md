@@ -1,4 +1,4 @@
-# 💬 Chat Generation
+# Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 

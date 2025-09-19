@@ -1,4 +1,4 @@
-# ⚙️ Settings
+# Settings
 
 You can add a settings page that allows users to configure settings for your app.
 

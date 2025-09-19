@@ -1,4 +1,4 @@
-# 🤖 AI
+# AI
 
 The AI packages in this library are designed to make it easier to build applications with LLMs.
 The `@microsoft/teams.ai` package has two main components:
