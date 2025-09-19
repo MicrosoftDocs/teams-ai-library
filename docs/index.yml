@@ -27,7 +27,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Teams CLI
-            url: .~/developer-tools/cli.md.md
+            url: ./developer-tools/cli.md
           - text: DevTools Overview
             url: ./developer-tools/devtools/overview.md
       - linkListType: reference
