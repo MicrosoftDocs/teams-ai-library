@@ -322,7 +322,7 @@
               href: csharp/in-depth-guides/observability/logging.md
             - name: Middleware
               href: csharp/in-depth-guides/observability/middleware.md
-- name: Python
+- name: Python (preview)
   items:
     - name: Getting Started
       items:
