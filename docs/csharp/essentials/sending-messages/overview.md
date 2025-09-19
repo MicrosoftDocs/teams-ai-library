@@ -25,7 +25,7 @@ app.OnMessage(async context =>
     await context.Send($"you said: {context.activity.Text}");
 });
 ```
-
+---
 
 
 In the above example, the handler gets a `message` activity, and uses the `send` method to send a reply to the user.
@@ -46,7 +46,7 @@ app.OnVerifyState(async context =>
     await context.Send("You have successfully signed in!");
 });
 ```
-
+---
 
 
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `SignIn.VerifyState` events, which are sent when a user successfully signs in. 
@@ -81,7 +81,7 @@ app.OnMessage(async context =>
     return Task.CompletedTask;
 });
 ```
-
+---
 
 
 > [!NOTE]
@@ -109,3 +109,4 @@ app.OnMessage(async context =>
     await context.Send(new MessageActivity("hi!").AddMention(activity.From));
 });
 ```
+---

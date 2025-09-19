@@ -98,7 +98,7 @@ After the debugging session starts:
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 
 > [!TIP]
-> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](/developer-tools/devtools)! Note that the DevTools server is running on port 3978. You can open it in your browser to interact with your agent and monitor activities in real time.
+> If you want to monitor the activities and events in your app, you can still use the [DevTools plugin](~/developer-tools/devtools/overview.md)! Note that the DevTools server is running on port 3978. You can open it in your browser to interact with your agent and monitor activities in real time.
 
 ## Troubleshooting
 

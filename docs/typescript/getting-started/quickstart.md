@@ -111,6 +111,6 @@ Otherwise, if you want to run your agent in Teams, check out the [Running in Tea
 ## Resources
 
 - [Teams CLI documentation](~/developer-tools/cli.md)
-- [Teams DevTools documentation](/developer-tools/devtools)
+- [Teams DevTools documentation](~/developer-tools/devtools/overview.md)
 - [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
 - [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
