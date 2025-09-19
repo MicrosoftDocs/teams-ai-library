@@ -7,7 +7,7 @@ ms.date: 09/18/2025
 
 # User Authentication (C#)
 
-Once you have configured your Azure Bot resource and OAuth settings, as described in [User Authentication Setup](/teams/user-authentication/sso-setup), add the following code to your `App`:
+Once you have configured your Azure Bot resource and OAuth settings, as described in [User Authentication Setup](~/teams/user-authentication/sso-setup.md), add the following code to your `App`:
 
 
 ## Configure the OAuth connection

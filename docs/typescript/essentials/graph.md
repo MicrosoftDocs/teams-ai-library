@@ -138,7 +138,7 @@ const { displayName } = await app.graph.call(getMyDisplayName);
 ## Additional resources
 Microsoft Graph offers an extensive and thoroughly documented API surface. These essential resources will serve as your go-to references for any Graph development work:
  - The [Microsoft Graph Rest API reference documentation](/graph/api/overview) gives details for each API, including permissions requirements.
- - The [Microsoft Graph REST API beta endpoint reference](/graph/api/overview?view=graph-rest-beta) gives similar information for preview APIs.
+ - The [Microsoft Graph REST API beta endpoint reference](/graph/api/overview) gives similar information for preview APIs.
  - The [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) lets you discover and test drive APIs.
 
 In addition, the following endpoints may be especially interesting to Teams developers:
@@ -149,10 +149,10 @@ In addition, the following endpoints may be especially interesting to Teams deve
 | [appRoleAssignments](/graph/api/serviceprincipal-list-approleassignments) | App role assignments |
 | [applicationTemplates](/graph/api/resources/applicationtemplate) | Applications in the Microsoft Entra App Gallery |
 | [applications](/graph/api/resources/application) | Application resources |
-| [chats](/graph/api/chat-list&tabs=http) | Chat resources between users |
+| [chats](/graph/api/chat-list) | Chat resources between users |
 | [communications](/graph/api/application-post-calls) | Calls and Online meetings |
 | [employeeExperience](/graph/api/resources/engagement-api-overview) | Employee Experience and Engagement |
-| [me](/graph/api/user-get&tabs=http) | Same as `/users` but scoped to one user (who is making the request) |
+| [me](/graph/api/user-get) | Same as `/users` but scoped to one user (who is making the request) |
 | [teams](/graph/api/resources/team) | Team resources in Microsoft Teams |
 | [teamsTemplates](/microsoftteams/get-started-with-teams-templates) | Templates used to create teams |
 | [teamwork](/graph/api/resources/teamwork) | A range of Microsoft Teams functionalities |

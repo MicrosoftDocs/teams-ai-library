@@ -11,7 +11,7 @@ Now that your agent is running locally, let's deploy it to Microsoft Teams for t
 
 ## Microsoft 365 Agents Toolkit
 
-Agents Toolkit is a powerful tool that simplifies deploying and debugging Teams applications. It automates tasks like managing the Teams app manifest, configuring authentication, provisioning, and deployment. If you'd like to learn about these concepts, check out [Teams core concepts](/teams/core-concepts).
+Agents Toolkit is a powerful tool that simplifies deploying and debugging Teams applications. It automates tasks like managing the Teams app manifest, configuring authentication, provisioning, and deployment. If you'd like to learn about these concepts, check out [Teams core concepts](~/teams/core-concepts.md).
 
 ### Install Agents Toolkit 
 
@@ -61,7 +61,7 @@ After installing Agents Toolkit and adding the configuration:
 When debugging starts, the Agents Toolkit will:
 
 - **Build** your application
-- **Start a [devtunnel](/teams/core-concepts#devtunnel)** which will assign a temporary public URL to your local server
+- **Start a [devtunnel](~/teams/core-concepts.md#devtunnel)** which will assign a temporary public URL to your local server
 - **Provision the Teams app** for your tenant so that it can be installed and be authenticated on Teams
 - **Set up the local variables** necessary for your agent to run in Teams in `env/.env.local` and `env/env.local.user`. This includes propagating the app manifest with your newly provisioned resources.
 - **Start** the local server.

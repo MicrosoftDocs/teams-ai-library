@@ -10,7 +10,7 @@ ms.date: 09/18/2025
 There are a few ways you can enable your application to access secured external services on the user's behalf.
 
 > [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
+> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](~/teams/core-concepts.md) before attempting this guide.
 
 ## Authenticate the user to Entra ID to access Microsoft Graph APIs
 A very common use case is to access enterprise related information about the user, which can be done through Microsoft Graph's APIs. To do that the user will have to be authenticated to Entra ID. 
@@ -63,5 +63,5 @@ app = App(
 
 ## Resources
 
-- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0)
+- [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication)
 - [User Authentication in Teams](/microsoftteams/platform/concepts/authentication/authentication)
