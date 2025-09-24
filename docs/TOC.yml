@@ -444,6 +444,8 @@
       href: /javascript/api/teams-sdk-typescript
     - name: .NET SDK
       href: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
+    - name: Python SDK (preview)
+      href: /python/api/microsoft-teams-ai/microsoft.teams.ai
 - name: Resources
   items:
     - name: Teams Developer Documentation
