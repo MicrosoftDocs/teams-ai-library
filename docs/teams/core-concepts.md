@@ -1,8 +1,8 @@
 ---
 title: Teams Core Concepts
-description: Learn about Teams Core Concepts
+description: Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Teams Core Concepts
