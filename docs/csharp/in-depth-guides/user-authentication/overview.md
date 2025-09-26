@@ -1,8 +1,8 @@
 ---
 title: User Authentication (C#)
-description: Learn about User Authentication (C#)
+description: API guide in C# to implement User Authentication with SSO in Teams Apps.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # User Authentication (C#)

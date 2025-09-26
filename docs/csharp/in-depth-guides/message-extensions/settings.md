@@ -1,8 +1,8 @@
 ---
 title: Settings (C#)
-description: Learn about Settings (C#)
+description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Settings (C#)

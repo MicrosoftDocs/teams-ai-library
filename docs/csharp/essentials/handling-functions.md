@@ -1,9 +1,12 @@
 ---
-sidebar_position: 6
-summary: Details on how to register REST endpoints that can be called from Tab apps.
+title: Handling Functions (C#)
+description: Details on how to register REST endpoints that can be called from Tab apps.
+ms.topic: how-to
+ms.date: 09/26/2025
 ---
 
-# Handling Functions
+# Handling Functions (C#)
+
 Agents may want to expose REST APIs that client applications can call. This library makes it easy to implement those APIs through the `app.AddFunction()` method. The function takes a name and a callback that implements the function.
 
 ```csharp
@@ -31,11 +34,11 @@ app.AddFunction<ProcessMessageData> ("process-message", (context) => {
 
 ```
 
-:::warning
-This library does not validate that the function arguments are of the expected types or otherwise trustworthy. You must take care to validate the input arguments before using them.
-:::
+> [!WARNING]
+> This library does not validate that the function arguments are of the expected types or otherwise trustworthy. You must take care to validate the input arguments before using them.
 
 If desired, the function can return data to the caller.
+
 ```csharp
 app.AddFunction('get-random-number', () => {
     return 4; // chosen by fair dice roll;
@@ -82,4 +85,4 @@ The `Send` method does not validate that the chat ID or conversation ID provided
 
 ## Additional resources
  - For details on how to Tab apps can call these functions, see the Typescript [Tab Functions](../../typescript/in-depth-guides/tabs/function-calling) in-depth guide.
- - For more information about the teams-js getContext() API, see the [Teams JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
+ - For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.

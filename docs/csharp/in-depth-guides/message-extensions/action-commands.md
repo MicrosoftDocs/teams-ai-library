@@ -1,6 +1,6 @@
 ---
 title: Action commands (C#)
-description: Learn about Action commands (C#)
+description: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
