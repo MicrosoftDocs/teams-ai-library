@@ -1,8 +1,8 @@
 ---
 title: Best Practices (C#)
-description: Learn about Best Practices (C#)
+description: Best practices for AI integration in Teams applications, including streaming responses, state management, function calling, command handling, and citation handling using real examples from the Samples.Lights reference implementation.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Best Practices (C#)

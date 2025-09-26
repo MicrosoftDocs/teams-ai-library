@@ -1,8 +1,8 @@
 ---
 title: MCP (C#)
-description: Learn about MCP (C#)
+description: Overview of Model Context Protocol (MCP) integration in C# Teams AI for dynamic function and tool loading.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # MCP (C#)

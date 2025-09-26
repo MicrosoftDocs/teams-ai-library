@@ -1,6 +1,6 @@
 ---
 title: Dialogs (Task Modules) (C#)
-description: Learn about Dialogs (Task Modules) (C#)
+description: Overview of dialogs (task modules) in C# Teams AI for creating interactive pop-up windows and multi-step forms in Teams.
 ms.topic: overview
 ms.date: 09/18/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: Function calling with LLMs(C#)
-description: Learn about Function calling with LLMs (C#)
+description: Guide to implementing function calling in LLMs, showing how to integrate custom functions into ChatPrompt for task automation, including both single and multiple function scenarios with context-aware execution.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

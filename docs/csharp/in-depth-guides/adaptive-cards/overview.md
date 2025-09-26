@@ -1,6 +1,6 @@
 ---
 title: Adaptive Cards (C#)
-description: Learn about Adaptive Cards (C#)
+description: Overview of Adaptive Cards in C# Teams AI for building rich, interactive user experiences in Teams applications.
 ms.topic: overview
 ms.date: 09/18/2025
 ---
