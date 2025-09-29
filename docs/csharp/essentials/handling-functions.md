@@ -1,6 +1,6 @@
 ---
 title: Handling Functions (C#)
-description: Details on how to register REST endpoints that can be called from Tab apps.
+description: Details on how to register REST endpoints that can be called from Teams tab apps in C#.
 ms.topic: how-to
 ms.date: 09/26/2025
 ---
@@ -84,5 +84,5 @@ The `Send` method does not validate that the chat ID or conversation ID provided
 :::
 
 ## Additional resources
- - For details on how to Tab apps can call these functions, see the Typescript [Tab Functions](../../typescript/in-depth-guides/tabs/function-calling) in-depth guide.
+ - For details on how to Tab apps can call these functions, see the Typescript [Tab Functions](../../typescript/in-depth-guides/tabs/function-calling.md) in-depth guide.
  - For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.

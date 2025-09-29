@@ -14,4 +14,5 @@ This library does not offer features for implementing Tab apps in C#. It does ho
 ## Additional resources
 - [Hosting Web Apps](../../essentials/hosting-web-apps.md)
 - [Handling Functions](../../essentials/handling-functions.md)
-- [Typescript Tabs in-depth guide](../../../typescript/in-depth-guides/tabs)
+- [Typescript Tabs in-depth guide](../../../typescript/in-depth-guides/tabs/overview.md)
+`

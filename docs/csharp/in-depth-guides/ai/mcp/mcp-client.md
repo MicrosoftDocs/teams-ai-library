@@ -1,6 +1,6 @@
 ---
 title: MCP Client (C#)
-description: Guide to integrating remote MCP (Machine Conversation Protocol) servers into Teams applications, enabling AI agents to access external tools through SSE protocol, with practical examples of configuring the MCPClientPlugin.
+description: Guide to integrating remote MCP (Machine Conversation Protocol) servers into Teams C# applications, enabling AI agents to access external tools through SSE protocol, with practical examples of configuring the MCPClientPlugin.
 ms.topic: how-to
 ms.date: 09/26/2025
 ---

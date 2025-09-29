@@ -1,6 +1,6 @@
 ---
 title: Creating Dialogs (C#)
-description: Guide to creating and handling dialogs in Teams applications, covering dialog opening mechanisms, content rendering using Adaptive Cards or webpages, and security considerations for web content integration.
+description: Guide to creating and handling dialogs in Teams C# applications, covering dialog opening mechanisms, content rendering using Adaptive Cards or webpages, and security considerations for web content integration.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

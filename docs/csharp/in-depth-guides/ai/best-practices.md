@@ -239,5 +239,3 @@ public string GetCitations(string topic)
     Include these in your response when referencing climate data.";
 }
 ```
-
-![AI Generated Indicator](~/assets/screenshots/citation.gif)

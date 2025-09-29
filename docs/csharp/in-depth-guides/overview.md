@@ -1,4 +1,4 @@
-
+---
 title: In-Depth Guides (C#)
 description: Detailed technical guides covering advanced features and capabilities of Teams AI Library in C#, including AI integration, adaptive cards, dialogs, authentication, and message extensions.
 ms.topic: overview

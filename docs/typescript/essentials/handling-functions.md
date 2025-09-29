@@ -1,6 +1,6 @@
 ---
 title: Handling Functions (TypeScript)
-description: Details on how to register REST endpoints that can be called from Tab apps.
+description: Details on how to register REST endpoints that can be called from TypeScript tab apps.
 ms.topic: overview
 ms.date: 09/29/2025
 ---
@@ -87,5 +87,5 @@ To simplify two common scenarios, the context provides the `getCurrentConversati
 ## Additional resources
 
  - For details on how to Tab apps can invoke these functions, see the [Tab Functions](../in-depth-guides/tabs/function-calling.md) in-depth guide.
- - For more information about the teams-js getContext() API, see the [Teams JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
+ - For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
  

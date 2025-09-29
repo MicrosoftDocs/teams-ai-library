@@ -1,4 +1,3 @@
-
 ---
 title: A2A Server (TypeScript)
 description: How to implement an A2A server to expose your Teams TypeScript app capabilities to other agents using the A2A protocol.
@@ -7,6 +6,8 @@ ms.date: 09/29/2025
 ---
 
 # A2A Server (TypeScript)
+
+In this guide, you'll learn to implement an A2A server to expose your Teams TypeScript app capabilities to other agents using the A2A protocol.
 
 ## What is an A2A Server?
 

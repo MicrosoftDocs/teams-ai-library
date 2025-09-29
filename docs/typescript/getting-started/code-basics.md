@@ -1,8 +1,11 @@
 ---
 title: Code Basics (TypeScript)
-description: Understanding the structure and key components of a Teams AI application including the App class, plugins, and project organization.ms.topic: get-started
+description: Understanding the structure and key components of a Teams AI application including the App class, plugins, and project organization.
+ms.topic: get-started
 ms.date: 09/29/2025
 ---
+
+# Code Basics (TypeScript)
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.
 
