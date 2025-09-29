@@ -1,6 +1,6 @@
 ---
 title: Handling Dialog Submissions (TypeScript)
-description: Learn about Handling Dialog Submissions (TypeScript)
+description: How to handle dialog submissions and process form data when users submit dialogs in Teams TypeScript applications.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
