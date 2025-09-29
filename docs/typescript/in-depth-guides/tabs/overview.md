@@ -1,6 +1,6 @@
 ---
 title: Tabs (TypeScript)
-description: Learn about Tabs (TypeScript)
+description: Build Teams tab apps in TypeScript with Graph integration, authentication, and remote agent function calling capabilities.
 ms.topic: overview
 ms.date: 09/18/2025
 ---

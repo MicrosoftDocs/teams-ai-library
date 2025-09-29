@@ -1,8 +1,8 @@
 ---
 title: MCP Client (TypeScript)
-description: Learn about MCP Client (TypeScript)
+description: How to implement an MCP client to leverage remote MCP servers and their tools in your AI agent application.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # MCP Client (TypeScript)

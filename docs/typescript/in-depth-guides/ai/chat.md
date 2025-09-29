@@ -1,8 +1,8 @@
 ---
 title: Chat Generation (TypeScript)
-description: Learn about Chat Generation (TypeScript)
+description: Guide to implementing chat generation with AI models in Teams applications using ChatPrompt and Model components.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Chat Generation (TypeScript)

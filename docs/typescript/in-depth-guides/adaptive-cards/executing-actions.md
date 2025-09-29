@@ -1,8 +1,8 @@
 ---
 title: Executing Actions (TypeScript)
-description: Learn about Executing Actions (TypeScript)
+description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Executing Actions (TypeScript)

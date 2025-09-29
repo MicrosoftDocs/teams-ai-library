@@ -1,8 +1,8 @@
 ---
 title: Building Adaptive Cards (TypeScript)
-description: Learn about Building Adaptive Cards (TypeScript)
+description: Guide to building Adaptive Cards using TypeScript/JavaScript with full IntelliSense and compiler safety for rich, interactive UI fragments.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Building Adaptive Cards (TypeScript)
@@ -80,7 +80,7 @@ const cardJson = /* copied JSON */;
 const card = new AdaptiveCard().withBody(cardJson);
 ```
 
-```ts
+```typescript
 const rawCard: IAdaptiveCard = {
   type: 'AdaptiveCard',
   body: [

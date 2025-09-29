@@ -1,6 +1,6 @@
 ---
 title: Functions (TypeScript)
-description: Learn about Functions (TypeScript)
+description: Call remote agent functions from TypeScript tab apps with authentication and custom headers using the exec() method.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: Link unfurling (TypeScript)
-description: Learn about Link unfurling (TypeScript)
+description: How to implement link unfurling in Teams TypeScript apps to automatically enhance pasted URLs with rich cards containing additional information and actions.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

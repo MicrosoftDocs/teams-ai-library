@@ -1,6 +1,6 @@
 ---
 title: Setup & Prerequisites (TypeScript)
-description: Learn about Setup & Prerequisites (TypeScript)
+description: Prerequisites and setup guide for integrating LLMs into Teams AI TypeScript applications, including API keys and Azure OpenAI configuration.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
