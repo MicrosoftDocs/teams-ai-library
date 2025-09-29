@@ -1,11 +1,8 @@
 ---
 title: Code Basics (TypeScript)
-description: Learn about Code Basics (TypeScript)
-ms.topic: get-started
-ms.date: 09/18/2025
+description: Understanding the structure and key components of a Teams AI application including the App class, plugins, and project organization.ms.topic: get-started
+ms.date: 09/29/2025
 ---
-
-# Code Basics (TypeScript)
 
 After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.
 
@@ -44,7 +41,7 @@ const app = new App({
 ```
 
 
-The app configuration includes a variety of options that allow you to customize its behavior, including controlling the underlying server, authentication, and other settings. For simplicity's sake, let's focus on plugins.
+The app configuration includes a variety of options that allow you to customize its behavior, including controlling the underlying server, authentication, and other settings.
 
 ### Plugins
 
@@ -87,8 +84,7 @@ Your application starts when you run:
 })();
 ```
 
-
-This part initializes your application server and, when configured for Teams, also authenticates it to be ready for sending and receiving messages.
+This code initializes your application server and, when configured for Teams, also authenticates it to be ready for sending and receiving messages.
 
 ## Next Steps
 
