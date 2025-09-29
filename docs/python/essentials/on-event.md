@@ -1,8 +1,8 @@
 ---
 title: Listening To Events (Python)
-description: Learn about Listening To Events (Python)
+description: Guide to handling and responding to events in Python Teams AI applications, including user and server-originated events.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Listening To Events (Python)

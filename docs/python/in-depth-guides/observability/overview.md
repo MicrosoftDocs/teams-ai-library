@@ -1,8 +1,8 @@
 ---
 title: Observability (Python)
-description: Learn about Observability (Python)
+description: Overview of observability features in Python Teams AI for monitoring, logging, and diagnostics in Teams applications.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Observability (Python)

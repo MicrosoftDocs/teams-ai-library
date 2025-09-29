@@ -1,8 +1,8 @@
 ---
 title: User authentication quickstart (Python)
-description: Get started quickly with user authentication in Teams AI Library (Python)
+description: Create a Teams Python app with Microsoft Graph authentication using the Agents Toolkit and SSO flow.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # User authentication quickstart (Python)

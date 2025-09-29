@@ -1,8 +1,8 @@
 ---
 title: AI (Python)
-description: Learn about AI (Python)
+description: Overview of AI components in Teams AI Library for Python, including Prompts for orchestration and Models for LLM interfaces.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # AI (Python)

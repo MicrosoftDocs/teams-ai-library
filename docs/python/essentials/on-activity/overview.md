@@ -1,8 +1,8 @@
 ---
 title: Listening To Activities (Python)
-description: Learn about Listening To Activities (Python)
+description: Learn how to handle Teams activities in Python using activity handlers, which process Teams-specific payloads like chat messages, card actions, and app installations through a middleware pattern that supports both controller and minimal API styles.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Listening To Activities (Python)

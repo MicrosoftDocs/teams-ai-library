@@ -1,8 +1,8 @@
 ---
 title: Sending Messages (Python)
-description: Learn about Sending Messages (Python)
+description: Guide to sending messages from your Teams AI agent, including replies, proactive messages, and different message types.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Sending Messages (Python)

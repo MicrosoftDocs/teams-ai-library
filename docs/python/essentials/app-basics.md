@@ -1,8 +1,8 @@
 ---
 title: App Basics (Python)
-description: Learn about App Basics (Python)
+description: Overview of the App class in Python Teams AI, covering server hosting, request routing, authentication, and plugin management.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # App Basics (Python)

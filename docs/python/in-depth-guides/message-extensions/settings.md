@@ -1,8 +1,8 @@
 ---
 title: Settings (Python)
-description: Learn about Settings (Python)
+description: Add configurable settings pages to your message extensions to allow users to customize behavior of Teams Python apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Settings (Python)

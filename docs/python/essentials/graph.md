@@ -1,8 +1,8 @@
 ---
 title: Graph API Client (Python)
-description: Learn about Graph API Client (Python)
+description: A guide to using the Microsoft Graph API in Python, explaining the methods for accessing Microsoft 365 data using application or user tokens, with sample code for retrieving user details and integrating Graph API within message handlers.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Graph API Client (Python)

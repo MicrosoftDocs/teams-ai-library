@@ -1,8 +1,8 @@
 ---
 title: Signing Out (Python)
-description: Learn about Signing Out (Python)
+description: Sign users out of your Teams Python app by discarding cached access tokens in the Bot Framework token service.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Signing Out (Python)

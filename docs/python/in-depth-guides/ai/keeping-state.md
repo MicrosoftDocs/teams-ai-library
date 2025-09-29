@@ -1,8 +1,8 @@
 ---
 title: Keeping State (Python)
-description: Learn about Keeping State (Python)
+description: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios in Teams Python apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Keeping State (Python)
