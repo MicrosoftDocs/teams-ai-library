@@ -1,8 +1,8 @@
 ---
 title: Adapters (TypeScript)
-description: Learn about Adapters (TypeScript)
+description: How to migrate BotBuilder adapters to Teams AI Library v2 plugins for handling bot communication and middleware in Teams TypeScript apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Adapters (TypeScript)
