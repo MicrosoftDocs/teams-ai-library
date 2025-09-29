@@ -1,8 +1,8 @@
 ---
 title: Teams API Client (TypeScript)
-description: Learn about Teams API Client (TypeScript)
+description: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Teams API Client (TypeScript)

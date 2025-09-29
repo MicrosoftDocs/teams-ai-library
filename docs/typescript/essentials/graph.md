@@ -1,8 +1,8 @@
 ---
 title: Graph API Client (TypeScript)
-description: Learn about Graph API Client (TypeScript)
+description: Guide to using the Microsoft Graph API client to access Microsoft 365 data and services from your Teams AI application.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Graph API Client (TypeScript)

@@ -1,8 +1,8 @@
 ---
 title: Proactive Messaging (TypeScript)
-description: Learn about Proactive Messaging (TypeScript)
+description: Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Proactive Messaging (TypeScript)

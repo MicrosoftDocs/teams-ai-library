@@ -1,8 +1,8 @@
 ---
 title: Listening To Activities (TypeScript)
-description: Learn about Listening To Activities (TypeScript)
+description: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Listening To Activities (TypeScript)

@@ -70,7 +70,11 @@
           href: typescript/essentials/on-event.md
         - name: Teams API Client
           href: typescript/essentials/api.md
-        - name: Graph
+        - name: Hosting Web Apps
+          href: typescript/essentials/hosting-web-apps.md
+        - name: Handling Functions
+          href: typescript/essentials/handling-functions.md
+        - name: Graph API Client
           href: typescript/essentials/graph.md
         - name: Sending Messages
           items:
