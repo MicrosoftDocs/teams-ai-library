@@ -1,8 +1,8 @@
 ---
 title: Link unfurling (Python)
-description: Learn about Link unfurling (Python)
+description: Enable your Teams Python app to respond when users paste URLs by creating preview cards with additional information and actions.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Link unfurling (Python)
@@ -49,7 +49,7 @@ async def handle_message_ext_query_link(ctx: ActivityContext[MessageExtensionQue
     url = ctx.activity.value.url
 
     if not url:
-        return InvokeResponse[MessagingExtensionInvokeResponse](status=400.md)
+        return InvokeResponse[MessagingExtensionInvokeResponse](status=400)
 
     card_data = create_link_unfurl_card(url)
     main_attachment = card_attachment(AdaptiveCardAttachment(content=card_data["card"]))

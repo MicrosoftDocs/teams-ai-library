@@ -1,8 +1,8 @@
 ---
 title: MCP Server (Python)
-description: Learn about MCP Server (Python)
+description: Tutorial on implementing an MCP (Machine Conversation Protocol) server in Teams applications using the McpPlugin, covering server configuration, tool exposure, and message handling for features like human-in-the-loop interactions and notifications.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # MCP Server (Python)

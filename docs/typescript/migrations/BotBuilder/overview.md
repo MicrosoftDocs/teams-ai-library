@@ -1,6 +1,6 @@
 ---
 title: From BotBuilder (TypeScript)
-description: Learn about From BotBuilder (TypeScript)
+description: Migration guide from BotBuilder to Teams AI Library v2 for Teams TypeScript apps, including the BotBuilder plugin for compatibility with existing activity handlers and adapters.
 ms.topic: overview
 ms.date: 09/18/2025
 ---

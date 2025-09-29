@@ -1,8 +1,8 @@
 ---
 title: Keeping State (C#)
-description: Learn about Keeping State (C#)
+description: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Keeping State (C#)

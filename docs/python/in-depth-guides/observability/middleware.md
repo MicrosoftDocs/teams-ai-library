@@ -1,8 +1,8 @@
 ---
 title: Middleware (Python)
-description: Learn about Middleware (Python)
+description: Guide to using middleware in Python Teams AI for logging, validation, and extending app functionality.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Middleware (Python)

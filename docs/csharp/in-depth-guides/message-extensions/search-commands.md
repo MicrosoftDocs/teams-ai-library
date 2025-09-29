@@ -1,6 +1,6 @@
 ---
 title: Search commands (C#)
-description: Learn about Search commands (C#)
+description: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

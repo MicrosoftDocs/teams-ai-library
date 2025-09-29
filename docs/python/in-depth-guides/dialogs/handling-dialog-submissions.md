@@ -1,8 +1,8 @@
 ---
 title: Handling Dialog Submissions (Python)
-description: Learn about Handling Dialog Submissions (Python)
+description: Guide to processing dialog submissions in Teams Python applications, showing how to handle form data from both Adaptive Cards and web pages using the dialog.submit event handler with examples for different submission types.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Handling Dialog Submissions (Python)

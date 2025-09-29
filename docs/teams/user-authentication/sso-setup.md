@@ -1,8 +1,8 @@
 ---
 title: SSO Setup
-description: Learn about SSO Setup
+description: Learn how to configure SSO in Teams
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # SSO Setup

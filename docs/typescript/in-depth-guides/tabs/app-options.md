@@ -1,11 +1,12 @@
 ---
 title: App Options (TypeScript)
-description: Learn about App Options (TypeScript)
+description: Configure TypeScript app settings for observability, MSAL authentication, and remote agent function calling.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # App Options (TypeScript)
+
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and 
 remote agent function calling. Each setting is optional, with the app using a reasonable default as needed.
 

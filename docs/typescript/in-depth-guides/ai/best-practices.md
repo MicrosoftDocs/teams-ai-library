@@ -1,8 +1,8 @@
 ---
 title: Best Practices (TypeScript)
-description: Learn about Best Practices (TypeScript)
+description: Best practices for AI integration in Teams applications, including AI-generated indicators and user experience guidelines.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Best Practices (TypeScript)

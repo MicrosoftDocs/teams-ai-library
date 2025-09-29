@@ -1,8 +1,8 @@
 ---
 title: Search commands (TypeScript)
-description: Learn about Search commands (TypeScript)
+description: How to implement search commands in message extensions to allow users to search external systems and insert results as cards in Teams TypeScript apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Search commands (TypeScript)

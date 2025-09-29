@@ -1,8 +1,8 @@
 ---
 title: Running In Teams (Python)
-description: Learn about Running In Teams (Python)
+description: Guide to deploying and testing your locally running Python agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
 ms.topic: get-started
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Running In Teams (Python)
@@ -11,13 +11,13 @@ Now that your agent is running locally, let's deploy it to Microsoft Teams for t
 
 ## Microsoft 365 Agents Toolkit
 
-Agents Toolkit is a powerful tool that simplifies deploying and debugging Teams applications. It automates tasks like managing the Teams app manifest, configuring authentication, provisioning, and deployment. If you'd like to learn about these concepts, check out [Teams core concepts](~/teams/core-concepts.md).
+Microsoft 365 Agents Toolkit (Agents Toolkit) is a powerful tool that simplifies deploying and debugging Teams applications. It automates tasks like managing the Teams app manifest, configuring authentication, provisioning, and deployment. If you'd like to learn about these concepts, check out [Teams core concepts](~/teams/core-concepts.md).
 
-### Install Agents Toolkit 
+### Install Microsoft 365 Agents Toolkit
 
 First, you'll need to install the Agents Toolkit IDE extension:
 
-- Visit the [Agents Toolkit installation guide](/microsoftteams/platform/toolkit/install-teams-toolkit) to install on your preferred IDE.
+- Visit the [Microsoft 365 Agents Toolkit installation guide](/microsoftteams/platform/toolkit/install-teams-toolkit) to install on your preferred IDE.
 
 ## Adding Teams configuration files via `teams` CLI
 
@@ -51,12 +51,12 @@ This [CLI](~/developer-tools/cli.md) command adds configuration files required b
 After installing Agents Toolkit and adding the configuration:
 
 1. **Open** your agent's project in your IDE.
-2. **Open the Agents Toolkit extension panel** (usually on the left sidebar). The extension icon is the Teams logo.
+2. **Open the Microsoft 365 Agents Toolkit extension panel** (usually on the left sidebar). The extension icon is the Teams logo.
 3. **Log in** to your Microsoft 365 and Azure accounts in the Agents Toolkit extension.
 4. **Select "Local"** under Environment Settings of the Agents Toolkit extension.
 5. **Click on Debug (Chrome) or Debug (Edge)** to start debugging via the 'play' button.
 
-![Agents Toolkit local environment UI](~/assets/screenshots/agents-toolkit.png)
+![Microsoft 365 Agents Toolkit local environment UI](~/assets/screenshots/agents-toolkit.png)
 
 When debugging starts, the Agents Toolkit will:
 
@@ -66,8 +66,8 @@ When debugging starts, the Agents Toolkit will:
 - **Set up the local variables** necessary for your agent to run in Teams in `env/.env.local` and `env/env.local.user`. This includes propagating the app manifest with your newly provisioned resources.
 - **Start** the local server.
 - **Package your app manifest** into a Teams application zip package and the manifest json with variables inserted in `appPackage/build`.
-- **Launch Teams** in an incognito window your browser.
-- **Upload the package** to Teams and signal it to sideload the app (fancy word for installing this app just for your use)
+- **Launch Teams** in an incognito window in your browser.
+- **Upload the package** to Teams and signal it to sideload (install) the app just for your use.
 
 If you set up Agents Toolkit via the Teams AI CLI, you should see something like the following in your terminal:
 

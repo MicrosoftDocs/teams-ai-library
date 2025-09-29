@@ -1,8 +1,8 @@
 ---
 title: Function calling with LLMs (Python)
-description: Learn about Function calling with LLMs (Python)
+description: Guide to implementing function calling in LLMs, showing how to integrate custom functions into ChatPrompt for task automation, including both single and multiple function scenarios with context-aware execution in Teams Python apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Function calling with LLMs (Python)

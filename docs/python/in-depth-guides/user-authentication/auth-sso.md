@@ -1,8 +1,8 @@
 ---
 title: How Auth Works (Python)
-description: Learn about How Auth Works (Python)
+description: Compare OAuth and SSO authentication methods in Teams apps and understand their implementation differences.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # How Auth Works (Python)

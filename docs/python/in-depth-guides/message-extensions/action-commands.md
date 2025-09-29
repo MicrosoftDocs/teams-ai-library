@@ -1,8 +1,8 @@
 ---
 title: Action commands (Python)
-description: Learn about Action commands (Python)
+description: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Action commands (Python)

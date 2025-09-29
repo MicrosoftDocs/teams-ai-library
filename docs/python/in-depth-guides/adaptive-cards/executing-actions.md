@@ -1,8 +1,8 @@
 ---
 title: Executing Actions (Python)
-description: Learn about Executing Actions (Python)
+description: Guide to implementing interactive elements in Adaptive Cards using Python, covering action types (Execute, Submit, OpenUrl), input validation, data association, and server-side handling of card actions.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Executing Actions (Python)

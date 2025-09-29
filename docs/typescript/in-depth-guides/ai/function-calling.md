@@ -1,6 +1,6 @@
 ---
 title: Function calling with LLMs (TypeScript)
-description: Learn about function calling with LLMs (TypeScript)
+description: How to implement function calling in AI models, allowing the LLM to execute functions as part of its response generation.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

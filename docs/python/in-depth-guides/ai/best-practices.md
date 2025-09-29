@@ -1,8 +1,8 @@
 ---
 title: Best Practices (Python)
-description: Learn about Best Practices (Python)
+description: Best practices for AI integration in Teams Python applications, including AI-generated message indicators, feedback collection for prompt improvement, and citation handling to ensure transparency and accuracy in AI responses.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Best Practices (Python)

@@ -1,6 +1,6 @@
 ---
 title: Handling Dialog Submissions (C#)
-description: Learn about Handling Dialog Submissions (C#)
+description: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using the dialog.submit event handler with examples for different submission types.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

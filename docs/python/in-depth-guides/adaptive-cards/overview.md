@@ -1,8 +1,8 @@
 ---
 title: Adaptive Cards (Python)
-description: Learn about Adaptive Cards (Python)
+description: Overview of Adaptive Cards in Python Teams AI for building rich, interactive user experiences in Teams applications.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Adaptive Cards (Python)

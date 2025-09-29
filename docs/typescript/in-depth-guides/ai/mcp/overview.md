@@ -1,6 +1,6 @@
 ---
 title: MCP (TypeScript)
-description: Learn about MCP (TypeScript)
+description: Overview of Model Context Protocol (MCP) integration in Teams AI Library for TypeScript for dynamic function and tool loading.
 ms.topic: overview
 ms.date: 09/18/2025
 ---

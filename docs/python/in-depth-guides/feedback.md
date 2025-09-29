@@ -1,8 +1,8 @@
 ---
 title: Feedback (Python)
-description: Learn about Feedback (Python)
+description: Guide to implementing user feedback functionality in Teams Python applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Feedback (Python)

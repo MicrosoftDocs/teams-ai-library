@@ -1,8 +1,8 @@
 ---
 title: Settings (TypeScript)
-description: Learn about Settings (TypeScript)
+description: How to add configurable settings pages to your message extension TypeScript app for user customization and preferences.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Settings (TypeScript)

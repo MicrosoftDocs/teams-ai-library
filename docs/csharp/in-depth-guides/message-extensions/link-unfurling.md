@@ -1,8 +1,8 @@
 ---
 title: Link unfurling (C#)
-description: Learn about Link unfurling (C#)
+description: Enable your app to respond when users paste URLs by creating preview cards with additional information and actions.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Link unfurling (C#)

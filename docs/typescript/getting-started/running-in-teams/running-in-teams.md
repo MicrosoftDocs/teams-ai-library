@@ -1,8 +1,8 @@
 ---
 title: Running In Teams (TypeScript)
-description: Learn about Running In Teams (TypeScript)
+description: Guide to deploying and testing your locally running agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
 ms.topic: get-started
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Running In Teams (TypeScript)
@@ -36,6 +36,7 @@ npx @microsoft/teams.cli config add atk.basic
 
 This [CLI](~/developer-tools/cli.md) command adds configuration files required by Microsoft 365 Agents Toolkit, including:
 
+
 - Environment setup in the `env` folder and root `.env` file
 - Teams app manifest in the `appPackage` folder (if not already present)
 - Debug instructions in `.vscode/launch.json` and `.vscode/tasks.json`
@@ -67,11 +68,9 @@ When debugging starts, the Microsoft 365 Agents Toolkit will:
 - **Start** the local server.
 - **Package your app manifest** into a Teams application zip package and the manifest json with variables inserted in `appPackage/build`.
 - **Launch Teams** in an incognito window in your browser.
-- **Upload the package** to Teams and signal it to sideload the app (a fancy word for installing this app just for your use)
+- **Upload the package** to Teams and signal it to sideload (install) the app just for your use.
 
 If you set up Agents Toolkit via the Teams AI CLI, you should see something like the following in your terminal:
-
-
 ```sh
 [nodemon] 3.1.9
 [nodemon] to restart at any time, enter `rs`
@@ -102,8 +101,11 @@ Congratulations! Now you have a fully functional agent running in Microsoft Team
 
 ## Troubleshooting
 
-For deployment and resource management we recommend the Microsoft 365 Agents Toolkit. Refer to our [Deployment guide](./deployment-guide.md) for common scenarios and potential issues. 
-If you prefer to set everything up by hand, follow the standard [Teams app documentation](/microsoftteams/platform/concepts/deploy-and-publish/apps-publish-overview). The Teams AI library itself doesn't handle deployment or Azure resources, so you'll need to rely on the general [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview) for in-depth help.
+For deployment and resource management we recommend the Microsoft 365 Agents Toolkit. Refer to our [Deployment guide](./deployment-guide.md) for common scenarios and potential issues.
+
+If you prefer to set everything up by hand, follow the standard [Teams app documentation](/microsoftteams/platform/concepts/deploy-and-publish/apps-publish-overview). 
+
+The Teams AI library itself doesn't handle deployment or Azure resources, so you'll need to rely on the general [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview) for in-depth help.
 
 ## Next steps
 

@@ -1,8 +1,8 @@
 ---
 title: Custom Logger (Python)
-description: Learn about Custom Logger (Python)
+description: Guide to implementing custom logging in Python Teams AI applications using the ConsoleLogger and custom logger options.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Custom Logger (Python)

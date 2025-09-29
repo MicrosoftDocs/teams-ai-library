@@ -1,8 +1,8 @@
 ---
 title: Creating Dialogs (Python)
-description: Learn about Creating Dialogs (Python)
+description: Guide to creating and handling dialogs in Teams applications, covering dialog opening mechanisms, content rendering using Adaptive Cards or webpages, and security considerations for web content integration.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Creating Dialogs (Python)

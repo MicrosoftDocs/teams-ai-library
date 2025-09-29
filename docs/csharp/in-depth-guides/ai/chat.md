@@ -1,6 +1,6 @@
 ---
 title: Chat Generation (C#)
-description: Learn about Chat Generation (C#)
+description: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

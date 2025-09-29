@@ -1,8 +1,8 @@
 ---
 title: MCP Server (TypeScript)
-description: Learn about MCP Server (TypeScript)
+description: How to convert your Teams TypeScript app into an MCP server using the McpPlugin to expose tools, resources, and prompts to other MCP applications.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # MCP Server (TypeScript)

@@ -1,8 +1,8 @@
 ---
 title: Getting Started (TypeScript)
-description: Learn about Getting Started (TypeScript)
+description: Getting started guide for TypeScript Teams AI Library covering application setup, structure, and local development fundamentals.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Getting Started (TypeScript)

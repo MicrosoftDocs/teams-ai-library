@@ -1,8 +1,8 @@
 ---
 title: AI (C#)
-description: Learn about AI (C#)
+description: Overview of AI components in C# Teams AI, including Prompts for orchestration and Models for LLM interfaces.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # AI (C#)

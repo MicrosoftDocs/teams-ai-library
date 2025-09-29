@@ -1,6 +1,6 @@
 ---
 title: Migration guide for user authentication (TypeScript)
-description: Learn about migrating user authentication from BotBuilder to Teams AI Library (TypeScript)
+description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams AI's simple signin/signout methods in Teams TypeScript apps.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

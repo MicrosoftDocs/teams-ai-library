@@ -1,6 +1,6 @@
 ---
 title: Listening To Activities (C#)
-description: Learn about Listening To Activities (C#)
+description: Learn how to handle Teams activities in C# using activity handlers, which process Teams-specific payloads like chat messages, card actions, and app installations through a middleware pattern that supports both controller and minimal API styles.
 ms.topic: overview
 ms.date: 09/18/2025
 ---
