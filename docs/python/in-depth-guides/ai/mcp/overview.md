@@ -1,8 +1,8 @@
 ---
 title: MCP (Python)
-description: Learn about MCP (Python)
+description: Overview of Model Context Protocol (MCP) integration in Python Teams AI for dynamic function and tool loading.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # MCP (Python)

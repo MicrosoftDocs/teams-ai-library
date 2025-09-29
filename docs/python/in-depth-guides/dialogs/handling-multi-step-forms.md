@@ -1,8 +1,8 @@
 ---
 title: Handling Multi-Step Forms (Python)
-description: Learn about Handling Multi-Step Forms (Python)
+description: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Handling Multi-Step Forms (Python)

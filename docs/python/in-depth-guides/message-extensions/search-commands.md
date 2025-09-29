@@ -1,8 +1,8 @@
 ---
 title: Search commands (Python)
-description: Learn about Search commands (Python)
+description: Create search commands that allow users to search external systems and insert results as cards in messages in Teams Python apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Search commands (Python)
@@ -86,7 +86,7 @@ async def handle_message_ext_query(ctx: ActivityContext[MessageExtensionQueryInv
 
         return MessagingExtensionInvokeResponse(compose_extension=result)
 
-    return InvokeResponse[MessagingExtensionInvokeResponse](status=400.md)
+    return InvokeResponse[MessagingExtensionInvokeResponse](status=400)
 
 ```
 

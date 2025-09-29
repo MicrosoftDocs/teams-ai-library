@@ -1,8 +1,8 @@
 ---
 title: Activity Handlers (TypeScript)
-description: Learn about Activity Handlers (TypeScript)
+description: How to migrate BotBuilder ActivityHandler patterns to Teams AI Library v2 activity routing system in Teams TypeScript apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Activity Handlers (TypeScript)

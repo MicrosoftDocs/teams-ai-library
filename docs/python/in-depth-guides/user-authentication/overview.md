@@ -1,8 +1,8 @@
 ---
 title: User Authentication (Python)
-description: Learn about User Authentication (Python)
+description: Enable user authentication in Teams Python apps to access secured resources like email, flight status, and online services.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # User Authentication (Python)

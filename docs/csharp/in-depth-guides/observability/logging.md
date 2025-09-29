@@ -1,34 +1,30 @@
 ---
 title: Custom Logger (C#)
-description: Learn about Custom Logger (C#)
+description: Guide to implementing custom logging in C# Teams AI applications using the ConsoleLogger and custom logger options.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Custom Logger (C#)
 
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the
-`@microsoft/teams.common` package.
+`Microsoft.Teams.Common` package.
 
 
-```typescript
-import { App } from '@microsoft/teams.apps';
-import { ConsoleLogger } from '@microsoft/teams.common';
+```csharp
+using Microsoft.Teams.Apps;
+using Microsoft.Teams.Common.Logging;
+using Microsoft.Teams.Plugins.AspNetCore.Extensions;
 
-// initialize app with custom console logger
-// set to debug log level
-const app = new App({
-  logger: new ConsoleLogger('echo', { level: 'debug' }),
-});
+var builder = WebApplication.CreateBuilder(args);
 
-app.on('message', async ({ send, activity, log }) => {
-  log.debug(activity);
-  await send({ type: 'typing' });
-  await send(`you said "${activity.text}"`);
-});
+var appBuilder = App.Builder()
+    .AddLogger(new ConsoleLogger())
 
-(async () => {
-  await app.start();
-})();
+builder.AddTeams(appBuilder)
+
+var app = builder.Build();
+var teams = app.UseTeams();
 ```
+

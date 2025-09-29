@@ -1,8 +1,8 @@
 ---
 title: Building Adaptive Cards (C#)
-description: Learn about Building Adaptive Cards (C#)
+description: Learn to create Adaptive Cards in C# using builder helpers, enabling type-safe, maintainable UI development with IntelliSense support, visual designer integration, and end-to-end examples for interactive forms.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Building Adaptive Cards (C#)
@@ -260,4 +260,3 @@ private static AdaptiveCard CreateTaskFormCard()
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building! 🎉

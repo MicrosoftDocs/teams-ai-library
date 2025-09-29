@@ -1,8 +1,8 @@
 ---
 title: Getting Started (Python)
-description: Learn about Getting Started (Python)
+description: Getting started guide for Python Teams AI Library covering application setup, structure, and local development.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Getting Started (Python)

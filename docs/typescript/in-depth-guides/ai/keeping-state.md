@@ -1,6 +1,6 @@
 ---
 title: Keeping State (TypeScript)
-description: Learn about Keeping State (TypeScript)
+description: Guide to managing conversation state and history in TypeScript AI applications, including persistent storage options for conversation context.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

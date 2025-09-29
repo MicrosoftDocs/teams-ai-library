@@ -1,6 +1,6 @@
 ---
 title: Handling Multi-Step Forms (TypeScript)
-description: Learn about Handling Multi-Step Forms (TypeScript)
+description: How to create complex multi-step dialog forms in TypeScript with dynamic flow control based on user input and previous answers.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Graph Client (TypeScript)
-description: Learn about Microsoft Graph Client (TypeScript)
+description: Access Microsoft Graph APIs in TypeScript with type-safe client and manage user consent for permissions.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

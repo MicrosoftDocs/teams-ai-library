@@ -1,6 +1,6 @@
 ---
 title: Teams API Client (C#)
-description: Learn about Teams API Client (C#)
+description: Guide to using the Teams API Client in C#, covering conversation management, meeting access, and team/channel operations through the app.Api object, with examples of both handler-based and proactive API usage.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

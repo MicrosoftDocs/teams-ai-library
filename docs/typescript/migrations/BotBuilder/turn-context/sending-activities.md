@@ -1,8 +1,8 @@
 ---
 title: Sending Activities (TypeScript)
-description: Learn about Sending Activities (TypeScript)
+description: Migrate from BotBuilder's TurnContext activity sending to Teams AI's simplified send method with better Adaptive Card support in Teams TypeScript apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Sending Activities (TypeScript)

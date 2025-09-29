@@ -1,8 +1,8 @@
 ---
 title: Proactive Activities (TypeScript)
-description: Learn about Proactive Activities (TypeScript)
+description: Migrate from BotBuilder's complex conversation reference handling to Teams AI's simple conversation ID-based proactive messaging in Teams TypeScript apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Proactive Activities (TypeScript)

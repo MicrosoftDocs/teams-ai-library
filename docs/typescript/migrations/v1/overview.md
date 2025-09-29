@@ -1,8 +1,8 @@
 ---
 title: Migrating from Teams AI v1 (TypeScript)
-description: Learn about Migrating from Teams AI v1 (TypeScript)
+description: TypeScript migration guide from Teams AI v1 to v2 highlighting the key changes and upgrade steps.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Migrating from Teams AI v1 (TypeScript)

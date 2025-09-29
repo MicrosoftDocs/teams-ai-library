@@ -1,8 +1,8 @@
 ---
 title: App Setup (Python)
-description: Learn about App Setup (Python)
+description: Guide to configuring user authentication in Python Teams AI applications, including OAuth setup and secure API access.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # App Setup (Python)

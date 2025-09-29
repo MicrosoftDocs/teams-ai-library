@@ -1,6 +1,6 @@
 ---
 title: Dialogs (Task Modules) (TypeScript)
-description: Learn about Dialogs (Task Modules) (TypeScript)
+description: Overview of dialogs (task modules) in Teams TypeScript apps for creating pop-up windows that improve user interactions and data collection.
 ms.topic: overview
 ms.date: 09/18/2025
 ---

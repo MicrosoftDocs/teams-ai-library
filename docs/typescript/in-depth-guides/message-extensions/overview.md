@@ -1,8 +1,8 @@
 ---
 title: Message Extensions (TypeScript)
-description: Learn about Message Extensions (TypeScript)
+description: Overview of message extensions (compose extensions) for enhancing user productivity with quick access to information and actions within Teams TypeScript apps.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Message Extensions (TypeScript)

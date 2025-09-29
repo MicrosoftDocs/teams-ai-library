@@ -1,6 +1,6 @@
 ---
 title: Getting started (TypeScript)
-description: Learn about Getting started (TypeScript)
+description: Set up new TypeScript tab app projects or add Teams client capabilities to existing tab applications.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

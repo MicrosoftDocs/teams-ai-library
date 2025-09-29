@@ -1,8 +1,8 @@
 ---
 title: Message Extensions (Python)
-description: Learn about Message Extensions (Python)
+description: Overview of message extensions in Python Teams AI for enhancing productivity with custom actions and search in Teams messages.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Message Extensions (Python)

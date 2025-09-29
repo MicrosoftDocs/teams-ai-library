@@ -1,6 +1,6 @@
 ---
 title: The API Client (TypeScript)
-description: Learn about The API Client (TypeScript)
+description: Replace BotBuilder's static TeamsInfo class with Teams AI's injected ApiClient for cleaner API interactions in Teams TypeScript apps.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

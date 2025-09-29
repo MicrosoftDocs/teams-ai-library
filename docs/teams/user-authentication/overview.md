@@ -1,8 +1,8 @@
 ---
 title: User Authentication in Teams
-description: Learn about User Authentication in Teams
+description: Overview of user authentication in Teams AI applications, including OAuth, SSO, and secure resource access.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # User Authentication

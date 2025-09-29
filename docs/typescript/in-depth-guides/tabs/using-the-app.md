@@ -1,8 +1,8 @@
 ---
 title: Using The App (TypeScript)
-description: Learn about Using The App (TypeScript)
+description: Initialize and use the Teams client App to call Graph APIs and remote agent functions in TypeScript.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Using The App (TypeScript)

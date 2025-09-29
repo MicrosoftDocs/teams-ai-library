@@ -1,8 +1,8 @@
 ---
 title: Executing Actions (C#)
-description: Learn about Executing Actions (C#)
+description: Guide to implementing interactive elements in Adaptive Cards using C#, covering action types (Execute, Submit, OpenUrl), input validation, data association, and server-side handling of card actions.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Executing Actions (C#)

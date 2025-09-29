@@ -1,8 +1,8 @@
 ---
 title: Essentials (Python)
-description: Learn about Essentials (Python)
+description: Introduction to core concepts and paradigms for building Python Teams AI applications that handle events and activities.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Essentials (Python)

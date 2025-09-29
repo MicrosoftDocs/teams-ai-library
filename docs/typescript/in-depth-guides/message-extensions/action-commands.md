@@ -1,8 +1,8 @@
 ---
 title: Action commands (TypeScript)
-description: Learn about Action commands (TypeScript)
+description: How to implement action commands in message extensions to present users with modal dialogs for collecting and processing information in Teams TypeScript apps.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Action commands (TypeScript)

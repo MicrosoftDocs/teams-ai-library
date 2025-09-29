@@ -1,8 +1,8 @@
 ---
 title: Message Extensions (C#)
-description: Learn about Message Extensions (C#)
+description: Overview of message extensions in C# Teams AI for enhancing productivity with custom actions and search in Teams messages.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Message Extensions (C#)

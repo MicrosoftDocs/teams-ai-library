@@ -1,6 +1,6 @@
 ---
 title: Proactive Messaging (C#)
-description: Learn about Proactive Messaging (C#)
+description: Guide to implementing proactive messaging in C# Teams applications, demonstrating how to store conversation IDs and send messages to users without requiring a trigger message, useful for notifications and reminders.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

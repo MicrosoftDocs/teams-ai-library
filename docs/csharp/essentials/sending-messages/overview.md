@@ -1,6 +1,6 @@
 ---
 title: Sending Messages (C#)
-description: Learn about Sending Messages (C#)
+description: Comprehensive guide to sending messages in Teams using C#, covering basic text messages, streaming for long-form content, and @mentions, with examples in both controller and minimal API styles.
 ms.topic: overview
 ms.date: 09/18/2025
 ---

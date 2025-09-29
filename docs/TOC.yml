@@ -70,7 +70,11 @@
           href: typescript/essentials/on-event.md
         - name: Teams API Client
           href: typescript/essentials/api.md
-        - name: Graph
+        - name: Hosting Web Apps
+          href: typescript/essentials/hosting-web-apps.md
+        - name: Handling Functions
+          href: typescript/essentials/handling-functions.md
+        - name: Graph API Client
           href: typescript/essentials/graph.md
         - name: Sending Messages
           items:
@@ -224,20 +228,24 @@
           href: csharp/essentials/overview.md
         - name: App Basics
           href: csharp/essentials/app-basics.md
-        - name: On Activity
-          href: csharp/essentials/on-activity/overview.md
-        - name: On Event
+        - name: Listening to Events
           href: csharp/essentials/on-event.md
-        - name: API
-          href: csharp/essentials/api.md
-        - name: Graph
-          href: csharp/essentials/graph.md
+        - name: Listening to Activities
+          href: csharp/essentials/on-activity/overview.md
         - name: Sending Messages
           items:
             - name: Overview
               href: csharp/essentials/sending-messages/overview.md
             - name: Proactive Messaging
               href: csharp/essentials/sending-messages/proactive-messaging.md
+        - name: Teams API Client
+          href: csharp/essentials/api.md
+        - name: Hosting Web Apps
+          href: csharp/essentials/hosting-web-apps.md
+        - name: Handling Functions
+          href: csharp/essentials/handling-functions.md
+        - name: Graph API Client
+          href: csharp/essentials/graph.md
     - name: In-Depth Guides
       items:
         - name: Overview
@@ -295,23 +303,9 @@
             - name: Link Unfurling
               href: csharp/in-depth-guides/message-extensions/link-unfurling.md
         - name: Tabs
-          items:
-            - name: Overview
-              href: csharp/in-depth-guides/tabs/overview.md
-            - name: Getting Started
-              href: csharp/in-depth-guides/tabs/getting-started.md
-            - name: Using the App
-              href: csharp/in-depth-guides/tabs/using-the-app.md
-            - name: App Options
-              href: csharp/in-depth-guides/tabs/app-options.md
-            - name: Function Calling
-              href: csharp/in-depth-guides/tabs/function-calling.md
-            - name: Graph
-              href: csharp/in-depth-guides/tabs/graph.md
+          href: csharp/in-depth-guides/tabs/overview.md
         - name: User Authentication
-          items:
-            - name: Overview
-              href: csharp/in-depth-guides/user-authentication/overview.md
+          href: csharp/in-depth-guides/user-authentication/overview.md
         - name: Feedback
           href: csharp/in-depth-guides/feedback.md
         - name: Observability
@@ -444,6 +438,8 @@
       href: /javascript/api/teams-sdk-typescript
     - name: .NET SDK
       href: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
+    - name: Python SDK (preview)
+      href: /python/api/microsoft-teams-ai/microsoft.teams.ai
 - name: Resources
   items:
     - name: Teams Developer Documentation

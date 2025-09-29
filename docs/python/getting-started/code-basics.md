@@ -1,8 +1,8 @@
 ---
 title: Code Basics (Python)
-description: Learn about Code Basics (Python)
+description: Understanding the structure and key components of a Python Teams AI application including the Application class, dependency injection, and project organization.
 ms.topic: get-started
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Code Basics (Python)

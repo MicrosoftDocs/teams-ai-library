@@ -1,8 +1,8 @@
 ---
 title: Middleware (TypeScript)
-description: Learn about Middleware (TypeScript)
+description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method in TypeScript.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Middleware (TypeScript)

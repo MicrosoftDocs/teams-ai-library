@@ -1,8 +1,8 @@
 ---
 title: Teams API Client (Python)
-description: Learn about Teams API Client (Python)
+description: Guide to using the Teams API Client in Python, covering conversation management, meeting access, and team/channel operations through the app.Api object, with examples of both handler-based and proactive API usage.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Teams API Client (Python)

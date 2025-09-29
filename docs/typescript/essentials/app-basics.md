@@ -1,8 +1,8 @@
 ---
 title: App Basics (TypeScript)
-description: Learn about App Basics (TypeScript)
+description: Comprehensive guide to the App class, the main entry point for Teams AI agents that handles server hosting, request routing, authentication, and plugin management.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # App Basics (TypeScript)

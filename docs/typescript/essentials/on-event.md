@@ -1,8 +1,8 @@
 ---
 title: Listening To Events (TypeScript)
-description: Learn about Listening To Events (TypeScript)
+description: Understanding how to listen to and handle events in Teams AI applications, including user actions and application server events.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Listening To Events (TypeScript)

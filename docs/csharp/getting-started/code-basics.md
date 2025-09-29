@@ -1,13 +1,13 @@
 ---
 title: Code Basics (C#)
-description: Learn about Code Basics (C#)
+description: Understanding the structure and key components of a C# Teams AI application including the Application class, dependency injection, and project organization.
 ms.topic: get-started
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
-# Code Basics (C#)
+# Code Basics
 
-After creating your first Teams application, let's understand its structure and key components. This will help you build more complex applications as you progress.
+After following the guidance in the quickstart to create your first Teams application, let's review its structure and key components. This knowledge can help you build more complex applications as you progress.
 
 ## Project Structure
 
@@ -29,7 +29,7 @@ Let's break down the simple application we created in the [quickstart](quickstar
 
 ### The App Class
 
-The heart of your application is the `App` class. This class handles all incoming activities and manages your application's lifecycle. It also acts as a way to host your application service.
+The heart of an application is the `App` class. This class handles all incoming activities and manages the application's lifecycle. It also acts as a way to host your application service.
 
 
 ```csharp title="Program.cs"
@@ -49,7 +49,7 @@ app.Run();
 ```
 
 
-The app configuration includes a variety of options that allow you to customize its behavior, including controlling the underlying server, authentication, and other settings. For simplicity, let's focus on plugins.
+The app configuration includes a variety of options that allow you to customize its behavior, including controlling the underlying server, authentication, and other settings.
 
 ### Plugins
 
@@ -112,7 +112,7 @@ app.Run();
 ```
 
 
-This part initializes your application server and, when configured for Teams, also authenticates it to be ready for sending and receiving messages.
+This code initializes your application server and, when configured for Teams, also authenticates it to be ready for sending and receiving messages.
 
 ## Next Steps
 

@@ -1,8 +1,8 @@
 ---
 title: Custom Logger (TypeScript)
-description: Learn about Custom Logger (TypeScript)
+description: Configure custom loggers in your Teams TypeScript app to control log levels and output destinations.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # Custom Logger (TypeScript)

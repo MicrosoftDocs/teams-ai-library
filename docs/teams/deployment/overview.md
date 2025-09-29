@@ -1,8 +1,8 @@
 ---
 title: Deployment
-description: Learn about Deployment
+description: Learn how to deploy the Azure Bot Service resource required for Teams bot apps
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/26/2025
 ---
 
 # Deployment

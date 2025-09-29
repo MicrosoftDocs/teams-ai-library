@@ -1,8 +1,8 @@
 ---
 title: User Authentication (TypeScript)
-description: Learn about User Authentication (TypeScript)
+description: API guide in TypeScript to implement User Authentication with SSO in Teams Apps.
 ms.topic: overview
-ms.date: 09/18/2025
+ms.date: 09/29/2025
 ---
 
 # User Authentication (TypeScript)

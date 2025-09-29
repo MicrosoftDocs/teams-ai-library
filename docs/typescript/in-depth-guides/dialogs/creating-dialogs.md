@@ -1,6 +1,6 @@
 ---
 title: Creating Dialogs (TypeScript)
-description: Learn about Creating Dialogs (TypeScript)
+description: Step-by-step guide to creating dialogs in Teams TypeScript apps using Adaptive Cards for interactive user experiences and data collection.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

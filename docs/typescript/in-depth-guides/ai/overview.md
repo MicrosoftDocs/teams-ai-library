@@ -1,6 +1,6 @@
 ---
 title: AI (TypeScript)
-description: Learn about AI (TypeScript)
+description: Overview of AI components in Teams AI library for TypeScript, including Prompts for orchestration and Models for LLM interfaces.
 ms.topic: overview
 ms.date: 09/18/2025
 ---

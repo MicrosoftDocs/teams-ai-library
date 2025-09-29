@@ -1,6 +1,6 @@
 ---
 title: Turn Context (TypeScript)
-description: Learn about Turn Context (TypeScript)
+description: Understand how Teams AI's IActivityContext replaces BotBuilder's TurnContext for handling incoming data and APIs in Teams TypeScript apps.
 ms.topic: overview
 ms.date: 09/18/2025
 ---
