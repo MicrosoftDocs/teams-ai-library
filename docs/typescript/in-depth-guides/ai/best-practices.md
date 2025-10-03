@@ -17,7 +17,7 @@ When sending messages using AI, Teams recommends including an indicator that the
 const messageToBeSent = new Message().addAiGenerated().text('Hello!');
 ```
 
-![AI Generated Indicator](~/assets/screenshots/ai-generated.gif)
+:::image type="content" source="..\..\..\assets\screenshots\ai-generated.gif" alt-text="Screenshot of outgoing agent message to user marked with `AI generated` badge." lightbox="..\..\..\assets\screenshots\ai-generated.gif":::
 
 ## Gather feedback to improve prompts
 
@@ -45,4 +45,4 @@ for (let i = 0; i < citedDocs.length; i++) {
 }
 ```
 
-![AI Generated Indicator](~/assets/screenshots/citation.gif)
+:::image type="content" source="..\..\..\assets\screenshots\citation.gif" alt-text="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text." lightbox="..\..\..\assets\screenshots\citation.gif":::

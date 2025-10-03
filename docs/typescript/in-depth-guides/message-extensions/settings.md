@@ -11,11 +11,11 @@ You can add a settings page that allows users to configure settings for your app
 
 The user can access the settings by right-clicking the app item in the compose box.
 
-:::image type="content" source="~/assets/screenshots/settings.png" alt-text="Settings control":::
+:::image type="content" source="~/assets/screenshots/settings.png" alt-text="Screenshot showing the Settings option for a selected message extension from the 'Search for actions and apps' menu in Teams." lightbox="~/assets/screenshots/settings.png":::
 
 This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
-![Settings Page](~/assets/screenshots/settings-page.png)
+:::image type="content" source="~/assets/screenshots/settings-page.png" alt-text="Screenshot showing a simple custom settings page for a message extension." lightbox="~/assets/screenshots/settings-page.png":::
 
 ## 1. Update the Teams Manifest
 
