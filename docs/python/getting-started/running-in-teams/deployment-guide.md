@@ -33,7 +33,7 @@ def create_token_factory():
 
 app = App(
     token=create_token_factory(),
-    plugins=[DevtoolsPlugin()]
+    plugins=[DevToolsPlugin()]
 )
 ```
 The `create_token_factory` function provides a method to retrieve access tokens from Azure on demand, and `token_credentials` passes this method to the app.  
