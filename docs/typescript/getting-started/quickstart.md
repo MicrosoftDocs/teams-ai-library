@@ -99,7 +99,7 @@ When the application starts, you'll see:
 
 Now, navigate to the devtools server by opening your browser and navigating to [http://localhost:3978/devtools](http://localhost:3978/devtools). You should see a simple interface where you can interact with your agent. Try sending it a message!
 
-![devtools](~/assets/screenshots/devtools-echo-chat.png)
+:::image type="content" source="..\..\assets\screenshots\devtools-echo-chat.png" alt-text="Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'." lightbox="..\..\assets\screenshots\devtools-echo-chat.png":::
 
 ## Next steps
 

@@ -82,4 +82,4 @@ export const handleStatefulConversation = async (
 };
 ```
 
-![Stateful Chat Example](~/assets/screenshots/stateful-chat-example.png)
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Screenshot of chat between user and agent, user first states 'My dinosaur's name is Barnie' and later asks 'What's my pet's name' and the agent responds correctly with 'Barnie'.":::
