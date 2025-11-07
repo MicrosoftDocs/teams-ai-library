@@ -1,6 +1,6 @@
 ---
 title: Sending Messages (TypeScript)
-description: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
+description: Guide to sending messages from your TypeScript Teams SDK agent, including replies, proactive messages, and different message types.
 ms.topic: overview
 ms.date: 09/29/2025
 ---
