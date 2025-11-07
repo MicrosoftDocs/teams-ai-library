@@ -12,7 +12,7 @@ ms.date: 09/29/2025
 The library gives your application easy access to the Microsoft Graph API via the `@microsoft/teams.graph`, `@microsoft/teams.graph-endpoints` and `@microsoft/teams.graph-endpoints-beta` packages.
 
 > [!NOTE]
-> If you're migrating from an earlier preview version of the Teams AI v2 library, please see the [migration guide](../migrations/preview/overview.md) for details on breaking changes.
+> If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/preview/overview.md) for details on breaking changes.
 
 ## Package overview
 The Graph API surface is vast, and this is reflected in the size of the endpoints packages. To help you manage the size of your product, we made sure that the endpoints code is tree-shakable. We also made most of the code into an optional dependency, in case tree-shaking is not supported in your environment.

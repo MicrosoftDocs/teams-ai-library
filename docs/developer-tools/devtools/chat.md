@@ -16,7 +16,7 @@ Use the lightweight DevTools app that allows you to test chat functionality with
 
 ## Using DevTools
 
-Use the Teams AI v2 dev package as a plugin.
+Use the Teams SDK dev package as a plugin.
 
 ### Installation
 

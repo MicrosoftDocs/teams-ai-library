@@ -9,9 +9,9 @@ ms.date: 09/29/2025
 
 Welcome, fellow agent developer! You've made it through a full major release of Teams AI, and now you want to take the plunge into v2. In this guide, we'll walk you through everything you need to know, from migrating core features like message handlers and auth, to optional AI features like `ActionPlanner`. We'll also discuss how you can migrate features over incrementally via the [botbuilder adapter](../BotBuilder/overview.md).
 
-## Installing Teams AI v2
+## Installing Teams SDK (Teams AI Library)
 
-First, let's install Teams AI v2 into your project. Notably, this won't replace any existing installation of Teams AI v1. When you've completed your migration, you can safely remove the `@microsoft/teams-ai` dependency from your `package.json` file.
+First, let's install Teams SDK into your project. Notably, this won't replace any existing installation of Teams AI v1. When you've completed your migration, you can safely remove the `@microsoft/teams-ai` dependency from your `package.json` file.
 
 ```sh
 npm install @microsoft/teams.apps
@@ -23,7 +23,7 @@ First, migrate your `Application` class from v1 to the new `App` class.
 
 <table>
 <tr>
-<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams AI v2</strong> </td>
+<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams SDK</strong> </td>
 </tr>
 <tr>
 <td>
@@ -130,7 +130,7 @@ Both Teams AI v1 and v2 are built atop incoming `Activity` requests, which trigg
 
 <table>
 <tr>
-<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams AI v2</strong> </td>
+<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams SDK (Teams AI v2)</strong> </td>
 </tr>
 <tr>
 <td>
@@ -179,7 +179,7 @@ app.on('message', async (client) => {
 
 <table>
 <tr>
-<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams AI v2</strong> </td>
+<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams SDK (Teams AI v2)</strong> </td>
 </tr>
 <tr>
 <td>
@@ -247,11 +247,11 @@ Learn more [here](../../in-depth-guides/dialogs/overview.md).
 
 ## Adaptive cards
 
-In Teams AI v2, cards have much more rich type validation than existed in v1. However, assuming your cards were valid, it should be easy to migrate to v2.
+In Teams SDK, cards have much more rich type validation than existed in v1. However, assuming your cards were valid, it should be easy to migrate to v2.
 
 <table>
 <tr>
-<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams AI v2 (Option 1)</strong> </td> <td> <strong>Teams AI v2 (Option 2)</strong> </td>
+<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams SDK (Option 1)</strong> </td> <td> <strong>Teams SDK (Option 2)</strong> </td>
 </tr>
 <tr>
 <td>
@@ -283,7 +283,7 @@ app.message("/card", async (context: TurnContext) => {
 </td>
 <td>
 
-For existing cards like this, the simplest way to convert that to Teams AI v2 is this:
+For existing cards like this, the simplest way to convert that to Teams SDK is this:
 
 ```ts
 app.message("/card", async (client) => {
@@ -339,7 +339,7 @@ Most agents feature authentication for user identification, interacting with API
 
 <table>
 <tr>
-<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams AI v2</strong> </td>
+<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams SDK (Teams AI v2)</strong> </td>
 </tr>
 <tr>
 <td>
@@ -492,11 +492,11 @@ app.event('signin', async (client) => {
 
 ### Action planner
 
-When we created Teams AI v1, LLM's didn't natively support tool calling or orchestration. A lot has changed since then, which is why we decided to deprecate `ActionPlanner` from Teams AI v1, and replace it with something a bit more lightweight. Notably, Teams AI v1 had two similar concepts: functions and actions. In Teams AI v2, these are consolidated into functions.
+When we created Teams AI v1, LLM's didn't natively support tool calling or orchestration. A lot has changed since then, which is why we decided to deprecate `ActionPlanner` from Teams AI v1, and replace it with something a bit more lightweight. Notably, Teams AI v1 had two similar concepts: functions and actions. In Teams SDK (Teams AI v2), these are consolidated into functions.
 
 <table>
 <tr>
-<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams AI v2</strong> </td>
+<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams SDK (Teams AI v2)</strong> </td>
 </tr>
 <tr>
 <td>
@@ -604,7 +604,7 @@ And the corresponding `actions.json` file:
 </td>
 <td>
 
-In Teams AI v2, there is no `actions.json` file. Instead, function prompts, parameters, etc. are declared in your code.
+In Teams SDK, there is no `actions.json` file. Instead, function prompts, parameters, etc. are declared in your code.
 
 ```ts
 import '@azure/openai/types';
@@ -692,7 +692,7 @@ If you supported feedback for AI generated messages, migrating is simple.
 
 <table>
 <tr>
-<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams AI v2</strong> </td>
+<td> <strong>Teams AI v1</strong> </td> <td> <strong>Teams SDK (Teams AI v2)</strong> </td>
 </tr>
 <tr>
 <td>
@@ -745,17 +745,17 @@ app.on('message.submit.feedback', async ({ activity, log }) => {
 });
 ```
 
-*Note:* In Teams AI v2, you do not need to opt into feedback at the `App` level.
+*Note:* In Teams SDK, you do not need to opt into feedback at the `App` level.
 
 </td>
 </tr>
 </table>
 
-You can learn more about feedback in Teams AI v2 [here](../../in-depth-guides/feedback.md).
+You can learn more about feedback in Teams SDK [here](../../in-depth-guides/feedback.md).
 
 ## Incrementally migrating code via botbuilder plugin
 
 > [!NOTE]
 > Comparison code coming soon!
 
-If you aren't ready to migrate all of your code, you can run your existing Teams AI v1 code in parallel with Teams AI v2. Learn more [here](../BotBuilder/adapters.md).
+If you aren't ready to migrate all of your code, you can run your existing Teams AI v1 code in parallel with Teams SDK. Learn more [here](../BotBuilder/adapters.md).

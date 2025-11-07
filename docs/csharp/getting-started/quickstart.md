@@ -1,13 +1,13 @@
 ---
 title: Quickstart (C#)
-description: Quick start guide for C# Teams AI Library using the Teams CLI to create and run your first .NET agent.
+description: Quick start guide for C# Teams SDK using the Teams CLI to create and run your first .NET agent.
 ms.topic: quickstart
 ms.date: 09/26/2025
 ---
 
 # Quickstart (C#)
 
-Get started with Teams AI Library (v2) quickly using the Teams CLI.
+Get started with Teams SDK quickly using the Teams CLI.
 
 ## Set up a new project
 

@@ -1,6 +1,6 @@
 ---
 title: In-Depth Guides (Python)
-description: Detailed technical guides covering advanced features and capabilities of Teams AI Library in Python, including AI integration, adaptive cards, dialogs, authentication, and message extensions.
+description: Detailed technical guides covering advanced features and capabilities of Teams SDK in Python, including AI integration, adaptive cards, dialogs, authentication, and message extensions.
 ms.topic: overview
 ms.date: 09/29/2025
 ---
