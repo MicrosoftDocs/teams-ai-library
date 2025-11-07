@@ -1,6 +1,6 @@
 ---
 title: Essentials (C#)
-description: Introduction to core concepts and paradigms for building C# Teams AI applications that handle events and activities.
+description: Introduction to core concepts and paradigms for building C# Teams SDK applications that handle events and activities.
 ms.topic: overview
 ms.date: 09/18/2025
 ---

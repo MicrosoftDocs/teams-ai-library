@@ -69,7 +69,7 @@ When debugging starts, the Agents Toolkit will:
 - **Launch Teams** in an incognito window in your browser.
 - **Upload the package** to Teams and signal it to sideload (install) the app just for your use.
 
-If you set up Agents Toolkit via the Teams AI CLI, you should see something like the following in your terminal:
+If you set up Agents Toolkit via the Teams SDK CLI, you should see something like the following in your terminal:
 
 
 ```sh

@@ -1,6 +1,6 @@
 ---
 title: Setup & Prerequisites (C#)
-description: Prerequisites and setup guide for integrating LLMs into C# Teams AI applications, including API keys and configuration.
+description: Prerequisites and setup guide for integrating LLMs into C# Teams SDK applications, including API keys and configuration.
 ms.topic: how-to
 ms.date: 09/26/2025
 ---

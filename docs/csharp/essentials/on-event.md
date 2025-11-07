@@ -1,6 +1,6 @@
 ---
 title: Listening To Events (C#)
-description: Guide to handling and responding to events in C# Teams AI applications, including user and server-originated events.
+description: Guide to handling and responding to events in C# Teams SDK applications, including user and server-originated events.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

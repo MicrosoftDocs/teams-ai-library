@@ -1,6 +1,6 @@
 ---
 title: Code Basics (C#)
-description: Understanding the structure and key components of a C# Teams AI application including the Application class, dependency injection, and project organization.
+description: Understanding the structure and key components of a C# Teams SDK application including the Application class, dependency injection, and project organization.
 ms.topic: get-started
 ms.date: 09/26/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: MCP (C#)
-description: Overview of Model Context Protocol (MCP) integration in C# Teams AI for dynamic function and tool loading.
+description: Overview of Model Context Protocol (MCP) integration in C# Teams SDK for dynamic function and tool loading.
 ms.topic: overview
 ms.date: 09/26/2025
 ---

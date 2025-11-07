@@ -1,6 +1,6 @@
 ---
 title: Feedback (TypeScript)
-description: How to implement user feedback collection in Teams AI applications using specialized UI components and feedback storage.
+description: How to implement user feedback collection in Teams SDK applications using specialized UI components and feedback storage.
 ms.topic: how-to
 ms.date: 09/29/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: Essentials (Python)
-description: Introduction to core concepts and paradigms for building Python Teams AI applications that handle events and activities.
+description: Introduction to core concepts and paradigms for building Python Teams SDK applications that handle events and activities.
 ms.topic: overview
 ms.date: 09/29/2025
 ---

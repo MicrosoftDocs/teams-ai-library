@@ -1,6 +1,6 @@
 ---
 title: Code Basics (TypeScript)
-description: Understanding the structure and key components of a Teams AI application including the App class, plugins, and project organization.
+description: Understanding the structure and key components of a Teams SDK application including the App class, plugins, and project organization.
 ms.topic: get-started
 ms.date: 09/29/2025
 ---

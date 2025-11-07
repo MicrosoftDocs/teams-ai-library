@@ -1,6 +1,6 @@
 ---
 title: Hosting Web Apps (C#)
-description: Guide to hosting web apps in C# Teams AI applications.
+description: Guide to hosting web apps in C# Teams SDK applications.
 ms.topic: how-to
 ms.date: 09/26/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: Essentials (TypeScript)
-description: Introduction to the core concepts of Teams AI applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
+description: Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
 ms.topic: overview
 ms.date: 09/29/2025
 ---

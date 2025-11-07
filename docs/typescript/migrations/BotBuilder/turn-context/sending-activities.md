@@ -1,6 +1,6 @@
 ---
 title: Sending Activities (TypeScript)
-description: Migrate from BotBuilder's TurnContext activity sending to Teams AI's simplified send method with better Adaptive Card support in Teams TypeScript apps.
+description: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support in Teams TypeScript apps.
 ms.topic: how-to
 ms.date: 09/29/2025
 ---
@@ -8,7 +8,7 @@ ms.date: 09/29/2025
 # Sending Activities (TypeScript)
 
 BotBuilders pattern for sending activities via its `TurnContext` is similar to that
-in Teams AI, but one key difference is that when sending adaptive cards you don't need
+in Teams SDK, but one key difference is that when sending adaptive cards you don't need
 to construct the entire activity yourself.
 
 # [BotBuilder](#tab/botbuilder)
@@ -26,7 +26,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams SDK](#tab/teams-ai)
 ```typescript
 app.on('message', async ({ send }) => {
   // highlight-next-line
@@ -53,7 +53,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams SDK](#tab/teams-ai)
 ```typescript
 app.on('message', async ({ send }) => {
   // highlight-next-line
@@ -94,7 +94,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams SDK](#tab/teams-ai)
 ```typescript
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -129,7 +129,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams SDK](#tab/teams-ai)
 ```typescript
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 

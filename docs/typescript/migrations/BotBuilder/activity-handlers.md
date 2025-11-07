@@ -10,14 +10,14 @@ ms.date: 09/29/2025
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A BotBuilder `ActivityHandler` is similar to the activity routing of the Teams AI `App`.
+A BotBuilder `ActivityHandler` is similar to the activity routing of the Teams SDK `App`.
 The `BotBuilderPlugin` accepts a botbuilder Activity Handler instance so you can keep using your
-existing activity handlers while migrating however many you want to new Teams AI handlers. This allows for
+existing activity handlers while migrating however many you want to new Teams SDK handlers. This allows for
 a more incremental migration strategy.
 
 > [!NOTE]
 > this snippet shows how to use the `BotBuilderPlugin` to route activities using
-> botbuilder alongside the default Teams AI activity routing.
+> botbuilder alongside the default Teams SDK activity routing.
 
 # [index.ts](#tab/indexts)
 ```typescript

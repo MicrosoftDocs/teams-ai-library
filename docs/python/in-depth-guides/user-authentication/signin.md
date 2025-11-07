@@ -1,6 +1,6 @@
 ---
 title: Signing In (Python)
-description: How to implement user sign-in with OAuth in Teams AI Python applications using the built-in signin method.
+description: How to implement user sign-in with OAuth in Teams SDK Python applications using the built-in signin method.
 ms.topic: how-to
 ms.date: 09/29/2025
 ---

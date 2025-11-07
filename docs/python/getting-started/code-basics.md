@@ -1,6 +1,6 @@
 ---
 title: Code Basics (Python)
-description: Understanding the structure and key components of a Python Teams AI application including the Application class, dependency injection, and project organization.
+description: Understanding the structure and key components of a Python Teams SDK application including the Application class, dependency injection, and project organization.
 ms.topic: get-started
 ms.date: 09/29/2025
 ---
