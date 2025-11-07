@@ -1,6 +1,6 @@
 ---
 title: Adaptive Cards (TypeScript)
-description: Introduction to Adaptive Cards in Teams AI applications for creating rich, interactive user experiences across various scenarios.
+description: Introduction to Adaptive Cards in Teams SDK applications for creating rich, interactive user experiences across various scenarios.
 ms.topic: overview
 ms.date: 09/29/2025
 ---

@@ -1,13 +1,13 @@
 ---
 title: The API Client (TypeScript)
-description: Replace BotBuilder's static TeamsInfo class with Teams AI's injected ApiClient for cleaner API interactions in Teams TypeScript apps.
+description: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions in Teams TypeScript apps.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
 # The API Client (TypeScript)
 
-BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams AI
+BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams SDK
 we pass an instance of our `ApiClient` into all our activity handlers.
 
 # [BotBuilder](#tab/botbuilder)
@@ -32,7 +32,7 @@ export class ActivityHandler extends TeamsActivityHandler {
 }
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams SDK](#tab/teams-ai)
 ```typescript
 import { App } from '@microsoft/teams.apps';
 

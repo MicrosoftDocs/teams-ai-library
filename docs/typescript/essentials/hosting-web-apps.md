@@ -1,6 +1,6 @@
 ---
 title: Hosting Web Apps (TypeScript)
-description: Guide to hosting web apps in TypeScript Teams AI applications.
+description: Guide to hosting web apps in TypeScript Teams SDK applications.
 ms.date: 09/29/2025
 ms.topic: how-to
 ---

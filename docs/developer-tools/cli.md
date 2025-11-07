@@ -11,8 +11,8 @@ The Teams CLI was created with the intent of supporting developers by making com
 
 | Feature | Description |
 |---------|-------------|
-| `new` | Create a new Teams AI v2 agent by choosing a template that will be ready to run with one command line. |
-| `config` | Add Microsoft 365 Agents Toolkit configuration files to your existing Teams AI v2 agent project. |
+| `new` | Create a new Teams SDK agent by choosing a template that will be ready to run with one command line. |
+| `config` | Add Microsoft 365 Agents Toolkit configuration files to your existing Teams SDK agent project. |
 | `environment` | Manage multiple environments (e.g. dev, prod) and their keys for your agent. |
 
 > [!TIP]

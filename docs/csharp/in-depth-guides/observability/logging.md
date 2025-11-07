@@ -1,6 +1,6 @@
 ---
 title: Custom Logger (C#)
-description: Guide to implementing custom logging in C# Teams AI applications using the ConsoleLogger and custom logger options.
+description: Guide to implementing custom logging in C# Teams SDK applications using the ConsoleLogger and custom logger options.
 ms.topic: how-to
 ms.date: 09/26/2025
 ---

@@ -1,6 +1,6 @@
 ---
 title: Dialogs (Task Modules) (Python)
-description: Overview of dialogs (task modules) in Python Teams AI for creating interactive pop-up windows and multi-step forms in Teams.
+description: Overview of dialogs (task modules) in Python Teams SDK for creating interactive pop-up windows and multi-step forms in Teams.
 ms.topic: overview
 ms.date: 09/29/2025
 ---

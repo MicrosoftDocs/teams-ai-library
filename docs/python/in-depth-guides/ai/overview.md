@@ -1,6 +1,6 @@
 ---
 title: AI (Python)
-description: Overview of AI components in Teams AI Library for Python, including Prompts for orchestration and Models for LLM interfaces.
+description: Overview of AI components in Teams SDK for Python, including Prompts for orchestration and Models for LLM interfaces.
 ms.topic: overview
 ms.date: 09/29/2025
 ---

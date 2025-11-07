@@ -1,13 +1,13 @@
 ---
 title: MCP (TypeScript)
-description: Overview of Model Context Protocol (MCP) integration in Teams AI Library for TypeScript for dynamic function and tool loading.
+description: Overview of Model Context Protocol (MCP) integration in Teams SDK for TypeScript for dynamic function and tool loading.
 ms.topic: overview
 ms.date: 09/18/2025
 ---
 
 # MCP (TypeScript)
 
-Teams AI Library has optional packages which support the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as a service or client. This allows you to use MCP to call functions and tools in your application. 
+Teams SDK has optional packages which support the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as a service or client. This allows you to use MCP to call functions and tools in your application. 
 
 MCP servers and MCP clients dynamically load function definitions and tools.
 

@@ -1,6 +1,6 @@
 ---
 title: App Basics (C#)
-description: Overview of the App class in C# Teams AI, covering server hosting, request routing, authentication, and plugin management.
+description: Overview of the App class in C# Teams SDK, covering server hosting, request routing, authentication, and plugin management.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---

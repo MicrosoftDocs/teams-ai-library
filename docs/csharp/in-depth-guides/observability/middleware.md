@@ -1,6 +1,6 @@
 ---
 title: Middleware (C#)
-description: Guide to using middleware in C# Teams AI for logging, validation, and extending app functionality.
+description: Guide to using middleware in C# Teams SDK for logging, validation, and extending app functionality.
 ms.topic: how-to
 ms.date: 09/26/2025
 ---

@@ -1,13 +1,13 @@
 ---
 title: Migration guide for user authentication (TypeScript)
-description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams AI's simple signin/signout methods in Teams TypeScript apps.
+description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods in Teams TypeScript apps.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
 
 # Migration guide for user authentication (TypeScript)
 
-BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams AI doesn't have any
+BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
 equivalent feature to dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
 
 # [BotBuilder](#tab/botbuilder)
@@ -145,7 +145,7 @@ server.post('/api/messages', async (req, res) => {
 });
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams SDK](#tab/teams-ai)
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common/logging';

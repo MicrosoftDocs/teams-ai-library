@@ -1,6 +1,6 @@
 ---
 title: Setup & Prerequisites (Python)
-description: Prerequisites and setup guide for integrating LLMs into Python Teams AI applications, including API keys and configuration.
+description: Prerequisites and setup guide for integrating LLMs into Python Teams SDK applications, including API keys and configuration.
 ms.topic: how-to
 ms.date: 09/29/2025
 ---

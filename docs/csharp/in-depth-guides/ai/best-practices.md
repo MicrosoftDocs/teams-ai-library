@@ -87,7 +87,7 @@ public class State
 
 ## Function Calling
 
-AI function calling allows your application to provide structured capabilities to the AI model. Here's how to implement functions using the modern Teams AI framework:
+AI function calling allows your application to provide structured capabilities to the AI model. Here's how to implement functions using the modern Teams SDK framework:
 
 ```csharp
 using Microsoft.Teams.AI.Annotations;
@@ -136,7 +136,7 @@ public class LightsPrompt(IContext.Accessor accessor)
 
 ## Application Setup
 
-Here's how to properly configure a Teams AI application using modern ASP.NET Core patterns:
+Here's how to properly configure a Teams SDK application using modern ASP.NET Core patterns:
 
 ```csharp
 using Microsoft.Teams.AI.Models.OpenAI.Extensions;
@@ -156,7 +156,7 @@ app.Run();
 
 ## Command Handling
 
-Teams AI applications often need to handle specific commands alongside general AI interactions. Here's how to implement command handling using the modern Teams framework:
+Teams SDK applications often need to handle specific commands alongside general AI interactions. Here's how to implement command handling using the modern Teams framework:
 
 ```csharp
 using System.Text.Json;
@@ -196,7 +196,7 @@ public class Controller(OpenAIChatPrompt _prompt)
 
 ## Citations
 
-AI generated messages can hallucinate even if messages are grounded in real data. To help with this, Teams recommends including citations in the AI Generated messages. When using the modern Teams AI framework, citations can be integrated through your prompt design and response formatting.
+AI generated messages can hallucinate even if messages are grounded in real data. To help with this, Teams recommends including citations in the AI Generated messages. When using the modern Teams SDK framework, citations can be integrated through your prompt design and response formatting.
 
 > [!WARNING]
 > Citations are added with a `position` property. This property value needs to also be included in the message text as `[<position>]`. If there is a citation that's added without the associated value in the message text, Teams will not render the citation
