@@ -1,6 +1,6 @@
 ---
 title: Middleware (Python)
-description: Guide to using middleware in Python Teams AI for logging, validation, and extending app functionality.
+description: Guide to using middleware in Python Teams SDK for logging, validation, and extending app functionality.
 ms.topic: how-to
 ms.date: 09/29/2025
 ---

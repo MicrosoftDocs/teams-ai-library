@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Teams AI Library
+title: Teams SDK (Teams AI Library)
 summary: Simplify the development of AI-driven bots for Microsoft Teams with our new SDK, which reduces boilerplate code and dependencies while providing native AI and Teams abstractions. Focus on building intelligent bots without the complexity of setup and configuration.
 
 metadata:
-  title: Teams AI Library
-  description: Developer documentation for the Teams AI Library, which simplifies the development of AI-driven bots for Microsoft Teams.
+  title: Teams SDK (Teams AI Library)
+  description: Developer documentation for the Teams SDK (Teams AI Library), which simplifies the development of AI-driven bots for Microsoft Teams.
   ms.service: msteams
   ms.topic: landing-page
   ms.date: 09/18/2025
@@ -14,7 +14,7 @@ metadata:
 
 landingContent:
   # Basics
-  - title: Learn the basics of Teams AI Library
+  - title: Learn the basics of Teams SDK
     linkLists:
       - linkListType: overview
         links:

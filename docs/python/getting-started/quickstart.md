@@ -1,13 +1,13 @@
 ---
 title: Quickstart (Python)
-description: Quick start guide for Python Teams AI Library v2 using the Teams CLI to create and run your first Python agent.
+description: Quick start guide for Python Teams SDK using the Teams CLI to create and run your first Python agent.
 ms.topic: quickstart
 ms.date: 09/29/2025
 ---
 
 # Quickstart (Python)
 
-Get started with Teams AI Library (v2) quickly using the Teams CLI.
+Get started with Teams SDK quickly using the Teams CLI.
 
 ## Set up a new project
 

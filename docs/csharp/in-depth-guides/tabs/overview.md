@@ -1,6 +1,6 @@
 ---
 title: Tabs (C#)
-description: Overview of Tabs in C# Teams AI.
+description: Overview of Tabs in C# Teams SDK.
 ms.topic: overview
 ms.date: 09/26/2025
 ---

@@ -1,13 +1,13 @@
 ---
 title: MCP (Python)
-description: Overview of Model Context Protocol (MCP) integration in Python Teams AI for dynamic function and tool loading.
+description: Overview of Model Context Protocol (MCP) integration in Python Teams SDK for dynamic function and tool loading.
 ms.topic: overview
 ms.date: 09/29/2025
 ---
 
 # MCP (Python)
 
-Teams AI Library has optional packages which support the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as a service or client. This allows you to use MCP to call functions and tools in your application. 
+Teams SDK has optional packages which support the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as a service or client. This allows you to use MCP to call functions and tools in your application. 
 
 MCP servers and MCP clients dynamically load function definitions and tools.
 

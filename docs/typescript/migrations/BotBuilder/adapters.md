@@ -1,19 +1,19 @@
 ---
 title: Adapters (TypeScript)
-description: How to migrate BotBuilder adapters to Teams AI Library v2 plugins for handling bot communication and middleware in Teams TypeScript apps.
+description: How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware in Teams TypeScript apps.
 ms.topic: how-to
 ms.date: 09/29/2025
 ---
 
 # Adapters (TypeScript)
 
-A BotBuilder `Adapter` is similar to a Teams AI `Plugin` in the sense that they are both
+A BotBuilder `Adapter` is similar to a Teams SDK `Plugin` in the sense that they are both
 an abstraction that is meant to send/receive activities. To make migrating stress free we have
 shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter instance.
 
 > [!NOTE]
 > this snippet shows how to use the `BotBuilderPlugin` to send/receive activities using
-> botbuilder instead of the default Teams AI http plugin.
+> botbuilder instead of the default Teams SDK http plugin.
 
 # [index.ts](#tab/indexts)
 ```typescript

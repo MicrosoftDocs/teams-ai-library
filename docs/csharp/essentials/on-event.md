@@ -1,6 +1,6 @@
 ---
 title: Listening To Events (C#)
-description: Guide to handling and responding to events in C# Teams AI applications, including user and server-originated events.
+description: Guide to handling and responding to events in C# Teams SDK applications, including user and server-originated events.
 ms.topic: how-to
 ms.date: 09/18/2025
 ---
@@ -11,7 +11,7 @@ An **event** is a foundational concept in building agents — it represents some
 
 ![alt-text for on-event-1.png](~/assets/diagrams/on-event-1.png)
 
-The Teams AI Library makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.
+The Teams SDK makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur — such as logging errors, triggering workflows, or sending follow-up messages.
 
 Here are the events that you can start building handlers for:
 

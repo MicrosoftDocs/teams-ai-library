@@ -1,13 +1,13 @@
 ---
 title: Proactive Activities (TypeScript)
-description: Migrate from BotBuilder's complex conversation reference handling to Teams AI's simple conversation ID-based proactive messaging in Teams TypeScript apps.
+description: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging in Teams TypeScript apps.
 ms.topic: how-to
 ms.date: 09/29/2025
 ---
 
 # Proactive Activities (TypeScript)
 
-The BotBuilder proactive message flow requires you to have a conversation reference stored somewhere. In Teams AI
+The BotBuilder proactive message flow requires you to have a conversation reference stored somewhere. In Teams SDK
 we expose a `send` method almost identical to the one passed into our activity handlers that accepts a `conversationId`,
 so all you need to store is that!
 
@@ -39,7 +39,7 @@ const adapter = new CloudAdapter(auth);
 // highlight-end
 ```
 
-# [Teams AI](#tab/teams-ai)
+# [Teams SDK](#tab/teams-ai)
 ```typescript
 import { App } from '@microsoft/teams.apps';
 

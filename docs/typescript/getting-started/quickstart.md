@@ -1,13 +1,13 @@
 ---
 title: Quickstart (TypeScript)
-description: Step-by-step guide to quickly get started with Teams AI Library for TypeScript using the Teams CLI to create your first agent.
+description: Step-by-step guide to quickly get started with Teams SDK for TypeScript using the Teams CLI to create your first agent.
 ms.topic: quickstart
 ms.date: 09/29/2025
 ---
 
 # Quickstart (TypeScript)
 
-Get started with Teams AI Library (v2) quickly using the Teams CLI.
+Get started with Teams SDK quickly using the Teams CLI.
 
 ## Set up a new project
 
