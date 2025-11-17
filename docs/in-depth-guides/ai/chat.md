@@ -333,4 +333,4 @@ app.on('message', async ({ stream, send, activity, next, log }) => {
 ::: zone-end
 
 
-![Animated image showing agent response text incrementally appearing in the chat window.](/screenshots/streaming-chat.gif)
+![Animated image showing agent response text incrementally appearing in the chat window.](~/assets/screenshots/streaming-chat.gif)

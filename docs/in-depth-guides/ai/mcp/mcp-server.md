@@ -193,11 +193,11 @@ const app = new App({
 ::: zone-end
 
 ::: zone pivot="python"
-![MCP Server in Devtools](/screenshots/mcp-inspector.gif)
+![MCP Server in Devtools](~/assets/screenshots/mcp-inspector.gif)
 ::: zone-end
 
 ::: zone pivot="typescript"
-![MCP Server in Devtools](/screenshots/mcp-devtools.gif)
+![MCP Server in Devtools](~/assets/screenshots/mcp-devtools.gif)
 ::: zone-end
 
 

@@ -20,7 +20,7 @@ Before you begin, ensure you have:
 
 When creating your Azure Bot Service, select `Single Tenant` for the `Type of App`.
 
-![Single Tenant Bot Creation](/screenshots/single-tenant-bot.png)
+![Single Tenant Bot Creation](~/assets/screenshots/single-tenant-bot.png)
 
 ### Step 2: Configure Federated Credentials
 
@@ -35,7 +35,7 @@ Assign managed identities to your App Registration using Federated Credentials.
 6. Choose the User Managed Identity or configure for System Assigned Identity
 7. Complete the required fields and click **Add**
 
-![Federated Identity Creds](/screenshots/fic.png)
+![Federated Identity Creds](~/assets/screenshots/fic.png)
 
 The identity you select here must also be assigned to the compute resource where your application is hosted.
 

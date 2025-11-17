@@ -18,11 +18,11 @@ There are three different areas action commands can be invoked from:
 
 ### Compose Area and Box
 
-![Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps).](/screenshots/compose-area.png)
+![Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps).](~/assets/screenshots/compose-area.png)
 
 ### Message action command
 
-![Screenshot of message extension response in Teams. By selecting the '...' button, a menu has opened with 'More actions' option in which they can select from a list of available message extension actions.](/screenshots/message.png)
+![Screenshot of message extension response in Teams. By selecting the '...' button, a menu has opened with 'More actions' option in which they can select from a list of available message extension actions.](~/assets/screenshots/message.png)
 
 > [!TIP]
 > See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
@@ -94,15 +94,15 @@ Here we have defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-![Screenshot of a message extension dialog with the editable fields 'Card title', 'Subtitle', and 'Text'.](/screenshots/parameters.png)
+![Screenshot of a message extension dialog with the editable fields 'Card title', 'Subtitle', and 'Text'.](~/assets/screenshots/parameters.png)
 
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`, etc.
 
-![Screenshot of the 'More actions' message extension menu expanded with 'Get Message Details' option selected.](/screenshots/message-command.png)
+![Screenshot of the 'More actions' message extension menu expanded with 'Get Message Details' option selected.](~/assets/screenshots/message-command.png)
 
 3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
-![Screenshot of the 'Fetch Conversation Members' option exposed from the message extension menu '...' option.](/screenshots/fetch-conversation-members.png)
+![Screenshot of the 'Fetch Conversation Members' option exposed from the message extension menu '...' option.](~/assets/screenshots/fetch-conversation-members.png)
 
 ## Handle submission
 
