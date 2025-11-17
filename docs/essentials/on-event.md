@@ -46,7 +46,7 @@ Here are the events that you can start building handlers for:
 | `activity_response` | Triggered when your app sends a response to an activity. Useful for logging.   |
 | `activity_sent`     | Triggered when an activity is sent (not necessarily in response).              |
 
-<br/>
+
 > [!NOTE]
 > Event handler registration uses `@app.event("<event_name>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
 ::: zone-end

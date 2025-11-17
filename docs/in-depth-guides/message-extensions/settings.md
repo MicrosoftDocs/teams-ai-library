@@ -197,7 +197,7 @@ app.tab('settings', path.resolve(__dirname));
 
 ::: zone pivot="csharp,typescript"
 > [!NOTE]
-> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs.md) to learn more.
+> This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/overview.md) to learn more.
 ::: zone-end
 
 ## 3. Specify the URL to the settings page

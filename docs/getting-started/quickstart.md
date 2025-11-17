@@ -25,9 +25,9 @@ Get started with Teams SDK quickly using the Teams CLI.
 
 import Admonition from '@theme/Admonition';
 
-<Admonition type="info">
-UV is a fast Python package installer and resolver. While you can use other package managers like pip, UV provides better performance and dependency resolution for Teams SDK projects.
-</Admonition>
+> [!INFO]
+> UV is a fast Python package installer and resolver. While you can use other package managers like pip, UV provides better performance and dependency resolution for Teams SDK projects.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -46,7 +46,8 @@ npx @microsoft/teams.cli --version
 ```
 
 > [!NOTE]
-> _The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+> _The [Teams CLI](../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process.
+> 
 > Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
 
 ## Creating Your First Agent
@@ -215,11 +216,11 @@ Now, navigate to the devtools server by opening your browser and navigating to [
 
 After creating and running your first agent, read about [the code basics](code-basics.md) to better understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](running-in-teams.md) guide.
+Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](./running-in-teams/overview.md) guide.
 
 ## Resources
 
-- [Teams CLI documentation](/developer-tools/cli)
-- [Teams DevTools documentation](/developer-tools/devtools)
+- [Teams CLI documentation](../developer-tools/cli.md)
+- [Teams DevTools documentation](../developer-tools/devtools/overview.md)
 - [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
 - [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
