@@ -53,4 +53,4 @@ Get your application up and running in under 30 seconds with our lightning-fast 
 
 We encourage you to use the left sidebar to navigate to your desired section.
 
-Can't find what you're searching for? Use the search button above.
+Can't find what you're searching for? Use the search box above the table of contents.
