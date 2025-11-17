@@ -22,28 +22,9 @@ The SDK gives your application easy access to the Microsoft Graph API via the `m
 The SDK gives your application easy access to the Microsoft Graph API via the `@microsoft/teams.graph`, `@microsoft/teams.graph-endpoints` and `@microsoft/teams.graph-endpoints-beta` packages.
 ::: zone-end
 
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
-::: zone-end
-
-::: zone pivot="python"
-<!-- Not applicable -->
-::: zone-end
-
 ::: zone pivot="typescript"
 > [!NOTE]
 > If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/v2-previews.md) for details on breaking changes.
-::: zone-end
-
-
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
-::: zone-end
-
-::: zone pivot="python"
-<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -70,23 +51,12 @@ npm install @microsoft/teams.graph-endpoints
 Microsoft Graph can be accessed by your application using its own application token, or by using the user's token. If you need access to resources that your application may not have, but your user does, you will need to use the user's scoped graph client. To grant explicit consent for your application to access resources on behalf of a user, follow the [auth guide](../in-depth-guides/user-authentication.md).
 
 ::: zone pivot="csharp"
-To access the graph using the Graph using the app, you may use the `app.Graph` object <LanguageInclude section="app-access-method" />.
+To access the graph using the Graph using the app, you may use the `app.Graph` object.
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-To access the graph using the Graph using the app, you may use the `app.graph` object <LanguageInclude section="app-access-method" />.
+To access the graph using the Graph using the app, you may use the `app.graph` object to call the endpoint of your choice.
 ::: zone-end
-
-To access the graph using the Graph using the app, you may use the <LanguageInclude section="app-graph-object" /> object <LanguageInclude section="app-access-method" />.
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
-::: zone-end
-
-::: zone pivot="python,typescript"
-To access the graph using the Graph using the app, you may use the <LanguageInclude section="app-graph-object" /> object to call the endpoint of your choice.
-::: zone-end
-
 
 ::: zone pivot="csharp"
 ```csharp
@@ -213,36 +183,19 @@ Here, the `userGraph` object is a scoped graph client for the user that sent the
 Here, the `user_graph` object is a scoped graph client for the user that sent the message.
 ::: zone-end
 
-::: zone pivot="csharp,typescript"
+::: zone pivot="csharp"
 > [!TIP]
-> You also have access to the `appGraph` object in the activity handler. This is equivalent to <LanguageInclude section="app-graph-reference" />.
+> You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.Graph`.
+::: zone-end
+
+::: zone pivot="typescript"
+> [!TIP]
+> You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.graph`.
 ::: zone-end
 
 ::: zone pivot="python"
 > [!TIP]
-> You also have access to the `app_graph` object in the activity handler. This is equivalent to <LanguageInclude section="app-graph-reference" />.
-::: zone-end
-
-> [!TIP]
-> You also have access to the <LanguageInclude section="app-graph-in-handler" /> object in the activity handler. This is equivalent to <LanguageInclude section="app-graph-reference" />.
-
-::: zone pivot="csharp"
-> [!TIP]
-> You also have access to the <LanguageInclude section="app-graph-in-handler" /> object in the activity handler. This is equivalent to `app.Graph`.
-::: zone-end
-
-::: zone pivot="python,typescript"
-> [!TIP]
-> You also have access to the <LanguageInclude section="app-graph-in-handler" /> object in the activity handler. This is equivalent to `app.graph`.
-::: zone-end
-
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
-::: zone-end
-
-::: zone pivot="python"
-<!-- Not applicable -->
+> You also have access to the `app_graph` object in the activity handler. This is equivalent to `app.graph`.
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -314,16 +267,6 @@ const getMyDisplayName = (): EndpointRequest<{ displayName: string }> => ({
 
 const { displayName } = await app.graph.call(getMyDisplayName);
 ```
-::: zone-end
-
-
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
-::: zone-end
-
-::: zone pivot="python"
-<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="typescript"
