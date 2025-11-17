@@ -1,31 +1,38 @@
 ---
-title: Overview of Teams SDK (Teams AI Library)
-description: Teams SDK (formerly Teams AI Library) is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, making it easier to build AI-powered applications and agents for Microsoft Teams.
-ms.topic: overview
-ms.date: 09/18/2025
+sidebar_position: 0
+summary: Welcome guide to Teams SDK, covering the quickstart process and how to build agents and applications for Microsoft Teams.
+llms: ignore
 ---
 
-# Overview of Teams SDK (Teams AI Library)
+# 👋 Welcome
 
-Teams SDK (formerly *Teams AI Library*) is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
+Teams SDK is a suite of packages used to develop on Microsoft Teams. Rebuilt from the ground up with improved developer experience in mind, it's never been easier to build powerful agents and applications for the hundreds of millions Microsoft Teams users.
 
 ## Quickstart
 
-The Teams CLI makes it easy to bootstrap your first agent. First, install the CLI via NPM:
+The Teams CLI makes it easy to bootstrap your first agent. Using `npx @microsoft/teams.cli` you can get started using these commands:
+
+**TypeScript:**
 
 ```bash
-npm install -g @microsoft/teams.cli
+npx @microsoft/teams.cli@latest new typescript quote-agent --template echo
 ```
 
-Next, use the CLI to create your agent:
+**C#:**
 
 ```bash
-teams new (typescript|csharp) quote-agent --template echo
+npx @microsoft/teams.cli@latest new csharp quote-agent --template echo
+```
+
+**Python:**
+
+```bash
+npx @microsoft/teams.cli@latest new python quote-agent --template echo
 ```
 
 ## Overview
 
-Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams SDK. Whether you are building [AI-powered agents](./typescript/in-depth-guides/ai/overview.md), [message extensions](./typescript/in-depth-guides/message-extensions/overview.md), embedded web applications, or Graph, Teams SDK has you covered.
+Microsoft Teams has a robust developer ecosystem with a broad suite of capabilities, now unified via Teams SDK. Whether you are building [AI-powered agents](/typescript/in-depth-guides/ai), [message extensions](/typescript/in-depth-guides/message-extensions), embedded web applications, or Graph, Teams SDK has you covered.
 
 ## ⭐ What's new?
 

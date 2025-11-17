@@ -1,18 +1,18 @@
 ---
-title: Devtools chat
-description: Learn about Devtools chat
-ms.topic: how-to
-ms.date: 09/18/2025
+sidebar_position: 1
+summary: Test chat functionality with your Teams agent using the lightweight DevTools without sideloading into Teams.
+llms: ignore
 ---
 
-# Devtools chat
+# 💬 Devtools chat
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 
 ![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true)
 
-> [!NOTE]
-> We plan to add more features to DevTools for a wider variety of testing. Stay tuned!
+:::note
+We plan to add more features to DevTools for a wider variety of testing. Stay tuned!
+:::
 
 ## Using DevTools
 
@@ -30,8 +30,9 @@ $: npm install @microsoft/teams.dev
 
 In your app's main file, ensure DevTools plugin is added to the app.
 
-> [!WARNING]
-> DevTools is not secure and should not be used in production environments. Remove the plugin before deploying your app to production.
+:::warning
+DevTools is not secure and should not be used in production environments. Remove the plugin before deploying your app to production.
+:::
 
 ```typescript
 import { App } from '@microsoft/teams.apps';
@@ -53,12 +54,13 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 [INFO] @samples/echo/devtools available at http://localhost:3979/devtools
 ```
 
-> [!NOTE]
-> If you used the [CLI](../cli.md) to create an `atk` configuration for your app, DevTools will run on port 3979 when you launch the debugger.
+:::info
+If you used the [CLI](../cli) to create an `atk` configuration for your app, DevTools will run on port 3979 when you launch the debugger.
+:::
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
+![Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'.](/screenshots/devtools-echo-chat.png)
 
 ## Teams chat terminology
 
@@ -71,8 +73,9 @@ Below is a brief list of the terminology used in the chat window and in Teams:
 
 The chat window emulates Teams features as closely as possible. Not all Teams features are available in DevTools, but we are working to add more features over time. The following capabilities are available:
 
-> [!NOTE]
-> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize acessibility in future preview releases.
+:::info
+Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize acessibility in future preview releases.
+:::
 
 ### Send messages
 
@@ -80,10 +83,11 @@ You can send messages to your agent just like in Teams. In the compose box, type
 
 ### Attachments
 
-Attach up to 10 files to your message using the Attach (paperclip) button. DevTools supports pasting an Adaptive Card JSON or attaching a card from the card designer. See the [Cards page](./cards.md) for more.
+Attach up to 10 files to your message using the Attach (paperclip) button. DevTools supports pasting an Adaptive Card JSON or attaching a card from the card designer. See the [Cards page](./cards) for more.
 
-> [!NOTE]
-> Further support for attachments is coming soon!
+:::note
+Further support for attachments is coming soon!
+:::
 
 ### Connectivity
 
@@ -109,14 +113,15 @@ Soft delete messages by hovering over your message, pressing the More (ellipsis)
 
 ### Streaming
 
-If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
+If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Send feedback
+### Feedback
 
 Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 
-> [!NOTE]
-> The capabilities above will also populate activities to the Activities page, where you can inspect activity payloads and see the full activity history.
+:::info
+The capabilities above will also populate activities to the Activities page, where you can inspect activity payloads and see the full activity history.
+:::
 
 ### Developer message shortcut
 

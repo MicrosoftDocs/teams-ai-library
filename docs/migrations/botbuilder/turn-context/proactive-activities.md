@@ -1,0 +1,114 @@
+---
+sidebar_position: 2
+sidebar_label: Proactive Activities
+title: Proactive Activities
+languages: ['typescript']
+summary: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
+zone_pivot_groups: dev-lang
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Proactive Activities
+
+
+::: zone pivot="csharp"
+This page isn't available for C#.
+::: zone-end
+
+::: zone pivot="python"
+This page isn't available for Python.
+::: zone-end
+
+::: zone pivot="typescript"
+The BotBuilder proactive message flow requires you to have a conversation reference stored somewhere. In Teams SDK
+we expose a `send` method almost identical to the one passed into our activity handlers that accepts a `conversationId`,
+so all you need to store is that!
+
+<Tabs groupId="sending-activities">
+  <TabItem value="Diff" default>
+    ```typescript
+    // highlight-error-start
+-    import {
+-      CloudAdapter,
+-      ConfigurationBotFrameworkAuthentication,
+-      ConversationReference,
+-    } from 'botbuilder';
+    // highlight-error-end
+    // highlight-success-line
++    import { App } from '@microsoft/teams.apps';
+
+    // highlight-error-start
+-    const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+-    const adapter = new CloudAdapter(auth);
+    // highlight-error-end
+    // highlight-success-line
++    const app = new App();
+
+    (async () => {
+      // highlight-error-start
+-      const conversationReference: ConversationReference = {
+-        serviceUrl: '...',
+-        bot: { ... },
+-        channelId: 'msteams',
+-        conversation: { ... },
+-        user: { ... },
+-      };
+
+-      await adapter.continueConversationAsync(process.env.MicrosoftAppId ?? '', conversationReference, async context => {
+-        await context.sendActivity('proactive hello');
+-      });
+      // highlight-error-end
+      // highlight-success-start
++      await app.start();
++      await app.send('your-conversation-id', 'proactive hello');
+      // highlight-success-end
+    }());
+    ```
+  </TabItem>
+  <TabItem value="BotBuilder">
+    ```typescript showLineNumbers
+    import {
+      CloudAdapter,
+      ConfigurationBotFrameworkAuthentication,
+      ConversationReference,
+    } from 'botbuilder';
+
+    const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+    const adapter = new CloudAdapter(auth);
+
+    // highlight-start
+    (async () => {
+      const conversationReference: ConversationReference = {
+        serviceUrl: '...',
+        bot: { ... },
+        channelId: 'msteams',
+        conversation: { ... },
+        user: { ... },
+      };
+
+      await adapter.continueConversationAsync(process.env.MicrosoftAppId ?? '', conversationReference, async context => {
+        await context.sendActivity('proactive hello');
+      });
+    }());
+    // highlight-end
+    ```
+  </TabItem>
+  <TabItem value="Teams SDK">
+    ```typescript showLineNumbers
+    import { App } from '@microsoft/teams.apps';
+
+    const app = new App();
+
+    // highlight-start
+    (async () => {
+      await app.start();
+      await app.send('your-conversation-id', 'proactive hello');
+    }());
+    // highlight-end
+    ```
+  </TabItem>
+</Tabs>
+::: zone-end
+

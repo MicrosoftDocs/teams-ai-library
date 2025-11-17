@@ -1,0 +1,142 @@
+---
+sidebar_position: 5
+title: App Authentication
+summary: Configure app authentication in your Teams SDK application using client secrets, user managed identities, or federated identity credentials
+languages: ['typescript','python']
+zone_pivot_groups: dev-lang
+---
+
+# App Authentication
+
+::: zone pivot="csharp"
+This page isn't available for C#.
+::: zone-end
+
+::: zone pivot="python,typescript"
+Your application needs to authenticate to send messages to Teams as your bot. Authentication allows your app service to certify that it is _allowed_ to send messages as your Azure Bot.
+
+:::info Azure Setup Required
+Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](/teams/app-authentication) guide for instructions on creating the necessary Azure resources.
+:::
+
+## Authentication Methods
+
+There are 3 main ways of authenticating:
+
+1. **Client Secret** - Simple password-based authentication using a client secret
+2. **User Managed Identity** - Passwordless authentication using Azure managed identities
+3. **Federated Identity Credentials** - Advanced identity federation using managed identities
+
+## Configuration Reference
+
+The Teams SDK automatically detects which authentication method to use based on the environment variables you set:
+
+| CLIENT_ID | CLIENT_SECRET | MANAGED_IDENTITY_CLIENT_ID | Authentication Method |
+|-|-|-|-|
+| not_set | | | No-Auth (local development only) |
+| set | set | | Client Secret |
+| set | not_set | | User Managed Identity |
+| set | not_set | set (same as CLIENT_ID) | User Managed Identity |
+| set | not_set | set (different from CLIENT_ID) | Federated Identity Credentials (UMI) |
+| set | not_set | "system" | Federated Identity Credentials (System Identity) |
+
+## Client Secret
+
+The simplest authentication method using a password-like secret.
+
+### Setup
+
+First, complete the [Client Secret Setup](/teams/app-authentication/client-secret) in Azure Portal or Azure CLI.
+
+### Configuration
+
+Set the following environment variables in your application:
+
+- `CLIENT_ID`: Your Application (client) ID
+- `CLIENT_SECRET`: The client secret value you created
+- `TENANT_ID`: The tenant id where your bot is registered
+
+```env
+CLIENT_ID=your-client-id-here
+CLIENT_SECRET=your-client-secret-here
+TENANT_ID=your-tenant-id
+```
+
+The SDK will automatically use Client Secret authentication when both `CLIENT_ID` and `CLIENT_SECRET` are provided.
+
+## User Managed Identity
+
+Passwordless authentication using Azure managed identities - no secrets to rotate or manage.
+
+### Setup
+
+First, complete the [User Managed Identity Setup](/teams/app-authentication/user-managed-identity) in Azure Portal or Azure CLI.
+
+### Configuration
+::: zone-end
+
+::: zone pivot="python,typescript"
+Your application should automatically use User Managed Identity authentication when you provide the `CLIENT_ID` environment variable without a `CLIENT_SECRET`.
+
+## Configuration
+
+Set the following environment variables in your application:
+
+- `CLIENT_ID`: Your Application (client) ID
+- **Do not set** `CLIENT_SECRET`
+- `TENANT_ID`: The tenant id where your bot is registered
+
+```env
+CLIENT_ID=your-client-id-here
+# Do not set CLIENT_SECRET
+TENANT_ID=your-tenant-id
+```
+::: zone-end
+
+::: zone pivot="typescript,python"
+## Federated Identity Credentials
+
+Advanced identity federation allowing you to assign managed identities directly to your App Registration.
+
+### Setup
+
+First, complete the [Federated Identity Credentials Setup](/teams/app-authentication/federated-identity-credentials) in Azure Portal or Azure CLI.
+
+### Configuration
+
+Depending on the type of managed identity you select, set the environment variables accordingly.
+
+**For User Managed Identity:**
+
+Set the following environment variables:
+- `CLIENT_ID`: Your Application (client) ID
+- `MANAGED_IDENTITY_CLIENT_ID`: The Client ID for the User Managed Identity resource
+- **Do not set** `CLIENT_SECRET`
+- `TENANT_ID`: The tenant id where your bot is registered
+
+```env
+CLIENT_ID=your-app-client-id-here
+MANAGED_IDENTITY_CLIENT_ID=your-managed-identity-client-id-here
+# Do not set CLIENT_SECRET
+TENANT_ID=your-tenant-id
+```
+
+**For System Assigned Identity:**
+
+Set the following environment variables:
+- `CLIENT_ID`: Your Application (client) ID
+- `MANAGED_IDENTITY_CLIENT_ID`: `system`
+- **Do not set** `CLIENT_SECRET`
+- `TENANT_ID`: The tenant id where your bot is registered
+
+```env
+CLIENT_ID=your-app-client-id-here
+MANAGED_IDENTITY_CLIENT_ID=system
+# Do not set CLIENT_SECRET
+TENANT_ID=your-tenant-id
+```
+
+## Troubleshooting
+
+If you encounter authentication errors, see the [Authentication Troubleshooting](/teams/app-authentication/troubleshooting) guide for common issues and solutions.
+::: zone-end
