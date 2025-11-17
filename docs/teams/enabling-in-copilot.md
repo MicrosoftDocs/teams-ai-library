@@ -1,13 +1,13 @@
 ---
-title: Enabling in M365 Copilot
-description: Learn how to enable your Teams app to work in M365 Copilot by updating the app manifest.
+title: Enabling in Microsoft 365 Copilot
+description: Learn how to enable your Teams app to work in Microsoft 365 Copilot by updating the app manifest.
 ms.topic: how-to
 ms.date: 11/17/2025
 ---
 
-# Enabling in M365 Copilot
+# Enabling in Microsoft 365 Copilot
 
-If you've built a Teams app or agent and want to make it available in M365 Copilot, you can easily do so by updating your app manifest. This allows users to interact with your agent through Copilot's interface.
+If you've built a Teams app or agent and want to make it available in Microsoft 365 Copilot, you can easily do so by updating your app manifest. This allows users to interact with your agent through Copilot's interface.
 
 ## Prerequisites
 
@@ -118,7 +118,7 @@ If you're manually packaging your app:
 
 Once you've updated and redeployed your app:
 
-1. Open M365 Copilot in Teams or at [m365.cloud.microsoft](https://m365.cloud.microsoft/)
+1. Open Microsoft 365 Copilot in Teams or at [m365.cloud.microsoft](https://m365.cloud.microsoft/)
 2. Your app should now be available as an agent option
 3. Interact with your agent through the Copilot interface
 
