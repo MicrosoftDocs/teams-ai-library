@@ -6,20 +6,6 @@ zone_pivot_groups: dev-lang
 ms.date: 11/17/2025
 ---
 
-::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-::: zone-end
-
-::: zone pivot="python"
-<!-- Not applicable -->
-::: zone-end
-
-::: zone pivot="typescript"
-<!-- Not applicable -->
-::: zone-end
-
-
 # Code Basics
 
 After following the guidance in [the quickstart](quickstart.md) to create your first Teams application, let's review its structure and key components. This knowledge can help you build more complex applications as you progress.
@@ -203,37 +189,20 @@ This code:
 ::: zone pivot="csharp"
 1. Listens for all incoming messages using `[Message]` attribute.
 2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
-3. <LanguageInclude section="message-handling-step3" />
+3. Responds by echoing back the received message.
 ::: zone-end
 
 ::: zone pivot="python"
 1. Listens for all incoming messages using `app.on_message`
 2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
-3. <LanguageInclude section="message-handling-step3" />
+3. Responds by echoing back the received message if any other text aside from "reply" is sent.
 ::: zone-end
 
 ::: zone pivot="typescript"
 1. Listens for all incoming messages using `app.on('message')`.
 2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
-3. <LanguageInclude section="message-handling-step3" />
-::: zone-end
-
-1. <LanguageInclude section="message-handling-step1" />
-2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
-3. <LanguageInclude section="message-handling-step3" />
-
-::: zone pivot="csharp,typescript"
-1. <LanguageInclude section="message-handling-step1" />
-2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
 3. Responds by echoing back the received message.
 ::: zone-end
-
-::: zone pivot="python"
-1. <LanguageInclude section="message-handling-step1" />
-2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
-3. Responds by echoing back the received message if any other text aside from "reply" is sent.
-::: zone-end
-
 
 ::: zone pivot="csharp"
 > [!NOTE]
