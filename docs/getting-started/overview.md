@@ -1,9 +1,9 @@
 ---
-title: 🚀 Getting Started
+title: Getting Started
 zone_pivot_groups: dev-lang
 description: Getting started guide for Teams SDK covering application setup, structure, and local development.
 ---
-# 🚀 Getting Started
+# Getting Started
 
 
 ::: zone pivot="csharp"

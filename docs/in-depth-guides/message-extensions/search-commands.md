@@ -4,7 +4,7 @@ title: Search Commands
 zone_pivot_groups: dev-lang
 description: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
 ---
-# 🔍 Search commands
+# Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 

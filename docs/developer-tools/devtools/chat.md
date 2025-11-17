@@ -1,7 +1,7 @@
 ---
 description: Test chat functionality with your Teams agent using the lightweight DevTools without sideloading into Teams.
 ---
-# 💬 Devtools chat
+# Devtools chat
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 

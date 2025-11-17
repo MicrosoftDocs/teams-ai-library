@@ -1,9 +1,9 @@
 ---
-title: 🤖 AI
+title: AI
 zone_pivot_groups: dev-lang
 description: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
 ---
-# 🤖 AI
+# AI
 
 ::: zone pivot="csharp"
 The AI packages in this SDK are designed to make it easier to build applications with LLMs.
