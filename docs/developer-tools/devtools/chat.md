@@ -111,7 +111,7 @@ Soft delete messages by hovering over your message, pressing the More (ellipsis)
 
 If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Feedback
+### Sending feedback to your app
 
 Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 

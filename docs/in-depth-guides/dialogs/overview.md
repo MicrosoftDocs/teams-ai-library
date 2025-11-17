@@ -1,6 +1,6 @@
 ---
 title: Dialogs
-description: 
+description: Understand when to use dialogs to improve interactions between your agent and end users.
 ms.topic: overview
 zone_pivot_groups: dev-lang
 ms.date: 11/17/2025

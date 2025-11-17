@@ -16,7 +16,7 @@ This page isn't available for C#.
 Your application needs to authenticate to send messages to Teams as your bot. Authentication allows your app service to certify that it is _allowed_ to send messages as your Azure Bot.
 
 :::note Azure Setup Required
-Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](/teams/app-authentication) guide for instructions on creating the necessary Azure resources.
+Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](../teams/app-authentication/overview.md) guide for instructions on creating the necessary Azure resources.
 :::
 
 ## Authentication Methods
@@ -46,7 +46,7 @@ The simplest authentication method using a password-like secret.
 
 ### Setup
 
-First, complete the [Client Secret Setup](/teams/app-authentication/client-secret) in Azure Portal or Azure CLI.
+First, complete the [Client Secret Setup](../teams/app-authentication/client-secret.md) in Azure Portal or Azure CLI.
 
 ### Configuration
 
@@ -70,7 +70,7 @@ Passwordless authentication using Azure managed identities - no secrets to rotat
 
 ### Setup
 
-First, complete the [User Managed Identity Setup](/teams/app-authentication/user-managed-identity) in Azure Portal or Azure CLI.
+First, complete the [User Managed Identity Setup](../teams/app-authentication/user-managed-identity.md) in Azure Portal or Azure CLI.
 
 ### Configuration
 ::: zone-end
@@ -100,7 +100,7 @@ Advanced identity federation allowing you to assign managed identities directly 
 
 ### Setup
 
-First, complete the [Federated Identity Credentials Setup](/teams/app-authentication/federated-identity-credentials) in Azure Portal or Azure CLI.
+First, complete the [Federated Identity Credentials Setup](../teams/app-authentication/federated-identity-credentials.md) in Azure Portal or Azure CLI.
 
 ### Configuration
 
@@ -138,5 +138,5 @@ TENANT_ID=your-tenant-id
 
 ## Troubleshooting
 
-If you encounter authentication errors, see the [Authentication Troubleshooting](/teams/app-authentication/troubleshooting) guide for common issues and solutions.
+If you encounter authentication errors, see the [Authentication Troubleshooting](../teams/app-authentication/troubleshooting.md) guide for common issues and solutions.
 ::: zone-end

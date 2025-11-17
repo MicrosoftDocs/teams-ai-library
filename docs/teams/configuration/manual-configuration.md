@@ -22,7 +22,7 @@ As described in the [Core Concepts](../core-concepts.md) article, the main thing
 After a successful App Registration you should have the `TenantId`, `ClientId` and `ClientSecret` values, that you will need later.
 
 > [!TIP]
-> We are using Client Secrets authentication here, but it is possible to use other types of authentication. See the [App Authentication](../app-authentication.md) setup guide for other methods.
+> We are using Client Secrets authentication here, but it is possible to use other types of authentication. See the [App Authentication](../app-authentication/overview.md) setup guide for other methods.
 
 # [Azure Portal](#tab/azure-portal)
 1. Navigate to the [Entra Id App Registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)

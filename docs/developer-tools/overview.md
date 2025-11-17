@@ -12,4 +12,4 @@ One of the main motivations for Teams SDK is to provide excellent tools that sim
 Learn more about the developer tools that come with Teams SDK.
 
 1. [Teams CLI](./cli.md)
-2. [DevTools](./devtools.md)
+2. [DevTools](./devtools/overview.md)

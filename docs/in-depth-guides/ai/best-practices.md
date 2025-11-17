@@ -119,15 +119,15 @@ for (let i = 0; i < citedDocs.length; i++) {
 ## Suggested actions
 
 ::: zone pivot="csharp"
-Suggested actions help users with ideas of what to ask next, based on the previous response or conversation. Teams recommends including suggested actions in your messages. You can do that by using the `WithSuggestedActions` method on the message. See [Suggested actions](https://learn.microsoft.com/microsoftteams/platform/bots/how-to/conversations/prompt-suggestions) for more information on suggested actions.
+Suggested actions help users with ideas of what to ask next, based on the previous response or conversation. Teams recommends including suggested actions in your messages. You can do that by using the `WithSuggestedActions` method on the message. See [Suggested actions](/microsoftteams/platform/bots/how-to/conversations/prompt-suggestions) for more information on suggested actions.
 ::: zone-end
 
 ::: zone pivot="python"
-Suggested actions help users with ideas of what to ask next, based on the previous response or conversation. Teams recommends including suggested actions in your messages. You can do that by using the `with_suggested_actions` method on the message. See [Suggested actions](https://learn.microsoft.com/microsoftteams/platform/bots/how-to/conversations/prompt-suggestions) for more information on suggested actions.
+Suggested actions help users with ideas of what to ask next, based on the previous response or conversation. Teams recommends including suggested actions in your messages. You can do that by using the `with_suggested_actions` method on the message. See [Suggested actions](/microsoftteams/platform/bots/how-to/conversations/prompt-suggestions) for more information on suggested actions.
 ::: zone-end
 
 ::: zone pivot="typescript"
-Suggested actions help users with ideas of what to ask next, based on the previous response or conversation. Teams recommends including suggested actions in your messages. You can do that by using the `withSuggestedActions` method on the message. See [Suggested actions](https://learn.microsoft.com/microsoftteams/platform/bots/how-to/conversations/prompt-suggestions) for more information on suggested actions.
+Suggested actions help users with ideas of what to ask next, based on the previous response or conversation. Teams recommends including suggested actions in your messages. You can do that by using the `withSuggestedActions` method on the message. See [Suggested actions](/microsoftteams/platform/bots/how-to/conversations/prompt-suggestions) for more information on suggested actions.
 ::: zone-end
 
 

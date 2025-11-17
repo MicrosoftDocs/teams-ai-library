@@ -1,6 +1,6 @@
 ---
 title: Creating Dialogs
-description: 
+description: Learn how to create dialogs in Microsoft Teams using Adaptive Cards to handle user interactions.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
 ms.date: 11/17/2025
@@ -9,7 +9,7 @@ ms.date: 11/17/2025
 # Creating Dialogs
 
 > [!TIP]
-> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards.md). Understanding their basics is a prerequisite for this guide.
+> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards/overview.md). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 

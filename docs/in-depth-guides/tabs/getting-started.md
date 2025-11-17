@@ -1,12 +1,12 @@
 ---
-title: Getting Started
+title: Getting Started with tab applications
 description: Set up new tab app projects or add Teams client capabilities to existing tab applications.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
 ms.date: 11/17/2025
 ---
 
-# Getting started
+# Getting started with tab application
 
 ::: zone pivot="python,csharp"
 This page isn't available for Python and C#.

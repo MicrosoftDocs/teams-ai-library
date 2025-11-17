@@ -1,11 +1,11 @@
 ---
-title: User Authentication
+title: User Authentication in Teams
 description: Overview of user authentication in Teams SDK applications, including OAuth, SSO, and secure resource access.
 ms.topic: overview
 ms.date: 11/17/2025
 ---
 
-# User Authentication
+# User Authentication in Teams
 
 At times, agents must access secured online resources on behalf of the user, such as checking email, checking flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 

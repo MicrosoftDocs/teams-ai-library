@@ -11,11 +11,11 @@ Every app or agent installed on Teams requires an app manifest json file, which 
 
 ## Manifest
 
-There are many permissions and details that an app manifest may have added to the `manifest.json`, including the app ID, url, and much more. Please review the comprehensive documentation on the [manifest schema](https://learn.microsoft.com/microsoft-365/extensibility/schema/).
+There are many permissions and details that an app manifest may have added to the `manifest.json`, including the app ID, url, and much more. Please review the comprehensive documentation on the [manifest schema](/microsoft-365/extensibility/schema/).
 
 ## Sideloading
 
-Sideloading is the ability to install and test your app before it is published to your organization's app catalog. For more on sideloading, see [Upload your apps to Teams](https://learn.microsoft.com/microsoftteams/platform/concepts/deploy-and-publish/apps-upload).
+Sideloading is the ability to install and test your app before it is published to your organization's app catalog. For more on sideloading, see [Upload your apps to Teams](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload).
 
 To sideload, ensure the manifest includes all required information (such as the app ID, tenant details, and permissions). Place the manifest and icons at the root of a zip file.
 

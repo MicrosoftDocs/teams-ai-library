@@ -252,19 +252,19 @@ This code initializes your application server and, when configured for Teams, al
 
 ## Next Steps
 
-Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
+Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](./running-in-teams/overview.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
 
 After that, you can:
 
-- Add more activity handlers for different types of interactions. See [Listening to Activities](../essentials/on-activity.md) for more details.
+- Add more activity handlers for different types of interactions. See [Listening to Activities](../essentials/on-activity/overview.md) for more details.
 - Integrate with external services using the [API Client](../essentials/api.md).
-- Add interactive [cards](../in-depth-guides/adaptive-cards.md) and [dialogs](../in-depth-guides/dialogs.md).
-- Implement [AI](../in-depth-guides/ai.md).
+- Add interactive [cards](../in-depth-guides/adaptive-cards/overview.md) and [dialogs](../in-depth-guides/dialogs/overview.md).
+- Implement [AI](../in-depth-guides/ai/overview.md).
 
 Continue on to the next page to learn about these advanced features.
 
 ## Other Resources
 
-- [Essentials](../essentials.md)
-- [Teams concepts](/teams)
-- [Teams developer tools](/developer-tools)
+- [Essentials](../essentials/overview.md)
+- [Teams concepts](../teams/overview.md)
+- [Teams developer tools](../developer-tools/overview.md)
