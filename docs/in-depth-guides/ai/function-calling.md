@@ -36,9 +36,6 @@ It's possible to hook up functions that the LLM can decide to call if it thinks 
 
 Here's a complete example showing how to create a Pokemon search function that the LLM can call.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # [Imperative](#tab/imperative)
 ```csharp
 using System.Text.Json;

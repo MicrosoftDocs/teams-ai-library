@@ -63,60 +63,36 @@ The first thing that's needed is access to a **remote** MCP server. MCP Servers 
    send it requests and the server responds in the expected MCP protocol.
 ::: zone-end
 
-::: zone pivot="csharp,python"
-For hooking up to your a valid SSE server, you will need to know the URL of the server, and if applicable, <LanguageInclude section="auth-requirements" /> that must be included as part of the header.
-::: zone-end
-
-::: zone pivot="typescript"
-For hooking up to your valid remote server, you will need to know the URL of the server, and if applicable, <LanguageInclude section="auth-requirements" /> that must be included as part of the header.
-::: zone-end
-
-For hooking up to your <LanguageInclude section="server-setup" /> server, you will need to know the URL of the server, and if applicable, <LanguageInclude section="auth-requirements" /> that must be included as part of the header.
-
-::: zone pivot="csharp,typescript"
-For hooking up to your <LanguageInclude section="server-setup" /> server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
+::: zone pivot="csharp"
+For hooking up to your a valid SSE server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
 ::: zone-end
 
 ::: zone pivot="python"
-For hooking up to your <LanguageInclude section="server-setup" /> server, you will need to know the URL of the server, and if applicable, any keys that must be included as part of the header.
+For hooking up to your a valid SSE server, you will need to know the URL of the server, and if applicable, any keys that must be included as part of the header.
+::: zone-end
+
+::: zone pivot="typescript"
+For hooking up to your valid remote server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
 ::: zone-end
 
 ## MCP Client Plugin
 
 ::: zone pivot="csharp"
-The `MCPClientPlugin` (from `Microsoft.Teams.Plugins.External.McpClient` package) integrates directly with the `ChatPrompt` <LanguageInclude section="integration-method" />. When the `ChatPrompt`'s <LanguageInclude section="send-method" /> function is called, it calls the external MCP server and loads up all the tools that are available to it.
+The `MCPClientPlugin` (from `Microsoft.Teams.Plugins.External.McpClient` package) integrates directly with the `ChatPrompt` object as a plugin. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
 ::: zone-end
 
 ::: zone pivot="python"
-The `McpClientPlugin` integrates directly with the `ChatPrompt` <LanguageInclude section="integration-method" />. When the `ChatPrompt`'s <LanguageInclude section="send-method" /> function is called, it calls the external MCP server and loads up all the tools that are available to it.
+The `McpClientPlugin` integrates directly with the `ChatPrompt` as a plugin. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
 ::: zone-end
 
 ::: zone pivot="typescript"
-The `MCPClientPlugin` (from `@microsoft/teams.mcpclient` package) integrates directly with the `ChatPrompt` <LanguageInclude section="integration-method" />. When the `ChatPrompt`'s <LanguageInclude section="send-method" /> function is called, it calls the external MCP server and loads up all the tools that are available to it.
-::: zone-end
-
-The <LanguageInclude section="plugin-class" /> integrates directly with the `ChatPrompt` <LanguageInclude section="integration-method" />. When the `ChatPrompt`'s <LanguageInclude section="send-method" /> function is called, it calls the external MCP server and loads up all the tools that are available to it.
-
-::: zone pivot="csharp,typescript"
-The <LanguageInclude section="plugin-class" /> integrates directly with the `ChatPrompt` object as a plugin. When the `ChatPrompt`'s <LanguageInclude section="send-method" /> function is called, it calls the external MCP server and loads up all the tools that are available to it.
-::: zone-end
-
-::: zone pivot="python"
-The <LanguageInclude section="plugin-class" /> integrates directly with the `ChatPrompt` as a plugin. When the `ChatPrompt`'s <LanguageInclude section="send-method" /> function is called, it calls the external MCP server and loads up all the tools that are available to it.
-::: zone-end
-
-The <LanguageInclude section="plugin-class" /> integrates directly with the `ChatPrompt` <LanguageInclude section="integration-method" />. When the `ChatPrompt`'s <LanguageInclude section="send-method" /> function is called, it calls the external MCP server and loads up all the tools that are available to it.
-
-::: zone pivot="csharp,python,typescript"
-The <LanguageInclude section="plugin-class" /> integrates directly with the `ChatPrompt` <LanguageInclude section="integration-method" />. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
+The `MCPClientPlugin` (from `@microsoft/teams.mcpclient` package) integrates directly with the `ChatPrompt` object as a plugin. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
 ::: zone-end
 
 Once loaded, it treats these tools like any functions that are available to the `ChatPrompt` object. If the LLM then decides to call one of these remote MCP tools, the MCP Client plugin will call the remote MCP server and return the result back to the LLM. The LLM can then use this result in its response.
 
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # [Controller](#tab/controller)
 ```csharp

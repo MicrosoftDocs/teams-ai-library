@@ -114,8 +114,6 @@ You can also access the graph using the user's token from within a message handl
 
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # [Controller](#tab/controller)
 ```csharp
