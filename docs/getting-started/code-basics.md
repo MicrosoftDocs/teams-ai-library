@@ -57,16 +57,16 @@ quote-agent/
 
 
 ::: zone pivot="csharp"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
+- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 ::: zone-end
 
 ::: zone pivot="python"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
+- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 - **src/**: Contains the main application code. The `main.py` file is the entry point for your application.
 ::: zone-end
 
 ::: zone pivot="typescript"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
+- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 - **src/**: Contains the main application code. The `index.ts` file is the entry point for your application.
 ::: zone-end
 

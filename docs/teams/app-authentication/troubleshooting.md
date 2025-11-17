@@ -32,7 +32,7 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 # [Python](#tab/python)
 ```sh
 [ERROR] @teams/app Failed to refresh bot token: Client error '401 Unauthorized' for url 'https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token'
-[ERROR] @teams/app For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[ERROR] @teams/app For more information check: https://developer.mozilla.org/docs/Web/HTTP/Status/401
 ```
 
 # [C#](#tab/c)

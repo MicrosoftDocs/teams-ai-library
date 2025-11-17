@@ -70,7 +70,7 @@ az bot create \
 
 ### Configure the Azure Bot Service resource
 
-Once the Azure Bot Service resource has been created you can configure it. You will need to have set up a public facing endpoint so that messages from your. You can use [DevTunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) if you wish to expose your local servers to public.
+Once the Azure Bot Service resource has been created you can configure it. You will need to have set up a public facing endpoint so that messages from your. You can use [DevTunnels](/azure/developer/dev-tunnels/overview) if you wish to expose your local servers to public.
 
 # [Azure Portal](#tab/azure-portal)
 1. Under `Settings/Configuration` provide the Message endpoint URL, typically it will look like: `https://myapp.mydomain.com/api/messages`
@@ -105,4 +105,4 @@ echo "CLIENT_SECRET=$clientSecret" >> "$botName.env"
 
 ## Resources
 
-- [Teams App Publishing overview](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-publish-overview)
+- [Teams App Publishing overview](/microsoftteams/platform/concepts/deploy-and-publish/apps-publish-overview)

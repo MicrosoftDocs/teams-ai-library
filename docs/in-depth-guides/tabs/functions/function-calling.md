@@ -111,6 +111,6 @@ If you find that you'd rather test for consent or request consent before making 
 
 ## References
 
-- [Graph API overview](https://learn.microsoft.com/en-us/graph/api/overview)
-- [Graph API permissions overview](https://learn.microsoft.com/en-us/graph/permissions-reference)
+- [Graph API overview](/graph/api/overview)
+- [Graph API permissions overview](/graph/permissions-reference)
 ::: zone-end

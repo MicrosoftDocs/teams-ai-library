@@ -42,7 +42,7 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you set up a DevTunnel, it:
+[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you set up a DevTunnel, it:
 
 - Creates a secure public HTTPS endpoint that forwards to your local server
 - Manages SSL certificates automatically
@@ -76,4 +76,4 @@ Sideloading is the process of installing your agent in Teams. You are able to pa
 
 ## Provisioning and Deployment
 
-To test your app in Teams, you will at minimum need to have a provisioned Azure bot. You are likely to have other provisionied resources such as storage. Please see the Microsoft Learn [Provision cloud resources](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/provision) documentation for provisioning and deployment using Visual Studio Code and to a container service.
+To test your app in Teams, you will at minimum need to have a provisioned Azure bot. You are likely to have other provisionied resources such as storage. Please see the Microsoft Learn [Provision cloud resources](/microsoftteams/platform/toolkit/provision) documentation for provisioning and deployment using Visual Studio Code and to a container service.

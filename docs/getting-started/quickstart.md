@@ -14,7 +14,7 @@ Get started with Teams SDK quickly using the Teams CLI.
 
 
 ::: zone pivot="csharp"
-- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/en-us/download).
+- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/download).
 ::: zone-end
 
 ::: zone pivot="python"
@@ -77,13 +77,13 @@ This command:
 ::: zone pivot="csharp"
 1. Creates a new directory called `Quote.Agent`.
 2. Bootstraps the echo agent template files into your project directory.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
 
 ::: zone pivot="python,typescript"
 1. Creates a new directory called `quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
 
 
@@ -219,5 +219,5 @@ Otherwise, if you want to run your agent in Teams, you can check out the [Runnin
 
 - [Teams CLI documentation](/developer-tools/cli)
 - [Teams DevTools documentation](/developer-tools/devtools)
-- [Teams manifest schema](https://learn.microsoft.com/en-us/microsoftteams/platform/resources/schema/manifest-schema)
-- [Teams sideloading](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
+- [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
+- [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

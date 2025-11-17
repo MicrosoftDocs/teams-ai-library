@@ -40,7 +40,7 @@ Here's how the `copilotAgents` section fits into the overall manifest structure:
 
 ```json
 {
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
   "manifestVersion": "1.19",
   "version": "1.0.0",
   "id": "${{APP_ID}}",
@@ -120,5 +120,5 @@ Once you've updated and redeployed your app:
 
 ## Resources
 
-- [Convert Your Declarative Agent for Microsoft 365 Copilot to a Custom Engine Agent](https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/convert-declarative-agent)
+- [Convert Your Declarative Agent for Microsoft 365 Copilot to a Custom Engine Agent](/microsoft-365-copilot/extensibility/convert-declarative-agent)
 - [Teams app manifest reference](https://learn.microsoft.com/microsoftteams/platform/resources/schema/manifest-schema)

@@ -194,7 +194,7 @@ To simplify two common scenarios, the context provides the `getCurrentConversati
 
 ::: zone pivot="csharp"
 - For details on how to Tab apps can call these functions, see the TypeScript [Executing Functions](../../../../typescript/in-depth-guides/tabs/functions/function-calling) in-depth guide.
-- For more information about the teams-js getContext() API, see the [Teams JavaScript client library](https://learn.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
+- For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
 ::: zone-end
 
 ::: zone pivot="typescript"

@@ -35,6 +35,6 @@ If you're already using Microsoft Authentication Library (MSAL) in an NAA enable
 
 ## Resources
 
-- [Running and debugging local apps in Agents Toolkit](https://learn.microsoft.com/en-us/microsoftteams/platform/toolkit/debug-local?tabs=Windows)
-- [Configuring an app for Nested App Authentication](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)
+- [Running and debugging local apps in Agents Toolkit](/microsoftteams/platform/toolkit/debug-local?tabs=Windows)
+- [Configuring an app for Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)
 ::: zone-end
