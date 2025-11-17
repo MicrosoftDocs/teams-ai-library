@@ -31,9 +31,7 @@ When creating your Azure Bot Service, select `Single Tenant` for the `Type of Ap
 
 Assign managed identities to your App Registration using Federated Credentials.
 
-<Tabs>
-<TabItem value="portal" label="Azure Portal">
-
+# [Azure Portal](#tab/azure-portal)
 1. Navigate to your **App Registration** in the Azure Portal
 2. Go to **Certificates and Secrets**
 3. Select the **Federated Credentials** tab
@@ -46,9 +44,7 @@ Assign managed identities to your App Registration using Federated Credentials.
 
 The identity you select here must also be assigned to the compute resource where your application is hosted.
 
-</TabItem>
-<TabItem value="cli" label="Azure CLI">
-
+# [Azure CLI](#tab/azure-cli)
 ```bash
 # Add a federated credential for a user managed identity
 az ad app federated-credential create \
@@ -61,16 +57,15 @@ az ad app federated-credential create \
   }'
 ```
 
-</TabItem>
-</Tabs>
+---
+
+
 
 ### Step 3: Assign the Managed Identity to Your Compute Resource
 
 The managed identity configured in the federated credential must be assigned to your compute resource.
 
-<Tabs>
-<TabItem value="portal" label="Azure Portal">
-
+# [Azure Portal](#tab/azure-portal)
 **For User Managed Identity:**
 
 1. Navigate to your compute resource in the Azure Portal
@@ -88,9 +83,7 @@ The managed identity configured in the federated credential must be assigned to 
 4. Set **Status** to **On**
 5. Click **Save**
 
-</TabItem>
-<TabItem value="cli" label="Azure CLI">
-
+# [Azure CLI](#tab/azure-cli)
 ```bash
 # For user managed identity:
 az webapp identity assign \
@@ -104,8 +97,9 @@ az webapp identity assign \
   --resource-group $RESOURCE_GROUP
 ```
 
-</TabItem>
-</Tabs>
+---
+
+
 
 ## Next Steps
 

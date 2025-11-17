@@ -32,9 +32,7 @@ This will automatically create a User Managed Identity resource alongside your b
 
 The User Managed Identity created with your bot must be assigned to the service running your application.
 
-<Tabs>
-<TabItem value="portal" label="Azure Portal">
-
+# [Azure Portal](#tab/azure-portal)
 1. Navigate to your compute resource (App Service, Container App, VM, etc.) in the Azure Portal
 2. Go to **Identity** section in the left menu
 3. Select the **User assigned** tab
@@ -42,9 +40,7 @@ The User Managed Identity created with your bot must be assigned to the service 
 5. Select the User Managed Identity that was created with your Azure Bot
 6. Click **Add** to confirm
 
-</TabItem>
-<TabItem value="cli" label="Azure CLI">
-
+# [Azure CLI](#tab/azure-cli)
 ```bash
 # Assign user managed identity to your compute resource
 # Example for App Service:
@@ -60,8 +56,9 @@ az containerapp identity assign \
   --user-assigned $MANAGED_IDENTITY_RESOURCE_ID
 ```
 
-</TabItem>
-</Tabs>
+---
+
+
 
 ## Next Steps
 

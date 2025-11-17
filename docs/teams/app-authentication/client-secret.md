@@ -27,9 +27,7 @@ When creating your Azure Bot Service, you must select `Single Tenant` for the `T
 
 ### Step 2: Create Client Secret
 
-<Tabs>
-<TabItem value="portal" label="Azure Portal">
-
+# [Azure Portal](#tab/azure-portal)
 1. Navigate to your **App Registration** in the Azure Portal
 2. Go to **Certificates and Secrets**
 3. Click **New client secret**
@@ -39,9 +37,7 @@ When creating your Azure Bot Service, you must select `Single Tenant` for the `T
 
 ![Secret in Certificates and Secrets](/screenshots/client-secret.png)
 
-</TabItem>
-<TabItem value="cli" label="Azure CLI">
-
+# [Azure CLI](#tab/azure-cli)
 ```bash
 # Create a new client secret
 az ad app credential reset --id $APP_ID --append
@@ -49,8 +45,9 @@ az ad app credential reset --id $APP_ID --append
 
 The command will output the secret value. Save it securely.
 
-</TabItem>
-</Tabs>
+---
+
+
 
 ## Next Steps
 

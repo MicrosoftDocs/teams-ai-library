@@ -33,29 +33,30 @@ Here is an example of a basic message handler:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp
-    [TeamsController]
-    public class MainController
+# [Controller](#tab/controller)
+```csharp
+[TeamsController]
+public class MainController
+{
+    [Message]
+    public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
     {
-        [Message]
-        public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
-        {
-            await client.Send($"you said: {activity.Text}");
-        }
+        await client.Send($"you said: {activity.Text}");
     }
-    ```
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
-    app.OnMessage(async context =>
-    {
-        await context.Send($"you said: {context.activity.Text}");
-    });
-    ```
-  </TabItem>
-</Tabs>
+}
+```
+
+# [Minimal](#tab/minimal)
+```csharp
+app.OnMessage(async context =>
+{
+    await context.Send($"you said: {context.activity.Text}");
+});
+```
+
+---
+
+
 ::: zone-end
 
 ::: zone pivot="python"
@@ -109,84 +110,85 @@ The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanill
 
 
 ::: zone pivot="csharp"
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp
-    [Message]
-    public void OnMessage([Context] MessageActivity activity, [Context] ILogger logger, [Context] IContext.Next next)
+# [Controller](#tab/controller)
+```csharp
+[Message]
+public void OnMessage([Context] MessageActivity activity, [Context] ILogger logger, [Context] IContext.Next next)
+{
+    Console.WriteLine("global logger");
+    next(); // pass control onward
+}
+```
+
+# [Minimal](#tab/minimal)
+```csharp
+app.OnMessage(async context =>
+{
+    Console.WriteLine("global logger");
+    context.Next(); // pass control onward
+    return Task.CompletedTask;
+});
+```
+
+---
+
+
+
+# [Controller](#tab/controller)
+```csharp
+[Message]
+public async Task OnMessage(IContext<MessageActivity> context)
+{
+    if (context.Activity.Text == "/help")
     {
-        Console.WriteLine("global logger");
-        next(); // pass control onward
+        await context.Send("Here are all the ways I can help you...");
     }
-    ```
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
-    app.OnMessage(async context =>
-    {
-        Console.WriteLine("global logger");
-        context.Next(); // pass control onward
-        return Task.CompletedTask;
-    });
-    ```
-  </TabItem>
-</Tabs>
 
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp
-    [Message]
-    public async Task OnMessage(IContext<MessageActivity> context)
-    {
-        if (context.Activity.Text == "/help")
-        {
-            await context.Send("Here are all the ways I can help you...");
-        }
+    // Conditionally pass control to the next handler
+    context.Next();
+}
+```
 
-        // Conditionally pass control to the next handler
-        context.Next();
+# [Minimal](#tab/minimal)
+```csharp
+app.OnMessage(async context =>
+{
+    if (context.Activity.Text == "/help")
+    {
+        await context.Send("Here are all the ways I can help you...");
     }
-    ```
 
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
-    app.OnMessage(async context =>
-    {
-        if (context.Activity.Text == "/help")
-        {
-            await context.Send("Here are all the ways I can help you...");
-        }
+    // Conditionally pass control to the next handler
+    context.Next();
+});
+```
 
-        // Conditionally pass control to the next handler
-        context.Next();
-    });
-    ```
+---
 
-  </TabItem>
-</Tabs>
 
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp
-    [Message]
-    public async Task OnMessage(IContext<MessageActivity> context)
-    {
-        // Fallthrough to the final handler
-        await context.Send($"Hello! you said {context.Activity.Text}");
-    }
-    ```
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
-    app.OnMessage(async context =>
-    {
-        // Fallthrough to the final handler
-        await context.Send($"Hello! you said {context.Activity.Text}");
-    });
-    ```
-  </TabItem>
-</Tabs>
+
+# [Controller](#tab/controller)
+```csharp
+[Message]
+public async Task OnMessage(IContext<MessageActivity> context)
+{
+    // Fallthrough to the final handler
+    await context.Send($"Hello! you said {context.Activity.Text}");
+}
+```
+
+# [Minimal](#tab/minimal)
+```csharp
+app.OnMessage(async context =>
+{
+    // Fallthrough to the final handler
+    await context.Send($"Hello! you said {context.Activity.Text}");
+});
+```
+
+---
+
+
 ::: zone-end
 
 ::: zone pivot="python"
@@ -261,4 +263,3 @@ Just like other middlewares, if you stop the chain by not calling `next()`, the 
 
 For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref).
 ::: zone-end
-

@@ -25,363 +25,174 @@ This page isn't available for Python.
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
 equivalent feature to dialogs, but we do support auth flows in our own way via our `signin` and `signout` methods.
 
-<Tabs groupId="sending-activities">
-  <TabItem value="Diff" default>
-    ```typescript
-    // highlight-error-start
--    import restify from 'restify';
--    import {
--      TeamsActivityHandler,
--      ConversationState,
--      UserState,
--      StatePropertyAccessor,
--      CloudAdapter,
--      ConfigurationBotFrameworkAuthentication,
--      MemoryStorage,
--    } from 'botbuilder';
-    // highlight-error-end
-    // highlight-success-start
-+    import { App } from '@microsoft/teams.apps';
-+    import { ConsoleLogger } from '@microsoft/teams.common/logging';
-    // highlight-success-end
+# [BotBuilder](#tab/botbuilder)
+```typescript
+import restify from 'restify';
+import {
+  TeamsActivityHandler,
+  ConversationState,
+  UserState,
+  StatePropertyAccessor,
+  CloudAdapter,
+  ConfigurationBotFrameworkAuthentication,
+  MemoryStorage,
+} from 'botbuilder';
 
-    // highlight-error-line
+import { OAuthPrompt, WaterfallDialog, ComponentDialog } from 'botbuilder-dialogs';
 
-- import { OAuthPrompt, WaterfallDialog, ComponentDialog } from 'botbuilder-dialogs';
+export class ActivityHandler extends TeamsActivityHandler {
+  private readonly _conversationState: ConversationState;
+  private readonly _userState: UserState;
+  private readonly _dialog: SignInDialog;
+  private readonly _dialogState: StatePropertyAccessor;
 
-  // highlight-error-start
+  constructor(connectionName: string, conversationState: ConversationState, userState: UserState) {
+    super();
 
-- export class ActivityHandler extends TeamsActivityHandler {
--      private readonly _conversationState: ConversationState;
--      private readonly _userState: UserState;
--      private readonly _dialog: SignInDialog;
--      private readonly _dialogState: StatePropertyAccessor;
+    this._conversationState = conversationState;
+    this._userState = userState;
+    this._dialog = new SignInDialog('signin', connectionName);
+    this._dialogState = this.conversationState.createProperty('DialogState');
 
--      constructor(connectionName: string, conversationState: ConversationState, userState: UserState) {
--        super();
+    this.onMessage(async (context, next) => {
+      await this._dialog.run(context, this._dialogState);
+      return next();
+    });
+  }
 
--        this._conversationState = conversationState;
--        this._userState = userState;
--        this._dialog = new SignInDialog('signin', connectionName);
--        this._dialogState = this.conversationState.createProperty('DialogState');
+  async run(context) {
+    await super.run(context);
+    await this.conversationState.saveChanges(context, false);
+    await this.userState.saveChanges(context, false);
+  }
+}
 
--        this.onMessage(async (context, next) => {
--          await this._dialog.run(context, this._dialogState);
--          return next();
--        });
--      }
+export class SignInDialog extends ComponentDialog {
+  private readonly _connectionName: string;
 
--      async run(context) {
--        await super.run(context);
--        await this.conversationState.saveChanges(context, false);
--        await this.userState.saveChanges(context, false);
--      }
-- }
-  // highlight-error-end
+  constructor(id, connectionName: string) {
+    super(id);
+    this._connectionName = connectionName;
 
-  // highlight-error-start
+    this.addDialog(new OAuthPrompt('OAuthPrompt', {
+      connectionName: connectionName,
+      text: 'Please Sign In',
+      title: 'Sign In',
+      timeout: 300000
+    }));
 
-- export class SignInDialog extends ComponentDialog {
--      private readonly _connectionName: string;
+    this.addDialog(new WaterfallDialog('Main', [
+      this.promptStep.bind(this),
+      this.loginStep.bind(this)
+    ]));
 
--      constructor(id, connectionName: string) {
--        super(id);
--        this._connectionName = connectionName;
+    this.initialDialogId = 'Main';
+  }
 
--        this.addDialog(new OAuthPrompt('OAuthPrompt', {
--          connectionName: connectionName,
--          text: 'Please Sign In',
--          title: 'Sign In',
--          timeout: 300000
--        }));
+  async run(context, accessor) {
+    const dialogSet = new DialogSet(accessor);
+    dialogSet.add(this);
 
--        this.addDialog(new WaterfallDialog('Main', [
--          this.promptStep.bind(this),
--          this.loginStep.bind(this)
--        ]));
+    const dialogContext = await dialogSet.createContext(context);
+    const results = await dialogContext.continueDialog();
 
--        this.initialDialogId = 'Main';
--      }
+    if (results.status === DialogTurnStatus.empty) {
+      await dialogContext.beginDialog(this.id);
+    }
+  }
 
--      async run(context, accessor) {
--        const dialogSet = new DialogSet(accessor);
--        dialogSet.add(this);
+  async promptStep(stepContext) {
+    return await stepContext.beginDialog('OAuthPrompt');
+  }
 
--        const dialogContext = await dialogSet.createContext(context);
--        const results = await dialogContext.continueDialog();
+  async loginStep(stepContext) {
+    await stepContext.context.sendActivity('You have been signed in.');
+    return await stepContext.endDialog();
+  }
 
--        if (results.status === DialogTurnStatus.empty) {
--          await dialogContext.beginDialog(this.id);
--        }
--      }
+  async onBeginDialog(innerDc, options) {
+    const result = await this.interrupt(innerDc);
+    if (result) return result;
+    return await super.onBeginDialog(innerDc, options);
+  }
 
--      async promptStep(stepContext) {
--        return await stepContext.beginDialog('OAuthPrompt');
--      }
+  async onContinueDialog(innerDc) {
+    const result = await this.interrupt(innerDc);
+    if (result) return result;
+    return await super.onContinueDialog(innerDc);
+  }
 
--      async loginStep(stepContext) {
--        await stepContext.context.sendActivity('You have been signed in.');
--        return await stepContext.endDialog();
--      }
+  async interrupt(innerDc) {
+    if (innerDc.context.activity.type === ActivityTypes.Message) {
+      const text = innerDc.context.activity.text.toLowerCase();
 
--      async onBeginDialog(innerDc, options) {
--        const result = await this.interrupt(innerDc);
--        if (result) return result;
--        return await super.onBeginDialog(innerDc, options);
--      }
+      if (text === '/signout') {
+        const userTokenClient = innerDc.context.turnState.get(innerDc.context.adapter.UserTokenClientKey);
+        const { activity } = innerDc.context;
 
--      async onContinueDialog(innerDc) {
--        const result = await this.interrupt(innerDc);
--        if (result) return result;
--        return await super.onContinueDialog(innerDc);
--      }
-
--      async interrupt(innerDc) {
--        if (innerDc.context.activity.type === ActivityTypes.Message) {
--          const text = innerDc.context.activity.text.toLowerCase();
-
--          if (text === '/signout') {
--            const userTokenClient = innerDc.context.turnState.get(innerDc.context.adapter.UserTokenClientKey);
--            const { activity } = innerDc.context;
-
--            await userTokenClient.signOutUser(activity.from.id, this.connectionName, activity.channelId);
--            await innerDc.context.sendActivity('You have been signed out.');
--            return await innerDc.cancelAllDialogs();
--          }
--        }
--      }
-- }
-  // highlight-error-end
-
-  // highlight-error-start
-
-- const server = restify.createServer();
-- const auth = new ConfigurationBotFrameworkAuthentication(process.env);
-- const adapter = new CloudAdapter(auth);
-- const memoryStorage = new MemoryStorage();
-- const conversationState = new ConversationState(memoryStorage);
-- const userState = new UserState(memoryStorage);
-- const handler = new ActivityHandler(
--      process.env.connectionName,
--      conversationState,
--      userState,
-- );
-  // highlight-error-end
-  // highlight-success-start
-
-* const app = new App({
-*      oauth: {
-*        defaultConnectionName: process.env.connectionName
-*      }
-* });
-
-* app.message('/signout', async ({ send, signout, isSignedIn }) => {
-*      if (!isSignedIn) return;
-*      await signout();
-*      await send('You have been signed out.');
-* });
-
-* app.on('message', async ({ send, signin, isSignedIn }) => {
-*      if (!isSignedIn) {
-*        return await signin();
-*      }
-* });
-
-* app.event('signin', async ({ send }) => {
-*      await send('You have been signed in.');
-* });
-  // highlight-success-end
-
-  // // highlight-error-start
-
-- server.use(restify.plugins.bodyParser());
-- server.listen(process.env.port || process.env.PORT || 3978, function() {
--        console.log(`\n${ server.name } listening to ${ server.url }`);
-- });
-
-- server.post('/api/messages', async (req, res) => {
--        await adapter.process(req, res, (context) => bot.run(context));
-- });
-  // highlight-error-end
-  // highlight-success-start
-
-* (async () => {
-*      await app.start();
-* })();
-  // highlight-success-end
-
-      ```
-
-    </TabItem>
-    <TabItem value="BotBuilder">
-      ```typescript showLineNumbers
-      import restify from 'restify';
-      import {
-        TeamsActivityHandler,
-        ConversationState,
-        UserState,
-        StatePropertyAccessor,
-        CloudAdapter,
-        ConfigurationBotFrameworkAuthentication,
-        MemoryStorage,
-      } from 'botbuilder';
-
-      import { OAuthPrompt, WaterfallDialog, ComponentDialog } from 'botbuilder-dialogs';
-
-      export class ActivityHandler extends TeamsActivityHandler {
-        private readonly _conversationState: ConversationState;
-        private readonly _userState: UserState;
-        private readonly _dialog: SignInDialog;
-        private readonly _dialogState: StatePropertyAccessor;
-
-        constructor(connectionName: string, conversationState: ConversationState, userState: UserState) {
-          super();
-
-          this._conversationState = conversationState;
-          this._userState = userState;
-          this._dialog = new SignInDialog('signin', connectionName);
-          this._dialogState = this.conversationState.createProperty('DialogState');
-
-          this.onMessage(async (context, next) => {
-            await this._dialog.run(context, this._dialogState);
-            return next();
-          });
-        }
-
-        async run(context) {
-          await super.run(context);
-          await this.conversationState.saveChanges(context, false);
-          await this.userState.saveChanges(context, false);
-        }
+        await userTokenClient.signOutUser(activity.from.id, this.connectionName, activity.channelId);
+        await innerDc.context.sendActivity('You have been signed out.');
+        return await innerDc.cancelAllDialogs();
       }
+    }
+  }
+}
 
-      export class SignInDialog extends ComponentDialog {
-        private readonly _connectionName: string;
+const server = restify.createServer();
+const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+const adapter = new CloudAdapter(auth);
+const memoryStorage = new MemoryStorage();
+const conversationState = new ConversationState(memoryStorage);
+const userState = new UserState(memoryStorage);
+const handler = new ActivityHandler(
+  process.env.connectionName,
+  conversationState,
+  userState,
+);
 
-        constructor(id, connectionName: string) {
-          super(id);
-          this._connectionName = connectionName;
+server.use(restify.plugins.bodyParser());
+server.listen(process.env.port || process.env.PORT || 3978, function() {
+    console.log(`\n${ server.name } listening to ${ server.url }`);
+});
 
-          this.addDialog(new OAuthPrompt('OAuthPrompt', {
-            connectionName: connectionName,
-            text: 'Please Sign In',
-            title: 'Sign In',
-            timeout: 300000
-          }));
+server.post('/api/messages', async (req, res) => {
+    await adapter.process(req, res, (context) => bot.run(context));
+});
+```
 
-          this.addDialog(new WaterfallDialog('Main', [
-            this.promptStep.bind(this),
-            this.loginStep.bind(this)
-          ]));
+# [Teams SDK](#tab/teams-sdk)
+```typescript
+import { App } from '@microsoft/teams.apps';
+import { ConsoleLogger } from '@microsoft/teams.common/logging';
 
-          this.initialDialogId = 'Main';
-        }
+const app = new App({
+  oauth: {
+    defaultConnectionName: process.env.connectionName
+  }
+});
 
-        async run(context, accessor) {
-          const dialogSet = new DialogSet(accessor);
-          dialogSet.add(this);
+app.message('/signout', async ({ send, signout, isSignedIn }) => {
+  if (!isSignedIn) return;
+  await signout();
+  await send('You have been signed out.');
+});
 
-          const dialogContext = await dialogSet.createContext(context);
-          const results = await dialogContext.continueDialog();
+app.on('message', async ({ send, signin, isSignedIn }) => {
+  if (!isSignedIn) {
+    return await signin();
+  }
+});
 
-          if (results.status === DialogTurnStatus.empty) {
-            await dialogContext.beginDialog(this.id);
-          }
-        }
+app.event('signin', async ({ send }) => {
+  await send('You have been signed in.');
+});
 
-        async promptStep(stepContext) {
-          return await stepContext.beginDialog('OAuthPrompt');
-        }
+(async () => {
+  await app.start();
+})();
+```
 
-        async loginStep(stepContext) {
-          await stepContext.context.sendActivity('You have been signed in.');
-          return await stepContext.endDialog();
-        }
+---
 
-        async onBeginDialog(innerDc, options) {
-          const result = await this.interrupt(innerDc);
-          if (result) return result;
-          return await super.onBeginDialog(innerDc, options);
-        }
 
-        async onContinueDialog(innerDc) {
-          const result = await this.interrupt(innerDc);
-          if (result) return result;
-          return await super.onContinueDialog(innerDc);
-        }
-
-        async interrupt(innerDc) {
-          if (innerDc.context.activity.type === ActivityTypes.Message) {
-            const text = innerDc.context.activity.text.toLowerCase();
-
-            if (text === '/signout') {
-              const userTokenClient = innerDc.context.turnState.get(innerDc.context.adapter.UserTokenClientKey);
-              const { activity } = innerDc.context;
-
-              await userTokenClient.signOutUser(activity.from.id, this.connectionName, activity.channelId);
-              await innerDc.context.sendActivity('You have been signed out.');
-              return await innerDc.cancelAllDialogs();
-            }
-          }
-        }
-      }
-
-      const server = restify.createServer();
-      const auth = new ConfigurationBotFrameworkAuthentication(process.env);
-      const adapter = new CloudAdapter(auth);
-      const memoryStorage = new MemoryStorage();
-      const conversationState = new ConversationState(memoryStorage);
-      const userState = new UserState(memoryStorage);
-      const handler = new ActivityHandler(
-        process.env.connectionName,
-        conversationState,
-        userState,
-      );
-
-      server.use(restify.plugins.bodyParser());
-      server.listen(process.env.port || process.env.PORT || 3978, function() {
-          console.log(`\n${ server.name } listening to ${ server.url }`);
-      });
-
-      server.post('/api/messages', async (req, res) => {
-          await adapter.process(req, res, (context) => bot.run(context));
-      });
-      ```
-
-    </TabItem>
-    <TabItem value="Teams SDK">
-      ```typescript showLineNumbers
-      import { App } from '@microsoft/teams.apps';
-      import { ConsoleLogger } from '@microsoft/teams.common/logging';
-
-      const app = new App({
-        oauth: {
-          defaultConnectionName: process.env.connectionName
-        }
-      });
-
-      app.message('/signout', async ({ send, signout, isSignedIn }) => {
-        if (!isSignedIn) return;
-        await signout();
-        await send('You have been signed out.');
-      });
-
-      app.on('message', async ({ send, signin, isSignedIn }) => {
-        if (!isSignedIn) {
-          return await signin();
-        }
-      });
-
-      app.event('signin', async ({ send }) => {
-        await send('You have been signed in.');
-      });
-
-      (async () => {
-        await app.start();
-      })();
-      ```
-
-    </TabItem>
-  </Tabs>
 ::: zone-end
-

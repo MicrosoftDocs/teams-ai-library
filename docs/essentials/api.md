@@ -51,25 +51,26 @@ In this example, we use the API client to fetch the members in a conversation. T
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp
-    [Message]
-    public async Task OnMessage([Context] MessageActivity activity, [Context] ApiClient api)
-    {
-        var members = await api.Conversations.Members.Get(context.Conversation.Id);
-    }
-    ```
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
-    app.OnMessage(async context =>
-    {
-        var members = await context.Api.Conversations.Members.Get(context.Conversation.Id);
-    });
-    ```
-  </TabItem>
-</Tabs>
+# [Controller](#tab/controller)
+```csharp
+[Message]
+public async Task OnMessage([Context] MessageActivity activity, [Context] ApiClient api)
+{
+    var members = await api.Conversations.Members.Get(context.Conversation.Id);
+}
+```
+
+# [Minimal](#tab/minimal)
+```csharp
+app.OnMessage(async context =>
+{
+    var members = await context.Api.Conversations.Members.Get(context.Conversation.Id);
+});
+```
+
+---
+
+
 ::: zone-end
 
 ::: zone pivot="python"
@@ -113,4 +114,3 @@ import * as endpoints from '@microsoft/teams.graph-endpoints';
 const res = await app.api.graph.call(endpoints.chats.getAllMessages.get);
 ```
 ::: zone-end
-

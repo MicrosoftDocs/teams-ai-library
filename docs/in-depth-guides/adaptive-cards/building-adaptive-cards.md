@@ -409,41 +409,40 @@ Below is a complete example showing a task management form.
 
 
 ::: zone pivot="csharp"
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp
-    [Message]
-    public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
-    {
-        var text = activity.Text?.ToLowerInvariant() ?? "";
+# [Controller](#tab/controller)
+```csharp
+[Message]
+public async Task OnMessage([Context] MessageActivity activity, [Context] IContext.Client client)
+{
+    var text = activity.Text?.ToLowerInvariant() ?? "";
 
-        if (text.Contains("form"))
-        {
-            await client.Typing();
-            var card = CreateTaskFormCard();
-            await client.Send(card);
-        }
+    if (text.Contains("form"))
+    {
+        await client.Typing();
+        var card = CreateTaskFormCard();
+        await client.Send(card);
     }
-    ```
+}
+```
 
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
-    teams.OnMessage(async context =>
+# [Minimal](#tab/minimal)
+```csharp
+teams.OnMessage(async context =>
+{
+    var text = context.Activity.Text?.ToLowerInvariant() ?? "";
+
+    if (text.Contains("form"))
     {
-        var text = context.Activity.Text?.ToLowerInvariant() ?? "";
+        await context.Typing();
+        var card = CreateTaskFormCard();
+        await context.Send(card);
+    }
+});
+```
 
-        if (text.Contains("form"))
-        {
-            await context.Typing();
-            var card = CreateTaskFormCard();
-            await context.Send(card);
-        }
-    });
-    ```
+---
 
-  </TabItem>
-</Tabs>
+
 
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end

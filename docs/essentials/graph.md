@@ -148,33 +148,34 @@ You can also access the graph using the user's token from within a message handl
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-  <TabItem label="Controller" value="controller" default>
-    ```csharp
-    [Message]
-    public async Task OnMessage([Context] MessageActivity activity, [Context] GraphClient userGraph)
-    {
-        var user = await userGraph.Me.GetAsync();
-        Console.WriteLine($"User ID: {user.id}");
-        Console.WriteLine($"User Display Name: {user.displayName}");
-        Console.WriteLine($"User Email: {user.mail}");
-        Console.WriteLine($"User Job Title: {user.jobTitle}");
-    }
-    ```
-  </TabItem>
-  <TabItem label="Minimal" value="minimal">
-    ```csharp
-    app.OnMessage(async context =>
-    {
-        var user = await context.UserGraph.Me.GetAsync();
-        Console.WriteLine($"User ID: {user.id}");
-        Console.WriteLine($"User Display Name: {user.displayName}");
-        Console.WriteLine($"User Email: {user.mail}");
-        Console.WriteLine($"User Job Title: {user.jobTitle}");
-    });
-    ```
-  </TabItem>
-</Tabs>
+# [Controller](#tab/controller)
+```csharp
+[Message]
+public async Task OnMessage([Context] MessageActivity activity, [Context] GraphClient userGraph)
+{
+    var user = await userGraph.Me.GetAsync();
+    Console.WriteLine($"User ID: {user.id}");
+    Console.WriteLine($"User Display Name: {user.displayName}");
+    Console.WriteLine($"User Email: {user.mail}");
+    Console.WriteLine($"User Job Title: {user.jobTitle}");
+}
+```
+
+# [Minimal](#tab/minimal)
+```csharp
+app.OnMessage(async context =>
+{
+    var user = await context.UserGraph.Me.GetAsync();
+    Console.WriteLine($"User ID: {user.id}");
+    Console.WriteLine($"User Display Name: {user.displayName}");
+    Console.WriteLine($"User Email: {user.mail}");
+    Console.WriteLine($"User Job Title: {user.jobTitle}");
+});
+```
+
+---
+
+
 ::: zone-end
 
 ::: zone pivot="python"
@@ -357,4 +358,3 @@ In addition, the following endpoints may be especially interesting to Teams deve
 | [teamwork](https://learn.microsoft.com/en-us/graph/api/resources/teamwork?view=graph-rest-1.0)                                 | A range of Microsoft Teams functionalities                          |
 | [users](https://learn.microsoft.com/en-us/graph/api/resources/users?view=graph-rest-1.0)                                       | User resources                                                      |
 ::: zone-end
-
