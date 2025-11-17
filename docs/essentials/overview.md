@@ -24,84 +24,15 @@ Before diving in, let's define a few key terms:
 
 
 ::: zone pivot="csharp"
-```mermaid
-flowchart LR
-    Teams["Teams"]
-    Server["App Server"]
-    AppEventHandlers["Event Handler (app.OnEvent())"]
-    AppRouter["Activity Event Router"]
-    AppActivityHandlers["Activity Handlers (app.OnActivity())"]
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server --> |ActivityEvent<br/>or InvokeEvent| AppRouter
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-    AppRouter --> |message activity| AppActivityHandlers
-    AppRouter --> |card activity| AppActivityHandlers
-    AppRouter --> |installation activity| AppActivityHandlers
-    AppRouter --> |...other activities| AppActivityHandlers
-
-
-    linkStyle 0,3 stroke:#66fdf3,stroke-width:1px,color:Tomato
-    linkStyle 1,2,4,5 stroke:#66fdf3,stroke-width:1px
-    linkStyle 6,7,8,9 color:Tomato
-```
+![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
 ::: zone-end
 
 ::: zone pivot="python"
-```mermaid
-flowchart LR
-    Teams["Teams"]
-    Server["App Server"]
-    AppEventHandlers["Event Handler decorator (@app.event())"]
-    AppRouter["Activity Event Router"]
-    AppActivityHandlers["Activity Handler decorators (@app.on_activity())"]
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server --> |ActivityEvent<br/>or InvokeEvent| AppRouter
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-    AppRouter --> |message activity| AppActivityHandlers
-    AppRouter --> |card activity| AppActivityHandlers
-    AppRouter --> |installation activity| AppActivityHandlers
-    AppRouter --> |...other activities| AppActivityHandlers
-
-
-    linkStyle 0,3 stroke:#66fdf3,stroke-width:1px,color:Tomato
-    linkStyle 1,2,4,5 stroke:#66fdf3,stroke-width:1px
-    linkStyle 6,7,8,9 color:Tomato
-```
+![alt-text for overview-2.png](~/assets/diagrams/overview-2.png)
 ::: zone-end
 
 ::: zone pivot="typescript"
-```mermaid
-flowchart LR
-    Teams["Teams"]
-    Server["App Server"]
-    AppEventHandlers["Event Handler (app.event())"]
-    AppRouter["Activity Event Router"]
-    AppActivityHandlers["Activity Handlers (app.on())"]
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server --> |ActivityEvent<br/>or InvokeEvent| AppRouter
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-    AppRouter --> |message activity| AppActivityHandlers
-    AppRouter --> |card activity| AppActivityHandlers
-    AppRouter --> |installation activity| AppActivityHandlers
-    AppRouter --> |...other activities| AppActivityHandlers
-
-
-    linkStyle 0,3 stroke:#66fdf3,stroke-width:1px,color:Tomato
-    linkStyle 1,2,4,5 stroke:#66fdf3,stroke-width:1px
-    linkStyle 6,7,8,9 color:Tomato
-```
+![alt-text for overview-3.png](~/assets/diagrams/overview-3.png)
 ::: zone-end
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.
