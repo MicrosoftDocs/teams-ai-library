@@ -115,8 +115,6 @@ Once loaded, it treats these tools like any functions that are available to the 
 
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # [Controller](#tab/controller)
 ```csharp

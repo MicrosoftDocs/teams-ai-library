@@ -20,8 +20,6 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # [Controller](#tab/controller)
 ```csharp

@@ -12,8 +12,6 @@ Sending messages is a core part of an agent's functionality. With all activity h
 
 
 ::: zone pivot="csharp"
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # [Controller](#tab/controller)
 ```csharp
