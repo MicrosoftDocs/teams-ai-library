@@ -1,9 +1,11 @@
 ---
-sidebar_label: Building Adaptive Cards
 title: Building Adaptive Cards
-zone_pivot_groups: dev-lang
 description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.

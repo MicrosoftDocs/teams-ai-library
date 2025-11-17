@@ -1,9 +1,11 @@
 ---
-sidebar_label: Quickstart
 title: Quickstart
-zone_pivot_groups: dev-lang
 description: Quick start guide for Teams SDK using the Teams CLI to create and run your first agent.
+ms.topic: quickstart
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Quickstart
 
 Get started with Teams SDK quickly using the Teams CLI.

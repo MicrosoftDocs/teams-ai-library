@@ -1,8 +1,11 @@
 ---
-sidebar_label: Creating Dialogs
 title: Creating Dialogs
+description: 
+ms.topic: how-to
 zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Creating Dialogs
 
 > [!TIP]

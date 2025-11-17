@@ -1,8 +1,11 @@
 ---
 title: Using the App
-zone_pivot_groups: dev-lang
 description: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Using The App
 
 ::: zone pivot="python,csharp"

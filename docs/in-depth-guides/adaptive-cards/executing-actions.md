@@ -1,9 +1,11 @@
 ---
-sidebar_label: Executing Actions
 title: Executing Actions
-zone_pivot_groups: dev-lang
 description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Executing Actions
 
 Adaptive Cards support interactive elements through **actions**—buttons, links, and input submission triggers that respond to user interaction.

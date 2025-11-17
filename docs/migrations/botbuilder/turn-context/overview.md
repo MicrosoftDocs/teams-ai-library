@@ -1,8 +1,11 @@
 ---
 title: Turn Context
-zone_pivot_groups: dev-lang
 description: Understand how Teams SDK's IActivityContext replaces BotBuilder's TurnContext for handling incoming data and APIs.
+ms.topic: overview
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Turn Context
 
 

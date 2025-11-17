@@ -1,8 +1,11 @@
 ---
 title: Tabs
-zone_pivot_groups: dev-lang
 description: Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.
+ms.topic: overview
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Tabs
 
 ::: zone pivot="python"

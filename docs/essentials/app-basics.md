@@ -1,9 +1,11 @@
 ---
-sidebar_label: App Basics
 title: App Basics
-zone_pivot_groups: dev-lang
 description: Comprehensive guide to the App class, the main entry point for Teams SDK agents that handles server hosting, request routing, authentication, and plugin management.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # App Basics
 
 The `App` class is the main entry point for your agent.

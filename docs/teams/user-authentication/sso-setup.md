@@ -1,6 +1,10 @@
 ---
+title: SSO Setup
 description: Describes how to configure SSO in Teams
+ms.topic: how-to
+ms.date: 11/17/2025
 ---
+
 # SSO Setup
 
 This section describes how to configure the Azure Bot Service (ABS), the Entra App Registration and the Teams manifest to enable Single-Sign-On (SSO) for your Teams app.

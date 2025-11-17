@@ -1,6 +1,10 @@
 ---
+title: Teams Core Concepts
 description: Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.
+ms.topic: how-to
+ms.date: 11/17/2025
 ---
+
 # Teams Core Concepts
 
 When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Teams-specific processes happen behind the scenes. Understanding these components will help you better debug and deploy your agents. Obviously, all these processes can be done manually, but Agents Toolkit automates them for you.

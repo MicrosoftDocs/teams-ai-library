@@ -1,8 +1,11 @@
 ---
 title: Activity Handlers
-zone_pivot_groups: dev-lang
 description: How to migrate BotBuilder ActivityHandler patterns to Teams SDK activity routing system.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Activity Handlers
 
 

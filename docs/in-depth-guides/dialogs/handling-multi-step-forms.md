@@ -1,9 +1,11 @@
 ---
-sidebar_label: Handling Multi-Step Forms
 title: Handling Multi-Step Forms
-zone_pivot_groups: dev-lang
 description: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Handling Multi-Step Forms
 
 Dialogs can become complex yet powerful with multi-step forms. These forms can alter the flow of the survey depending on the user's input or customize subsequent steps based on previous answers.

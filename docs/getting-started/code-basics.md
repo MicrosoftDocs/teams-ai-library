@@ -1,9 +1,11 @@
 ---
-sidebar_label: Code Basics
 title: Code Basics
-zone_pivot_groups: dev-lang
 description: Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.
+ms.topic: get-started
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 ::: zone pivot="csharp"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

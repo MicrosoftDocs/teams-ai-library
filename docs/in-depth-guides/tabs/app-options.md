@@ -1,8 +1,11 @@
 ---
 title: App Options
-zone_pivot_groups: dev-lang
 description: Configure app settings for observability, MSAL authentication, and remote agent function calling.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # App Options
 
 ::: zone pivot="python,csharp"

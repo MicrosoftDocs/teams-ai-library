@@ -1,9 +1,11 @@
 ---
 title: A2A Client
-sidebar_label: A2A Client
-zone_pivot_groups: dev-lang
 description: How to implement an A2A client to proactively send tasks to A2A servers using the AgentManager.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # A2A Client
 ::: zone pivot="csharp"
 

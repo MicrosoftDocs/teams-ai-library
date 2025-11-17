@@ -1,8 +1,11 @@
 ---
 title: Listening to Activities
-zone_pivot_groups: dev-lang
 description: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
+ms.topic: overview
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Listening To Activities
 
 An **Activity** is the Teams‑specific payload that flows between the user and your bot.

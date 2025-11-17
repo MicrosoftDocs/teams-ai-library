@@ -1,8 +1,11 @@
 ---
 title: Getting Started
-zone_pivot_groups: dev-lang
 description: Getting started guide for Teams SDK covering application setup, structure, and local development.
+ms.topic: overview
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Getting Started
 
 

@@ -1,8 +1,11 @@
 ---
 title: Middleware
-zone_pivot_groups: dev-lang
 description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Middleware
 
 ::: zone pivot="csharp"

@@ -1,8 +1,11 @@
 ---
 title: App Authentication
-zone_pivot_groups: dev-lang
 description: Configure app authentication in your Teams SDK application using client secrets, user managed identities, or federated identity credentials
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # App Authentication
 
 ::: zone pivot="csharp"

@@ -1,6 +1,10 @@
 ---
+title: DevTools
 description: Use DevTools to locally test Teams apps with chat, activity inspection, and card design features.
+ms.topic: overview
+ms.date: 11/17/2025
 ---
+
 # DevTools
 
 The developer tools can be used to locally interact with an app to streamline the testing/development process,

@@ -1,9 +1,11 @@
 ---
-sidebar_label: MCP Server
 title: MCP Server
-zone_pivot_groups: dev-lang
 description: How to convert your Teams app into an MCP server using the McpPlugin to expose tools, resources, and prompts to other MCP applications.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # MCP Server
 
 

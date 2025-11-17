@@ -1,7 +1,11 @@
 ---
 title: Dialogs
+description: 
+ms.topic: overview
 zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Dialogs
 
 Dialogs are a helpful paradigm in Teams which improve interactions between your agent and users. When dialogs are **invoked**, they pop open a window for a user in the Teams client. The content of the dialog can be supplied by the agent application.

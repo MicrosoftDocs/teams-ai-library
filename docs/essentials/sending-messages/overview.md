@@ -1,8 +1,11 @@
 ---
 title: Sending Messages
-zone_pivot_groups: dev-lang
 description: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
+ms.topic: overview
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Sending Messages
 
 Sending messages is a core part of an agent's functionality. With all activity handlers, a `send` method is provided which allows your handlers to send a message back to the user to the relevant conversation.

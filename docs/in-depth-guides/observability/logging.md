@@ -1,9 +1,11 @@
 ---
-sidebar_label: 🗃️ Custom Logger
 title: Custom Logger
-zone_pivot_groups: dev-lang
 description: Configure custom loggers in your Teams app to control log levels and output destinations.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Custom Logger
 
 ::: zone pivot="csharp,python,typescript"

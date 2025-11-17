@@ -1,9 +1,11 @@
 ---
-sidebar_label: Proactive Activities
 title: Proactive Activities
-zone_pivot_groups: dev-lang
 description: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Proactive Activities
 
 

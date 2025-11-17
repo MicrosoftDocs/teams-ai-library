@@ -1,8 +1,11 @@
 ---
 title: Adapters
-zone_pivot_groups: dev-lang
 description: How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Adapters
 
 

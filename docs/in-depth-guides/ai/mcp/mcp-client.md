@@ -1,9 +1,11 @@
 ---
-sidebar_label: MCP Client
 title: MCP Client
-zone_pivot_groups: dev-lang
 description: How to implement an MCP client to leverage remote MCP servers and their tools in your AI agent application.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # MCP Client
 
 ::: zone pivot="csharp,python"

@@ -1,7 +1,10 @@
 ---
 title: Troubleshooting
 description: Common authentication errors and how to resolve them
+ms.topic: how-to
+ms.date: 11/17/2025
 ---
+
 # Authentication Troubleshooting
 
 This guide covers common authentication errors and their solutions.

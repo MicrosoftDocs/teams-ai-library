@@ -1,3 +1,9 @@
+---
+title: Basic Configuration
+description: 
+ms.topic: overview
+ms.date: 11/17/2025
+---
 # Basic Configuration
 
 After learning about the [core concepts](./../core-concepts.md) on how to enable an application in Teams, this guide will help you configure the underlying resources correctly in Azure. There are two main ways of doing this integration.

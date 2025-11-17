@@ -1,8 +1,11 @@
 ---
 title: Executing Functions
-zone_pivot_groups: dev-lang
 description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Executing Functions
 ::: zone pivot="csharp,python"
 This page isn't available for C# and Python.

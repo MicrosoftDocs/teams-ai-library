@@ -1,8 +1,11 @@
 ---
 title: Running in Teams
-zone_pivot_groups: dev-lang
 description: Guide to deploying and testing your locally running agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
+ms.topic: overview
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Running In Teams
 
 Now that you completed [the quickstart](../quickstart.md) and your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.

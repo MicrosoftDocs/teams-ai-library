@@ -1,8 +1,11 @@
 ---
 title: Functions
-zone_pivot_groups: dev-lang
 description: Details on how to register REST endpoints that can be called from Tab apps.
+ms.topic: overview
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Functions
 
 

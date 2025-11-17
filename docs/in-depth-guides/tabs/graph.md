@@ -1,8 +1,11 @@
 ---
 title: Microsoft Graph
-zone_pivot_groups: dev-lang
 description: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Microsoft Graph Client
 
 ::: zone pivot="csharp,python"

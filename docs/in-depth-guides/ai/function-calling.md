@@ -1,9 +1,11 @@
 ---
-sidebar_label: Function Calling
 title: Function Calling
-zone_pivot_groups: dev-lang
 description: How to implement function calling in AI models, allowing the LLM to execute functions as part of its response generation.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Function / Tool calling
 
 ::: zone pivot="csharp"

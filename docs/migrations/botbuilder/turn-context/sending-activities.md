@@ -1,9 +1,11 @@
 ---
-sidebar_label: Sending Activities
 title: Sending Activities
-zone_pivot_groups: dev-lang
 description: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Sending Activities
 
 

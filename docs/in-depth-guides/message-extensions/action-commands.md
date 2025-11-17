@@ -1,9 +1,11 @@
 ---
-sidebar_label: Action Commands
 title: Action Commands
-zone_pivot_groups: dev-lang
 description: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Action commands
 
 Action commands allow you to present your users with a modal pop-up called a dialog in Teams. The dialog collects or displays information, processes the interaction, and sends the information back to Teams compose box.

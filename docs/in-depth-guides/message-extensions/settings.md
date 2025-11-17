@@ -1,10 +1,12 @@
 ---
-sidebar_label: Settings
 title: Settings
-ignore: true
-zone_pivot_groups: dev-lang
 description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ignore: true
+ms.date: 11/17/2025
 ---
+
 # Settings
 
 You can add a settings page that allows users to configure settings for your app.

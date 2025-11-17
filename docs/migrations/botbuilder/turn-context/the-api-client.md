@@ -1,9 +1,11 @@
 ---
-sidebar_label: The API Client
 title: The API Client
-zone_pivot_groups: dev-lang
 description: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # The API Client
 
 

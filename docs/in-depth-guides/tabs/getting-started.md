@@ -1,8 +1,11 @@
 ---
 title: Getting Started
-zone_pivot_groups: dev-lang
 description: Set up new tab app projects or add Teams client capabilities to existing tab applications.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Getting started
 
 ::: zone pivot="python,csharp"

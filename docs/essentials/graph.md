@@ -1,9 +1,11 @@
 ---
-sidebar_label: Graph API Client
 title: Graph API Client
-zone_pivot_groups: dev-lang
 description: Guide to using the Microsoft Graph API client to access Microsoft 365 data and services from your Teams SDK application.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Graph API Client
 
 [Microsoft Graph](/graph/overview) gives you access to the wider Microsoft 365 ecosystem. You can enrich your application with data from across Microsoft 365.

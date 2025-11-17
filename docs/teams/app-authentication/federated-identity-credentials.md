@@ -1,7 +1,10 @@
 ---
 title: Federated Identity Credentials Setup
 description: Set up Federated Identity Credentials authentication for your Teams bot in Azure Portal or Azure CLI
+ms.topic: how-to
+ms.date: 11/17/2025
 ---
+
 # Federated Identity Credentials Setup
 
 Federated Identity Credentials (FIC) allows you to assign managed identities directly to your App Registration instead of creating a separate User Managed Identity resource.

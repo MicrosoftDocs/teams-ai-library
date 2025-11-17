@@ -1,8 +1,11 @@
 ---
 title: AI
-zone_pivot_groups: dev-lang
 description: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
+ms.topic: overview
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # AI
 
 ::: zone pivot="csharp"

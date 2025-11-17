@@ -1,9 +1,11 @@
 ---
-sidebar_label: Activity Type Reference
 title: Activity Type Reference
-zone_pivot_groups: dev-lang
 description: Complete reference guide for all activity types and routes available in Teams SDK applications, including core activities and configuration routes.
+ms.topic: how-to
+zone_pivot_groups: dev-lang
+ms.date: 11/17/2025
 ---
+
 # Activity Type Reference
 
 ::: zone pivot="python,csharp"

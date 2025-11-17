@@ -1,6 +1,10 @@
 ---
+title: App Authentication Setup
 description: Set up authentication for your Teams bot using client secrets, user managed identities, or federated identity credentials
+ms.topic: overview
+ms.date: 11/17/2025
 ---
+
 # App Authentication Setup
 
 Your Teams bot needs to authenticate with Azure to send messages. This involves configuring your Azure Bot Service and App Registration correctly.
