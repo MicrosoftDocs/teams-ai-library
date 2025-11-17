@@ -15,7 +15,7 @@ remote agent function calling. Each setting is optional, with the app using a re
 
 ## Logger
 
-If no logger is specified in the app options, the app will create a [ConsoleLogger](../observability/logging). You can however provide your own logger implementation to control log level and destination.
+If no logger is specified in the app options, the app will create a [ConsoleLogger](../observability/logging.md). You can however provide your own logger implementation to control log level and destination.
 
 ```typescript
 import { App } from '@microsoft/teams.client';
@@ -161,7 +161,7 @@ The MSAL options let you control whether and how the user is prompted to give th
 
 With this option, you can either pre-warm a specific set of scopes or disable pre-warming altogether. If no setting is provided, the default behavior is to prompt the user for the Graph scopes listed in the app manifest, unless they've already consented to at least on Graph scope.
 
-For more details on how and when to prompt for scope consent, see the [Graph](./graph) documentation.
+For more details on how and when to prompt for scope consent, see the [Graph](./graph.md) documentation.
 
 #### Default behavior
 

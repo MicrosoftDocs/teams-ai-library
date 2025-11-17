@@ -48,15 +48,15 @@ This registers a route that is hosted at `http://localhost:{PORT}/tabs/my_app` o
 
 
 ::: zone pivot="csharp"
-- For more details about Tab apps, see the [Tabs](../in-depth-guides/tabs/) in-depth guide.
-- For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs) in-depth guide.
+- For more details about Tab apps, see the [Tabs](../in-depth-guides/tabs/.md) in-depth guide.
+- For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs.md) in-depth guide.
 ::: zone-end
 
 ::: zone pivot="python"
-- For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs) in-depth guide.
+- For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs.md) in-depth guide.
 ::: zone-end
 
 ::: zone pivot="typescript"
-- For more details about Tab apps, see the [Tabs](../in-depth-guides/tabs) in-depth guide.
-- For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs) in-depth guide.
+- For more details about Tab apps, see the [Tabs](../in-depth-guides/tabs.md) in-depth guide.
+- For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs.md) in-depth guide.
 ::: zone-end

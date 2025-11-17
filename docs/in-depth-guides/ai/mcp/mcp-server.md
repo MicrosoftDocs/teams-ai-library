@@ -212,7 +212,7 @@ Here is an example of how to do this. Configure your plugin so that:
 
 1. It can validate if the incoming request is allowed to send messages to the user
 2. It fetches the correct conversation ID for the given user.
-3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging) for more details.
+3. It sends a proactive message to the user. See [Proactive Messaging](../../../essentials/sending-messages/proactive-messaging.md) for more details.
 
 
 ::: zone pivot="csharp"

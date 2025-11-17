@@ -5,7 +5,7 @@ description: Guide to deploying and testing your locally running agent in Micros
 ---
 # Running In Teams
 
-Now that you completed [the quickstart](../quickstart) and your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.
+Now that you completed [the quickstart](../quickstart.md) and your agent is running locally, let's deploy it to Microsoft Teams for testing. This guide will walk you through the process.
 
 ## Microsoft 365 Agents Toolkit
 
@@ -131,7 +131,7 @@ If you prefer to set everything up by hand, follow our [Manual Configuration](/t
 
 ## Next steps
 
-Now that your agent is running in Teams, you can learn more [essential concepts](../../essentials) to understand how to build more complex agents. Explore the [in-depth guides](../../in-depth-guides) for advanced topics like authentication, message extensions, and more.
+Now that your agent is running in Teams, you can learn more [essential concepts](../../essentials.md) to understand how to build more complex agents. Explore the [in-depth guides](../../in-depth-guides.md) for advanced topics like authentication, message extensions, and more.
 
 ## Resources
 

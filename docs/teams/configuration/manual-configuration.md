@@ -4,7 +4,7 @@ description: Describe how to deploy the Azure Bot Service resource required for 
 # Manual Configuration
 
 If you prefer manually configuring the resources on Azure, and do not want to follow the automated process, you can follow the following guide.
-As described in the [Core Concepts](../core-concepts) article, the main things required are an App Registration and an Azure Bot.
+As described in the [Core Concepts](../core-concepts.md) article, the main things required are an App Registration and an Azure Bot.
 
 ## Requirements
 
@@ -18,7 +18,7 @@ As described in the [Core Concepts](../core-concepts) article, the main things r
 After a successful App Registration you should have the `TenantId`, `ClientId` and `ClientSecret` values, that you will need later.
 
 > [!TIP]
-> We are using Client Secrets authentication here, but it is possible to use other types of authentication. See the [App Authentication](../app-authentication) setup guide for other methods.
+> We are using Client Secrets authentication here, but it is possible to use other types of authentication. See the [App Authentication](../app-authentication.md) setup guide for other methods.
 
 # [Azure Portal](#tab/azure-portal)
 1. Navigate to the [Entra Id App Registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)

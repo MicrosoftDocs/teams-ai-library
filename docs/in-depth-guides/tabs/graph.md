@@ -38,7 +38,7 @@ Different graph APIs have different permission requirements. The app developer s
 
 ### Pre-warming while starting the app
 
-The App constructor takes an option that lets you control how scope consent is requested while starting the app. For more details on this option, see the [App options](./app-options) documentation.
+The App constructor takes an option that lets you control how scope consent is requested while starting the app. For more details on this option, see the [App options](./app-options.md) documentation.
 
 ### Requesting consent if not already granted
 

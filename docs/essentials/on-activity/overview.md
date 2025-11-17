@@ -86,7 +86,7 @@ In the above example, the `ctx.activity` parameter is of type `MessageActivity`,
 ::: zone pivot="typescript"
 In the above example, the `activity` parameter is of type `MessageActivity`, which has a `text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 
-[Other activity types](./activity-ref) have different properties and different required results. For a given handler, the SDK will automatically determine the type of `activity` and also enforce the correct return type.
+[Other activity types](./activity-ref.md) have different properties and different required results. For a given handler, the SDK will automatically determine the type of `activity` and also enforce the correct return type.
 ::: zone-end
 
 
@@ -258,5 +258,5 @@ app.on('message', async ({ activity }) => {
 ::: zone pivot="typescript"
 ## Activity Reference
 
-For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref).
+For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref.md).
 ::: zone-end

@@ -31,7 +31,7 @@ The SDK gives your application easy access to the Microsoft Graph API via the `@
 
 ::: zone pivot="typescript"
 > [!NOTE]
-> If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/v2-previews) for details on breaking changes.
+> If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/v2-previews.md) for details on breaking changes.
 ::: zone-end
 
 
@@ -65,7 +65,7 @@ npm install @microsoft/teams.graph-endpoints
 
 ## Calling APIs
 
-Microsoft Graph can be accessed by your application using its own application token, or by using the user's token. If you need access to resources that your application may not have, but your user does, you will need to use the user's scoped graph client. To grant explicit consent for your application to access resources on behalf of a user, follow the [auth guide](../in-depth-guides/user-authentication).
+Microsoft Graph can be accessed by your application using its own application token, or by using the user's token. If you need access to resources that your application may not have, but your user does, you will need to use the user's scoped graph client. To grant explicit consent for your application to access resources on behalf of a user, follow the [auth guide](../in-depth-guides/user-authentication.md).
 
 ::: zone pivot="csharp"
 To access the graph using the Graph using the app, you may use the `app.Graph` object <LanguageInclude section="app-access-method" />.

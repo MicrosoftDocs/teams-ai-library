@@ -108,7 +108,7 @@ You are not restricted to only replying to `message` activities. In the above ex
 ::: zone-end
 
 > [!TIP]
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards) section for more details.
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards.md) section for more details.
 
 ## Streaming
 

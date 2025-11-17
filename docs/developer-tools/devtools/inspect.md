@@ -18,7 +18,7 @@ The Activities page displays all activities sent to and from your agent in a gri
 
 ### Monitor activity while testing Teams in browser
 
-When testing your sideloaded app in the Teams web client, you can monitor activities in DevTools. Once your agent has launched, the agent server will indicate what port DevTools is running on). Open another browser tab and navigate to the DevTools Activities URL. Interact with your agent in the Teams web client and see the activities in DevTools. To learn more, review the [Agents Toolkit](../../teams/configuration/agents-toolkit) page.
+When testing your sideloaded app in the Teams web client, you can monitor activities in DevTools. Once your agent has launched, the agent server will indicate what port DevTools is running on). Open another browser tab and navigate to the DevTools Activities URL. Interact with your agent in the Teams web client and see the activities in DevTools. To learn more, review the [Agents Toolkit](../../teams/configuration/agents-toolkit.md) page.
 
 You can filter activities by type using the filter icon in the Type column header.
 
@@ -36,6 +36,6 @@ Press the Copy button in the top right corner of the Activity details view to co
 
 ### Inspect activities by ID
 
-When in [Chat](chat), you can inspect activities by ID by clicking the magnifying glass icon in the message actions menu. This opens the Activities page with the activity ID filtered in the list, which is useful for inspecting streamed messages, which have multiple activities.
+When in [Chat](chat.md), you can inspect activities by ID by clicking the magnifying glass icon in the message actions menu. This opens the Activities page with the activity ID filtered in the list, which is useful for inspecting streamed messages, which have multiple activities.
 
 To reset the filter, use the filter button in the Type column header and de-select the activity ID to show all activities again.

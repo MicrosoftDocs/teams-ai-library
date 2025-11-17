@@ -6,7 +6,7 @@ zone_pivot_groups: dev-lang
 # Creating Dialogs
 
 > [!TIP]
-> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards). Understanding their basics is a prerequisite for this guide.
+> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards.md). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 
