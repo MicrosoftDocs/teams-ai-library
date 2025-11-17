@@ -12,41 +12,11 @@ An **event** is a foundational concept in building agents — it represents some
 
 
 ::: zone pivot="csharp"
-```mermaid
-flowchart LR
-    Teams["Teams"]:::less-interesting
-    Server["App Server"]:::interesting
-    AppEventHandlers["Event Handler (app.OnEvent())"]:::interesting
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-
-
-    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
-    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
-```
+![alt-text for on-event-1.png](~/assets/diagrams/on-event-1.png)
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-```mermaid
-flowchart LR
-    Teams["Teams"]:::less-interesting
-    Server["App Server"]:::interesting
-    AppEventHandlers["Event Handler (app.event())"]:::interesting
-
-    Teams --> |Activity| Server
-    Teams --> |Signed In| Server
-    Teams --> |...other<br/>incoming events| Server
-    Server ---> |incoming<br/>events| AppEventHandlers
-    Server ---> |outgoing<br/>events<br/>| AppEventHandlers
-
-
-    linkStyle 0,1,2,3,4 stroke:#b1650f,stroke-width:1px
-    classDef interesting fill:#b1650f,stroke:#333,stroke-width:4px;
-```
+![alt-text for on-event-2.png](~/assets/diagrams/on-event-2.png)
 ::: zone-end
 
 

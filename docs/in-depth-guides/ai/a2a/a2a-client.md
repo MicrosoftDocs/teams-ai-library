@@ -291,77 +291,9 @@ Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
 ::: zone-end
 
 ::: zone pivot="python"
-```mermaid
-sequenceDiagram
-    participant User
-    participant ChatPrompt
-    participant A2AClientPlugin
-    participant A2ACardResolver
-    participant Client
-    participant LLM
-    participant A2AServer
-
-    Note over User,A2AServer: Configuration
-    User->>A2AClientPlugin: on_use_plugin()
-
-    Note over User,A2AServer: Message Flow
-    User->>ChatPrompt: send(message)
-    ChatPrompt->>A2AClientPlugin: on_build_instructions()
-    A2AClientPlugin->>A2ACardResolver: fetch_agent_card()
-    A2ACardResolver->>A2AServer: GET /.well-known/agent-card.json
-    A2AServer-->>A2ACardResolver: AgentCard
-    A2ACardResolver-->>A2AClientPlugin: AgentCard
-    A2AClientPlugin-->>ChatPrompt: Enhanced system prompt
-
-    ChatPrompt->>A2AClientPlugin: on_build_functions()
-    A2AClientPlugin-->>ChatPrompt: Function tools for agents
-
-    ChatPrompt->>LLM: Enhanced prompt + tools
-    LLM-->>ChatPrompt: Function call (message_agent)
-    ChatPrompt->>A2AClientPlugin: Execute function handler
-    A2AClientPlugin->>Client: send_message()
-    Client->>A2AServer: POST /a2a/task/send
-    A2AServer-->>Client: Response
-    Client-->>A2AClientPlugin: Response
-    A2AClientPlugin-->>ChatPrompt: Processed response
-    ChatPrompt-->>User: Final response
-```
+![alt-text for a2a-client-1.png](~/assets/diagrams/a2a-client-1.png)
 ::: zone-end
 
 ::: zone pivot="typescript"
-```mermaid
-sequenceDiagram
-    participant User
-    participant ChatPrompt
-    participant A2AClientPlugin
-    participant A2AClient
-    participant LLM
-    participant A2AServer
-
-    Note over User,A2AServer: Configuration
-    User->>ChatPrompt: usePlugin('a2a', {cardUrl})
-    ChatPrompt->>A2AClientPlugin: onUsePlugin()
-
-    Note over User,A2AServer: Message Flow
-    User->>ChatPrompt: send(message)
-    ChatPrompt->>A2AClientPlugin: onBuildPrompt()
-    A2AClientPlugin->>A2AClient: getAgentCard()
-    A2AClient->>A2AServer: GET /.well-known/agent-card.json
-    A2AServer-->>A2AClient: AgentCard
-    A2AClient-->>A2AClientPlugin: AgentCard
-    A2AClientPlugin-->>ChatPrompt: Enhanced system prompt
-
-    ChatPrompt->>A2AClientPlugin: onBuildFunctions()
-    A2AClientPlugin-->>ChatPrompt: Function tools for agents
-
-    ChatPrompt->>LLM: Enhanced prompt + tools
-    LLM-->>ChatPrompt: Function call (messageAgent)
-    ChatPrompt->>A2AClientPlugin: Execute function handler
-    A2AClientPlugin->>A2AClient: sendMessage()
-    A2AClient->>A2AServer: POST /a2a/task/send
-    A2AServer-->>A2AClient: Response
-    A2AClient-->>A2AClientPlugin: Response
-    A2AClientPlugin-->>ChatPrompt: Processed response
-    ChatPrompt-->>User: Final response
-```
+![alt-text for a2a-client-2.png](~/assets/diagrams/a2a-client-2.png)
 ::: zone-end
