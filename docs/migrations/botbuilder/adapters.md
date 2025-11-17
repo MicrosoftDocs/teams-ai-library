@@ -19,9 +19,8 @@ A BotBuilder `Adapter` is similar to a Teams SDK `Plugin` in the sense that they
 an abstraction that is meant to send/receive activities. To make migrating stress free we have
 shipped a pre-built `BotBuilderPlugin` that can accept a botbuilder Adapter instance.
 
-:::info
-this snippet shows how to use the `BotBuilderPlugin` to send/receive activities using botbuilder instead of the default Teams SDK http plugin.
-:::
+> [!NOTE]
+> this snippet shows how to use the `BotBuilderPlugin` to send/receive activities using botbuilder instead of the default Teams SDK http plugin.
 
 # [index.ts](#tab/indexts)
 ```typescript

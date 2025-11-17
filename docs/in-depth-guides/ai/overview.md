@@ -47,19 +47,16 @@ are made compatible with the more general features of the `@microsoft/teams.ai` 
 ::: zone-end
 
 ::: zone pivot="csharp"
-:::note
-You are not restricted to use the `Microsoft.Teams.AI` to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
-:::
+> [!NOTE]
+> You are not restricted to use the `Microsoft.Teams.AI` to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
 ::: zone-end
 
 ::: zone pivot="python"
-:::note
-You are not restricted to use the `microsoft-teams-ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
-:::
+> [!NOTE]
+> You are not restricted to use the `microsoft-teams-ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::note
-You are not restricted to use the `@microsoft/teams.ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
-:::
+> [!NOTE]
+> You are not restricted to use the `@microsoft/teams.ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
 ::: zone-end

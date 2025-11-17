@@ -45,9 +45,8 @@ Here are the events that you can start building handlers for:
 | `activity_sent`     | Triggered when an activity is sent (not necessarily in response).              |
 
 <br/>
-:::info
-Event handler registration uses `@app.event("<event_name>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
-:::
+> [!NOTE]
+> Event handler registration uses `@app.event("<event_name>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
 ::: zone-end
 
 
@@ -124,4 +123,3 @@ app.event('signin', async ({ activity, send, userGraph }) => {
 });
 ```
 ::: zone-end
-

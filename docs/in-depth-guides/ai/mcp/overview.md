@@ -13,6 +13,5 @@ When building Servers, this could mean that you can introduce new tools as part 
 
 When building Clients, this could mean that you can connect to other MCP servers and your application has the flexibility to improve as the MCP servers its connected to evolve over time.
 
-:::tip
-The guides here can be used to build a server and a client that can leverage each other. That means you can build a server that has the ability to do complex things for the client agent.
-:::
+> [!TIP]
+> The guides here can be used to build a server and a client that can leverage each other. That means you can build a server that has the ability to do complex things for the client agent.

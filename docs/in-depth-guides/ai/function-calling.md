@@ -493,9 +493,8 @@ When you register multiple functions:
    - Then: `weather_search(location)` to get the weather for that location
 4. The LLM combines all function results to generate the final response
 
-:::tip
-The LLM can call functions sequentially - using the output of one function as input to another - without any additional configuration. This makes it powerful for complex, multi-step workflows.
-:::
+> [!TIP]
+> The LLM can call functions sequentially - using the output of one function as input to another - without any additional configuration. This makes it powerful for complex, multi-step workflows.
 ::: zone-end
 
 ::: zone pivot="python"

@@ -8,17 +8,14 @@ description: API guide to implement User Authentication with SSO in Teams Apps.
 
 At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 
-:::info
-This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
-:::
+> [!NOTE]
+> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](/teams/core-concepts) before attempting this guide.
 
-:::warning
-User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](/typescript/getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
-:::
+> [!WARNING]
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](/typescript/getting-started/running-in-teams#debugging-in-teams) to run your app in Teams.
 
-:::info
-It is possible to authenticate the user into [other auth providers](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
-:::
+> [!NOTE]
+> It is possible to authenticate the user into [other auth providers](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-identity-providers?view=azure-bot-service-4.0&tabs=adv2%2Cga2#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 
 Once you have configured your Azure Bot resource OAuth settings, as described in the [official documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0), add the following code to your `App`:
 
@@ -26,9 +23,8 @@ Once you have configured your Azure Bot resource OAuth settings, as described in
 
 ### Create an app with the `graph` template
 
-:::tip
-Skip this step if you want to add the auth configurations to an existing app.
-:::
+> [!TIP]
+> Skip this step if you want to add the auth configurations to an existing app.
 
 
 ::: zone pivot="csharp"
@@ -83,9 +79,8 @@ This [CLI](/developer-tools/cli) command adds configuration files required by Ag
 - Azure Application Entra ID manifest file `aad.manifest.json`.
 - Azure bicep files to provision Azure bot in `infra/` folder.
 
-:::info
-Agents Toolkit, in the debugging flow, will deploy the `aad.manifest.json` and `infra/azure.local.bicep` file to provision the Application Entra ID and Azure bot with oauth configurations.
-:::
+> [!NOTE]
+> Agents Toolkit, in the debugging flow, will deploy the `aad.manifest.json` and `infra/azure.local.bicep` file to provision the Application Entra ID and Azure bot with oauth configurations.
 
 ## Configure the OAuth connection
 
@@ -132,19 +127,16 @@ const app = new App({
 ::: zone-end
 
 
-:::tip
-Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
-:::
+> [!TIP]
+> Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
 
-:::note
-In many templates, `graph` is the default name of the OAuth connection, but you can change that by supplying a different connection name in your app configuration.
-:::
+> [!NOTE]
+> In many templates, `graph` is the default name of the OAuth connection, but you can change that by supplying a different connection name in your app configuration.
 
 ## Signing In
 
-:::note
-This uses the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [official documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0).
-:::
+> [!NOTE]
+> This uses the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [official documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-builder-concept-authentication?view=azure-bot-service-4.0).
 
 You must call the `signin` method inside your route handler, for example: to signin when receiving the `/signin` message:
 
@@ -231,9 +223,8 @@ app.event('signin', async ({ send, token }) => {
 
 From this point, you can use the `IsSignedIn` flag and the `userGraph` client to query graph, for example to reply to the `/whoami` message, or in any other route.
 
-:::note
-The default OAuth configuration requests the `User.ReadBasic.All` permission. It is possible to request other permissions by modifying the App Registration for the bot on Azure.
-:::
+> [!NOTE]
+> The default OAuth configuration requests the `User.ReadBasic.All` permission. It is possible to request other permissions by modifying the App Registration for the bot on Azure.
 
 
 ::: zone pivot="csharp"

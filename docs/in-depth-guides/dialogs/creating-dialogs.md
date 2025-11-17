@@ -5,9 +5,8 @@ zone_pivot_groups: dev-lang
 ---
 # Creating Dialogs
 
-:::tip
-If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards). Understanding their basics is a prerequisite for this guide.
-:::
+> [!TIP]
+> If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
 
@@ -413,9 +412,8 @@ if (dialogType === 'simple_form') {
 ::: zone-end
 
 
-:::info
-The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
-:::
+> [!NOTE]
+> The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
 
 ### Rendering A Webpage
 

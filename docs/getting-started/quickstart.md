@@ -43,10 +43,9 @@ Use your terminal to run the Teams CLI using npx:
 npx @microsoft/teams.cli --version
 ```
 
-:::info
-_The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
-Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
-:::
+> [!NOTE]
+> _The [Teams CLI](/developer-tools/cli) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
+> Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
 
 ## Creating Your First Agent
 
@@ -203,9 +202,8 @@ When the application starts, you'll see:
 1. An HTTP server starting up (on port `3978`). This is the main server which handles incoming requests and serves the agent application.
 2. A devtools server starting up (on port `3979`). This is a developer server that provides a web interface for debugging and testing your agent quickly, without having to deploy it to Teams.
 
-:::info
-The DevTools server runs on a separate port to avoid conflicts with your main application server. This allows you to test your agent locally while keeping the main server available for Teams integration.
-:::
+> [!NOTE]
+> The DevTools server runs on a separate port to avoid conflicts with your main application server. This allows you to test your agent locally while keeping the main server available for Teams integration.
 
 Now, navigate to the devtools server by opening your browser and navigating to [http://localhost:3979/devtools](http://localhost:3979/devtools). You should see a simple interface where you can interact with your agent. Try sending it a message!
 

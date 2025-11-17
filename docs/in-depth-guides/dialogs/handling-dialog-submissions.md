@@ -263,4 +263,3 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
-

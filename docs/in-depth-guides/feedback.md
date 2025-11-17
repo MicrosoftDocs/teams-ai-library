@@ -266,4 +266,3 @@ app.on('message.submit.feedback', async ({ activity, log }) => {
 });
 ```
 ::: zone-end
-

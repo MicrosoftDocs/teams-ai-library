@@ -134,11 +134,10 @@ Plugins are a core part of the Teams SDK. They allow you to hook into various li
 Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (on_activity, on_activity_sent, etc.). In fact, the [DevTools](/developer-tools/devtools) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 ::: zone-end
 
-:::warning
-DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.
-
-**Be sure to remove the DevTools plugin from your production code.**
-:::
+> [!WARNING]
+> DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.
+>
+> **Be sure to remove the DevTools plugin from your production code.**
 
 ### Message Handling
 
@@ -235,22 +234,19 @@ This code:
 
 
 ::: zone pivot="csharp"
-:::info
-Each activity type has both an attribute and a functional method for type safety/simplicity
-of routing logic!
-:::
+> [!NOTE]
+> Each activity type has both an attribute and a functional method for type safety/simplicity
+> of routing logic!
 ::: zone-end
 
 ::: zone pivot="python"
-:::info
-Python uses type hints for better development experience. You can change the activity handler to different supported activities, and the type system will provide appropriate hints and validation.
-:::
+> [!NOTE]
+> Python uses type hints for better development experience. You can change the activity handler to different supported activities, and the type system will provide appropriate hints and validation.
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::info
-Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
-:::
+> [!NOTE]
+> Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
 ::: zone-end
 
 

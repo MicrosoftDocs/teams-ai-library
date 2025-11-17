@@ -464,4 +464,3 @@ public async Task<Response> OnTaskSubmit([Context] Tasks.SubmitActivity activity
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
-

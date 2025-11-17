@@ -17,9 +17,8 @@ As described in the [Core Concepts](../core-concepts) article, the main things r
 
 After a successful App Registration you should have the `TenantId`, `ClientId` and `ClientSecret` values, that you will need later.
 
-:::tip
-We are using Client Secrets authentication here, but it is possible to use other types of authentication. See the [App Authentication](../app-authentication) setup guide for other methods.
-:::
+> [!TIP]
+> We are using Client Secrets authentication here, but it is possible to use other types of authentication. See the [App Authentication](../app-authentication) setup guide for other methods.
 
 # [Azure Portal](#tab/azure-portal)
 1. Navigate to the [Entra Id App Registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)
@@ -42,9 +41,8 @@ clientSecret=$(echo $appCred | jq -r '.password')
 
 ### Create the Azure Bot Service resource
 
-:::tip
-You can create the Azure Bot Service resource and the Entra App Registration from this screen, and then you will have to create a new client secret.
-:::
+> [!TIP]
+> You can create the Azure Bot Service resource and the Entra App Registration from this screen, and then you will have to create a new client secret.
 
 # [Azure Portal](#tab/azure-portal)
 1. Create or select the resource group where you want to create the Azure Bot Resource

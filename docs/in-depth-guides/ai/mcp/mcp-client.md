@@ -36,9 +36,8 @@ npm install @microsoft/teams.mcpclient
 ::: zone-end
 
 
-:::info
-Take a look at [Function calling](../function-calling) to understand how the `ChatPrompt` leverages tools to enhance the LLM's capabilities. MCP extends this functionality by allowing remote tools, that may or may not be developed or maintained by you, to be used by your application.
-:::
+> [!NOTE]
+> Take a look at [Function calling](../function-calling) to understand how the `ChatPrompt` leverages tools to enhance the LLM's capabilities. MCP extends this functionality by allowing remote tools, that may or may not be developed or maintained by you, to be used by your application.
 
 ## Remote MCP Server
 
@@ -395,9 +394,8 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 ::: zone-end
 
 
-:::note
-Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
-:::
+> [!NOTE]
+> Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
 
 
 ::: zone pivot="csharp"

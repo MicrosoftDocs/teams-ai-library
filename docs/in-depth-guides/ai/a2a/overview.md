@@ -11,15 +11,13 @@ This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="python"
-:::note
-This package wraps the official [A2A SDK](https://github.com/a2aproject/a2a-python) for both server and client.
-:::
+> [!NOTE]
+> This package wraps the official [A2A SDK](https://github.com/a2aproject/a2a-python) for both server and client.
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::note
-This package wraps the official [A2A SDK](https://github.com/a2aproject/a2a-js) for both server and client.
-:::
+> [!NOTE]
+> This package wraps the official [A2A SDK](https://github.com/a2aproject/a2a-js) for both server and client.
 ::: zone-end
 
 ::: zone pivot="typescript,python"

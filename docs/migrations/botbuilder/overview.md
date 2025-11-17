@@ -25,4 +25,3 @@ and `adapter` to send/receive activities through our new abstractions.
 Because by using a plugin we are able to leverage all our new features while allowing developers to easily and incrementally
 migration activity handlers from the legacy activity handlers to our new `App` class handlers.
 ::: zone-end
-

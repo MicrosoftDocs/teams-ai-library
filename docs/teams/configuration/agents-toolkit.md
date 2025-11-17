@@ -12,11 +12,10 @@ Agents Toolkit can be installed as an extension and CLI. Please see the document
 - [Installing Agents Toolkit extension](https://learn.microsoft.com/microsoftteams/platform/toolkit/install-teams-toolkit)
 - [Installing Agents Toolkit CLI](https://learn.microsoft.com/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
 
-:::note
-
-- [Teams SDK CLI](../../developer-tools/cli) - helper for Teams SDK. It scaffolds agents, wires in deep Teams features (Adaptive Cards, Conversation History, Memory...etc), and adds all the config files you need while you're coding.
-- Agents Toolkit CLI - app deployment helper. It sideloads, provisions Azure resources, handles manfiest/tenant plumbing, and keeps your dev, test, and prod environments in sync.
-  :::
+> [!NOTE]
+>
+> - [Teams SDK CLI](../../developer-tools/cli) - helper for Teams SDK. It scaffolds agents, wires in deep Teams features (Adaptive Cards, Conversation History, Memory...etc), and adds all the config files you need while you're coding.
+> - Agents Toolkit CLI - app deployment helper. It sideloads, provisions Azure resources, handles manfiest/tenant plumbing, and keeps your dev, test, and prod environments in sync.
 
 ## Official documentation
 

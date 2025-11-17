@@ -20,9 +20,8 @@ The `BotBuilderPlugin` accepts a botbuilder Activity Handler instance so you can
 existing activity handlers while migrating however many you want to new Teams SDK handlers. This allows for
 a more incremental migration strategy.
 
-:::info
-this snippet shows how to use the `BotBuilderPlugin` to route activities using botbuilder alongside the default Teams SDK activity routing.
-:::
+> [!NOTE]
+> this snippet shows how to use the `BotBuilderPlugin` to route activities using botbuilder alongside the default Teams SDK activity routing.
 
 # [index.ts](#tab/indexts)
 ```typescript

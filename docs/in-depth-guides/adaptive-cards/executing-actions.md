@@ -21,9 +21,8 @@ The Teams SDK supports several action types for different interaction patterns:
 | `Action.ShowCard`         | Progressive disclosure | Display a nested card when clicked.                                          |
 | `Action.ToggleVisibility` | UI state management    | Show/hide card elements dynamically.                                         |
 
-:::info
-For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
-:::
+> [!NOTE]
+> For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
 
 ## Creating Actions with the SDK
 
@@ -689,20 +688,16 @@ app.on('card.action', async ({ activity, send }) => {
 
 
 ::: zone pivot="csharp"
-:::note
-The `data` values come from JSON and need to be extracted using the helper method shown above to handle different JSON element types.
-:::
+> [!NOTE]
+> The `data` values come from JSON and need to be extracted using the helper method shown above to handle different JSON element types.
 ::: zone-end
 
 ::: zone pivot="python"
-:::note
-The `data` values are accessible as a dictionary and can be accessed using `.get()` method for safe access.
-:::
+> [!NOTE]
+> The `data` values are accessible as a dictionary and can be accessed using `.get()` method for safe access.
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::note
-The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
-:::
+> [!NOTE]
+> The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
 ::: zone-end
-

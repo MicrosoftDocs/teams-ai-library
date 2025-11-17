@@ -100,9 +100,8 @@ var azureOpenAI = new AzureOpenAIClient(
 var aiModel = new OpenAIChatModel(azureOpenAIModel, azureOpenAI);
 ```
 
-:::tip
-Use `appsettings.Development.json` for local development and keep it in `.gitignore`. For production, use environment variables or Azure Key Vault.
-:::
+> [!TIP]
+> Use `appsettings.Development.json` for local development and keep it in `.gitignore`. For production, use environment variables or Azure Key Vault.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -130,15 +129,13 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 
 
 ::: zone pivot="csharp"
-:::info
-The Azure OpenAI SDK handles API versioning automatically. You don't need to specify an API version manually.
-:::
+> [!NOTE]
+> The Azure OpenAI SDK handles API versioning automatically. You don't need to specify an API version manually.
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-:::info
-The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
-:::
+> [!NOTE]
+> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference?WT.mc_id=AZ-MVP-5004796 'Azure OpenAI API Reference')
 ::: zone-end
 
 
@@ -169,9 +166,8 @@ var openAIModel = configuration["OpenAIModel"] ?? "gpt-4o";
 var aiModel = new OpenAIChatModel(openAIModel, openAIKey);
 ```
 
-:::tip
-Use `appsettings.Development.json` for local development and keep it in `.gitignore`. For production, use environment variables or Azure Key Vault.
-:::
+> [!TIP]
+> Use `appsettings.Development.json` for local development and keep it in `.gitignore`. For production, use environment variables or Azure Key Vault.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -192,21 +188,20 @@ OPENAI_API_KEY=sk-your-openai-api-key
 ::: zone-end
 
 ::: zone pivot="python"
-:::note
-**Automatic Environment Variable Loading**: The AI models automatically read these environment variables when initialized. You can also pass these values explicitly as constructor parameters if needed for advanced configurations.
-
-```python
-# Automatic (recommended)
-model = OpenAICompletionsAIModel(model="your-model-name")
-
-# Explicit (for advanced use cases)
-model = OpenAICompletionsAIModel(
-    key="your-api-key",
-    model="your-model-name",
-    azure_endpoint="your-endpoint",  # Azure only
-    api_version="your-api-version"   # Azure only
-)
-```
-
-:::
+> [!NOTE]
+> **Automatic Environment Variable Loading**: The AI models automatically read these environment variables when initialized. You can also pass these values explicitly as constructor parameters if needed for advanced configurations.
+>
+> ```python
+> # Automatic (recommended)
+> model = OpenAICompletionsAIModel(model="your-model-name")
+>
+> # Explicit (for advanced use cases)
+> model = OpenAICompletionsAIModel(
+>     key="your-api-key",
+>     model="your-model-name",
+>     azure_endpoint="your-endpoint",  # Azure only
+>     api_version="your-api-version"   # Azure only
+> )
+> ```
+>
 ::: zone-end

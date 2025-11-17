@@ -209,15 +209,13 @@ teamsApp.OnMessage(async (context) =>
 
 
 ::: zone pivot="csharp,typescript"
-:::note
-The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
-:::
+> [!NOTE]
+> The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
 ::: zone-end
 
 ::: zone pivot="python"
-:::note
-The current `OpenAICompletionsAIModel` implementation uses Chat Completions API. The Responses API is also available.
-:::
+> [!NOTE]
+> The current `OpenAICompletionsAIModel` implementation uses Chat Completions API. The Responses API is also available.
 ::: zone-end
 
 
@@ -241,9 +239,8 @@ Instead of `ChatPrompt`, you may also use `Agent`. The `Agent` class is a deriva
 
 LLMs can take a while to generate a response, so often streaming the response leads to a better, more responsive user experience.
 
-:::warning
-Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
-:::
+> [!WARNING]
+> Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
 
 
 ::: zone pivot="csharp"
