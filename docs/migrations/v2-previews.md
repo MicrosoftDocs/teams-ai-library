@@ -1,11 +1,8 @@
 ---
-sidebar_position: 3
 sidebar_label: From V2 Previews
 title: From V2 Previews
-languages: ['typescript']
 zone_pivot_groups: dev-lang
 ---
-
 # From V2 Previews
 
 

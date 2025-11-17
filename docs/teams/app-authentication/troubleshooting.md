@@ -1,13 +1,7 @@
 ---
-sidebar_position: 4
 title: Troubleshooting
-summary: Common authentication errors and how to resolve them
-llms: ignore
+description: Common authentication errors and how to resolve them
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Authentication Troubleshooting
 
 This guide covers common authentication errors and their solutions.

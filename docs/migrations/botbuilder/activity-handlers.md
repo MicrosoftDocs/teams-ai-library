@@ -1,14 +1,8 @@
 ---
-sidebar_position: 2
-languages: ['typescript']
 title: Activity Handlers
-summary: How to migrate BotBuilder ActivityHandler patterns to Teams SDK activity routing system.
 zone_pivot_groups: dev-lang
+description: How to migrate BotBuilder ActivityHandler patterns to Teams SDK activity routing system.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Activity Handlers
 
 

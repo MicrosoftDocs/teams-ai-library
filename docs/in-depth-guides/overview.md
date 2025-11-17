@@ -1,10 +1,8 @@
 ---
 title: In-Depth Guides
-sidebar_position: 3
-summary: Advanced guides covering complex topics like AI integration, adaptive cards, dialogs, message extensions, and user authentication.
 zone_pivot_groups: dev-lang
+description: Advanced guides covering complex topics like AI integration, adaptive cards, dialogs, message extensions, and user authentication.
 ---
-
 # In-Depth Guides
 
 

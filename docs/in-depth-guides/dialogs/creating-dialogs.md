@@ -1,10 +1,8 @@
 ---
-sidebar_position: 1
-sidebar_label: 'Creating Dialogs'
-title: 'Creating Dialogs'
+sidebar_label: Creating Dialogs
+title: Creating Dialogs
 zone_pivot_groups: dev-lang
 ---
-
 # Creating Dialogs
 
 :::tip

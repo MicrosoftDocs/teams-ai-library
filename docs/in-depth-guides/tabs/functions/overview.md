@@ -1,11 +1,8 @@
 ---
-sidebar_position: 5
-title: 'Functions'
-summary: Details on how to register REST endpoints that can be called from Tab apps.
-languages: ['typescript', 'csharp']
+title: Functions
 zone_pivot_groups: dev-lang
+description: Details on how to register REST endpoints that can be called from Tab apps.
 ---
-
 # Functions
 
 

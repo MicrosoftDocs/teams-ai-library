@@ -1,11 +1,6 @@
 ---
-sidebar_position: 2
-summary: Describe how to deploy the Azure Bot Service resource required for Teams bot apps
+description: Describe how to deploy the Azure Bot Service resource required for Teams bot apps
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Manual Configuration
 
 If you prefer manually configuring the resources on Azure, and do not want to follow the automated process, you can follow the following guide.

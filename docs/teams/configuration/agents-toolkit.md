@@ -1,8 +1,6 @@
 ---
-sidebar_position: 1
-summary: Automate Teams app development with Microsoft 365 Agents Toolkit for manifest management, sideloading, and deployment.
+description: Automate Teams app development with Microsoft 365 Agents Toolkit for manifest management, sideloading, and deployment.
 ---
-
 # Microsoft 365 Agents Toolkit
 
 Microsoft 365 Agents Toolkit provides a powerful VS Code extension and CLI tool that helps automate important tasks like provisioning and deployment. The project is maintained separately in this repository - [Agents Toolkit GitHub repository](https://github.com/OfficeDev/microsoft-365-agents-toolkit).

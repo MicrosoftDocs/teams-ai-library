@@ -1,14 +1,9 @@
 ---
-sidebar_position: 1
 sidebar_label: Building Adaptive Cards
 title: Building Adaptive Cards
-summary: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 zone_pivot_groups: dev-lang
+description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Building Adaptive Cards
 
 Adaptive Cards are JSON payloads that describe rich, interactive UI fragments.

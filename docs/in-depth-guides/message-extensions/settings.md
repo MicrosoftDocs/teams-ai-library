@@ -1,14 +1,10 @@
 ---
-sidebar_position: 3
-sidebar_label: 'Settings'
-title: 'Settings'
-summary: Add configurable settings pages to your message extensions to allow users to customize app behavior.
+sidebar_label: Settings
+title: Settings
 ignore: true
 zone_pivot_groups: dev-lang
+description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
 ---
-
-import SettingsImgUrl from '@site/static/screenshots/settings.png';
-
 # ⚙️ Settings
 
 You can add a settings page that allows users to configure settings for your app.

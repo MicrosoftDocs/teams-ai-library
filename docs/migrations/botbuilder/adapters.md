@@ -1,14 +1,8 @@
 ---
-sidebar_position: 1
-languages: ['typescript']
 title: Adapters
-summary: How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware.
 zone_pivot_groups: dev-lang
+description: How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Adapters
 
 

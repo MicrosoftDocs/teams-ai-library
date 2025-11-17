@@ -1,11 +1,8 @@
 ---
-sidebar_position: 6
 title: MCP
-summary: Overview of Model Context Protocol (MCP) integration in Teams SDK for dynamic function and tool loading.
-suppressLanguageIncludeWarning: true
 zone_pivot_groups: dev-lang
+description: Overview of Model Context Protocol (MCP) integration in Teams SDK for dynamic function and tool loading.
 ---
-
 # MCP
 
 Teams SDK has optional packages which support the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as a service or client. This allows you to use MCP to call functions and tools in your application.

@@ -1,14 +1,8 @@
 ---
 title: Turn Context
-sidebar_position: 3
-languages: ['typescript']
-summary: Understand how Teams SDK's IActivityContext replaces BotBuilder's TurnContext for handling incoming data and APIs.
 zone_pivot_groups: dev-lang
+description: Understand how Teams SDK's IActivityContext replaces BotBuilder's TurnContext for handling incoming data and APIs.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Turn Context
 
 

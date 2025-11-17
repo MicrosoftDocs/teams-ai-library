@@ -1,15 +1,9 @@
 ---
-sidebar_position: 1
 sidebar_label: Sending Activities
 title: Sending Activities
-languages: ['typescript']
-summary: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support.
 zone_pivot_groups: dev-lang
+description: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Sending Activities
 
 

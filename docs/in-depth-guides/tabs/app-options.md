@@ -1,12 +1,8 @@
 ---
-sidebar_position: 3
-title: 'App Options'
-summary: Configure app settings for observability, MSAL authentication, and remote agent function calling.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: App Options
 zone_pivot_groups: dev-lang
+description: Configure app settings for observability, MSAL authentication, and remote agent function calling.
 ---
-
 # App Options
 
 ::: zone pivot="python,csharp"

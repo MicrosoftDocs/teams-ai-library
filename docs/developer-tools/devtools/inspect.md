@@ -1,9 +1,6 @@
 ---
-sidebar_position: 2
-summary: Inspect all incoming and outgoing activities with your agent using DevTools Activities page for debugging.
-llms: ignore
+description: Inspect all incoming and outgoing activities with your agent using DevTools Activities page for debugging.
 ---
-
 # 🔍 Inspect activities
 
 Inspect incoming and outgoing activities on DevTools' Activities page. All interactions with your agent are logged here, including messages, reactions, and more.

@@ -1,12 +1,7 @@
 ---
-sidebar_position: 1
 title: Client Secret Setup
-summary: Set up client secret authentication for your Teams bot in Azure Portal or Azure CLI
+description: Set up client secret authentication for your Teams bot in Azure Portal or Azure CLI
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Client Secret Authentication Setup
 
 Client Secret authentication is the simplest method, using a password-like secret to authenticate your bot. While easy to set up, secrets need to be rotated periodically and kept secure.

@@ -1,15 +1,9 @@
 ---
-sidebar_position: 4
 sidebar_label: User Authentication
 title: User Authentication
-languages: ['typescript']
-summary: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
 zone_pivot_groups: dev-lang
+description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # User Authentication
 
 

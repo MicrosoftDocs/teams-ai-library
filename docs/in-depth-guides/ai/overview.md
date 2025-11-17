@@ -1,10 +1,8 @@
 ---
 title: 🤖 AI
-sidebar_position: 5
-summary: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
 zone_pivot_groups: dev-lang
+description: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
 ---
-
 # 🤖 AI
 
 ::: zone pivot="csharp"

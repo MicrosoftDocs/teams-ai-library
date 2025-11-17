@@ -1,11 +1,8 @@
 ---
 title: 🚀 Getting Started
-sidebar_position: 1
-summary: Getting started guide for Teams SDK covering application setup, structure, and local development.
-llms: ignore-file
 zone_pivot_groups: dev-lang
+description: Getting started guide for Teams SDK covering application setup, structure, and local development.
 ---
-
 # 🚀 Getting Started
 
 

@@ -1,10 +1,8 @@
 ---
-summary: Overview of the experimental A2A (Agent-to-Agent) protocol for enabling programmatic communication between AI agents.
-languages: ['typescript', 'python']
 title: A2A Protocol
 zone_pivot_groups: dev-lang
+description: Overview of the experimental A2A (Agent-to-Agent) protocol for enabling programmatic communication between AI agents.
 ---
-
 # A2A (Agent-to-Agent) Protocol
 
 

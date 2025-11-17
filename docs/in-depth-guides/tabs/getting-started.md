@@ -1,12 +1,8 @@
 ---
-sidebar_position: 1
-title: 'Getting Started'
-summary: Set up new tab app projects or add Teams client capabilities to existing tab applications.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: Getting Started
 zone_pivot_groups: dev-lang
+description: Set up new tab app projects or add Teams client capabilities to existing tab applications.
 ---
-
 # Getting started
 
 ::: zone pivot="python,csharp"

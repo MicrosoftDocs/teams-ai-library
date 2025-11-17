@@ -1,10 +1,8 @@
 ---
-sidebar_position: 1
-title: 'Middleware'
-summary: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
+title: Middleware
 zone_pivot_groups: dev-lang
+description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
 ---
-
 # Middleware
 
 ::: zone pivot="csharp"

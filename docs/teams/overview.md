@@ -1,8 +1,6 @@
 ---
-sidebar_position: 3
-summary: Overview of Teams-specific features and SDK components that enable agent integration with the Microsoft Teams platform.
+description: Overview of Teams-specific features and SDK components that enable agent integration with the Microsoft Teams platform.
 ---
-
 # Teams Integration
 
 This section describes Teams-specific features and components of the SDK, helping you understand how your agent integrates with the Microsoft Teams platform.

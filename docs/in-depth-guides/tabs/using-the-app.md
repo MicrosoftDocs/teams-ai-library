@@ -1,12 +1,8 @@
 ---
-sidebar_position: 2
-title: 'Using the App'
-summary: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: Using the App
 zone_pivot_groups: dev-lang
+description: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
 ---
-
 # Using The App
 
 ::: zone pivot="python,csharp"

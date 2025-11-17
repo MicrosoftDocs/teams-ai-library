@@ -1,15 +1,9 @@
 ---
-sidebar_position: 3
 sidebar_label: The API Client
 title: The API Client
-languages: ['typescript']
-summary: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions.
 zone_pivot_groups: dev-lang
+description: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # The API Client
 
 

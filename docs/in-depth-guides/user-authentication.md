@@ -1,11 +1,9 @@
 ---
-sidebar_position: 4
 sidebar_label: 🔒 User Authentication
 title: 🔒 User Authentication
-summary: API guide to implement User Authentication with SSO in Teams Apps.
 zone_pivot_groups: dev-lang
+description: API guide to implement User Authentication with SSO in Teams Apps.
 ---
-
 # 🔒 User Authentication
 
 At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.

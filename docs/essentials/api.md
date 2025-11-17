@@ -1,11 +1,9 @@
 ---
-sidebar_position: 6
 sidebar_label: API Client
 title: API Client
-summary: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
 zone_pivot_groups: dev-lang
+description: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
 ---
-
 # Teams API Client
 
 ::: zone pivot="csharp"

@@ -1,12 +1,8 @@
 ---
-sidebar_position: 4
-title: 'Microsoft Graph'
-summary: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: Microsoft Graph
 zone_pivot_groups: dev-lang
+description: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
 ---
-
 # Microsoft Graph Client
 
 ::: zone pivot="csharp,python"

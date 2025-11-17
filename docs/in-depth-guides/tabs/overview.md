@@ -1,11 +1,8 @@
 ---
 title: Tabs
-sidebar_position: 6
-summary: Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.
-languages: ['typescript', 'csharp']
 zone_pivot_groups: dev-lang
+description: Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.
 ---
-
 # Tabs
 
 ::: zone pivot="python"

@@ -1,15 +1,9 @@
 ---
-sidebar_position: 2
 sidebar_label: Proactive Activities
 title: Proactive Activities
-languages: ['typescript']
-summary: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
 zone_pivot_groups: dev-lang
+description: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Proactive Activities
 
 

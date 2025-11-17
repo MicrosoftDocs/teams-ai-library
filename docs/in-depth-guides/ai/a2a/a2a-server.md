@@ -1,13 +1,8 @@
 ---
-sidebar_position: 1
 title: A2A Server
-summary: How to implement an A2A server to expose your Teams app capabilities to other agents using the A2A protocol.
-languages: ['typescript', 'python']
 zone_pivot_groups: dev-lang
+description: How to implement an A2A server to expose your Teams app capabilities to other agents using the A2A protocol.
 ---
-
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
-
 # A2A Server
 
 ::: zone pivot="csharp"

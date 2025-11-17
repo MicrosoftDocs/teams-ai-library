@@ -1,11 +1,9 @@
 ---
-sidebar_position: 7
 title: Feedback
 sidebar_label: Feedback
-summary: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
 zone_pivot_groups: dev-lang
+description: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
 ---
-
 # Feedback
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.

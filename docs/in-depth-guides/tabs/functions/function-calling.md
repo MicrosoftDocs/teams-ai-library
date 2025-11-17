@@ -1,12 +1,8 @@
 ---
-sidebar_position: 1
-title: 'Executing Functions'
-summary: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
-languages: ['typescript']
-suppressLanguageIncludeWarning: true
+title: Executing Functions
 zone_pivot_groups: dev-lang
+description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
 ---
-
 # Executing Functions
 ::: zone pivot="csharp,python"
 This page isn't available for C# and Python.
