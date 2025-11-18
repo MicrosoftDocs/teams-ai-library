@@ -152,7 +152,7 @@ landingContent:
             url: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
           - text: Python SDK
             url: /python/api/microsoft-teams-ai/microsoft.teams.ai
-      - linkListType: learn
+      - linkListType: reference
         links:
           - text: Teams Developer Documentation
             url: /microsoftteams/platform/
