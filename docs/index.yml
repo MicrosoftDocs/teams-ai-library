@@ -138,8 +138,10 @@ landingContent:
             url: ./in-depth-guides/feedback.md
       - linkListType: concept
         links:
-          - text: Migration from BotBuilder
+          - text: Migrate from BotBuilder
             url: ./migrations/botbuilder/overview.md
+          - text: Migrate from Teams AI Library v1
+            url: ./migrations/v1.md
 
   # SDK References & Resources
   - title: API references and external resources
