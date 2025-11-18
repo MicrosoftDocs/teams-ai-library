@@ -166,8 +166,6 @@
       href: in-depth-guides/feedback.md
     - name: Observability
       items:
-        - name: Overview
-          href: in-depth-guides/observability/overview.md
         - name: Middleware
           href: in-depth-guides/observability/middleware.md
         - name: Logging
