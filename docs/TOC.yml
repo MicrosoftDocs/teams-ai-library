@@ -219,7 +219,7 @@
     - name: .NET SDK
       href: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
     - name: Python SDK
-      href: /python/api/microsoft-teams-ai/microsoft.teams.ai
+      href: /python/api/msteams-sdk-python
 - name: Resources
   items:
     - name: Teams Developer Documentation
