@@ -1,0 +1,12 @@
+# YamlMime:ZonePivotGroups
+groups:
+- id: dev-lang
+  title: Development Language
+  prompt: Select the development language that you are using.
+  pivots:
+    - id: csharp
+      title: C#
+    - id: typescript
+      title: TypeScript
+    - id: python
+      title: Python

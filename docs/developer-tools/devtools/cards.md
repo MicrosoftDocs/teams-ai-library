@@ -1,15 +1,13 @@
 ---
 title: Cards
-description: Learn about Cards
+description: Design and test Adaptive Cards using the DevTools card designer with live preview and JSON editing.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 11/17/2025
 ---
 
 # Cards
 
 Use the Cards page to design and test your cards. Then, use the "Attach card" button to add that card as an attachment to your message. By default, the card will be attached in the new message compose box, but you can also attach a card when editing an existing message.
-
-![Card Designer Typescript](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/adaptive-cards-designer.png?raw=true)
 
 ## Using the card designer from Chat
 

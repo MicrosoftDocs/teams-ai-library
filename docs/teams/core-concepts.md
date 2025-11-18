@@ -2,7 +2,7 @@
 title: Teams Core Concepts
 description: Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.
 ms.topic: how-to
-ms.date: 09/26/2025
+ms.date: 11/17/2025
 ---
 
 # Teams Core Concepts
@@ -11,7 +11,7 @@ When you run your agent on Teams using Microsoft 365 Agents Toolkit, several Tea
 
 ## Basic Flow
 
-![alt-text for core-concepts-1.png](~/assets/diagrams/core-concepts-1.png)
+:::image type="content" source="~/assets/diagrams/core-concepts-1.png" alt-text="alt-text for core-concepts-1.png" lightbox="~/assets/diagrams/core-concepts-1.png":::
 
 **Teams**
 
@@ -53,7 +53,7 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 - Routes Teams messages and events to your local agent
 
 > [!NOTE]
-> DevTunnel is only one way of exposing your localling running service to the internet. Other tools like ngrok can also accomplish the same thing.
+> DevTunnel is only one way of exposing your locally running service to the internet. Other tools like ngrok can also accomplish the same thing.
 
 ## Teams App Provisioning
 

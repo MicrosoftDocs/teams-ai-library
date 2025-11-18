@@ -2,7 +2,7 @@
 title: Teams Integration
 description: Overview of Teams-specific features and SDK components that enable agent integration with the Microsoft Teams platform.
 ms.topic: overview
-ms.date: 09/26/2025
+ms.date: 11/17/2025
 ---
 
 # Teams Integration
@@ -20,8 +20,9 @@ When working with Teams, several key components come into play:
 
 ## In This Section
 
-1. [Running Your Agent](#) - Understanding the Teams deployment process
-2. [Teams Manifest](deployment/manifest.md) - Configuring your agent's Teams presence
-3. [Microsoft 365 Agents Toolkit](agents-toolkit.md) - Using the Agents Toolkit extension for sideloading, deployment, and provisioning.
+1. [Core Concepts](core-concepts.md) - Understanding the Teams deployment process and architecture
+2. [Teams Manifest](manifest.md) - Configuring your agent's Teams presence
+3. [Microsoft 365 Agents Toolkit](configuration/agents-toolkit.md) - Using the Agents Toolkit extension for sideloading, deployment, and provisioning
+4. [Enabling in Microsoft 365 Copilot](enabling-in-copilot.md) - Make your Teams app available in M365 Copilot
 
 Each guide provides detailed information about specific aspects of Teams integration, from local development to production deployment.
