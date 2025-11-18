@@ -24,9 +24,8 @@ This page isn't available for C#.
 ::: zone-end
 
 ::: zone pivot="typescript,python"
-[What is A2A?](https://a2a-protocol.org/latest/)
 
-A2A (Agent-to-Agent) is a protocol designed to enable agents to communicate and collaborate programmatically. This package allows you to integrate the A2A protocol into your Teams app, making your agent accessible to other A2A clients and enabling your app to interact with other A2A servers.
+[A2A (Agent-to-Agent)](https://a2a-protocol.org/latest/) is a protocol designed to enable agents to communicate and collaborate programmatically. This package allows you to integrate the A2A protocol into your Teams app, making your agent accessible to other A2A clients and enabling your app to interact with other A2A servers.
 ::: zone-end
 
 ::: zone pivot="python"
