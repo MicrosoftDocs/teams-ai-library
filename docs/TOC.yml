@@ -223,6 +223,6 @@
 - name: Resources
   items:
     - name: Teams Developer Documentation
-      href: /microsoftteams/platform/
+      href: /microsoftteams/platform/mstdd-landing
     - name: Microsoft 365 Copilot
       href: /microsoft-365-copilot/extensibility/
