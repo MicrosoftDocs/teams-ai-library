@@ -87,9 +87,7 @@ landingContent:
           - text: Microsoft Graph Integration
             url: ./essentials/graph.md
           - text: Observability
-            url: ./in-depth-guides/observability/overview.md
-      - linkListType: reference
-        links:
+            url: ./in-depth-guides/observability/logging.md
           - text: Enabling in M365 Copilot
             url: ./teams/enabling-in-copilot.md
 
@@ -112,10 +110,6 @@ landingContent:
             url: ./teams/user-authentication/overview.md
           - text: Running in Teams
             url: ./getting-started/running-in-teams/overview.md
-      - linkListType: reference
-        links:
-          - text: Enabling in M365 Copilot
-            url: ./teams/enabling-in-copilot.md
 
   # Development & Debugging
   - title: Build, test, and debug your agents
@@ -133,7 +127,7 @@ landingContent:
           - text: Inspect Activities
             url: ./developer-tools/devtools/inspect.md
           - text: Observability & Logging
-            url: ./in-depth-guides/observability/overview.md
+            url: ./in-depth-guides/observability/logging.md
           - text: Feedback Integration
             url: ./in-depth-guides/feedback.md
       - linkListType: concept
@@ -144,7 +138,7 @@ landingContent:
             url: ./migrations/v1.md
 
   # SDK References & Resources
-  - title: API references and external resources
+  - title: Reference and resources
     linkLists:
       - linkListType: reference
         links:
@@ -160,7 +154,3 @@ landingContent:
             url: /microsoftteams/platform/
           - text: Microsoft 365 Copilot
             url: /microsoft-365-copilot/extensibility/
-      - linkListType: how-to-guide
-        links:
-          - text: Migration Guides
-            url: ./migrations/overview.md
