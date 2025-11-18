@@ -1,15 +1,15 @@
 ---
 title: Devtools chat
-description: Learn about Devtools chat
+description: Test chat functionality with your Teams agent using the lightweight DevTools without sideloading into Teams.
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 11/17/2025
 ---
 
 # Devtools chat
 
 Use the lightweight DevTools app that allows you to test chat functionality with your agent without the need to sideload into Teams. This is useful for testing and debugging.
 
-![Empty DevTools chat](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true" alt-text="alt-text for devtools_blank_chat.png" lightbox="https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_blank_chat.png?raw=true":::
 
 > [!NOTE]
 > We plan to add more features to DevTools for a wider variety of testing. Stay tuned!
@@ -58,7 +58,7 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
-![Devtools chat](~/assets/screenshots/devtools-echo-chat.png)
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="alt-text for devtools-echo-chat.png" lightbox="~/assets/screenshots/devtools-echo-chat.png":::
 
 ## Teams chat terminology
 
@@ -97,7 +97,7 @@ Check your app's connectivity in three ways:
 
 You can react to messages by selecting an emoji in the message actions menu.
 
-![Devtools react to a message](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true" alt-text="alt-text for devtools_message_reaction.gif" lightbox="https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_message_reaction.gif?raw=true":::
 
 ### Edit your message
 
@@ -111,7 +111,7 @@ Soft delete messages by hovering over your message, pressing the More (ellipsis)
 
 If your agent is using streaming, DevTools will render messages as a stream with a rainbow border until the stream ends. See the full stream on the [Activities](inspect.md) page by clicking the Inspect (magnifying glass) button in the message actions menu of the message.
 
-### Send feedback
+### Sending feedback to your app
 
 Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 
@@ -122,4 +122,4 @@ Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in t
 
 For easier debugging, the compose box stores the last five messages sent to the app. Press the Up <kbd>↑</kbd> arrow key to cycle through your message history and resend messages.
 
-![Devtools Up Arrow Feature](https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_uparrow_feature.gif?raw=true)
+:::image type="content" source="https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_uparrow_feature.gif?raw=true" alt-text="alt-text for devtools_uparrow_feature.gif" lightbox="https://github.com/microsoft/teams.ts/blob/main/assets/screenshots/devtools_uparrow_feature.gif?raw=true":::

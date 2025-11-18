@@ -13,8 +13,8 @@ metadata:
   author: erikadoyle
 
 landingContent:
-  # Basics
-  - title: Learn the basics of Teams SDK
+  # Getting Started
+  - title: Start building AI-powered Teams agents
     linkLists:
       - linkListType: overview
         links:
@@ -24,79 +24,143 @@ landingContent:
             url: ./teams/overview.md
           - text: Teams Core Concepts
             url: ./teams/core-concepts.md
+      - linkListType: quickstart
+        links:
+          - text: Getting Started Overview
+            url: ./getting-started/overview.md
+          - text: Quickstart
+            url: ./getting-started/quickstart.md
+          - text: Code Basics
+            url: ./getting-started/code-basics.md
+      - linkListType: how-to-guide
+        links:
+          - text: App Basics
+            url: ./essentials/app-basics.md
+          - text: Listening to Events
+            url: ./essentials/on-event.md
+          - text: Sending Messages
+            url: ./essentials/sending-messages/overview.md
+
+  # AI & Intelligence
+  - title: Build intelligent conversational experiences
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: AI Overview
+            url: ./in-depth-guides/ai/overview.md
+          - text: Setup and Prerequisites
+            url: ./in-depth-guides/ai/setup-and-prereqs.md
+          - text: AI Best Practices
+            url: ./in-depth-guides/ai/best-practices.md
+      - linkListType: concept
+        links:
+          - text: AI Chat
+            url: ./in-depth-guides/ai/chat.md
+          - text: Function Calling
+            url: ./in-depth-guides/ai/function-calling.md
+          - text: Keeping State
+            url: ./in-depth-guides/ai/keeping-state.md
+      - linkListType: architecture
+        links:
+          - text: Agent-to-Agent Protocol
+            url: ./in-depth-guides/ai/a2a/overview.md
+          - text: Model Context Protocol
+            url: ./in-depth-guides/ai/mcp/overview.md
+
+  # Advanced Features & Integration
+  - title: Extend your agents with rich interactions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Adaptive Cards
+            url: ./in-depth-guides/adaptive-cards/overview.md
+          - text: Dialogs
+            url: ./in-depth-guides/dialogs/overview.md
+          - text: Message Extensions
+            url: ./in-depth-guides/message-extensions/overview.md
+          - text: Tabs
+            url: ./in-depth-guides/tabs/overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: User Authentication
+            url: ./in-depth-guides/user-authentication.md
+          - text: Microsoft Graph Integration
+            url: ./essentials/graph.md
+          - text: Observability
+            url: ./in-depth-guides/observability/overview.md
+      - linkListType: reference
+        links:
+          - text: Enabling in M365 Copilot
+            url: ./teams/enabling-in-copilot.md
+
+  # Teams Integration & Configuration
+  - title: Deploy and configure for Microsoft Teams
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Teams Configuration Overview
+            url: ./teams/configuration/overview.md
+          - text: Microsoft 365 Agents Toolkit
+            url: ./teams/configuration/agents-toolkit.md
+          - text: Teams Manifest
+            url: ./teams/manifest.md
+      - linkListType: concept
+        links:
+          - text: App Authentication Setup
+            url: ./teams/app-authentication/overview.md
+          - text: User Authentication
+            url: ./teams/user-authentication/overview.md
+          - text: Running in Teams
+            url: ./getting-started/running-in-teams/overview.md
+      - linkListType: reference
+        links:
+          - text: Enabling in M365 Copilot
+            url: ./teams/enabling-in-copilot.md
+
+  # Development & Debugging
+  - title: Build, test, and debug your agents
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Teams CLI
             url: ./developer-tools/cli.md
           - text: DevTools Overview
             url: ./developer-tools/devtools/overview.md
+          - text: DevTools Chat
+            url: ./developer-tools/devtools/chat.md
+      - linkListType: how-to-guide
+        links:
+          - text: Inspect Activities
+            url: ./developer-tools/devtools/inspect.md
+          - text: Observability & Logging
+            url: ./in-depth-guides/observability/overview.md
+          - text: Feedback Integration
+            url: ./in-depth-guides/feedback.md
+      - linkListType: concept
+        links:
+          - text: Migrate from BotBuilder
+            url: ./migrations/botbuilder/overview.md
+          - text: Migrate from Teams AI Library v1
+            url: ./migrations/v1.md
+
+  # SDK References & Resources
+  - title: API references and external resources
+    linkLists:
       - linkListType: reference
         links:
-          - text: TypeScript SDK (preview)
+          - text: TypeScript SDK
             url: /javascript/api/teams-sdk-typescript
-          - text: .NET SDK (preview)
+          - text: .NET SDK
             url: /dotnet/api/?view=msteams-sdk-dotnet-latest&preserve-view=true
-      - linkListType: overview
+          - text: Python SDK
+            url: /python/api/microsoft-teams-ai/microsoft.teams.ai
+      - linkListType: reference
         links:
           - text: Teams Developer Documentation
             url: /microsoftteams/platform/
           - text: Microsoft 365 Copilot
             url: /microsoft-365-copilot/extensibility/
-
-  # TypeScript
-  - title: Get started with TypeScript
-    linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
-          - text: Developer Tools Overview
-            url: ./typescript/essentials/overview.md
-          - text: API
-            url: ./typescript/essentials/api.md
-          - text: Sending Messages
-            url: ./typescript/essentials/sending-messages/overview.md
-      - linkListType: get-started
-        links:
-          - text: Overview
-            url: ./typescript/getting-started/overview.md
-          - text: Quickstart
-            url: ./typescript/getting-started/quickstart.md
-      - linkListType: concept
-        links:          
-          - text: AI Overview
-            url: ./typescript/in-depth-guides/ai/overview.md
-          - text: Agent-to-Agent Protocol
-            url: ./typescript/in-depth-guides/ai/a2a/overview.md
-          - text: Model Context Protocol
-            url: ./typescript/in-depth-guides/ai/mcp/overview.md
-          - text: Adaptive Cards
-            url: ./typescript/in-depth-guides/adaptive-cards/overview.md
-          - text: User Authentication
-            url: ./typescript/in-depth-guides/user-authentication/overview.md
-
-  # C#
-  - title: Get started with C#
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Overview
-            url: ./csharp/essentials/overview.md
-          - text: API
-            url: ./csharp/essentials/api.md
-          - text: Sending Messages
-            url: ./csharp/essentials/sending-messages/overview.md
-      - linkListType: get-started
-        links:
-          - text: Overview
-            url: ./csharp/getting-started/overview.md
-          - text: Quickstart
-            url: ./csharp/getting-started/quickstart.md
-      - linkListType: concept
-        links:
-          - text: AI Overview
-            url: ./csharp/in-depth-guides/ai/overview.md
-          - text: Model Context Protocol
-            url: ./csharp/in-depth-guides/ai/mcp/overview.md          
-          - text: Adaptive Cards
-            url: ./csharp/in-depth-guides/adaptive-cards/overview.md
-          - text: User Authentication
-            url: ./csharp/in-depth-guides/user-authentication/overview.md
+          - text: Migration Guides
+            url: ./migrations/overview.md
