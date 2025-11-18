@@ -178,7 +178,7 @@ app.on('message', async ({ activity, stream }) => {
 > [!NOTE]
 > Streaming is currently only supported in 1:1 conversations, not group chats or channels
 
-![Animated image showing agent response text incrementally appearing in the chat window.](~/assets/screenshots/streaming-chat.gif)
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="alt-text for streaming-chat.gif" lightbox="~/assets/screenshots/streaming-chat.gif":::
 
 ## @Mention
 

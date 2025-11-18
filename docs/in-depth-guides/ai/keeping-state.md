@@ -284,13 +284,13 @@ teamsApp.OnMessage(async (context) =>
 > [!NOTE]
 > In a production application, consider using a more robust storage solution like Azure Cosmos DB, SQL Server, or Redis instead of an in-memory dictionary. This ensures conversation history persists across application restarts and scales across multiple instances.
 
-![Stateful Chat Example](~/assets/screenshots/stateful-chat-example.png)
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end
 
 ::: zone pivot="python"
-![Screenshot of chat between user and agent, user first states 'My dinosaur's name is Barnie' and later asks What's my pet's name and the agent responds correctly with 'Barnie'.](~/assets/screenshots/stateful-chat-example.png)
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-![Stateful Chat Example](~/assets/screenshots/stateful-chat-example.png)
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="alt-text for stateful-chat-example.png" lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end

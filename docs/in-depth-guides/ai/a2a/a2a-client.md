@@ -290,9 +290,9 @@ Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
 ::: zone-end
 
 ::: zone pivot="python"
-![alt-text for a2a-client-1.png](~/assets/diagrams/a2a-client-1.png)
+:::image type="content" source="~/assets/diagrams/a2a-client-1.png" alt-text="alt-text for a2a-client-1.png" lightbox="~/assets/diagrams/a2a-client-1.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-![alt-text for a2a-client-2.png](~/assets/diagrams/a2a-client-2.png)
+:::image type="content" source="~/assets/diagrams/a2a-client-2.png" alt-text="alt-text for a2a-client-2.png" lightbox="~/assets/diagrams/a2a-client-2.png":::
 ::: zone-end

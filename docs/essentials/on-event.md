@@ -12,11 +12,11 @@ An **event** is a foundational concept in building agents — it represents some
 
 
 ::: zone pivot="csharp"
-![alt-text for on-event-1.png](~/assets/diagrams/on-event-1.png)
+:::image type="content" source="~/assets/diagrams/on-event-1.png" alt-text="alt-text for on-event-1.png" lightbox="~/assets/diagrams/on-event-1.png":::
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-![alt-text for on-event-2.png](~/assets/diagrams/on-event-2.png)
+:::image type="content" source="~/assets/diagrams/on-event-2.png" alt-text="alt-text for on-event-2.png" lightbox="~/assets/diagrams/on-event-2.png":::
 ::: zone-end
 
 

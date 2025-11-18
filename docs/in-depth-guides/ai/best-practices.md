@@ -43,7 +43,7 @@ const messageToBeSent = new MessageActivity('Hello!').addAiGenerated();
 ::: zone-end
 
 
-![Screenshot of outgoing agent message to user marked with 'AI generated' badge.](~/assets/screenshots/ai-generated.gif)
+:::image type="content" source="~/assets/screenshots/ai-generated.gif" alt-text="alt-text for ai-generated.gif" lightbox="~/assets/screenshots/ai-generated.gif":::
 
 ## Gather feedback to improve prompts
 
@@ -114,7 +114,7 @@ for (let i = 0; i < citedDocs.length; i++) {
 ::: zone-end
 
 
-![Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text.](~/assets/screenshots/citation.gif)
+:::image type="content" source="~/assets/screenshots/citation.gif" alt-text="alt-text for citation.gif" lightbox="~/assets/screenshots/citation.gif":::
 
 ## Suggested actions
 

@@ -13,11 +13,11 @@ You can add a settings page that allows users to configure settings for your app
 
 The user can access the settings by right-clicking the app item in the compose box.
 
-![Settings option from app listing in compose box](~/assets/screenshots/settings.png)
+:::image type="content" source="~/assets/screenshots/settings.png" alt-text="alt-text for settings.png" lightbox="~/assets/screenshots/settings.png":::
 
 This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
-![Settings Page](~/assets/screenshots/settings-page.png)
+:::image type="content" source="~/assets/screenshots/settings-page.png" alt-text="alt-text for settings-page.png" lightbox="~/assets/screenshots/settings-page.png":::
 
 ## 1. Update the Teams Manifest
 

@@ -25,7 +25,7 @@ The Teams SDK exposes a fluent router so you can subscribe to these activities w
 ::: zone-end
 
 
-![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
+:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png" lightbox="~/assets/diagrams/overview-1.png":::
 
 Here is an example of a basic message handler:
 

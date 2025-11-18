@@ -10,7 +10,7 @@ ms.date: 11/17/2025
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-![Animated image showing user selecting the thumbs-up button on an agent response and a dialog opening asking 'What did you like?'. The user types 'Nice' and hits Submit.](~/assets/screenshots/feedback.gif)
+:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="alt-text for feedback.gif" lightbox="~/assets/screenshots/feedback.gif":::
 
 ## Storage
 

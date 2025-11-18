@@ -195,11 +195,11 @@ const app = new App({
 ::: zone-end
 
 ::: zone pivot="python"
-![MCP Server in Devtools](~/assets/screenshots/mcp-inspector.gif)
+:::image type="content" source="~/assets/screenshots/mcp-inspector.gif" alt-text="alt-text for mcp-inspector.gif" lightbox="~/assets/screenshots/mcp-inspector.gif":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-![MCP Server in Devtools](~/assets/screenshots/mcp-devtools.gif)
+:::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="alt-text for mcp-devtools.gif" lightbox="~/assets/screenshots/mcp-devtools.gif":::
 ::: zone-end
 
 

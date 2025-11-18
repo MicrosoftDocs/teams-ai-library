@@ -39,7 +39,7 @@ Link unfurling lets your app respond when users paste URLs into Teams. When a UR
 
 When a user pastes a URL from your registered domain (like `www.test.com`) into the Teams compose box, your app will receive a notification. Your app can then respond by returning an adaptive card that displays a preview of the linked content. This preview card appears before the user sends their message in the compose box, allowing them to see how the link will be displayed to others.
 
-![alt-text for link-unfurling-1.png](~/assets/diagrams/link-unfurling-1.png)
+:::image type="content" source="~/assets/diagrams/link-unfurling-1.png" alt-text="alt-text for link-unfurling-1.png" lightbox="~/assets/diagrams/link-unfurling-1.png":::
 
 ## Implementing link unfurling
 
@@ -313,11 +313,11 @@ export function createLinkUnfurlCard(url: string) {
 
 The link unfurling response includes both a full adaptive card and a preview card. The preview card appears in the compose box when a user pastes a URL:
 
-![Screenshot showing a preview card for an unfurled URL in the Teams compose box.](~/assets/screenshots/link-unfurl-preview.png)
+:::image type="content" source="~/assets/screenshots/link-unfurl-preview.png" alt-text="alt-text for link-unfurl-preview.png" lightbox="~/assets/screenshots/link-unfurl-preview.png":::
 
 The user can expand the preview card by clicking on the _expand_ button on the top right.
 
-![Screenshot of Teams compose box with an outline around the unfurled link card labeled 'Adaptive Card'.](~/assets/screenshots/link-unfurl-card.png)
+:::image type="content" source="~/assets/screenshots/link-unfurl-card.png" alt-text="alt-text for link-unfurl-card.png" lightbox="~/assets/screenshots/link-unfurl-card.png":::
 
 The user can then choose to send either the preview or the full adaptive card as a message.
 

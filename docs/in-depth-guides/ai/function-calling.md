@@ -18,15 +18,15 @@ It's possible to hook up functions that the LLM can decide to call if it thinks 
 
 
 ::: zone pivot="csharp"
-![alt-text for function-calling-1.png](~/assets/diagrams/function-calling-1.png)
+:::image type="content" source="~/assets/diagrams/function-calling-1.png" alt-text="alt-text for function-calling-1.png" lightbox="~/assets/diagrams/function-calling-1.png":::
 ::: zone-end
 
 ::: zone pivot="python"
-![alt-text for function-calling-2.png](~/assets/diagrams/function-calling-2.png)
+:::image type="content" source="~/assets/diagrams/function-calling-2.png" alt-text="alt-text for function-calling-2.png" lightbox="~/assets/diagrams/function-calling-2.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-![alt-text for function-calling-3.png](~/assets/diagrams/function-calling-3.png)
+:::image type="content" source="~/assets/diagrams/function-calling-3.png" alt-text="alt-text for function-calling-3.png" lightbox="~/assets/diagrams/function-calling-3.png":::
 ::: zone-end
 
 

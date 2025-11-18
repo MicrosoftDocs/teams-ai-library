@@ -14,7 +14,7 @@ Before going through this guide, please make sure you have completed the [setup 
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
-![alt-text for chat-1.png](~/assets/diagrams/chat-1.png)
+:::image type="content" source="~/assets/diagrams/chat-1.png" alt-text="alt-text for chat-1.png" lightbox="~/assets/diagrams/chat-1.png":::
 
 ## Simple chat generation
 
@@ -335,4 +335,4 @@ app.on('message', async ({ stream, send, activity, next, log }) => {
 ::: zone-end
 
 
-![Animated image showing agent response text incrementally appearing in the chat window.](~/assets/screenshots/streaming-chat.gif)
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="alt-text for streaming-chat.gif" lightbox="~/assets/screenshots/streaming-chat.gif":::

@@ -10,7 +10,7 @@ ms.date: 11/17/2025
 The developer tools can be used to locally interact with an app to streamline the testing/development process,
 preventing you from needing to deploy/register the app or expose a public endpoint.
 
-![Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'.](~/assets/screenshots/devtools-echo-chat.png)
+:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="alt-text for devtools-echo-chat.png" lightbox="~/assets/screenshots/devtools-echo-chat.png":::
 
 ## Basic features
 

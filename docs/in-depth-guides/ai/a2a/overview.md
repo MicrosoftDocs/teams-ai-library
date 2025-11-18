@@ -54,11 +54,11 @@ npm install @microsoft/teams.a2a
 
 ### A2A Server
 
-![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
+:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png" lightbox="~/assets/diagrams/overview-1.png":::
 
 ### A2A Client
 
-![alt-text for overview-2.png](~/assets/diagrams/overview-2.png)
+:::image type="content" source="~/assets/diagrams/overview-2.png" alt-text="alt-text for overview-2.png" lightbox="~/assets/diagrams/overview-2.png":::
 
 ## Protocol Details
 

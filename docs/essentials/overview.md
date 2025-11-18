@@ -24,15 +24,15 @@ Before diving in, let's define a few key terms:
 
 
 ::: zone pivot="csharp"
-![alt-text for overview-1.png](~/assets/diagrams/overview-1.png)
+:::image type="content" source="~/assets/diagrams/overview-1.png" alt-text="alt-text for overview-1.png" lightbox="~/assets/diagrams/overview-1.png":::
 ::: zone-end
 
 ::: zone pivot="python"
-![alt-text for overview-2.png](~/assets/diagrams/overview-2.png)
+:::image type="content" source="~/assets/diagrams/overview-2.png" alt-text="alt-text for overview-2.png" lightbox="~/assets/diagrams/overview-2.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-![alt-text for overview-3.png](~/assets/diagrams/overview-3.png)
+:::image type="content" source="~/assets/diagrams/overview-3.png" alt-text="alt-text for overview-3.png" lightbox="~/assets/diagrams/overview-3.png":::
 ::: zone-end
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.
