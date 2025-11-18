@@ -172,8 +172,6 @@
           href: in-depth-guides/observability/logging.md
 - name: Migrations
   items:
-    - name: Overview
-      href: migrations/overview.md
     - name: From BotBuilder
       items:
         - name: Overview
@@ -194,9 +192,9 @@
               href: migrations/botbuilder/turn-context/the-api-client.md
         - name: User Authentication
           href: migrations/botbuilder/user-authentication.md
-    - name: V1 Migration
+    - name: From Teams AI Library v1
       href: migrations/v1.md
-    - name: V2 Previews
+    - name: From Teams AI Library v2 Preview
       href: migrations/v2-previews.md
 - name: Developer Tools
   items:
