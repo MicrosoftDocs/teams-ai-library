@@ -9,7 +9,7 @@ ms.date: 11/17/2025
 # Microsoft Graph Client
 
 ::: zone pivot="csharp,python"
-This page isn't available for Python and C#"
+This page isn't available for Python and C#.
 ::: zone-end
 
 ::: zone pivot="typescript"
