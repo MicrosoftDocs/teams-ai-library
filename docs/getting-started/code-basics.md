@@ -3,12 +3,9 @@ title: Code Basics
 description: Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
-::: zone pivot="typescript"
-<!-- Not applicable -->
-::: zone-end
 
 ::: zone pivot="csharp"
 <!-- Not applicable -->
@@ -18,22 +15,19 @@ ms.date: 02/25/2026
 <!-- Not applicable -->
 ::: zone-end
 
+::: zone pivot="javascript"
+<!-- Not applicable -->
+::: zone-end
+
+
 # Code Basics
 
-After following the guidance in [the quickstart](./quickstart.md) to create your first Teams application, let's review its structure and key components. This knowledge can help you build more complex applications as you progress.
+After following the guidance in [the quickstart](quickstart.md) to create your first Teams application, let's review its structure and key components. This knowledge can help you build more complex applications as you progress.
 
 ## Project Structure
 
 When you create a new Teams application, it generates a directory with this basic structure:
 
-::: zone pivot="typescript"
-```
-quote-agent/
-|── appPackage/       # Teams app package files
-├── src/
-│   └── index.ts      # Main application code
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```
@@ -52,10 +46,16 @@ quote-agent/
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
-- **src/**: Contains the main application code. The `index.ts` file is the entry point for your application.
+::: zone pivot="javascript"
+```
+quote-agent/
+|── appPackage/       # Teams app package files
+├── src/
+│   └── index.ts      # Main application code
+```
 ::: zone-end
+
+
 
 ::: zone pivot="csharp"
 - **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
@@ -66,25 +66,20 @@ quote-agent/
 - **src/**: Contains the main application code. The `main.py` file is the entry point for your application.
 ::: zone-end
 
+::: zone pivot="javascript"
+- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
+- **src/**: Contains the main application code. The `index.ts` file is the entry point for your application.
+::: zone-end
+
+
 ## Core Components
 
-Let's break down the simple application from the [quickstart](./quickstart.md) into its core components.
+Let's break down the simple application from the [quickstart](quickstart.md) into its core components.
 
 ### The App Class
 
 The heart of an application is the `App` class. This class handles all incoming activities and manages the application's lifecycle. It also acts as a way to host your application service.
 
-::: zone pivot="typescript"
-```typescript title="src/index.ts"
-import { App } from '@microsoft/teams.apps';
-import { ConsoleLogger } from '@microsoft/teams.common/logging';
-import { DevtoolsPlugin } from '@microsoft/teams.dev';
-
-const app = new App({
-  plugins: [new DevtoolsPlugin()],
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp title="Program.cs"
@@ -118,22 +113,30 @@ app = App(plugins=[DevToolsPlugin()])
 ```
 ::: zone-end
 
+::: zone pivot="javascript"
+```typescript title="src/index.ts"
+import { App } from '@microsoft/teams.apps';
+import { ConsoleLogger } from '@microsoft/teams.common/logging';
+import { DevtoolsPlugin } from '@microsoft/teams.dev';
+
+const app = new App({
+  plugins: [new DevtoolsPlugin()],
+});
+```
+::: zone-end
+
+
 The app configuration includes a variety of options that allow you to customize its behavior, including controlling the underlying server, authentication, and other settings.
 
 ### Plugins
 
-::: zone pivot="typescript"
-Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
-::: zone-end
-
-::: zone pivot="csharp"
+::: zone pivot="csharp,javascript"
 Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 ::: zone-end
 
 ::: zone pivot="python"
 Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (on_activity, on_activity_sent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 ::: zone-end
-
 
 > [!WARNING]
 > DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.
@@ -144,14 +147,6 @@ Plugins are a core part of the Teams SDK. They allow you to hook into various li
 
 Teams applications respond to various types of activities. The most basic is handling messages:
 
-::: zone pivot="typescript"
-```typescript title="src/index.ts"
-app.on('message', async ({ send, activity }) => {
-  await send({ type: 'typing' });
-  await send(`you said "${activity.text}"`);
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp title="Program.cs"
@@ -176,31 +171,36 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-This code:
-
-::: zone pivot="typescript"
-1. Listens for all incoming messages using `app.on('message')`.
-2. Sends a typing indicator, which renders as an animated ellipsis (...) in the chat.
-3. Responds by echoing back the received message.
+::: zone pivot="javascript"
+```typescript title="src/index.ts"
+app.on('message', async ({ send, activity }) => {
+  await send({ type: 'typing' });
+  await send(`you said "${activity.text}"`);
+});
+```
 ::: zone-end
+
+
+This code:
 
 ::: zone pivot="csharp"
 1. Listens for all incoming messages using `onMessage` handler.
-2. Sends a typing indicator, which renders as an animated ellipsis (...) in the chat.
+2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
 3. Responds by echoing back the received message.
 ::: zone-end
 
 ::: zone pivot="python"
 1. Listens for all incoming messages using `app.on_message`
-2. Sends a typing indicator, which renders as an animated ellipsis (...) in the chat.
+2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
 3. Responds by echoing back the received message if any other text aside from "reply" is sent.
 ::: zone-end
 
-
-::: zone pivot="typescript"
-> [!NOTE]
-> Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
+::: zone pivot="javascript"
+1. Listens for all incoming messages using `app.on('message')`.
+2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
+3. Responds by echoing back the received message.
 ::: zone-end
+
 
 ::: zone pivot="csharp"
 > [!NOTE]
@@ -213,15 +213,16 @@ This code:
 > Python uses type hints for better development experience. You can change the activity handler to different supported activities, and the type system will provide appropriate hints and validation.
 ::: zone-end
 
+::: zone pivot="javascript"
+> [!NOTE]
+> Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
+::: zone-end
+
+
 ### Application Lifecycle
 
 Your application starts when you run:
 
-::: zone pivot="typescript"
-```typescript title="src/index.ts"
-await app.start();
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -238,11 +239,18 @@ if __name__ == "__main__":
 ```
 ::: zone-end
 
+::: zone pivot="javascript"
+```typescript title="src/index.ts"
+await app.start();
+```
+::: zone-end
+
+
 This code initializes your application server and, when configured for Teams, also authenticates it to be ready for sending and receiving messages.
 
 ## Next Steps
 
-Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](./running-in-teams/overview.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
+Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams/overview.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
 
 After that, you can:
 
@@ -257,4 +265,4 @@ Continue on to the next page to learn about these advanced features.
 
 - [Essentials](../essentials/overview.md)
 - [Teams concepts](../teams/overview.md)
-- [Teams developer tools](../developer-tools/devtools/overview.md)
+- [Teams developer tools](../developer-tools/overview.md)

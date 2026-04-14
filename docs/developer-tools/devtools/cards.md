@@ -2,10 +2,10 @@
 title: Cards
 description: Design and test Adaptive Cards using the DevTools card designer with live preview and JSON editing.
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
-#  Cards
+# Cards
 
 Use the Cards page to design and test your cards. Then, use the "Attach card" button to add that card as an attachment to your message. By default, the card will be attached in the new message compose box, but you can also attach a card when editing an existing message.
 

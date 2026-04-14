@@ -3,7 +3,7 @@ title: Running In Teams
 description: Guide to deploying and testing your locally running agent in Microsoft Teams using the Microsoft 365 Agents Toolkit.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Running In Teams
@@ -57,7 +57,7 @@ After installing Agents Toolkit and adding the configuration:
 4. **Select "Local"** under Environment Settings of the Agents Toolkit extension.
 5. **Click on Debug (Chrome) or Debug (Edge)** to start debugging via the 'play' button.
 
-:::image type="content" source="~/assets/screenshots/agents-toolkit.png" alt-text="Screenshot of Microsoft 365 Agents Toolkit with 'Environment' section expanded and 'local' selected." lightbox="~/assets/screenshots/agents-toolkit.png" :::
+:::image type="content" source="~/assets/screenshots/agents-toolkit.png" alt-text="Screenshot of Microsoft 365 Agents Toolkit with 'Environment' section expanded and 'local' selected." lightbox="~/assets/screenshots/agents-toolkit.png":::
 
 When debugging starts, the Agents Toolkit will:
 
@@ -72,18 +72,6 @@ When debugging starts, the Agents Toolkit will:
 
 If you set up Agents Toolkit via the Teams SDK CLI, you should see something like the following in your terminal:
 
-::: zone pivot="typescript"
-```sh
-[nodemon] 3.1.9
-[nodemon] to restart at any time, enter `rs`
-[nodemon] watching path(s): src/**
-[nodemon] watching extensions: ts
-[nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
-[WARN] @teams/app/devtools ⚠️  Devtools are not secure and should not be used production environments ⚠️
-[INFO] @teams/app/http listening on port 3978 🚀
-[INFO] @teams/app/devtools available at http://localhost:3979/devtools
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```sh
@@ -108,6 +96,20 @@ INFO:     Uvicorn running on http://0.0.0.0:3979 (Press CTRL+C to quit)
 ```
 ::: zone-end
 
+::: zone pivot="javascript"
+```sh
+[nodemon] 3.1.9
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): src/**
+[nodemon] watching extensions: ts
+[nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
+[WARN] @teams/app/devtools ⚠️  Devtools are not secure and should not be used production environments ⚠️
+[INFO] @teams/app/http listening on port 3978 🚀
+[INFO] @teams/app/devtools available at http://localhost:3979/devtools
+```
+::: zone-end
+
+
 ## Testing your agent
 
 After the debugging session starts:
@@ -117,7 +119,7 @@ After the debugging session starts:
 3. Teams will ask permission to install the app
 4. Once installed, you can start chatting with your agent!
 
-:::image type="content" source="~/assets/screenshots/example-on-teams.png" alt-text="Screenshot of `quote-agent-local` agent running in Teams." lightbox="~/assets/screenshots/example-on-teams.png" :::
+:::image type="content" source="~/assets/screenshots/example-on-teams.png" alt-text="Screenshot of `quote-agent-local` agent running in Teams." lightbox="~/assets/screenshots/example-on-teams.png":::
 
 Congratulations! Now you have a fully functional agent running in Microsoft Teams. Interact with it just like any other Teams app and explore the rest of the documentation to build more complex agents.
 
@@ -137,7 +139,7 @@ Now that your agent is running in Teams, you can learn more [essential concepts]
 ## Resources
 
 - [Teams CLI documentation](../../developer-tools/cli.md)
-- [Microsoft 365 Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json)
+- [Microsoft 365 Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit)
 - [Microsoft 365 Agents Toolkit CLI documentation](/microsoftteams/platform/toolkit/microsoft-365-agents-toolkit-cli)
 - [Teams CLI GitHub repository](https://github.com/OfficeDev/Teams-Toolkit)
 - [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview)

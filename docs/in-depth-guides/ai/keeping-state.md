@@ -3,7 +3,7 @@ title: Keeping State
 description: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Keeping State
@@ -26,30 +26,6 @@ To avoid this, you need to get messages from your persistent (or in-memory) stor
 
 Here's how to initialize and manage conversation state for multiple conversations:
 
-::: zone pivot="typescript"
-```typescript
-import { ChatPrompt, IChatModel, Message } from '@microsoft/teams.ai';
-import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
-// ...
-
-// Simple in-memory store for conversation histories
-// In your application, it may be a good idea to use a more
-// persistent store backed by a database or other storage solution
-const conversationStore = new Map<string, Message[]>();
-
-const getOrCreateConversationHistory = (conversationId: string) => {
-  // Check if conversation history exists
-  const existingMessages = conversationStore.get(conversationId);
-  if (existingMessages) {
-    return existingMessages;
-  }
-  // If not, create a new conversation history
-  const newMessages: Message[] = [];
-  conversationStore.set(conversationId, newMessages);
-  return newMessages;
-};
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -123,51 +99,34 @@ async def clear_conversation_memory(conversation_id: str) -> None:
 ```
 ::: zone-end
 
-## Usage Example
-
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
-/**
- * Example of a stateful conversation handler that maintains conversation history
- * using an in-memory store keyed by conversation ID.
- * @param model The chat model to use
- * @param activity The incoming activity
- * @param send Function to send an activity
- */
-export const handleStatefulConversation = async (
-  model: IChatModel,
-  activity: IMessageActivity,
-  send: (activity: ActivityLike) => Promise<any>,
-  log: ILogger
-) => {
-  log.info('Received message', activity.text);
+import { ChatPrompt, IChatModel, Message } from '@microsoft/teams.ai';
+import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
+// ...
 
-  // Retrieve existing conversation history or initialize new one
-  const existingMessages = getOrCreateConversationHistory(activity.conversation.id);
+// Simple in-memory store for conversation histories
+// In your application, it may be a good idea to use a more
+// persistent store backed by a database or other storage solution
+const conversationStore = new Map<string, Message[]>();
 
-  log.info('Existing messages before sending to prompt', existingMessages);
-
-  // Create prompt with existing messages
-  const prompt = new ChatPrompt({
-    instructions: 'You are a helpful assistant.',
-    model,
-    messages: existingMessages, // Pass in existing conversation history
-  });
-
-  const result = await prompt.send(activity.text);
-
-  if (result) {
-    await send(
-      result.content != null
-        ? new MessageActivity(result.content).addAiGenerated()
-        : 'I did not generate a response.'
-    );
+const getOrCreateConversationHistory = (conversationId: string) => {
+  // Check if conversation history exists
+  const existingMessages = conversationStore.get(conversationId);
+  if (existingMessages) {
+    return existingMessages;
   }
-
-  log.info('Messages after sending to prompt:', existingMessages);
+  // If not, create a new conversation history
+  const newMessages: Message[] = [];
+  conversationStore.set(conversationId, newMessages);
+  return newMessages;
 };
 ```
 ::: zone-end
+
+
+## Usage Example
+
 
 ::: zone pivot="csharp"
 ```csharp
@@ -255,9 +214,51 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example" lightbox="~/assets/screenshots/stateful-chat-example.png" :::
+::: zone pivot="javascript"
+```typescript
+/**
+ * Example of a stateful conversation handler that maintains conversation history
+ * using an in-memory store keyed by conversation ID.
+ * @param model The chat model to use
+ * @param activity The incoming activity
+ * @param send Function to send an activity
+ */
+export const handleStatefulConversation = async (
+  model: IChatModel,
+  activity: IMessageActivity,
+  send: (activity: ActivityLike) => Promise<any>,
+  log: ILogger
+) => {
+  log.info('Received message', activity.text);
+
+  // Retrieve existing conversation history or initialize new one
+  const existingMessages = getOrCreateConversationHistory(activity.conversation.id);
+
+  log.info('Existing messages before sending to prompt', existingMessages);
+
+  // Create prompt with existing messages
+  const prompt = new ChatPrompt({
+    instructions: 'You are a helpful assistant.',
+    model,
+    messages: existingMessages, // Pass in existing conversation history
+  });
+
+  const result = await prompt.send(activity.text);
+
+  if (result) {
+    await send(
+      result.content != null
+        ? new MessageActivity(result.content).addAiGenerated()
+        : 'I did not generate a response.'
+    );
+  }
+
+  log.info('Messages after sending to prompt:', existingMessages);
+};
+```
 ::: zone-end
+
+
 
 ::: zone pivot="csharp"
 ### Usage in your application
@@ -283,9 +284,14 @@ teamsApp.OnMessage(async (context) =>
 > [!NOTE]
 > In a production application, consider using a more robust storage solution like Azure Cosmos DB, SQL Server, or Redis instead of an in-memory dictionary. This ensures conversation history persists across application restarts and scales across multiple instances.
 
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example" lightbox="~/assets/screenshots/stateful-chat-example.png" :::
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example" lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Screenshot of chat between user and agent, user first states 'My dinosaur's name is Barnie' and later asks What's my pet's name and the agent responds correctly with 'Barnie'." lightbox="~/assets/screenshots/stateful-chat-example.png" :::
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Screenshot of chat between user and agent, user first states 'My dinosaur's name is Barnie' and later asks What's my pet's name and the agent responds correctly with 'Barnie'." lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end
+
+::: zone pivot="javascript"
+:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example" lightbox="~/assets/screenshots/stateful-chat-example.png":::
+::: zone-end
+

@@ -2,7 +2,7 @@
 title: Teams CLI
 description: Comprehensive guide to the Teams CLI tool for creating, managing, and deploying Teams SDK applications with simple command-line operations. Use this when you need to set up a new Teams SDK agent or manage existing ones.
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Teams CLI

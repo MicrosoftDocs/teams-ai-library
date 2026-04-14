@@ -3,7 +3,7 @@ title: Meeting Events
 description: Guide to handling meeting events in Teams applications, covering meeting lifecycle events such as meeting start, meeting end, participant join, and participant leave events.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Meeting Events
@@ -67,31 +67,6 @@ bots": [
 
 When a meeting starts, your app can handle the `meetingStart` event to send a notification or card to the meeting chat.
 
-::: zone pivot="typescript"
-```typescript
-import { App } from '@microsoft/teams.apps';
-import { AdaptiveCard, TextBlock, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
-
-const app = new App();
-
-app.on('meetingStart', async ({ activity, send }) => {
-  const meetingData = activity.value;
-  const startTime = new Date(meetingData.StartTime).toLocaleString();
-
-  const card = new AdaptiveCard(
-    new TextBlock(`'${meetingData.Title}' has started at ${startTime}.`, {
-      wrap: true,
-      weight: 'Bolder'
-    }),
-    new ActionSet(
-      new OpenUrlAction(meetingData.JoinUrl).withTitle('Join the meeting')
-    )
-  );
-
-  await send(card);
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -159,32 +134,37 @@ async def handle_meeting_start(ctx: ActivityContext[MeetingStartEventActivity]):
 ```
 ::: zone-end
 
-## Meeting End Event
-
-When a meeting ends, your app can handle the `meetingEnd` event to send a summary or follow-up information.
-
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
-import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+import { AdaptiveCard, TextBlock, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
 
 const app = new App();
 
-app.on('meetingEnd', async ({ activity, send }) => {
+app.on('meetingStart', async ({ activity, send }) => {
   const meetingData = activity.value;
-  const endTime = new Date(meetingData.EndTime).toLocaleString();
+  const startTime = new Date(meetingData.StartTime).toLocaleString();
 
   const card = new AdaptiveCard(
-    new TextBlock(`'${meetingData.Title}' has ended at ${endTime}.`, {
+    new TextBlock(`'${meetingData.Title}' has started at ${startTime}.`, {
       wrap: true,
       weight: 'Bolder'
-    })
+    }),
+    new ActionSet(
+      new OpenUrlAction(meetingData.JoinUrl).withTitle('Join the meeting')
+    )
   );
 
   await send(card);
 });
 ```
 ::: zone-end
+
+
+## Meeting End Event
+
+When a meeting ends, your app can handle the `meetingEnd` event to send a summary or follow-up information.
+
 
 ::: zone pivot="csharp"
 ```csharp
@@ -244,24 +224,19 @@ async def handle_meeting_end(ctx: ActivityContext[MeetingEndEventActivity]):
 ```
 ::: zone-end
 
-## Participant Join Event
-
-When a participant joins a meeting, your app can handle the `meetingParticipantJoin` event to welcome them or display their role.
-
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
 const app = new App();
 
-app.on('meetingParticipantJoin', async ({ activity, send }) => {
+app.on('meetingEnd', async ({ activity, send }) => {
   const meetingData = activity.value;
-  const member = meetingData.members[0].user.name;
-  const role = meetingData.members[0].meeting.role;
+  const endTime = new Date(meetingData.EndTime).toLocaleString();
 
   const card = new AdaptiveCard(
-    new TextBlock(`${member} has joined the meeting as ${role}.`, {
+    new TextBlock(`'${meetingData.Title}' has ended at ${endTime}.`, {
       wrap: true,
       weight: 'Bolder'
     })
@@ -271,6 +246,12 @@ app.on('meetingParticipantJoin', async ({ activity, send }) => {
 });
 ```
 ::: zone-end
+
+
+## Participant Join Event
+
+When a participant joins a meeting, your app can handle the `meetingParticipantJoin` event to welcome them or display their role.
+
 
 ::: zone pivot="csharp"
 ```csharp
@@ -332,23 +313,20 @@ async def handle_meeting_participant_join(ctx: ActivityContext[MeetingParticipan
 ```
 ::: zone-end
 
-## Participant Leave Event
-
-When a participant leaves a meeting, your app can handle the `meetingParticipantLeave` event to notify others.
-
-::: zone pivot="typescript"
+::: zone pivot="javascript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
 const app = new App();
 
-app.on('meetingParticipantLeave', async ({ activity, send }) => {
+app.on('meetingParticipantJoin', async ({ activity, send }) => {
   const meetingData = activity.value;
   const member = meetingData.members[0].user.name;
+  const role = meetingData.members[0].meeting.role;
 
   const card = new AdaptiveCard(
-    new TextBlock(`${member} has left the meeting.`, {
+    new TextBlock(`${member} has joined the meeting as ${role}.`, {
       wrap: true,
       weight: 'Bolder'
     })
@@ -358,6 +336,12 @@ app.on('meetingParticipantLeave', async ({ activity, send }) => {
 });
 ```
 ::: zone-end
+
+
+## Participant Leave Event
+
+When a participant leaves a meeting, your app can handle the `meetingParticipantLeave` event to notify others.
+
 
 ::: zone pivot="csharp"
 ```csharp
@@ -416,3 +400,27 @@ async def handle_meeting_participant_leave(ctx: ActivityContext[MeetingParticipa
     await ctx.send(card)
 ```
 ::: zone-end
+
+::: zone pivot="javascript"
+```typescript
+import { App } from '@microsoft/teams.apps';
+import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+
+const app = new App();
+
+app.on('meetingParticipantLeave', async ({ activity, send }) => {
+  const meetingData = activity.value;
+  const member = meetingData.members[0].user.name;
+
+  const card = new AdaptiveCard(
+    new TextBlock(`${member} has left the meeting.`, {
+      wrap: true,
+      weight: 'Bolder'
+    })
+  );
+
+  await send(card);
+});
+```
+::: zone-end
+

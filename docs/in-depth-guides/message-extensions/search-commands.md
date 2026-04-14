@@ -3,10 +3,10 @@ title: Search commands
 description: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
-#  Search commands
+# Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 
@@ -19,7 +19,7 @@ There are two different areas search commands can be invoked from:
 
 ### Compose Area and Box
 
-:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps)." lightbox="~/assets/screenshots/compose-area.png" :::
+:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps)." lightbox="~/assets/screenshots/compose-area.png":::
 
 ## Setting up your Teams app manifest
 
@@ -59,38 +59,6 @@ Here we are defining the `searchQuery` search (or query) command.
 
 Handle the search query submission when the `searchQuery` search command is invoked.
 
-::: zone pivot="typescript"
-```typescript
-import { cardAttachment } from '@microsoft/teams.api';
-import { App } from '@microsoft/teams.apps';
-// ...
-
-app.on('message.ext.query', async ({ activity }) => {
-  const { commandId } = activity.value;
-  const searchQuery = activity.value.parameters![0].value;
-
-  if (commandId == 'searchQuery') {
-    const cards = await createDummyCards(searchQuery);
-    const attachments = cards.map(({ card, thumbnail }) => {
-      return {
-        ...cardAttachment('adaptive', card), // expanded card in the compose box...
-        preview: cardAttachment('thumbnail', thumbnail), // preview card in the compose box...
-      };
-    });
-
-    return {
-      composeExtension: {
-        type: 'result',
-        attachmentLayout: 'list',
-        attachments: attachments,
-      },
-    };
-  }
-
-  return { status: 400 };
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -166,61 +134,40 @@ async def handle_message_ext_query(ctx: ActivityContext[MessageExtensionQueryInv
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-`createDummyCards()` function
-
+::: zone pivot="javascript"
 ```typescript
-import { ThumbnailCard } from '@microsoft/teams.api';
-import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+import { cardAttachment } from '@microsoft/teams.api';
+import { App } from '@microsoft/teams.apps';
 // ...
 
-export async function createDummyCards(searchQuery: string) {
-  const dummyItems = [
-    {
-      title: 'Item 1',
-      description: `This is the first item and this is your search query: ${searchQuery}`,
-    },
-    { title: 'Item 2', description: 'This is the second item' },
-    { title: 'Item 3', description: 'This is the third item' },
-    { title: 'Item 4', description: 'This is the fourth item' },
-    { title: 'Item 5', description: 'This is the fifth item' },
-  ];
+app.on('message.ext.query', async ({ activity }) => {
+  const { commandId } = activity.value;
+  const searchQuery = activity.value.parameters![0].value;
 
-  const cards = dummyItems.map((item) => {
+  if (commandId == 'searchQuery') {
+    const cards = await createDummyCards(searchQuery);
+    const attachments = cards.map(({ card, thumbnail }) => {
+      return {
+        ...cardAttachment('adaptive', card), // expanded card in the compose box...
+        preview: cardAttachment('thumbnail', thumbnail), // preview card in the compose box...
+      };
+    });
+
     return {
-      card: new AdaptiveCard(
-        new TextBlock(item.title, {
-          size: 'Large',
-          weight: 'Bolder',
-          color: 'Accent',
-          style: 'heading',
-        }),
-        new TextBlock(item.description, {
-          wrap: true,
-          spacing: 'Medium',
-        })
-      ),
-      thumbnail: {
-        title: item.title,
-        text: item.description,
-        // When a user clicks on a list item in Teams:
-        // - If the thumbnail has a `tap` property: Teams will trigger the `message.ext.select-item` activity
-        // - If no `tap` property: Teams will insert the full adaptive card into the compose box
-        // tap: {
-        //   type: "invoke",
-        //   title: item.title,
-        //   value: {
-        //     "option": index,
-        //   },
-        // },
-      } satisfies ThumbnailCard,
+      composeExtension: {
+        type: 'result',
+        attachmentLayout: 'list',
+        attachments: attachments,
+      },
     };
-  });
+  }
 
-  return cards;
-}
+  return { status: 400 };
+});
 ```
 ::: zone-end
+
+
 
 ::: zone pivot="csharp"
 `CreateSearchResults()` method
@@ -414,32 +361,73 @@ async def create_dummy_cards(search_query: str) -> List[Dict[str, Any]]:
 ```
 ::: zone-end
 
+::: zone pivot="javascript"
+`createDummyCards()` function
+
+```typescript
+import { ThumbnailCard } from '@microsoft/teams.api';
+import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
+// ...
+
+export async function createDummyCards(searchQuery: string) {
+  const dummyItems = [
+    {
+      title: 'Item 1',
+      description: `This is the first item and this is your search query: ${searchQuery}`,
+    },
+    { title: 'Item 2', description: 'This is the second item' },
+    { title: 'Item 3', description: 'This is the third item' },
+    { title: 'Item 4', description: 'This is the fourth item' },
+    { title: 'Item 5', description: 'This is the fifth item' },
+  ];
+
+  const cards = dummyItems.map((item) => {
+    return {
+      card: new AdaptiveCard(
+        new TextBlock(item.title, {
+          size: 'Large',
+          weight: 'Bolder',
+          color: 'Accent',
+          style: 'heading',
+        }),
+        new TextBlock(item.description, {
+          wrap: true,
+          spacing: 'Medium',
+        })
+      ),
+      thumbnail: {
+        title: item.title,
+        text: item.description,
+        // When a user clicks on a list item in Teams:
+        // - If the thumbnail has a `tap` property: Teams will trigger the `message.ext.select-item` activity
+        // - If no `tap` property: Teams will insert the full adaptive card into the compose box
+        // tap: {
+        //   type: "invoke",
+        //   title: item.title,
+        //   value: {
+        //     "option": index,
+        //   },
+        // },
+      } satisfies ThumbnailCard,
+    };
+  });
+
+  return cards;
+}
+```
+::: zone-end
+
+
 The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
 
-:::image type="content" source="~/assets/screenshots/preview-card.png" alt-text="Screenshot of Teams showing a message extensions search menu open with list of search results displayed as preview cards." lightbox="~/assets/screenshots/preview-card.png" :::
+:::image type="content" source="~/assets/screenshots/preview-card.png" alt-text="Screenshot of Teams showing a message extensions search menu open with list of search results displayed as preview cards." lightbox="~/assets/screenshots/preview-card.png":::
 
 When a user clicks on a list item the dummy adaptive card is added to the compose box:
 
-:::image type="content" source="~/assets/screenshots/card-in-compose.png" alt-text="Screenshot of Teams showing the selected adaptive card added to the compose box." lightbox="~/assets/screenshots/card-in-compose.png" :::
+:::image type="content" source="~/assets/screenshots/card-in-compose.png" alt-text="Screenshot of Teams showing the selected adaptive card added to the compose box." lightbox="~/assets/screenshots/card-in-compose.png":::
 
 To implement custom actions when a user clicks on a search result item, you can add the `tap` property to the preview card. This allows you to handle the click event with custom logic:
 
-::: zone pivot="typescript"
-```typescript
-import { App } from '@microsoft/teams.apps';
-// ...
-
-app.on('message.ext.select-item', async ({ activity, send }) => {
-  const { option } = activity.value;
-
-  await send(`Selected item: ${option}`);
-
-  return {
-    status: 200,
-  };
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 <!-- Not applicable -->
@@ -463,6 +451,24 @@ async def handle_message_ext_select_item(ctx: ActivityContext[MessageExtensionSe
     return MessagingExtensionInvokeResponse(compose_extension=result)
 ```
 ::: zone-end
+
+::: zone pivot="javascript"
+```typescript
+import { App } from '@microsoft/teams.apps';
+// ...
+
+app.on('message.ext.select-item', async ({ activity, send }) => {
+  const { option } = activity.value;
+
+  await send(`Selected item: ${option}`);
+
+  return {
+    status: 200,
+  };
+});
+```
+::: zone-end
+
 
 ## Resources
 

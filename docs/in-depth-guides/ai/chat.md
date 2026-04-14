@@ -3,10 +3,10 @@ title: Chat Generation
 description: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
-#  Chat Generation
+# Chat Generation
 
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
@@ -14,20 +14,12 @@ Before going through this guide, please make sure you have completed the [setup 
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
-<!-- TODO: diagram - replace with :::image type="content" source="~/assets/diagrams/SLUG.png" ::: -->
-:::image type="content" source="~/assets/diagrams/in-depth-guides-ai-chat.png" alt-text="Flowchart showing a user message sent to Azure OpenAI and receiving a content response" lightbox="~/assets/diagrams/in-depth-guides-ai-chat.png":::
+:::image type="content" source="~/assets/diagrams/ai-chat-setup.png" alt-text="Flowchart showing chat prompt setup with messages, instructions, and options feeding into a prompt connected to a model, which can use Azure OpenAI, OpenAI, Claude, or other LLM providers" lightbox="~/assets/diagrams/ai-chat-setup.png":::
 
 ## Simple chat generation
 
 Chat generation is the the most basic way of interacting with an LLM model. It involves setting up your ChatPrompt, the Model, and sending it the message.
 
-::: zone pivot="typescript"
-Import the relevant objects:
-
-```typescript
-import { OpenAIChatModel } from '@microsoft/teams.openai';
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 Import the relevant namespaces:
@@ -57,36 +49,15 @@ from microsoft_teams.openai import OpenAICompletionsAIModel
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
+::: zone pivot="javascript"
+Import the relevant objects:
+
 ```typescript
-import { ChatPrompt } from '@microsoft/teams.ai';
-import { MessageActivity } from '@microsoft/teams.api';
-import { App } from '@microsoft/teams.apps';
 import { OpenAIChatModel } from '@microsoft/teams.openai';
-// ...
-
-app.on('message', async ({ send, activity, next, log }) => {
-  const model = new OpenAIChatModel({
-    apiKey: process.env.AZURE_OPENAI_API_KEY || process.env.OPENAI_API_KEY,
-    endpoint: process.env.AZURE_OPENAI_ENDPOINT,
-    apiVersion: process.env.AZURE_OPENAI_API_VERSION,
-    model: process.env.AZURE_OPENAI_MODEL_DEPLOYMENT_NAME!,
-  });
-
-  const prompt = new ChatPrompt({
-    instructions: 'You are a friendly assistant who talks like a pirate',
-    model,
-  });
-
-  const response = await prompt.send(activity.text);
-  if (response.content) {
-    const activity = new MessageActivity(response.content).addAiGenerated();
-    await send(activity);
-    // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol' salty sea dog help ye with? 🚢☠️
-  }
-});
 ```
 ::: zone-end
+
+
 
 ::: zone pivot="csharp"
 ```csharp
@@ -151,9 +122,38 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="typescript"
-<!-- Not applicable -->
+::: zone pivot="javascript"
+```typescript
+import { ChatPrompt } from '@microsoft/teams.ai';
+import { MessageActivity } from '@microsoft/teams.api';
+import { App } from '@microsoft/teams.apps';
+import { OpenAIChatModel } from '@microsoft/teams.openai';
+// ...
+
+app.on('message', async ({ send, activity, next, log }) => {
+  const model = new OpenAIChatModel({
+    apiKey: process.env.AZURE_OPENAI_API_KEY || process.env.OPENAI_API_KEY,
+    endpoint: process.env.AZURE_OPENAI_ENDPOINT,
+    apiVersion: process.env.AZURE_OPENAI_API_VERSION,
+    model: process.env.AZURE_OPENAI_MODEL_DEPLOYMENT_NAME!,
+  });
+
+  const prompt = new ChatPrompt({
+    instructions: 'You are a friendly assistant who talks like a pirate',
+    model,
+  });
+
+  const response = await prompt.send(activity.text);
+  if (response.content) {
+    const activity = new MessageActivity(response.content).addAiGenerated();
+    await send(activity);
+    // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol' salty sea dog help ye with? 🚢☠️
+  }
+});
+```
 ::: zone-end
+
+
 
 ::: zone pivot="csharp"
 ### Declarative Approach
@@ -204,12 +204,13 @@ teamsApp.OnMessage(async (context) =>
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="typescript"
-> [!NOTE]
-> The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
+::: zone pivot="javascript"
+<!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="csharp"
+
+
+::: zone pivot="csharp,javascript"
 > [!NOTE]
 > The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
 ::: zone-end
@@ -219,9 +220,7 @@ teamsApp.OnMessage(async (context) =>
 > The current `OpenAICompletionsAIModel` implementation uses Chat Completions API. The Responses API is also available.
 ::: zone-end
 
-::: zone pivot="typescript"
-<!-- Not applicable -->
-::: zone-end
+
 
 ::: zone pivot="csharp"
 <!-- Not applicable -->
@@ -233,6 +232,11 @@ teamsApp.OnMessage(async (context) =>
 Instead of `ChatPrompt`, you may also use `Agent`. The `Agent` class is a derivation from `ChatPrompt` but it differs in that it's stateful. The `memory` object passed to the `Agent` object will be reused for subsequent calls to `send`, whereas for `ChatPrompt`, each call to `send` is independent.
 ::: zone-end
 
+::: zone pivot="javascript"
+<!-- Not applicable -->
+::: zone-end
+
+
 ## Streaming chat responses
 
 LLMs can take a while to generate a response, so often streaming the response leads to a better, more responsive user experience.
@@ -240,41 +244,6 @@ LLMs can take a while to generate a response, so often streaming the response le
 > [!WARNING]
 > Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
 
-::: zone pivot="typescript"
-```typescript
-import { ChatPrompt } from '@microsoft/teams.ai';
-import { MessageActivity } from '@microsoft/teams.api';
-import { App } from '@microsoft/teams.apps';
-// ...
-
-app.on('message', async ({ stream, send, activity, next, log }) => {
-  // const query = activity.text;
-
-  const prompt = new ChatPrompt({
-    instructions: 'You are a friendly assistant who responds in extremely verbose language',
-    model,
-  });
-
-  // Notice that we don't `send` the final response back, but
-  // `stream` the chunks as they come in
-  const response = await prompt.send(query, {
-    onChunk: (chunk) => {
-      stream.emit(chunk);
-    },
-  });
-
-  if (activity.conversation.isGroup) {
-    // If the conversation is a group chat, we need to send the final response
-    // back to the group chat
-    const activity = new MessageActivity(response.content).addAiGenerated();
-    await send(activity);
-  } else {
-    // We wrap the final response with an AI Generated indicator
-    stream.emit(new MessageActivity().addAiGenerated());
-  }
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -329,4 +298,41 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window." lightbox="~/assets/screenshots/streaming-chat.gif" :::
+::: zone pivot="javascript"
+```typescript
+import { ChatPrompt } from '@microsoft/teams.ai';
+import { MessageActivity } from '@microsoft/teams.api';
+import { App } from '@microsoft/teams.apps';
+// ...
+
+app.on('message', async ({ stream, send, activity, next, log }) => {
+  // const query = activity.text;
+
+  const prompt = new ChatPrompt({
+    instructions: 'You are a friendly assistant who responds in extremely verbose language',
+    model,
+  });
+
+  // Notice that we don't `send` the final response back, but
+  // `stream` the chunks as they come in
+  const response = await prompt.send(query, {
+    onChunk: (chunk) => {
+      stream.emit(chunk);
+    },
+  });
+
+  if (activity.conversation.isGroup) {
+    // If the conversation is a group chat, we need to send the final response
+    // back to the group chat
+    const activity = new MessageActivity(response.content).addAiGenerated();
+    await send(activity);
+  } else {
+    // We wrap the final response with an AI Generated indicator
+    stream.emit(new MessageActivity().addAiGenerated());
+  }
+});
+```
+::: zone-end
+
+
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window." lightbox="~/assets/screenshots/streaming-chat.gif":::

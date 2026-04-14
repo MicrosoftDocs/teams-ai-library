@@ -46,6 +46,8 @@ landingContent:
             url: ./essentials/sending-messages/overview.md#targeted-messages
           - text: Proactive Messaging
             url: ./essentials/sending-messages/proactive-messaging.md
+          - text: Activity Type Reference
+            url: ./essentials/on-activity/activity-ref.md
 
   # AI & Intelligence
   - title: Build intelligent conversational experiences
@@ -94,8 +96,16 @@ landingContent:
             url: ./in-depth-guides/adaptive-cards/executing-actions.md
           - text: Dialogs
             url: ./in-depth-guides/dialogs/overview.md
+          - text: Creating Dialogs
+            url: ./in-depth-guides/dialogs/creating-dialogs.md
           - text: Message Extensions
             url: ./in-depth-guides/message-extensions/overview.md
+          - text: Search Commands
+            url: ./in-depth-guides/message-extensions/search-commands.md
+          - text: Action Commands
+            url: ./in-depth-guides/message-extensions/action-commands.md
+          - text: Link Unfurling
+            url: ./in-depth-guides/message-extensions/link-unfurling.md
           - text: Tabs
             url: ./in-depth-guides/tabs/overview.md
           - text: Meeting Events
@@ -120,6 +130,8 @@ landingContent:
         links:
           - text: Running in Teams
             url: ./getting-started/running-in-teams/overview.md
+          - text: Configuration Overview
+            url: ./teams/configuration/overview.md
           - text: Microsoft 365 Agents Toolkit
             url: ./teams/configuration/agents-toolkit.md
           - text: Manual Configuration
@@ -132,18 +144,26 @@ landingContent:
             url: ./teams/app-authentication/overview.md
           - text: App Authentication Configuration
             url: ./essentials/app-authentication.md
+          - text: Client Secret Authentication
+            url: ./teams/app-authentication/client-secret.md
+          - text: Federated Identity Credentials
+            url: ./teams/app-authentication/federated-identity-credentials.md
           - text: Authentication Troubleshooting
             url: ./teams/app-authentication/troubleshooting.md
           - text: User Authentication Setup
             url: ./teams/user-authentication/overview.md
           - text: SSO Setup
             url: ./teams/user-authentication/sso-setup.md
+          - text: SSO Troubleshooting
+            url: ./teams/user-authentication/troubleshooting-sso.md
 
   # Development & Debugging
   - title: Build, test, and debug your agents
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Developer Tools Overview
+            url: ./developer-tools/overview.md
           - text: Teams CLI
             url: ./developer-tools/cli.md
           - text: DevTools Overview
@@ -170,8 +190,12 @@ landingContent:
             url: ./migrations/overview.md
           - text: Migrate from BotBuilder
             url: ./migrations/botbuilder/overview.md
+          - text: Using the BotBuilder Plugin
+            url: ./migrations/botbuilder/integration.md
           - text: Migrate from Teams AI Library v1
             url: ./migrations/v1.md
+          - text: Migrate from V2 Previews
+            url: ./migrations/v2-previews.md
           - text: Migrate from Slack Bolt
             url: ./migrations/slack-bolt.md
 

@@ -1,8 +1,8 @@
 ---
 title: Dialogs
-description: Overview of dialogs in Teams SDK — popup modal windows that improve agent-user interaction using Adaptive Card content.
+description: Dialogs
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Dialogs

@@ -2,11 +2,16 @@
 title: Getting started
 description: Set up new tab app projects or add Teams client capabilities to existing tab applications.
 ms.topic: how-to
-ms.date: 02/25/2026
+zone_pivot_groups: dev-lang
+ms.date: 04/14/2026
 ---
-
 # Getting started
 
+::: zone pivot="csharp,python"
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="javascript"
 To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
 
 ## Setting up a new project
@@ -33,3 +38,4 @@ If you're already using Microsoft Authentication Library (MSAL) in an NAA enable
 
 - [Running and debugging local apps in Agents Toolkit](/microsoftteams/platform/toolkit/debug-local?tabs=Windows)
 - [Configuring an app for Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)
+::: zone-end

@@ -1,14 +1,17 @@
 ---
 title: From V2 Previews
-description: Migration guide for upgrading from Teams SDK v2 preview versions to the latest stable release, covering breaking changes and code updates.
+description: From V2 Previews
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
-
 # From V2 Previews
 
-::: zone pivot="typescript"
+::: zone pivot="csharp,python"
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="javascript"
 If you're moving from preview versions of Teams SDK, you may encounter a few breaking changes along the way. This page outlines those and shows how to get back on track.
 
 ## Graph Client
@@ -104,10 +107,4 @@ await app.graph.call(updatePresence, newPresence);
 ```
 ::: zone-end
 
-::: zone pivot="csharp"
-<!-- TODO: section "content" missing for csharp -->
-::: zone-end
 
-::: zone pivot="python"
-<!-- TODO: section "content" missing for python -->
-::: zone-end

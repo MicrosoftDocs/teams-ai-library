@@ -1,11 +1,11 @@
 ---
-title: User Authentication Setup
+title: User Authentication
 description: Overview of user authentication in Teams SDK applications, including OAuth, SSO, and secure resource access.
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
-# User Authentication Setup
+# User Authentication
 
 At times, agents must access secured online resources on behalf of the user, such as checking email, checking flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 
@@ -43,7 +43,7 @@ The SSO signin flow involves several components working together. Here's how it 
 
 This is what the SSO consent form looks like in Teams:
 
-:::image type="content" source="~/assets/screenshots/auth-consent-popup.png" alt-text="SSO Consent Form" lightbox="~/assets/screenshots/auth-consent-popup.png" :::
+:::image type="content" source="~/assets/screenshots/auth-consent-popup.png" alt-text="SSO Consent Form" lightbox="~/assets/screenshots/auth-consent-popup.png":::
 
 ### OAuth
 
@@ -66,7 +66,7 @@ When an access token expires, the user will need to go through the sign-in proce
 
 This is what the OAuth card looks like in Teams:
 
-:::image type="content" source="~/assets/screenshots/auth-explicit-signin.png" alt-text="OAuthCard" lightbox="~/assets/screenshots/auth-explicit-signin.png" :::
+:::image type="content" source="~/assets/screenshots/auth-explicit-signin.png" alt-text="OAuthCard" lightbox="~/assets/screenshots/auth-explicit-signin.png":::
 
 ## OAuth vs SSO - Head-to-Head Comparison
 

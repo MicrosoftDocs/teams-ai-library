@@ -2,7 +2,7 @@
 title: Microsoft 365 Agents Toolkit
 description: Automate Teams app development with Microsoft 365 Agents Toolkit for manifest management, sideloading, and deployment.
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Microsoft 365 Agents Toolkit
@@ -22,7 +22,7 @@ Agents Toolkit can be installed as an extension and CLI. Please see the document
 
 ## Official documentation
 
-Refer to the official [Microsoft 365 Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit?toc=%2Fmicrosoftteams%2Fplatform%2Ftoc.json&bc=%2Fmicrosoftteams%2Fplatform%2Fbreadcrumb%2Ftoc.json) on Microsoft Learn.
+Refer to the official [Microsoft 365 Agents Toolkit documentation](/microsoft-365/developer/overview-m365-agents-toolkit) on Microsoft Learn.
 
 ## Deployment and provisioning
 
