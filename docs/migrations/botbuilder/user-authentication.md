@@ -7,7 +7,7 @@ ms.date: 04/14/2026
 ---
 
 
-# User Authentication
+# BotBuilder User Authentication Migration
 
 ::: zone pivot="csharp"
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
