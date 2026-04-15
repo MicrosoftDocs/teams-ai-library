@@ -1,4 +1,4 @@
----
+﻿---
 title: Using the BotBuilder Plugin
 description: How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware.
 ms.topic: how-to
@@ -74,208 +74,208 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 
 ::: zone pivot="csharp"
 # [Program.cs](#tab/program.cs)
-    ```csharp
+```csharp
 
-    using Microsoft.Bot.Builder.Integration.AspNet.Core;
-    using Microsoft.Teams.Api.Activities;
-    using Microsoft.Teams.Apps;
-    using Microsoft.Teams.Apps.Activities;
-    using Microsoft.Teams.Apps.Annotations;
-    using Microsoft.Teams.Plugins.AspNetCore.Extensions;
+using Microsoft.Bot.Builder.Integration.AspNet.Core;
+using Microsoft.Teams.Api.Activities;
+using Microsoft.Teams.Apps;
+using Microsoft.Teams.Apps.Activities;
+using Microsoft.Teams.Apps.Annotations;
+using Microsoft.Teams.Plugins.AspNetCore.Extensions;
 
-    public static partial class Program
+public static partial class Program
+{
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-            builder
-                .AddTeams()
-                // highlight-next-line
-                .AddBotBuilder<Bot, BotBuilderAdapter, ConfigurationBotFrameworkAuthentication>();
+        var builder = WebApplication.CreateBuilder(args);
+        builder
+            .AddTeams()
+            // highlight-next-line
+            .AddBotBuilder<Bot, BotBuilderAdapter, ConfigurationBotFrameworkAuthentication>();
 
-            var app = builder.Build();
+        var app = builder.Build();
 
-            var teams = app.UseTeams();
-            app.Run();
-        }
-
-        teams.OnMessage(async context =>
-        {
-            await context.Client.Typing();
-            await context.Client.Send($"hi from teams...");
-        });
+        var teams = app.UseTeams();
+        app.Run();
     }
-    ```
+
+    teams.OnMessage(async context =>
+    {
+        await context.Client.Typing();
+        await context.Client.Send($"hi from teams...");
+    });
+}
+```
 # [BotBuilderAdapter.cs](#tab/botbuilderadapter.cs)
-    ```csharp
-    using Microsoft.Bot.Builder.Integration.AspNet.Core;
-    using Microsoft.Bot.Connector.Authentication;
+```csharp
+using Microsoft.Bot.Builder.Integration.AspNet.Core;
+using Microsoft.Bot.Connector.Authentication;
 
-    // replace with your Adapter
-    // highlight-start
-    public class BotBuilderAdapter : CloudAdapter
+// replace with your Adapter
+// highlight-start
+public class BotBuilderAdapter : CloudAdapter
+{
+    public BotBuilderAdapter(BotFrameworkAuthentication auth, ILogger<IBotFrameworkHttpAdapter> logger)
+        : base(auth, logger)
     {
-        public BotBuilderAdapter(BotFrameworkAuthentication auth, ILogger<IBotFrameworkHttpAdapter> logger)
-            : base(auth, logger)
+        OnTurnError = async (turnContext, exception) =>
         {
-            OnTurnError = async (turnContext, exception) =>
-            {
-                logger.LogError(exception, $"[OnTurnError] unhandled error : {exception.Message}");
+            logger.LogError(exception, $"[OnTurnError] unhandled error : {exception.Message}");
 
-                // Send a message to the user
-                await turnContext.SendActivityAsync("The bot encountered an error or bug.");
-            };
-        }
+            // Send a message to the user
+            await turnContext.SendActivityAsync("The bot encountered an error or bug.");
+        };
     }
-    // highlight-end
-    ```
+}
+// highlight-end
+```
 # [ActivityHandler.cs](#tab/activityhandler.cs)
-    ```csharp
-    using Microsoft.Bot.Builder;
-    using Microsoft.Bot.Schema;
+```csharp
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Schema;
 
-    // replace with your ActivityHandler
-    // highlight-start
-    public class Bot : ActivityHandler
+// replace with your ActivityHandler
+// highlight-start
+public class Bot : ActivityHandler
+{
+    protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
     {
-        protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
-        {
-            var replyText = $"hi from botbuilder...";
-            await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
-        }
+        var replyText = $"hi from botbuilder...";
+        await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
     }
-    // highlight-end
-    ```
+}
+// highlight-end
+```
 ---
 ::: zone-end
 
 ::: zone pivot="python"
 # [app.py](#tab/app.py)
-    ```python
-    import asyncio
-    from adapter import adapter
-    from activity_handler import MyActivityHandler
-    from microsoft_teams.api import MessageActivity
-    from microsoft_teams.apps import ActivityContext, App
-    from microsoft_teams.botbuilder import BotBuilderPlugin
+```python
+import asyncio
+from adapter import adapter
+from activity_handler import MyActivityHandler
+from microsoft_teams.api import MessageActivity
+from microsoft_teams.apps import ActivityContext, App
+from microsoft_teams.botbuilder import BotBuilderPlugin
 
-    # highlight-next-line
-    app = App(plugins=[BotBuilderPlugin(adapter=adapter, handler=MyActivityHandler())])
+# highlight-next-line
+app = App(plugins=[BotBuilderPlugin(adapter=adapter, handler=MyActivityHandler())])
 
-    @app.on_message
-    async def handle_message(ctx: ActivityContext[MessageActivity]):
-        print("Handling message in app...")
-        await ctx.send("hi from teams...")
+@app.on_message
+async def handle_message(ctx: ActivityContext[MessageActivity]):
+    print("Handling message in app...")
+    await ctx.send("hi from teams...")
 
 
-    if __name__ == "__main__":
-        asyncio.run(app.start())
-    ```
+if __name__ == "__main__":
+    asyncio.run(app.start())
+```
 # [adapter.py](#tab/adapter.py)
-    ```python
-    from botbuilder.core import TurnContext
-    from botbuilder.integration.aiohttp import (
-        CloudAdapter,
-        ConfigurationBotFrameworkAuthentication,
-    )
-    from botbuilder.schema import Activity, ActivityTypes
-    from types import SimpleNamespace
+```python
+from botbuilder.core import TurnContext
+from botbuilder.integration.aiohttp import (
+    CloudAdapter,
+    ConfigurationBotFrameworkAuthentication,
+)
+from botbuilder.schema import Activity, ActivityTypes
+from types import SimpleNamespace
 
-    config = SimpleNamespace(
-                APP_TYPE="SingleTenant" if tenant_id else "MultiTenant",
-                APP_ID=client_id,
-                APP_PASSWORD=client_secret,
-                APP_TENANTID=tenant_id,
-            )
+config = SimpleNamespace(
+            APP_TYPE="SingleTenant" if tenant_id else "MultiTenant",
+            APP_ID=client_id,
+            APP_PASSWORD=client_secret,
+            APP_TENANTID=tenant_id,
+        )
 
-    # replace with your Adapter
-    # highlight-start
-    adapter = CloudAdapter(ConfigurationBotFrameworkAuthentication(config))
+# replace with your Adapter
+# highlight-start
+adapter = CloudAdapter(ConfigurationBotFrameworkAuthentication(config))
 
-    async def on_error(context: TurnContext, error: Exception):
-        # Send a message to the user
-        await context.send_activity("The bot encountered an error or bug.")
+async def on_error(context: TurnContext, error: Exception):
+    # Send a message to the user
+    await context.send_activity("The bot encountered an error or bug.")
 
-    adapter.on_turn_error = on_error
-    # highlight-end
-    ```
+adapter.on_turn_error = on_error
+# highlight-end
+```
 # [activity_handler.py](#tab/activity_handler.py)
-    ```python
-    from botbuilder.core import ActivityHandler, TurnContext
+```python
+from botbuilder.core import ActivityHandler, TurnContext
 
-    # replace with your ActivityHandler
-    # highlight-start
-    class MyActivityHandler(ActivityHandler):
-        async def on_message_activity(self, turn_context: TurnContext):
-            await turn_context.send_activity("hi from botbuilder...")
-    # highlight-end
-    ```
+# replace with your ActivityHandler
+# highlight-start
+class MyActivityHandler(ActivityHandler):
+    async def on_message_activity(self, turn_context: TurnContext):
+        await turn_context.send_activity("hi from botbuilder...")
+# highlight-end
+```
 ---
 ::: zone-end
 
 ::: zone pivot="javascript"
 # [index.ts](#tab/index.ts)
-    ```typescript
-    import { App } from '@microsoft/teams.apps';
-    import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
+```typescript
+import { App } from '@microsoft/teams.apps';
+import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
 
-    import adapter from './adapter';
-    import handler from './activity-handler';
+import adapter from './adapter';
+import handler from './activity-handler';
 
-    const app = new App({
-      // highlight-next-line
-      plugins: [new BotBuilderPlugin({ adapter, handler })],
-    });
+const app = new App({
+  // highlight-next-line
+  plugins: [new BotBuilderPlugin({ adapter, handler })],
+});
 
-    app.on('message', async ({ send }) => {
-      await send('hi from teams...');
-    });
+app.on('message', async ({ send }) => {
+  await send('hi from teams...');
+});
 
-    (async () => {
-      await app.start();
-    })();
-    ```
+(async () => {
+  await app.start();
+})();
+```
 # [adapter.ts](#tab/adapter.ts)
-    ```typescript
-    import { CloudAdapter } from 'botbuilder';
+```typescript
+import { CloudAdapter } from 'botbuilder';
 
-    // replace with your BotAdapter
-    // highlight-start
-    const adapter = new CloudAdapter(
-      new ConfigurationBotFrameworkAuthentication(
-        {},
-        new ConfigurationServiceClientCredentialFactory({
-          MicrosoftAppType: tenantId ? 'SingleTenant' : 'MultiTenant',
-          MicrosoftAppId: clientId,
-          MicrosoftAppPassword: clientSecret,
-          MicrosoftAppTenantId: tenantId,
-        })
-      )
-    );
-    // highlight-end
+// replace with your BotAdapter
+// highlight-start
+const adapter = new CloudAdapter(
+  new ConfigurationBotFrameworkAuthentication(
+    {},
+    new ConfigurationServiceClientCredentialFactory({
+      MicrosoftAppType: tenantId ? 'SingleTenant' : 'MultiTenant',
+      MicrosoftAppId: clientId,
+      MicrosoftAppPassword: clientSecret,
+      MicrosoftAppTenantId: tenantId,
+    })
+  )
+);
+// highlight-end
 
-    export default adapter;
-    ```
+export default adapter;
+```
 # [activity-handler.ts](#tab/activity-handler.ts)
-    ```typescript
-    import { TeamsActivityHandler } from 'botbuilder';
+```typescript
+import { TeamsActivityHandler } from 'botbuilder';
 
-    // replace with your TeamsActivityHandler
-    // highlight-start
-    export class ActivityHandler extends TeamsActivityHandler {
-      constructor() {
-        super();
-        this.onMessage(async (ctx, next) => {
-          await ctx.sendActivity('hi from botbuilder...');
-          await next();
-        });
-      }
-    }
-    // highlight-end
+// replace with your TeamsActivityHandler
+// highlight-start
+export class ActivityHandler extends TeamsActivityHandler {
+  constructor() {
+    super();
+    this.onMessage(async (ctx, next) => {
+      await ctx.sendActivity('hi from botbuilder...');
+      await next();
+    });
+  }
+}
+// highlight-end
 
-    const handler = new ActivityHandler();
-    export default handler;
-    ```
+const handler = new ActivityHandler();
+export default handler;
+```
 ---
 ::: zone-end
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Building Adaptive Cards
 description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ms.topic: how-to
@@ -130,8 +130,8 @@ Benefits:
 
 | Benefit     | Description                                                                   |
 | ----------- | ----------------------------------------------------------------------------- |
-| Readability | No deep JSON trees—just chain simple methods.                                 |
-| Re‑use      | Extract snippets to functions or classes and share across cards.              |
+| Readability | No deep JSON treesâ€”just chain simple methods.                                 |
+| Reâ€‘use      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
 
@@ -151,7 +151,7 @@ Benefits:
 ::: zone-end
 
 
-## Type‑safe Authoring & IntelliSense
+## Typeâ€‘safe Authoring & IntelliSense
 
 ::: zone pivot="csharp"
 The package bundles the **Adaptive Card v1.5 schema** as strict C# types.
@@ -169,7 +169,7 @@ While coding you get:
 ::: zone-end
 
 - **Autocomplete** for every element and attribute.
-- **In‑editor validation**—invalid enum values or missing required properties produce build errors.
+- **Inâ€‘editor validation**â€”invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
 
@@ -202,7 +202,7 @@ const textBlock = new TextBlock('Valid', { size: 'huge' });
 
 ## The Visual Designer
 
-Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
+Prefer a dragâ€‘andâ€‘drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
 1. Add elements visually until the card looks right.
 2. Copy the JSON payload from the editor pane.
@@ -397,26 +397,26 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 > [!TIP]
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
 
-## End‑to‑end Example – Task Form Card
+## Endâ€‘toâ€‘end Example â€“ Task Form Card
 
 Below is a complete example showing a task management form.
 
 
 ::: zone pivot="csharp"
 # [Minimal](#tab/minimal)
-    ```csharp
-    teams.OnMessage(async context =>
-    {
-        var text = context.Activity.Text?.ToLowerInvariant() ?? "";
+```csharp
+teams.OnMessage(async context =>
+{
+    var text = context.Activity.Text?.ToLowerInvariant() ?? "";
 
-        if (text.Contains("form"))
-        {
-            await context.Typing();
-            var card = CreateTaskFormCard();
-            await context.Send(card);
-        }
-    });
-    ```
+    if (text.Contains("form"))
+    {
+        await context.Typing();
+        var card = CreateTaskFormCard();
+        await context.Send(card);
+    }
+});
+```
 ---
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end

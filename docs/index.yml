@@ -98,6 +98,12 @@ landingContent:
             url: ./in-depth-guides/dialogs/overview.md
           - text: Creating Dialogs
             url: ./in-depth-guides/dialogs/creating-dialogs.md
+          - text: Tabs
+            url: ./in-depth-guides/tabs/overview.md
+          - text: Meeting Events
+            url: ./in-depth-guides/meeting-events.md
+      - linkListType: concept
+        links:
           - text: Message Extensions
             url: ./in-depth-guides/message-extensions/overview.md
           - text: Search Commands
@@ -106,10 +112,6 @@ landingContent:
             url: ./in-depth-guides/message-extensions/action-commands.md
           - text: Link Unfurling
             url: ./in-depth-guides/message-extensions/link-unfurling.md
-          - text: Tabs
-            url: ./in-depth-guides/tabs/overview.md
-          - text: Meeting Events
-            url: ./in-depth-guides/meeting-events.md
       - linkListType: how-to-guide
         links:
           - text: User Authentication

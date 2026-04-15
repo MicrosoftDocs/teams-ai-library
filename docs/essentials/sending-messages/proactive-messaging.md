@@ -1,4 +1,4 @@
----
+﻿---
 title: Proactive Messaging
 description: Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.
 ms.topic: how-to
@@ -21,15 +21,15 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 
 ::: zone pivot="csharp"
 # [Minimal](#tab/minimal)
-    ```csharp
-    app.OnInstall(async context =>
-    {
-        // Save the conversation id in
-        context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
-        await context.Send("Hi! I am going to remind you to say something to me soon!");
-        notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
-    });
-    ```
+```csharp
+app.OnInstall(async context =>
+{
+    // Save the conversation id in
+    context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
+    await context.Send("Hi! I am going to remind you to say something to me soon!");
+    notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
+});
+```
 ---
 ::: zone-end
 

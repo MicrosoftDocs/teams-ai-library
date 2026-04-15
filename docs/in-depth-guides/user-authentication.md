@@ -1,5 +1,5 @@
 ---
-title: User Authentication
+title: User Authentication Guide
 description: API guide to implement User Authentication with SSO in Teams Apps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
@@ -391,7 +391,7 @@ app.on('signin.failure', async ({ activity, send }) => {
 
 
 > [!TIP]
-> The most common failure codes are `installedappnotfound` (bot app not installed for the user) and `resourcematchfailed` (Token Exchange URL doesn't match the Application ID URI). See [SSO Setup - Troubleshooting](../teams/user-authentication/sso-setup.md#troubleshooting-sso) for a full list of failure codes and troubleshooting steps.
+> The most common failure codes are `installedappnotfound` (bot app not installed for the user) and `resourcematchfailed` (Token Exchange URL doesn't match the Application ID URI). See [SSO Setup - Troubleshooting](../teams/user-authentication/sso-setup.md#troubleshooting) for a full list of failure codes and troubleshooting steps.
 
 
 ::: zone pivot="csharp"

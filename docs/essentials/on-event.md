@@ -48,7 +48,7 @@ Here are the events that you can start building handlers for:
 
 <br/>
 > [!NOTE]
-> Event handler registration uses `@app.event("<event_name>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
+> Event handler registration uses `@app.event("\<event_name\>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
 ::: zone-end
 
 

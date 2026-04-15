@@ -1,4 +1,4 @@
----
+﻿---
 title: Porting your Slack Bolt bot
 description: Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.
 ms.topic: how-to
@@ -66,164 +66,164 @@ npm install @microsoft/teams.apps
 ::: zone pivot="javascript"
 First, let's configure the `App` class in Teams JS. This is equivalent to Slack Bolt's `App` class.
 # [Diff](#tab/diff)
-  ```ts
-    // Setup app
-    // highlight-error-start
-    import { App } from '@slack/bolt';
+```ts
+// Setup app
+// highlight-error-start
+import { App } from '@slack/bolt';
 
-    const app = new App({
-        signingSecret: process.env.SLACK_SIGNING_SECRET,
-        clientId: process.env.SLACK_CLIENT_ID,
-        clientSecret: process.env.SLACK_CLIENT_SECRET,
-        scopes: [
-            "channels:manage",
-            "channels:read",
-            "chat:write",
-            "groups:read",
-            "incoming-webhook",
-        ],
-        installerOptions: {
-            authVersion: "v2",
-            directInstall: false,
-            installPath: "/slack/install",
-            metadata: "",
-            redirectUriPath: "/slack/oauth_redirect",
-            stateVerification: "true",
-            /**
-            * Example pages to navigate to on certain callbacks.
-            */
-            callbackOptions: {
-                success: (installation, installUrlOptions, req, res) => {
-                    res.send("The installation succeeded!");
-                },
-                failure: (error, installUrlOptions, req, res) => {
-                    res.send("Something strange happened...");
-                },
+const app = new App({
+    signingSecret: process.env.SLACK_SIGNING_SECRET,
+    clientId: process.env.SLACK_CLIENT_ID,
+    clientSecret: process.env.SLACK_CLIENT_SECRET,
+    scopes: [
+        "channels:manage",
+        "channels:read",
+        "chat:write",
+        "groups:read",
+        "incoming-webhook",
+    ],
+    installerOptions: {
+        authVersion: "v2",
+        directInstall: false,
+        installPath: "/slack/install",
+        metadata: "",
+        redirectUriPath: "/slack/oauth_redirect",
+        stateVerification: "true",
+        /**
+        * Example pages to navigate to on certain callbacks.
+        */
+        callbackOptions: {
+            success: (installation, installUrlOptions, req, res) => {
+                res.send("The installation succeeded!");
             },
-            /**
-            * Example validation of installation options using a random state and an
-            * expiration time between requests.
-            */
-            stateStore: {
-                generateStateParam: async (installUrlOptions, now) => {
-                    const state = randomStringGenerator();
-                    const value = { options: installUrlOptions, now: now.toJSON() };
-                    await database.set(state, value);
-                    return state;
-                },
-                verifyStateParam: async (now, state) => {
-                    const value = await database.get(state);
-                    const generated = new Date(value.now);
-                    const seconds = Math.floor(
-                        (now.getTime() - generated.getTime()) / 1000,
-                    );
-                    if (seconds > 600) {
-                        throw new Error("The state expired after 10 minutes!");
-                    }
-                    return value.options;
-                },
+            failure: (error, installUrlOptions, req, res) => {
+                res.send("Something strange happened...");
             },
         },
-    });
-    // highlight-error-end
-    // highlight-success-start
-    import { App } from '@microsoft/teams.apps';
+        /**
+        * Example validation of installation options using a random state and an
+        * expiration time between requests.
+        */
+        stateStore: {
+            generateStateParam: async (installUrlOptions, now) => {
+                const state = randomStringGenerator();
+                const value = { options: installUrlOptions, now: now.toJSON() };
+                await database.set(state, value);
+                return state;
+            },
+            verifyStateParam: async (now, state) => {
+                const value = await database.get(state);
+                const generated = new Date(value.now);
+                const seconds = Math.floor(
+                    (now.getTime() - generated.getTime()) / 1000,
+                );
+                if (seconds > 600) {
+                    throw new Error("The state expired after 10 minutes!");
+                }
+                return value.options;
+            },
+        },
+    },
+});
+// highlight-error-end
+// highlight-success-start
+import { App } from '@microsoft/teams.apps';
 
-    // Define app
-    const app = new App({
-        clientId: process.env.ENTRA_APP_CLIENT_ID!,
-        clientSecret: process.env.ENTRA_APP_CLIENT_SECRET!,
-        tenantId: process.env.ENTRA_TENANT_ID!,
-    });
-    // highlight-success-end
+// Define app
+const app = new App({
+    clientId: process.env.ENTRA_APP_CLIENT_ID!,
+    clientSecret: process.env.ENTRA_APP_CLIENT_SECRET!,
+    tenantId: process.env.ENTRA_TENANT_ID!,
+});
+// highlight-success-end
 
-    // App starts local server with route for /api/messages
-    (async () => {
-        await app.start();
-    })();
-    ```
+// App starts local server with route for /api/messages
+(async () => {
+    await app.start();
+})();
+```
 # [Slack Bolt](#tab/slack)
-    ```ts
-    import { App } from '@slack/bolt';
+```ts
+import { App } from '@slack/bolt';
 
-    const app = new App({
-        signingSecret: process.env.SLACK_SIGNING_SECRET,
-        clientId: process.env.SLACK_CLIENT_ID,
-        clientSecret: process.env.SLACK_CLIENT_SECRET,
-        scopes: [
-            "channels:manage",
-            "channels:read",
-            "chat:write",
-            "groups:read",
-            "incoming-webhook",
-        ],
-        installerOptions: {
-            authVersion: "v2",
-            directInstall: false,
-            installPath: "/slack/install",
-            metadata: "",
-            redirectUriPath: "/slack/oauth_redirect",
-            stateVerification: "true",
-            /**
-            * Example pages to navigate to on certain callbacks.
-            */
-            callbackOptions: {
-                success: (installation, installUrlOptions, req, res) => {
-                    res.send("The installation succeeded!");
-                },
-                failure: (error, installUrlOptions, req, res) => {
-                    res.send("Something strange happened...");
-                },
+const app = new App({
+    signingSecret: process.env.SLACK_SIGNING_SECRET,
+    clientId: process.env.SLACK_CLIENT_ID,
+    clientSecret: process.env.SLACK_CLIENT_SECRET,
+    scopes: [
+        "channels:manage",
+        "channels:read",
+        "chat:write",
+        "groups:read",
+        "incoming-webhook",
+    ],
+    installerOptions: {
+        authVersion: "v2",
+        directInstall: false,
+        installPath: "/slack/install",
+        metadata: "",
+        redirectUriPath: "/slack/oauth_redirect",
+        stateVerification: "true",
+        /**
+        * Example pages to navigate to on certain callbacks.
+        */
+        callbackOptions: {
+            success: (installation, installUrlOptions, req, res) => {
+                res.send("The installation succeeded!");
             },
-            /**
-            * Example validation of installation options using a random state and an
-            * expiration time between requests.
-            */
-            stateStore: {
-                generateStateParam: async (installUrlOptions, now) => {
-                    const state = randomStringGenerator();
-                    const value = { options: installUrlOptions, now: now.toJSON() };
-                    await database.set(state, value);
-                    return state;
-                },
-                verifyStateParam: async (now, state) => {
-                    const value = await database.get(state);
-                    const generated = new Date(value.now);
-                    const seconds = Math.floor(
-                        (now.getTime() - generated.getTime()) / 1000,
-                    );
-                    if (seconds > 600) {
-                        throw new Error("The state expired after 10 minutes!");
-                    }
-                    return value.options;
-                },
+            failure: (error, installUrlOptions, req, res) => {
+                res.send("Something strange happened...");
             },
         },
-    });
+        /**
+        * Example validation of installation options using a random state and an
+        * expiration time between requests.
+        */
+        stateStore: {
+            generateStateParam: async (installUrlOptions, now) => {
+                const state = randomStringGenerator();
+                const value = { options: installUrlOptions, now: now.toJSON() };
+                await database.set(state, value);
+                return state;
+            },
+            verifyStateParam: async (now, state) => {
+                const value = await database.get(state);
+                const generated = new Date(value.now);
+                const seconds = Math.floor(
+                    (now.getTime() - generated.getTime()) / 1000,
+                );
+                if (seconds > 600) {
+                    throw new Error("The state expired after 10 minutes!");
+                }
+                return value.options;
+            },
+        },
+    },
+});
 
-    // App starts local server with route for /slack/events
-    (async () => {
-        await app.start();
-    })();
-    ```
+// App starts local server with route for /slack/events
+(async () => {
+    await app.start();
+})();
+```
 # [Teams SDK](#tab/teams)
-    ```ts
-    import { App } from '@microsoft/teams.apps';
+```ts
+import { App } from '@microsoft/teams.apps';
 
-    // Define app
-    const app = new App({
-        clientId: process.env.ENTRA_APP_CLIENT_ID!,
-        clientSecret: process.env.ENTRA_APP_CLIENT_SECRET!,
-        tenantId: process.env.ENTRA_TENANT_ID!,
-    });
+// Define app
+const app = new App({
+    clientId: process.env.ENTRA_APP_CLIENT_ID!,
+    clientSecret: process.env.ENTRA_APP_CLIENT_SECRET!,
+    tenantId: process.env.ENTRA_TENANT_ID!,
+});
 
-    // App starts local server with route for /api/messages
-    // To reuse your restify or other server,
-    // create a custom `HttpPlugin`.
-    (async () => {
-        await app.start();
-    })();
-    ```
+// App starts local server with route for /api/messages
+// To reuse your restify or other server,
+// create a custom `HttpPlugin`.
+(async () => {
+    await app.start();
+})();
+```
 ---
 ::: zone-end
 
@@ -237,64 +237,64 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
 
 ::: zone pivot="javascript"
 # [Diff](#tab/diff)
-    ```ts
-    // triggers user sends "hi" or "@bot hi"
-    // highlight-error-start
-    app.message("hi", async ({ message, say }) => {
-        // Handle only newly posted messages here
-        if (message.subtype) return;
-        await say(`Hello, <@${message.user}>`);
-    });
-    // highlight-error-end
-    // highlight-success-start
-    app.message("hi", async ({ send, activity }) => {
-      await send(`Hello, ${activity.from.name}!`);
-    });
-    // highlight-success-end
-    // listen for ANY message to be received
-    // highlight-error-start
-    app.message(async ({ message, say }) => {
-        // Handle only newly posted messages here
-        if (message.subtype) return;
-        // echo back users request
-        await say(`you said: ${message.text}`);
-    });
-    // highlight-error-end
-    // highlight-success-start
-    app.on('message', async ({ send, activity }) => {
-        // echo back users request
-        await send(`you said: ${activity.text}`);
-    });
-    // highlight-success-end
-    ```
+```ts
+// triggers user sends "hi" or "@bot hi"
+// highlight-error-start
+app.message("hi", async ({ message, say }) => {
+    // Handle only newly posted messages here
+    if (message.subtype) return;
+    await say(`Hello, <@${message.user}>`);
+});
+// highlight-error-end
+// highlight-success-start
+app.message("hi", async ({ send, activity }) => {
+  await send(`Hello, ${activity.from.name}!`);
+});
+// highlight-success-end
+// listen for ANY message to be received
+// highlight-error-start
+app.message(async ({ message, say }) => {
+    // Handle only newly posted messages here
+    if (message.subtype) return;
+    // echo back users request
+    await say(`you said: ${message.text}`);
+});
+// highlight-error-end
+// highlight-success-start
+app.on('message', async ({ send, activity }) => {
+    // echo back users request
+    await send(`you said: ${activity.text}`);
+});
+// highlight-success-end
+```
 # [Slack Bolt](#tab/slack)
-    ```ts
-    // triggers when user sends a message containing "hi"
-    app.message("hi", async ({ message, say }) => {
-        // Handle only newly posted messages here
-        if (message.subtype) return;
-        await say(`Hello, <@${message.user}>`);
-    });
-    // listen for ANY message
-    app.message(async ({ message, say }) => {
-        // Handle only newly posted messages here
-        if (message.subtype) return;
-        // echo back users request
-        await say(`you said: ${message.text}`);
-    });
-    ```
+```ts
+// triggers when user sends a message containing "hi"
+app.message("hi", async ({ message, say }) => {
+    // Handle only newly posted messages here
+    if (message.subtype) return;
+    await say(`Hello, <@${message.user}>`);
+});
+// listen for ANY message
+app.message(async ({ message, say }) => {
+    // Handle only newly posted messages here
+    if (message.subtype) return;
+    // echo back users request
+    await say(`you said: ${message.text}`);
+});
+```
 # [Teams SDK](#tab/teams)
-    ```ts
-    // triggers when user sends "hi" or "@bot hi"
-    app.message("hi", async ({ send, activity }) => {
-      await send(`Hello, ${activity.from.name}!`);
-    });
-    // listen for ANY message to be received
-    app.on('message', async ({ send, activity }) => {
-        // echo back users request
-        await send(`you said: ${activity.text}`);
-    });
-    ```
+```ts
+// triggers when user sends "hi" or "@bot hi"
+app.message("hi", async ({ send, activity }) => {
+  await send(`Hello, ${activity.from.name}!`);
+});
+// listen for ANY message to be received
+app.on('message', async ({ send, activity }) => {
+    // echo back users request
+    await send(`you said: ${activity.text}`);
+});
+```
 ---
 ::: zone-end
 
@@ -306,67 +306,67 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
 
 ::: zone pivot="javascript"
 # [Diff](#tab/diff)
-    ```ts
-    // highlight-error-start
-    app.message('card', async (client) => {
-        await say({
-            blocks: [
-                {
-                    type: 'section',
-                    text: {
-                        type: 'plain_text',
-                        text: 'Hello, world!',
-                    },
+```ts
+// highlight-error-start
+app.message('card', async (client) => {
+    await say({
+        blocks: [
+            {
+                type: 'section',
+                text: {
+                    type: 'plain_text',
+                    text: 'Hello, world!',
                 },
-            ],
-        });
+            },
+        ],
     });
-    // highlight-error-end
-    // highlight-success-start
-    import { Card, TextBlock } from '@microsoft/teams.cards';
+});
+// highlight-error-end
+// highlight-success-start
+import { Card, TextBlock } from '@microsoft/teams.cards';
 
-    app.message('/card', async ({ send }) => {
-        await send(
-            new Card(new TextBlock('Hello, world!', { wrap: true, isSubtle: false }))
-                .withOptions({
-                    width: 'Full',
-                })
-        );
-    });
-    // highlight-success-end
-    ```
+app.message('/card', async ({ send }) => {
+    await send(
+        new Card(new TextBlock('Hello, world!', { wrap: true, isSubtle: false }))
+            .withOptions({
+                width: 'Full',
+            })
+    );
+});
+// highlight-success-end
+```
 # [Slack Bolt](#tab/slack)
-    For existing cards like this, the simplest way to convert that to Teams SDK is this:
+For existing cards like this, the simplest way to convert that to Teams SDK is this:
 
-    ```ts
-    app.message('card', async (client) => {
-        await say({
-            blocks: [
-                {
-                    type: 'section',
-                    text: {
-                        type: 'plain_text',
-                        text: 'Hello, world!',
-                    },
+```ts
+app.message('card', async (client) => {
+    await say({
+        blocks: [
+            {
+                type: 'section',
+                text: {
+                    type: 'plain_text',
+                    text: 'Hello, world!',
                 },
-            ],
-        });
+            },
+        ],
     });
-    ```
+});
+```
 # [Teams SDK](#tab/teams)
-    For a more thorough port, you could also do the following:
+For a more thorough port, you could also do the following:
 
-    ```ts
-    import { Card, TextBlock } from '@microsoft/teams.cards';
+```ts
+import { Card, TextBlock } from '@microsoft/teams.cards';
 
-    app.message('/card', async ({ send }) => {
-      await send(
-        new Card(new TextBlock('Hello, world!', { wrap: true, isSubtle: false })).withOptions({
-          width: 'Full',
-        })
-      );
-    });
-    ```
+app.message('/card', async ({ send }) => {
+  await send(
+    new Card(new TextBlock('Hello, world!', { wrap: true, isSubtle: false })).withOptions({
+      width: 'Full',
+    })
+  );
+});
+```
 ---
 ::: zone-end
 
@@ -388,68 +388,68 @@ Then, configure the authentication in your code.
 
 ::: zone pivot="javascript"
 # [Diff](#tab/diff)
-    ```ts
-    // highlight-error-start
-    // TODO: Configure App class with user OAuth permissions and install app for user
+```ts
+// highlight-error-start
+// TODO: Configure App class with user OAuth permissions and install app for user
 
-    app.message('me', async ({ client, message }) => {
-        const me = await client.users.info({ user: message.user });
-        await client.send(JSON.stringify(me));
-    });
-    // highlight-error-end
-    // highlight-success-start
-    import { App } from '@microsoft/teams.apps';
-    import * as endpoints from '@microsoft/teams.graph-endpoints';
+app.message('me', async ({ client, message }) => {
+    const me = await client.users.info({ user: message.user });
+    await client.send(JSON.stringify(me));
+});
+// highlight-error-end
+// highlight-success-start
+import { App } from '@microsoft/teams.apps';
+import * as endpoints from '@microsoft/teams.graph-endpoints';
 
-    const app = new App({
-        // ... rest of App config
-        oauth: {
-            // The key here should match the OAuth Connection setting
-            // defined in your Azure Bot resource.
-            defaultConnectionName: 'graph',
-        },
-    });
+const app = new App({
+    // ... rest of App config
+    oauth: {
+        // The key here should match the OAuth Connection setting
+        // defined in your Azure Bot resource.
+        defaultConnectionName: 'graph',
+    },
+});
 
-    app.message('me', async ({ signin, userGraph, send }) => {
-        if (!await signin()) {
-            return;
-        }
-        const me = await userGraph.call(endpoints.me.get);
-        await send(JSON.stringify(me));
-    });
-    // highlight-success-end
-    ```
+app.message('me', async ({ signin, userGraph, send }) => {
+    if (!await signin()) {
+        return;
+    }
+    const me = await userGraph.call(endpoints.me.get);
+    await send(JSON.stringify(me));
+});
+// highlight-success-end
+```
 # [Slack Bolt](#tab/slack)
-    ```ts
-    // TODO: Configure App class with user OAuth permissions and install app for user
+```ts
+// TODO: Configure App class with user OAuth permissions and install app for user
 
-    app.message('me', async ({ client, message }) => {
-        const me = await client.users.info({ user: message.user });
-        await client.send(JSON.stringify(me));
-    });
-    ```
+app.message('me', async ({ client, message }) => {
+    const me = await client.users.info({ user: message.user });
+    await client.send(JSON.stringify(me));
+});
+```
 # [Teams SDK](#tab/teams)
-    ```ts
-    import { App } from '@microsoft/teams.apps';
-    import * as endpoints from '@microsoft/teams.graph-endpoints';
+```ts
+import { App } from '@microsoft/teams.apps';
+import * as endpoints from '@microsoft/teams.graph-endpoints';
 
-    const app = new App({
-        // ... rest of App config
-        oauth: {
-            // The key here should match the OAuth Connection setting
-            // defined in your Azure Bot resource.
-            defaultConnectionName: 'graph',
-        },
-    });
+const app = new App({
+    // ... rest of App config
+    oauth: {
+        // The key here should match the OAuth Connection setting
+        // defined in your Azure Bot resource.
+        defaultConnectionName: 'graph',
+    },
+});
 
-    app.message('me', async ({ signin, userGraph, send }) => {
-        if (!await signin()) {
-            return;
-        }
-        const me = await userGraph.call(endpoints.me.get);
-        await send(JSON.stringify(me));
-    });
-    ```
+app.message('me', async ({ signin, userGraph, send }) => {
+    if (!await signin()) {
+        return;
+    }
+    const me = await userGraph.call(endpoints.me.get);
+    await send(JSON.stringify(me));
+});
+```
 ---
 ::: zone-end
 
