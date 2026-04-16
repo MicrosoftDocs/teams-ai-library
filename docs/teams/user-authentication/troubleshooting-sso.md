@@ -30,6 +30,7 @@ When SSO fails, Teams sends a `signin/failure` invoke activity to your bot with 
 
 If you see a warning in your app logs like:
 
+> [!WARNING]
 > Sign-in failed for user "..." in conversation "...": resourcematchfailed -- Resource match failed
 
 This means Teams attempted the SSO token exchange but failed because the token exchange resource URI does not match your Entra app registration. To fix this:

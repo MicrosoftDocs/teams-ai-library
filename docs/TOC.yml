@@ -196,10 +196,10 @@
           href: migrations/botbuilder/user-authentication.md
     - name: Migrating from Teams SDK v1
       href: migrations/v1.md
-    - name: Porting your Slack Bolt bot
-      href: migrations/slack-bolt.md
     - name: From V2 Previews
       href: migrations/v2-previews.md
+    - name: Porting your Slack Bolt bot
+      href: migrations/slack-bolt.md
 - name: Developer Tools
   items:
     - name: Overview
