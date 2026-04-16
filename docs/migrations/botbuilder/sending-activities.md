@@ -1,4 +1,4 @@
-﻿---
+---
 title: Sending Activities
 description: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support.
 ms.topic: how-to
@@ -505,7 +505,7 @@ async def on_message(context: ActivityContext[MessageActivity]):
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 ```typescript
 // highlight-error-start

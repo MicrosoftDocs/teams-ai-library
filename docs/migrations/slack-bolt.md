@@ -1,4 +1,4 @@
-﻿---
+---
 title: Porting your Slack Bolt bot
 description: Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
 ## Porting your Slack Bolt bot
 
@@ -51,7 +51,7 @@ First, setup a new Teams application, as shown in [Teams Integration](../teams/o
 ## Installing Teams SDK
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 First, let's install the Teams SDK into your project. This will install the Teams SDK alongside any existing packages. After you've completed your migration, you can safely remove the `@microsoft/teams-ai` dependency from your `package.json` file.
 
 ```sh
@@ -59,11 +59,11 @@ npm install @microsoft/teams.apps
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Configure application
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 First, let's configure the `App` class in Teams JS. This is equivalent to Slack Bolt's `App` class.
 # [Diff](#tab/diff)
 ```ts
@@ -227,7 +227,7 @@ const app = new App({
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Migrate message handlers
 
 In Slack, there are message handlers for events with different subtypes (e.g., undefined subtype is a regular message, `event.subtype == 'file_share'` is a file share message, etc.). In Teams, there are different `Activity` handers for different types of events that are enumerated via the `ActivityTypes` enum (e.g., `app.activity(ActivityTypes.Message)`), with some `Activity` types having tailored APIs within the SDK (e.g., `app.message`). These concepts are roughly similar, though the naming conventions and syntax differ.
@@ -235,7 +235,7 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
 ### Message handlers
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 ```ts
 // triggers user sends "hi" or "@bot hi"
@@ -298,13 +298,13 @@ app.on('message', async ({ send, activity }) => {
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## BlockKit -> Adaptive Cards
 
 To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent to Teams's Adaptive Cards.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 ```ts
 // highlight-error-start
@@ -370,7 +370,7 @@ app.message('/card', async ({ send }) => {
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Learn more in the [Adaptive Cards guide](../in-depth-guides/adaptive-cards/overview.md).
 
 ## User authentication
@@ -386,7 +386,7 @@ First, follow the instructions in the [Teams SSO guide](../teams/user-authentica
 Then, configure the authentication in your code.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 ```ts
 // highlight-error-start
@@ -453,7 +453,7 @@ app.message('me', async ({ signin, userGraph, send }) => {
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ### User authentication for external services
 
 In Slack, you can access external services by implementing an account binding flow using OAuth 2.0 as documented [here](https://docs.slack.dev/authentication/binding-accounts-across-services). In Teams, you can access external services by implementing an OAuth 2.0 flow, with the Azure Bot Token Service handling token acquisition, storage, and refresh for you.
@@ -465,7 +465,7 @@ First, setup your OAuth 2.0 connection settings in the [Azure Portal](https://po
 Then, add the authentication code to your application to get the relevant user token and call your external service.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 import { App } from '@microsoft/teams.apps';
 

@@ -12,7 +12,7 @@ ms.date: 04/14/2026
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.Api` object. Here is a short summary of the different areas:
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 Teams has a number of areas that your application has access to via its API. These are all available via the `app.api` object. Here is a short summary of the different areas:
 ::: zone-end
 
@@ -33,7 +33,7 @@ Teams has a number of areas that your application has access to via its API. The
 | `teams`         | Gives your application access to team or channel details                                                                                                             |
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 | Area            | Description                                                                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `conversations` | Gives your application the ability to perform activities on conversations (send, update, delete messages, etc.), or create conversations (like 1:1 chat with a user) |
@@ -50,7 +50,7 @@ An instance of the API client is passed to handlers that can be used to fetch de
 In this example, we use the API client to fetch the members in a conversation. The `Api` object is passed to the activity handler in this case.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 In this example, we use the API client to fetch the members in a conversation. The `api` object is passed to the activity handler in this case.
 ::: zone-end
 
@@ -74,7 +74,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.on('message', async ({ activity, api }) => {
   const members = await api.conversations.members(activity.conversation.id).get();
@@ -100,7 +100,7 @@ members = await app.api.conversations.members.get("...")
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -149,7 +149,7 @@ async def handle_meeting_start(ctx: ActivityContext):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.on('meetingStart', async ({ activity, api }) => {
   const meetingId = activity.channelData?.meeting?.id;

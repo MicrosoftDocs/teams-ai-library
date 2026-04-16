@@ -18,7 +18,7 @@ The SDK gives your application easy access to the Microsoft Graph API via the `M
 The SDK gives your application easy access to the Microsoft Graph API via the `microsoft-teams-graph` package.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The SDK gives your application easy access to the Microsoft Graph API via the `@microsoft/teams.graph`, `@microsoft/teams.graph-endpoints` and `@microsoft/teams.graph-endpoints-beta` packages.
 ::: zone-end
 
@@ -31,7 +31,7 @@ The SDK gives your application easy access to the Microsoft Graph API via the `@
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/v2-previews.md) for details on breaking changes.
 ::: zone-end
@@ -44,7 +44,7 @@ The SDK gives your application easy access to the Microsoft Graph API via the `@
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Package overview
 
 The Graph API surface is vast, and this is reflected in the size of the endpoints packages. To help you manage the size of your product, we made sure that the endpoints code is tree-shakable. We also made most of the code into an optional dependency, in case tree-shaking is not supported in your environment.
@@ -71,7 +71,7 @@ Microsoft Graph can be accessed by your application using its own application to
 To access the graph using the Graph using the app, you may use the `app.Graph` object .
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 To access the graph using the Graph using the app, you may use the `app.graph` object to call the endpoint of your choice.
 ::: zone-end
 
@@ -100,7 +100,7 @@ print(f"User Job Title: {user.job_title}")
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -123,7 +123,7 @@ To access the graph using the user's token, you need to do this as part of a mes
 You can also access the graph using the user's token from within a message handler via the `user_graph` property.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 You can also access the graph using the user's token from within a message handler via the `userGraph` prop.
 ::: zone-end
 
@@ -154,7 +154,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -170,7 +170,7 @@ app.on('message', async ({ activity, userGraph }) => {
 ::: zone-end
 
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 Here, the `userGraph` object is a scoped graph client for the user that sent the message.
 ::: zone-end
 
@@ -188,7 +188,7 @@ Here, the `user_graph` object is a scoped graph client for the user that sent th
 > You also have access to the `app_graph` object in the activity handler. This is equivalent to `app.graph`.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!TIP]
 > You also have access to the `appGraph` object in the activity handler. This is equivalent to `app.graph`.
 ::: zone-end
@@ -202,7 +202,7 @@ Here, the `user_graph` object is a scoped graph client for the user that sent th
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## The Graph Client
 
 The Graph Client provides a straight-forward `call` method to interact with Microsoft Graph and issue requests scoped to a specific user or application. Paired with the Graph Endpoints packages, it offers discoverable and type-safe access to the vast Microsoft Graph API surface.
@@ -281,7 +281,7 @@ const { displayName } = await app.graph.call(getMyDisplayName);
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Additional resources
 
 Microsoft Graph offers an extensive and thoroughly documented API surface. These essential resources will serve as your go-to references for any Graph development work:

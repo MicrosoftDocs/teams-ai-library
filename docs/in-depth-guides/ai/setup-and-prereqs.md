@@ -27,7 +27,7 @@ dotnet add package Microsoft.Teams.AI
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Install the required AI packages to your application:
 
 ```bash
@@ -46,7 +46,7 @@ npm install @microsoft/teams.dev --save-dev
 - In your application, you should include your keys in a secure way. You should include your keys securely using `appsettings.json` or environment variables
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 - In your application, you should include your keys in a secure way. We recommend putting it in an .env file at the root level of your project
 ::: zone-end
 
@@ -65,7 +65,7 @@ my-app/
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```
 my-app/
 |── appPackage/       # Teams app package files
@@ -127,7 +127,7 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Once you have deployed a model, include the following key/values in your `.env` file:
 
 ```env
@@ -145,7 +145,7 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 > The Azure OpenAI SDK handles API versioning automatically. You don't need to specify an API version manually.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 > [!NOTE]
 > The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](/azure/ai-services/openai/reference 'Azure OpenAI API Reference')
 ::: zone-end
@@ -191,7 +191,7 @@ OPENAI_MODEL=gpt-4  # Optional: defaults to gpt-4o if not specified
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Once you have your API key, include the following key/values in your `.env` file:
 
 ```env
@@ -223,7 +223,7 @@ OPENAI_API_KEY=sk-your-openai-api-key
 > ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > **Automatic Environment Variable Loading**: The OpenAI model automatically reads environment variables when options are not explicitly provided. You can pass values explicitly as constructor parameters if needed for advanced configurations.
 >

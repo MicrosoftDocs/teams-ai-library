@@ -134,7 +134,7 @@ async def handle_meeting_start(ctx: ActivityContext[MeetingStartEventActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
@@ -224,7 +224,7 @@ async def handle_meeting_end(ctx: ActivityContext[MeetingEndEventActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
@@ -313,7 +313,7 @@ async def handle_meeting_participant_join(ctx: ActivityContext[MeetingParticipan
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
@@ -401,7 +401,7 @@ async def handle_meeting_participant_leave(ctx: ActivityContext[MeetingParticipa
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';

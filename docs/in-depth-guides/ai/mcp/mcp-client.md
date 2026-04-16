@@ -12,7 +12,7 @@ ms.date: 04/14/2026
 You are able to leverage other MCP servers that expose tools via the SSE protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 You are able to leverage other MCP servers that expose tools via the Streamable HTTP protocol as part of your application. This allows your AI agent to use remote tools to accomplish tasks.
 ::: zone-end
 
@@ -33,7 +33,7 @@ pip install microsoft-teams-mcpplugin
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Install it to your application:
 
 ```bash
@@ -61,7 +61,7 @@ The first thing that's needed is access to a **remote** MCP server. MCP Servers 
    send it requests and the server responds in the expected MCP protocol.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 1. StandardIO - This is a _local_ MCP server, which runs on your machine. An MCP client may connect to this server, and use standard input and outputs to communicate with it. Since our application is running remotely, this is not something that we want to use
 2. Streamable HTTP/SSE - This is a _remote_ MCP server. An MCP client may
    send it requests and the server responds in the expected MCP protocol.
@@ -75,7 +75,7 @@ For hooking up to your a valid SSE server, you will need to know the URL of the 
 For hooking up to your a valid SSE server, you will need to know the URL of the server, and if applicable, any keys that must be included as part of the header.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 For hooking up to your valid remote server, you will need to know the URL of the server, and if applicable, and keys that must be included as part of the header.
 ::: zone-end
 
@@ -89,7 +89,7 @@ The `MCPClientPlugin` (from `Microsoft.Teams.Plugins.External.McpClient` package
 The `McpClientPlugin` integrates directly with the `ChatPrompt` as a plugin. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The `MCPClientPlugin` (from `@microsoft/teams.mcpclient` package) integrates directly with the `ChatPrompt` object as a plugin. When the `ChatPrompt`'s `send` function is called, it calls the external MCP server and loads up all the tools that are available to it.
 ::: zone-end
 
@@ -161,7 +161,7 @@ chat_prompt = ChatPrompt(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt } from '@microsoft/teams.ai';
 import { App } from '@microsoft/teams.apps';
@@ -247,7 +247,7 @@ mcp_plugin.use_mcp_server(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ### Customize Headers
 
 Some MCP servers may require custom headers to be sent as part of the request. You can customize the headers when calling the `usePlugin` function:
@@ -298,7 +298,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 ::: zone-end
 
@@ -307,16 +307,16 @@ In this example, we augment the `ChatPrompt` with a few remote MCP Servers.
 > You can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 > [!NOTE]
 > Feel free to build an MCP Server in a different agent using the [MCP Server Guide](./mcp-server.md). Or you can quickly set up an MCP server using [Azure Functions](https://techcommunity.microsoft.com/blog/appsonazureblog/build-ai-agent-tools-using-remote-mcp-with-azure-functions/4401059).
 ::: zone-end
 
-::: zone pivot="csharp,python,javascript"
+::: zone pivot="csharp,python,typescript"
 :::image type="content" source="~/assets/screenshots/mcp-client-pokemon.gif" alt-text="Animated image of user typing a prompt ('Tell me about Charizard') to DevTools Chat window and multiple paragraphs of information being returned." lightbox="~/assets/screenshots/mcp-client-pokemon.gif":::
 ::: zone-end
 
-::: zone pivot="csharp,python,javascript"
+::: zone pivot="csharp,python,typescript"
 In this example, our MCP server is a Pokemon API and our client knows how to call it. The LLM is able to call the `getPokemon` function exposed by the server and return the result back to the user.
 ::: zone-end
 

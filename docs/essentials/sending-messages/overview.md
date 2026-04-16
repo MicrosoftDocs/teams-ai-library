@@ -28,7 +28,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.on('message', async ({ activity, send }) => {
   await send(`You said: ${activity.text}`);
@@ -58,7 +58,7 @@ async def handle_sign_in(event: SignInEvent):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.on('signin.verify-state', async ({ send }) => {
   await send('You have successfully signed in!');
@@ -75,7 +75,7 @@ You are not restricted to only replying to `message` activities. In the above ex
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `sign_in` events, which are sent when a user successfully signs in.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 You are not restricted to only replying to `message` activities. In the above example, the handler is listening to `signin.verify-state` events, which are sent when a user successfully signs in.
 ::: zone-end
 
@@ -116,7 +116,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.on('message', async ({ activity, stream }) => {
   stream.emit('hello');
@@ -144,7 +144,7 @@ Sending a message at `@mentions` a user is as simple including the details of th
 Sending a message at `@mentions` a user is as simple including the details of the user using the `add_mention` method
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Sending a message at `@mentions` a user is as simple including the details of the user using the `addMention` method
 ::: zone-end
 
@@ -166,7 +166,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.on('message', async ({ send, activity }) => {
   await send(new MessageActivity('hi!').addMention(activity.from));
@@ -191,7 +191,7 @@ To send a targeted message when responding to an incoming activity, use the `Wit
 To send a targeted message when responding to an incoming activity, use the `with_recipient` method with the recipient account and set the targeting flag to true.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 To send a targeted message when responding to an incoming activity, use the `withRecipient` method with the recipient account and set the targeting flag to true.
 ::: zone-end
 
@@ -224,7 +224,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { MessageActivity } from '@microsoft/teams.api';
 

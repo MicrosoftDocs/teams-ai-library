@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The application supports a number of activity types:
 
 ## Core Activity Routes

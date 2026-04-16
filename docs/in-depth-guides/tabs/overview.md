@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript,csharp"
+::: zone pivot="typescript,csharp"
 Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
 ::: zone-end
 
@@ -19,7 +19,7 @@ Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft
 This SDK does not offer features for implementing Tab apps in C#. It does however let you host tab apps and implement functions that can be called by Tab apps.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Tab apps will often need to interact with remote services. They may need to fetch data from [Microsoft Graph](/graph/overview) or invoke remote agent functions, using the [Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication) (NAA) and the [Microsoft Authentication Library](/entra/identity-platform/msal-overview) (MSAL) to ensure user consent and to allow the remote service authenticate the user.
 
 The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to streamline these common scenarios. It aims to simplify:
@@ -30,7 +30,7 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 - **Scope Consent Management** by providing simple APIs to test for and request user consent.
 ::: zone-end
 
-::: zone pivot="javascript,csharp"
+::: zone pivot="typescript,csharp"
 ## Resources
 
 - [Tabs overview](/microsoftteams/platform/tabs/what-are-tabs?tabs=personal)
@@ -47,7 +47,7 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 - [TypeScript Tabs in-depth guide](getting-started.md)
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ### Additional resources
 
 - [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)

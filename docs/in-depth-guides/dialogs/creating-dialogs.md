@@ -18,7 +18,7 @@ ms.date: 04/14/2026
 To open a dialog, you need to supply a special type of action to the Adaptive Card. The `TaskFetchAction` is specifically designed for this purpose - it automatically sets up the proper Teams data structure to trigger a dialog. Once this button is clicked, the dialog will open and ask the application what to show.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 To open a dialog, you need to supply a special type of action as to the Adaptive Card. Once this button is clicked, the dialog will open and ask the application what to show.
 ::: zone-end
 
@@ -109,7 +109,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { cardAttachment, MessageActivity } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -170,7 +170,7 @@ app.on('message', async ({ send }) => {
 Once an action is executed to open a dialog, the Teams client will send an event to the agent to request what the content of the dialog should be. When using `TaskFetchAction`, the data is nested inside an `MsTeams` property structure.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 Once an action is executed to open a dialog, the Teams client will send an event to the agent to request what the content of the dialog should be. Here is how to handle this event:
 ::: zone-end
 
@@ -238,7 +238,7 @@ async def handle_dialog_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -374,7 +374,7 @@ async def handle_dialog_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { AdaptiveCard, TextInput, SubmitAction } from '@microsoft/teams.cards';
@@ -489,7 +489,7 @@ return InvokeResponse(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -546,7 +546,7 @@ app.page("customform", os.path.join(os.path.dirname(__file__), "views", "customf
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ### Setting up Embedded Web Content
 
 To serve web content for dialogs, you can use the `tab` method to host static webpages:

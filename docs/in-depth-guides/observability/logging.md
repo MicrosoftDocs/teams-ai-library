@@ -18,7 +18,7 @@ The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the `microsoft-teams-common` package.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The `App` will provide a default logger, but you can also provide your own.
 The default `Logger` instance will be set to `ConsoleLogger` from the `@microsoft/teams.common` package.
 ::: zone-end
@@ -66,7 +66,7 @@ if __name__ == "__main__":
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common';

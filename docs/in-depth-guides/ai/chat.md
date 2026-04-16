@@ -49,7 +49,7 @@ from microsoft_teams.openai import OpenAICompletionsAIModel
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Import the relevant objects:
 
 ```typescript
@@ -122,7 +122,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt } from '@microsoft/teams.ai';
 import { MessageActivity } from '@microsoft/teams.api';
@@ -204,13 +204,13 @@ teamsApp.OnMessage(async (context) =>
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
 
 
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 > [!NOTE]
 > The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
 ::: zone-end
@@ -232,7 +232,7 @@ teamsApp.OnMessage(async (context) =>
 Instead of `ChatPrompt`, you may also use `Agent`. The `Agent` class is a derivation from `ChatPrompt` but it differs in that it's stateful. The `memory` object passed to the `Agent` object will be reused for subsequent calls to `send`, whereas for `ChatPrompt`, each call to `send` is independent.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
 
@@ -298,7 +298,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt } from '@microsoft/teams.ai';
 import { MessageActivity } from '@microsoft/teams.api';

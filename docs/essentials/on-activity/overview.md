@@ -20,7 +20,7 @@ The Teams SDK exposes a fluent router so you can subscribe to these activities w
 The Teams SDK exposes a fluent router so you can subscribe to these activities with `@app.event("activity")`.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The Teams SDK exposes a fluent router so you can subscribe to these activities with `app.on('<route>', …)`.
 ::: zone-end
 
@@ -47,7 +47,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.on('message', async ({ activity, send }) => {
   await send(`You said: ${activity.text}`);
@@ -65,7 +65,7 @@ In the above example, the `context.activity` parameter is of type `MessageActivi
 In the above example, the `ctx.activity` parameter is of type `MessageActivity`, which has a `text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 In the above example, the `activity` parameter is of type `MessageActivity`, which has a `text` property. You'll notice that the handler here does not return anything, but instead handles it by `send`ing a message back. For message activities, Teams does not expect your application to return anything (though it's usually a good idea to send some sort of friendly acknowledgment!).
 
 [Other activity types](./activity-ref.md) have different properties and different required results. For a given handler, the SDK will automatically determine the type of `activity` and also enforce the correct return type.
@@ -83,7 +83,7 @@ The `OnActivity` activity handlers (and attributes) follow a [middleware](https:
 The `event` activity handlers (and attributes) follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `python` middlewares work. This means that for each activity handler, a `next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanilla/mediator-pattern/) pattern similar to how `express` middlewares work. This means that for each activity handler, a `next` function is passed in which can be called to pass control to the next handler. This allows you to build a chain of handlers that can process the same activity in different ways.
 ::: zone-end
 
@@ -144,7 +144,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.on('message', async ({ next }) => {
   console.log('global logger');
@@ -185,7 +185,7 @@ app.on('message', async ({ activity }) => {
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Activity Reference
 
 For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref.md).

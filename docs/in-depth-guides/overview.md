@@ -17,7 +17,7 @@ This documentation covers advanced features and capabilities of the Teams SDK in
 This documentation covers advanced features and capabilities of the Teams SDK in Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 This documentation covers advanced features and capabilities of the Teams SDK in TypeScript.
 ::: zone-end
 

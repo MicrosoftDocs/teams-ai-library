@@ -113,7 +113,7 @@ Here we have defining three different commands:
 Handle submission when the `createCard` or `getMessageDetails` actions commands are invoked.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Handle submission when the `createCard` or `getMessageDetails` action commands are invoked.
 ::: zone-end
 
@@ -189,7 +189,7 @@ async def handle_message_ext_submit(ctx: ActivityContext[MessageExtensionSubmitA
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -327,7 +327,7 @@ def create_card(data: Dict[str, str]) -> AdaptiveCard:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 `createCard()` function
 
 ```typescript
@@ -488,7 +488,7 @@ def create_message_details_card(message_payload: Message) -> AdaptiveCard:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 `createMessageDetailsCard()` function
 
 ```typescript
@@ -575,7 +575,7 @@ export function createMessageDetailsCard(messagePayload: Message) {
 ## Handle opening adaptive card dialog
 
 
-::: zone pivot="csharp,python,javascript"
+::: zone pivot="csharp,python,typescript"
 Handle opening adaptive card dialog when the `fetchConversationMembers` command is invoked.
 ::: zone-end
 
@@ -630,7 +630,7 @@ async def handle_message_ext_open(ctx: ActivityContext[MessageExtensionFetchTask
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -759,7 +759,7 @@ def create_conversation_members_card(members: List[Account]) -> AdaptiveCard:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 `createConversationMembersCard()` function
 
 ```typescript

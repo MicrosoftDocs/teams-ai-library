@@ -23,7 +23,7 @@ Get started with Teams SDK quickly using the Teams CLI.
 - **Python** v3.12 or higher. Install or upgrade from [python.org/downloads](https://www.python.org/downloads/).
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 - **Node.js** v.20 or higher. Install or upgrade from [nodejs.org](https://nodejs.org/).
 ::: zone-end
 
@@ -59,7 +59,7 @@ npx @microsoft/teams.cli@latest new python quote-agent --template echo
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```sh
 npx @microsoft/teams.cli@latest new typescript quote-agent --template echo
 ```
@@ -75,7 +75,7 @@ This command:
 3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 1. Creates a new directory called `quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
 3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
@@ -121,7 +121,7 @@ python src/main.py
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 1. Navigate to your new agent's directory:
 
 ```sh
@@ -173,7 +173,7 @@ INFO:     Uvicorn running on http://0.0.0.0:3979 (Press CTRL+C to quit)
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 4. In the console, you should see a similar output:
 
 ```sh

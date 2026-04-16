@@ -134,7 +134,7 @@ async def handle_message_ext_query(ctx: ActivityContext[MessageExtensionQueryInv
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -361,7 +361,7 @@ async def create_dummy_cards(search_query: str) -> List[Dict[str, Any]]:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 `createDummyCards()` function
 
 ```typescript
@@ -452,7 +452,7 @@ async def handle_message_ext_select_item(ctx: ActivityContext[MessageExtensionSe
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...

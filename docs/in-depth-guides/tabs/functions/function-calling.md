@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The client App exposes an `exec()` method that can be used to call functions implemented in an agent created with this SDK. The function call uses the `app.http` client to make a request, attaching a bearer token created from the `app.msalInstance` MSAL public client application, so that the remote function can authenticate and authorize the caller.
 
 The `exec()` method supports passing arguments and provides options to attach custom request headers and/or controlling the MSAL token scope.

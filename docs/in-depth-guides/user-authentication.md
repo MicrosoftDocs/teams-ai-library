@@ -51,7 +51,7 @@ This command:
 3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `oauth-app/appPackage` directory.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Use your terminal to run the following command:
 
 ```sh
@@ -115,7 +115,7 @@ app = App(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 import { App } from '@microsoft/teams.apps';
 import * as endpoints from '@microsoft/teams.graph-endpoints';
@@ -173,7 +173,7 @@ async def handle_signin_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 app.message('/signin', async ({ signin, send }) => {
   if (await signin()) {
@@ -208,7 +208,7 @@ async def handle_sign_in(event: SignInEvent):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 app.event('signin', async ({ send, token }) => {
   await send(
@@ -277,7 +277,7 @@ async def handle_all_messages(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -339,7 +339,7 @@ async def handle_signout_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 app.message('/signout', async ({ send, signout, isSignedIn }) => {
   if (!isSignedIn) return;
@@ -379,7 +379,7 @@ async def handle_signin_failure(ctx):
 > In Python, registering a custom handler does **not** replace the built-in default handler. Both will run as part of the middleware chain.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 app.on('signin.failure', async ({ activity, send }) => {
   const { code, message } = activity.value;
@@ -427,7 +427,7 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 
 ## Regional Configs
 You may be building a regional bot that is deployed in a specific Azure region (such as West Europe, East US, etc.) rather than global. This is important for organizations that have data residency requirements or want to reduce latency by keeping data and authentication flows within a specific area.

@@ -15,7 +15,7 @@ With Teams SDK, we've made it easier than ever to build this kind of reactive, c
 Before diving in, let's define a few key terms:
 
 
-::: zone pivot="csharp,python,javascript"
+::: zone pivot="csharp,python,typescript"
 - Event: Anything interesting that happens on Teams — or within your application as a result of handling an earlier event.
 - Activity: A special type of Teams-specific event. Activities include things like messages, reactions, and adaptive card actions.
 - InvokeActivity: A specific kind of activity triggered by user interaction (like submitting a form), which may or may not require a response.
@@ -31,7 +31,7 @@ Before diving in, let's define a few key terms:
 :::image type="content" source="~/assets/diagrams/essentials-overview-python.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes them through the activity event router to activity handler decorators via @app.on_activity() and event handler decorators via @app.event()" lightbox="~/assets/diagrams/essentials-overview-python.png":::
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 :::image type="content" source="~/assets/diagrams/essentials-overview-js.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes them through the activity event router to activity handlers via app.on() and event handlers via app.event()" lightbox="~/assets/diagrams/essentials-overview-js.png":::
 ::: zone-end
 

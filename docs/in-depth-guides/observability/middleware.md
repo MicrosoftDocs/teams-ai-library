@@ -13,7 +13,7 @@ Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.Use` method.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.
 ::: zone-end
@@ -48,7 +48,7 @@ async def log_activity(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.use(async ({ log, next }) => {
   const startedAt = new Date();

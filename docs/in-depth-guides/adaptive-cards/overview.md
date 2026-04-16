@@ -17,7 +17,7 @@ Overview of Adaptive Cards in C# Teams SDK for building rich, interactive user e
 Overview of Adaptive Cards in Python Teams SDK for building rich, interactive user experiences in Teams applications.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Overview of Adaptive Cards in TypeScript Teams SDK for building rich, interactive user experiences in Teams applications.
 ::: zone-end
 

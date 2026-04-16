@@ -18,7 +18,7 @@ The AI packages in this SDK are designed to make it easier to build applications
 The `microsoft-teams-ai` package has two main components:
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The AI packages in this SDK are designed to make it easier to build applications with LLMs.
 The `@microsoft/teams.ai` package has two main components:
 ::: zone-end
@@ -44,7 +44,7 @@ It is in the model implementation that the individual LLM features (i.e. streami
 are made compatible with the more general features of the `microsoft-teams-ai` package.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 It is in the model implementation that the individual LLM features (i.e. streaming/tools etc.)
 are made compatible with the more general features of the `@microsoft/teams.ai` package.
 ::: zone-end
@@ -59,7 +59,7 @@ are made compatible with the more general features of the `@microsoft/teams.ai` 
 > You are not restricted to use the `microsoft-teams-ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > You are not restricted to use the `@microsoft/teams.ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
 ::: zone-end

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Building Adaptive Cards
 description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ms.topic: how-to
@@ -20,7 +20,7 @@ With `Microsoft.Teams.Cards` you can build these cards entirely in C# while enjo
 With `microsoft-teams-cards` you can build these cards entirely in Python while enjoying full IntelliSense and compiler safety.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 With `@microsoft/teams.cards` you can build these cards entirely in TypeScript/JavaScript while enjoying full IntelliSense and compiler safety.
 ::: zone-end
 
@@ -36,7 +36,7 @@ With `@microsoft/teams.cards` you can build these cards entirely in TypeScript/J
 `microsoft-teams-cards` exposes small **builder helpers** including `Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 `@microsoft/teams.cards` exposes small **builder helpers** including `Card`, `TextBlock`, `ToggleInput`, `ExecuteAction`, _etc._
 ::: zone-end
 
@@ -103,7 +103,7 @@ card = AdaptiveCard(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 import {
   AdaptiveCard,
@@ -130,8 +130,8 @@ Benefits:
 
 | Benefit     | Description                                                                   |
 | ----------- | ----------------------------------------------------------------------------- |
-| Readability | No deep JSON treesâ€”just chain simple methods.                                 |
-| Reâ€‘use      | Extract snippets to functions or classes and share across cards.              |
+| Readability | No deep JSON trees—just chain simple methods.                                 |
+| Re‑use      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
 
@@ -145,13 +145,13 @@ Benefits:
 > The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
 ::: zone-end
 
 
-## Typeâ€‘safe Authoring & IntelliSense
+## Type‑safe Authoring & IntelliSense
 
 ::: zone pivot="csharp"
 The package bundles the **Adaptive Card v1.5 schema** as strict C# types.
@@ -163,13 +163,13 @@ The package bundles the **Adaptive Card v1.5 schema** as strict Python types.
 While coding you get:
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The package bundles the **Adaptive Card v1.5 schema** as strict TypeScript/JavaScript types.
 While coding you get:
 ::: zone-end
 
 - **Autocomplete** for every element and attribute.
-- **Inâ€‘editor validation**â€”invalid enum values or missing required properties produce build errors.
+- **In‑editor validation**—invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
 
@@ -192,7 +192,7 @@ text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 // @ts-expect-error: "huge" is not a valid size for TextBlock
 const textBlock = new TextBlock('Valid', { size: 'huge' });
@@ -202,7 +202,7 @@ const textBlock = new TextBlock('Valid', { size: 'huge' });
 
 ## The Visual Designer
 
-Prefer a dragâ€‘andâ€‘drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
+Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
 1. Add elements visually until the card looks right.
 2. Copy the JSON payload from the editor pane.
@@ -332,7 +332,7 @@ message = MessageActivityInput(text="Hello text!").add_card(card)
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 const cardJson = /* copied JSON */;
 const card = new AdaptiveCard().withBody(cardJson);
@@ -390,14 +390,14 @@ const rawCard: IAdaptiveCard = {
 This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `AdaptiveCard`.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 This method leverages the full Adaptive Card schema and ensures that the payload adheres strictly to `IAdaptiveCard`.
 ::: zone-end
 
 > [!TIP]
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
 
-## Endâ€‘toâ€‘end Example â€“ Task Form Card
+## End‑to‑end Example – Task Form Card
 
 Below is a complete example showing a task management form.
 
@@ -421,7 +421,7 @@ teams.OnMessage(async context =>
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 Notice how the builder pattern keeps the file readable and maintainable:
 ::: zone-end
 
@@ -531,7 +531,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```ts
 import {
   AdaptiveCard,

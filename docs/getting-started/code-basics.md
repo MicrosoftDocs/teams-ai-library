@@ -15,7 +15,7 @@ ms.date: 04/14/2026
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
 
@@ -46,7 +46,7 @@ quote-agent/
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```
 quote-agent/
 |── appPackage/       # Teams app package files
@@ -66,7 +66,7 @@ quote-agent/
 - **src/**: Contains the main application code. The `main.py` file is the entry point for your application.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 - **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 - **src/**: Contains the main application code. The `index.ts` file is the entry point for your application.
 ::: zone-end
@@ -113,7 +113,7 @@ app = App(plugins=[DevToolsPlugin()])
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript title="src/index.ts"
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common/logging';
@@ -130,7 +130,7 @@ The app configuration includes a variety of options that allow you to customize 
 
 ### Plugins
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
 ::: zone-end
 
@@ -171,7 +171,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript title="src/index.ts"
 app.on('message', async ({ send, activity }) => {
   await send({ type: 'typing' });
@@ -195,7 +195,7 @@ This code:
 3. Responds by echoing back the received message if any other text aside from "reply" is sent.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 1. Listens for all incoming messages using `app.on('message')`.
 2. Sends a typing indicator, which renders as an animated ellipsis (…) in the chat.
 3. Responds by echoing back the received message.
@@ -213,7 +213,7 @@ This code:
 > Python uses type hints for better development experience. You can change the activity handler to different supported activities, and the type system will provide appropriate hints and validation.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
 ::: zone-end
@@ -239,7 +239,7 @@ if __name__ == "__main__":
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript title="src/index.ts"
 await app.start();
 ```

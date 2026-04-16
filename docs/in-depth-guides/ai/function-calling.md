@@ -1,4 +1,4 @@
-﻿---
+---
 title: Function / Tool calling
 description: How to implement function calling in AI models, allowing the LLM to execute functions as part of its response generation.
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.date: 04/14/2026
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by registering functions with a `ChatPrompt` using the `.Function()` method.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 ::: zone-end
 
@@ -25,7 +25,7 @@ It's possible to hook up functions that the LLM can decide to call if it thinks 
 :::image type="content" source="~/assets/diagrams/function-calling-python-sequence.png" alt-text="Sequence diagram showing Python function calling flow where user sends a message, ChatPrompt provides it to the LLM with available functions, LLM calls pokemon_search, the function fetches data, and the result is returned" lightbox="~/assets/diagrams/function-calling-python-sequence.png":::
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 :::image type="content" source="~/assets/diagrams/function-calling-js-sequence.png" alt-text="Sequence diagram showing JavaScript function calling flow where user sends a message, ChatPrompt provides it to the LLM with available functions, LLM calls pokemonSearch, the function fetches data, and the result is returned" lightbox="~/assets/diagrams/function-calling-js-sequence.png":::
 ::: zone-end
 
@@ -267,7 +267,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
 import { ActivityLike, IMessageActivity } from '@microsoft/teams.api';
@@ -353,7 +353,7 @@ public static string GetWeatherFunction([Param] string location)
         return "Sorry, I could not find the weather for that location";
     }
 
-    return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}Â°F";
+    return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}°F";
 }
 
 /// <summary>
@@ -433,7 +433,7 @@ public class WeatherPrompt
             return "Sorry, I could not find the weather for that location";
         }
 
-        return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}Â°F";
+        return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}°F";
     }
 }
 ```
@@ -519,7 +519,7 @@ def get_weather_handler(params: GetWeatherParams) -> str:
     if not weather:
         return "Sorry, I could not find the weather for that location"
 
-    return f"The weather in {params.location} is {weather['condition']} with a temperature of {weather['temperature']}Â°F"
+    return f"The weather in {params.location} is {weather['condition']} with a temperature of {weather['temperature']}°F"
 
 @app.on_message
 async def handle_multiple_functions(ctx: ActivityContext[MessageActivity]):
@@ -554,7 +554,7 @@ async def handle_multiple_functions(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Multiple functions
 
 Additionally, for complex scenarios, you can add multiple functions to the `ChatPrompt`. The LLM will then decide which function to call based on the context of the conversation. The LLM can pick one or more functions to call before returning the final response.
@@ -629,7 +629,7 @@ await send(result.content ?? 'Sorry I could not figure it out');
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Stopping Functions early
 
 You'll notice that after the function responds, `ChatPrompt` re-sends the response from the function invocation back to the LLM which responds back with the user-facing message. It's possible to prevent this "automatic" function calling by passing in a flag

@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The client App exposes a `graph` property that gives type-safe access to Microsoft Graph functions. When graph functions are invoked, the app attaches an MSAL bearer token to the request so that the call can be authenticated and authorized.
 
 ## Invoking Graph functions

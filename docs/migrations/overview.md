@@ -11,6 +11,6 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 Migration guides for transitioning from older versions and frameworks to Teams SDK.
 ::: zone-end

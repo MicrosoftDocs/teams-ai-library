@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 import FileCodeBlock from '@site/src/components/FileCodeBlock';
 
 ## A2A Server
@@ -27,7 +27,7 @@ An A2A server is an agent that exposes its capabilities to other agents using th
 To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agent_card`:
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 To enable A2A server functionality, add the `A2APlugin` to your Teams app and provide an `agentCard`:
 ::: zone-end
 
@@ -74,7 +74,7 @@ app = App(logger=logger, plugins=plugins)
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { AgentCard } from '@a2a-js/sdk';
 import { A2APlugin } from '@microsoft/teams.a2a';
@@ -115,7 +115,7 @@ const app = new App({
 ```
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 ## Agent Card Exposure
 
 The plugin automatically exposes your agent card at the path `/a2a/.well-known/agent-card.json`.
@@ -153,7 +153,7 @@ async def handle_a2a_message(message: A2AMessageEvent) -> None:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.event('a2a:message', async ({ respond, requestContext }) => {
   logger.info(`Received message: ${requestContext.userMessage}`);
@@ -170,7 +170,7 @@ app.event('a2a:message', async ({ respond, requestContext }) => {
 ```
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 > [!NOTE]
 > - You must have only a single handler that calls `respond`.
 > - You **must** call `respond` as the last step in your handler. This resolves the open request to the caller.

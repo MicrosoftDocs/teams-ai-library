@@ -14,7 +14,7 @@ The `App` class lets you host web apps in the agent. This can be used for an eff
 To host a static tab web app, call the `app.AddTab()` function and provide an app name and a path to a folder containing an `index.html` file to be served up.
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 To host a static tab web app, call the `app.tab()` function and provide an app name and a path to a folder containing an `index.html` file to be served up.
 ::: zone-end
 
@@ -31,14 +31,14 @@ app.tab("my_app", os.path.abspath("dist/client"))
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.tab('myApp', path.resolve('dist/client'));
 ```
 ::: zone-end
 
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 This registers a route that is hosted at `http://localhost:{PORT}/tabs/myApp` or `https://{BOT_DOMAIN}/tabs/myApp`.
 ::: zone-end
 
@@ -58,7 +58,7 @@ This registers a route that is hosted at `http://localhost:{PORT}/tabs/my_app` o
 - For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs.md) in-depth guide.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 - For more details about Tab apps, see the [Tabs](../in-depth-guides/tabs/overview.md) in-depth guide.
 - For an example of hosting a Dialog, see the [Creating Dialogs](../in-depth-guides/dialogs/creating-dialogs.md) in-depth guide.
 ::: zone-end

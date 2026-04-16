@@ -22,7 +22,7 @@ allows you to continue using BotBuilder components like `ActivityHandler` and `C
 to receive, process and send activities within the new Teams SDK abstractions.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 This new iteration of Teams SDK has been rebuilt from the ground up.
 To ease the migration process, we've introduced a plugin `@microsoft/teams.botbuilder` that
 allows you to continue using BotBuilder components like `ActivityHandler` and `CloudAdapter`

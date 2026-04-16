@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
 
 ## Setting up a new project

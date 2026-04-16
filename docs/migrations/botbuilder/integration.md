@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using the BotBuilder Plugin
 description: How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware.
 ms.topic: how-to
@@ -36,7 +36,7 @@ or `on_message_activity` ,
 to handle different activity types.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## Activity Handlers
 The BotBuilder `ActivityHandler` contains the actual bot logic for processing messages or events
 similar to how the Teams SDK `App` routes messages and events. You can override any number of methods,
@@ -52,7 +52,7 @@ TurnContext provides access to:
 - Services for sending responses back to the user.
 - Conversation, user, and channel metadata.
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 Teams SDK has `IActivityContext` for the same purpose.
 ::: zone-end
 
@@ -213,7 +213,7 @@ class MyActivityHandler(ActivityHandler):
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ## [index.ts](#tab/indexts)
 ```typescript
 import { App } from '@microsoft/teams.apps';
@@ -300,7 +300,7 @@ handling incoming messages and sending responses via the `TurnContext`.
 and registers the `BotBuilderPlugin` with your adapter and activity handler. It also defines a native Teams SDK activity handler that responds to messages.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 In this example:
 - `adapter.ts` defines a `CloudAdapter` to
 handle incoming activities, and can include middleware support or error handling.

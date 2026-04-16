@@ -46,7 +46,7 @@ Once you receive a feedback event, you can choose to store it in some persistent
 For production applications, consider using databases, file systems, or cloud storage. The examples below use in-memory storage for simplicity.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
 import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
@@ -118,7 +118,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
 import {
@@ -239,7 +239,7 @@ async def handle_message_feedback(ctx: ActivityContext[MessageSubmitActionInvoke
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...

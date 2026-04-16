@@ -96,7 +96,7 @@ INFO:     Uvicorn running on http://0.0.0.0:3979 (Press CTRL+C to quit)
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```sh
 [nodemon] 3.1.9
 [nodemon] to restart at any time, enter `rs`

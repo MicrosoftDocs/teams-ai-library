@@ -121,7 +121,7 @@ async def handle_message_ext_query_link(ctx: ActivityContext[MessageExtensionQue
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -267,7 +267,7 @@ def create_link_unfurl_card(url: str) -> Dict[str, Any]:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 `createLinkUnfurlCard()` function
 
 ```typescript

@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and
 remote agent function calling. Each setting is optional, with the app using a reasonable default as needed.
 

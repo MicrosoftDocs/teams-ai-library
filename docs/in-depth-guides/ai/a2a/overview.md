@@ -16,12 +16,12 @@ This article is not available for the selected development language.
 > This package wraps the official [A2A SDK](https://github.com/a2aproject/a2a-python) for both server and client.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > This package wraps the official [A2A SDK](https://github.com/a2aproject/a2a-js) for both server and client.
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 [What is A2A?](https://a2a-protocol.org/latest/)
 
 A2A (Agent-to-Agent) is a protocol designed to enable agents to communicate and collaborate programmatically. This package allows you to integrate the A2A protocol into your Teams app, making your agent accessible to other A2A clients and enabling your app to interact with other A2A servers.
@@ -35,7 +35,7 @@ pip install microsoft-teams-a2a
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Install the package:
 
 ```bash
@@ -43,7 +43,7 @@ npm install @microsoft/teams.a2a
 ```
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 ## What does this package do?
 
 - **A2A Server**: Enables your Teams agent to act as an A2A server, exposing its capabilities to other agents through the `/a2a` endpoint and serving an agent card at `/a2a/.well-known/agent-card.json`.

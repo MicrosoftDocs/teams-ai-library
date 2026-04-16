@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 ## What is an A2A Client?
 
 An A2A client is an agent or application that can proactively send tasks to A2A servers and interact with them using the A2A protocol.
@@ -67,7 +67,7 @@ async def _send_message(self) -> None:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { A2AClient } from '@a2a-js/sdk/client';
 
@@ -86,7 +86,7 @@ const response = await client.sendMessage({
 ```
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 ## Using `A2AClientPlugin` with ChatPrompt
 
 A2A is most effective when used with an LLM. The `A2AClientPlugin` can be added to your chat prompt to allow interaction with A2A agents. Once added, the plugin will automatically configure the system prompt and tool calls to determine if the a2a server is needed for a particular task, and if so, it will do the work of orchestrating the call to the A2A server.
@@ -127,7 +127,7 @@ prompt = ChatPrompt(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { A2AClientPlugin } from '@microsoft/teams.a2a';
 import { ChatPrompt } from '@microsoft/teams.ai';
@@ -153,7 +153,7 @@ const prompt = new ChatPrompt(
 ```
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 To send a message:
 ::: zone-end
 
@@ -165,7 +165,7 @@ result = await prompt.send(message)
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 // Now we can send the message to the prompt and it will decide if
 // the a2a agent should be used or not and also manages contacting the agent
@@ -173,7 +173,7 @@ const result = await prompt.send(message);
 ```
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 ### Advanced `A2AClientPlugin` Configuration
 
 You can customize how the client interacts with A2A agents by providing custom builders:
@@ -233,7 +233,7 @@ advanced_prompt = ChatPrompt(model=completions_model, plugins=[advanced_plugin])
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 // Example with custom message builders and response processors
 export const advancedPrompt = new ChatPrompt(
@@ -276,7 +276,7 @@ export const advancedPrompt = new ChatPrompt(
 ```
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 ## Sequence Diagram
 
 Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
@@ -286,7 +286,7 @@ Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
 :::image type="content" source="~/assets/diagrams/a2a-client-python-sequence.png" alt-text="Sequence diagram showing the A2A client Python message flow from user through ChatPrompt, A2AClientPlugin, A2ACardResolver, and LLM to A2A Server and back" lightbox="~/assets/diagrams/a2a-client-python-sequence.png":::
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 :::image type="content" source="~/assets/diagrams/a2a-client-js-sequence.png" alt-text="Sequence diagram showing the A2A client JavaScript message flow from user through ChatPrompt, A2AClientPlugin, A2AClient, and LLM to A2A Server and back" lightbox="~/assets/diagrams/a2a-client-js-sequence.png":::
 ::: zone-end
 

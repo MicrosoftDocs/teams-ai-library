@@ -21,7 +21,7 @@ Start off by sending an initial card in the `TaskFetch` event.
 Start off by sending an initial card in the `dialog_open` event.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Start off by sending an initial card in the `dialog.open` event.
 ::: zone-end
 
@@ -113,7 +113,7 @@ dialog_card = AdaptiveCard.model_validate(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { AdaptiveCard, TextInput, SubmitAction } from '@microsoft/teams.cards';
@@ -290,7 +290,7 @@ async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
 ```typescript
@@ -463,7 +463,7 @@ public async Task<Response> OnTaskSubmit([Context] Tasks.SubmitActivity activity
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
 

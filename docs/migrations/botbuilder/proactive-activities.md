@@ -1,4 +1,4 @@
-﻿---
+---
 title: Proactive Activities
 description: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
 ms.topic: how-to
@@ -21,7 +21,7 @@ In Teams SDK, we expose a `send` method in the `App` class, almost identical to 
 passed into our activity handlers through our context. This method accepts a `conversation_id`, so storing just that is enough!
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 The BotBuilder proactive message flow requires storing a conversation reference.
 In Teams SDK, we expose a `send` method in the `App` class, almost identical to the one
 passed into our activity handlers through our context. This method accepts a `conversationId`, so storing just that is enough!
@@ -178,7 +178,7 @@ await app.send("your-conversation-id", "proactive hello")
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
 ```typescript
 // highlight-error-start

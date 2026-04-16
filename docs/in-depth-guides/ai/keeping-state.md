@@ -99,7 +99,7 @@ async def clear_conversation_memory(conversation_id: str) -> None:
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt, IChatModel, Message } from '@microsoft/teams.ai';
 import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
@@ -214,7 +214,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 /**
  * Example of a stateful conversation handler that maintains conversation history
@@ -291,7 +291,7 @@ teamsApp.OnMessage(async (context) =>
 :::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Screenshot of chat between user and agent, user first states 'My dinosaur's name is Barnie' and later asks What's my pet's name and the agent responds correctly with 'Barnie'." lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 :::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example" lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Proactive Messaging
 description: Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.date: 04/14/2026
 
 In [Sending Messages](./overview.md), you were shown how to respond to an event when it happens. However, there are times when you want to send a message to the user without them sending a message first. This is called proactive messaging. You can do this by using the `send` method in the `app` instance. This approach is useful for sending notifications or reminders to the user.
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 The main thing to note is that you need to have the `conversationId` of the chat or channel that you want to send the message to. It's a good idea to store this value somewhere from an activity handler so that you can use it for proactive messaging later.
 ::: zone-end
 
@@ -53,7 +53,7 @@ async def handle_install_add(ctx: ActivityContext[InstalledActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { MessageActivity } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -75,7 +75,7 @@ app.on('install.add', async ({ activity, send }) => {
 ::: zone-end
 
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 Then, when you want to send a proactive message, you can retrieve the `conversationId` from storage and use it to send the message.
 ::: zone-end
 
@@ -114,7 +114,7 @@ async def send_proactive_notification(user_id: str):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { MessageActivity } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
@@ -132,7 +132,7 @@ const sendProactiveNotification = async (userId: string) => {
 ::: zone-end
 
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 > [!TIP]
 > In this example, you see how to get the `conversationId` using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.
 ::: zone-end
@@ -182,7 +182,7 @@ async def send_targeted_notification(conversation_id: str, recipient: Account):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { MessageActivity, Account } from '@microsoft/teams.api';
 

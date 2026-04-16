@@ -63,7 +63,7 @@ action = ExecuteAction(title="Submit Feedback")
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ExecuteAction } from '@microsoft/teams.cards';
 // ...
@@ -124,7 +124,7 @@ action_set = ActionSet(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { ExecuteAction, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
 // ...
@@ -149,7 +149,7 @@ Just like when building cards, if you prefer to work with raw JSON, you can do j
 Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get type safety for free in Python.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Just like when building cards, if you prefer to work with raw JSON, you can do just that. You get type safety for free in TypeScript.
 ::: zone-end
 
@@ -177,7 +177,7 @@ json = {
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { IOpenUrlAction } from '@microsoft/teams.cards';
 // ...
@@ -305,7 +305,7 @@ profile_card = AdaptiveCard(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import {
   AdaptiveCard,
@@ -440,7 +440,7 @@ def create_profile_card_input_validation():
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import {
   AdaptiveCard,
@@ -637,7 +637,7 @@ async def handle_card_action(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import {
   AdaptiveCardActionErrorResponse,
@@ -716,7 +716,7 @@ app.on('card.action', async ({ activity, send }) => {
 > The `data` values are accessible as a dictionary and can be accessed using `.get()` method for safe access.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
 ::: zone-end

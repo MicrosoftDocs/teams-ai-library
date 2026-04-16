@@ -23,7 +23,7 @@ Dialogs have a specific `TaskSubmit` event to handle submissions. When a user su
 Dialogs have a specific `dialog_submit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Dialogs have a specific `dialog.submit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
 ::: zone-end
 
@@ -105,7 +105,7 @@ async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -168,7 +168,7 @@ async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -262,7 +262,7 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 <!-- Not applicable -->
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
 

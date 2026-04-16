@@ -1,4 +1,4 @@
-﻿---
+---
 title: The API Client
 description: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions.
 ms.topic: how-to
@@ -119,7 +119,7 @@ async def on_message(context: ActivityContext[MessageActivity]):
 ---
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 # [Diff](#tab/diff)
   ```typescript
   // highlight-error-start
@@ -214,7 +214,7 @@ The following table shows common BotBuilder `TeamsInfo` methods and their equiva
 | `TeamsInfo.send_message_to_teams_channel(context, team_id, message)` | `api.conversations.create(CreateConversationParams)` then `api.conversations.activities(conversation_id).create(activity)` |
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 | BotBuilder (TeamsInfo) | Teams SDK (ApiClient) |
 |------------------------|----------------------|
 | `TeamsInfo.getMember(context, userId)` | `api.conversations.members(conversationId).getById(userId)` |

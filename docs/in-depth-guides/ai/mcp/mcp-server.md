@@ -15,7 +15,7 @@ This article is not available for the selected development language.
 You are able to convert any `App` into an MCP server by using the `McpPlugin` from the `microsoft-teams-mcp` package. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 You are able to convert any `App` into an MCP server by using the `McpPlugin`. This plugin adds the necessary endpoints to your application to serve as an MCP server. The plugin allows you to define tools, resources, and prompts that can be exposed to other MCP applications.
 ::: zone-end
 
@@ -30,7 +30,7 @@ pip install microsoft-teams-mcpplugin
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Install it to your application:
 
 ```bash
@@ -73,7 +73,7 @@ mcp_server_plugin.use_tool(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 Your plugin can be configured as follows:
 
 ```typescript
@@ -123,7 +123,7 @@ const mcpServerPlugin = new McpPlugin({
 > By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `path` property in the plugin configuration.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!NOTE]
 > By default, the MCP server will be available at `/mcp` on your application. You can change this by setting the `transport.path` property in the plugin configuration.
 ::: zone-end
@@ -143,7 +143,7 @@ app = App(plugins=[mcp_server_plugin, DevToolsPlugin()])
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 And included in the app like any other plugin:
 
 ```typescript
@@ -170,7 +170,7 @@ const app = new App({
 > You may use the [MCP-Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) to test functionality with your server.
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 > [!TIP]
 > Enabling mcp request inspection and the `DevtoolsPlugin` allows you to see all the requests and responses to and from your MCP server (similar to how the **Activities** tab works).
 ::: zone-end
@@ -182,11 +182,11 @@ const app = new App({
 :::image type="content" source="~/assets/screenshots/mcp-inspector.gif" alt-text="MCP Server in Devtools" lightbox="~/assets/screenshots/mcp-inspector.gif":::
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 :::image type="content" source="~/assets/screenshots/mcp-devtools.gif" alt-text="MCP Server in Devtools" lightbox="~/assets/screenshots/mcp-devtools.gif":::
 ::: zone-end
 
-::: zone pivot="javascript,python"
+::: zone pivot="typescript,python"
 ## Piping messages to the user
 
 Since your agent is provisioned to work on Teams, one very helpful feature is to use this server as a way to send messages to the user. This can be helpful in various scenarios:
@@ -248,7 +248,7 @@ mcp_server_plugin.use_tool(
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { z } from 'zod';
 import { App } from '@microsoft/teams.apps';
@@ -336,7 +336,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 import { App } from '@microsoft/teams.apps';
 // ...

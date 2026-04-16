@@ -15,7 +15,7 @@ An **event** is a foundational concept in building agents — it represents some
 :::image type="content" source="~/assets/diagrams/on-event-csharp-flow.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes incoming and outgoing events to the event handler using app.OnEvent()" lightbox="~/assets/diagrams/on-event-csharp-flow.png":::
 ::: zone-end
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 :::image type="content" source="~/assets/diagrams/on-event-pyjs-flow.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes incoming and outgoing events to the event handler using app.event()" lightbox="~/assets/diagrams/on-event-pyjs-flow.png":::
 ::: zone-end
 
@@ -25,7 +25,7 @@ The Teams SDK makes it easy to subscribe to these events and respond appropriate
 Here are the events that you can start building handlers for:
 
 
-::: zone pivot="csharp,javascript"
+::: zone pivot="csharp,typescript"
 | **Event Name**      | **Description**                                                                |
 | ------------------- | ------------------------------------------------------------------------------ |
 | `start`             | Triggered when your application starts. Useful for setup or boot-time logging. |
@@ -77,7 +77,7 @@ async def handle_error(event: ErrorEvent):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 ```typescript
 app.event('error', ({ error }) => {
   app.log.error(error);
@@ -112,7 +112,7 @@ async def handle_activity(event: ActivityEvent):
 ```
 ::: zone-end
 
-::: zone pivot="javascript"
+::: zone pivot="typescript"
 When a user signs in using `OAuth` or `SSO`, use the graph api to fetch their profile and say hello.
 
 ```typescript
