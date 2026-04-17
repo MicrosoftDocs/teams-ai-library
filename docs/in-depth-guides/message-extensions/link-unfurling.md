@@ -26,7 +26,7 @@ Link unfurling lets your app respond when users paste URLs into Teams. When a UR
                 "type": "link",
                 "value": {
                     "domains": [
-                        "www.test.com"
+                        "www.example.com"
                     ]
                 }
             }
@@ -37,7 +37,7 @@ Link unfurling lets your app respond when users paste URLs into Teams. When a UR
 
 ### How link unfurling works
 
-When a user pastes a URL from your registered domain (like `www.test.com`) into the Teams compose box, your app will receive a notification. Your app can then respond by returning an adaptive card that displays a preview of the linked content. This preview card appears before the user sends their message in the compose box, allowing them to see how the link will be displayed to others.
+When a user pastes a URL from your registered domain (like `www.example.com`) into the Teams compose box, your app will receive a notification. Your app can then respond by returning an adaptive card that displays a preview of the linked content. This preview card appears before the user sends their message in the compose box, allowing them to see how the link will be displayed to others.
 
 :::image type="content" source="~/assets/diagrams/link-unfurling-flow.png" alt-text="Flowchart showing user pasting a URL in Teams compose box, Teams sending notification to your app, your app returning an Adaptive Card preview" lightbox="~/assets/diagrams/link-unfurling-flow.png":::
 
