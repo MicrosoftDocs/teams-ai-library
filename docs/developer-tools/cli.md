@@ -7,7 +7,11 @@ ms.date: 04/14/2026
 
 # Teams CLI
 
-The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:
+The Teams CLI documentation has moved to its own section.
+
+[Go to CLI Documentation](https://microsoft.github.io/teams-sdk/cli)
+
+<!--The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:
 
 | Feature       | Description                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------- |
@@ -75,3 +79,4 @@ Using this command will include
 ```bash
 npx @microsoft/teams.cli config remove <config-name>
 ```
+-->
