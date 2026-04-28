@@ -2,12 +2,13 @@
 title: Teams CLI
 description: Comprehensive guide to the Teams CLI tool for creating, managing, and deploying Teams SDK applications with simple command-line operations. Use this when you need to set up a new Teams SDK agent or manage existing ones.
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Teams CLI
 
-The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. The CLI overarching features are:
+The Teams CLI was created with the intent of supporting developers by making common actions simple to implement with just a command line. For more information, see [Go to CLI Documentation](https://microsoft.github.io/teams-sdk/cli).
+<!--The CLI overarching features are:
 
 | Feature       | Description                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------- |
@@ -75,3 +76,4 @@ Using this command will include
 ```bash
 npx @microsoft/teams.cli config remove <config-name>
 ```
+-->

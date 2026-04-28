@@ -12,6 +12,8 @@
       href: teams/core-concepts.md
     - name: Basic Configuration
       items:
+        - name: Overview
+          href: teams/configuration/overview.md
         - name: Microsoft 365 Agents Toolkit
           href: teams/configuration/agents-toolkit.md
         - name: Manual Configuration
@@ -34,6 +36,8 @@
           href: teams/user-authentication/overview.md
         - name: SSO Setup
           href: teams/user-authentication/sso-setup.md
+        - name: Troubleshooting
+          href: teams/user-authentication/troubleshooting-sso.md
     - name: Teams Manifest
       href: teams/manifest.md
     - name: Enabling in M365 Copilot
@@ -116,7 +120,7 @@
       items:
         - name: Overview
           href: in-depth-guides/ai/overview.md
-        - name: Setup and Prerequisites
+        - name: Setup & Prerequisites
           href: in-depth-guides/ai/setup-and-prereqs.md
         - name: Chat Generation
           href: in-depth-guides/ai/chat.md
@@ -198,6 +202,8 @@
       href: migrations/slack-bolt.md
 - name: Developer Tools
   items:
+    - name: Overview
+      href: developer-tools/overview.md
     - name: Teams CLI
       href: developer-tools/cli.md
     - name: DevTools

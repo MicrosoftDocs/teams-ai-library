@@ -3,36 +3,23 @@ title: Middleware
 description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Middleware
 
-Middleware is a useful tool for logging, validation, and more.
-::: zone pivot="typescript"
-You can easily register your own middleware using the `app.use` method.
-::: zone-end
-
 ::: zone pivot="csharp"
+Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.Use` method.
 ::: zone-end
 
-::: zone pivot="python"
+::: zone pivot="python,typescript"
+Middleware is a useful tool for logging, validation, and more.
 You can easily register your own middleware using the `app.use` method.
 ::: zone-end
 
-
 Below is an example of a middleware that will log the elapse time of all handlers that come after it.
 
-::: zone pivot="typescript"
-```typescript
-app.use(async ({ log, next }) => {
-  const startedAt = new Date();
-  await next();
-  log.debug(new Date().getTime() - startedAt.getTime());
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -60,3 +47,14 @@ async def log_activity(ctx: ActivityContext[MessageActivity]):
     ctx.logger.debug(f"{datetime.now() - started_at}")
 ```
 ::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+app.use(async ({ log, next }) => {
+  const startedAt = new Date();
+  await next();
+  log.debug(new Date().getTime() - startedAt.getTime());
+});
+```
+::: zone-end
+

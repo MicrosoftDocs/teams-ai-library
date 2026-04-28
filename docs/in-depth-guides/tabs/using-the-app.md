@@ -2,11 +2,16 @@
 title: Using The App
 description: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
 ms.topic: how-to
-ms.date: 02/25/2026
+zone_pivot_groups: dev-lang
+ms.date: 04/14/2026
 ---
-
 # Using The App
 
+::: zone pivot="csharp,python"
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="typescript"
 The `@microsoft/teams.client` App class helps solve common challenges when building Single Page Applications hosted in Microsoft Teams, Outlook, and Microsoft 365. It is the client-side counterpart to the `@microsoft/teams.app` App that you can use to build AI agents.
 
 These two App classes are designed to work well together. For instance, when you use the `@microsoft/teams.app` App to expose a server-side function, you can then use the `@microsoft/teams.client` App `exec` method to easily invoke that function, as the client-side app knows how to construct an HTTP request that the server-side app can process. It can issue a request to the right URL, with the expected payload and contextual headers. The client-side app even includes a bearer token that the server side app uses to authenticate the caller.
@@ -65,3 +70,4 @@ const presenceResult = await app.graph.call(endpoints.me.presence.get);
 // ...and call remote agent functions...
 const agentResult = await app.exec<string>('hello-world');
 ```
+::: zone-end

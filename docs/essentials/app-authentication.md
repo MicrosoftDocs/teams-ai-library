@@ -3,7 +3,7 @@ title: App Authentication
 description: Configure app authentication in your Teams SDK application using client secrets, user managed identities, or federated identity credentials
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # App Authentication
@@ -69,23 +69,6 @@ First, complete the [User Managed Identity Setup](../teams/app-authentication/us
 
 ### Configuration
 
-::: zone pivot="typescript"
-Your application should automatically use User Managed Identity authentication when you provide the `CLIENT_ID` environment variable without a `CLIENT_SECRET`.
-
-## Configuration
-
-Set the following environment variables in your application:
-
-- `CLIENT_ID`: Your Application (client) ID
-- **Do not set** `CLIENT_SECRET`
-- `TENANT_ID`: The tenant id where your bot is registered
-
-```env
-CLIENT_ID=your-client-id-here
-# Do not set CLIENT_SECRET
-TENANT_ID=your-tenant-id
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 > [!NOTE]
@@ -135,7 +118,7 @@ Set the following environment variable:
 - `CLIENT_ID`: Your Application (client) ID
 ::: zone-end
 
-::: zone pivot="python"
+::: zone pivot="python,typescript"
 Your application should automatically use User Managed Identity authentication when you provide the `CLIENT_ID` environment variable without a `CLIENT_SECRET`.
 
 ## Configuration
@@ -153,13 +136,11 @@ TENANT_ID=your-tenant-id
 ```
 ::: zone-end
 
+
 ## Federated Identity Credentials
 
 Advanced identity federation allowing you to assign managed identities directly to your App Registration.
 
-::: zone pivot="typescript"
-<!-- Not applicable -->
-::: zone-end
 
 ::: zone pivot="csharp"
 > [!NOTE]
@@ -169,6 +150,11 @@ Advanced identity federation allowing you to assign managed identities directly 
 ::: zone pivot="python"
 <!-- Not applicable -->
 ::: zone-end
+
+::: zone pivot="typescript"
+<!-- Not applicable -->
+::: zone-end
+
 
 ### Setup
 
