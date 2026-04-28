@@ -2,11 +2,16 @@
 title: App Options
 description: Configure app settings for observability, MSAL authentication, and remote agent function calling.
 ms.topic: how-to
-ms.date: 02/25/2026
+zone_pivot_groups: dev-lang
+ms.date: 04/14/2026
 ---
-
 # App Options
 
+::: zone pivot="csharp,python"
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="typescript"
 The app options offer various settings that you can use to customize observability, Microsoft Authentication Library (MSAL) configuration, and
 remote agent function calling. Each setting is optional, with the app using a reasonable default as needed.
 
@@ -222,3 +227,4 @@ const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 ## References
 
 [MSAL Configuration](/entra/identity-platform/msal-client-application-configuration)
+::: zone-end

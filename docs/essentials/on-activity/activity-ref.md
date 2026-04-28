@@ -2,9 +2,8 @@
 title: Activity Type Reference
 description: Complete reference guide for all activity types and routes available in Teams SDK applications, including core activities and configuration routes.
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
-
 # Activity Type Reference
 
 The application supports a number of activity types:

@@ -1,40 +1,21 @@
 ---
-title: User Feedback Integration
+title: Feedback
 description: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
-# User Feedback Integration
+# User feedback
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Animated image showing user selecting the thumbs-up button on an agent response and a dialog opening asking 'What did you like?'. The user types 'Nice' and hits Submit." lightbox="~/assets/screenshots/feedback.gif" :::
+:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Animated image showing user selecting the thumbs-up button on an agent response and a dialog opening asking 'What did you like?'. The user types 'Nice' and hits Submit." lightbox="~/assets/screenshots/feedback.gif":::
 
 ## Storage
 
 Once you receive a feedback event, you can choose to store it in some persistent storage. In the example below, we are storing it in an in-memory store.
 
-::: zone pivot="typescript"
-```typescript
-import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
-import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
-// ...
-
-// This store would ideally be persisted in a database
-export const storedFeedbackByMessageId = new Map<
-  string,
-  {
-    incomingMessage: string;
-    outgoingMessage: string;
-    likes: number;
-    dislikes: number;
-    feedbacks: string[];
-  }
->();
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -65,39 +46,31 @@ Once you receive a feedback event, you can choose to store it in some persistent
 For production applications, consider using databases, file systems, or cloud storage. The examples below use in-memory storage for simplicity.
 ::: zone-end
 
+::: zone pivot="typescript"
+```typescript
+import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
+import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
+// ...
+
+// This store would ideally be persisted in a database
+export const storedFeedbackByMessageId = new Map<
+  string,
+  {
+    incomingMessage: string;
+    outgoingMessage: string;
+    likes: number;
+    dislikes: number;
+    feedbacks: string[];
+  }
+>();
+```
+::: zone-end
+
+
 ## Including Feedback Buttons
 
 When sending a message that you want feedback in, simply add feedback functionality to the message you are sending.
 
-::: zone pivot="typescript"
-```typescript
-import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
-import {
-  ActivityLike,
-  IMessageActivity,
-  MessageActivity,
-  SentActivity,
-} from '@microsoft/teams.api';
-// ...
-
-const { id: sentMessageId } = await send(
-  result.content != null
-    ? new MessageActivity(result.content)
-        .addAiGenerated()
-        /** Add feedback buttons via this method */
-        .addFeedback()
-    : 'I did not generate a response.'
-);
-
-storedFeedbackByMessageId.set(sentMessageId, {
-  incomingMessage: activity.text,
-  outgoingMessage: result.content ?? '',
-  likes: 0,
-  dislikes: 0,
-  feedbacks: [],
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -145,39 +118,41 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ```
 ::: zone-end
 
+::: zone pivot="typescript"
+```typescript
+import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
+import {
+  ActivityLike,
+  IMessageActivity,
+  MessageActivity,
+  SentActivity,
+} from '@microsoft/teams.api';
+// ...
+
+const { id: sentMessageId } = await send(
+  result.content != null
+    ? new MessageActivity(result.content)
+        .addAiGenerated()
+        /** Add feedback buttons via this method */
+        .addFeedback()
+    : 'I did not generate a response.'
+);
+
+storedFeedbackByMessageId.set(sentMessageId, {
+  incomingMessage: activity.text,
+  outgoingMessage: result.content ?? '',
+  likes: 0,
+  dislikes: 0,
+  feedbacks: [],
+});
+```
+::: zone-end
+
+
 ## Handling the feedback
 
 Once the user decides to like/dislike the message, you can handle the feedback in a received event. Once received, you can choose to include it in your persistent store.
 
-::: zone pivot="typescript"
-```typescript
-import { App } from '@microsoft/teams.apps';
-// ...
-
-app.on('message.submit.feedback', async ({ activity, log }) => {
-  const { reaction, feedback: feedbackJson } = activity.value.actionValue;
-  if (activity.replyToId == null) {
-    log.warn(`No replyToId found for messageId ${activity.id}`);
-    return;
-  }
-  const existingFeedback = storedFeedbackByMessageId.get(activity.replyToId);
-  /**
-   * feedbackJson looks like:
-   * {"feedbackText":"Nice!"}
-   */
-  if (!existingFeedback) {
-    log.warn(`No feedback found for messageId ${activity.id}`);
-  } else {
-    storedFeedbackByMessageId.set(activity.id, {
-      ...existingFeedback,
-      likes: existingFeedback.likes + (reaction === 'like' ? 1 : 0),
-      dislikes: existingFeedback.dislikes + (reaction === 'dislike' ? 1 : 0),
-      feedbacks: [...existingFeedback.feedbacks, feedbackJson],
-    });
-  }
-});
-```
-::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -263,3 +238,34 @@ async def handle_message_feedback(ctx: ActivityContext[MessageSubmitActionInvoke
     await ctx.reply(f"✅ Thank you for your feedback{reaction_text}{text_part}!")
 ```
 ::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+import { App } from '@microsoft/teams.apps';
+// ...
+
+app.on('message.submit.feedback', async ({ activity, log }) => {
+  const { reaction, feedback: feedbackJson } = activity.value.actionValue;
+  if (activity.replyToId == null) {
+    log.warn(`No replyToId found for messageId ${activity.id}`);
+    return;
+  }
+  const existingFeedback = storedFeedbackByMessageId.get(activity.replyToId);
+  /**
+   * feedbackJson looks like:
+   * {"feedbackText":"Nice!"}
+   */
+  if (!existingFeedback) {
+    log.warn(`No feedback found for messageId ${activity.id}`);
+  } else {
+    storedFeedbackByMessageId.set(activity.id, {
+      ...existingFeedback,
+      likes: existingFeedback.likes + (reaction === 'like' ? 1 : 0),
+      dislikes: existingFeedback.dislikes + (reaction === 'dislike' ? 1 : 0),
+      feedbacks: [...existingFeedback.feedbacks, feedbackJson],
+    });
+  }
+});
+```
+::: zone-end
+

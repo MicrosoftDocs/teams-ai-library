@@ -3,14 +3,11 @@ title: Adaptive Cards
 description: Introduction to Adaptive Cards in Teams SDK applications for creating rich, interactive user experiences across various scenarios.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # Adaptive Cards
 
-::: zone pivot="typescript"
-Overview of Adaptive Cards in TypeScript Teams SDK for building rich, interactive user experiences in Teams applications.
-::: zone-end
 
 ::: zone pivot="csharp"
 Overview of Adaptive Cards in C# Teams SDK for building rich, interactive user experiences in Teams applications.
@@ -19,6 +16,11 @@ Overview of Adaptive Cards in C# Teams SDK for building rich, interactive user e
 ::: zone pivot="python"
 Overview of Adaptive Cards in Python Teams SDK for building rich, interactive user experiences in Teams applications.
 ::: zone-end
+
+::: zone pivot="typescript"
+Overview of Adaptive Cards in TypeScript Teams SDK for building rich, interactive user experiences in Teams applications.
+::: zone-end
+
 
 Adaptive Cards provide a flexible, cross-platform content format for creating rich, interactive experiences. They consist of a customizable body of card elements combined with optional action sets, all fully serializable for delivery to clients. Through a powerful combination of text, graphics, and interactive buttons, Adaptive Cards enable compelling user experiences across various platforms.
 

@@ -2,7 +2,7 @@
 title: MCP
 description: Overview of Model Context Protocol (MCP) integration in Teams SDK for dynamic function and tool loading.
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 04/14/2026
 ---
 
 # MCP
