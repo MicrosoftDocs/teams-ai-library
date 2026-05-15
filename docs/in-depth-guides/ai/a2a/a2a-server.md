@@ -12,7 +12,6 @@ This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="typescript"
-import FileCodeBlock from '@site/src/components/FileCodeBlock';
 
 ## What is an A2A Server?
 

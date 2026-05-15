@@ -51,9 +51,8 @@ When you run your app, for example `npm run dev`, devtools will be running on po
 [INFO] @samples/echo/devtools available at http://localhost:3979/devtools
 ```
 
-:::info
-If you used the [CLI](../cli.md) to create an `atk` configuration for your app, DevTools will run on port 3979 when you launch the debugger.
-:::
+> [!NOTE]
+> If you used the [CLI](../cli.md) to create an `atk` configuration for your app, DevTools will run on port 3979 when you launch the debugger.
 
 When you open the page, you will see a Teams-like chat window and you can immediately interact with your agent.
 
@@ -70,9 +69,8 @@ Below is a brief list of the terminology used in the chat window and in Teams:
 
 The chat window emulates Teams features as closely as possible. Not all Teams features are available in DevTools, but we are working to add more features over time. The following capabilities are available:
 
-:::info
-Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize acessibility in future preview releases.
-:::
+> [!NOTE]
+> Accessibility and keyboard navigation is not fully supported in DevTools. Full support for all users is important to us, and we will prioritize acessibility in future preview releases.
 
 ### Send messages
 
@@ -114,9 +112,8 @@ If your agent is using streaming, DevTools will render messages as a stream with
 
 Send feedback to your app by clicking the Feedback (thumbs up/down) buttons in the message actions menu and completing the dialog form.
 
-:::info
-The capabilities above will also populate activities to the Activities page, where you can inspect activity payloads and see the full activity history.
-:::
+> [!NOTE]
+> The capabilities above will also populate activities to the Activities page, where you can inspect activity payloads and see the full activity history.
 
 ### Developer message shortcut
 

@@ -23,9 +23,8 @@ The Teams SDK supports several action types for different interaction patterns:
 | `Action.ShowCard` | Progressive disclosure | Display a nested card when clicked. |
 | `Action.ToggleVisibility` | UI state management | Show/hide card elements dynamically. |
 
-:::info
-For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
-:::
+> [!NOTE]
+> For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
 
 ## Creating Actions with the SDK
 

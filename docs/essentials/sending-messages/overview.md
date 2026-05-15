@@ -175,9 +175,9 @@ app.on('message', async ({ send, activity }) => {
 
 ## Targeted Messages
 
-:::info[Coming Soon]
-Targeted messages are coming soon in May 2026.
-:::
+> [!NOTE]
+> Coming Soon
+> Targeted messages are coming soon in May 2026.
 
 Targeted messages, also known as ephemeral messages, are delivered to a specific user in a shared conversation. From a single user's perspective, they appear as regular inline messages in a conversation. Other participants won't see these messages, making them useful for authentication flows, help or error responses, personal reminders, or sharing contextual information without cluttering the group conversation.
 
@@ -321,9 +321,9 @@ For proactive threading (sending to a thread outside of a handler), see [Proacti
 
 ## Quoted Replies
 
-:::info[Coming Soon]
-Quoted replies are coming soon in May 2026.
-:::
+> [!NOTE]
+> Coming Soon
+> Quoted replies are coming soon in May 2026.
 
 Quoted replies let your agent reference a previous message in the conversation. When a user sends a message that quotes another message, your agent receives structured metadata about the quoted content. Your agent can also send messages that quote previous messages.
 

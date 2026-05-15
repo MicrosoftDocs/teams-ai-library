@@ -5,8 +5,6 @@ ms.topic: how-to
 ms.date: 05/15/2026
 ---
 
-import LangLink from '@site/src/components/LangLink';
-
 # App Authentication Setup
 
 Your Teams bot needs to authenticate with Azure to send messages. This involves configuring your Azure Bot Service and App Registration correctly.
@@ -23,11 +21,11 @@ Each method has different setup requirements in Azure Portal or Azure CLI.
 
 ## Sovereign Cloud
 
-If your bot runs in a US Government (GCC-High, DoD) or China (21Vianet) cloud environment, see the <LangLink to="essentials/app-configuration/sovereign-cloud">Sovereign Cloud</LangLink> configuration guide.
+If your bot runs in a US Government (GCC-High, DoD) or China (21Vianet) cloud environment, see the [Sovereign Cloud](../../essentials/app-configuration/sovereign-cloud.md) configuration guide.
 
 ## After Setup
 
-Once you've completed the Azure setup for your chosen authentication method, you'll need to configure your application code. See the <LangLink to="essentials/app-authentication">App Authentication configuration guide</LangLink> for details on environment variables and code configuration.
+Once you've completed the Azure setup for your chosen authentication method, you'll need to configure your application code. See the [App Authentication configuration guide](../../essentials/app-authentication.md) for details on environment variables and code configuration.
 
 ## Troubleshooting
 

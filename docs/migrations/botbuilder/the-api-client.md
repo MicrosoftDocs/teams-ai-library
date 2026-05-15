@@ -49,34 +49,34 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 # [BotBuilder](#tab/botbuilder)
 
 
-    ```csharp showLineNumbers
-    using Microsoft.Bot.Builder;
-    using Microsoft.Bot.Builder.Teams;
+```csharp showLineNumbers
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Teams;
 
-    public class MyActivityHandler : TeamsActivityHandler
+public class MyActivityHandler : TeamsActivityHandler
+{
+    protected override async Task OnMessageActivityAsync(
+        ITurnContext<IMessageActivity> turnContext,
+        CancellationToken cancellationToken)
     {
-        protected override async Task OnMessageActivityAsync(
-            ITurnContext<IMessageActivity> turnContext,
-            CancellationToken cancellationToken)
-        {
-            // highlight-next-line
-            var members = await TeamsInfo.GetMembersAsync(turnContext, cancellationToken);
-        }
+        // highlight-next-line
+        var members = await TeamsInfo.GetMembersAsync(turnContext, cancellationToken);
     }
-    ```
+}
+```
 
 # [Teams SDK](#tab/teams-sdk)
 
 
-    ```csharp showLineNumbers
-    using Microsoft.Teams.Apps;
+```csharp showLineNumbers
+using Microsoft.Teams.Apps;
 
-    app.OnMessage(async (context, cancellationToken) =>
-    {
-        // highlight-next-line
-        var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
-    });
-    ```
+app.OnMessage(async (context, cancellationToken) =>
+{
+    // highlight-next-line
+    var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
+});
+```
 
 ---
 
@@ -110,28 +110,28 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 # [BotBuilder](#tab/botbuilder)
 
 
-    ```python showLineNumbers
-    from botbuilder.core import ActivityHandler, TurnContext
-    from botbuilder.core.teams import TeamsInfo
+```python showLineNumbers
+from botbuilder.core import ActivityHandler, TurnContext
+from botbuilder.core.teams import TeamsInfo
 
-    class MyActivityHandler(ActivityHandler):
-        async def on_message_activity(self, turn_context: TurnContext):
-            # highlight-next-line
-            members = await TeamsInfo.get_members(turn_context)
-    ```
+class MyActivityHandler(ActivityHandler):
+    async def on_message_activity(self, turn_context: TurnContext):
+        # highlight-next-line
+        members = await TeamsInfo.get_members(turn_context)
+```
 
 # [Teams SDK](#tab/teams-sdk)
 
 
-    ```python showLineNumbers
-    from microsoft_teams.api import MessageActivity
-    from microsoft_teams.apps import ActivityContext
+```python showLineNumbers
+from microsoft_teams.api import MessageActivity
+from microsoft_teams.apps import ActivityContext
 
-    @app.on_message
-    async def on_message(context: ActivityContext[MessageActivity]):
-        # highlight-next-line
-        members = await context.api.conversations.members(context.activity.conversation.id).get()
-    ```
+@app.on_message
+async def on_message(context: ActivityContext[MessageActivity]):
+    # highlight-next-line
+    members = await context.api.conversations.members(context.activity.conversation.id).get()
+```
 
 ---
 
@@ -179,40 +179,40 @@ we pass an instance of our `ApiClient` into all our activity handlers through th
 # [BotBuilder](#tab/botbuilder)
 
 
-    ```typescript showLineNumbers
-    import {
-      CloudAdapter,
-      ConfigurationBotFrameworkAuthentication,
-      TeamsInfo,
-    } from 'botbuilder';
+```typescript showLineNumbers
+import {
+  CloudAdapter,
+  ConfigurationBotFrameworkAuthentication,
+  TeamsInfo,
+} from 'botbuilder';
 
-    const auth = new ConfigurationBotFrameworkAuthentication(process.env);
-    const adapter = new CloudAdapter(auth);
+const auth = new ConfigurationBotFrameworkAuthentication(process.env);
+const adapter = new CloudAdapter(auth);
 
-    export class ActivityHandler extends TeamsActivityHandler {
-      constructor() {
-        super();
-        this.onMessage(async (context) => {
-          // highlight-next-line
-          const members = await TeamsInfo.getMembers(context);
-        });
-      }
-    }
-    ```
+export class ActivityHandler extends TeamsActivityHandler {
+  constructor() {
+    super();
+    this.onMessage(async (context) => {
+      // highlight-next-line
+      const members = await TeamsInfo.getMembers(context);
+    });
+  }
+}
+```
 
 # [Teams SDK](#tab/teams-sdk)
 
 
-    ```typescript showLineNumbers
-    import { App } from '@microsoft/teams.apps';
+```typescript showLineNumbers
+import { App } from '@microsoft/teams.apps';
 
-    const app = new App();
+const app = new App();
 
-    app.on('message', async ({ api, activity }) => {
-      // highlight-next-line
-      const members = await api.conversations.members(activity.conversation.id).get();
-    });
-    ```
+app.on('message', async ({ api, activity }) => {
+  // highlight-next-line
+  const members = await api.conversations.members(activity.conversation.id).get();
+});
+```
 
 ---
 

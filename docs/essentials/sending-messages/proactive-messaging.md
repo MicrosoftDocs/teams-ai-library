@@ -24,15 +24,15 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 # [Minimal](#tab/minimal)
 
 
-    ```csharp
-    app.OnInstall(async (context, cancellationToken) =>
-    {
-        // Save the conversation id in
-        context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
-        await context.Send("Hi! I am going to remind you to say something to me soon!", cancellationToken);
-        notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
-    });
-    ```
+```csharp
+app.OnInstall(async (context, cancellationToken) =>
+{
+    // Save the conversation id in
+    context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
+    await context.Send("Hi! I am going to remind you to say something to me soon!", cancellationToken);
+    notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
+});
+```
 
 ---
 
@@ -149,9 +149,9 @@ const sendProactiveNotification = async (userId: string) => {
 
 ## Targeted Proactive Messages
 
-:::info[Coming Soon]
-Targeted messages are coming soon in May 2026.
-:::
+> [!NOTE]
+> Coming Soon
+> Targeted messages are coming soon in May 2026.
 
 Targeted messages, also known as ephemeral messages, are delivered to a specific user in a shared conversation. From a single user's perspective, they appear as regular inline messages in a conversation. Other participants won't see these messages.
 

@@ -15,7 +15,7 @@ This article is not available for the selected development language.
 There are a few prerequisites to getting started with integrating LLMs into your application:
 
 - LLM API Key - To generate messages using an LLM, you will need to have an API Key for the LLM you are using.
-  - [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
+  - [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service)
   - [OpenAI](https://platform.openai.com/)
 ::: zone-end
 
@@ -123,15 +123,13 @@ AZURE_OPENAI_API_VERSION=your-azure-openai-api-version
 
 
 ::: zone pivot="csharp"
-:::info
-The Azure OpenAI SDK handles API versioning automatically. You don't need to specify an API version manually.
-:::
+> [!NOTE]
+> The Azure OpenAI SDK handles API versioning automatically. You don't need to specify an API version manually.
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::info
-The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](/azure/ai-services/openai/reference 'Azure OpenAI API Reference')
-:::
+> [!NOTE]
+> The `AZURE_OPENAI_API_VERSION` is different from the model version. This is a common point of confusion. Look for the API Version [here](/azure/ai-services/openai/reference 'Azure OpenAI API Reference')
 ::: zone-end
 
 ::: zone pivot="javascript,csharp"

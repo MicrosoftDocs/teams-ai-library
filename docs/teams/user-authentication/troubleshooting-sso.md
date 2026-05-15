@@ -5,8 +5,6 @@ ms.topic: how-to
 ms.date: 05/15/2026
 ---
 
-import LangLink from '@site/src/components/LangLink';
-
 # SSO Troubleshooting
 
 When SSO fails, Teams sends a `signin/failure` invoke activity to your bot with a `code` and `message` describing the error. The SDK's default handler logs a warning with these details.
@@ -43,4 +41,4 @@ This means Teams attempted the SSO token exchange but failed because the token e
 
 > [!TIP]
 > If you don't need SSO and only want standard OAuth (sign-in button), leave the **Token Exchange URL** blank in your OAuth connection settings.
-To handle `signin/failure` programmatically in your app, see <LangLink to="in-depth-guides/user-authentication#handling-sign-in-failures">Handling Sign-In Failures</LangLink> in the User Authentication guide.
+To handle `signin/failure` programmatically in your app, see [Handling Sign-In Failures](../../in-depth-guides/user-authentication.md#handling-sign-in-failures) in the User Authentication guide.

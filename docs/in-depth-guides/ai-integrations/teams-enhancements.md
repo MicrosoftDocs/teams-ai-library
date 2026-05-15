@@ -12,7 +12,6 @@ This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="python"
-import CitationsImgUrl from '@site/static/screenshots/citations.gif';
 
 You can enrich the agent output into a more Teams-native experience - adding structure, interactivity, and metadata on top of the generated text.
 
@@ -158,9 +157,5 @@ def attach_citations(reply, full_text, citations):
 # highlight-success-end
 ```
 
-<img
-  src={CitationsImgUrl}
-  alt="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text."
-  style={{ width: '100%', maxWidth: 900 }}
-/>
+:::image type="content" source="~/assets/screenshots/citations.gif" alt-text="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text." lightbox="~/assets/screenshots/citations.gif":::
 ::: zone-end

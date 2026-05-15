@@ -136,21 +136,18 @@ Benefits:
 
 
 ::: zone pivot="csharp"
-:::info
-The builder helpers use strongly-typed interfaces. Use IntelliSense (Ctrl+Space) or "Go to Definition" (F12) in your IDE to explore available types and properties. Source code lives in the `Microsoft.Teams.Cards` namespace.
-:::
+> [!NOTE]
+> The builder helpers use strongly-typed interfaces. Use IntelliSense (Ctrl+Space) or "Go to Definition" (F12) in your IDE to explore available types and properties. Source code lives in the `Microsoft.Teams.Cards` namespace.
 ::: zone-end
 
 ::: zone pivot="python"
-:::info
-The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
-:::
+> [!NOTE]
+> The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::info
-Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
-:::
+> [!NOTE]
+> Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
 ::: zone-end
 
 
@@ -408,19 +405,19 @@ Below is a complete example showing a task management form.
 # [Minimal](#tab/minimal)
 
 
-    ```csharp
-    teams.OnMessage(async (context, cancellationToken) =>
-    {
-        var text = context.Activity.Text?.ToLowerInvariant() ?? "";
+```csharp
+teams.OnMessage(async (context, cancellationToken) =>
+{
+    var text = context.Activity.Text?.ToLowerInvariant() ?? "";
 
-        if (text.Contains("form"))
-        {
-            await context.Typing(cancellationToken);
-            var card = CreateTaskFormCard();
-            await context.Send(card, cancellationToken);
-        }
-    });
-    ```
+    if (text.Contains("form"))
+    {
+        await context.Typing(cancellationToken);
+        var card = CreateTaskFormCard();
+        await context.Send(card, cancellationToken);
+    }
+});
+```
 
 ---
 

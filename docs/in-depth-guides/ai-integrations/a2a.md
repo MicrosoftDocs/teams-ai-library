@@ -12,7 +12,6 @@ This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="python"
-import A2AImgUrl from '@site/static/screenshots/a2a.gif';
 
 Agents are typically designed to interact either with people (chatbots) or with systems (tools, APIs, MCP servers). Agent2Agent (A2A) introduces a third interaction model: agents communicating directly with other agents as peers — each with its own model, capabilities, and human audience.
 
@@ -341,11 +340,7 @@ Each bot needs its own Teams app registration (so DMs route to the right bot) an
 
 With both bots running and DM'd at least once (so each has captured an operator conversation), DM Alice with a backend question and watch the round-trip: Alice's LLM picks `send_to_peer`, Bob's operator gets the ask card, types an answer, and the reply card lands back in Alice's chat with the user.
 
-<img
-  src={A2AImgUrl}
-  alt="Animated screenshot of the end-to-end A2A flow: user DMs Alice, Alice forwards to Bob, Bob's operator answers via Adaptive Card, and the reply flows back into the original chat."
-  style={{ width: '100%', maxWidth: 900 }}
-/>
+:::image type="content" source="~/assets/screenshots/a2a.gif" alt-text="Animated screenshot of the end-to-end A2A flow: user DMs Alice, Alice forwards to Bob, Bob's operator answers via Adaptive Card, and the reply flows back into the original chat." lightbox="~/assets/screenshots/a2a.gif":::
 
 The bots are symmetric — DM Bob with a UX question and the same flow runs the other way, with Bob's LLM forwarding to Alice.
 ::: zone-end

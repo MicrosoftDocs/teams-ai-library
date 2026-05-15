@@ -53,9 +53,8 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 - Manages SSL certificates automatically
 - Routes Teams messages and events to your local agent
 
-:::info
-DevTunnel is only one way of exposing your locally running service to the internet. Other tools like ngrok can also accomplish the same thing.
-:::
+> [!NOTE]
+> DevTunnel is only one way of exposing your locally running service to the internet. Other tools like ngrok can also accomplish the same thing.
 
 ## Teams App Provisioning
 

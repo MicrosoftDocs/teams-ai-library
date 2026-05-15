@@ -6,15 +6,13 @@ zone_pivot_groups: dev-lang
 ms.date: 05/15/2026
 ---
 
-import LangLink from '@site/src/components/LangLink';
-
 # App Authentication
 
 Your application needs to authenticate to send messages to Teams as your bot. Authentication allows your app service to certify that it is _allowed_ to send messages as your Azure Bot.
 
-:::info Azure Setup Required
-Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](../teams/app-authentication/overview.md) guide for instructions on creating the necessary Azure resources.
-:::
+> [!NOTE]
+> Azure Setup Required
+> Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](../teams/app-authentication/overview.md) guide for instructions on creating the necessary Azure resources.
 
 ## Authentication Methods
 
@@ -205,7 +203,7 @@ CLOUD=USGov
 
 Valid values: `Public` (default), `USGov`, `USGovDoD`, `China`
 
-The SDK automatically configures all authentication endpoints for the specified cloud. No other changes are needed. See the <LangLink to="essentials/app-configuration/sovereign-cloud">Sovereign Cloud</LangLink> guide for details and programmatic configuration options.
+The SDK automatically configures all authentication endpoints for the specified cloud. No other changes are needed. See the [Sovereign Cloud](app-configuration/sovereign-cloud.md) guide for details and programmatic configuration options.
 
 ## Troubleshooting
 

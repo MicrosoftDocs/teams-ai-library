@@ -203,9 +203,9 @@ The SDK ships a small set of named reaction constants for the most common reacti
 The SDK ships a small set of named reaction constants for the most common reactions.
 ::: zone-end
 
-{/* TODO: restore with correct URL once Learn reactions reference is published (see msteams-docs PR #13991)
+<!-- TODO: restore with correct URL once Learn reactions reference is published (see msteams-docs PR #13991)
 Any string-valued reaction ID is accepted, so you can pass any reaction ID from the [Teams reactions reference](#TODO-learn-reactions-reference).
-*/}
+-->
 
 
 ::: zone pivot="csharp"
@@ -235,9 +235,9 @@ Reactions tagged **Diverse** in the Teams reactions reference support five skin-
 1f44b_wavinghand-tone4
 ```
 
-{/* TODO: restore once Learn reactions reference is published (see msteams-docs PR #13991)
+<!-- TODO: restore once Learn reactions reference is published (see msteams-docs PR #13991)
 See the [Teams reactions reference](#TODO-learn-reactions-reference) for the full list of reactions that support skin tones.
-*/}
+-->
 
 ## Rate Limits
 

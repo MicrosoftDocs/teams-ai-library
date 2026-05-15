@@ -23,7 +23,9 @@ How Teams-deep does your bot need to go? Two paths:
 - **Cross-channel essentials** are **breadth-focused**: Activity Protocol primitives that work uniformly across Teams, M365 Copilot, Copilot Studio, WebChat, and other channels. Best fit: the **M365 Agents SDK**.
 - **Teams-native collaboration** is **depth-focused**: the surfaces a bot needs to participate in group conversations the way Teams users expect (mentions, reactions, quoted replies, threaded replies, channel events, meetings experiences, citations, …). Best fit: the **Microsoft Teams SDK**.
 
+<!-- TODO: Re-add once sdk-feature-comparison.png is available
 :::image type="content" source="~/assets/screenshots/sdk-feature-comparison.png" alt-text="M365 Agents SDK on Teams (breadth) vs Microsoft Teams SDK (depth)" lightbox="~/assets/screenshots/sdk-feature-comparison.png":::
+-->
 
 ### Cross-channel essentials: what you get with the M365 Agents SDK on Teams
 

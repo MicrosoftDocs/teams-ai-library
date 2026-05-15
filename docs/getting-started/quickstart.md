@@ -39,9 +39,8 @@ npm install -g @microsoft/teams.cli@preview
 teams --version
 ```
 
-:::info
-The [Teams Developer CLI](/cli/) is the command-line tool for scaffolding, registering, and managing Teams apps. It's currently in Preview.
-:::
+> [!NOTE]
+> The [Teams Developer CLI](/cli/) is the command-line tool for scaffolding, registering, and managing Teams apps. It's currently in Preview.
 
 ## Creating Your First Agent
 

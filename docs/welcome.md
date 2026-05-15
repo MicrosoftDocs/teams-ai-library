@@ -5,8 +5,6 @@ ms.topic: how-to
 ms.date: 05/15/2026
 ---
 
-import LangLink from '@site/src/components/LangLink';
-
 # Welcome
 
 Teams SDK is a suite of packages for building agents and applications on Microsoft Teams. It handles authentication, event routing, and Teams-specific plumbing so you can focus on your app's logic.
@@ -22,7 +20,7 @@ If you'd rather have your AI coding assistant do the work, install the [`teams-d
 
 ## What you can build
 
-Teams SDK has you covered for <LangLink to="in-depth-guides/ai">AI-powered agents</LangLink>, <LangLink to="in-depth-guides/message-extensions">message extensions</LangLink>, embedded web apps, Adaptive Cards, dialogs, Microsoft Graph integrations, and more — across TypeScript, C#, and Python.
+Teams SDK has you covered for [AI-powered agents](in-depth-guides/ai/overview.md), [message extensions](in-depth-guides/message-extensions/overview.md), embedded web apps, Adaptive Cards, dialogs, Microsoft Graph integrations, and more — across TypeScript, C#, and Python.
 
 - [Why an SDK?](why.md) — what the SDK handles for you
 - [TypeScript guide](/typescript/getting-started) · [C# guide](/csharp/getting-started) · [Python guide](/python/getting-started)

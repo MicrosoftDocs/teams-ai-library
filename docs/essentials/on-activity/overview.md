@@ -37,7 +37,7 @@ Here is an example of a basic message handler:
     {
         await context.Send($"you said: {context.activity.Text}", cancellationToken);
     });
-    ```
+```
 ::: zone-end
 
 ::: zone pivot="python"
@@ -174,9 +174,8 @@ app.on('message', async ({ activity }) => {
 ::: zone-end
 
 
-:::info
-Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler. The order of registration for the handlers also matters as that determines how the handlers will be called.
-:::
+> [!NOTE]
+> Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler. The order of registration for the handlers also matters as that determines how the handlers will be called.
 
 
 ::: zone pivot="csharp"

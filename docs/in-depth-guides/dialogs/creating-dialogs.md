@@ -410,9 +410,8 @@ app.on('dialog.open.simple_form', async () => {
 ::: zone-end
 
 
-:::info
-The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
-:::
+> [!NOTE]
+> The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
 
 ### Rendering A Webpage
 

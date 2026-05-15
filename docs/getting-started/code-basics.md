@@ -197,22 +197,19 @@ This code:
 
 
 ::: zone pivot="csharp"
-:::info
-Each activity type has both an attribute and a functional method for type safety/simplicity
-of routing logic!
-:::
+> [!NOTE]
+> Each activity type has both an attribute and a functional method for type safety/simplicity
+> of routing logic!
 ::: zone-end
 
 ::: zone pivot="python"
-:::info
-Python uses type hints for better development experience. You can change the activity handler to different supported activities, and the type system will provide appropriate hints and validation.
-:::
+> [!NOTE]
+> Python uses type hints for better development experience. You can change the activity handler to different supported activities, and the type system will provide appropriate hints and validation.
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::info
-Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
-:::
+> [!NOTE]
+> Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
 ::: zone-end
 
 
