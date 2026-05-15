@@ -82,6 +82,18 @@ landingContent:
             url: ./in-depth-guides/ai/mcp/mcp-server.md
           - text: MCP Client
             url: ./in-depth-guides/ai/mcp/mcp-client.md
+      - linkListType: how-to-guide
+        links:
+          - text: AI Integrations Overview
+            url: ./in-depth-guides/ai-integrations/overview.md
+          - text: Build Agent with Microsoft Agent Framework
+            url: ./in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework.md
+          - text: Enhance the Teams Experience
+            url: ./in-depth-guides/ai-integrations/teams-enhancements.md
+          - text: Expose Teams to AI Agents (MCP)
+            url: ./in-depth-guides/ai-integrations/mcp-server.md
+          - text: Bot-to-Bot with A2A
+            url: ./in-depth-guides/ai-integrations/a2a.md
 
   # Advanced Features & Integration
   - title: Extend your agents with rich interactions
@@ -121,7 +133,7 @@ landingContent:
           - text: API Client
             url: ./essentials/api.md
           - text: Hosting Static Pages
-            url: ./essentials/hosting-static-pages.md
+            url: ./in-depth-guides/server/static-pages.md
           - text: Enabling in M365 Copilot
             url: ./teams/enabling-in-copilot.md
 
@@ -132,14 +144,14 @@ landingContent:
         links:
           - text: Running in Teams
             url: ./getting-started/running-in-teams/overview.md
-          - text: Configuration Overview
-            url: ./teams/configuration/overview.md
-          - text: Microsoft 365 Agents Toolkit
-            url: ./teams/configuration/agents-toolkit.md
-          - text: Manual Configuration
-            url: ./teams/configuration/manual-configuration.md
+          - text: Azure Configuration
+            url: ./teams/azure-configuration.md
+          - text: Choosing an SDK
+            url: ./teams/sdk-comparison.md
           - text: Teams Manifest
             url: ./teams/manifest.md
+          - text: Sovereign Cloud Configuration
+            url: ./essentials/app-configuration/sovereign-cloud.md
       - linkListType: concept
         links:
           - text: App Authentication Setup
@@ -168,6 +180,10 @@ landingContent:
             url: ./developer-tools/overview.md
           - text: Teams CLI
             url: ./developer-tools/cli.md
+          - text: Agent Skills
+            url: ./developer-tools/agent-skills.md
+          - text: llms.txt
+            url: ./developer-tools/llms-text.md
           - text: DevTools Overview
             url: ./developer-tools/devtools/overview.md
           - text: DevTools Chat
@@ -178,14 +194,16 @@ landingContent:
             url: ./developer-tools/devtools/cards.md
       - linkListType: how-to-guide
         links:
-          - text: Observability Overview
-            url: ./in-depth-guides/observability/overview.md
           - text: Observability & Logging
             url: ./in-depth-guides/observability/logging.md
           - text: Middleware
             url: ./in-depth-guides/observability/middleware.md
           - text: Feedback Integration
             url: ./in-depth-guides/feedback.md
+          - text: Message Reactions
+            url: ./in-depth-guides/message-reactions.md
+          - text: HTTP Server
+            url: ./in-depth-guides/server/http-server.md
       - linkListType: concept
         links:
           - text: Migrations Overview

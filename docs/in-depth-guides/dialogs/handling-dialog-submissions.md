@@ -3,7 +3,7 @@ title: Handling Dialog Submissions
 description: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Handling Dialog Submissions
@@ -15,16 +15,15 @@ Dialogs have a specific `TaskSubmit` event to handle submissions. When a user su
 > [!WARNING]
 > Return Type Requirement
 > Methods decorated with `[TaskSubmit]` **must** return `Task<Microsoft.Teams.Api.TaskModules.Response>`. Every code path must return a Response object containing either a `MessageTask` (to show a message and close the dialog) or a `ContinueTask` (to show another dialog). Using just `Task` or `void` will compile but fail at runtime when the Teams client expects a Response object.
-
 ## Basic Example
 ::: zone-end
 
 ::: zone pivot="python"
-Dialogs have a specific `dialog_submit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
+When a user submits a form inside a dialog, your app receives a `dialog_submit` event. Use `@app.on_dialog_submit("action")` to handle a specific submission (where `action` matches the value passed via `SubmitData`), or `@app.on_dialog_submit()` for a catch-all. You can either send a response or proceed to more steps in the dialog (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
 ::: zone-end
 
 ::: zone pivot="typescript"
-Dialogs have a specific `dialog.submit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
+When a user submits a form inside a dialog, your app receives a `dialog.submit` event. Use `dialog.submit.<action>` to handle a specific submission (where `action` matches the value passed via `SubmitData`), or `dialog.submit` for a catch-all. You can either send a response or proceed to more steps in the dialog (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
 ::: zone-end
 
 
@@ -87,21 +86,17 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 
 ::: zone pivot="python"
 ```python
-from typing import Optional, Any
 from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
 from microsoft_teams.apps import ActivityContext
 # ...
 
-@app.on_dialog_submit
-async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
-    """Handle dialog submit events for all dialog types."""
-    data: Optional[Any] = ctx.activity.value.data
-    dialog_type = data.get("submissiondialogtype") if data else None
-
-    if dialog_type == "simple_form":
-        name = data.get("name") if data else None
-        await ctx.send(f"Hi {name}, thanks for submitting the form!")
-        return TaskModuleResponse(task=TaskModuleMessageResponse(value="Form was submitted"))
+# The "action" field in SubmitData("simple_form") routes here
+@app.on_dialog_submit("simple_form")
+async def handle_simple_form_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
+    data = ctx.activity.value.data
+    name = data.get("name")
+    await ctx.send(f"Hi {name}, thanks for submitting the form!")
+    return TaskModuleResponse(task=TaskModuleMessageResponse(value="Form was submitted"))
 ```
 ::: zone-end
 
@@ -110,21 +105,17 @@ async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
 import { App } from '@microsoft/teams.apps';
 // ...
 
-app.on('dialog.submit', async ({ activity, send, next }) => {
-  const dialogType = activity.value.data?.submissiondialogtype;
-
-  if (dialogType === 'simple_form') {
-    // This is data from the form that was submitted
-    const name = activity.value.data.name;
-    await send(`Hi ${name}, thanks for submitting the form!`);
-    return {
-      task: {
-        type: 'message',
-        // This appears as a final message in the dialog
-        value: 'Form was submitted',
-      },
-    };
-  }
+// The "action" field in SubmitData('simple_form') routes here
+app.on('dialog.submit.simple_form', async ({ activity, send }) => {
+  const name = activity.value.data.name;
+  await send(`Hi ${name}, thanks for submitting the form!`);
+  return {
+    task: {
+      type: 'message',
+      // This appears as a final message in the dialog
+      value: 'Form was submitted',
+    },
+  };
 });
 ```
 ::: zone-end
@@ -147,24 +138,19 @@ case "webpage_dialog":
 
 ::: zone pivot="python"
 ```python
-from typing import Optional, Any
-from microsoft_teams.api import TaskSubmitInvokeActivity, InvokeResponse, TaskModuleResponse, TaskModuleMessageResponse
+from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
 from microsoft_teams.apps import ActivityContext
 # ...
 
-@app.on_dialog_submit
-async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
-    """Handle dialog submit events for all dialog types."""
-    data: Optional[Any] = ctx.activity.value.data
-    dialog_type = data.get("submissiondialogtype") if data else None
-
-    if dialog_type == "webpage_dialog":
-        name = data.get("name") if data else None
-        email = data.get("email") if data else None
-        await ctx.send(f"Hi {name}, thanks for submitting the form! We got that your email is {email}")
-        return InvokeResponse(
-            body=TaskModuleResponse(task=TaskModuleMessageResponse(value="Form submitted successfully"))
-        )
+# Webpage submissions route the same way — the webpage must include
+# the "action" field in the data passed to microsoftTeams.dialog.url.submit()
+@app.on_dialog_submit("webpage_dialog")
+async def handle_webpage_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
+    data = ctx.activity.value.data
+    name = data.get("name")
+    email = data.get("email")
+    await ctx.send(f"Hi {name}, thanks for submitting the form! We got that your email is {email}")
+    return TaskModuleResponse(task=TaskModuleMessageResponse(value="Form submitted successfully"))
 ```
 ::: zone-end
 
@@ -173,21 +159,16 @@ async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
 import { App } from '@microsoft/teams.apps';
 // ...
 
-// The submission from a webpage happens via the microsoftTeams.tasks.submitTask(formData)
-// call.
-app.on('dialog.submit', async ({ activity, send, next }) => {
-  const dialogType = activity.value.data.submissiondialogtype;
-
-  if (dialogType === 'webpage_dialog') {
-    // This is data from the form that was submitted
-    const name = activity.value.data.name;
-    const email = activity.value.data.email;
-    await send(`Hi ${name}, thanks for submitting the form! We got that your email is ${email}`);
-    // You can also return a blank response
-    return {
-      status: 200,
-    };
-  }
+// Webpage submissions route the same way — the webpage must include
+// the "action" field in the data passed to microsoftTeams.tasks.submitTask()
+app.on('dialog.submit.webpage_dialog', async ({ activity, send }) => {
+  const name = activity.value.data.name;
+  const email = activity.value.data.email;
+  await send(`Hi ${name}, thanks for submitting the form! We got that your email is ${email}`);
+  // Return status 200 to close the dialog without showing a message
+  return {
+    status: 200,
+  };
 });
 ```
 ::: zone-end
@@ -265,4 +246,3 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
-

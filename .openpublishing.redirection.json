@@ -1,0 +1,29 @@
+{
+  "redirections": [
+    {
+      "source_path": "docs/essentials/hosting-static-pages.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/server/static-pages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/observability/overview.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/observability/logging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/configuration/overview.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/azure-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/configuration/agents-toolkit.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/azure-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/configuration/manual-configuration.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/azure-configuration",
+      "redirect_document_id": false
+    }
+  ]
+}

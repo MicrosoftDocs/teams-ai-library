@@ -3,7 +3,7 @@ title: Proactive Messaging
 description: Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Proactive Messaging
@@ -20,17 +20,22 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 
 
 ::: zone pivot="csharp"
+
 # [Minimal](#tab/minimal)
+
+
 ```csharp
-app.OnInstall(async context =>
+app.OnInstall(async (context, cancellationToken) =>
 {
     // Save the conversation id in
     context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
-    await context.Send("Hi! I am going to remind you to say something to me soon!");
+    await context.Send("Hi! I am going to remind you to say something to me soon!", cancellationToken);
     notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
 });
 ```
+
 ---
+
 ::: zone-end
 
 ::: zone pivot="python"
@@ -145,8 +150,8 @@ const sendProactiveNotification = async (userId: string) => {
 ## Targeted Proactive Messages
 
 > [!NOTE]
-> Preview
-> Targeted messages are currently in preview.
+> Coming Soon
+> Targeted messages are coming soon in May 2026.
 
 Targeted messages, also known as ephemeral messages, are delivered to a specific user in a shared conversation. From a single user's perspective, they appear as regular inline messages in a conversation. Other participants won't see these messages.
 
@@ -197,3 +202,99 @@ const sendTargetedNotification = async (conversationId: string, recipient: Accou
 ```
 ::: zone-end
 
+
+## Proactive Threading
+
+Threads are only rendered visibly in Teams channels. In 1:1 chats, group chats, and meetings, messages appear flat; passing a thread root message ID has no visible effect in those scopes.
+
+::: zone pivot="csharp"
+To proactively send a message as a reply to a thread, use `app.Reply()` with the conversation ID and thread root message ID. The SDK constructs the threaded conversation ID for you.
+::: zone-end
+
+::: zone pivot="python,typescript"
+To proactively send a message as a reply to a thread, use `app.reply()` with the conversation ID and thread root message ID. The SDK constructs the threaded conversation ID for you.
+::: zone-end
+
+
+::: zone pivot="csharp"
+```csharp
+// Send to a specific thread proactively
+await app.Reply(conversationId, messageId, "Thread update!");
+
+// Send to a flat conversation (1:1, group chat)
+await app.Reply(conversationId, "Hello!");
+```
+::: zone-end
+
+::: zone pivot="python"
+```python
+# Send to a specific thread proactively
+await app.reply(conversation_id, message_id, "Thread update!")
+
+# Send to a flat conversation (1:1, group chat)
+await app.reply(conversation_id, "Hello!")
+```
+::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+// Send to a specific thread proactively
+await app.reply(conversationId, messageId, 'Thread update!');
+
+// Send to a flat conversation (1:1, group chat)
+await app.reply(conversationId, 'Hello!');
+```
+::: zone-end
+
+
+::: zone pivot="csharp"
+You can also pass just a conversation ID to `app.Reply()` for non-threaded conversations such as 1:1 chats and group chats. To target a specific thread, include the thread root message ID as shown above.
+::: zone-end
+
+::: zone pivot="python,typescript"
+You can also pass just a conversation ID to `app.reply()` for non-threaded conversations such as 1:1 chats and group chats. To target a specific thread, include the thread root message ID as shown above.
+::: zone-end
+
+For reactive threading (within a handler), see [Threading](./overview.md#threading).
+
+### Thread ID Helper
+
+::: zone pivot="csharp"
+For advanced scenarios, the `Conversation.ToThreadedConversationId()` helper constructs the threaded conversation ID directly. Use it with `app.Send()` when you need full control.
+::: zone-end
+
+::: zone pivot="python"
+For advanced scenarios, the `to_threaded_conversation_id()` helper constructs the threaded conversation ID directly. Use it with `app.send()` when you need full control.
+::: zone-end
+
+::: zone pivot="typescript"
+For advanced scenarios, the `toThreadedConversationId()` helper constructs the threaded conversation ID directly. Use it with `app.send()` when you need full control.
+::: zone-end
+
+
+::: zone pivot="csharp"
+```csharp
+using Microsoft.Teams.Api;
+
+var threadId = Conversation.ToThreadedConversationId(conversationId, messageId);
+await app.Send(threadId, "Sent via helper");
+```
+::: zone-end
+
+::: zone pivot="python"
+```python
+from microsoft_teams.apps import to_threaded_conversation_id
+
+thread_id = to_threaded_conversation_id(conversation_id, message_id)
+await app.send(thread_id, "Sent via helper")
+```
+::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+import { toThreadedConversationId } from '@microsoft/teams.apps';
+
+const threadId = toThreadedConversationId(conversationId, messageId);
+await app.send(threadId, 'Sent via helper');
+```
+::: zone-end

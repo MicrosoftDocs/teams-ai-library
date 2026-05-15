@@ -3,7 +3,7 @@ title: Settings
 description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Settings
@@ -12,7 +12,7 @@ You can add a settings page that allows users to configure settings for your app
 
 The user can access the settings by right-clicking the app item in the compose box.
 
-:::image type="content" source="~/assets/screenshots/settings.png" alt-text="Settings pane" lightbox="~/assets/screenshots/settings.png":::
+:::image type="content" source="~/assets/screenshots/settings.png" alt-text="Screenshot showing the message extension settings option in the compose box context menu" lightbox="~/assets/screenshots/settings.png":::
 
 This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
@@ -298,8 +298,7 @@ app.on('message.ext.query-settings-url', async ({ activity }) => {
           {
             type: 'openUrl',
             title: 'Settings',
-            // ensure the bot endpoint is set in the environment variables
-            // process.env.BOT_ENDPOINT is not populated by default in the Teams Toolkit setup.
+            // ensure BOT_ENDPOINT is set in your .env (Teams Developer CLI does not populate it by default).
             value: `${process.env.BOT_ENDPOINT}/tabs/settings?selectedOption=${escapedSelectedOption}`,
           },
         ],
@@ -409,4 +408,3 @@ app.on('message.ext.setting', async ({ activity, send }) => {
 });
 ```
 ::: zone-end
-

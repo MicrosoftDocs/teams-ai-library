@@ -3,7 +3,7 @@ title: Executing Functions
 description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 # Executing Functions
 

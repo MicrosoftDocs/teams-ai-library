@@ -3,23 +3,28 @@ title: Chat Generation
 description: Comprehensive guide to implementing chat generation with LLMs in Teams, covering setup with ChatPrompt and Model objects, basic message handling, and streaming responses for improved user experience.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
-
 # Chat Generation
 
+::: zone pivot="python"
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="javascript,csharp"
 Before going through this guide, please make sure you have completed the [setup and prerequisites](./setup-and-prereqs.md) guide.
 
 ## Setup
 
 The basic setup involves creating a `ChatPrompt` and giving it the `Model` you want to use.
 
-:::image type="content" source="~/assets/diagrams/ai-chat-setup.png" alt-text="Flowchart showing chat prompt setup with messages, instructions, and options feeding into a prompt connected to a model, which can use Azure OpenAI, OpenAI, Claude, or other LLM providers" lightbox="~/assets/diagrams/ai-chat-setup.png":::
+:::image type="content" source="~/assets/diagrams/chat.png" alt-text="Flowchart showing chat generation architecture with messages, model configuration, and LLM provider integration" lightbox="~/assets/diagrams/chat.png":::
+
 
 ## Simple chat generation
 
 Chat generation is the the most basic way of interacting with an LLM model. It involves setting up your ChatPrompt, the Model, and sending it the message.
-
+::: zone-end
 
 ::: zone pivot="csharp"
 Import the relevant namespaces:
@@ -38,17 +43,6 @@ using Microsoft.Teams.Apps.Annotations;
 Create a ChatModel, ChatPrompt, and handle user - LLM interactions:
 ::: zone-end
 
-::: zone pivot="python"
-Import the relevant objects:
-
-```python
-from microsoft_teams.ai import ChatPrompt
-from microsoft_teams.api import MessageActivity, MessageActivityInput
-from microsoft_teams.apps import ActivityContext
-from microsoft_teams.openai import OpenAICompletionsAIModel
-```
-::: zone-end
-
 ::: zone pivot="typescript"
 Import the relevant objects:
 
@@ -56,6 +50,7 @@ Import the relevant objects:
 import { OpenAIChatModel } from '@microsoft/teams.openai';
 ```
 ::: zone-end
+
 
 
 
@@ -83,7 +78,7 @@ var azureOpenAI = new AzureOpenAIClient(
 var aiModel = new OpenAIChatModel(azureOpenAIModel, azureOpenAI);
 
 // Simple chat handler
-teamsApp.OnMessage(async (context) =>
+teamsApp.OnMessage(async (context, cancellationToken) =>
 {
     var prompt = new OpenAIChatPrompt(aiModel, new ChatPromptOptions
     {
@@ -97,28 +92,10 @@ teamsApp.OnMessage(async (context) =>
         {
             Text = result.Content,
         }.AddAIGenerated();
-        await context.Send(messageActivity);
+        await context.Send(messageActivity, cancellationToken);
         // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol' salty sea dog help ye with? 🚢☠️
     }
 });
-```
-::: zone-end
-
-::: zone pivot="python"
-```python
-@app.on_message
-async def handle_message(ctx: ActivityContext[MessageActivity]):
-    openai_model = OpenAICompletionsAIModel(model=AZURE_OPENAI_MODEL)
-    agent = ChatPrompt(model=openai_model)
-
-    chat_result = await agent.send(
-        input=ctx.activity.text,
-        instructions="You are a friendly assistant who talks like a pirate."
-    )
-    result = chat_result.response
-    if result.content:
-        await ctx.send(MessageActivityInput(text=result.content).add_ai_generated())
-        # Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas? What can this ol' salty sea dog help ye with? 🚢☠️
 ```
 ::: zone-end
 
@@ -155,6 +132,7 @@ app.on('message', async ({ send, activity, next, log }) => {
 
 
 
+
 ::: zone pivot="csharp"
 ### Declarative Approach
 
@@ -185,7 +163,7 @@ using Microsoft.Teams.Api.Activities;
 var aiModel = new OpenAIChatModel(azureOpenAIModel, azureOpenAI);
 
 // Use the prompt with OpenAIChatPrompt.From()
-teamsApp.OnMessage(async (context) =>
+teamsApp.OnMessage(async (context, cancellationToken) =>
 {
     var prompt = OpenAIChatPrompt.From(aiModel, new Samples.AI.Prompts.PiratePrompt());
 
@@ -193,20 +171,17 @@ teamsApp.OnMessage(async (context) =>
 
     if (!string.IsNullOrEmpty(result.Content))
     {
-        await context.Send(new MessageActivity { Text = result.Content }.AddAIGenerated());
+        await context.Send(new MessageActivity { Text = result.Content }.AddAIGenerated(), cancellationToken);
         // Ahoy, matey! 🏴‍☠️ How be ye doin' this fine day on th' high seas?
     }
 });
 ```
 ::: zone-end
 
-::: zone pivot="python"
-<!-- Not applicable -->
-::: zone-end
-
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
+
 
 
 
@@ -215,40 +190,30 @@ teamsApp.OnMessage(async (context) =>
 > The current `OpenAIChatModel` implementation uses chat-completions API. The responses API is coming soon.
 ::: zone-end
 
-::: zone pivot="python"
-> [!NOTE]
-> The current `OpenAICompletionsAIModel` implementation uses Chat Completions API. The Responses API is also available.
-::: zone-end
 
 
 
 ::: zone pivot="csharp"
 <!-- Not applicable -->
-::: zone-end
-
-::: zone pivot="python"
-### Agent
-
-Instead of `ChatPrompt`, you may also use `Agent`. The `Agent` class is a derivation from `ChatPrompt` but it differs in that it's stateful. The `memory` object passed to the `Agent` object will be reused for subsequent calls to `send`, whereas for `ChatPrompt`, each call to `send` is independent.
 ::: zone-end
 
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
 
-
+::: zone pivot="javascript,csharp"
 ## Streaming chat responses
 
 LLMs can take a while to generate a response, so often streaming the response leads to a better, more responsive user experience.
 
 > [!WARNING]
 > Streaming is only currently supported for single 1:1 chats, and not for groups or channels.
-
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
 // Streaming handler
-teamsApp.OnMessage(async (context) =>
+teamsApp.OnMessage(async (context, cancellationToken) =>
 {
     var match = Regex.Match(context.Activity.Text ?? "", @"^stream\s+(.+)", RegexOptions.IgnoreCase);
     if (match.Success)
@@ -266,35 +231,6 @@ teamsApp.OnMessage(async (context) =>
         });
     }
 });
-```
-::: zone-end
-
-::: zone pivot="python"
-```python
-from microsoft_teams.ai import ChatPrompt
-from microsoft_teams.api import MessageActivity, MessageActivityInput
-from microsoft_teams.apps import ActivityContext
-from microsoft_teams.openai import OpenAICompletionsAIModel
-# ...
-
-@app.on_message
-async def handle_message(ctx: ActivityContext[MessageActivity]):
-    openai_model = OpenAICompletionsAIModel(model=AZURE_OPENAI_MODEL)
-    agent = ChatPrompt(model=openai_model)
-
-    chat_result = await agent.send(
-        input=ctx.activity.text,
-        instructions="You are a friendly assistant who responds in terse language.",
-        on_chunk=lambda chunk: ctx.stream.emit(chunk)
-    )
-    result = chat_result.response
-
-    if ctx.activity.conversation.is_group:
-        # If the conversation is a group chat, we need to send the final response
-        # back to the group chat
-        await ctx.send(MessageActivityInput(text=result.content).add_ai_generated())
-    else:
-        ctx.stream.emit(MessageActivityInput().add_ai_generated())
 ```
 ::: zone-end
 
@@ -334,5 +270,6 @@ app.on('message', async ({ stream, send, activity, next, log }) => {
 ```
 ::: zone-end
 
-
+::: zone pivot="javascript,csharp"
 :::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window." lightbox="~/assets/screenshots/streaming-chat.gif":::
+::: zone-end

@@ -3,7 +3,7 @@ title: Microsoft Graph Client
 description: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 # Microsoft Graph Client
 

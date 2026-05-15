@@ -3,7 +3,7 @@ title: Graph API Client
 description: Guide to using the Microsoft Graph API client to access Microsoft 365 data and services from your Teams SDK application.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Graph API Client
@@ -36,6 +36,8 @@ The SDK gives your application easy access to the Microsoft Graph API via the `@
 > If you're migrating from an earlier preview version of the Teams SDK, please see the [migration guide](../migrations/v2-previews.md) for details on breaking changes.
 ::: zone-end
 
+
+
 ::: zone pivot="csharp"
 <!-- Not applicable -->
 ::: zone-end
@@ -49,11 +51,11 @@ The SDK gives your application easy access to the Microsoft Graph API via the `@
 
 The Graph API surface is vast, and this is reflected in the size of the endpoints packages. To help you manage the size of your product, we made sure that the endpoints code is tree-shakable. We also made most of the code into an optional dependency, in case tree-shaking is not supported in your environment.
 
-| Package                                 | Optional | Contains                                                                            |
+| Package | Optional | Contains |
 | --------------------------------------- | -------- | ----------------------------------------------------------------------------------- |
-| `@microsoft/teams.graph`                | No       | A tiny client to create and issue Graph HTTP requests.                              |
-| `@microsoft/teams.graph-endpoints`      | Yes      | Request-builder functions and types to call any of the production ready Graph APIs. |
-| `@microsoft/teams.graph-endpoints-beta` | Yes      | Same, but for Graph APIs still in preview.                                          |
+| `@microsoft/teams.graph` | No | A tiny client to create and issue Graph HTTP requests. |
+| `@microsoft/teams.graph-endpoints` | Yes | Request-builder functions and types to call any of the production ready Graph APIs. |
+| `@microsoft/teams.graph-endpoints-beta` | Yes | Same, but for Graph APIs still in preview. |
 
 To use this SDK to call Graph APIs, the first step is to install the optional endpoints package using your favorite package manager. For instance:
 
@@ -115,6 +117,8 @@ app.graph.call(endpoints.me.get).then((user) => {
 ```
 ::: zone-end
 
+
+
 ::: zone pivot="csharp"
 To access the graph using the user's token, you need to do this as part of a message handler:
 ::: zone-end
@@ -127,11 +131,13 @@ You can also access the graph using the user's token from within a message handl
 You can also access the graph using the user's token from within a message handler via the `userGraph` prop.
 ::: zone-end
 
+
+
 ::: zone pivot="csharp"
 
 
 ```csharp
-app.OnMessage(async context =>
+app.OnMessage(async (context, cancellationToken) =>
 {
     var user = await context.UserGraph.Me.GetAsync();
     Console.WriteLine($"User ID: {user.id}");
@@ -273,6 +279,8 @@ const { displayName } = await app.graph.call(getMyDisplayName);
 ```
 ::: zone-end
 
+
+
 ::: zone pivot="csharp"
 <!-- Not applicable -->
 ::: zone-end
@@ -292,19 +300,18 @@ Microsoft Graph offers an extensive and thoroughly documented API surface. These
 
 In addition, the following endpoints may be especially interesting to Teams developers:
 
-| Graph endpoints                                                                                                                | Description                                                         |
+| Graph endpoints | Description |
 | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| [appCatalogs](/graph/api/appcatalogs-list-teamsapps)                      | Apps in the Teams App Catalog                                       |
-| [appRoleAssignments](/graph/api/serviceprincipal-list-approleassignments) | App role assignments                                                |
-| [applicationTemplates](/graph/api/resources/applicationtemplate)          | Applications in the Microsoft Entra App Gallery                     |
-| [applications](/graph/api/resources/application)                          | Application resources                                               |
-| [chats](/graph/api/chat-list)                                   | Chat resources between users                                        |
-| [communications](/graph/api/application-post-calls)                       | Calls and Online meetings                                           |
-| [employeeExperience](/graph/api/resources/engagement-api-overview)        | Employee Experience and Engagement                                  |
-| [me](/graph/api/user-get)                                       | Same as `/users` but scoped to one user (who is making the request) |
-| [teams](/graph/api/resources/team)                                        | Team resources in Microsoft Teams                                   |
-| [teamsTemplates](/microsoftteams/get-started-with-teams-templates)                            | Templates used to create teams                                      |
-| [teamwork](/graph/api/resources/teamwork)                                 | A range of Microsoft Teams functionalities                          |
-| [users](/graph/api/resources/users)                                       | User resources                                                      |
+| [appCatalogs](/graph/api/appcatalogs-list-teamsapps) | Apps in the Teams App Catalog |
+| [appRoleAssignments](/graph/api/serviceprincipal-list-approleassignments) | App role assignments |
+| [applicationTemplates](/graph/api/resources/applicationtemplate) | Applications in the Microsoft Entra App Gallery |
+| [applications](/graph/api/resources/application) | Application resources |
+| [chats](/graph/api/chat-list) | Chat resources between users |
+| [communications](/graph/api/application-post-calls) | Calls and Online meetings |
+| [employeeExperience](/graph/api/resources/engagement-api-overview) | Employee Experience and Engagement |
+| [me](/graph/api/user-get) | Same as `/users` but scoped to one user (who is making the request) |
+| [teams](/graph/api/resources/team) | Team resources in Microsoft Teams |
+| [teamsTemplates](/microsoftteams/get-started-with-teams-templates) | Templates used to create teams |
+| [teamwork](/graph/api/resources/teamwork) | A range of Microsoft Teams functionalities |
+| [users](/graph/api/resources/users) | User resources |
 ::: zone-end
-

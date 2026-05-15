@@ -2,6 +2,12 @@
   href: index.yml
 - name: Welcome
   href: welcome.md
+- name: Get Started
+  items:
+    - name: "Quickstart: Register your app"
+      href: get-started/quickstart-register.md
+    - name: "Quickstart: Build your first bot"
+      href: get-started/quickstart-build.md
 - name: Why an SDK?
   href: why.md
 - name: Teams Integration
@@ -10,21 +16,15 @@
       href: teams/overview.md
     - name: Teams Core Concepts
       href: teams/core-concepts.md
-    - name: Basic Configuration
-      items:
-        - name: Overview
-          href: teams/configuration/overview.md
-        - name: Microsoft 365 Agents Toolkit
-          href: teams/configuration/agents-toolkit.md
-        - name: Manual Configuration
-          href: teams/configuration/manual-configuration.md
+    - name: Azure Configuration
+      href: teams/azure-configuration.md
     - name: App Authentication Setup
       items:
         - name: Overview
           href: teams/app-authentication/overview.md
         - name: Client Secret Setup
           href: teams/app-authentication/client-secret.md
-        - name: User Managed Identity Setup
+        - name: User Assigned Managed Identity Setup
           href: teams/app-authentication/user-managed-identity.md
         - name: Federated Identity Credentials Setup
           href: teams/app-authentication/federated-identity-credentials.md
@@ -76,8 +76,10 @@
       href: essentials/app-authentication.md
     - name: API Client
       href: essentials/api.md
-    - name: Hosting Static Pages
-      href: essentials/hosting-static-pages.md
+    - name: App Configuration
+      items:
+        - name: Sovereign Cloud
+          href: essentials/app-configuration/sovereign-cloud.md
     - name: Graph API Client
       href: essentials/graph.md
 - name: In-Depth Guides
@@ -112,7 +114,7 @@
           href: in-depth-guides/message-extensions/search-commands.md
         - name: Settings
           href: in-depth-guides/message-extensions/settings.md
-        - name: Link Unfurling
+        - name: Link unfurling
           href: in-depth-guides/message-extensions/link-unfurling.md
     - name: User Authentication
       href: in-depth-guides/user-authentication.md
@@ -146,11 +148,23 @@
               href: in-depth-guides/ai/a2a/a2a-server.md
             - name: A2A Client
               href: in-depth-guides/ai/a2a/a2a-client.md
+    - name: AI Integrations
+      items:
+        - name: Overview
+          href: in-depth-guides/ai-integrations/overview.md
+        - name: Build an agent in Teams
+          href: in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework.md
+        - name: Teams Enhancements
+          href: in-depth-guides/ai-integrations/teams-enhancements.md
+        - name: Exposing Teams to AI Agents (MCP)
+          href: in-depth-guides/ai-integrations/mcp-server.md
+        - name: Bot-to-Bot with A2A
+          href: in-depth-guides/ai-integrations/a2a.md
     - name: Tabs
       items:
         - name: Overview
           href: in-depth-guides/tabs/overview.md
-        - name: Getting Started
+        - name: Getting started
           href: in-depth-guides/tabs/getting-started.md
         - name: Using the App
           href: in-depth-guides/tabs/using-the-app.md
@@ -168,10 +182,16 @@
       href: in-depth-guides/feedback.md
     - name: Meeting Events
       href: in-depth-guides/meeting-events.md
+    - name: Message Reactions
+      href: in-depth-guides/message-reactions.md
+    - name: Server
+      items:
+        - name: Static Pages
+          href: in-depth-guides/server/static-pages.md
+        - name: Self-Managing Your Server
+          href: in-depth-guides/server/http-server.md
     - name: Observability
       items:
-        - name: Overview
-          href: in-depth-guides/observability/overview.md
         - name: Middleware
           href: in-depth-guides/observability/middleware.md
         - name: Custom Logger
@@ -196,16 +216,20 @@
           href: migrations/botbuilder/user-authentication.md
     - name: Migrating from Teams SDK v1
       href: migrations/v1.md
-    - name: From V2 Previews
-      href: migrations/v2-previews.md
     - name: Porting your Slack Bolt bot
       href: migrations/slack-bolt.md
+    - name: From V2 Previews
+      href: migrations/v2-previews.md
 - name: Developer Tools
   items:
     - name: Overview
       href: developer-tools/overview.md
-    - name: Teams CLI
+    - name: Teams Developer CLI
       href: developer-tools/cli.md
+    - name: Agent Skills
+      href: developer-tools/agent-skills.md
+    - name: llms.txt
+      href: developer-tools/llms-text.md
     - name: DevTools
       items:
         - name: Overview

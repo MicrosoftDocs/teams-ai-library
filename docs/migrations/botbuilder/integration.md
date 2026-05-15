@@ -3,7 +3,7 @@ title: Using the BotBuilder Plugin
 description: How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 
@@ -71,8 +71,10 @@ With the `BotBuilderPlugin`, when a message or activity is received:
 > [!NOTE]
 > This snippet shows how to use the `BotBuilderPlugin` to send and receive activities using botbuilder instead of the default Teams SDK http plugin.
 
+
 ::: zone pivot="csharp"
-## [Program.cs](#tab/programcs)
+# [Program.cs](#tab/programcs)
+
 
 ```csharp
 
@@ -99,14 +101,17 @@ public static partial class Program
         app.Run();
     }
 
-    teams.OnMessage(async context =>
+    teams.OnMessage(async (context, cancellationToken) =>
     {
-        await context.Client.Typing();
-        await context.Client.Send($"hi from teams...");
+        await context.Client.Typing(cancellationToken);
+        await context.Client.Send($"hi from teams...", cancellationToken);
     });
 }
 ```
-## [BotBuilderAdapter.cs](#tab/botbuilderadaptercs)
+
+# [BotBuilderAdapter.cs](#tab/botbuilderadaptercs)
+
+
 ```csharp
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Connector.Authentication;
@@ -129,7 +134,10 @@ public class BotBuilderAdapter : CloudAdapter
 }
 // highlight-end
 ```
-## [ActivityHandler.cs](#tab/activityhandlercs)
+
+# [ActivityHandler.cs](#tab/activityhandlercs)
+
+
 ```csharp
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
@@ -146,11 +154,15 @@ public class Bot : ActivityHandler
 }
 // highlight-end
 ```
+
 ---
+
 ::: zone-end
 
 ::: zone pivot="python"
-## [app.py](#tab/apppy)
+# [app.py](#tab/apppy)
+
+
 ```python
 import asyncio
 from adapter import adapter
@@ -171,7 +183,10 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 if __name__ == "__main__":
     asyncio.run(app.start())
 ```
-## [adapter.py](#tab/adapterpy)
+
+# [adapter.py](#tab/adapterpy)
+
+
 ```python
 from botbuilder.core import TurnContext
 from botbuilder.integration.aiohttp import (
@@ -199,7 +214,10 @@ async def on_error(context: TurnContext, error: Exception):
 adapter.on_turn_error = on_error
 # highlight-end
 ```
-## [activity_handler.py](#tab/activity-handlerpy)
+
+# [activity_handler.py](#tab/activityhandlerpy)
+
+
 ```python
 from botbuilder.core import ActivityHandler, TurnContext
 
@@ -210,11 +228,15 @@ class MyActivityHandler(ActivityHandler):
         await turn_context.send_activity("hi from botbuilder...")
 # highlight-end
 ```
+
 ---
+
 ::: zone-end
 
 ::: zone pivot="typescript"
-## [index.ts](#tab/indexts)
+# [index.ts](#tab/indexts)
+
+
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { BotBuilderPlugin } from '@microsoft/teams.botbuilder';
@@ -235,7 +257,10 @@ app.on('message', async ({ send }) => {
   await app.start();
 })();
 ```
-## [adapter.ts](#tab/adapterts)
+
+# [adapter.ts](#tab/adapterts)
+
+
 ```typescript
 import { CloudAdapter } from 'botbuilder';
 
@@ -256,7 +281,10 @@ const adapter = new CloudAdapter(
 
 export default adapter;
 ```
-## [activity-handler.ts](#tab/activity-handlerts)
+
+# [activity-handler.ts](#tab/activity-handlerts)
+
+
 ```typescript
 import { TeamsActivityHandler } from 'botbuilder';
 
@@ -276,7 +304,9 @@ export class ActivityHandler extends TeamsActivityHandler {
 const handler = new ActivityHandler();
 export default handler;
 ```
+
 ---
+
 ::: zone-end
 
 

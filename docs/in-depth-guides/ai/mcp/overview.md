@@ -2,11 +2,16 @@
 title: MCP
 description: Overview of Model Context Protocol (MCP) integration in Teams SDK for dynamic function and tool loading.
 ms.topic: how-to
-ms.date: 04/14/2026
+zone_pivot_groups: dev-lang
+ms.date: 05/15/2026
 ---
-
 # MCP
 
+::: zone pivot="python"
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="javascript,csharp"
 Teams SDK has optional packages which support the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) as a service or client. This allows you to use MCP to call functions and tools in your application.
 
 MCP servers and MCP clients dynamically load function definitions and tools.
@@ -17,3 +22,4 @@ When building Clients, this could mean that you can connect to other MCP servers
 
 > [!TIP]
 > The guides here can be used to build a server and a client that can leverage each other. That means you can build a server that has the ability to do complex things for the client agent.
+::: zone-end

@@ -3,7 +3,7 @@ title: Tabs
 description: Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 # Tabs
 
@@ -11,7 +11,7 @@ ms.date: 04/14/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="typescript,csharp"
+::: zone pivot="javascript,csharp"
 Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
 ::: zone-end
 
@@ -30,10 +30,10 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 - **Scope Consent Management** by providing simple APIs to test for and request user consent.
 ::: zone-end
 
-::: zone pivot="typescript,csharp"
+::: zone pivot="javascript,csharp"
 ## Resources
 
-- [Tabs overview](/microsoftteams/platform/tabs/what-are-tabs?tabs=personal)
+- [Tabs overview](/microsoftteams/platform/tabs/what-are-tabs)
 - [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library)
 - [Microsoft Graph overview](/graph/overview)
 - [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
@@ -43,14 +43,12 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 ::: zone pivot="csharp"
 ### Additional resources
 
-- [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)
-- [TypeScript Tabs in-depth guide](getting-started.md)
+- [Static Pages](../server/static-pages.md)
+- [TypeScript Tabs in-depth guide](overview.md)
 ::: zone-end
 
 ::: zone pivot="typescript"
 ### Additional resources
 
-- [Hosting Apps/Static Pages](../../essentials/hosting-static-pages.md)
+- [Static Pages](../server/static-pages.md)
 ::: zone-end
-
-

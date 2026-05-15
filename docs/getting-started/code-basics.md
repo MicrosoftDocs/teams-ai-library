@@ -3,7 +3,7 @@ title: Code Basics
 description: Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 
@@ -92,10 +92,10 @@ builder.AddTeams().AddTeamsDevTools();
 var app = builder.Build();
 var teams = app.UseTeams();
 
-teams.OnMessage(async context =>
+teams.OnMessage(async (context, cancellationToken) =>
 {
-    await context.Typing();
-    await context.Send($"you said '{context.Activity.Text}'");
+    await context.Typing(cancellationToken);
+    await context.Send($"you said '{context.Activity.Text}'", cancellationToken);
 });
 
 app.Run();
@@ -105,10 +105,9 @@ app.Run();
 ::: zone pivot="python"
 ```python title="src/main.py"
 from microsoft_teams.api import MessageActivity, TypingActivityInput
-from microsoft_teams.apps import ActivityContext, App, AppOptions
-from microsoft_teams.devtools import DevToolsPlugin
+from microsoft_teams.apps import ActivityContext, App
 
-app = App(plugins=[DevToolsPlugin()])
+app = App()
 
 ```
 ::: zone-end
@@ -131,17 +130,12 @@ The app configuration includes a variety of options that allow you to customize 
 ### Plugins
 
 ::: zone pivot="csharp,typescript"
-Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (onActivity, onActivitySent, etc.).
 ::: zone-end
 
 ::: zone pivot="python"
-Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (on_activity, on_activity_sent, etc.). In fact, the [DevTools](../developer-tools/devtools/overview.md) application you already have running is a plugin too. It allows you to inspect and debug your application in real-time.
+Plugins are a core part of the Teams SDK. They allow you to hook into various lifecycles of the application. The lifecycles include server events (start, stop, initialize, etc.), and also Teams Activity events (on_activity, on_activity_sent, etc.).
 ::: zone-end
-
-> [!WARNING]
-> DevTools is a plugin that should only be used in development mode. It should not be used in production applications since it offers no authentication and allows your application to be accessed by anyone.
->
-> **Be sure to remove the DevTools plugin from your production code.**
 
 ### Message Handling
 
@@ -150,10 +144,10 @@ Teams applications respond to various types of activities. The most basic is han
 
 ::: zone pivot="csharp"
 ```csharp title="Program.cs"
-teams.OnMessage(async context =>
+teams.OnMessage(async (context, cancellationToken) =>
 {
-    await context.Typing();
-    await context.Send($"you said \"{context.activity.Text}\"");
+    await context.Typing(cancellationToken);
+    await context.Send($"you said \"{context.activity.Text}\"", cancellationToken);
 });
 ```
 ::: zone-end
@@ -250,14 +244,13 @@ This code initializes your application server and, when configured for Teams, al
 
 ## Next Steps
 
-Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams/overview.md). You will learn about Microsoft 365 Agents Toolkit and other important tools that help you with deployment and testing your application.
+Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams/overview.md). You'll use the Teams Developer CLI to register your bot and sideload it into Teams.
 
 After that, you can:
 
 - Add more activity handlers for different types of interactions. See [Listening to Activities](../essentials/on-activity/overview.md) for more details.
 - Integrate with external services using the [API Client](../essentials/api.md).
 - Add interactive [cards](../in-depth-guides/adaptive-cards/overview.md) and [dialogs](../in-depth-guides/dialogs/overview.md).
-- Implement [AI](../in-depth-guides/ai/overview.md).
 
 Continue on to the next page to learn about these advanced features.
 
