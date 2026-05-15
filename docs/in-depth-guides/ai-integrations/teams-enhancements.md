@@ -48,7 +48,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
     # highlight-success-end
 ```
 
-## Feedback
+## User feedback
 
 `add_feedback(mode="custom")` enables built-in thumbs up/down controls on the reply and lets you surface a custom feedback form when users respond.
 
