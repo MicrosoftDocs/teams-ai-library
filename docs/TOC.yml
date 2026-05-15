@@ -153,7 +153,7 @@
         - name: Exposing Teams to AI Agents (MCP)
           href: in-depth-guides/ai-integrations/mcp-server.md
         - name: Bot-to-Bot with A2A
-          href: in-depth-guides/ai-integrations/agent-to-agent.md
+          href: in-depth-guides/ai-integrations/a2a.md
     - name: Tabs
       items:
         - name: Overview

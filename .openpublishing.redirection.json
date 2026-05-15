@@ -24,26 +24,6 @@
       "source_path": "docs/teams/configuration/manual-configuration.md",
       "redirect_url": "/microsoftteams/platform/teams-sdk/teams/azure-configuration",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/developer-tools/llms-txt.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/developer-tools/llms-text",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/in-depth-guides/ai-integrations/a2a.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/agent-to-agent",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/in-depth-guides/ai-integrations/build-agent-maf.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "docs/teams/choosing-an-sdk.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/sdk-comparison",
-      "redirect_document_id": false
     }
   ]
 }

@@ -93,7 +93,7 @@ landingContent:
           - text: Expose Teams to AI Agents (MCP)
             url: ./in-depth-guides/ai-integrations/mcp-server.md
           - text: Bot-to-Bot with A2A
-            url: ./in-depth-guides/ai-integrations/agent-to-agent.md
+            url: ./in-depth-guides/ai-integrations/a2a.md
 
   # Advanced Features & Integration
   - title: Extend your agents with rich interactions
