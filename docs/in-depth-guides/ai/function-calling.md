@@ -124,9 +124,9 @@ public static async Task HandlePokemonSearch(OpenAIChatModel model, IContext<Mes
 # [Declarative](#tab/declarative)
 
 
-    This approach uses attributes to declare prompts and functions, providing clean separation of concerns.
+This approach uses attributes to declare prompts and functions, providing clean separation of concerns.
 
-    **Create a Prompt Class:**
+**Create a Prompt Class:**
 
 ```csharp
 using System.Text.Json;
@@ -175,7 +175,7 @@ public class PokemonPrompt
 }
 ```
 
-    **Usage in Program.cs:**
+**Usage in Program.cs:**
 
 ```csharp
 using Microsoft.Teams.AI.Models.OpenAI;
@@ -357,7 +357,7 @@ public static async Task HandleMultipleFunctions(OpenAIChatModel model, IContext
 # [Declarative](#tab/declarative)
 
 
-    **Create a Prompt Class:**
+**Create a Prompt Class:**
 
 ```csharp
 using Microsoft.Teams.AI.Annotations;
@@ -399,7 +399,7 @@ public class WeatherPrompt
 }
 ```
 
-    **Usage in Program.cs:**
+**Usage in Program.cs:**
 
 ```csharp
 using Microsoft.Teams.AI.Models.OpenAI;
