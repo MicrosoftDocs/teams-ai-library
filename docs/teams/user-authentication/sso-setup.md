@@ -4,7 +4,7 @@ description: Describes how to configure SSO in Teams
 ms.topic: how-to
 ms.date: 05/15/2026
 ---
-
+<!-- markdownlint-disable MD024 -->
 
 # SSO Setup
 
