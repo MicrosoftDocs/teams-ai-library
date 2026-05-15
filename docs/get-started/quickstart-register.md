@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
 title: "Quickstart: Register your app"
-summary: Register a Teams app and bot using the Teams Developer CLI, then sideload into Teams.
+description: Register a Teams app and bot using the Teams Developer CLI, then sideload into Teams.
+ms.topic: quickstart
+ms.date: 05/15/2026
 ---
 
 # Quickstart: Register your app

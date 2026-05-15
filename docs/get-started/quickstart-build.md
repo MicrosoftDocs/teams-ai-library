@@ -1,7 +1,8 @@
 ---
-sidebar_position: 2
 title: "Quickstart: Build your first bot"
-summary: Wire up a message handler in TypeScript, C#, or Python with the Teams SDK.
+description: Wire up a message handler in TypeScript, C#, or Python with the Teams SDK.
+ms.topic: quickstart
+ms.date: 05/15/2026
 ---
 
 # Quickstart: Build your first bot
