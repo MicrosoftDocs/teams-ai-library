@@ -12,14 +12,14 @@ Register a Teams app and its bot infrastructure with the [Teams Developer CLI](/
 If you don't have an agent yet, step 3 scaffolds one using the Teams SDK. If you already have a server, skip step 3 and pass your endpoint to step 4.
 
 :::tip Let your AI assistant do this for you
-Install the [`teams-dev` skill](/developer-tools/agent-skills) in Claude Code, GitHub Copilot, Cursor, or VS Code, then say *"create a Teams bot"* — your assistant runs every step on this page for you, including the tunnel setup and sideload link.
+Install the [`teams-dev` skill](../developer-tools/agent-skills.md) in Claude Code, GitHub Copilot, Cursor, or VS Code, then say *"create a Teams bot"* — your assistant runs every step on this page for you, including the tunnel setup and sideload link.
 :::
 
 ## Prerequisites
 
 - Node.js 20 or later
 - An M365 account with **custom app upload (sideloading) enabled** on the tenant. Step 2 will check this.
-- A public HTTPS tunnel pointing at your local server (e.g. [DevTunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview), [ngrok](https://ngrok.com/)). Start it before step 4.
+- A public HTTPS tunnel pointing at your local server (e.g. [DevTunnels](/azure/developer/dev-tunnels/overview), [ngrok](https://ngrok.com/)). Start it before step 4.
 
 ## 1. Install the CLI
 
@@ -35,25 +35,20 @@ teams login
 teams status
 ```
 
-`teams status` should show `Sideloading: enabled`. If it shows `disabled`, your tenant admin needs to enable [custom app upload](https://learn.microsoft.com/en-us/microsoftteams/teams-custom-app-policies-and-settings) before you can install your bot.
+`teams status` should show `Sideloading: enabled`. If it shows `disabled`, your tenant admin needs to enable [custom app upload](/microsoftteams/teams-custom-app-policies-and-settings) before you can install your bot.
 
 ## 3. Scaffold a project
 
 Skip this step if you're bringing your own server endpoint.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs groupId="language">
-<TabItem value="typescript" label="TypeScript" default>
+# [TypeScript](#tab/typescript)
 
 ```bash
 teams project new typescript echo-bot
 cd echo-bot
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+# [C#](#tab/csharp)
 
 ```bash
 teams project new csharp echo-bot
@@ -62,31 +57,28 @@ cd Echo.Bot/Echo.Bot
 
 The C# scaffold creates a solution at `Echo.Bot/` with the project nested inside. Follow the **Next steps** line printed by the CLI for the exact path.
 
-</TabItem>
-<TabItem value="python" label="Python">
+# [Python](#tab/python)
 
 ```bash
 teams project new python echo-bot
 cd echo-bot
 ```
 
-</TabItem>
-</Tabs>
+---
 
 The default template is `echo`. Run `teams project new <language> --help` to see other templates available for your language.
 
 ## 4. Register bot infrastructure
 
 :::note Start your tunnel first
-Teams must reach your bot over **public HTTPS** — your `localhost` port isn't reachable from Teams' servers. Before running the command below, start a tunnel (e.g. [DevTunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/overview) or [ngrok](https://ngrok.com/)) and replace `<tunnel-host>` with the hostname it gives you.
+Teams must reach your bot over **public HTTPS** — your `localhost` port isn't reachable from Teams' servers. Before running the command below, start a tunnel (e.g. [DevTunnels](/azure/developer/dev-tunnels/overview) or [ngrok](https://ngrok.com/)) and replace `<tunnel-host>` with the hostname it gives you.
 
-[Learn more about local tunnels →](/cli/concepts/local-tunnels)
+[Learn more about local tunnels →](../developer-tools/cli.md)
 :::
 
 Run from inside your project directory:
 
-<Tabs groupId="language">
-<TabItem value="typescript" label="TypeScript" default>
+# [TypeScript](#tab/typescript)
 
 ```bash
 teams app create \
@@ -95,8 +87,7 @@ teams app create \
   --env .env
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+# [C#](#tab/csharp)
 
 ```bash
 teams app create \
@@ -107,8 +98,7 @@ teams app create \
 
 Credentials are written under a `Teams` section with PascalCase keys (`ClientId`, `ClientSecret`, `TenantId`).
 
-</TabItem>
-<TabItem value="python" label="Python">
+# [Python](#tab/python)
 
 ```bash
 teams app create \
@@ -117,38 +107,33 @@ teams app create \
   --env .env
 ```
 
-</TabItem>
-</Tabs>
+---
 
 The command prints a summary including the **Teams App ID** and an **Install in Teams** link, and writes credentials into your env file.
 
 ## 5. Run your agent
 
-<Tabs groupId="language">
-<TabItem value="typescript" label="TypeScript" default>
+# [TypeScript](#tab/typescript)
 
 ```bash
 npm install
 npm run dev
 ```
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+# [C#](#tab/csharp)
 
 ```bash
 dotnet run
 ```
 
-</TabItem>
-<TabItem value="python" label="Python">
+# [Python](#tab/python)
 
 ```bash
 pip install -e .
 python src/main.py
 ```
 
-</TabItem>
-</Tabs>
+---
 
 You should see `listening on port 3978 🚀` in the terminal. Your tunnel will now forward Teams traffic to your local server.
 
@@ -168,6 +153,6 @@ Send your bot a message to confirm it's working.
 
 ## What's next
 
-- [Quickstart: Build your first bot](./quickstart-build) — wire up handlers and reply logic
-- [Agent Skills](/developer-tools/agent-skills) — let your AI coding assistant run this whole flow for you
-- [CLI command reference](/cli/commands/) — every flag, every subcommand
+- [Quickstart: Build your first bot](./quickstart-build.md) — wire up handlers and reply logic
+- [Agent Skills](../developer-tools/agent-skills.md) — let your AI coding assistant run this whole flow for you
+- [CLI command reference](../developer-tools/cli.md) — every flag, every subcommand

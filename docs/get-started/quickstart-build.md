@@ -10,16 +10,12 @@ ms.date: 05/15/2026
 Write a bot that responds to messages in Teams using the Teams SDK. Pick your language below.
 
 :::tip
-If you haven't registered your Teams app yet, start with [Quickstart: Register your app](./quickstart-register) — you'll need the credentials before this code can talk to Teams.
+If you haven't registered your Teams app yet, start with [Quickstart: Register your app](./quickstart-register.md) — you'll need the credentials before this code can talk to Teams.
 :::
 
 ## Pick your language
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs groupId="language">
-<TabItem value="typescript" label="TypeScript" default>
+# [TypeScript](#tab/typescript)
 
 If you scaffolded with `teams project new typescript`, your `src/index.ts` already looks like this:
 
@@ -50,10 +46,9 @@ Run it:
 npm run dev
 ```
 
-Continue with the [TypeScript guide](/typescript/getting-started) for events, sending messages, Adaptive Cards, AI, and more.
+Continue with the [TypeScript guide](../getting-started/overview.md?pivots=typescript) for events, sending messages, Adaptive Cards, AI, and more.
 
-</TabItem>
-<TabItem value="csharp" label="C#">
+# [C#](#tab/csharp)
 
 If you scaffolded with `teams project new csharp`, your `Program.cs` already looks like this:
 
@@ -82,10 +77,9 @@ Run it:
 dotnet run
 ```
 
-Continue with the [C# guide](/csharp/getting-started) for events, sending messages, Adaptive Cards, AI, and more.
+Continue with the [C# guide](../getting-started/overview.md?pivots=csharp) for events, sending messages, Adaptive Cards, AI, and more.
 
-</TabItem>
-<TabItem value="python" label="Python">
+# [Python](#tab/python)
 
 If you scaffolded with `teams project new python`, your `src/main.py` already looks like this:
 
@@ -133,13 +127,12 @@ pip install -e .
 python src/main.py
 ```
 
-Continue with the [Python guide](/python/getting-started) for events, sending messages, Adaptive Cards, AI, and more.
+Continue with the [Python guide](../getting-started/overview.md?pivots=python) for events, sending messages, Adaptive Cards, AI, and more.
 
-</TabItem>
-</Tabs>
+---
 
 ## What's next
 
-- **Essentials** — events, activities, sending messages, authentication: [TypeScript](/typescript/essentials) · [C#](/csharp/essentials) · [Python](/python/essentials)
-- **In-depth guides** — Adaptive Cards, AI, MCP, dialogs, tabs, and more: [TypeScript](/typescript/in-depth-guides) · [C#](/csharp/in-depth-guides) · [Python](/python/in-depth-guides)
-- [Quickstart: Register your app](./quickstart-register) — set up bot infrastructure with the Teams Developer CLI
+- **Essentials** — events, activities, sending messages, authentication: [TypeScript](../essentials/overview.md?pivots=typescript) · [C#](../essentials/overview.md?pivots=csharp) · [Python](../essentials/overview.md?pivots=python)
+- **In-depth guides** — Adaptive Cards, AI, MCP, dialogs, tabs, and more: [TypeScript](../in-depth-guides/overview.md?pivots=typescript) · [C#](../in-depth-guides/overview.md?pivots=csharp) · [Python](../in-depth-guides/overview.md?pivots=python)
+- [Quickstart: Register your app](./quickstart-register.md) — set up bot infrastructure with the Teams Developer CLI
