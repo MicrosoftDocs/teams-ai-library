@@ -2,6 +2,12 @@
   href: index.yml
 - name: Welcome
   href: welcome.md
+- name: Get Started
+  items:
+    - name: "Quickstart: Register your app"
+      href: get-started/quickstart-register.md
+    - name: "Quickstart: Build your first bot"
+      href: get-started/quickstart-build.md
 - name: Why an SDK?
   href: why.md
 - name: Teams Integration
