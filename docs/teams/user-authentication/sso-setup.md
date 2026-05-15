@@ -194,7 +194,7 @@ az bot authsetting create \
 
 The Teams application manifest needs to be updated to include `webApplicationInfo` with the `Application Id` and `Application ID URI`.
 
-# [Manifest JSON](#tab/manifest)
+# [Manifest JSON](#tab/portal)
 
 
 
@@ -214,7 +214,7 @@ Add `*.botframework.com` to `validDomains` and add the `webApplicationInfo` sect
  // highlight-end
 ```
 
-# [Teams Developer CLI](#tab/teams-cli)
+# [Teams Developer CLI](#tab/cli)
 
 
 
