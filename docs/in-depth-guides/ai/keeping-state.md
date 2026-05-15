@@ -3,11 +3,15 @@ title: Keeping State
 description: Guide to managing conversation state in LLM interactions, explaining how to maintain chat history using ChatPrompt's state management capabilities and implementing custom persistence strategies for multi-conversation scenarios.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
-
 # Keeping State
 
+::: zone pivot="python"
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="javascript,csharp"
 By default, LLMs are not stateful. This means that they do not remember previous messages or context when generating a response.
 It's common practice to keep state of the conversation history in your application and pass it to the LLM each time you make a request.
 
@@ -16,16 +20,14 @@ when you want to use it to generate an LLM response, but not persist the convers
 
 > [!WARNING]
 > By reusing the same `ChatPrompt` class instance across multiple conversations will lead to the conversation history being shared across all conversations. Which is usually not the desired behavior.
-
 To avoid this, you need to get messages from your persistent (or in-memory) store and pass it in to the `ChatPrompt`.
 
 > [!NOTE]
 > The `ChatPrompt` class will modify the messages object that's passed into it. So if you want to manually manage it, you need to make a copy of the messages object before passing it in.
-
 ## State Initialization
 
 Here's how to initialize and manage conversation state for multiple conversations:
-
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -71,34 +73,6 @@ public static Task ClearConversationMemory(string conversationId)
 ```
 ::: zone-end
 
-::: zone pivot="python"
-```python
-from microsoft_teams.ai import ChatPrompt, ListMemory, AIModel
-from microsoft_teams.openai import OpenAICompletionsAIModel
-
-# Simple in-memory store for conversation histories
-# In your application, it may be a good idea to use a more
-# persistent store backed by a database or other storage solution
-conversation_store: dict[str, ListMemory] = {}
-
-# Initialize AI model
-ai_model = OpenAICompletionsAIModel(model="gpt-4")
-
-def get_or_create_conversation_memory(conversation_id: str) -> ListMemory:
-    """Get or create conversation memory for a specific conversation"""
-    if conversation_id not in conversation_store:
-        conversation_store[conversation_id] = ListMemory()
-    return conversation_store[conversation_id]
-
-async def clear_conversation_memory(conversation_id: str) -> None:
-    """Clear memory for a specific conversation"""
-    if conversation_id in conversation_store:
-        memory = conversation_store[conversation_id]
-        await memory.set_all([])
-        print(f"Cleared memory for conversation {conversation_id}")
-```
-::: zone-end
-
 ::: zone pivot="typescript"
 ```typescript
 import { ChatPrompt, IChatModel, Message } from '@microsoft/teams.ai';
@@ -124,9 +98,9 @@ const getOrCreateConversationHistory = (conversationId: string) => {
 ```
 ::: zone-end
 
-
+::: zone pivot="javascript,csharp"
 ## Usage Example
-
+::: zone-end
 
 ::: zone pivot="csharp"
 ```csharp
@@ -168,49 +142,6 @@ public static async Task HandleStatefulConversation(OpenAIChatModel model, ICont
         await context.Reply("I did not generate a response.");
     }
 }
-```
-::: zone-end
-
-::: zone pivot="python"
-```python
-from microsoft_teams.ai import ChatPrompt, ListMemory, AIModel
-from microsoft_teams.api import MessageActivity, MessageActivityInput
-from microsoft_teams.apps import ActivityContext
-# ...
-
-async def handle_stateful_conversation(model: AIModel, ctx: ActivityContext[MessageActivity]) -> None:
-    """Example of stateful conversation handler that maintains conversation history"""
-    print(f"Received message: {ctx.activity.text}")
-
-    # Retrieve existing conversation memory or initialize new one
-    memory = get_or_create_conversation_memory(ctx.activity.conversation.id)
-
-    # Get existing messages for logging
-    existing_messages = await memory.get_all()
-    print(f"Existing messages before sending to prompt: {len(existing_messages)} messages")
-
-    # Create ChatPrompt with conversation-specific memory
-    chat_prompt = ChatPrompt(model, memory=memory)
-
-    chat_result = await chat_prompt.send(
-        input=ctx.activity.text,
-        instructions="You are a helpful assistant that remembers our previous conversation."
-    )
-
-    if chat_result.response.content:
-        message = MessageActivityInput(text=chat_result.response.content).add_ai_generated()
-        await ctx.send(message)
-    else:
-        await ctx.reply("I did not generate a response.")
-
-    # Log final message count
-    final_messages = await memory.get_all()
-    print(f"Messages after sending to prompt: {len(final_messages)} messages")
-
-@app.on_message
-async def handle_message(ctx: ActivityContext[MessageActivity]):
-    """Handle messages using stateful conversation"""
-    await handle_stateful_conversation(ai_model, ctx)
 ```
 ::: zone-end
 
@@ -260,11 +191,12 @@ export const handleStatefulConversation = async (
 
 
 
+
 ::: zone pivot="csharp"
 ### Usage in your application
 
 ```csharp
-teamsApp.OnMessage(async (context) =>
+teamsApp.OnMessage(async (context, cancellationToken) =>
 {
     await HandleStatefulConversation(aiModel, context);
 });
@@ -280,18 +212,11 @@ teamsApp.OnMessage(async (context) =>
 
 > [!TIP]
 > The `ChatPrompt.Send()` method does **not** automatically update the messages you pass in via `RequestOptions`. You must manually add the user message and AI response to your conversation store after each interaction.
-
 > [!NOTE]
 > In a production application, consider using a more robust storage solution like Azure Cosmos DB, SQL Server, or Redis instead of an in-memory dictionary. This ensures conversation history persists across application restarts and scales across multiple instances.
-
 :::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example" lightbox="~/assets/screenshots/stateful-chat-example.png":::
-::: zone-end
-
-::: zone pivot="python"
-:::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Screenshot of chat between user and agent, user first states 'My dinosaur's name is Barnie' and later asks What's my pet's name and the agent responds correctly with 'Barnie'." lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"
 :::image type="content" source="~/assets/screenshots/stateful-chat-example.png" alt-text="Stateful Chat Example" lightbox="~/assets/screenshots/stateful-chat-example.png":::
 ::: zone-end
-

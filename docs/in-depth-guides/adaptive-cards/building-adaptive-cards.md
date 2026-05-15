@@ -3,7 +3,7 @@ title: Building Adaptive Cards
 description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 
@@ -128,11 +128,11 @@ const card = new AdaptiveCard(
 
 Benefits:
 
-| Benefit     | Description                                                                   |
+| Benefit | Description |
 | ----------- | ----------------------------------------------------------------------------- |
-| Readability | No deep JSON trees—just chain simple methods.                                 |
-| Re‑use      | Extract snippets to functions or classes and share across cards.              |
-| Safety      | Builders validate every property against the Adaptive Card schema (see next). |
+| Readability | No deep JSON trees—just chain simple methods. |
+| Re‑use | Extract snippets to functions or classes and share across cards. |
+| Safety | Builders validate every property against the Adaptive Card schema (see next). |
 
 
 ::: zone pivot="csharp"
@@ -396,7 +396,6 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 
 > [!TIP]
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
-
 ## End‑to‑end Example – Task Form Card
 
 Below is a complete example showing a task management form.
@@ -404,26 +403,33 @@ Below is a complete example showing a task management form.
 
 ::: zone pivot="csharp"
 # [Minimal](#tab/minimal)
+
+
 ```csharp
-teams.OnMessage(async context =>
+teams.OnMessage(async (context, cancellationToken) =>
 {
     var text = context.Activity.Text?.ToLowerInvariant() ?? "";
 
     if (text.Contains("form"))
     {
-        await context.Typing();
+        await context.Typing(cancellationToken);
         var card = CreateTaskFormCard();
-        await context.Send(card);
+        await context.Send(card, cancellationToken);
     }
 });
 ```
+
 ---
+
+
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end
 
 ::: zone pivot="python,typescript"
 Notice how the builder pattern keeps the file readable and maintainable:
 ::: zone-end
+
+
 
 ::: zone pivot="csharp"
 ```csharp

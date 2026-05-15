@@ -3,7 +3,7 @@ title: Sending Activities
 description: Migrate from BotBuilder's TurnContext activity sending to Teams SDK's simplified send method with better Adaptive Card support.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 
@@ -15,6 +15,8 @@ but one key difference is that sending adaptive cards doesn't require constructi
 
 ::: zone pivot="csharp"
 # [Diff](#tab/diff)
+
+
 ```csharp
 // highlight-error-start
 -   using Microsoft.Bot.Builder;
@@ -41,14 +43,17 @@ but one key difference is that sending adaptive cards doesn't require constructi
 // highlight-error-end
 // highlight-success-start
 +   var teams = app.UseTeams();
-+   teams.OnMessage(async (context) =>
++   teams.OnMessage(async (context, cancellationToken) =>
 +   {
-+       await context.Send(new Activity(type:"typing"));
++       await context.Send(new Activity(type:"typing"), cancellationToken);
 +   });
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 
@@ -65,23 +70,31 @@ public class MyActivityHandler : ActivityHandler
     }
 }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Plugins.AspNetCore.Extensions;
 using Microsoft.Teams.Api.Activities;
 
 var teams = app.UseTeams();
-teams.OnMessage(async (context) =>
+teams.OnMessage(async (context, cancellationToken) =>
 {
     // highlight-next-line
-    await context.Send(new Activity(type:"typing"));
+    await context.Send(new Activity(type:"typing"), cancellationToken);
 });
 ```
+
 ---
+
+
 ## Strings
 
 # [Diff](#tab/diff)
+
+
 ```csharp
 // highlight-error-start
 -   using Microsoft.Bot.Builder;
@@ -105,14 +118,17 @@ teams.OnMessage(async (context) =>
 // highlight-error-end
 // highlight-success-start
 +   var teams = app.UseTeams();
-+   teams.OnMessage(async (context) =>
++   teams.OnMessage(async (context, cancellationToken) =>
 +   {
-+       await context.Send("hello world");
++       await context.Send("hello world", cancellationToken);
 +   });
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 
@@ -127,22 +143,30 @@ public class MyActivityHandler : ActivityHandler
     }
 }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Plugins.AspNetCore.Extensions;
 
 var teams = app.UseTeams();
-teams.OnMessage(async (context) =>
+teams.OnMessage(async (context, cancellationToken) =>
 {
     // highlight-next-line
-    await context.Send("hello world");
+    await context.Send("hello world", cancellationToken);
 });
 ```
+
 ---
+
+
 ## Adaptive Cards
 
 # [Diff](#tab/diff)
+
+
 ```csharp
 // highlight-error-start
 -   using Microsoft.Bot.Builder;
@@ -182,14 +206,17 @@ teams.OnMessage(async (context) =>
 // highlight-error-end
 // highlight-success-start
 +   var teams = app.UseTeams();
-+   teams.OnMessage(async (context) =>
++   teams.OnMessage(async (context, cancellationToken) =>
 +   {
-+       await context.Send(new AdaptiveCard(new TextBlock("hello world")));
++       await context.Send(new AdaptiveCard(new TextBlock("hello world")), cancellationToken);
 +   });
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 
@@ -220,23 +247,31 @@ public class MyActivityHandler : ActivityHandler
     }
 }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Teams.Cards;
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Plugins.AspNetCore.Extensions;
 
 var teams = app.UseTeams();
-teams.OnMessage(async (context) =>
+teams.OnMessage(async (context, cancellationToken) =>
 {
     // highlight-next-line
-    await context.Send(new AdaptiveCard(new TextBlock("hello world")));
+    await context.Send(new AdaptiveCard(new TextBlock("hello world")), cancellationToken);
 });
 ```
+
 ---
+
+
 ## Attachments
 
 # [Diff](#tab/diff)
+
+
 ```csharp
 // highlight-error-start
 -   using Microsoft.Bot.Builder;
@@ -262,16 +297,19 @@ teams.OnMessage(async (context) =>
 // highlight-error-end
 // highlight-success-start
 +   var teams = app.UseTeams();
-+   teams.OnMessage(async (context) =>
++   teams.OnMessage(async (context, cancellationToken) =>
 +   {
 +       var activity = new MessageActivity();
 +       activity.AddAttachment(new Attachment { /* ... */ });
-+       await context.SendAsync(activity);
++       await context.SendAsync(activity, cancellationToken);
 +   });
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 
@@ -288,27 +326,34 @@ public class MyActivityHandler : ActivityHandler
     }
 }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Plugins.AspNetCore.Extensions;
 
 var teams = app.UseTeams();
-teams.OnMessage(async (context) =>
+teams.OnMessage(async (context, cancellationToken) =>
 {
     // highlight-start
     var activity = new MessageActivity();
     activity.AddAttachment(new Attachment { /* ... */ });
-    await context.SendAsync(activity);
+    await context.SendAsync(activity, cancellationToken);
     // highlight-end
 });
 ```
+
 ---
+
 ::: zone-end
 
 ::: zone pivot="python"
 # [Diff](#tab/diff)
+
+
 ```python
 # highlight-error-start
 -   from botbuilder.core import ActivityHandler, TurnContext
@@ -330,8 +375,11 @@ teams.OnMessage(async (context) =>
 +       await context.send(TypingActivityInput())
 # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```python
+
+
+```python showLineNumbers
 from botbuilder.core import ActivityHandler, TurnContext
 from botbuilder.schema import Activity
 
@@ -340,8 +388,11 @@ class MyActivityHandler(ActivityHandler):
         # highlight-next-line
         await turn_context.send_activity(Activity(type="typing"))
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```python
+
+
+```python showLineNumbers
 from microsoft_teams.api import MessageActivity, TypingActivityInput
 from microsoft_teams.apps import ActivityContext, App
 
@@ -350,10 +401,15 @@ async def on_message(context: ActivityContext[MessageActivity]):
     # highlight-next-line
     await context.send(TypingActivityInput())
 ```
+
 ---
+
+
 ## Strings
 
 # [Diff](#tab/diff)
+
+
 ```python
 # highlight-error-start
 -   from botbuilder.core import ActivityHandler, TurnContext
@@ -374,8 +430,11 @@ async def on_message(context: ActivityContext[MessageActivity]):
 +       await context.send("hello world")
 # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```python
+
+
+```python showLineNumbers
 from botbuilder.core import ActivityHandler, TurnContext
 
 class MyActivityHandler(ActivityHandler):
@@ -383,8 +442,11 @@ class MyActivityHandler(ActivityHandler):
         # highlight-next-line
         await turn_context.send_activity("hello world")
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```python
+
+
+```python showLineNumbers
 from microsoft_teams.api import MessageActivity
 from microsoft_teams.apps import ActivityContext, App
 
@@ -393,10 +455,15 @@ async def on_message(context: ActivityContext[MessageActivity]):
     # highlight-next-line
     await context.send("hello world")
 ```
+
 ---
+
+
 ## Adaptive Cards
 
 # [Diff](#tab/diff)
+
+
 ```python
 # highlight-error-start
 -   from botbuilder.core import ActivityHandler, TurnContext
@@ -422,8 +489,11 @@ async def on_message(context: ActivityContext[MessageActivity]):
 +       await context.send(AdaptiveCard().with_body([TextBlock(text="Hello from Adaptive Card!")]))
 # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```python
+
+
+```python showLineNumbers
 from botbuilder.core import ActivityHandler, TurnContext
 from botbuilder.schema import Activity, Attachment
 
@@ -436,8 +506,11 @@ class MyActivityHandler(ActivityHandler):
       await turn_context.send_activity(activity)
       # highlight-end
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```python
+
+
+```python showLineNumbers
 from microsoft_teams.api import MessageActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, TextBlock
@@ -447,10 +520,15 @@ async def on_message(context: ActivityContext[MessageActivity]):
     # highlight-next-line
     await context.send(AdaptiveCard(body=[TextBlock(text="Hello from Adaptive Card!")]))
 ```
+
 ---
+
+
 ## Attachments
 
 # [Diff](#tab/diff)
+
+
 ```python
 # highlight-error-start
 -   from botbuilder.core import ActivityHandler, TurnContext
@@ -476,8 +554,11 @@ async def on_message(context: ActivityContext[MessageActivity]):
 +       await context.send(activity)
 # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```python
+
+
+```python showLineNumbers
 from botbuilder.core import ActivityHandler, TurnContext
 from botbuilder.schema import Activity, Attachment
 
@@ -489,8 +570,11 @@ class MyActivityHandler(ActivityHandler):
         await turn_context.send_activity(activity)
         # highlight-end
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```python
+
+
+```python showLineNumbers
 from microsoft_teams.api import Attachment, MessageActivity, MessageActivityInput
 from microsoft_teams.apps import ActivityContext, App
 
@@ -502,11 +586,15 @@ async def on_message(context: ActivityContext[MessageActivity]):
     await context.send(activity)
     # highlight-end
 ```
+
 ---
+
 ::: zone-end
 
 ::: zone pivot="typescript"
 # [Diff](#tab/diff)
+
+
 ```typescript
 // highlight-error-start
 -    import { TeamsActivityHandler } from 'botbuilder';
@@ -526,8 +614,11 @@ async def on_message(context: ActivityContext[MessageActivity]):
 +    });
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```typescript
+
+
+```typescript showLineNumbers
 import { TeamsActivityHandler } from 'botbuilder';
 
 export class ActivityHandler extends TeamsActivityHandler {
@@ -540,17 +631,25 @@ export class ActivityHandler extends TeamsActivityHandler {
   }
 }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```typescript
+
+
+```typescript showLineNumbers
 app.on('message', async ({ send }) => {
   // highlight-next-line
   await send({ type: 'typing' });
 });
 ```
+
 ---
+
+
 ## Strings
 
 # [Diff](#tab/diff)
+
+
 ```typescript
 // highlight-error-start
 -    import { TeamsActivityHandler } from 'botbuilder';
@@ -570,8 +669,11 @@ app.on('message', async ({ send }) => {
 +    });
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```typescript
+
+
+```typescript showLineNumbers
 import { TeamsActivityHandler } from 'botbuilder';
 
 export class ActivityHandler extends TeamsActivityHandler {
@@ -584,17 +686,25 @@ export class ActivityHandler extends TeamsActivityHandler {
   }
 }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```typescript
+
+
+```typescript showLineNumbers
 app.on('message', async ({ send }) => {
   // highlight-next-line
   await send('hello world');
 });
 ```
+
 ---
+
+
 ## Adaptive Cards
 
 # [Diff](#tab/diff)
+
+
 ```typescript
 // highlight-error-line
 -    import { TeamsActivityHandler, CardFactory } from 'botbuilder';
@@ -630,8 +740,11 @@ app.on('message', async ({ send }) => {
 +    });
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```typescript
+
+
+```typescript showLineNumbers
 import { TeamsActivityHandler, CardFactory } from 'botbuilder';
 
 export class ActivityHandler extends TeamsActivityHandler {
@@ -658,8 +771,11 @@ export class ActivityHandler extends TeamsActivityHandler {
   }
 }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```typescript
+
+
+```typescript showLineNumbers
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
 app.on('message', async ({ send }) => {
@@ -667,10 +783,15 @@ app.on('message', async ({ send }) => {
   await send(new AdaptiveCard(new TextBlock('hello world')));
 });
 ```
+
 ---
+
+
 ## Attachments
 
 # [Diff](#tab/diff)
+
+
 ```typescript
 // highlight-error-line
 -    import { TeamsActivityHandler } from 'botbuilder';
@@ -698,8 +819,11 @@ app.on('message', async ({ send }) => {
 +    });
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```typescript
+
+
+```typescript showLineNumbers
 import { TeamsActivityHandler } from 'botbuilder';
 
 export class ActivityHandler extends TeamsActivityHandler {
@@ -718,14 +842,18 @@ export class ActivityHandler extends TeamsActivityHandler {
   }
 }
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```typescript
+
+
+```typescript showLineNumbers
 
 app.on('message', async ({ send }) => {
   // highlight-next-line
   await send(new MessageActivity().addAttachment(...));
 });
 ```
----
-::: zone-end
 
+---
+
+::: zone-end

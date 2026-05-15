@@ -3,7 +3,7 @@ title: From BotBuilder
 description: Migration guide from BotBuilder to Teams SDK, including the BotBuilder plugin for compatibility with existing activity handlers and adapters.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # From BotBuilder

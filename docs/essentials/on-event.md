@@ -3,7 +3,7 @@ title: Listening To Events
 description: Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Listening To Events
@@ -12,11 +12,13 @@ An **event** is a foundational concept in building agents — it represents some
 
 
 ::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/on-event-csharp-flow.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes incoming and outgoing events to the event handler using app.OnEvent()" lightbox="~/assets/diagrams/on-event-csharp-flow.png":::
+:::image type="content" source="~/assets/diagrams/on-event.png" alt-text="Flowchart showing Teams event routing to app server and event handlers using app.OnEvent()" lightbox="~/assets/diagrams/on-event.png":::
+
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-:::image type="content" source="~/assets/diagrams/on-event-pyjs-flow.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes incoming and outgoing events to the event handler using app.event()" lightbox="~/assets/diagrams/on-event-pyjs-flow.png":::
+:::image type="content" source="~/assets/diagrams/on-event-2.png" alt-text="Flowchart showing Teams event routing to app server and event handlers using app.event()" lightbox="~/assets/diagrams/on-event-2.png":::
+
 ::: zone-end
 
 
@@ -26,25 +28,25 @@ Here are the events that you can start building handlers for:
 
 
 ::: zone pivot="csharp,typescript"
-| **Event Name**      | **Description**                                                                |
+| **Event Name** | **Description** |
 | ------------------- | ------------------------------------------------------------------------------ |
-| `start`             | Triggered when your application starts. Useful for setup or boot-time logging. |
-| `signin`            | Triggered during a sign-in flow via Teams.                                     |
-| `error`             | Triggered when an unhandled error occurs in your app. Great for diagnostics.   |
-| `activity`          | A catch-all for incoming Teams activities (messages, commands, etc.).          |
-| `activity.response` | Triggered when your app sends a response to an activity. Useful for logging.   |
-| `activity.sent`     | Triggered when an activity is sent (not necessarily in response).              |
+| `start` | Triggered when your application starts. Useful for setup or boot-time logging. |
+| `signin` | Triggered during a sign-in flow via Teams. |
+| `error` | Triggered when an unhandled error occurs in your app. Great for diagnostics. |
+| `activity` | A catch-all for incoming Teams activities (messages, commands, etc.). |
+| `activity.response` | Triggered when your app sends a response to an activity. Useful for logging. |
+| `activity.sent` | Triggered when an activity is sent (not necessarily in response). |
 ::: zone-end
 
 ::: zone pivot="python"
-| **Event Name**      | **Description**                                                                |
+| **Event Name** | **Description** |
 | ------------------- | ------------------------------------------------------------------------------ |
-| `start`             | Triggered when your application starts. Useful for setup or boot-time logging. |
-| `sign_in`           | Triggered during a sign-in flow via Teams.                                     |
-| `error`             | Triggered when an unhandled error occurs in your app. Great for diagnostics.   |
-| `activity`          | Triggered for all incoming Teams activities (messages, commands, etc.).        |
-| `activity_response` | Triggered when your app sends a response to an activity. Useful for logging.   |
-| `activity_sent`     | Triggered when an activity is sent (not necessarily in response).              |
+| `start` | Triggered when your application starts. Useful for setup or boot-time logging. |
+| `sign_in` | Triggered during a sign-in flow via Teams. |
+| `error` | Triggered when an unhandled error occurs in your app. Great for diagnostics. |
+| `activity` | Triggered for all incoming Teams activities (messages, commands, etc.). |
+| `activity_response` | Triggered when your app sends a response to an activity. Useful for logging. |
+| `activity_sent` | Triggered when an activity is sent (not necessarily in response). |
 
 > [!NOTE]
 > Event handler registration uses `@app.event("<event_name>")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
@@ -124,4 +126,3 @@ app.event('signin', async ({ activity, send, userGraph }) => {
 });
 ```
 ::: zone-end
-

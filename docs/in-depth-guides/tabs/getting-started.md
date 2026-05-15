@@ -3,7 +3,7 @@ title: Getting started
 description: Set up new tab app projects or add Teams client capabilities to existing tab applications.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 # Getting started
 
@@ -12,17 +12,17 @@ This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="typescript"
-To use this package, you can either set up a new project using the Teams CLI, or add it to an existing tab app project.
+To use this package, you can either set up a new project using the Teams Developer CLI, or add it to an existing tab app project.
 
 ## Setting up a new project
 
-The Teams CLI contains a Microsoft 365 Agents Toolkit configuration and a template to easily scaffold a new tab app with a callable remote function. To set this up, first install the Teams CLI as outlined in the [Quickstart](../../getting-started/quickstart.md) guide. Then, create the app by running:
+The Teams Developer CLI ships a `tab` template that scaffolds a new tab app with a callable remote function. First install the Teams Developer CLI as outlined in the [Quickstart](../../getting-started/quickstart.md) guide, then create the app:
 
 ```sh
-npx @microsoft/teams.cli@latest new typescript my-first-tab-app --atk embed --template tab
+teams project new typescript my-first-tab-app --template tab
 ```
 
-When the app is created, you can use the Agents Toolkit to run and debug it inside of Teams from your local machine, same as for any other Agents Toolkit tab app.
+Once the project is created, follow [Quickstart: Register your app](../../getting-started/quickstart.md) to register and sideload it into Teams.
 
 ## Adding to an existing project
 
@@ -36,6 +36,6 @@ If you're already using Microsoft Authentication Library (MSAL) in an NAA enable
 
 ## Resources
 
-- [Running and debugging local apps in Agents Toolkit](/microsoftteams/platform/toolkit/debug-local?tabs=Windows)
+- [Quickstart: Register your app](../../getting-started/quickstart.md)
 - [Configuring an app for Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)
 ::: zone-end

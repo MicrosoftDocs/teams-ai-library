@@ -2,7 +2,7 @@
 title: Devtools chat
 description: Test chat functionality with your Teams agent using the lightweight DevTools without sideloading into Teams.
 ms.topic: how-to
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Devtools chat
@@ -13,7 +13,6 @@ Use the lightweight DevTools app that allows you to test chat functionality with
 
 > [!NOTE]
 > We plan to add more features to DevTools for a wider variety of testing. Stay tuned!
-
 ## Using DevTools
 
 Use the Teams SDK dev package as a plugin.
@@ -32,7 +31,6 @@ In your app's main file, ensure DevTools plugin is added to the app.
 
 > [!WARNING]
 > DevTools is not secure and should not be used in production environments. Remove the plugin before deploying your app to production.
-
 ```typescript
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common/logging';
@@ -84,7 +82,6 @@ Attach up to 10 files to your message using the Attach (paperclip) button. DevTo
 
 > [!NOTE]
 > Further support for attachments is coming soon!
-
 ### Connectivity
 
 Check your app's connectivity in three ways:

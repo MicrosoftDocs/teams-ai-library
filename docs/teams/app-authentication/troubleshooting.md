@@ -2,7 +2,7 @@
 title: Authentication Troubleshooting
 description: Common authentication errors and how to resolve them
 ms.topic: how-to
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 
@@ -15,7 +15,11 @@ This guide covers common authentication errors and their solutions.
 This error occurs when the application has a single-tenant Azure Bot Service (`msaAppType: 'SingleTenant'`) instance, but your app registration has not yet been linked to a Service Principal in the tenant.
 
 ### Error Examples
+
 # [TypeScript](#tab/typescript)
+
+
+
 ```sh
 [ERROR] @teams/app Request failed with status code 401
 [ERROR] @teams/app /aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token
@@ -31,12 +35,20 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 [ERROR] @teams/app   "error_uri": "https://login.microsoftonline.com/error?code=7000229"
 [ERROR] @teams/app }
 ```
+
 # [Python](#tab/python)
+
+
+
 ```sh
 [ERROR] @teams/app Failed to refresh bot token: Client error '401 Unauthorized' for url 'https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token'
 [ERROR] @teams/app For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
 ```
+
 # [C#](#tab/csharp)
+
+
+
 ```sh
 [ERROR] Echobot Failed to get bot token on app startup.
 [ERROR] Echobot {
@@ -51,7 +63,10 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 [ERROR] Echobot   "error_uri": "https://login.microsoftonline.com/error?code=7000229"
 [ERROR] Echobot }
 ```
+
 ---
+
+
 ### Solution
 
 1. **Sign in to Azure Portal**

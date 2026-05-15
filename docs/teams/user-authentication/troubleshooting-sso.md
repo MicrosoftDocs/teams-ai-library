@@ -2,7 +2,7 @@
 title: SSO Troubleshooting
 description: Common SSO errors and how to resolve them
 ms.topic: how-to
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # SSO Troubleshooting
@@ -25,12 +25,10 @@ When SSO fails, Teams sends a `signin/failure` invoke activity to your bot with 
 
 > [!NOTE]
 > The `userconsentrequired` and `interactionrequired` codes are handled by the Teams client via the OAuth card fallback flow and do not typically reach the bot.
-
 ## `resourcematchfailed`
 
 If you see a warning in your app logs like:
 
-> [!WARNING]
 > Sign-in failed for user "..." in conversation "...": resourcematchfailed -- Resource match failed
 
 This means Teams attempted the SSO token exchange but failed because the token exchange resource URI does not match your Entra app registration. To fix this:
@@ -43,5 +41,4 @@ This means Teams attempted the SSO token exchange but failed because the token e
 
 > [!TIP]
 > If you don't need SSO and only want standard OAuth (sign-in button), leave the **Token Exchange URL** blank in your OAuth connection settings.
-
 To handle `signin/failure` programmatically in your app, see [Handling Sign-In Failures](../../in-depth-guides/user-authentication.md#handling-sign-in-failures) in the User Authentication guide.

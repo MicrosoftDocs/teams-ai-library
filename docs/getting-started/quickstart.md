@@ -1,14 +1,14 @@
 ---
 title: Quickstart
-description: Quick start guide for Teams SDK using the Teams CLI to create and run your first agent.
+description: Quick start guide for Teams SDK using the Teams Developer CLI to create and run your first agent.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Quickstart
 
-Get started with Teams SDK quickly using the Teams CLI.
+Get started with Teams SDK quickly using the Teams Developer CLI.
 
 ## Set up a new project
 
@@ -30,17 +30,17 @@ Get started with Teams SDK quickly using the Teams CLI.
 
 ## Instructions
 
-### Use the Teams CLI
+### Install the Teams Developer CLI
 
-Use your terminal to run the Teams CLI using npx:
+Install `teams` globally:
 
 ```sh
-npx @microsoft/teams.cli --version
+npm install -g @microsoft/teams.cli@preview
+teams --version
 ```
 
 > [!NOTE]
-> _The [Teams CLI](../developer-tools/cli.md) is a command-line tool that helps you create and manage Teams applications. It provides a set of commands to simplify the development process._<br /><br />
-> Using `npx` allows you to run the Teams CLI without installing it globally. You can verify it works by running the version command above.
+> The [Teams Developer CLI](../developer-tools/cli.md) is the command-line tool for scaffolding, registering, and managing Teams apps. It's currently in Preview.
 
 ## Creating Your First Agent
 
@@ -49,19 +49,19 @@ Let's begin by creating a simple echo agent that responds to messages. Run:
 
 ::: zone pivot="csharp"
 ```sh
-npx @microsoft/teams.cli@latest new csharp quote-agent --template echo
+teams project new csharp quote-agent --template echo
 ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```sh
-npx @microsoft/teams.cli@latest new python quote-agent --template echo
+teams project new python quote-agent --template echo
 ```
 ::: zone-end
 
 ::: zone pivot="typescript"
 ```sh
-npx @microsoft/teams.cli@latest new typescript quote-agent --template echo
+teams project new typescript quote-agent --template echo
 ```
 ::: zone-end
 
@@ -160,16 +160,13 @@ In the console, you should see a similar output:
 
 ```sh
 [INFO] @teams/app Successfully initialized all plugins
-[WARNING] @teams/app.DevToolsPlugin ⚠️ Devtools is not secure and should not be used in production environments ⚠️
 [INFO] @teams/app.HttpPlugin Starting HTTP server on port 3978
 INFO:     Started server process [6436]
 INFO:     Waiting for application startup.
-[INFO] @teams/app.DevToolsPlugin available at http://localhost:3979/devtools
 [INFO] @teams/app.HttpPlugin listening on port 3978 🚀
 [INFO] @teams/app Teams app started successfully
-[INFO] @teams/app.DevToolsPlugin listening on port 3979 🚀
 INFO:     Application startup complete..
-INFO:     Uvicorn running on http://0.0.0.0:3979 (Press CTRL+C to quit)
+INFO:     Uvicorn running on http://0.0.0.0:3978 (Press CTRL+C to quit)
 ```
 ::: zone-end
 
@@ -195,14 +192,111 @@ INFO:     Uvicorn running on http://0.0.0.0:3979 (Press CTRL+C to quit)
 When the application starts, you'll see:
 
 1. An HTTP server starting up (on port `3978`). This is the main server which handles incoming requests and serves the agent application.
-2. A devtools server starting up (on port `3979`). This is a developer server that provides a web interface for debugging and testing your agent quickly, without having to deploy it to Teams.
 
-> [!NOTE]
-> The DevTools server runs on a separate port to avoid conflicts with your main application server. This allows you to test your agent locally while keeping the main server available for Teams integration.
+## Add to an Existing Project
 
-Now, navigate to the devtools server by opening your browser and navigating to [http://localhost:3979/devtools](http://localhost:3979/devtools). You should see a simple interface where you can interact with your agent. Try sending it a message!
+If you already have a project and want to add Teams support, install the SDK directly:
 
-:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'." lightbox="~/assets/screenshots/devtools-echo-chat.png":::
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
+```sh
+pip install microsoft-teams-apps
+```
+::: zone-end
+
+::: zone pivot="typescript"
+```sh
+npm i @microsoft/teams.apps
+```
+::: zone-end
+
+
+Then initialize the Teams app with your existing server:
+
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
+```python
+import asyncio
+import uvicorn
+from fastapi import FastAPI
+# highlight-next-line
+from microsoft_teams.apps import App, FastAPIAdapter
+
+# Your existing FastAPI app
+my_fastapi = FastAPI()
+
+# highlight-start
+# Wrap your app in an adapter and create the Teams app
+adapter = FastAPIAdapter(app=my_fastapi)
+app = App(http_server_adapter=adapter)
+
+@app.on_message
+async def handle_message(ctx):
+    await ctx.send(f"You said: {ctx.activity.text}")
+# highlight-end
+
+async def main():
+    # highlight-next-line
+    await app.initialize()  # Register the Teams endpoint (does not start a server)
+
+    # Start your server as usual
+    config = uvicorn.Config(app=my_fastapi, host="0.0.0.0", port=3978)
+    server = uvicorn.Server(config)
+    await server.serve()
+
+asyncio.run(main())
+```
+::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+import http from 'http';
+import express from 'express';
+// highlight-next-line
+import { App, ExpressAdapter } from '@microsoft/teams.apps';
+
+// Your existing Express server
+const expressApp = express();
+const server = http.createServer(expressApp);
+
+// highlight-start
+// Wrap your server in an adapter and create the Teams app
+const adapter = new ExpressAdapter(server);
+const app = new App({ httpServerAdapter: adapter });
+
+app.on('message', async ({ send, activity }) => {
+  await send(`You said: ${activity.text}`);
+});
+
+// Register the Teams endpoint on your server (does not start it)
+await app.initialize();
+// highlight-end
+
+// Start your server as usual
+server.listen(3978);
+```
+::: zone-end
+
+
+`app.initialize()` registers the Teams endpoint on your server without starting a new one — you keep full control of your server lifecycle.
+
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python,typescript"
+See the [HTTP Server guide](../in-depth-guides/server/http-server.md) for full details on adapters and custom server setups.
+::: zone-end
+
 
 ## Next steps
 
@@ -212,7 +306,6 @@ Otherwise, if you want to run your agent in Teams, you can check out the [Runnin
 
 ## Resources
 
-- [Teams CLI documentation](../developer-tools/cli.md)
-- [Teams DevTools documentation](../developer-tools/devtools/overview.md)
+- [Teams Developer CLI documentation](../developer-tools/cli.md)
 - [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
 - [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

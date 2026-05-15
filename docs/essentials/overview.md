@@ -3,7 +3,7 @@ title: Essentials
 description: Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Essentials
@@ -24,15 +24,15 @@ Before diving in, let's define a few key terms:
 
 
 ::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/essentials-overview-csharp.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes them through the activity event router to activity handlers via app.OnActivity() and event handlers via app.OnEvent()" lightbox="~/assets/diagrams/essentials-overview-csharp.png":::
+:::image type="content" source="~/assets/diagrams/overview-essentials-csharp.png" alt-text="Flowchart showing event and activity routing flow using app.OnEvent() and app.OnActivity() in C#" lightbox="~/assets/diagrams/overview-essentials-csharp.png":::
 ::: zone-end
 
 ::: zone pivot="python"
-:::image type="content" source="~/assets/diagrams/essentials-overview-python.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes them through the activity event router to activity handler decorators via @app.on_activity() and event handler decorators via @app.event()" lightbox="~/assets/diagrams/essentials-overview-python.png":::
+:::image type="content" source="~/assets/diagrams/overview-essentials-python.png" alt-text="Flowchart showing event and activity routing flow using @app.event() and @app.on_activity() decorators in Python" lightbox="~/assets/diagrams/overview-essentials-python.png":::
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::image type="content" source="~/assets/diagrams/essentials-overview-js.png" alt-text="Flowchart showing Teams sending activities and events to the app server, which routes them through the activity event router to activity handlers via app.on() and event handlers via app.event()" lightbox="~/assets/diagrams/essentials-overview-js.png":::
+:::image type="content" source="~/assets/diagrams/overview-essentials-typescript.png" alt-text="Flowchart showing event and activity routing flow using app.event() and app.on() in TypeScript" lightbox="~/assets/diagrams/overview-essentials-typescript.png":::
 ::: zone-end
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.

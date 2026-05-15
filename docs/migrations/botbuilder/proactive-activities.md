@@ -3,7 +3,7 @@ title: Proactive Activities
 description: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 
@@ -30,6 +30,8 @@ passed into our activity handlers through our context. This method accepts a `co
 
 ::: zone pivot="csharp"
 # [Diff](#tab/diff)
+
+
 ```csharp
 // highlight-error-start
 -   using Microsoft.Bot.Builder;
@@ -63,8 +65,11 @@ passed into our activity handlers through our context. This method accepts a `co
 +   await teams.Send("your-conversation-id", "proactive hello");
 // highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Schema;
@@ -89,8 +94,11 @@ await adapter.ContinueConversationAsync(
     default);
 // highlight-end
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```csharp
+
+
+```csharp showLineNumbers
 using Microsoft.Teams.Apps;
 
 // highlight-start
@@ -98,11 +106,15 @@ var teams = app.UseTeams();
 await teams.Send("your-conversation-id", "proactive hello");
 // highlight-end
 ```
+
 ---
+
 ::: zone-end
 
 ::: zone pivot="python"
 # [Diff](#tab/diff)
+
+
 ```python
 # highlight-error-start
 -   from botbuilder.core import TurnContext
@@ -139,8 +151,11 @@ await teams.Send("your-conversation-id", "proactive hello");
 +   await app.send("your-conversation-id", "proactive hello")
 # highlight-success-end
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```python
+
+
+```python showLineNumbers
 from botbuilder.core import TurnContext
 from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
 from botbuilder.schema import ChannelAccount, ConversationAccount, ConversationReference
@@ -165,8 +180,11 @@ await adapter.continue_conversation(
 )
 # highlight-end
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```python
+
+
+```python showLineNumbers
 from microsoft_teams.apps import App
 
 app = App()
@@ -175,11 +193,15 @@ app = App()
 await app.send("your-conversation-id", "proactive hello")
 # highlight-end
 ```
+
 ---
+
 ::: zone-end
 
 ::: zone pivot="typescript"
 # [Diff](#tab/diff)
+
+
 ```typescript
 // highlight-error-start
 -    import {
@@ -218,8 +240,11 @@ await app.send("your-conversation-id", "proactive hello")
   // highlight-success-end
 }());
 ```
+
 # [BotBuilder](#tab/botbuilder)
-```typescript
+
+
+```typescript showLineNumbers
 import {
   CloudAdapter,
   ConfigurationBotFrameworkAuthentication,
@@ -245,8 +270,11 @@ const adapter = new CloudAdapter(auth);
 }());
 // highlight-end
 ```
+
 # [Teams SDK](#tab/teams-sdk)
-```typescript
+
+
+```typescript showLineNumbers
 import { App } from '@microsoft/teams.apps';
 
 const app = new App();
@@ -258,6 +286,7 @@ const app = new App();
 }());
 // highlight-end
 ```
----
-::: zone-end
 
+---
+
+::: zone-end

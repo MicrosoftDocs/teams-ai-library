@@ -3,19 +3,17 @@ title: AI
 description: Overview of AI components in Teams SDK, including Prompts for orchestration and Models for LLM interfaces.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
-
 # AI
+
+::: zone pivot="python"
+This article is not available for the selected development language.
+::: zone-end
 
 ::: zone pivot="csharp"
 The AI packages in this SDK are designed to make it easier to build applications with LLMs.
 The `Microsoft.Teams.AI` has two main components:
-::: zone-end
-
-::: zone pivot="python"
-The AI packages in this SDK are designed to make it easier to build applications with LLMs.
-The `microsoft-teams-ai` package has two main components:
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -23,6 +21,7 @@ The AI packages in this SDK are designed to make it easier to build applications
 The `@microsoft/teams.ai` package has two main components:
 ::: zone-end
 
+::: zone pivot="javascript,csharp"
 ## Prompts
 
 A `Prompt` is the component that orchestrates everything, it handles state management,
@@ -33,15 +32,11 @@ the complexities of the Models to provide a common interface.
 
 A `Model` is the component that interfaces with the LLM, being given some `input` and returning the `output`.
 This layer deals with any of the nuances of the particular Models being used.
+::: zone-end
 
 ::: zone pivot="csharp"
 It is in the model implementation that the individual LLM features (i.e. streaming/tools etc.)
 are made compatible with the more general features of the `Microsoft.Teams.AI`.
-::: zone-end
-
-::: zone pivot="python"
-It is in the model implementation that the individual LLM features (i.e. streaming/tools etc.)
-are made compatible with the more general features of the `microsoft-teams-ai` package.
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -52,11 +47,6 @@ are made compatible with the more general features of the `@microsoft/teams.ai` 
 ::: zone pivot="csharp"
 > [!NOTE]
 > You are not restricted to use the `Microsoft.Teams.AI` to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
-::: zone-end
-
-::: zone pivot="python"
-> [!NOTE]
-> You are not restricted to use the `microsoft-teams-ai` package to build your Teams Agent applications. You can use models directly if you choose. These packages are there to simplify the interactions with the models and Teams.
 ::: zone-end
 
 ::: zone pivot="typescript"
