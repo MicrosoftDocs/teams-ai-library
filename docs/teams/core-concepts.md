@@ -7,7 +7,7 @@ ms.date: 05/15/2026
 
 # Teams Core Concepts
 
-Running an agent on Teams involves several moving pieces — an app registration, an Azure or Teams-managed bot, a public messaging endpoint, and a sideloaded app package. Understanding these components helps you debug and deploy your agent confidently. The [Teams Developer CLI](/cli/) automates all of them with a single `teams app create` command, but it's worth knowing what it sets up underneath.
+Running an agent on Teams involves several moving pieces — an app registration, an Azure or Teams-managed bot, a public messaging endpoint, and a sideloaded app package. Understanding these components helps you debug and deploy your agent confidently. The [Teams Developer CLI](../developer-tools/cli.md) automates all of them with a single `teams app create` command, but it's worth knowing what it sets up underneath.
 
 ## Basic Flow
 
@@ -64,7 +64,7 @@ Before your agent can interact with Teams, it needs to be properly registered an
 
 - Creates an App ID (i.e. Client ID) in the Teams platform
 - Sets up a bot registration with the Bot Framework
-- Creates a client secret that your agent can use to authenticate to send and receive messages. The [Teams Developer CLI](/cli/) writes this value to `.env` (or `appsettings.json` for C#) automatically when you run `teams app create`.
+- Creates a client secret that your agent can use to authenticate to send and receive messages. The [Teams Developer CLI](../developer-tools/cli.md) writes this value to `.env` (or `appsettings.json` for C#) automatically when you run `teams app create`.
 
 ### Azure Bot
 
@@ -82,7 +82,7 @@ Sideloading is the process of installing your agent in Teams. You are able to pa
 
 To test your app in Teams you need, at minimum, a provisioned bot. You'll likely also have other resources such as storage.
 
-The fastest path is `teams app create`, which provisions a Teams-managed bot by default — no Azure subscription required. See the [Quickstart: Register your app](/get-started/quickstart-register).
+The fastest path is `teams app create`, which provisions a Teams-managed bot by default — no Azure subscription required. See the [Quickstart: Register your app](../getting-started/quickstart.md).
 
 If you need OAuth or SSO (typically for delegated Microsoft Graph access on behalf of a user), the bot must be Azure-managed. Either start with `teams app create --azure --subscription <id> --resource-group <rg>`, or start Teams-managed and switch later with `teams app bot migrate <appId> --subscription <id> --resource-group <rg>` (both require an Azure subscription) — your `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID` stay the same. For a hand-rolled Azure setup, follow the [Azure Configuration](./azure-configuration.md) guide.
 

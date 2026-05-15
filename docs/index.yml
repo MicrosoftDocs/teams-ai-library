@@ -87,13 +87,13 @@ landingContent:
           - text: AI Integrations Overview
             url: ./in-depth-guides/ai-integrations/overview.md
           - text: Build Agent with Microsoft Agent Framework
-            url: ./in-depth-guides/ai-integrations/build-agent-maf.md
+            url: ./in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework.md
           - text: Enhance the Teams Experience
             url: ./in-depth-guides/ai-integrations/teams-enhancements.md
           - text: Expose Teams to AI Agents (MCP)
             url: ./in-depth-guides/ai-integrations/mcp-server.md
           - text: Bot-to-Bot with A2A
-            url: ./in-depth-guides/ai-integrations/a2a.md
+            url: ./in-depth-guides/ai-integrations/agent-to-agent.md
 
   # Advanced Features & Integration
   - title: Extend your agents with rich interactions
@@ -147,7 +147,7 @@ landingContent:
           - text: Azure Configuration
             url: ./teams/azure-configuration.md
           - text: Choosing an SDK
-            url: ./teams/choosing-an-sdk.md
+            url: ./teams/sdk-comparison.md
           - text: Teams Manifest
             url: ./teams/manifest.md
           - text: Sovereign Cloud Configuration
@@ -183,7 +183,7 @@ landingContent:
           - text: Agent Skills
             url: ./developer-tools/agent-skills.md
           - text: llms.txt
-            url: ./developer-tools/llms-txt.md
+            url: ./developer-tools/llms-text.md
           - text: DevTools Overview
             url: ./developer-tools/devtools/overview.md
           - text: DevTools Chat

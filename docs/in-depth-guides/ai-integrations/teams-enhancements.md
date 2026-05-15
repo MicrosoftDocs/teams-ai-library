@@ -112,7 +112,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ## Citations
 
-Citations render as footnote-style references inline with the reply — `[1]`, `[2]`, etc. — surfacing the source title, abstract, and URL on hover. They typically originate from tool outputs, where middleware assigns each result a stable `position` (see the [`CitationMiddleware` example](./build-agent-maf.md#middleware) earlier).
+Citations render as footnote-style references inline with the reply — `[1]`, `[2]`, etc. — surfacing the source title, abstract, and URL on hover. They typically originate from tool outputs, where middleware assigns each result a stable `position` (see the [`CitationMiddleware` example](./build-agent-microsoft-agent-framework.md#middleware) earlier).
 
 When building the final reply, attach only the citations whose `position` actually appears in the streamed text.
 ```python

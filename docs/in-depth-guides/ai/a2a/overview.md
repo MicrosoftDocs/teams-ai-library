@@ -40,12 +40,12 @@ npm install @microsoft/teams.a2a
 
 ### A2A Server
 
-:::image type="content" source="~/assets/diagrams/a2a-overview.png" alt-text="Flowchart showing A2A server architecture with TeamsApp and A2APlugin handling task/send messages from an external client" lightbox="~/assets/diagrams/a2a-overview.png":::
+:::image type="content" source="~/assets/diagrams/agent-to-agent-overview.png" alt-text="Flowchart showing A2A server architecture with TeamsApp and A2APlugin handling task/send messages from an external client" lightbox="~/assets/diagrams/agent-to-agent-overview.png":::
 
 
 ### A2A Client
 
-:::image type="content" source="~/assets/diagrams/a2a-overview-2.png" alt-text="Flowchart showing A2A client architecture with TeamsApp and A2AClientPlugin communicating with an external A2A server" lightbox="~/assets/diagrams/a2a-overview-2.png":::
+:::image type="content" source="~/assets/diagrams/agent-to-agent-overview-2.png" alt-text="Flowchart showing A2A client architecture with TeamsApp and A2AClientPlugin communicating with an external A2A server" lightbox="~/assets/diagrams/agent-to-agent-overview-2.png":::
 
 
 ## Protocol Details

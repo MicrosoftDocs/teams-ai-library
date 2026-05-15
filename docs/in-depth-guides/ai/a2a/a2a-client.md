@@ -140,6 +140,6 @@ Here's how the A2A client works with `ChatPrompt` and `A2AClientPlugin`:
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::image type="content" source="~/assets/diagrams/a2a-client.png" alt-text="Sequence diagram showing A2A client configuration and message flow between ChatPrompt, A2AClientPlugin, and an external A2A server" lightbox="~/assets/diagrams/a2a-client.png":::
+:::image type="content" source="~/assets/diagrams/agent-to-agent-client.png" alt-text="Sequence diagram showing A2A client configuration and message flow between ChatPrompt, A2AClientPlugin, and an external A2A server" lightbox="~/assets/diagrams/agent-to-agent-client.png":::
 
 ::: zone-end

@@ -11,10 +11,10 @@ Teams SDK is a suite of packages for building agents and applications on Microso
 
 ## Get started
 
-The fastest path is the [Teams Developer CLI](/cli/) (in Preview):
+The fastest path is the [Teams Developer CLI](developer-tools/cli.md) (in Preview):
 
-1. **[Register your app](/get-started/quickstart-register)** — install the CLI, register a bot, sideload into Teams.
-2. **[Build your first bot](/get-started/quickstart-build)** — write a message handler in TypeScript, C#, or Python.
+1. **[Register your app](getting-started/quickstart.md)** — install the CLI, register a bot, sideload into Teams.
+2. **[Build your first bot](getting-started/quickstart.md)** — write a message handler in TypeScript, C#, or Python.
 
 If you'd rather have your AI coding assistant do the work, install the [`teams-dev` skill](developer-tools/agent-skills.md) and ask it to "create a Teams bot".
 
@@ -23,8 +23,8 @@ If you'd rather have your AI coding assistant do the work, install the [`teams-d
 Teams SDK has you covered for [AI-powered agents](in-depth-guides/ai/overview.md), [message extensions](in-depth-guides/message-extensions/overview.md), embedded web apps, Adaptive Cards, dialogs, Microsoft Graph integrations, and more — across TypeScript, C#, and Python.
 
 - [Why an SDK?](why.md) — what the SDK handles for you
-- [TypeScript guide](/typescript/getting-started) · [C# guide](/csharp/getting-started) · [Python guide](/python/getting-started)
-- [CLI reference](/cli/) · [DevTools](developer-tools/devtools/overview.md) — local testing without sideloading
+- [TypeScript guide](getting-started/overview.md) · [C# guide](getting-started/overview.md) · [Python guide](getting-started/overview.md)
+- [CLI reference](developer-tools/cli.md) · [DevTools](developer-tools/devtools/overview.md) — local testing without sideloading
 
 ## Navigation tips
 

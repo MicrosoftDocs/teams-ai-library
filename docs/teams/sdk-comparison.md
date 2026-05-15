@@ -94,7 +94,7 @@ If you're migrating from the **Bot Framework SDK** (the `Microsoft.Bot.*` packag
 
 ## Next steps
 
-- **Sticking with Teams SDK?** Continue to [Get started](/get-started/quickstart-register) or the [TypeScript](/typescript/getting-started) / [C#](/csharp/getting-started) / [Python](/python/getting-started) guides.
+- **Sticking with Teams SDK?** Continue to [Get started](../getting-started/quickstart.md) or the [TypeScript](../getting-started/overview.md) / [C#](../getting-started/overview.md) / [Python](../getting-started/overview.md) guides.
 - **Need cross-channel reach?** Head to the [Microsoft 365 Agents SDK docs](/microsoft-365/agents-sdk/).
 - **Already using Bot Framework or TeamsFx?** See [Bot Framework migration](#bot-framework-migration) above; both SDKs offer migration paths.
 

@@ -14,7 +14,7 @@ At times agents must access secured online resources on behalf of the user, such
 > This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../teams/core-concepts.md) before attempting this guide.
 
 > [!WARNING]
-> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow [Quickstart: Register your app](/get-started/quickstart-register) to register and sideload your bot.
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow [Quickstart: Register your app](../getting-started/quickstart.md) to register and sideload your bot.
 > [!NOTE]
 > It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
 
@@ -71,7 +71,7 @@ User authentication requires an **Azure-managed bot** (Teams-managed bots don't 
 teams app bot migrate <appId> --subscription <id> --resource-group <your-resource-group>
 ```
 
-Then follow the [User Authentication Setup guide](/cli/guides/user-authentication-setup) to configure the AAD app, create the Azure Bot OAuth connection, and update the manifest. The guide covers both SSO (silent token exchange) and generic OAuth.
+Then follow the [User Authentication Setup guide](../teams/user-authentication/sso-setup.md) to configure the AAD app, create the Azure Bot OAuth connection, and update the manifest. The guide covers both SSO (silent token exchange) and generic OAuth.
 
 > [!TIP]
 > If you'd rather have an AI coding assistant run the setup, install the [`teams-dev` skill](../developer-tools/agent-skills.md) and ask it to "set up SSO for my Teams bot".

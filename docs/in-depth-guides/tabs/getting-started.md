@@ -22,7 +22,7 @@ The Teams Developer CLI ships a `tab` template that scaffolds a new tab app with
 teams project new typescript my-first-tab-app --template tab
 ```
 
-Once the project is created, follow [Quickstart: Register your app](/get-started/quickstart-register) to register and sideload it into Teams.
+Once the project is created, follow [Quickstart: Register your app](../../getting-started/quickstart.md) to register and sideload it into Teams.
 
 ## Adding to an existing project
 
@@ -36,6 +36,6 @@ If you're already using Microsoft Authentication Library (MSAL) in an NAA enable
 
 ## Resources
 
-- [Quickstart: Register your app](/get-started/quickstart-register)
+- [Quickstart: Register your app](../../getting-started/quickstart.md)
 - [Configuring an app for Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)
 ::: zone-end

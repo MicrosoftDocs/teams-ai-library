@@ -100,6 +100,6 @@ app.event('a2a:message', async ({ respond, requestContext }) => {
 > - You **must** call `respond` as the last step in your handler. This resolves the open request to the caller.
 ## Sequence Diagram
 
-:::image type="content" source="~/assets/diagrams/a2a-server.png" alt-text="Sequence diagram showing A2A server message flow from client through plugin to event handler and response" lightbox="~/assets/diagrams/a2a-server.png":::
+:::image type="content" source="~/assets/diagrams/agent-to-agent-server.png" alt-text="Sequence diagram showing A2A server message flow from client through plugin to event handler and response" lightbox="~/assets/diagrams/agent-to-agent-server.png":::
 
 ::: zone-end

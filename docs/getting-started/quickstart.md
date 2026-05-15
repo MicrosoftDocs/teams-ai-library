@@ -40,7 +40,7 @@ teams --version
 ```
 
 > [!NOTE]
-> The [Teams Developer CLI](/cli/) is the command-line tool for scaffolding, registering, and managing Teams apps. It's currently in Preview.
+> The [Teams Developer CLI](../developer-tools/cli.md) is the command-line tool for scaffolding, registering, and managing Teams apps. It's currently in Preview.
 
 ## Creating Your First Agent
 
@@ -306,6 +306,6 @@ Otherwise, if you want to run your agent in Teams, you can check out the [Runnin
 
 ## Resources
 
-- [Teams Developer CLI documentation](/cli/)
+- [Teams Developer CLI documentation](../developer-tools/cli.md)
 - [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
 - [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)

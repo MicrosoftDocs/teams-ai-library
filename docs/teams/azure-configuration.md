@@ -12,7 +12,7 @@ This page walks through creating the Entra App Registration and Azure Bot Servic
 
 > [!TIP]
 > Most readers should use the Teams Developer CLI instead
-> For almost everything, `teams app create --azure --subscription <id> --resource-group <rg>` is the right answer — it provisions the Entra app, the Azure Bot resource, the Teams channel, and writes credentials in one command. See the [Quickstart: Register your app](/get-started/quickstart-register).
+> For almost everything, `teams app create --azure --subscription <id> --resource-group <rg>` is the right answer — it provisions the Entra app, the Azure Bot resource, the Teams channel, and writes credentials in one command. See the [Quickstart: Register your app](../getting-started/quickstart.md).
 > 
 > Or use the [`teams-dev` agent skill](../developer-tools/agent-skills.md) — tell your AI assistant to set up your Teams bot and it handles everything automatically.
 > 
@@ -136,6 +136,6 @@ For C# projects, write the credentials to `appsettings.json` under a `Teams` sec
 
 ## Resources
 
-- [Quickstart: Register your app](/get-started/quickstart-register) — automated setup with the Teams Developer CLI
-- [Teams Developer CLI: app create](/cli/commands/app/create)
+- [Quickstart: Register your app](../getting-started/quickstart.md) — automated setup with the Teams Developer CLI
+- [Teams Developer CLI: app create](../developer-tools/cli.md)
 - [Teams App Publishing overview](/microsoftteams/platform/concepts/deploy-and-publish/apps-publish-overview)

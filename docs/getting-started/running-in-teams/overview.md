@@ -8,7 +8,7 @@ ms.date: 05/15/2026
 
 # Running In Teams
 
-Now that you completed [the quickstart](../quickstart.md) and your agent is running locally, let's install it in Microsoft Teams. The fastest path is the [Teams Developer CLI](/cli/).
+Now that you completed [the quickstart](../quickstart.md) and your agent is running locally, let's install it in Microsoft Teams. The fastest path is the [Teams Developer CLI](../../developer-tools/cli.md).
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ Now that you completed [the quickstart](../quickstart.md) and your agent is runn
 - An M365 account with **custom app upload (sideloading) enabled** on the tenant
 - A public HTTPS tunnel pointing at your local server (e.g. [DevTunnels](/azure/developer/dev-tunnels/overview), [ngrok](https://ngrok.com/))
 
-If you haven't run through this before, the [Quickstart: Register your app](/get-started/quickstart-register) walks the full flow end-to-end. The summary below is for developers already familiar with the steps.
+If you haven't run through this before, the [Quickstart: Register your app](../quickstart.md) walks the full flow end-to-end. The summary below is for developers already familiar with the steps.
 
 ## 1. Log in
 
@@ -40,7 +40,7 @@ teams app create \
 
 This creates a Teams-managed bot by default — no Azure subscription needed. The command prints a summary including the **Teams App ID** and an **Install in Teams** link, and writes `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID` into `.env`. For C# projects use `--env appsettings.json`.
 
-If you need OAuth or SSO, add `--azure --resource-group <rg>` (or migrate later with `teams app bot migrate`). See [Bot Locations](/cli/concepts/bot-locations) for the details.
+If you need OAuth or SSO, add `--azure --resource-group <rg>` (or migrate later with `teams app bot migrate`). See [Bot Locations](../../developer-tools/cli.md) for the details.
 
 ## 3. Run your agent
 
@@ -100,6 +100,6 @@ Continue with [essential concepts](../../essentials/overview.md) to build more c
 
 ## Resources
 
-- [Teams Developer CLI](/cli/)
-- [Quickstart: Register your app](/get-started/quickstart-register)
+- [Teams Developer CLI](../../developer-tools/cli.md)
+- [Quickstart: Register your app](../quickstart.md)
 - [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview)

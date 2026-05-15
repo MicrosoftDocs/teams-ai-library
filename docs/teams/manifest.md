@@ -19,8 +19,8 @@ Sideloading is the ability to install and test your app before it is published t
 
 To sideload, ensure the manifest includes all required information (such as the app ID, tenant details, and permissions). Place the manifest and icons at the root of a zip file.
 
-The [Teams Developer CLI](/cli/) handles manifest scaffolding, validation, and updates as part of `teams app create`. To work with the manifest directly:
+The [Teams Developer CLI](../developer-tools/cli.md) handles manifest scaffolding, validation, and updates as part of `teams app create`. To work with the manifest directly:
 
-- [`teams app manifest download`](/cli/commands/app/manifest-download) — pull the current manifest from a registered app
-- [`teams app manifest upload`](/cli/commands/app/manifest-upload) — apply a local manifest.json to an existing app
-- [`teams app package download`](/cli/commands/app/package-download) — get a sideload-ready zip (manifest + icons)
+- [`teams app manifest download`](../developer-tools/cli.md) — pull the current manifest from a registered app
+- [`teams app manifest upload`](../developer-tools/cli.md) — apply a local manifest.json to an existing app
+- [`teams app package download`](../developer-tools/cli.md) — get a sideload-ready zip (manifest + icons)

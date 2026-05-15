@@ -13,5 +13,5 @@ Learn more about the developer tools that come with Teams SDK.
 
 1. [Teams Developer CLI](./cli.md)
 2. [Agent Skills](./agent-skills.md) — give AI coding assistants context for Teams development
-3. [llms.txt](./llms-txt.md) — documentation files optimized for AI coding assistants
+3. [llms.txt](./llms-text.md) — documentation files optimized for AI coding assistants
 4. [DevTools](./devtools/overview.md)

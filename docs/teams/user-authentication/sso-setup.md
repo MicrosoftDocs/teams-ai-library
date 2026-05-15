@@ -18,7 +18,7 @@ This section describes how to configure the Azure Bot Service (ABS), the Entra A
 Before starting SSO configuration, ensure you have:
 
 - An **Azure-managed** Azure Bot Service resource and its associated Entra App Registration (Application ID / Client ID and Tenant ID).
-- To set up using CLIs: the [`az` CLI](/cli/azure/install-azure-cli) and the [Teams Developer CLI](/cli/getting-started/installation) installed and authenticated.
+- To set up using CLIs: the [`az` CLI](/cli/azure/install-azure-cli) and the [Teams Developer CLI](../../developer-tools/cli.md) installed and authenticated.
 
   > [!NOTE]
   > CLI users: migrate first if your bot is Teams-managed
@@ -28,18 +28,18 @@ Before starting SSO configuration, ensure you have:
   > teams app bot migrate <appId> --subscription <id> --resource-group <rg>
   > ```
   > 
-  > Your `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID` stay the same. See [Bot Locations](/cli/concepts/bot-locations) for details.
+  > Your `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID` stay the same. See [Bot Locations](../../developer-tools/cli.md) for details.
 ## Configure the Entra App Registration for SSO
 
 You need an Entra ID App Registration to configure the OAuth Connection in Azure Bot Service. If you don't already have one, follow the [Create the Entra App Registration](../azure-configuration.md#create-the-entra-app-registration) guide first.
 
-# [Azure Portal](#tab/portal)
+# [Azure Portal](#tab/portal-entra)
 
 
 
 1. Add the Bot Framework redirect URI. From your App Registration, navigate to **Authentication** and add a **Web** platform redirect URI with the value `https://token.botframework.com/.auth/web/redirect`
 
-:::image type="content" source="~/assets/screenshots/entra-auth-redirect.png" alt-text="Entra auth redirect" lightbox="~/assets/screenshots/entra-auth-redirect.png":::
+:::image type="content" source="~/assets/screenshots/microsoft-entra-auth-redirect.png" alt-text="Entra auth redirect" lightbox="~/assets/screenshots/microsoft-entra-auth-redirect.png":::
 
 2. Configure the API. From `Expose an API`, click `Add` to Application ID URI and set the value to `api://<Your-Application-Id>`. Add the scope `access_as_user` and select who can _consent_.
 
@@ -49,7 +49,7 @@ You need an Entra ID App Registration to configure the OAuth Connection in Azure
 
 :::image type="content" source="~/assets/screenshots/entra-authorize-clientapp.png" alt-text="Entra oauth authorize client app" lightbox="~/assets/screenshots/entra-authorize-clientapp.png":::
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli-entra)
 
 
 
@@ -157,7 +157,7 @@ az rest \
 
 You need to add a new OAuth connection to your Azure Bot Service resource.
 
-# [Azure Portal](#tab/portal)
+# [Azure Portal](#tab/portal-oauth)
 
 
 
@@ -167,7 +167,7 @@ You need to add a new OAuth connection to your Azure Bot Service resource.
 
 :::image type="content" source="~/assets/screenshots/abs-oauth-connection.png" alt-text="ABS OAuth connection" lightbox="~/assets/screenshots/abs-oauth-connection.png":::
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli-oauth)
 
 
 
@@ -194,7 +194,7 @@ az bot authsetting create \
 
 The Teams application manifest needs to be updated to include `webApplicationInfo` with the `Application Id` and `Application ID URI`.
 
-# [Manifest JSON](#tab/portal)
+# [Manifest JSON](#tab/manifest)
 
 
 
@@ -214,7 +214,7 @@ Add `*.botframework.com` to `validDomains` and add the `webApplicationInfo` sect
  // highlight-end
 ```
 
-# [Teams Developer CLI](#tab/cli)
+# [Teams Developer CLI](#tab/teams-cli)
 
 
 

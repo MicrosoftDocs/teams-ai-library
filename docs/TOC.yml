@@ -147,13 +147,13 @@
         - name: Overview
           href: in-depth-guides/ai-integrations/overview.md
         - name: Build an agent in Teams
-          href: in-depth-guides/ai-integrations/build-agent-maf.md
+          href: in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework.md
         - name: Teams Enhancements
           href: in-depth-guides/ai-integrations/teams-enhancements.md
         - name: Exposing Teams to AI Agents (MCP)
           href: in-depth-guides/ai-integrations/mcp-server.md
         - name: Bot-to-Bot with A2A
-          href: in-depth-guides/ai-integrations/a2a.md
+          href: in-depth-guides/ai-integrations/agent-to-agent.md
     - name: Tabs
       items:
         - name: Overview
@@ -223,7 +223,7 @@
     - name: Agent Skills
       href: developer-tools/agent-skills.md
     - name: llms.txt
-      href: developer-tools/llms-txt.md
+      href: developer-tools/llms-text.md
     - name: DevTools
       items:
         - name: Overview

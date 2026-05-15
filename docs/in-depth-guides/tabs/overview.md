@@ -44,7 +44,7 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 ### Additional resources
 
 - [Static Pages](../server/static-pages.md)
-- [TypeScript Tabs in-depth guide](/typescript/in-depth-guides/tabs)
+- [TypeScript Tabs in-depth guide](overview.md)
 ::: zone-end
 
 ::: zone pivot="typescript"
