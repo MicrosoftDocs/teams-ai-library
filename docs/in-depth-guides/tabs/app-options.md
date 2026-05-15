@@ -3,7 +3,7 @@ title: App Options
 description: Configure app settings for observability, MSAL authentication, and remote agent function calling.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 # App Options
 
@@ -179,8 +179,9 @@ const app = new App(clientId);
 await app.start();
 ```
 
-> [!NOTE]
-> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::info
+The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::
 
 #### Pre-warm a specific set of scopes
 
@@ -198,8 +199,9 @@ const app = new App(clientId, {
 await app.start();
 ```
 
-> [!NOTE]
-> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::info
+The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::
 
 #### Disabling pre-warming
 
@@ -221,8 +223,9 @@ await app.start();
 const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 ```
 
-> [!NOTE]
-> Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
+:::info
+Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
+:::
 
 ## References
 

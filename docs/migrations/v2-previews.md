@@ -1,9 +1,9 @@
 ---
 title: From V2 Previews
-description: From V2 Previews
+description: Migration guide for moving from Teams SDK v2 preview versions to the stable release.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 # From V2 Previews
 
@@ -106,5 +106,3 @@ await app.graph.call(setPresence.create, newPresence);
 await app.graph.call(updatePresence, newPresence);
 ```
 ::: zone-end
-
-

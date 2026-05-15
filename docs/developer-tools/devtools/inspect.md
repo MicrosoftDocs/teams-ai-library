@@ -2,7 +2,7 @@
 title: Inspect activities
 description: Inspect all incoming and outgoing activities with your agent using DevTools Activities page for debugging.
 ms.topic: how-to
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Inspect activities
@@ -22,7 +22,7 @@ The Activities page displays all activities sent to and from your agent in a gri
 
 ### Monitor activity while testing Teams in browser
 
-When testing your sideloaded app in the Teams web client, you can monitor activities in DevTools. Once your agent has launched, the agent server will indicate what port DevTools is running on). Open another browser tab and navigate to the DevTools Activities URL. Interact with your agent in the Teams web client and see the activities in DevTools. To learn more, review the [Agents Toolkit](../../teams/configuration/agents-toolkit.md) page.
+When testing your sideloaded app in the Teams web client, you can monitor activities in DevTools. Once your agent has launched, the agent server will indicate what port DevTools is running on. Open another browser tab and navigate to the DevTools Activities URL. Interact with your agent in the Teams web client and see the activities in DevTools. To set up sideloading, see the [Quickstart: Register your app](/get-started/quickstart-register).
 
 You can filter activities by type using the filter icon in the Type column header.
 

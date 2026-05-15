@@ -3,138 +3,64 @@ title: Function / Tool calling
 description: How to implement function calling in AI models, allowing the LLM to execute functions as part of its response generation.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
-
 # Function / Tool calling
+
+::: zone pivot="python"
+This article is not available for the selected development language.
+::: zone-end
 
 ::: zone pivot="csharp"
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by registering functions with a `ChatPrompt` using the `.Function()` method.
 ::: zone-end
 
-::: zone pivot="python,typescript"
+::: zone pivot="typescript"
 It's possible to hook up functions that the LLM can decide to call if it thinks it can help with the task at hand. This is done by adding a `function` to the `ChatPrompt`.
 ::: zone-end
 
 
-::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/function-calling-csharp-sequence.png" alt-text="Sequence diagram showing function calling flow where user sends a message, ChatPrompt provides it to the LLM with available functions, LLM decides to call pokemon_search, the function fetches data from an external API, and the result is returned to the user" lightbox="~/assets/diagrams/function-calling-csharp-sequence.png":::
-::: zone-end
 
-::: zone pivot="python"
-:::image type="content" source="~/assets/diagrams/function-calling-python-sequence.png" alt-text="Sequence diagram showing Python function calling flow where user sends a message, ChatPrompt provides it to the LLM with available functions, LLM calls pokemon_search, the function fetches data, and the result is returned" lightbox="~/assets/diagrams/function-calling-python-sequence.png":::
+::: zone pivot="csharp"
+:::image type="content" source="~/assets/diagrams/function-calling.png" alt-text="Sequence diagram showing function calling flow for a Pokemon search through an external API in C#" lightbox="~/assets/diagrams/function-calling.png":::
+
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::image type="content" source="~/assets/diagrams/function-calling-js-sequence.png" alt-text="Sequence diagram showing JavaScript function calling flow where user sends a message, ChatPrompt provides it to the LLM with available functions, LLM calls pokemonSearch, the function fetches data, and the result is returned" lightbox="~/assets/diagrams/function-calling-js-sequence.png":::
+:::image type="content" source="~/assets/diagrams/function-calling-2.png" alt-text="Sequence diagram showing function calling flow for a Pokemon search through an external API in TypeScript" lightbox="~/assets/diagrams/function-calling-2.png":::
+
 ::: zone-end
+
+
+
 
 ::: zone pivot="csharp"
 ## Single Function Example
 
 Here's a complete example showing how to create a Pokemon search function that the LLM can call.
+
+
 # [Imperative](#tab/imperative)
-```csharp
-using System.Text.Json;
-using Microsoft.Teams.AI.Annotations;
-using Microsoft.Teams.AI.Models.OpenAI;
-using Microsoft.Teams.AI.Prompts;
-using Microsoft.Teams.AI.Templates;
-using Microsoft.Teams.Api.Activities;
-using Microsoft.Teams.Apps;
 
-/// <summary>
-/// Handle Pokemon search using PokeAPI
-/// </summary>
-public static async Task<string> PokemonSearchFunction([Param("pokemon_name")] string pokemonName)
-{
-    try
-    {
-        using var client = new HttpClient();
-        var response = await client.GetAsync($"https://pokeapi.co/api/v2/pokemon/{pokemonName.ToLower()}");
 
-        if (!response.IsSuccessStatusCode)
-        {
-            return $"Pokemon '{pokemonName}' not found";
-        }
+    ```csharp
+    using System.Text.Json;
+    using Microsoft.Teams.AI.Annotations;
+    using Microsoft.Teams.AI.Models.OpenAI;
+    using Microsoft.Teams.AI.Prompts;
+    using Microsoft.Teams.AI.Templates;
+    using Microsoft.Teams.Api.Activities;
+    using Microsoft.Teams.Apps;
 
-        var json = await response.Content.ReadAsStringAsync();
-        var data = JsonDocument.Parse(json);
-        var root = data.RootElement;
-
-        var name = root.GetProperty("name").GetString();
-        var height = root.GetProperty("height").GetInt32();
-        var weight = root.GetProperty("weight").GetInt32();
-        var types = root.GetProperty("types")
-            .EnumerateArray()
-            .Select(t => t.GetProperty("type").GetProperty("name").GetString())
-            .ToList();
-
-        return $"Pokemon {name}: height={height}, weight={weight}, types={string.Join(", ", types)}";
-    }
-    catch (Exception ex)
-    {
-        return $"Error searching for Pokemon: {ex.Message}";
-    }
-}
-
-/// <summary>
-/// Handle single function calling - Pokemon search
-/// </summary>
-public static async Task HandlePokemonSearch(OpenAIChatModel model, IContext<MessageActivity> context)
-{
-    var prompt = new OpenAIChatPrompt(model, new ChatPromptOptions
-    {
-        Instructions = new StringTemplate("You are a helpful assistant that can look up Pokemon for the user.")
-    });
-
-    // Register the pokemon search function
-    prompt.Function(
-        "pokemon_search",
-        "Search for pokemon information including height, weight, and types",
-        PokemonSearchFunction
-    );
-
-    var result = await prompt.Send(context.Activity.Text);
-
-    if (result.Content != null)
-    {
-        var message = new MessageActivity
-        {
-            Text = result.Content,
-        }.AddAIGenerated();
-        await context.Send(message);
-    }
-    else
-    {
-        await context.Reply("Sorry I could not find that pokemon");
-    }
-}
-```
-# [Declarative](#tab/declarative)
-This approach uses attributes to declare prompts and functions, providing clean separation of concerns.
-
-**Create a Prompt Class:**
-
-```csharp
-using System.Text.Json;
-using Microsoft.Teams.AI.Annotations;
-
-namespace Samples.AI.Prompts;
-
-[Prompt]
-[Prompt.Description("Pokemon search assistant")]
-[Prompt.Instructions("You are a helpful assistant that can look up Pokemon for the user.")]
-public class PokemonPrompt
-{
-    [Function]
-    [Function.Description("Search for pokemon information including height, weight, and types")]
-    public async Task<string> PokemonSearch([Param("pokemon_name")] string pokemonName)
+    /// <summary>
+    /// Handle Pokemon search using PokeAPI
+    /// </summary>
+    public static async Task<string> PokemonSearchFunction([Param("pokemon_name")] string pokemonName)
     {
         try
         {
-            using var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync($"https://pokeapi.co/api/v2/pokemon/{pokemonName.ToLower()}");
+            using var client = new HttpClient();
+            var response = await client.GetAsync($"https://pokeapi.co/api/v2/pokemon/{pokemonName.ToLower()}");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -160,36 +86,125 @@ public class PokemonPrompt
             return $"Error searching for Pokemon: {ex.Message}";
         }
     }
-}
-```
 
-**Usage in Program.cs:**
-
-```csharp
-using Microsoft.Teams.AI.Models.OpenAI;
-using Microsoft.Teams.Api.Activities;
-
-// Create the AI model
-var aiModel = new OpenAIChatModel(azureOpenAIModel, azureOpenAI);
-
-// Use the prompt with OpenAIChatPrompt.From()
-teamsApp.OnMessage(async (context) =>
-{
-    var prompt = OpenAIChatPrompt.From(aiModel, new Samples.AI.Prompts.PokemonPrompt());
-
-    var result = await prompt.Send(context.Activity.Text);
-
-    if (!string.IsNullOrEmpty(result.Content))
+    /// <summary>
+    /// Handle single function calling - Pokemon search
+    /// </summary>
+    public static async Task HandlePokemonSearch(OpenAIChatModel model, IContext<MessageActivity> context)
     {
-        await context.Send(new MessageActivity { Text = result.Content }.AddAIGenerated());
+        var prompt = new OpenAIChatPrompt(model, new ChatPromptOptions
+        {
+            Instructions = new StringTemplate("You are a helpful assistant that can look up Pokemon for the user.")
+        });
+
+        // Register the pokemon search function
+        prompt.Function(
+            "pokemon_search",
+            "Search for pokemon information including height, weight, and types",
+            PokemonSearchFunction
+        );
+
+        var result = await prompt.Send(context.Activity.Text);
+
+        if (result.Content != null)
+        {
+            var message = new MessageActivity
+            {
+                Text = result.Content,
+            }.AddAIGenerated();
+            await context.Send(message);
+        }
+        else
+        {
+            await context.Reply("Sorry I could not find that pokemon");
+        }
     }
-    else
+    ```
+
+# [Declarative](#tab/declarative)
+
+
+    This approach uses attributes to declare prompts and functions, providing clean separation of concerns.
+
+    **Create a Prompt Class:**
+
+    ```csharp
+    using System.Text.Json;
+    using Microsoft.Teams.AI.Annotations;
+
+    namespace Samples.AI.Prompts;
+
+    [Prompt]
+    [Prompt.Description("Pokemon search assistant")]
+    [Prompt.Instructions("You are a helpful assistant that can look up Pokemon for the user.")]
+    public class PokemonPrompt
     {
-        await context.Reply("Sorry I could not find that pokemon");
+        [Function]
+        [Function.Description("Search for pokemon information including height, weight, and types")]
+        public async Task<string> PokemonSearch([Param("pokemon_name")] string pokemonName)
+        {
+            try
+            {
+                using var httpClient = new HttpClient();
+                var response = await httpClient.GetAsync($"https://pokeapi.co/api/v2/pokemon/{pokemonName.ToLower()}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return $"Pokemon '{pokemonName}' not found";
+                }
+
+                var json = await response.Content.ReadAsStringAsync();
+                var data = JsonDocument.Parse(json);
+                var root = data.RootElement;
+
+                var name = root.GetProperty("name").GetString();
+                var height = root.GetProperty("height").GetInt32();
+                var weight = root.GetProperty("weight").GetInt32();
+                var types = root.GetProperty("types")
+                    .EnumerateArray()
+                    .Select(t => t.GetProperty("type").GetProperty("name").GetString())
+                    .ToList();
+
+                return $"Pokemon {name}: height={height}, weight={weight}, types={string.Join(", ", types)}";
+            }
+            catch (Exception ex)
+            {
+                return $"Error searching for Pokemon: {ex.Message}";
+            }
+        }
     }
-});
-```
+    ```
+
+    **Usage in Program.cs:**
+
+    ```csharp
+    using Microsoft.Teams.AI.Models.OpenAI;
+    using Microsoft.Teams.Api.Activities;
+
+    // Create the AI model
+    var aiModel = new OpenAIChatModel(azureOpenAIModel, azureOpenAI);
+
+    // Use the prompt with OpenAIChatPrompt.From()
+    teamsApp.OnMessage(async (context, cancellationToken) =>
+    {
+        var prompt = OpenAIChatPrompt.From(aiModel, new Samples.AI.Prompts.PokemonPrompt());
+
+        var result = await prompt.Send(context.Activity.Text);
+
+        if (!string.IsNullOrEmpty(result.Content))
+        {
+            await context.Send(new MessageActivity { Text = result.Content }.AddAIGenerated(), cancellationToken);
+        }
+        else
+        {
+            await context.Reply("Sorry I could not find that pokemon", cancellationToken);
+        }
+    });
+    ```
+
 ---
+
+
 ### How It Works
 
 1. **Function Definition**: The function is defined as a regular C# method with parameters decorated with the `[Param]` attribute
@@ -202,69 +217,6 @@ teamsApp.OnMessage(async (context) =>
    - Validates them against the schema
    - Invokes the handler
    - Returns the result back to the LLM
-::: zone-end
-
-::: zone pivot="python"
-```python
-import aiohttp
-import random
-from microsoft_teams.ai import Agent, Function
-from microsoft_teams.api import MessageActivity, MessageActivityInput
-from microsoft_teams.apps import ActivityContext
-from microsoft_teams.openai import OpenAICompletionsAIModel
-from pydantic import BaseModel
-
-class SearchPokemonParams(BaseModel):
-    pokemon_name: str
-    """The name of the pokemon."""
-
-async def pokemon_search_handler(params: SearchPokemonParams) -> str:
-    """Search for Pokemon using PokeAPI - matches documentation example"""
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(f"https://pokeapi.co/api/v2/pokemon/{params.pokemon_name.lower()}") as response:
-                if response.status != 200:
-                    raise ValueError(f"Pokemon '{params.pokemon_name}' not found")
-
-                data = await response.json()
-
-                result_data = {
-                    "name": data["name"],
-                    "height": data["height"],
-                    "weight": data["weight"],
-                    "types": [type_info["type"]["name"] for type_info in data["types"]],
-                }
-
-                return f"Pokemon {result_data['name']}: height={result_data['height']}, weight={result_data['weight']}, types={', '.join(result_data['types'])}"
-    except Exception as e:
-        raise ValueError(f"Error searching for Pokemon: {str(e)}")
-
-@app.on_message
-async def handle_message(ctx: ActivityContext[MessageActivity]):
-    openai_model = OpenAICompletionsAIModel(model=AZURE_OPENAI_MODEL)
-    agent = Agent(model=openai_model)
-    agent.with_function(
-        Function(
-            name="pokemon_search",
-            description="Search for pokemon information including height, weight, and types",
-            # Include the schema of the parameters
-            # the LLM needs to return to call the function
-            parameter_schema=SearchPokemonParams,
-            handler=pokemon_search_handler,
-        )
-    )
-
-    chat_result = await agent.send(
-            input=ctx.activity.text,
-            instructions="You are a helpful assistant that can look up Pokemon for the user.",
-        )
-
-    if chat_result.response.content:
-        message = MessageActivityInput(text=chat_result.response.content).add_ai_generated()
-        await ctx.send(message)
-    else:
-        await ctx.reply("Sorry I could not find that pokemon")
-```
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -319,107 +271,33 @@ await send(result.content ?? 'Sorry I could not find that pokemon');
 ```
 ::: zone-end
 
+
+
+
 ::: zone pivot="csharp"
 ## Multiple Functions
 
 Additionally, for complex scenarios, you can add multiple functions to the `ChatPrompt`. The LLM will then decide which function(s) to call based on the context of the conversation.
+
 # [Imperative](#tab/imperative)
-```csharp
-/// <summary>
-/// Get user location (mock)
-/// </summary>
-public static string GetLocationFunction()
-{
-    var locations = new[] { "Seattle", "San Francisco", "New York" };
-    var random = new Random();
-    var location = locations[random.Next(locations.Length)];
-    return location;
-}
 
-/// <summary>
-/// Get weather for location (mock)
-/// </summary>
-public static string GetWeatherFunction([Param] string location)
-{
-    var weatherByLocation = new Dictionary<string, (int Temperature, string Condition)>
-    {
-        ["Seattle"] = (65, "sunny"),
-        ["San Francisco"] = (60, "foggy"),
-        ["New York"] = (75, "rainy")
-    };
 
-    if (!weatherByLocation.TryGetValue(location, out var weather))
-    {
-        return "Sorry, I could not find the weather for that location";
-    }
-
-    return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}°F";
-}
-
-/// <summary>
-/// Handle multiple function calling - location then weather
-/// </summary>
-public static async Task HandleMultipleFunctions(OpenAIChatModel model, IContext<MessageActivity> context)
-{
-    var prompt = new OpenAIChatPrompt(model, new ChatPromptOptions
-    {
-        Instructions = new StringTemplate("You are a helpful assistant that can help the user get the weather. First get their location, then get the weather for that location.")
-    });
-
-    // Register both functions
-    prompt.Function(
-        "get_user_location",
-        "Gets the location of the user",
-        GetLocationFunction
-    );
-
-    prompt.Function(
-        "weather_search",
-        "Search for weather at a specific location",
-        GetWeatherFunction
-    );
-
-    var result = await prompt.Send(context.Activity.Text);
-
-    if (result.Content != null)
-    {
-        var message = new MessageActivity
-        {
-            Text = result.Content,
-        }.AddAIGenerated();
-        await context.Send(message);
-    }
-    else
-    {
-        await context.Reply("Sorry I could not figure it out");
-    }
-}
-```
-# [Declarative](#tab/declarative)
-**Create a Prompt Class:**
-
-```csharp
-using Microsoft.Teams.AI.Annotations;
-
-namespace Samples.AI.Prompts;
-
-[Prompt]
-[Prompt.Description("Weather assistant")]
-[Prompt.Instructions("You are a helpful assistant that can help the user get the weather. First get their location, then get the weather for that location.")]
-public class WeatherPrompt
-{
-    [Function]
-    [Function.Description("Gets the location of the user")]
-    public string GetUserLocation()
+    ```csharp
+    /// <summary>
+    /// Get user location (mock)
+    /// </summary>
+    public static string GetLocationFunction()
     {
         var locations = new[] { "Seattle", "San Francisco", "New York" };
         var random = new Random();
-        return locations[random.Next(locations.Length)];
+        var location = locations[random.Next(locations.Length)];
+        return location;
     }
 
-    [Function]
-    [Function.Description("Search for weather at a specific location")]
-    public string WeatherSearch([Param] string location)
+    /// <summary>
+    /// Get weather for location (mock)
+    /// </summary>
+    public static string GetWeatherFunction([Param] string location)
     {
         var weatherByLocation = new Dictionary<string, (int Temperature, string Condition)>
         {
@@ -435,36 +313,122 @@ public class WeatherPrompt
 
         return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}°F";
     }
-}
-```
 
-**Usage in Program.cs:**
-
-```csharp
-using Microsoft.Teams.AI.Models.OpenAI;
-using Microsoft.Teams.Api.Activities;
-
-// Create the AI model
-var aiModel = new OpenAIChatModel(azureOpenAIModel, azureOpenAI);
-
-// Use the prompt with OpenAIChatPrompt.From()
-teamsApp.OnMessage(async (context) =>
-{
-    var prompt = OpenAIChatPrompt.From(aiModel, new Samples.AI.Prompts.WeatherPrompt());
-
-    var result = await prompt.Send(context.Activity.Text);
-
-    if (!string.IsNullOrEmpty(result.Content))
+    /// <summary>
+    /// Handle multiple function calling - location then weather
+    /// </summary>
+    public static async Task HandleMultipleFunctions(OpenAIChatModel model, IContext<MessageActivity> context)
     {
-        await context.Send(new MessageActivity { Text = result.Content }.AddAIGenerated());
+        var prompt = new OpenAIChatPrompt(model, new ChatPromptOptions
+        {
+            Instructions = new StringTemplate("You are a helpful assistant that can help the user get the weather. First get their location, then get the weather for that location.")
+        });
+
+        // Register both functions
+        prompt.Function(
+            "get_user_location",
+            "Gets the location of the user",
+            GetLocationFunction
+        );
+
+        prompt.Function(
+            "weather_search",
+            "Search for weather at a specific location",
+            GetWeatherFunction
+        );
+
+        var result = await prompt.Send(context.Activity.Text);
+
+        if (result.Content != null)
+        {
+            var message = new MessageActivity
+            {
+                Text = result.Content,
+            }.AddAIGenerated();
+            await context.Send(message);
+        }
+        else
+        {
+            await context.Reply("Sorry I could not figure it out");
+        }
     }
-    else
+    ```
+
+# [Declarative](#tab/declarative)
+
+
+    **Create a Prompt Class:**
+
+    ```csharp
+    using Microsoft.Teams.AI.Annotations;
+
+    namespace Samples.AI.Prompts;
+
+    [Prompt]
+    [Prompt.Description("Weather assistant")]
+    [Prompt.Instructions("You are a helpful assistant that can help the user get the weather. First get their location, then get the weather for that location.")]
+    public class WeatherPrompt
     {
-        await context.Reply("Sorry I could not figure it out");
+        [Function]
+        [Function.Description("Gets the location of the user")]
+        public string GetUserLocation()
+        {
+            var locations = new[] { "Seattle", "San Francisco", "New York" };
+            var random = new Random();
+            return locations[random.Next(locations.Length)];
+        }
+
+        [Function]
+        [Function.Description("Search for weather at a specific location")]
+        public string WeatherSearch([Param] string location)
+        {
+            var weatherByLocation = new Dictionary<string, (int Temperature, string Condition)>
+            {
+                ["Seattle"] = (65, "sunny"),
+                ["San Francisco"] = (60, "foggy"),
+                ["New York"] = (75, "rainy")
+            };
+
+            if (!weatherByLocation.TryGetValue(location, out var weather))
+            {
+                return "Sorry, I could not find the weather for that location";
+            }
+
+            return $"The weather in {location} is {weather.Condition} with a temperature of {weather.Temperature}°F";
+        }
     }
-});
-```
+    ```
+
+    **Usage in Program.cs:**
+
+    ```csharp
+    using Microsoft.Teams.AI.Models.OpenAI;
+    using Microsoft.Teams.Api.Activities;
+
+    // Create the AI model
+    var aiModel = new OpenAIChatModel(azureOpenAIModel, azureOpenAI);
+
+    // Use the prompt with OpenAIChatPrompt.From()
+    teamsApp.OnMessage(async (context, cancellationToken) =>
+    {
+        var prompt = OpenAIChatPrompt.From(aiModel, new Samples.AI.Prompts.WeatherPrompt());
+
+        var result = await prompt.Send(context.Activity.Text);
+
+        if (!string.IsNullOrEmpty(result.Content))
+        {
+            await context.Send(new MessageActivity { Text = result.Content }.AddAIGenerated(), cancellationToken);
+        }
+        else
+        {
+            await context.Reply("Sorry I could not figure it out", cancellationToken);
+        }
+    });
+    ```
+
 ---
+
+
 ### Multiple Function Execution Flow
 
 When you register multiple functions:
@@ -478,80 +442,6 @@ When you register multiple functions:
 
 > [!TIP]
 > The LLM can call functions sequentially - using the output of one function as input to another - without any additional configuration. This makes it powerful for complex, multi-step workflows.
-::: zone-end
-
-::: zone pivot="python"
-## Multiple functions
-
-Additionally, for complex scenarios, you can add multiple functions to the `ChatPrompt`. The LLM will then decide which function to call based on the context of the conversation. The LLM can pick one or more functions to call before returning the final response.
-
-```python
-import random
-from microsoft_teams.ai import Agent, Function
-from microsoft_teams.api import MessageActivity, MessageActivityInput
-from microsoft_teams.apps import ActivityContext
-from pydantic import BaseModel
-# ...
-
-class GetLocationParams(BaseModel):
-    """No parameters needed for location"""
-    pass
-
-class GetWeatherParams(BaseModel):
-    location: str
-    """The location to get weather for"""
-
-def get_location_handler(params: GetLocationParams) -> str:
-    """Get user location (mock)"""
-    locations = ["Seattle", "San Francisco", "New York"]
-    location = random.choice(locations)
-    return location
-
-def get_weather_handler(params: GetWeatherParams) -> str:
-    """Get weather for location (mock)"""
-    weather_by_location = {
-        "Seattle": {"temperature": 65, "condition": "sunny"},
-        "San Francisco": {"temperature": 60, "condition": "foggy"},
-        "New York": {"temperature": 75, "condition": "rainy"},
-    }
-
-    weather = weather_by_location.get(params.location)
-    if not weather:
-        return "Sorry, I could not find the weather for that location"
-
-    return f"The weather in {params.location} is {weather['condition']} with a temperature of {weather['temperature']}°F"
-
-@app.on_message
-async def handle_multiple_functions(ctx: ActivityContext[MessageActivity]):
-    agent = Agent(model)
-
-    agent.with_function(
-        Function(
-            name="get_user_location",
-            description="Gets the location of the user",
-            parameter_schema=GetLocationParams,
-            handler=get_location_handler,
-        )
-    ).with_function(
-        Function(
-            name="weather_search",
-            description="Search for weather at a specific location",
-            parameter_schema=GetWeatherParams,
-            handler=get_weather_handler,
-        )
-    )
-
-    chat_result = await agent.send(
-        input=ctx.activity.text,
-        instructions="You are a helpful assistant that can help the user get the weather. First get their location, then get the weather for that location.",
-    )
-
-    if chat_result.response.content:
-        message = MessageActivityInput(text=chat_result.response.content).add_ai_generated()
-        await ctx.send(message)
-    else:
-        await ctx.reply("Sorry I could not figure it out")
-```
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -621,11 +511,10 @@ await send(result.content ?? 'Sorry I could not figure it out');
 ```
 ::: zone-end
 
-::: zone pivot="csharp"
-<!-- Not applicable -->
-::: zone-end
 
-::: zone pivot="python"
+
+
+::: zone pivot="csharp"
 <!-- Not applicable -->
 ::: zone-end
 
@@ -664,4 +553,3 @@ await send(
 );
 ```
 ::: zone-end
-

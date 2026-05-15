@@ -3,7 +3,7 @@ title: Getting Started
 description: Getting started guide for Teams SDK covering application setup, structure, and local development.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Getting Started
@@ -14,8 +14,7 @@ ms.date: 04/14/2026
 ::: zone-end
 
 ::: zone pivot="python"
-> [!WARNING]
-> Our Python SDK is currently in Public Preview. We're going to do our best to not ship breaking changes, but breaking changes may happen from time to time
+<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="typescript"

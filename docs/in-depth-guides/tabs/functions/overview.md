@@ -3,7 +3,7 @@ title: Functions
 description: Details on how to register REST endpoints that can be called from Tab apps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 # Functions
 
@@ -111,7 +111,7 @@ app.function('privileged-action', ({ userId }) => {
 ```
 ::: zone-end
 
-::: zone pivot="typescript,csharp"
+::: zone pivot="javascript,csharp"
 ## Function context
 ::: zone-end
 
@@ -123,48 +123,48 @@ The function callback receives a context object with a number of useful values. 
 
 
 ::: zone pivot="csharp"
-| Property       | Source | Description                                                                                                        |
+| Property | Source | Description |
 | -------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| `Api`          | Agent  | The API client.                                                                                                    |
-| `AppId`        | Agent  | Unique identifier assigned to the app after deployment, ensuring correct app instance recognition across hosts.    |
-| `AppSessionId` | Caller | Unique ID for the calling app's session, used to correlate telemetry data.                                         |
-| `AuthToken`    | Caller | The validated MSAL Entra token.                                                                                    |
-| `ChannelId`    | Caller | Microsoft Teams ID for the channel associated with the content.                                                    |
-| `ChatId`       | Caller | Microsoft Teams ID for the chat associated with the content.                                                       |
-| `Data`         | Caller | The function payload.                                                                                              |
-| `Log`          | Agent  | The app logger instance.                                                                                           |
-| `MeetingId`    | Caller | Meeting ID used by tab when running in meeting context.                                                            |
-| `MessageId`    | Caller | ID of the parent message from which the task module was launched (only available in bot card-launched modules).    |
-| `PageId`       | Caller | Developer-defined unique ID for the page this content points to.                                                   |
-| `Send`         | Agent  | Sends an activity to the current conversation.                                                                     |
-| `SubPageId`    | Caller | Developer-defined unique ID for the sub-page this content points to. Used to restore specific state within a page. |
-| `TeamId`       | Caller | Microsoft Teams ID for the team associated with the content.                                                       |
-| `TenantId`     | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token.                            |
-| `UserId`       | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token.                            |
-| `UserName`     | Caller | Microsoft Entra name of the current user, extracted from the validated auth token.                                 |
+| `Api` | Agent | The API client. |
+| `AppId` | Agent | Unique identifier assigned to the app after deployment, ensuring correct app instance recognition across hosts. |
+| `AppSessionId` | Caller | Unique ID for the calling app's session, used to correlate telemetry data. |
+| `AuthToken` | Caller | The validated MSAL Entra token. |
+| `ChannelId` | Caller | Microsoft Teams ID for the channel associated with the content. |
+| `ChatId` | Caller | Microsoft Teams ID for the chat associated with the content. |
+| `Data` | Caller | The function payload. |
+| `Log` | Agent | The app logger instance. |
+| `MeetingId` | Caller | Meeting ID used by tab when running in meeting context. |
+| `MessageId` | Caller | ID of the parent message from which the task module was launched (only available in bot card-launched modules). |
+| `PageId` | Caller | Developer-defined unique ID for the page this content points to. |
+| `Send` | Agent | Sends an activity to the current conversation. |
+| `SubPageId` | Caller | Developer-defined unique ID for the sub-page this content points to. Used to restore specific state within a page. |
+| `TeamId` | Caller | Microsoft Teams ID for the team associated with the content. |
+| `TenantId` | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token. |
+| `UserId` | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token. |
+| `UserName` | Caller | Microsoft Entra name of the current user, extracted from the validated auth token. |
 ::: zone-end
 
 ::: zone pivot="typescript"
-| Property                   | Source | Description                                                                                                                               |
+| Property | Source | Description |
 | -------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `api`                      | Agent  | The API client.                                                                                                                           |
-| `appGraph`                 | Agent  | The app graph client.                                                                                                                     |
-| `appId`                    | Agent  | Unique identifier assigned to the app after deployment, ensuring correct app instance recognition across hosts.                           |
-| `appSessionId`             | Caller | Unique ID for the calling app's session, used to correlate telemetry data.                                                                |
-| `authToken`                | Caller | The validated MSAL Entra token.                                                                                                           |
-| `channelId`                | Caller | Microsoft Teams ID for the channel associated with the content.                                                                           |
-| `chatId`                   | Caller | Microsoft Teams ID for the chat associated with the content.                                                                              |
-| `data`                     | Caller | The function payload.                                                                                                                     |
-| `getCurrentConversationId` | Agent  | Attempts to find the conversation ID where the app is used and verifies agent-user presence. Returns `undefined` if not found or invalid. |
-| `log`                      | Agent  | The app logger instance.                                                                                                                  |
-| `meetingId`                | Caller | Meeting ID used by tab when running in meeting context.                                                                                   |
-| `messageId`                | Caller | ID of the parent message from which the task module was launched (only available in bot card-launched modules).                           |
-| `pageId`                   | Caller | Developer-defined unique ID for the page this content points to.                                                                          |
-| `send`                     | Agent  | Sends an activity to the current conversation. Returns `null` if the conversation ID is invalid or undetermined.                          |
-| `subPageId`                | Caller | Developer-defined unique ID for the sub-page this content points to. Used to restore specific state within a page.                        |
-| `teamId`                   | Caller | Microsoft Teams ID for the team associated with the content.                                                                              |
-| `tenantId`                 | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token.                                                   |
-| `userId`                   | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token.                                                   |
+| `api` | Agent | The API client. |
+| `appGraph` | Agent | The app graph client. |
+| `appId` | Agent | Unique identifier assigned to the app after deployment, ensuring correct app instance recognition across hosts. |
+| `appSessionId` | Caller | Unique ID for the calling app's session, used to correlate telemetry data. |
+| `authToken` | Caller | The validated MSAL Entra token. |
+| `channelId` | Caller | Microsoft Teams ID for the channel associated with the content. |
+| `chatId` | Caller | Microsoft Teams ID for the chat associated with the content. |
+| `data` | Caller | The function payload. |
+| `getCurrentConversationId` | Agent | Attempts to find the conversation ID where the app is used and verifies agent-user presence. Returns `undefined` if not found or invalid. |
+| `log` | Agent | The app logger instance. |
+| `meetingId` | Caller | Meeting ID used by tab when running in meeting context. |
+| `messageId` | Caller | ID of the parent message from which the task module was launched (only available in bot card-launched modules). |
+| `pageId` | Caller | Developer-defined unique ID for the page this content points to. |
+| `send` | Agent | Sends an activity to the current conversation. Returns `null` if the conversation ID is invalid or undetermined. |
+| `subPageId` | Caller | Developer-defined unique ID for the sub-page this content points to. Used to restore specific state within a page. |
+| `teamId` | Caller | Microsoft Teams ID for the team associated with the content. |
+| `tenantId` | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token. |
+| `userId` | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token. |
 ::: zone-end
 
 
@@ -201,17 +201,15 @@ To simplify two common scenarios, the context provides the `getCurrentConversati
 - The `send` method relies on `getCurrentConversationId` to find the conversation where the app is hosted and posts an activity.
 ::: zone-end
 
-::: zone pivot="typescript,csharp"
+::: zone pivot="javascript,csharp"
 ## Additional resources
 ::: zone-end
 
 ::: zone pivot="csharp"
-- For details on how to Tab apps can call these functions, see the TypeScript [Executing Functions](function-calling.md) in-depth guide.
+- For details on how to Tab apps can call these functions, see the TypeScript [Executing Functions](/typescript/in-depth-guides/tabs/functions/function-calling) in-depth guide.
 - For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
 ::: zone-end
 
 ::: zone pivot="typescript"
 - For details on how to Tab apps can invoke these functions, see the [Executing Functions](./function-calling.md) in-depth guide.
 ::: zone-end
-
-

@@ -1,16 +1,15 @@
 ---
 title: Creating Dialogs
-description: Creating Dialogs
+description: Guide to creating and opening dialogs in Teams using Adaptive Cards and task fetch actions.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Creating Dialogs
 
 > [!TIP]
 > If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards/overview.md). Understanding their basics is a prerequisite for this guide.
-
 ## Entry Point
 
 
@@ -19,7 +18,7 @@ To open a dialog, you need to supply a special type of action to the Adaptive Ca
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-To open a dialog, you need to supply a special type of action as to the Adaptive Card. Once this button is clicked, the dialog will open and ask the application what to show.
+To open a dialog, add a button to your Adaptive Card using `OpenDialogData`. This sets up the `task/fetch` protocol and includes a `dialog_id` that the SDK uses to route to the correct handler.
 ::: zone-end
 
 
@@ -80,7 +79,7 @@ private static AdaptiveCard CreateDialogLauncherCard()
 ```python
 from microsoft_teams.api import MessageActivity, MessageActivityInput, TypingActivityInput
 from microsoft_teams.apps import ActivityContext
-from microsoft_teams.cards import AdaptiveCard, TextBlock, TaskFetchAction
+from microsoft_teams.cards import AdaptiveCard, TextBlock, SubmitAction, OpenDialogData
 # ...
 
 @app.on_message
@@ -97,13 +96,12 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
             )
         ]
     ).with_actions([
-        # Special type of action to open a dialog
-        TaskFetchAction(value={"OpenDialogType": "webpage_dialog"}).with_title("Webpage Dialog"),
-        # This data will be passed back in an event, so we can handle what to show in the dialog
-        TaskFetchAction(value={"OpenDialogType": "multi_step_form"}).with_title("Multi-step Form"),
-        TaskFetchAction(value={"OpenDialogType": "mixed_example"}).with_title("Mixed Example")
+        # OpenDialogData sets msteams.type = "task/fetch" and adds dialog_id for routing
+        SubmitAction(title="Simple form test").with_data(OpenDialogData("simple_form")),
+        SubmitAction(title="Webpage Dialog").with_data(OpenDialogData("webpage_dialog")),
+        SubmitAction(title="Multi-step Form").with_data(OpenDialogData("multi_step_form")),
     ])
-    # Send the card as an attachment
+
     message = MessageActivityInput(text="Enter this form").add_card(card)
     await ctx.send(message)
 ```
@@ -116,47 +114,32 @@ import { App } from '@microsoft/teams.apps';
 import {
   AdaptiveCard,
   IAdaptiveCard,
-  TaskFetchAction,
-  TaskFetchData,
+  OpenDialogData,
+  SubmitAction,
 } from '@microsoft/teams.cards';
 // ...
 
 app.on('message', async ({ send }) => {
   await send({ type: 'typing' });
 
-  // Create the launcher adaptive card
   const card: IAdaptiveCard = new AdaptiveCard({
     type: 'TextBlock',
     text: 'Select the examples you want to see!',
     size: 'Large',
     weight: 'Bolder',
   }).withActions(
-    // raw action
-    {
-      type: 'Action.Submit',
-      title: 'Simple form test',
-      data: {
-        msteams: {
-          type: 'task/fetch',
-        },
-        opendialogtype: 'simple_form',
-      },
-    },
-    // Special type of action to open a dialog
-    new TaskFetchAction({})
+    // OpenDialogData sets msteams.type = "task/fetch" and adds dialog_id for routing
+    new SubmitAction()
+      .withTitle('Simple form test')
+      .withData(new OpenDialogData('simple_form')),
+    new SubmitAction()
       .withTitle('Webpage Dialog')
-      // This data will be passed back in an event so we can
-      // handle what to show in the dialog
-      .withValue(new TaskFetchData({ opendialogtype: 'webpage_dialog' })),
-    new TaskFetchAction({})
+      .withData(new OpenDialogData('webpage_dialog')),
+    new SubmitAction()
       .withTitle('Multi-step Form')
-      .withValue(new TaskFetchData({ opendialogtype: 'multi_step_form' })),
-    new TaskFetchAction({})
-      .withTitle('Mixed Example')
-      .withValue(new TaskFetchData({ opendialogtype: 'mixed_example' }))
+      .withData(new OpenDialogData('multi_step_form'))
   );
 
-  // Send the card as an attachment
   await send(new MessageActivity('Enter this form').addCard('adaptive', card));
 });
 ```
@@ -170,8 +153,18 @@ app.on('message', async ({ send }) => {
 Once an action is executed to open a dialog, the Teams client will send an event to the agent to request what the content of the dialog should be. When using `TaskFetchAction`, the data is nested inside an `MsTeams` property structure.
 ::: zone-end
 
-::: zone pivot="python,typescript"
-Once an action is executed to open a dialog, the Teams client will send an event to the agent to request what the content of the dialog should be. Here is how to handle this event:
+::: zone pivot="python"
+When a user clicks the button, Teams sends a `task/fetch` invoke to your app. Register a handler with `@app.on_dialog_open("dialog_id")` to handle a specific dialog, or `@app.on_dialog_open()` for a catch-all.
+
+> [!TIP]
+> Use `@app.on_dialog_open("simple_form")` to handle specific dialogs directly, instead of a single catch-all handler with if-else logic. This keeps each handler focused and avoids routing boilerplate.
+::: zone-end
+
+::: zone pivot="typescript"
+When a user clicks the button, Teams sends a `task/fetch` invoke to your app. Register a handler using `dialog.open.<dialog_id>` to handle a specific dialog, or `dialog.open` for a catch-all.
+
+> [!TIP]
+> Use sub-routes like `dialog.open.simple_form` to handle specific dialogs directly, instead of a single catch-all handler with if-else logic. This keeps each handler focused and avoids routing boilerplate.
 ::: zone-end
 
 
@@ -219,22 +212,28 @@ public Microsoft.Teams.Api.TaskModules.Response OnTaskFetch([Context] Tasks.Fetc
 
 ::: zone pivot="python"
 ```python
-@app.on_dialog_open
-async def handle_dialog_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
-    """Handle dialog open events for all dialog types."""
+from microsoft_teams.api import (
+    TaskFetchInvokeActivity, TaskModuleResponse,
+    TaskModuleContinueResponse, CardTaskModuleTaskInfo,
+    AdaptiveCardAttachment, card_attachment,
+)
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.cards import AdaptiveCard
+# ...
+
+# Handle a specific dialog by ID — no if-else needed
+@app.on_dialog_open("simple_form")
+async def handle_simple_form_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
     card = AdaptiveCard(...)
 
-    # Return an object with the task value that renders a card
-    return InvokeResponse(
-                body=TaskModuleResponse(
-                    task=TaskModuleContinueResponse(
-                        value=CardTaskModuleTaskInfo(
-                            title="Title of Dialog",
-                            card=card_attachment(AdaptiveCardAttachment(content=card)),
-                        )
-                    )
-                )
+    return TaskModuleResponse(
+        task=TaskModuleContinueResponse(
+            value=CardTaskModuleTaskInfo(
+                title="Title of Dialog",
+                card=card_attachment(AdaptiveCardAttachment(content=card)),
             )
+        )
+    )
 ```
 ::: zone-end
 
@@ -245,10 +244,10 @@ import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, IAdaptiveCard } from '@microsoft/teams.cards';
 // ...
 
-app.on('dialog.open', async ({ activity }) => {
+// Handle a specific dialog by ID — no if-else needed
+app.on('dialog.open.simple_form', async ({ activity }) => {
   const card: IAdaptiveCard = new AdaptiveCard()...
 
-  // Return an object with the task value that renders a card
   return {
     task: {
       type: 'continue',
@@ -258,7 +257,7 @@ app.on('dialog.open', async ({ activity }) => {
       },
     },
   };
-}
+});
 ```
 ::: zone-end
 
@@ -338,49 +337,47 @@ private static Microsoft.Teams.Api.TaskModules.Response CreateSimpleFormDialog()
 
 ::: zone pivot="python"
 ```python
-from microsoft_teams.api import AdaptiveCardAttachment, TaskFetchInvokeActivity, InvokeResponse, card_attachment
-from microsoft_teams.api import CardTaskModuleTaskInfo, TaskModuleContinueResponse, TaskModuleResponse
+from microsoft_teams.api import (
+    TaskFetchInvokeActivity, TaskModuleResponse,
+    TaskModuleContinueResponse, CardTaskModuleTaskInfo,
+    AdaptiveCardAttachment, card_attachment,
+)
 from microsoft_teams.apps import ActivityContext
-from microsoft_teams.cards import AdaptiveCard, TextBlock, TextInput, SubmitAction, SubmitActionData
+from microsoft_teams.cards import AdaptiveCard, TextBlock, TextInput, SubmitAction, SubmitData
 # ...
 
-@app.on_dialog_open
-async def handle_dialog_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
-    """Handle dialog open events for all dialog types."""
-    # Return an object with the task value that renders a card
+@app.on_dialog_open("simple_form")
+async def handle_simple_form_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
     dialog_card = AdaptiveCard(
         schema="http://adaptivecards.io/schemas/adaptive-card.json",
         body=[
             TextBlock(text="This is a simple form", size="Large", weight="Bolder"),
             TextInput().with_label("Name").with_is_required(True).with_id("name").with_placeholder("Enter your name"),
         ],
+        # Use SubmitData to set the "action" field, which routes to @app.on_dialog_submit("action")
         actions=[
-            SubmitAction().with_title("Submit").with_data(SubmitActionData(ms_teams={"SubmissionDialogType": "simple_form"}))
+            SubmitAction().with_title("Submit").with_data(SubmitData("simple_form"))
         ]
     )
 
-
-    # Return an object with the task value that renders a card
-    return InvokeResponse(
-                body=TaskModuleResponse(
-                    task=TaskModuleContinueResponse(
-                        value=CardTaskModuleTaskInfo(
-                            title="Simple Form Dialog",
-                            card=card_attachment(AdaptiveCardAttachment(content=dialog_card)),
-                        )
-                    )
-                )
+    return TaskModuleResponse(
+        task=TaskModuleContinueResponse(
+            value=CardTaskModuleTaskInfo(
+                title="Simple Form Dialog",
+                card=card_attachment(AdaptiveCardAttachment(content=dialog_card)),
             )
+        )
+    )
 ```
 ::: zone-end
 
 ::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
-import { AdaptiveCard, TextInput, SubmitAction } from '@microsoft/teams.cards';
+import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
 // ...
 
-if (dialogType === 'simple_form') {
+app.on('dialog.open.simple_form', async () => {
   const dialogCard = new AdaptiveCard(
     {
       type: 'TextBlock',
@@ -394,13 +391,11 @@ if (dialogType === 'simple_form') {
       .withId('name')
       .withPlaceholder('Enter your name')
   )
-    // Inside the dialog, the card actions for submitting the card must be
-    // of type Action.Submit
+    // Use SubmitData to set the "action" field, which routes to dialog.submit.<action>
     .withActions(
-      new SubmitAction().withTitle('Submit').withData({ submissiondialogtype: 'simple_form' })
+      new SubmitAction().withTitle('Submit').withData(new SubmitData('simple_form'))
     );
 
-  // Return an object with the task value that renders a card
   return {
     task: {
       type: 'continue',
@@ -410,13 +405,14 @@ if (dialogType === 'simple_form') {
       },
     },
   };
-}
+});
 ```
 ::: zone-end
 
 
-> [!NOTE]
-> The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
+:::info
+The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
+:::
 
 ### Rendering A Webpage
 
@@ -467,25 +463,23 @@ private static Microsoft.Teams.Api.TaskModules.Response CreateWebpageDialog(ICon
 ::: zone pivot="python"
 ```python
 import os
-from microsoft_teams.api import InvokeResponse, TaskModuleContinueResponse, TaskModuleResponse, UrlTaskModuleTaskInfo
+from microsoft_teams.api import TaskModuleContinueResponse, TaskModuleResponse, UrlTaskModuleTaskInfo
 # ...
 
-return InvokeResponse(
-                body=TaskModuleResponse(
-                    task=TaskModuleContinueResponse(
-                        value=UrlTaskModuleTaskInfo(
-                            title="Webpage Dialog",
-                            # Here we are using a webpage that is hosted in the same
-                            # server as the agent. This server needs to be publicly accessible,
-                            # needs to set up teams.js client library (https://www.npmjs.com/package/@microsoft/teams-js)
-                            # and needs to be registered in the manifest.
-                            url=f"{os.getenv('BOT_ENDPOINT')}/tabs/dialog-webpage",
-                            width=1000,
-                            height=800,
-                        )
-                    )
-                )
+@app.on_dialog_open("webpage_dialog")
+async def handle_webpage_dialog_open(ctx):
+    return TaskModuleResponse(
+        task=TaskModuleContinueResponse(
+            value=UrlTaskModuleTaskInfo(
+                title="Webpage Dialog",
+                # The webpage must be publicly accessible, use the teams-js client library,
+                # and be registered in validDomains in the manifest.
+                url=f"{os.getenv('BOT_ENDPOINT')}/tabs/dialog-form",
+                width=1000,
+                height=800,
             )
+        )
+    )
 ```
 ::: zone-end
 
@@ -494,21 +488,21 @@ return InvokeResponse(
 import { App } from '@microsoft/teams.apps';
 // ...
 
-return {
-  task: {
-    type: 'continue',
-    value: {
-      title: 'Webpage Dialog',
-      // Here we are using a webpage that is hosted in the same
-      // server as the agent. This server needs to be publicly accessible,
-      // needs to set up teams.js client library (https://www.npmjs.com/package/@microsoft/teams-js)
-      // and needs to be registered in the manifest.
-      url: `${process.env['BOT_ENDPOINT']}/tabs/dialog-form`,
-      width: 1000,
-      height: 800,
+app.on('dialog.open.webpage_dialog', async () => {
+  return {
+    task: {
+      type: 'continue',
+      value: {
+        title: 'Webpage Dialog',
+        // The webpage must be publicly accessible, use the teams-js client library,
+        // and be registered in validDomains in the manifest.
+        url: `${process.env['BOT_ENDPOINT']}/tabs/dialog-form`,
+        width: 1000,
+        height: 800,
+      },
     },
-  },
-};
+  };
+});
 ```
 ::: zone-end
 
@@ -559,4 +553,3 @@ import path from 'path';
 app.tab('dialog-form', path.join(__dirname, 'views', 'customform'));
 ```
 ::: zone-end
-

@@ -1,23 +1,24 @@
 ---
-title: User Authentication Guide
+title: User Authentication
 description: API guide to implement User Authentication with SSO in Teams Apps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
-# User Authentication Guide
+# User Authentication
 
 At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 
-> [!NOTE]
-> This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../teams/core-concepts.md) before attempting this guide.
+:::info
+This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../teams/core-concepts.md) before attempting this guide.
+:::
 
 > [!WARNING]
-> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow these [instructions](../getting-started/running-in-teams/overview.md) to run your app in Teams.
-
-> [!NOTE]
-> It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
+> User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow [Quickstart: Register your app](/get-started/quickstart-register) to register and sideload your bot.
+:::info
+It is possible to authenticate the user into [other auth providers](/azure/bot-service/bot-builder-concept-identity-providers#other-identity-providers) like Facebook, Github, Google, Dropbox, and so on.
+:::
 
 Once you have configured your Azure Bot resource OAuth settings, as described in the [official documentation](/azure/bot-service/bot-builder-concept-authentication), add the following code to your `App`:
 
@@ -27,13 +28,11 @@ Once you have configured your Azure Bot resource OAuth settings, as described in
 
 > [!TIP]
 > Skip this step if you want to add the auth configurations to an existing app.
-
-
 ::: zone pivot="csharp"
-Use your terminal to run the following command:
+The Teams Developer CLI doesn't ship a `graph` template for C# yet (tracked in [microsoft/teams-sdk#2736](https://github.com/microsoft/teams-sdk/issues/2736)). Scaffold the `echo` template and add the OAuth wiring shown below by hand:
 
 ```sh
-npx @microsoft/teams.cli@latest new csharp oauth-app --template graph
+teams project new csharp oauth-app
 ```
 ::: zone-end
 
@@ -41,7 +40,7 @@ npx @microsoft/teams.cli@latest new csharp oauth-app --template graph
 Use your terminal to run the following command:
 
 ```sh
-npx @microsoft/teams.cli@latest new python oauth-app --template graph
+teams project new python oauth-app --template graph
 ```
 
 This command:
@@ -55,7 +54,7 @@ This command:
 Use your terminal to run the following command:
 
 ```sh
-npx @microsoft/teams.cli@latest new typescript oauth-app --template graph
+teams project new typescript oauth-app --template graph
 ```
 
 This command:
@@ -66,24 +65,18 @@ This command:
 ::: zone-end
 
 
-### Add Agents Toolkit auth configuration
+### Set up the OAuth connection
 
-Open your terminal with the project folder set as the current working directory and run the following command:
+User authentication requires an **Azure-managed bot** (Teams-managed bots don't support OAuth connections). If you registered with `--teams-managed`, migrate first:
 
 ```sh
-npx @microsoft/teams.cli config add atk.oauth
+teams app bot migrate <appId> --subscription <id> --resource-group <your-resource-group>
 ```
 
-The `atk.oauth` configuration is a basic setup for Agents Toolkit along with configurations to authenticate the user with Microsoft Entra ID to access Microsoft Graph APIs.
+Then follow the [User Authentication Setup guide](/cli/guides/user-authentication-setup) to configure the AAD app, create the Azure Bot OAuth connection, and update the manifest. The guide covers both SSO (silent token exchange) and generic OAuth.
 
-This [CLI](../developer-tools/cli.md) command adds configuration files required by Agents Toolkit, including:
-
-- Azure Application Entra ID manifest file `aad.manifest.json`.
-- Azure bicep files to provision Azure bot in `infra/` folder.
-
-> [!NOTE]
-> Agents Toolkit, in the debugging flow, will deploy the `aad.manifest.json` and `infra/azure.local.bicep` file to provision the Application Entra ID and Azure bot with oauth configurations.
-
+> [!TIP]
+> If you'd rather have an AI coding assistant run the setup, install the [`teams-dev` skill](../developer-tools/agent-skills.md) and ask it to "set up SSO for my Teams bot".
 ## Configure the OAuth connection
 
 
@@ -131,30 +124,27 @@ const app = new App({
 
 > [!TIP]
 > Make sure you use the same name you used when creating the OAuth connection in the Azure Bot Service resource.
-
 > [!NOTE]
 > In many templates, `graph` is the default name of the OAuth connection, but you can change that by supplying a different connection name in your app configuration.
-
 ## Signing In
 
 > [!NOTE]
 > This uses the Single Sign-On (SSO) authentication flow. To learn more about all the available flows and their differences see the [official documentation](/azure/bot-service/bot-builder-concept-authentication).
-
 You must call the `signin` method inside your route handler, for example: to signin when receiving the `/signin` message:
 
 
 ::: zone pivot="csharp"
 ```cs
-teams.OnMessage("/signin", async context =>
+teams.OnMessage("/signin", async (context, cancellationToken) =>
 {
     if (context.IsSignedIn)
     {
-        await context.Send("you are already signed in!");
+        await context.Send("you are already signed in!", cancellationToken);
         return;
     }
     else
     {
-        await context.SignIn();
+        await context.SignIn(cancellationToken);
     }
 });
 ```
@@ -191,10 +181,10 @@ You can subscribe to the `signin` event, that will be triggered once the OAuth f
 
 ::: zone pivot="csharp"
 ```cs
-teams.OnSignIn(async (_, teamsEvent) =>
+teams.OnSignIn(async (_, teamsEvent, cancellationToken) =>
 {
     var context = teamsEvent.Context;
-    await context.Send($"Signed in using OAuth connection {context.ConnectionName}. Please type **/whoami** to see your profile or **/signout** to sign out.");
+    await context.Send($"Signed in using OAuth connection {context.ConnectionName}. Please type **/whoami** to see your profile or **/signout** to sign out.", cancellationToken);
 });
 ```
 ::: zone-end
@@ -225,30 +215,28 @@ From this point, you can use the `IsSignedIn` flag and the `userGraph` client to
 
 > [!NOTE]
 > The default OAuth configuration requests the `User.ReadBasic.All` permission. It is possible to request other permissions by modifying the App Registration for the bot on Azure.
-
-
 ::: zone pivot="csharp"
 ```cs
-teams.OnMessage("/whoami", async context =>
+teams.OnMessage("/whoami", async (context, cancellationToken) =>
 {
     if (!context.IsSignedIn)
     {
-        await context.Send("you are not signed in!. Please type **/signin** to sign in");
+        await context.Send("you are not signed in!. Please type **/signin** to sign in", cancellationToken);
         return;
     }
     var me = await context.GetUserGraphClient().Me.GetAsync();
-    await context.Send($"user \"{me!.DisplayName}\" signed in.");
+    await context.Send($"user \"{me!.DisplayName}\" signed in.", cancellationToken);
 });
 
-teams.OnMessage(async context =>
+teams.OnMessage(async (context, cancellationToken) =>
 {
     if (context.IsSignedIn)
     {
-        await context.Send($"You said : {context.Activity.Text}.  Please type **/whoami** to see your profile or **/signout** to sign out.");
+        await context.Send($"You said : {context.Activity.Text}.  Please type **/whoami** to see your profile or **/signout** to sign out.", cancellationToken);
     }
     else
     {
-        await context.Send($"You said : {context.Activity.Text}.  Please type **/signin** to sign in.");
+        await context.Send($"You said : {context.Activity.Text}.  Please type **/signin** to sign in.", cancellationToken);
     }
 });
 ```
@@ -311,16 +299,16 @@ You can signout by calling the `signout` method, this will remove the token from
 
 ::: zone pivot="csharp"
 ```cs
-teams.OnMessage("/signout", async context =>
+teams.OnMessage("/signout", async (context, cancellationToken) =>
 {
     if (!context.IsSignedIn)
     {
-        await context.Send("you are not signed in!");
+        await context.Send("you are not signed in!", cancellationToken);
         return;
     }
 
-    await context.SignOut();
-    await context.Send("you have been signed out!");
+    await context.SignOut(cancellationToken);
+    await context.Send("you have been signed out!", cancellationToken);
 });
 ```
 ::: zone-end
@@ -392,8 +380,6 @@ app.on('signin.failure', async ({ activity, send }) => {
 
 > [!TIP]
 > The most common failure codes are `installedappnotfound` (bot app not installed for the user) and `resourcematchfailed` (Token Exchange URL doesn't match the Application ID URI). See [SSO Setup - Troubleshooting](../teams/user-authentication/sso-setup.md#troubleshooting) for a full list of failure codes and troubleshooting steps.
-
-
 ::: zone pivot="csharp"
 <!-- Not applicable -->
 ::: zone-end
@@ -404,7 +390,10 @@ app.on('signin.failure', async ({ activity, send }) => {
 You may be building a regional bot that is deployed in a specific Azure region (such as West Europe, East US, etc.) rather than global. This is important for organizations that have data residency requirements or want to reduce latency by keeping data and authentication flows within a specific area.
 
 These examples use West Europe, but follow the equivalent for other regions.
+
 # [Azure Portal](#tab/portal)
+
+
 To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region.
 
 1. Deploy a new App Registration in `westeurope`.
@@ -416,7 +405,10 @@ To configure a new regional bot in Azure, you must setup your resoures in the de
 
 5. In your `.env` file (or wherever you set your environment variables), add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`
+
 # [Agents Toolkit](#tab/atk)
+
+
 To configure a new regional bot with ATK, you will need to make a few updates. Note that this assumes you have not yet deployed the bot previously.
 
 1. In `azurebot.bicep`, replace all `global` occurrences to `westeurope`
@@ -424,7 +416,9 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 3. In `aad.manifest.json`, replace `https://token.botframework.com/.auth/web/redirect` with `https://europe.token.botframework.com/.auth/web/redirect`
 4. In your `.env` file, add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`.
+
 ---
+
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -433,7 +427,10 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 You may be building a regional bot that is deployed in a specific Azure region (such as West Europe, East US, etc.) rather than global. This is important for organizations that have data residency requirements or want to reduce latency by keeping data and authentication flows within a specific area.
 
 These examples use West Europe, but follow the equivalent for other regions.
+
 # [Azure Portal](#tab/portal)
+
+
 To configure a new regional bot in Azure, you must setup your resoures in the desired region. Your resource group must also be in the same region.
 
 1. Deploy a new App Registration in `westeurope`.
@@ -445,7 +442,10 @@ To configure a new regional bot in Azure, you must setup your resoures in the de
 
 5. In your `.env` file (or wherever you set your environment variables), add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`
+
 # [Agents Toolkit](#tab/atk)
+
+
 To configure a new regional bot with ATK, you will need to make a few updates. Note that this assumes you have not yet deployed the bot previously.
 
 1. In `azurebot.bicep`, replace all `global` occurrences to `westeurope`
@@ -453,7 +453,9 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 3. In `aad.manifest.json`, replace `https://token.botframework.com/.auth/web/redirect` with `https://europe.token.botframework.com/.auth/web/redirect`
 4. In your `.env` file, add your `OAUTH_URL`. For example:
 `OAUTH_URL=https://europe.token.botframework.com`
+
 ---
+
 ::: zone-end
 
 

@@ -3,7 +3,7 @@ title: Executing Actions
 description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Executing Actions
@@ -15,16 +15,17 @@ You can use these to collect form input, trigger workflows, show task modules, o
 
 The Teams SDK supports several action types for different interaction patterns:
 
-| Action Type               | Purpose                | Description                                                                  |
+| Action Type | Purpose | Description |
 | ------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
-| `Action.Execute`          | Server‑side processing | Send data to your bot for processing. Best for forms & multi‑step workflows. |
-| `Action.Submit`           | Simple data submission | Legacy action type. Prefer `Execute` for new projects.                       |
-| `Action.OpenUrl`          | External navigation    | Open a URL in the user's browser.                                            |
-| `Action.ShowCard`         | Progressive disclosure | Display a nested card when clicked.                                          |
-| `Action.ToggleVisibility` | UI state management    | Show/hide card elements dynamically.                                         |
+| `Action.Execute` | Server‑side processing | Send data to your bot for processing. Best for forms & multi‑step workflows. |
+| `Action.Submit` | Simple data submission | Legacy action type. Prefer `Execute` for new projects. |
+| `Action.OpenUrl` | External navigation | Open a URL in the user's browser. |
+| `Action.ShowCard` | Progressive disclosure | Display a nested card when clicked. |
+| `Action.ToggleVisibility` | UI state management | Show/hide card elements dynamically. |
 
-> [!NOTE]
-> For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
+:::info
+For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
+:::
 
 ## Creating Actions with the SDK
 
@@ -481,14 +482,14 @@ function createProfileCardInputValidation() {
 ::: zone-end
 
 
+
+::: zone pivot="csharp"
 ## Server Handlers
 
 ### Basic Structure
 
 Card actions arrive as `card.action` activities in your app. These give you access to the validated input values plus any `data` values you had configured to be sent back to you.
 
-
-::: zone pivot="csharp"
 ```csharp
 using System.Text.Json;
 using Microsoft.Teams.Api.Activities.Invokes.AdaptiveCards;
@@ -498,7 +499,7 @@ using Microsoft.Teams.Common.Logging;
 
 //...
 
-teams.OnAdaptiveCardAction(async context =>
+teams.OnAdaptiveCardAction(async (context, cancellationToken) =>
 {
     var activity = context.Activity;
     context.Log.Info("[CARD_ACTION] Card action received");
@@ -537,19 +538,19 @@ teams.OnAdaptiveCardAction(async context =>
     {
         case "submit_basic":
             var notifyValue = GetFormValue("notify") ?? "false";
-            await context.Send($"Basic card submitted! Notify setting: {notifyValue}");
+            await context.Send($"Basic card submitted! Notify setting: {notifyValue}", cancellationToken);
             break;
 
         case "submit_feedback":
             var feedbackText = GetFormValue("feedback") ?? "No feedback provided";
-            await context.Send($"Feedback received: {feedbackText}");
+            await context.Send($"Feedback received: {feedbackText}", cancellationToken);
             break;
 
         case "create_task":
             var title = GetFormValue("title") ?? "Untitled";
             var priority = GetFormValue("priority") ?? "medium";
             var dueDate = GetFormValue("due_date") ?? "No date";
-            await context.Send($"Task created!\nTitle: {title}\nPriority: {priority}\nDue: {dueDate}");
+            await context.Send($"Task created!\nTitle: {title}\nPriority: {priority}\nDue: {dueDate}", cancellationToken);
             break;
 
         case "save_profile":
@@ -565,11 +566,11 @@ teams.OnAdaptiveCardAction(async context =>
             if (location != "Not specified")
                 response += $"\nLocation: {location}";
 
-            await context.Send(response);
+            await context.Send(response, cancellationToken);
             break;
 
         case "test_json":
-            await context.Send("JSON deserialization test successful!");
+            await context.Send("JSON deserialization test successful!", cancellationToken);
             break;
 
         default:
@@ -580,9 +581,71 @@ teams.OnAdaptiveCardAction(async context =>
     return new ActionResponse.Message("Action processed successfully") { StatusCode = 200 };
 });
 ```
+
+> [!NOTE]
+> The `data` values come from JSON and need to be extracted using the helper method shown above to handle different JSON element types.
 ::: zone-end
 
 ::: zone pivot="python"
+## Routing & Handlers
+
+### Using SubmitData
+
+The SDK provides a `SubmitData` helper that sets the routing key for your action. This is the recommended way to wire up actions to specific handlers:
+
+```python
+from microsoft_teams.cards import ExecuteAction, SubmitData
+# ...
+
+ExecuteAction(title="Submit Feedback") \
+    .with_data(SubmitData("submit_feedback")) \
+    .with_associated_inputs("auto")
+
+# You can also pass extra static data alongside the action name
+ExecuteAction(title="Save") \
+    .with_data(SubmitData("save_profile", {"entity_id": "12345"})) \
+    .with_associated_inputs("auto")
+```
+
+`SubmitData` sets a reserved `action` key in the card's data payload. When the user clicks the button, the SDK router reads this key to dispatch to the matching handler.
+
+### Action-Specific Handlers
+
+Register handlers for specific actions. When you use `SubmitData` to set the action name on the card, the SDK routes directly to the matching handler:
+
+```python
+from microsoft_teams.apps import App, ActivityContext
+from microsoft_teams.api import AdaptiveCardInvokeActivity, AdaptiveCardActionMessageResponse, AdaptiveCardInvokeResponse
+# ...
+
+# 'submit_feedback' matches the identifier passed to SubmitData('submit_feedback')
+@app.on_card_action_execute("submit_feedback")
+async def handle_submit_feedback(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -> AdaptiveCardInvokeResponse:
+    data = ctx.activity.value.action.data
+    await ctx.send(f"Feedback received: {data.get('feedback')}")
+    return AdaptiveCardActionMessageResponse(
+        status_code=200,
+        type="application/vnd.microsoft.activity.message",
+        value="Action processed successfully",
+    )
+
+@app.on_card_action_execute("save_profile")
+async def handle_save_profile(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -> AdaptiveCardInvokeResponse:
+    data = ctx.activity.value.action.data
+    await ctx.send(f"Profile saved!\nName: {data.get('name')}\nEmail: {data.get('email')}")
+    return AdaptiveCardActionMessageResponse(
+        status_code=200,
+        type="application/vnd.microsoft.activity.message",
+        value="Action processed successfully",
+    )
+```
+
+The decorator argument matches the value passed to `SubmitData`. This is cleaner than a catch-all with a switch statement, and scales better as you add more actions.
+
+### Catch-All Handler
+
+If you need to handle all card actions in one place, you can use the catch-all handler:
+
 ```python
 from microsoft_teams.api import AdaptiveCardInvokeActivity, AdaptiveCardActionErrorResponse, AdaptiveCardActionMessageResponse, HttpError, InnerHttpError, AdaptiveCardInvokeResponse
 from microsoft_teams.apps import ActivityContext
@@ -635,9 +698,70 @@ async def handle_card_action(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -
         value="Action processed successfully",
     )
 ```
+
+> [!NOTE]
+> The `data` values are accessible as a dictionary and can be accessed using `.get()` method for safe access.
 ::: zone-end
 
 ::: zone pivot="typescript"
+## Routing & Handlers
+
+### Using SubmitData
+
+The SDK provides a `SubmitData` helper that sets the routing key for your action. This is the recommended way to wire up actions to specific handlers:
+
+```typescript
+import { ExecuteAction, SubmitData } from '@microsoft/teams.cards';
+// ...
+
+new ExecuteAction({ title: 'Submit Feedback' })
+  .withData(new SubmitData('submit_feedback'))
+  .withAssociatedInputs('auto')
+
+// You can also pass extra static data alongside the action name
+new ExecuteAction({ title: 'Save' })
+  .withData(new SubmitData('save_profile', { entityId: '12345' }))
+  .withAssociatedInputs('auto')
+```
+
+`SubmitData` sets a reserved `action` key in the card's data payload. When the user clicks the button, the SDK router reads this key to dispatch to the matching handler.
+
+### Action-Specific Handlers
+
+Register handlers for specific actions. When you use `SubmitData` to set the action name on the card, the SDK routes directly to the matching handler:
+
+```typescript
+import { App } from '@microsoft/teams.apps';
+// ...
+
+// 'submit_feedback' matches the identifier passed to SubmitData('submit_feedback')
+app.on('card.action.submit_feedback', async ({ activity, send }) => {
+  const data = activity.value.action.data;
+  await send(`Feedback received: ${data.feedback}`);
+  return {
+    statusCode: 200,
+    type: 'application/vnd.microsoft.activity.message',
+    value: 'Action processed successfully',
+  };
+});
+
+app.on('card.action.save_profile', async ({ activity, send }) => {
+  const data = activity.value.action.data;
+  await send(`Profile saved!\nName: ${data.name}\nEmail: ${data.email}`);
+  return {
+    statusCode: 200,
+    type: 'application/vnd.microsoft.activity.message',
+    value: 'Action processed successfully',
+  };
+});
+```
+
+The route name follows the pattern `card.action.<action-name>`, where `<action-name>` matches the value passed to `SubmitData`. This is cleaner than a catch-all with a switch statement, and scales better as you add more actions.
+
+### Catch-All Handler
+
+If you need to handle all card actions in one place, you can use the catch-all handler:
+
 ```typescript
 import {
   AdaptiveCardActionErrorResponse,
@@ -702,22 +826,7 @@ app.on('card.action', async ({ activity, send }) => {
   } satisfies AdaptiveCardActionMessageResponse;
 });
 ```
-::: zone-end
 
-
-
-::: zone pivot="csharp"
-> [!NOTE]
-> The `data` values come from JSON and need to be extracted using the helper method shown above to handle different JSON element types.
-::: zone-end
-
-::: zone pivot="python"
-> [!NOTE]
-> The `data` values are accessible as a dictionary and can be accessed using `.get()` method for safe access.
-::: zone-end
-
-::: zone pivot="typescript"
 > [!NOTE]
 > The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
 ::: zone-end
-

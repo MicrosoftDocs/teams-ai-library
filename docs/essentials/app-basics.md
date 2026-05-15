@@ -2,7 +2,7 @@
 title: App Basics
 description: Comprehensive guide to the App class, the main entry point for Teams SDK agents that handles server hosting, request routing, authentication, and plugin management.
 ms.topic: how-to
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # App Basics
@@ -17,7 +17,8 @@ It is responsible for:
 4. Providing helpful utilities which simplify the ability for your application to interact with the Teams platform
 5. Managing plugins which can extend the functionality of your agent
 
-:::image type="content" source="~/assets/diagrams/app-basics-architecture.png" alt-text="Flowchart showing the App class architecture with Teams connecting through plugins, events, activity routing, authentication, and utilities to your application logic" lightbox="~/assets/diagrams/app-basics-architecture.png":::
+:::image type="content" source="~/assets/diagrams/app-basics.png" alt-text="Flowchart showing the App class architecture with plugins, events, activity routing, and application logic" lightbox="~/assets/diagrams/app-basics.png":::
+
 
 ## Core Components
 

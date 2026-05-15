@@ -3,7 +3,7 @@ title: Handling Multi-Step Forms
 description: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Handling Multi-Step Forms
@@ -18,11 +18,11 @@ Start off by sending an initial card in the `TaskFetch` event.
 ::: zone-end
 
 ::: zone pivot="python"
-Start off by sending an initial card in the `dialog_open` event.
+Start by returning the first step's card from the `dialog_open` handler.
 ::: zone-end
 
 ::: zone pivot="typescript"
-Start off by sending an initial card in the `dialog.open` event.
+Start by returning the first step's card from the `dialog.open` handler.
 ::: zone-end
 
 
@@ -87,69 +87,76 @@ private static Response CreateMultiStepFormDialog()
 
 ::: zone pivot="python"
 ```python
-dialog_card = AdaptiveCard.model_validate(
-            {
-                "type": "AdaptiveCard",
-                "version": "1.4",
-                "body": [
-                    {"type": "TextBlock", "text": "This is a multi-step form", "size": "Large", "weight": "Bolder"},
-                    {
-                        "type": "Input.Text",
-                        "id": "name",
-                        "label": "Name",
-                        "placeholder": "Enter your name",
-                        "isRequired": True,
-                    },
-                ],
-                "actions": [
-                    {
-                        "type": "Action.Submit",
-                        "title": "Submit",
-                        "data": {"submissiondialogtype": "webpage_dialog_step_1"},
-                    }
-                ],
-            }
+from microsoft_teams.api import (
+    TaskFetchInvokeActivity, TaskModuleResponse,
+    TaskModuleContinueResponse, CardTaskModuleTaskInfo,
+    AdaptiveCardAttachment, card_attachment,
+)
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.cards import AdaptiveCard, TextBlock, TextInput, SubmitAction, SubmitData
+# ...
+
+@app.on_dialog_open("multi_step_form")
+async def handle_multi_step_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
+    dialog_card = AdaptiveCard(
+        schema="http://adaptivecards.io/schemas/adaptive-card.json",
+        body=[
+            TextBlock(text="This is a multi-step form", size="Large", weight="Bolder"),
+            TextInput().with_label("Name").with_is_required(True).with_id("name").with_placeholder("Enter your name"),
+        ],
+        # Route to a step-specific submit handler
+        actions=[
+            SubmitAction().with_title("Submit").with_data(SubmitData("multi_step_1"))
+        ]
+    )
+
+    return TaskModuleResponse(
+        task=TaskModuleContinueResponse(
+            value=CardTaskModuleTaskInfo(
+                title="Multi-step Form Dialog",
+                card=card_attachment(AdaptiveCardAttachment(content=dialog_card)),
+            )
         )
+    )
 ```
 ::: zone-end
 
 ::: zone pivot="typescript"
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
-import { AdaptiveCard, TextInput, SubmitAction } from '@microsoft/teams.cards';
+import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
 // ...
 
-const dialogCard = new AdaptiveCard(
-  {
-    type: 'TextBlock',
-    text: 'This is a multi-step form',
-    size: 'Large',
-    weight: 'Bolder',
-  },
-  new TextInput()
-    .withLabel('Name')
-    .withIsRequired()
-    .withId('name')
-    .withPlaceholder('Enter your name')
-)
-  // Inside the dialog, the card actions for submitting the card must be
-  // of type Action.Submit
-  .withActions(
+app.on('dialog.open.multi_step_form', async () => {
+  const dialogCard = new AdaptiveCard(
+    {
+      type: 'TextBlock',
+      text: 'This is a multi-step form',
+      size: 'Large',
+      weight: 'Bolder',
+    },
+    new TextInput()
+      .withLabel('Name')
+      .withIsRequired()
+      .withId('name')
+      .withPlaceholder('Enter your name')
+  ).withActions(
+    // Route to a step-specific submit handler
     new SubmitAction()
       .withTitle('Submit')
-      .withData({ submissiondialogtype: 'webpage_dialog_step_1' })
+      .withData(new SubmitData('multi_step_1'))
   );
 
-// Return an object with the task value that renders a card
-return {
-  task: {
-    type: 'continue',
-    value: {
-      title: 'Multi-step Form Dialog',
-      card: cardAttachment('adaptive', dialogCard),
+  return {
+    task: {
+      type: 'continue',
+      value: {
+        title: 'Multi-step Form Dialog',
+        card: cardAttachment('adaptive', dialogCard),
+      },
     },
-  },
-};
+  };
+});
 ```
 ::: zone-end
 
@@ -222,130 +229,106 @@ case "webpage_dialog_step_2":
 ::: zone-end
 
 ::: zone pivot="python"
-Then in the submission handler, you can choose to `continue` the dialog with a different card.
+Then in the submission handler, return `type: "continue"` with the next card to keep the dialog open. Pass state forward using `SubmitData`'s extra data parameter.
 
 ```python
+from microsoft_teams.api import (
+    TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse,
+    TaskModuleContinueResponse, CardTaskModuleTaskInfo,
+    AdaptiveCardAttachment, card_attachment,
+)
+from microsoft_teams.apps import ActivityContext
+from microsoft_teams.cards import AdaptiveCard, TextBlock, TextInput, SubmitAction, SubmitData
+# ...
 
-@app.on_dialog_submit
-async def handle_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
-    """Handle dialog submit events for all dialog types."""
-    data: Optional[Any] = ctx.activity.value.data
-    dialog_type = data.get("submissiondialogtype") if data else None
+# Step 1 submit — show step 2
+@app.on_dialog_submit("multi_step_1")
+async def handle_multi_step_1_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
+    data = ctx.activity.value.data
+    name = data.get("name")
 
-    if dialog_type == "webpage_dialog":
-        name = data.get("name") if data else None
-        email = data.get("email") if data else None
-        await ctx.send(f"Hi {name}, thanks for submitting the form! We got that your email is {email}")
-        return InvokeResponse(
-            body=TaskModuleResponse(task=TaskModuleMessageResponse(value="Form submitted successfully"))
-        )
+    next_step_card = AdaptiveCard(
+        schema="http://adaptivecards.io/schemas/adaptive-card.json",
+        body=[
+            TextBlock(text="Email", size="Large", weight="Bolder"),
+            TextInput().with_label("Email").with_is_required(True).with_id("email").with_placeholder("Enter your email"),
+        ],
+        actions=[
+            # Carry forward data from step 1 via extra data
+            SubmitAction().with_title("Submit").with_data(
+                SubmitData("multi_step_2", {"name": name})
+            )
+        ]
+    )
 
-    elif dialog_type == "webpage_dialog_step_1":
-        name = data.get("name") if data else None
-        next_step_card = AdaptiveCard.model_validate(
-            {
-                "type": "AdaptiveCard",
-                "version": "1.4",
-                "body": [
-                    {"type": "TextBlock", "text": "Email", "size": "Large", "weight": "Bolder"},
-                    {
-                        "type": "Input.Text",
-                        "id": "email",
-                        "label": "Email",
-                        "placeholder": "Enter your email",
-                        "isRequired": True,
-                    },
-                ],
-                "actions": [
-                    {
-                        "type": "Action.Submit",
-                        "title": "Submit",
-                        "data": {"submissiondialogtype": "webpage_dialog_step_2", "name": name},
-                    }
-                ],
-            }
-        )
-
-        return InvokeResponse(
-            body=TaskModuleResponse(
-                task=TaskModuleContinueResponse(
-                    value=CardTaskModuleTaskInfo(
-                        title=f"Thanks {name} - Get Email",
-                        card=card_attachment(AdaptiveCardAttachment(content=next_step_card)),
-                    )
-                )
+    return TaskModuleResponse(
+        task=TaskModuleContinueResponse(
+            value=CardTaskModuleTaskInfo(
+                title=f"Thanks {name} - Get Email",
+                card=card_attachment(AdaptiveCardAttachment(content=next_step_card)),
             )
         )
+    )
 
-    elif dialog_type == "webpage_dialog_step_2":
-        name = data.get("name") if data else None
-        email = data.get("email") if data else None
-        await ctx.send(f"Hi {name}, thanks for submitting the form! We got that your email is {email}")
-        return InvokeResponse(
-            body=TaskModuleResponse(task=TaskModuleMessageResponse(value="Multi-step form completed successfully"))
-        )
-
-    return TaskModuleResponse(task=TaskModuleMessageResponse(value="Unknown submission type"))
-
+# Step 2 submit — final step, close the dialog
+@app.on_dialog_submit("multi_step_2")
+async def handle_multi_step_2_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
+    data = ctx.activity.value.data
+    name = data.get("name")
+    email = data.get("email")
+    await ctx.send(f"Hi {name}, thanks for submitting the form! We got that your email is {email}")
+    return TaskModuleResponse(task=TaskModuleMessageResponse(value="Multi-step form completed successfully"))
 ```
 ::: zone-end
 
 ::: zone pivot="typescript"
-Then in the submission handler, you can choose to `continue` the dialog with a different card.
+Then in the submission handler, return `type: 'continue'` with the next card to keep the dialog open. Pass state forward using `SubmitData`'s extra data parameter.
 
 ```typescript
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
-import { AdaptiveCard, TextInput, SubmitAction } from '@microsoft/teams.cards';
+import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
 // ...
 
-app.on('dialog.submit', async ({ activity, send, next }) => {
-  const dialogType = activity.value.data.submissiondialogtype;
+// Step 1 submit — show step 2
+app.on('dialog.submit.multi_step_1', async ({ activity }) => {
+  const name = activity.value.data.name;
+  const nextStepCard = new AdaptiveCard(
+    {
+      type: 'TextBlock',
+      text: 'Email',
+      size: 'Large',
+      weight: 'Bolder',
+    },
+    new TextInput()
+      .withLabel('Email')
+      .withIsRequired()
+      .withId('email')
+      .withPlaceholder('Enter your email')
+  ).withActions(
+    new SubmitAction().withTitle('Submit').withData(
+      // Carry forward data from step 1 via extra data
+      new SubmitData('multi_step_2', { name })
+    )
+  );
 
-  if (dialogType === 'webpage_dialog_step_1') {
-    // This is data from the form that was submitted
-    const name = activity.value.data.name;
-    const nextStepCard = new AdaptiveCard(
-      {
-        type: 'TextBlock',
-        text: 'Email',
-        size: 'Large',
-        weight: 'Bolder',
+  return {
+    task: {
+      type: 'continue',
+      value: {
+        title: `Thanks ${name} - Get Email`,
+        card: cardAttachment('adaptive', nextStepCard),
       },
-      new TextInput()
-        .withLabel('Email')
-        .withIsRequired()
-        .withId('email')
-        .withPlaceholder('Enter your email')
-    ).withActions(
-      new SubmitAction().withTitle('Submit').withData({
-        // This same handler will get called, so we need to identify the step
-        // in the returned data
-        submissiondialogtype: 'webpage_dialog_step_2',
-        // Carry forward data from previous step
-        name,
-      })
-    );
-    return {
-      task: {
-        // This indicates that the dialog flow should continue
-        type: 'continue',
-        value: {
-          // Here we customize the title based on the previous response
-          title: `Thanks ${name} - Get Email`,
-          card: cardAttachment('adaptive', nextStepCard),
-        },
-      },
-    };
-  } else if (dialogType === 'webpage_dialog_step_2') {
-    const name = activity.value.data.name;
-    const email = activity.value.data.email;
-    await send(`Hi ${name}, thanks for submitting the form! We got that your email is ${email}`);
-    // You can also return a blank response
-    return {
-      status: 200,
-    };
-  }
+    },
+  };
+});
+
+// Step 2 submit — final step, close the dialog
+app.on('dialog.submit.multi_step_2', async ({ activity, send }) => {
+  const name = activity.value.data.name;
+  const email = activity.value.data.email;
+  await send(`Hi ${name}, thanks for submitting the form! We got that your email is ${email}`);
+  return { status: 200 };
 });
 ```
 ::: zone-end
@@ -466,4 +449,3 @@ public async Task<Response> OnTaskSubmit([Context] Tasks.SubmitActivity activity
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
-

@@ -3,7 +3,7 @@ title: Action commands
 description: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Action commands
@@ -27,8 +27,7 @@ There are three different areas action commands can be invoked from:
 :::image type="content" source="~/assets/screenshots/message.png" alt-text="Screenshot of message extension response in Teams. By selecting the '...' button, a menu has opened with 'More actions' option in which they can select from a list of available message extension actions." lightbox="~/assets/screenshots/message.png":::
 
 > [!TIP]
-> See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
-
+> See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
 ## Setting up your Teams app manifest
 
 To use action commands you have define them in the Teams app manifest. Here is an example:
@@ -789,5 +788,5 @@ export function createConversationMembersCard(members: Account[]) {
 
 ## Resources
 
-- [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)
-- [Returning Adaptive Card Previews in Task Modules](/microsoftteams/platform/messaging-extensions/how-to/action-commands/respond-to-task-module-submit?tabs=dotnet%2Cdotnet-1#bot-response-with-adaptive-card)
+- [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command)
+- [Returning Adaptive Card Previews in Task Modules](/microsoftteams/platform/messaging-extensions/how-to/action-commands/respond-to-task-module-submit#bot-response-with-adaptive-card)

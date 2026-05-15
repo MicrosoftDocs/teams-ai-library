@@ -3,7 +3,7 @@ title: Listening To Activities
 description: Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ---
 
 # Listening To Activities
@@ -25,16 +25,17 @@ The Teams SDK exposes a fluent router so you can subscribe to these activities w
 ::: zone-end
 
 
-:::image type="content" source="~/assets/diagrams/on-activity-router.png" alt-text="Flowchart showing Teams sending events to the app server, which routes activity events through the activity router to your activity handlers" lightbox="~/assets/diagrams/on-activity-router.png":::
+:::image type="content" source="~/assets/diagrams/on-activity-overview.png" alt-text="Flowchart showing Teams activity routing through app server, activity router, and to activity handlers" lightbox="~/assets/diagrams/on-activity-overview.png":::
+
 
 Here is an example of a basic message handler:
 
 
 ::: zone pivot="csharp"
 ```csharp
-    app.OnMessage(async context =>
+    app.OnMessage(async (context, cancellationToken) =>
     {
-        await context.Send($"you said: {context.activity.Text}");
+        await context.Send($"you said: {context.activity.Text}", cancellationToken);
     });
     ```
 ::: zone-end
@@ -91,7 +92,7 @@ The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanill
 
 ::: zone pivot="csharp"
 ```csharp
-  app.OnMessage(async context =>
+  app.OnMessage(async (context, cancellationToken) =>
   {
       Console.WriteLine("global logger");
       context.Next(); // pass control onward
@@ -100,21 +101,21 @@ The `on` activity handlers follow a [middleware](https://www.patterns.dev/vanill
   ```
 
 ```csharp
-app.OnMessage(async context =>
+app.OnMessage(async (context, cancellationToken) =>
 {
     if (context.Activity.Text == "/help")
     {
-        await context.Send("Here are all the ways I can help you...");
+        await context.Send("Here are all the ways I can help you...", cancellationToken);
     }
 
     // Conditionally pass control to the next handler
     context.Next();
 });
 
-  app.OnMessage(async context =>
+  app.OnMessage(async (context, cancellationToken) =>
   {
       // Fallthrough to the final handler
-      await context.Send($"Hello! you said {context.Activity.Text}");
+      await context.Send($"Hello! you said {context.Activity.Text}", cancellationToken);
   });
   ```
 ::: zone-end
@@ -173,8 +174,9 @@ app.on('message', async ({ activity }) => {
 ::: zone-end
 
 
-> [!NOTE]
-> Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler. The order of registration for the handlers also matters as that determines how the handlers will be called.
+:::info
+Just like other middlewares, if you stop the chain by not calling `next()`, the activity will not be passed to the next handler. The order of registration for the handlers also matters as that determines how the handlers will be called.
+:::
 
 
 ::: zone pivot="csharp"
@@ -190,4 +192,3 @@ app.on('message', async ({ activity }) => {
 
 For a list of supported activities that your application can listen to, see the [activity reference](./activity-ref.md).
 ::: zone-end
-
