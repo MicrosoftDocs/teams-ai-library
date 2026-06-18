@@ -1,11 +1,10 @@
 ---
-title: Building Adaptive Cards
-description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
+title: 'Building Adaptive Cards'
+description: 'Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
-
 
 # Building Adaptive Cards
 
@@ -128,30 +127,33 @@ const card = new AdaptiveCard(
 
 Benefits:
 
-| Benefit | Description |
+| Benefit     | Description                                                                   |
 | ----------- | ----------------------------------------------------------------------------- |
-| Readability | No deep JSON trees—just chain simple methods. |
-| Re‑use | Extract snippets to functions or classes and share across cards. |
-| Safety | Builders validate every property against the Adaptive Card schema (see next). |
+| Readability | No deep JSON treesjust chain simple methods.                                 |
+| Reuse      | Extract snippets to functions or classes and share across cards.              |
+| Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
 
 ::: zone pivot="csharp"
 > [!NOTE]
+>
 > The builder helpers use strongly-typed interfaces. Use IntelliSense (Ctrl+Space) or "Go to Definition" (F12) in your IDE to explore available types and properties. Source code lives in the `Microsoft.Teams.Cards` namespace.
 ::: zone-end
 
 ::: zone pivot="python"
 > [!NOTE]
+>
 > The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
 ::: zone-end
 
 ::: zone pivot="typescript"
 > [!NOTE]
+>
 > Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
 ::: zone-end
 
 
-## Type‑safe Authoring & IntelliSense
+## Typesafe Authoring & IntelliSense
 
 ::: zone pivot="csharp"
 The package bundles the **Adaptive Card v1.5 schema** as strict C# types.
@@ -169,7 +171,7 @@ While coding you get:
 ::: zone-end
 
 - **Autocomplete** for every element and attribute.
-- **In‑editor validation**—invalid enum values or missing required properties produce build errors.
+- **Ineditor validation**invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
 
@@ -202,7 +204,7 @@ const textBlock = new TextBlock('Valid', { size: 'huge' });
 
 ## The Visual Designer
 
-Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
+Prefer a draganddrop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
 1. Add elements visually until the card looks right.
 2. Copy the JSON payload from the editor pane.
@@ -395,8 +397,10 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 ::: zone-end
 
 > [!TIP]
+>
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
-## End‑to‑end Example – Task Form Card
+
+## Endtoend Example  Task Form Card
 
 Below is a complete example showing a task management form.
 
@@ -404,23 +408,23 @@ Below is a complete example showing a task management form.
 ::: zone pivot="csharp"
 # [Minimal](#tab/minimal)
 
-
 ```csharp
-teams.OnMessage(async (context, cancellationToken) =>
-{
-    var text = context.Activity.Text?.ToLowerInvariant() ?? "";
-
-    if (text.Contains("form"))
+    teams.OnMessage(async (context, cancellationToken) =>
     {
-        await context.Typing(cancellationToken);
-        var card = CreateTaskFormCard();
-        await context.Send(card, cancellationToken);
-    }
-});
+        var text = context.Activity.Text?.ToLowerInvariant() ?? "";
+
+        if (text.Contains("form"))
+        {
+            await context.Typing(cancellationToken);
+            var card = CreateTaskFormCard();
+            await context.Send(card, cancellationToken);
+        }
+    });
 ```
 
----
 
+
+---
 
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end

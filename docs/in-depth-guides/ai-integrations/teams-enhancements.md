@@ -1,10 +1,11 @@
 ---
-title: Enhance the Teams Experience
-description: Round out a Teams agent reply with suggested follow-up prompts, inline citations from tool middleware, the AI-generated label, and a custom feedback form — then assemble the full message handler.
+title: 'Enhance the Teams Experience'
+description: 'Round out a Teams agent reply with suggested follow-up prompts, inline citations from tool middleware, the AI-generated label, and a custom feedback form  then assemble the full message handler.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
+
 # Enhance the Teams Experience
 
 ::: zone pivot="csharp,typescript"
@@ -12,12 +13,15 @@ This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="python"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
+## Enhance the Teams Experience
 You can enrich the agent output into a more Teams-native experience - adding structure, interactivity, and metadata on top of the generated text.
 
 ## Streaming
 
-Streaming allows the agent to deliver responses to Teams incrementally as they’re generated,
+Streaming allows the agent to deliver responses to Teams incrementally as theyre generated,
 rather than waiting for the full reply to complete.
 Each chunk of text is appended to the stream as it arrives.
 ```python
@@ -66,12 +70,12 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
     ctx.stream.emit(reply)
 ```
 
-See [Feedback](../feedback.md) for the full form-handling story — capturing the submission, persisting it, and following up with the user.
+See [Feedback](../feedback.md) for the full form-handling story  capturing the submission, persisting it, and following up with the user.
 
 ## Suggested prompts
 
 Suggested prompts give the user one-click follow-up questions after a reply.
-In Teams they render as chips under the message; tapping one sends the `value` back as a normal user message, so the same `on_message` handler picks it up — no extra routing required.
+In Teams they render as chips under the message; tapping one sends the `value` back as a normal user message, so the same `on_message` handler picks it up  no extra routing required.
 
 Define prompts using `CardAction` and attach them to the reply via `with_suggested_actions`:
 
@@ -108,11 +112,10 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
     ctx.stream.emit(reply)
 ```
 
-:::image type="content" source="~/assets/screenshots/suggested-prompts.png" alt-text="Screenshot of outgoing agent message to user marked with 'AI generated' badge, with thumbs up/down feedback controls below the message." lightbox="~/assets/screenshots/suggested-prompts.png":::
-
+:::image type="content" source="~/assets/screenshots/suggested-prompts.png" alt-text="Screenshot of outgoing agent message to user marked with 'AI generated' badge, with thumbs up/down feedback controls below the message." lightbox="~/assets/screenshots/suggested-prompts.png" :::
 ## Citations
 
-Citations render as footnote-style references inline with the reply — `[1]`, `[2]`, etc. — surfacing the source title, abstract, and URL on hover. They typically originate from tool outputs, where middleware assigns each result a stable `position` (see the [`CitationMiddleware` example](./build-agent-microsoft-agent-framework.md#middleware) earlier).
+Citations render as footnote-style references inline with the reply  `[1]`, `[2]`, etc.  surfacing the source title, abstract, and URL on hover. They typically originate from tool outputs, where middleware assigns each result a stable `position` (see the [`CitationMiddleware` example](./build-agent-maf.md#middleware) earlier).
 
 When building the final reply, attach only the citations whose `position` actually appears in the streamed text.
 ```python
@@ -157,5 +160,5 @@ def attach_citations(reply, full_text, citations):
 # highlight-success-end
 ```
 
-:::image type="content" source="~/assets/screenshots/citations.gif" alt-text="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text." lightbox="~/assets/screenshots/citations.gif":::
+:::image type="content" source="~/assets/screenshots/citations.gif" alt-text="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text." lightbox="~/assets/screenshots/citations.gif" :::
 ::: zone-end

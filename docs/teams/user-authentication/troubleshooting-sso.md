@@ -1,8 +1,8 @@
----
-title: SSO Troubleshooting
-description: Common SSO errors and how to resolve them
+﻿---
+title: 'SSO Troubleshooting'
+description: 'Common SSO errors and how to resolve them'
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # SSO Troubleshooting
@@ -21,10 +21,12 @@ When SSO fails, Teams sends a `signin/failure` invoke activity to your bot with 
 | `oauthcardnotvalid` | Yes | The bot's OAuthCard could not be parsed. |
 | `tokenmissing` | Yes | AAD token acquisition failed. |
 
-"Silent" failures produce no user-facing feedback in the Teams client — the user sees nothing and sign-in simply doesn't complete. "Non-silent" failures occur during the group chat SSO flow where the user is shown an install/auth card.
+"Silent" failures produce no user-facing feedback in the Teams client  the user sees nothing and sign-in simply doesn't complete. "Non-silent" failures occur during the group chat SSO flow where the user is shown an install/auth card.
 
 > [!NOTE]
+>
 > The `userconsentrequired` and `interactionrequired` codes are handled by the Teams client via the OAuth card fallback flow and do not typically reach the bot.
+
 ## `resourcematchfailed`
 
 If you see a warning in your app logs like:
@@ -40,5 +42,7 @@ This means Teams attempted the SSO token exchange but failed because the token e
 5. **Verify the `webApplicationInfo.resource`** in your Teams app manifest matches the Application ID URI
 
 > [!TIP]
+>
 > If you don't need SSO and only want standard OAuth (sign-in button), leave the **Token Exchange URL** blank in your OAuth connection settings.
+
 To handle `signin/failure` programmatically in your app, see [Handling Sign-In Failures](../../in-depth-guides/user-authentication.md#handling-sign-in-failures) in the User Authentication guide.

@@ -1,21 +1,15 @@
----
-title: DevTools
-description: Use DevTools to locally test Teams apps with chat, activity inspection, and card design features.
+﻿---
+title: 'DevTools'
+description: 'Use DevTools to locally test Teams apps with chat, activity inspection, and card design features.'
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
-# DevTools
+#  DevTools
 
-The developer tools can be used to locally interact with an app to streamline the testing/development process,
-preventing you from needing to deploy/register the app or expose a public endpoint.
+> [!WARNING]
+>
+> Deprecated
+> DevTools is deprecated and will be removed in a later version. Use the [Microsoft 365 Agents Playground](../agents-playground/overview.md) for local testing of your agent. For details, see the [Microsoft Learn guide](/microsoft-365/agents-sdk/test-with-toolkit-project/).
 
-:::image type="content" source="~/assets/screenshots/devtools-echo-chat.png" alt-text="Screenshot of DevTools showing user prompt 'hello!' and agent response 'you said hello!'." lightbox="~/assets/screenshots/devtools-echo-chat.png":::
-
-## Basic features
-
-- **Chat**: Chat with your app the same way you would in Teams without the need for an app id or authentication. This is useful for testing and debugging your app.
-- **Inspect**: Inspect incoming and outgoing activities on DevTools' Activity page. All activity on your agent logged here, including messages, reactions, and more.
-- **Cards**: Use the Cards page to visually design and test your cards.
-
-Continue on to the next pages to learn more about the features available in DevTools.
+DevTools was a local development tool for testing Teams apps without sideloading. It exposed three pages: Chat (interact with your agent), Activities (inspect incoming and outgoing requests), and Cards (design Adaptive Cards).

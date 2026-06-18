@@ -1,9 +1,9 @@
 ---
-title: Sending Messages
-description: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
+title: 'Sending Messages'
+description: 'Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Sending Messages
@@ -80,7 +80,9 @@ You are not restricted to only replying to `message` activities. In the above ex
 ::: zone-end
 
 > [!TIP]
+>
 > This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
+
 ## Streaming
 
 You may also stream messages to the user which can be useful for long messages, or AI generated messages. The SDK makes this simple for you by providing a `stream` function which you can use to send messages in chunks.
@@ -129,9 +131,10 @@ app.on('message', async ({ activity, stream }) => {
 
 
 > [!NOTE]
+>
 > Streaming is currently only supported in 1:1 conversations, not group chats or channels
-:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window." lightbox="~/assets/screenshots/streaming-chat.gif":::
 
+:::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window." lightbox="~/assets/screenshots/streaming-chat.gif" :::
 ## @Mention
 
 ::: zone pivot="csharp"
@@ -176,8 +179,8 @@ app.on('message', async ({ send, activity }) => {
 ## Targeted Messages
 
 > [!NOTE]
-> Coming Soon
-> Targeted messages are coming soon in May 2026.
+>
+> Targeted messages are available in public preview. General availability is planned for a future release.
 
 Targeted messages, also known as ephemeral messages, are delivered to a specific user in a shared conversation. From a single user's perspective, they appear as regular inline messages in a conversation. Other participants won't see these messages, making them useful for authentication flows, help or error responses, personal reminders, or sharing contextual information without cluttering the group conversation.
 
@@ -241,9 +244,9 @@ app.on('message', async ({ send, activity }) => {
 
 ::: zone pivot="csharp"
 > [!TIP]
-> .NET
+>
 > In .NET, targeted message APIs are marked with `[Experimental("ExperimentalTeamsTargeted")]` and will produce a compiler error until you opt in. Suppress the diagnostic inline with `#pragma warning disable ExperimentalTeamsTargeted` or project-wide in your `.csproj`:
-> 
+>
 > ```xml
 > <PropertyGroup>
 >   <NoWarn>$(NoWarn);ExperimentalTeamsTargeted</NoWarn>
@@ -257,6 +260,113 @@ app.on('message', async ({ send, activity }) => {
 
 ::: zone pivot="typescript"
 <!-- Not applicable -->
+::: zone-end
+
+
+### Prompt Preview
+
+> [!NOTE]
+>
+> Prompt Preview is coming soon in June 2026.
+
+Prompt Preview shows a compact, collapsible preview of the targeted message your agent is replying to, helping carry context from a private user-to-agent message into the reply.
+
+#### Prompt Preview in targeted reply
+
+In a targeted (private) reply, both the prompt preview and the bot response are visible only to the targeted user.
+
+:::image type="content" source="~/assets/screenshots/private-prompt-preview.png" alt-text="Prompt Preview in a targeted reply." lightbox="~/assets/screenshots/private-prompt-preview.png" :::
+#### Prompt Preview in public reply
+
+In a public reply, the same prompt preview appears above the bot response and is visible to everyone in the conversation.
+
+:::image type="content" source="~/assets/screenshots/public-prompt-preview.png" alt-text="Prompt Preview in a public reply." lightbox="~/assets/screenshots/public-prompt-preview.png" :::
+::: zone pivot="csharp"
+In reactive scenarios, when replying to an inbound targeted activity through `Send()` or `Reply()`, the SDK automatically includes targeted message info.
+::: zone-end
+
+::: zone pivot="python,typescript"
+In reactive scenarios, when replying to an inbound targeted activity through `send()` or `reply()`, the SDK automatically includes targeted message info.
+::: zone-end
+
+::: zone pivot="csharp"
+For proactive scenarios (using `app.Send()`), attach targeted message info using the targeted message ID you are replying to.
+::: zone-end
+
+::: zone pivot="python,typescript"
+For proactive scenarios (using `app.send()`), attach targeted message info using the targeted message ID you are replying to.
+::: zone-end
+
+
+::: zone pivot="csharp"
+```csharp
+var targetedMessageId = "1772050244572";
+var conversationId = "19:groupchat-id@thread.v2";
+var userAccount = new Account
+{
+    Id = "29:1AbCDef...",
+    Name = "Adele Vance"
+};
+
+var targetedMessage = new MessageActivity("Here is the result!")
+    .AddTargetedMessageInfo(targetedMessageId)
+    .WithRecipient(userAccount, isTargeted: true);
+
+// Targeted reply (only the user sees it)
+await app.Send(conversationId, targetedMessage);
+
+// OR public reply (everyone sees it)
+var publicMessage = new MessageActivity("Here is the result!")
+    .AddTargetedMessageInfo(targetedMessageId);
+await app.Send(conversationId, publicMessage);
+```
+::: zone-end
+
+::: zone pivot="python"
+```python
+from microsoft_teams.api import Account, MessageActivityInput
+
+targeted_message_id = "1772050244572"
+conversation_id = "19:groupchat-id@thread.v2"
+user_account = Account(id="29:1AbCDef...", name="Adele Vance")
+
+targeted_message = MessageActivityInput(text="Here is the result!")
+targeted_message.add_targeted_message_info(targeted_message_id)
+targeted_message.with_recipient(user_account, is_targeted=True)
+
+# Targeted reply (only the user sees it)
+await app.send(conversation_id, targeted_message)
+
+# OR public reply (everyone sees it)
+public_message = MessageActivityInput(text="Here is the result!")
+public_message.add_targeted_message_info(targeted_message_id)
+await app.send(conversation_id, public_message)
+```
+::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+import { Account, MessageActivity } from '@microsoft/teams.api';
+
+const targetedMessageId = '1772050244572';
+const conversationId = '19:groupchat-id@thread.v2';
+const userAccount: Account = {
+  id: '29:1AbCDef...',
+  name: 'Adele Vance',
+};
+
+const targetedMessage = new MessageActivity('Here is the result!')
+  .addTargetedMessageInfo(targetedMessageId)
+  .withRecipient(userAccount, true);
+
+// Targeted reply (only the user sees it)
+await app.send(conversationId, targetedMessage);
+
+// OR public reply (everyone sees it)
+const publicMessage = new MessageActivity('Here is the result!')
+  .addTargetedMessageInfo(targetedMessageId);
+await app.send(conversationId, publicMessage);
+```
 ::: zone-end
 
 
@@ -320,10 +430,6 @@ app.on('message', async ({ send, reply }) => {
 For proactive threading (sending to a thread outside of a handler), see [Proactive Messaging](./proactive-messaging.md#proactive-threading).
 
 ## Quoted Replies
-
-> [!NOTE]
-> Coming Soon
-> Quoted replies are coming soon in May 2026.
 
 Quoted replies let your agent reference a previous message in the conversation. When a user sends a message that quotes another message, your agent receives structured metadata about the quoted content. Your agent can also send messages that quote previous messages.
 
@@ -569,9 +675,9 @@ await app.send(conversationId, msg);
 
 ::: zone pivot="csharp"
 > [!TIP]
-> .NET
+>
 > In .NET, quoted reply APIs are marked with `[Experimental("ExperimentalTeamsQuotedReplies")]` and will produce a compiler error until you opt in. Suppress the diagnostic inline with `#pragma warning disable ExperimentalTeamsQuotedReplies` or project-wide in your `.csproj`:
-> 
+>
 > ```xml
 > <PropertyGroup>
 >   <NoWarn>$(NoWarn);ExperimentalTeamsQuotedReplies</NoWarn>
@@ -586,3 +692,4 @@ await app.send(conversationId, msg);
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
+

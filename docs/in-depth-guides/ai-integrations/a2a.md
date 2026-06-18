@@ -1,10 +1,11 @@
 ---
-title: Bot-to-Bot Communication with A2A
-description: Connect two Teams bots so their agents can ask each other questions over the Agent2Agent protocol — with human operators in the loop on both sides.
+title: 'Bot-to-Bot Communication with A2A'
+description: 'Connect two Teams bots so their agents can ask each other questions over the Agent2Agent protocol  with human operators in the loop on both sides.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
+
 # Bot-to-Bot Communication with A2A
 
 ::: zone pivot="csharp,typescript"
@@ -13,18 +14,19 @@ This article is not available for the selected development language.
 
 ::: zone pivot="python"
 
-Agents are typically designed to interact either with people (chatbots) or with systems (tools, APIs, MCP servers). Agent2Agent (A2A) introduces a third interaction model: agents communicating directly with other agents as peers — each with its own model, capabilities, and human audience.
+## Bot-to-Bot Communication with A2A
 
-At its core, A2A enables delegation between agents based on capability rather than fixed routing. A bot can decide that another agent is better suited for a task and hand off the request, receiving a structured response in return.
-In Teams, this model extends naturally into real-world collaboration scenarios where bots act as coordination points between users and other agents.
+Agents are typically designed to interact either with people (chatbots) or with systems (tools, APIs, MCP servers).[Agent2Agent (A2A)](https://a2a-protocol.org/latest/) introduces a third interaction model: agents communicating directly with other agents as peers — each with its own model, capabilities, and human audience.
 
-This guide walks through the building blocks of an A2A-enabled Teams bot: each bot is backed by an LLM agent that can read its peers' capability descriptions and decide whether to answer a question directly or forward it to a better-suited peer. The receiving bot loops in its human operator through an Adaptive Card to produce the answer, which then flows back over A2A into the original chat.
+This guide walks through a **handoff** between two Teams bots, **Alice** and **Bob**, each backed by its own LLM agent. A user DMs one bot; its agent reads the peer's capability description and decides whether to answer directly or hand the user off. On handoff, the receiving bot **proactively opens a 1:1 chat** with the user and greets them with the context that came across — so the conversation continues seamlessly in the new chat.
+
+Both bots run the **same code**, differentiated entirely by environment variables (name, description, self/peer URLs). They use [@a2a-js/sdk](https://www.npmjs.com/package/@a2a-js/sdk) for the protocol and the OpenAI SDK for the LLM agent.
 
 Full source: [examples/a2a-test](https://github.com/microsoft/teams.py/tree/main/examples/a2a-test).
 
 ## Advertising capabilities with an Agent Card
 
-Every A2A server publishes an `AgentCard` — a small machine-readable document describing who the agent is and what it can do. Peers fetch this card to learn about each other; their LLMs then read the `description` field to decide *when* to forward a question.
+Every A2A server publishes an `AgentCard`  a small machine-readable document describing who the agent is and what it can do. Peers fetch this card to learn about each other; their LLMs then read the `description` field to decide *when* to forward a question.
 
 The card is built once per bot and served by the A2A runtime alongside the request handler.
 
@@ -47,11 +49,11 @@ agent_card = AgentCard(
 )
 ```
 
-The `description` is the most important knob in this sample — it's the natural-language summary another bot's LLM uses to decide whether *this* bot is the right peer for a given question. Tweak it to match the persona and expertise you want each bot to advertise.
+The `description` is the most important knob in this sample  it's the natural-language summary another bot's LLM uses to decide whether *this* bot is the right peer for a given question. Tweak it to match the persona and expertise you want each bot to advertise.
 
 ## Defining the A2A message contract
 
-A2A messages carry arbitrary structured data inside `DataPart` envelopes. Defining a small Pydantic union with a `kind` discriminator keeps both sides honest about what they accept — and lets the executor branch cleanly on the message type without sniffing dictionaries.
+A2A messages carry arbitrary structured data inside `DataPart` envelopes. Defining a small Pydantic union with a `kind` discriminator keeps both sides honest about what they accept  and lets the executor branch cleanly on the message type without sniffing dictionaries.
 
 ```python
 from typing import Annotated, Literal, Union
@@ -78,13 +80,11 @@ Each `ask` carries a `qid` (question id) used to correlate the asynchronous repl
 
 ## LLM-driven peer routing
 
-Routing is not a hard-coded rule — the LLM decides. Each bot exposes a single `send_to_peer` tool to its agent, and the agent's instructions include the live `AgentCard.description` of every reachable peer. When a question fits a peer's expertise better than its own, the model picks the tool.
+Routing is not a hard-coded rule  the LLM decides. Each bot exposes a single `send_to_peer` tool to its agent, and the agent's instructions include the live `AgentCard.description` of every reachable peer. When a question fits a peer's expertise better than its own, the model picks the tool.
 
 Peer cards are fetched lazily via `A2ACardResolver` and cached, so the agent's prompt always reflects the latest descriptions.
 
 # [The send_to_peer tool](#tab/tool)
-
-
 
 ```python
 from agent_framework import tool
@@ -113,8 +113,6 @@ async def send_to_peer(
 
 # [Instructions with peer descriptions](#tab/instructions)
 
-
-
 ```python
 async def _refresh_peer_cards(self) -> None:
     async with httpx.AsyncClient(timeout=10.0) as http:
@@ -139,12 +137,11 @@ Guidelines:
 
 ---
 
-
-The tool only *queues* the ask — it returns as soon as the A2A call has been sent. The actual answer arrives later, asynchronously, as a separate inbound A2A message. The `qid` is stashed in `awaiting_reply` so the bot can correlate that reply with the original user conversation when it lands.
+The tool only *queues* the ask  it returns as soon as the A2A call has been sent. The actual answer arrives later, asynchronously, as a separate inbound A2A message. The `qid` is stashed in `awaiting_reply` so the bot can correlate that reply with the original user conversation when it lands.
 
 ## Sending an A2A message
 
-The outbound side is a small wrapper around the official `a2a-sdk` client: resolve the peer's card, build a client, and fire a single `DataPart`-carrying message. We drain the response stream without reading it — the peer only sends an `ack`; any real answer comes back later as a separate inbound A2A call.
+The outbound side is a small wrapper around the official `a2a-sdk` client: resolve the peer's card, build a client, and fire a single `DataPart`-carrying message. We drain the response stream without reading it  the peer only sends an `ack`; any real answer comes back later as a separate inbound A2A call.
 
 ```python
 import httpx, uuid
@@ -169,7 +166,7 @@ async def send_a2a(peer_url: str, data: dict[str, Any]) -> None:
 
 The A2A server side dispatches incoming messages by inspecting the `DataPart` payload and branching on the `kind` discriminator. An `ask` is routed to the operator as an Adaptive Card; a `reply` is folded back into the original user's chat.
 
-A2A tasks need a terminal status event to close out, so the executor always emits one — even when the "real" response will flow later as a separate inbound call.
+A2A tasks need a terminal status event to close out, so the executor always emits one  even when the "real" response will flow later as a separate inbound call.
 
 ```python
 from a2a.server.agent_execution.agent_executor import AgentExecutor
@@ -211,17 +208,15 @@ async def _on_ask(self, msg: AskMessage) -> None:
     await self._teams_app.send(conv_id, ask_card(sender=msg.sender, question=msg.question, qid=msg.qid))
 ```
 
-In production, replace this URL-based check with a real authorization mechanism — a bearer token signed by an IdP, or mTLS — rather than trusting a self-declared URL.
+In production, replace this URL-based check with a real authorization mechanism  a bearer token signed by an IdP, or mTLS  rather than trusting a self-declared URL.
 
 ## Human-in-the-loop via Adaptive Cards
 
 When a peer asks a question, the answering bot pushes an Adaptive Card to its operator's 1:1 conversation. The operator types a reply and submits; the card-action handler looks up the original peer by `qid` and forwards the answer back over A2A.
 
-The submit payload only carries the `qid` — the `reply_url` is resolved from server-side state, since card data is client-tamperable.
+The submit payload only carries the `qid`  the `reply_url` is resolved from server-side state, since card data is client-tamperable.
 
 # [The ask card](#tab/card)
-
-
 
 ```python
 from microsoft_teams.cards import (
@@ -249,8 +244,6 @@ def ask_card(sender: str, question: str, qid: str) -> AdaptiveCard:
 
 # [Operator submit handler](#tab/handler)
 
-
-
 ```python
 @app.on_card_action_execute(ASK_REPLY_ACTION)
 async def handle_reply_submit(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -> AdaptiveCardInvokeResponse:
@@ -269,8 +262,7 @@ async def handle_reply_submit(ctx: ActivityContext[AdaptiveCardInvokeActivity]) 
 
 ---
 
-
-The "operator" is just whoever DM'd the bot most recently in a 1:1 conversation — captured in `state.operator_conv_id` from the message handler. In production, you'd wire this to a real on-call rotation or assignment system.
+The "operator" is just whoever DM'd the bot most recently in a 1:1 conversation  captured in `state.operator_conv_id` from the message handler. In production, you'd wire this to a real on-call rotation or assignment system.
 
 ## Folding peer replies back into the conversation
 
@@ -340,7 +332,6 @@ Each bot needs its own Teams app registration (so DMs route to the right bot) an
 
 With both bots running and DM'd at least once (so each has captured an operator conversation), DM Alice with a backend question and watch the round-trip: Alice's LLM picks `send_to_peer`, Bob's operator gets the ask card, types an answer, and the reply card lands back in Alice's chat with the user.
 
-:::image type="content" source="~/assets/screenshots/agent-to-agent.gif" alt-text="Animated screenshot of the end-to-end A2A flow: user DMs Alice, Alice forwards to Bob, Bob's operator answers via Adaptive Card, and the reply flows back into the original chat." lightbox="~/assets/screenshots/agent-to-agent.gif":::
-
-The bots are symmetric — DM Bob with a UX question and the same flow runs the other way, with Bob's LLM forwarding to Alice.
+:::image type="content" source="~/assets/screenshots/a2a.gif" alt-text="Animated screenshot of the end-to-end A2A flow: user DMs Alice, Alice forwards to Bob, Bob's operator answers via Adaptive Card, and the reply flows back into the original chat." lightbox="~/assets/screenshots/a2a.gif" :::
+The bots are symmetric  DM Bob with a UX question and the same flow runs the other way, with Bob's LLM forwarding to Alice.
 ::: zone-end

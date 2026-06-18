@@ -1,9 +1,9 @@
 ---
-title: Action commands
-description: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
+title: 'Action commands'
+description: 'Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Action commands
@@ -20,14 +20,14 @@ There are three different areas action commands can be invoked from:
 
 ### Compose Area and Box
 
-:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps)." lightbox="~/assets/screenshots/compose-area.png":::
-
+:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps)." lightbox="~/assets/screenshots/compose-area.png" :::
 ### Message action command
 
-:::image type="content" source="~/assets/screenshots/message.png" alt-text="Screenshot of message extension response in Teams. By selecting the '...' button, a menu has opened with 'More actions' option in which they can select from a list of available message extension actions." lightbox="~/assets/screenshots/message.png":::
-
+:::image type="content" source="~/assets/screenshots/message.png" alt-text="Screenshot of message extension response in Teams. By selecting the '...' button, a menu has opened with 'More actions' option in which they can select from a list of available message extension actions." lightbox="~/assets/screenshots/message.png" :::
 > [!TIP]
-> See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
+>
+> See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command/#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
+
 ## Setting up your Teams app manifest
 
 To use action commands you have define them in the Teams app manifest. Here is an example:
@@ -95,16 +95,13 @@ Here we have defining three different commands:
 
 1. `createCard` - that can be invoked from either the `compose` or `commandBox` areas. Upon invocation a dialog will popup asking the user to fill the `title`, `subTitle`, and `text`.
 
-:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Screenshot of a message extension dialog with the editable fields 'Card title', 'Subtitle', and 'Text'." lightbox="~/assets/screenshots/parameters.png":::
-
+:::image type="content" source="~/assets/screenshots/parameters.png" alt-text="Screenshot of a message extension dialog with the editable fields 'Card title', 'Subtitle', and 'Text'." lightbox="~/assets/screenshots/parameters.png" :::
 2. `getMessageDetails` - It is invoked from the `message` overflow menu. Upon invocation the message payload will be sent to the app which will then return the details like `createdDate`, etc.
 
-:::image type="content" source="~/assets/screenshots/message-command.png" alt-text="Screenshot of the 'More actions' message extension menu expanded with 'Get Message Details' option selected." lightbox="~/assets/screenshots/message-command.png":::
-
+:::image type="content" source="~/assets/screenshots/message-command.png" alt-text="Screenshot of the 'More actions' message extension menu expanded with 'Get Message Details' option selected." lightbox="~/assets/screenshots/message-command.png" :::
 3. `fetchConversationMembers` - It is invoked from the `compose` area. Upon invocation the app will return an adaptive card in the form of a dialog with the conversation roster.
 
-:::image type="content" source="~/assets/screenshots/fetch-conversation-members.png" alt-text="Screenshot of the 'Fetch Conversation Members' option exposed from the message extension menu '...' option." lightbox="~/assets/screenshots/fetch-conversation-members.png":::
-
+:::image type="content" source="~/assets/screenshots/fetch-conversation-members.png" alt-text="Screenshot of the 'Fetch Conversation Members' option exposed from the message extension menu '...' option." lightbox="~/assets/screenshots/fetch-conversation-members.png" :::
 ## Handle submission
 
 
@@ -788,5 +785,5 @@ export function createConversationMembersCard(members: Account[]) {
 
 ## Resources
 
-- [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command)
-- [Returning Adaptive Card Previews in Task Modules](/microsoftteams/platform/messaging-extensions/how-to/action-commands/respond-to-task-module-submit#bot-response-with-adaptive-card)
+- [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command/)
+- [Returning Adaptive Card Previews in Task Modules](/microsoftteams/platform/messaging-extensions/how-to/action-commands/respond-to-task-module-submit/#bot-response-with-adaptive-card)

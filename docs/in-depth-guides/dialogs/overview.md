@@ -1,8 +1,8 @@
----
-title: Dialogs
-description: Overview of dialogs in Teams, covering invocation, content types, and key benefits for agent-user interactions.
+﻿---
+title: 'Dialogs'
+description: 'Overview of dialogs in Teams, including when to use them and core interaction patterns.'
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Dialogs
@@ -10,7 +10,9 @@ ms.date: 05/15/2026
 Dialogs are a helpful paradigm in Teams which improve interactions between your agent and users. When dialogs are **invoked**, they pop open a window for a user in the Teams client. The content of the dialog can be supplied by the agent application.
 
 > [!NOTE]
+>
 > In Teams client v1, dialogs were called task modules. They may occasionaly be used synonymously.
+
 ## Key benefits
 
 1. Dialogs pop open for a user in the Teams client. This means in group-settings, dialog actions are not visible to other users in the channel, reducing clutter.
@@ -21,5 +23,5 @@ Dialogs are a helpful paradigm in Teams which improve interactions between your 
 
 ## Resources
 
-- [Task Modules](/microsoftteams/platform/task-modules-and-cards/what-are-task-modules)
-- [Invoking Task Modules](/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules)
+- [Task Modules](/microsoftteams/platform/task-modules-and-cards/what-are-task-modules/)
+- [Invoking Task Modules](/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules/)

@@ -1,9 +1,9 @@
 ---
-title: Middleware
-description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
+title: 'Middleware'
+description: 'Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Middleware
@@ -57,3 +57,4 @@ app.use(async ({ log, next }) => {
 });
 ```
 ::: zone-end
+

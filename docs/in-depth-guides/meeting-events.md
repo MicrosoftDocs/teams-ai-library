@@ -1,9 +1,9 @@
----
-title: Meeting Events
-description: Guide to handling meeting events in Teams applications, covering meeting lifecycle events such as meeting start, meeting end, participant join, and participant leave events.
+﻿---
+title: 'Meeting Events'
+description: 'Guide to handling meeting events in Teams applications, covering meeting lifecycle events such as meeting start, meeting end, participant join, and participant leave events.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Meeting Events
@@ -423,3 +423,4 @@ app.on('meetingParticipantLeave', async ({ activity, send }) => {
 });
 ```
 ::: zone-end
+

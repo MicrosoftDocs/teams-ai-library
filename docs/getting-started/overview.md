@@ -1,12 +1,12 @@
----
-title: Getting Started
-description: Getting started guide for Teams SDK covering application setup, structure, and local development.
+﻿---
+title: 'Getting Started'
+description: 'Getting started guide for Teams SDK covering application setup, structure, and local development.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
-# Getting Started
+#  Getting Started
 
 
 ::: zone pivot="csharp"

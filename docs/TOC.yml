@@ -4,9 +4,9 @@
   href: welcome.md
 - name: Get Started
   items:
-    - name: "Quickstart: Register your app"
+    - name: 'Quickstart: Register your app'
       href: get-started/quickstart-register.md
-    - name: "Quickstart: Build your first bot"
+    - name: 'Quickstart: Build your first bot'
       href: get-started/quickstart-build.md
 - name: Why an SDK?
   href: why.md
@@ -16,8 +16,6 @@
       href: teams/overview.md
     - name: Teams Core Concepts
       href: teams/core-concepts.md
-    - name: Azure Configuration
-      href: teams/azure-configuration.md
     - name: App Authentication Setup
       items:
         - name: Overview
@@ -66,14 +64,18 @@
           href: essentials/on-activity/overview.md
         - name: Activity Type Reference
           href: essentials/on-activity/activity-ref.md
+    - name: App Authentication
+      items:
+        - name: Overview
+          href: essentials/app-authentication/overview.md
+        - name: Trust Model
+          href: essentials/app-authentication/trust-model.md
     - name: Sending Messages
       items:
         - name: Overview
           href: essentials/sending-messages/overview.md
         - name: Proactive Messaging
           href: essentials/sending-messages/proactive-messaging.md
-    - name: App Authentication
-      href: essentials/app-authentication.md
     - name: API Client
       href: essentials/api.md
     - name: App Configuration
@@ -114,52 +116,22 @@
           href: in-depth-guides/message-extensions/search-commands.md
         - name: Settings
           href: in-depth-guides/message-extensions/settings.md
-        - name: Link unfurling
+        - name: Link Unfurling
           href: in-depth-guides/message-extensions/link-unfurling.md
-    - name: User Authentication
-      href: in-depth-guides/user-authentication.md
-    - name: AI
-      items:
-        - name: Overview
-          href: in-depth-guides/ai/overview.md
-        - name: Setup & Prerequisites
-          href: in-depth-guides/ai/setup-and-prereqs.md
-        - name: Chat Generation
-          href: in-depth-guides/ai/chat.md
-        - name: Function Calling
-          href: in-depth-guides/ai/function-calling.md
-        - name: Keeping State
-          href: in-depth-guides/ai/keeping-state.md
-        - name: Best Practices
-          href: in-depth-guides/ai/best-practices.md
-        - name: MCP
-          items:
-            - name: Overview
-              href: in-depth-guides/ai/mcp/overview.md
-            - name: MCP Server
-              href: in-depth-guides/ai/mcp/mcp-server.md
-            - name: MCP Client
-              href: in-depth-guides/ai/mcp/mcp-client.md
-        - name: A2A Protocol
-          items:
-            - name: Overview
-              href: in-depth-guides/ai/a2a/overview.md
-            - name: A2A Server
-              href: in-depth-guides/ai/a2a/a2a-server.md
-            - name: A2A Client
-              href: in-depth-guides/ai/a2a/a2a-client.md
     - name: AI Integrations
       items:
         - name: Overview
           href: in-depth-guides/ai-integrations/overview.md
         - name: Build an agent in Teams
-          href: in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework.md
+          href: in-depth-guides/ai-integrations/build-agent-maf.md
         - name: Teams Enhancements
           href: in-depth-guides/ai-integrations/teams-enhancements.md
         - name: Exposing Teams to AI Agents (MCP)
           href: in-depth-guides/ai-integrations/mcp-server.md
         - name: Bot-to-Bot with A2A
           href: in-depth-guides/ai-integrations/a2a.md
+    - name: User Authentication
+      href: in-depth-guides/user-authentication.md
     - name: Tabs
       items:
         - name: Overview
@@ -182,6 +154,12 @@
       href: in-depth-guides/feedback.md
     - name: Meeting Events
       href: in-depth-guides/meeting-events.md
+    - name: Observability
+      items:
+        - name: Middleware
+          href: in-depth-guides/observability/middleware.md
+        - name: Custom Logger
+          href: in-depth-guides/observability/logging.md
     - name: Message Reactions
       href: in-depth-guides/message-reactions.md
     - name: Server
@@ -190,12 +168,6 @@
           href: in-depth-guides/server/static-pages.md
         - name: Self-Managing Your Server
           href: in-depth-guides/server/http-server.md
-    - name: Observability
-      items:
-        - name: Middleware
-          href: in-depth-guides/observability/middleware.md
-        - name: Custom Logger
-          href: in-depth-guides/observability/logging.md
 - name: Migrations
   items:
     - name: Overview
@@ -214,10 +186,10 @@
           href: migrations/botbuilder/the-api-client.md
         - name: User Authentication
           href: migrations/botbuilder/user-authentication.md
-    - name: Migrating from Teams SDK v1
-      href: migrations/v1.md
     - name: Porting your Slack Bolt bot
       href: migrations/slack-bolt.md
+    - name: Migrating from Teams SDK v1
+      href: migrations/v1.md
     - name: From V2 Previews
       href: migrations/v2-previews.md
 - name: Developer Tools
@@ -228,8 +200,8 @@
       href: developer-tools/cli.md
     - name: Agent Skills
       href: developer-tools/agent-skills.md
-    - name: llms.txt
-      href: developer-tools/llms-text.md
+    - name: Agents Playground
+      href: developer-tools/agents-playground/overview.md
     - name: DevTools
       items:
         - name: Overview
@@ -240,6 +212,8 @@
           href: developer-tools/devtools/inspect.md
         - name: Cards
           href: developer-tools/devtools/cards.md
+    - name: llms.txt
+      href: developer-tools/llms-txt.md
 - name: Reference
   items:
     - name: TypeScript SDK
@@ -247,7 +221,7 @@
     - name: .NET SDK
       href: /dotnet/api/
     - name: Python SDK
-      href: /python/api/msteams-sdk-python/overview
+      href: /python/api/microsoft-teams-ai/microsoft.teams.ai
 - name: Resources
   items:
     - name: Teams Developer Documentation

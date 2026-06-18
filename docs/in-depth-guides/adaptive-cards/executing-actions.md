@@ -1,29 +1,30 @@
 ---
-title: Executing Actions
-description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
+title: 'Executing Actions'
+description: 'How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Executing Actions
 
-Adaptive Cards support interactive elements through **actions**—buttons, links, and input submission triggers that respond to user interaction.
+Adaptive Cards support interactive elements through **actions**buttons, links, and input submission triggers that respond to user interaction.
 You can use these to collect form input, trigger workflows, show task modules, open URLs, and more.
 
 ## Action Types
 
 The Teams SDK supports several action types for different interaction patterns:
 
-| Action Type | Purpose | Description |
+| Action Type               | Purpose                | Description                                                                  |
 | ------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
-| `Action.Execute` | Server‑side processing | Send data to your bot for processing. Best for forms & multi‑step workflows. |
-| `Action.Submit` | Simple data submission | Legacy action type. Prefer `Execute` for new projects. |
-| `Action.OpenUrl` | External navigation | Open a URL in the user's browser. |
-| `Action.ShowCard` | Progressive disclosure | Display a nested card when clicked. |
-| `Action.ToggleVisibility` | UI state management | Show/hide card elements dynamically. |
+| `Action.Execute`          | Serverside processing | Send data to your bot for processing. Best for forms & multistep workflows. |
+| `Action.Submit`           | Simple data submission | Legacy action type. Prefer `Execute` for new projects.                       |
+| `Action.OpenUrl`          | External navigation    | Open a URL in the user's browser.                                            |
+| `Action.ShowCard`         | Progressive disclosure | Display a nested card when clicked.                                          |
+| `Action.ToggleVisibility` | UI state management    | Show/hide card elements dynamically.                                         |
 
 > [!NOTE]
+>
 > For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
 
 ## Creating Actions with the SDK
@@ -261,11 +262,11 @@ private static AdaptiveCard CreateProfileCard()
 }
 
 Accessed in C# as:
-- data["action"] → "save_profile"
-- data["entity_id"] → "12345"
-- data["name"] → "John Doe"
-- data["email"] → "john@doe.com"
-- data["subscribe"] → "true"
+- data["action"] â†’ "save_profile"
+- data["entity_id"] â†’ "12345"
+- data["name"] â†’ "John Doe"
+- data["email"] â†’ "john@doe.com"
+- data["subscribe"] â†’ "true"
 */
 ```
 ::: zone-end
@@ -582,6 +583,7 @@ teams.OnAdaptiveCardAction(async (context, cancellationToken) =>
 ```
 
 > [!NOTE]
+>
 > The `data` values come from JSON and need to be extracted using the helper method shown above to handle different JSON element types.
 ::: zone-end
 
@@ -699,6 +701,7 @@ async def handle_card_action(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -
 ```
 
 > [!NOTE]
+>
 > The `data` values are accessible as a dictionary and can be accessed using `.get()` method for safe access.
 ::: zone-end
 
@@ -827,5 +830,7 @@ app.on('card.action', async ({ activity, send }) => {
 ```
 
 > [!NOTE]
+>
 > The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
 ::: zone-end
+

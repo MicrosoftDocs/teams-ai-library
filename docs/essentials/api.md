@@ -1,9 +1,9 @@
 ---
-title: Teams API Client
-description: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
+title: 'Teams API Client'
+description: 'Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Teams API Client
@@ -18,27 +18,27 @@ Teams has a number of areas that your application has access to via its API. The
 
 
 ::: zone pivot="csharp"
-| Area | Description |
+| Area            | Description                                                                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Conversations` | Gives your application the ability to perform activities on conversations (send, update, delete messages, etc.), or create conversations (like 1:1 chat with a user) |
-| `Meetings` | Gives your application access to meeting details and participant information via `GetByIdAsync` and `GetParticipantAsync` |
-| `Teams` | Gives your application access to team or channel details |
+| `Meetings`      | Gives your application access to meeting details and participant information via `GetByIdAsync` and `GetParticipantAsync`                                             |
+| `Teams`         | Gives your application access to team or channel details                                                                                                             |
 ::: zone-end
 
 ::: zone pivot="python"
-| Area | Description |
+| Area            | Description                                                                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `conversations` | Gives your application the ability to perform activities on conversations (send, update, delete messages, etc.), or create conversations (like 1:1 chat with a user) |
-| `meetings` | Gives your application access to meeting details and participant information via `get_by_id` and `get_participant` |
-| `teams` | Gives your application access to team or channel details |
+| `meetings`      | Gives your application access to meeting details and participant information via `get_by_id` and `get_participant`                                                    |
+| `teams`         | Gives your application access to team or channel details                                                                                                             |
 ::: zone-end
 
 ::: zone pivot="typescript"
-| Area | Description |
+| Area            | Description                                                                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `conversations` | Gives your application the ability to perform activities on conversations (send, update, delete messages, etc.), or create conversations (like 1:1 chat with a user) |
-| `meetings` | Gives your application access to meeting details and participant information via `getById` and `getParticipant` |
-| `teams` | Gives your application access to team or channel details |
+| `meetings`      | Gives your application access to meeting details and participant information via `getById` and `getParticipant`                                                       |
+| `teams`         | Gives your application access to team or channel details                                                                                                             |
 ::: zone-end
 
 
@@ -115,7 +115,10 @@ const res = await app.api.graph.call(endpoints.chats.getAllMessages.get);
 In this example, we use the API client to get a specific meeting participant's details, such as their role (e.g. Organizer) and whether they are currently in the meeting. Provide the user's AAD Object ID to specify which participant to look up. The `meetingId` and `tenantId` are available from the activity's channel data.
 
 > [!NOTE]
+>
 > To retrieve **all** members of a meeting, use the conversations API as shown in the [example above](#example), since meetings are also conversations.
+
+
 ::: zone pivot="csharp"
 ```csharp
 app.OnMeetingStart(async (context, cancellationToken) =>
@@ -167,3 +170,4 @@ app.on('meetingStart', async ({ activity, api }) => {
 
 
 Visit [Meeting Events](../in-depth-guides/meeting-events.md) to learn more about meeting events.
+
