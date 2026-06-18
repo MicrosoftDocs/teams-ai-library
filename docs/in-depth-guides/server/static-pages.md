@@ -1,14 +1,14 @@
 ---
-title: Static Pages
-description: Shows how to host web apps.
+title: 'Static Pages'
+description: 'Shows how to host web apps.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Static Pages
 
-The `App` class lets you host web apps in the agent. This is useful for an efficient inner loop — you can build, deploy, and sideload both an agent and a Tab app inside Teams in a single step. It's also useful in production, since it makes it straightforward to host a simple experience such as an agent configuration page or a Dialog.
+The `App` class lets you host web apps in the agent. This is useful for an efficient inner loop  you can build, deploy, and sideload both an agent and a Tab app inside Teams in a single step. It's also useful in production, since it makes it straightforward to host a simple experience such as an agent configuration page or a Dialog.
 
 ::: zone pivot="csharp"
 To host a static tab web app, call the `app.AddTab()` function and provide an app name and a path to a folder containing an `index.html` file to be served up.
@@ -62,3 +62,4 @@ This registers a route that is hosted at `http://localhost:{PORT}/tabs/my_app` o
 - For more details about Tab apps, see the [Tabs](../tabs/overview.md) in-depth guide.
 - For an example of hosting a Dialog, see the [Creating Dialogs](../dialogs/creating-dialogs.md) in-depth guide.
 ::: zone-end
+

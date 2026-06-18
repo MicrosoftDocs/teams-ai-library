@@ -1,15 +1,14 @@
 ---
-title: Message Reactions
-description: Guide to adding, removing, and receiving message reactions in Teams agents, including available reaction types, skin tones, rate limits, and best practices.
+title: 'Message Reactions'
+description: 'Guide to adding, removing, and receiving message reactions in Teams agents, including available reaction types, skin tones, rate limits, and best practices.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Message Reactions
 
-:::image type="content" source="~/assets/screenshots/reaction-emoji.png" alt-text="Reaction emoji sent by bot" lightbox="~/assets/screenshots/reaction-emoji.png":::
-
+:::image type="content" source="~/assets/screenshots/reaction-emoji.png" alt-text="Reaction emoji sent by bot" lightbox="~/assets/screenshots/reaction-emoji.png" :::
 Message reactions allow your agent to add or remove emoji reactions on messages in a Teams conversation, and to react to reactions added by users. This gives your agent a quick, low-friction way to acknowledge messages or signal status without sending a full text reply.
 
 ## Adding a Reaction
@@ -203,27 +202,25 @@ The SDK ships a small set of named reaction constants for the most common reacti
 The SDK ships a small set of named reaction constants for the most common reactions.
 ::: zone-end
 
-<!-- TODO: restore with correct URL once Learn reactions reference is published (see msteams-docs PR #13991)
-Any string-valued reaction ID is accepted, so you can pass any reaction ID from the [Teams reactions reference](#TODO-learn-reactions-reference).
--->
+Any string-valued reaction ID is accepted, so you can pass any reaction ID from the [Teams reactions reference page](/microsoftteams/platform/agents-in-teams/teams-reactions-reference/).
 
 
 ::: zone pivot="csharp"
-- `ReactionType.Like` —
-- `ReactionType.Heart` —
-- `ReactionType.Eyes` —
-- `ReactionType.CheckMark` —
-- `ReactionType.Launch` —
-- `ReactionType.Pushpin` —
+- `ReactionType.Like`
+- `ReactionType.Heart`
+- `ReactionType.Eyes`
+- `ReactionType.CheckMark`
+- `ReactionType.Launch`
+- `ReactionType.Pushpin`
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-- `'like'` —
-- `'heart'` —
-- `'1f440_eyes'` —
-- `'2705_whiteheavycheckmark'` —
-- `'launch'` —
-- `'1f4cc_pushpin'` —
+- `'like'`
+- `'heart'`
+- `'1f440_eyes'`
+- `'2705_whiteheavycheckmark'`
+- `'launch'`
+- `'1f4cc_pushpin'`
 ::: zone-end
 
 
@@ -235,9 +232,7 @@ Reactions tagged **Diverse** in the Teams reactions reference support five skin-
 1f44b_wavinghand-tone4
 ```
 
-<!-- TODO: restore once Learn reactions reference is published (see msteams-docs PR #13991)
-See the [Teams reactions reference](#TODO-learn-reactions-reference) for the full list of reactions that support skin tones.
--->
+The full set of supported reactions can vary by Teams client version and tenant configuration.
 
 ## Rate Limits
 

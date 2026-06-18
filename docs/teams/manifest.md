@@ -1,8 +1,8 @@
----
-title: Teams Manifest
-description: Learn about Teams app manifest requirements, permissions, and sideloading process for app installation.
+﻿---
+title: 'Teams Manifest'
+description: 'Learn about Teams app manifest requirements, permissions, and sideloading process for app installation.'
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Teams Manifest
@@ -15,12 +15,12 @@ There are many permissions and details that an app manifest may have added to th
 
 ## Sideloading
 
-Sideloading is the ability to install and test your app before it is published to your organization's app catalog. For more on sideloading, see [Upload your apps to Teams](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload).
+Sideloading is the ability to install and test your app before it is published to your organization's app catalog. For more on sideloading, see [Upload your apps to Teams](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload/).
 
 To sideload, ensure the manifest includes all required information (such as the app ID, tenant details, and permissions). Place the manifest and icons at the root of a zip file.
 
 The [Teams Developer CLI](../developer-tools/cli.md) handles manifest scaffolding, validation, and updates as part of `teams app create`. To work with the manifest directly:
 
-- [`teams app manifest download`](../developer-tools/cli.md) — pull the current manifest from a registered app
-- [`teams app manifest upload`](../developer-tools/cli.md) — apply a local manifest.json to an existing app
-- [`teams app package download`](../developer-tools/cli.md) — get a sideload-ready zip (manifest + icons)
+- [`teams app manifest download`](https://microsoft.github.io/teams-sdk/cli/commands/app/manifest-download/) pull the current manifest from a registered app
+- [`teams app manifest upload`](https://microsoft.github.io/teams-sdk/cli/commands/app/manifest-upload/) apply a local manifest.json to an existing app
+- [`teams app package download`](https://microsoft.github.io/teams-sdk/cli/commands/app/package-download/) get a sideload-ready zip (manifest + icons)

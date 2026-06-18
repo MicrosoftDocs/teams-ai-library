@@ -32,6 +32,8 @@ landingContent:
             url: ./getting-started/quickstart.md
           - text: Code Basics
             url: ./getting-started/code-basics.md
+          - text: Running in Teams
+            url: ./getting-started/running-in-teams/overview.md
       - linkListType: how-to-guide
         links:
           - text: App Basics
@@ -47,53 +49,41 @@ landingContent:
           - text: Proactive Messaging
             url: ./essentials/sending-messages/proactive-messaging.md
           - text: Activity Type Reference
-            url: ./essentials/on-activity/activity-ref.md
+            url: ./essentials/on-activity/overview.md
 
   # AI & Intelligence
   - title: Build intelligent conversational experiences
     linkLists:
       - linkListType: overview
         links:
-          - text: AI Overview
-            url: ./in-depth-guides/ai/overview.md
-          - text: Setup and Prerequisites
-            url: ./in-depth-guides/ai/setup-and-prereqs.md
-          - text: AI Best Practices
-            url: ./in-depth-guides/ai/best-practices.md
-      - linkListType: concept
-        links:
-          - text: AI Chat
-            url: ./in-depth-guides/ai/chat.md
-          - text: Function Calling
-            url: ./in-depth-guides/ai/function-calling.md
-          - text: Keeping State
-            url: ./in-depth-guides/ai/keeping-state.md
-      - linkListType: concept
-        links:
-          - text: Agent-to-Agent Protocol
-            url: ./in-depth-guides/ai/a2a/overview.md
-          - text: A2A Server
-            url: ./in-depth-guides/ai/a2a/a2a-server.md
-          - text: A2A Client
-            url: ./in-depth-guides/ai/a2a/a2a-client.md
-          - text: MCP Overview
-            url: ./in-depth-guides/ai/mcp/overview.md
-          - text: MCP Server
-            url: ./in-depth-guides/ai/mcp/mcp-server.md
-          - text: MCP Client
-            url: ./in-depth-guides/ai/mcp/mcp-client.md
-      - linkListType: how-to-guide
-        links:
           - text: AI Integrations Overview
             url: ./in-depth-guides/ai-integrations/overview.md
-          - text: Build Agent with Microsoft Agent Framework
-            url: ./in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework.md
-          - text: Enhance the Teams Experience
+          - text: Build an agent in Teams
+            url: ./in-depth-guides/ai-integrations/build-agent-maf.md
+          - text: Teams Enhancements
             url: ./in-depth-guides/ai-integrations/teams-enhancements.md
-          - text: Expose Teams to AI Agents (MCP)
+      - linkListType: concept
+        links:
+          - text: Build an agent in Teams
+            url: ./in-depth-guides/ai-integrations/build-agent-maf.md
+          - text: Teams Enhancements
+            url: ./in-depth-guides/ai-integrations/teams-enhancements.md
+          - text: Bot-to-Bot with A2A
+            url: ./in-depth-guides/ai-integrations/a2a.md
+      - linkListType: concept
+        links:
+          - text: Exposing Teams to AI Agents (MCP)
             url: ./in-depth-guides/ai-integrations/mcp-server.md
           - text: Bot-to-Bot with A2A
             url: ./in-depth-guides/ai-integrations/a2a.md
+      - linkListType: how-to-guide
+        links:
+          - text: Build an agent in Teams
+            url: ./in-depth-guides/ai-integrations/build-agent-maf.md
+          - text: Teams Enhancements
+            url: ./in-depth-guides/ai-integrations/teams-enhancements.md
+          - text: Exposing Teams to AI Agents (MCP)
+            url: ./in-depth-guides/ai-integrations/mcp-server.md
 
   # Advanced Features & Integration
   - title: Extend your agents with rich interactions
@@ -144,10 +134,6 @@ landingContent:
         links:
           - text: Running in Teams
             url: ./getting-started/running-in-teams/overview.md
-          - text: Azure Configuration
-            url: ./teams/azure-configuration.md
-          - text: Choosing an SDK
-            url: ./teams/sdk-comparison.md
           - text: Teams Manifest
             url: ./teams/manifest.md
           - text: Sovereign Cloud Configuration
@@ -157,7 +143,7 @@ landingContent:
           - text: App Authentication Setup
             url: ./teams/app-authentication/overview.md
           - text: App Authentication Configuration
-            url: ./essentials/app-authentication.md
+            url: ./essentials/app-authentication/overview.md
           - text: Client Secret Authentication
             url: ./teams/app-authentication/client-secret.md
           - text: Federated Identity Credentials
@@ -180,10 +166,12 @@ landingContent:
             url: ./developer-tools/overview.md
           - text: Teams CLI
             url: ./developer-tools/cli.md
+          - text: Agents Playground
+            url: ./developer-tools/agents-playground/overview.md
           - text: Agent Skills
             url: ./developer-tools/agent-skills.md
           - text: llms.txt
-            url: ./developer-tools/llms-text.md
+            url: ./developer-tools/llms-txt.md
           - text: DevTools Overview
             url: ./developer-tools/devtools/overview.md
           - text: DevTools Chat
@@ -203,7 +191,7 @@ landingContent:
           - text: Message Reactions
             url: ./in-depth-guides/message-reactions.md
           - text: HTTP Server
-            url: ./in-depth-guides/server/http-server.md
+            url: ./in-depth-guides/server/static-pages.md
       - linkListType: concept
         links:
           - text: Migrations Overview
@@ -212,12 +200,12 @@ landingContent:
             url: ./migrations/botbuilder/overview.md
           - text: Using the BotBuilder Plugin
             url: ./migrations/botbuilder/integration.md
-          - text: Migrate from Teams AI Library v1
-            url: ./migrations/v1.md
-          - text: Migrate from V2 Previews
-            url: ./migrations/v2-previews.md
-          - text: Migrate from Slack Bolt
-            url: ./migrations/slack-bolt.md
+          - text: Sending Activities (BotBuilder)
+            url: ./migrations/botbuilder/sending-activities.md
+          - text: Proactive Activities (BotBuilder)
+            url: ./migrations/botbuilder/proactive-activities.md
+          - text: User Authentication (BotBuilder)
+            url: ./migrations/botbuilder/user-authentication.md
 
   # SDK References & Resources
   - title: Reference and resources

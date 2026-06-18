@@ -1,52 +1,25 @@
 ---
-title: Settings
-description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
+title: 'Settings'
+description: 'Add configurable settings pages to your message extensions to allow users to customize app behavior.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
-# Settings
+#  Settings
 
 You can add a settings page that allows users to configure settings for your app.
 
 The user can access the settings by right-clicking the app item in the compose box.
 
-:::image type="content" source="~/assets/screenshots/settings.png" alt-text="Screenshot showing the message extension settings option in the compose box context menu" lightbox="~/assets/screenshots/settings.png":::
+:::image type="content" source="../../assets/screenshots/settings.png" alt-text="Settings page for a message extension showing selectable configuration options" lightbox="../../assets/screenshots/settings.png" :::
 
-This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
+## 1. Create a settings page
 
-:::image type="content" source="~/assets/screenshots/settings-page.png" alt-text="Settings Page" lightbox="~/assets/screenshots/settings-page.png":::
-
-## 1. Update the Teams Manifest
-
-Set the `canUpdateConfiguration` field to `true` in the desired message extension under `composeExtensions`.
-
-```json
-"composeExtensions": [
-    {
-        "botId": "${{BOT_ID}}",
-        "canUpdateConfiguration": true,
-        ...
-    }
-]
-```
-
-## 2. Serve the settings `html` page
-
-This is the code snippet for the settings `html` page:
-
-
-::: zone pivot="csharp,python"
+::: zone pivot="csharp,typescript"
 ```html
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Message Extension Settings</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
     <script src="https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js"></script>
     <style>
       body {
@@ -198,11 +171,13 @@ app.tab('settings', path.resolve(__dirname));
 
 ::: zone pivot="csharp,typescript"
 > [!NOTE]
+>
 > This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/overview.md) to learn more.
 ::: zone-end
 
 ::: zone pivot="python"
 > [!NOTE]
+>
 > This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab.
 ::: zone-end
 
@@ -408,3 +383,4 @@ app.on('message.ext.setting', async ({ activity, send }) => {
 });
 ```
 ::: zone-end
+

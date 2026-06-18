@@ -1,9 +1,9 @@
 ---
-title: Proactive Messaging
-description: Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.
+title: 'Proactive Messaging'
+description: 'Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Proactive Messaging
@@ -23,19 +23,18 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 
 # [Minimal](#tab/minimal)
 
-
 ```csharp
-app.OnInstall(async (context, cancellationToken) =>
-{
-    // Save the conversation id in
-    context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
-    await context.Send("Hi! I am going to remind you to say something to me soon!", cancellationToken);
-    notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
-});
+    app.OnInstall(async (context, cancellationToken) =>
+    {
+        // Save the conversation id in
+        context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
+        await context.Send("Hi! I am going to remind you to say something to me soon!", cancellationToken);
+        notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
+    });
 ```
 
----
 
+---
 ::: zone-end
 
 ::: zone pivot="python"
@@ -139,19 +138,21 @@ const sendProactiveNotification = async (userId: string) => {
 
 ::: zone pivot="csharp,typescript"
 > [!TIP]
+>
 > In this example, you see how to get the `conversationId` using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.
 ::: zone-end
 
 ::: zone pivot="python"
 > [!TIP]
+>
 > In this example, you see how to get the `conversation_id` using one of the activity handlers. This is a good place to store the conversation id, but you can also do this in other places like when the user installs the app or when they sign in. The important thing is that you have the conversation id stored somewhere so you can use it later.
 ::: zone-end
 
 ## Targeted Proactive Messages
 
 > [!NOTE]
-> Coming Soon
-> Targeted messages are coming soon in May 2026.
+>
+> Targeted messages are available in public preview. General availability is planned for a future release.
 
 Targeted messages, also known as ephemeral messages, are delivered to a specific user in a shared conversation. From a single user's perspective, they appear as regular inline messages in a conversation. Other participants won't see these messages.
 
@@ -298,3 +299,4 @@ const threadId = toThreadedConversationId(conversationId, messageId);
 await app.send(threadId, 'Sent via helper');
 ```
 ::: zone-end
+

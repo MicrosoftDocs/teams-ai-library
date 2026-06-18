@@ -1,15 +1,17 @@
 ---
-title: Creating Dialogs
-description: Guide to creating and opening dialogs in Teams using Adaptive Cards and task fetch actions.
+title: 'Creating Dialogs'
+description: 'Build and launch Teams dialogs using Adaptive Card actions and activity handlers.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Creating Dialogs
 
 > [!TIP]
+>
 > If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards/overview.md). Understanding their basics is a prerequisite for this guide.
+
 ## Entry Point
 
 
@@ -157,6 +159,7 @@ Once an action is executed to open a dialog, the Teams client will send an event
 When a user clicks the button, Teams sends a `task/fetch` invoke to your app. Register a handler with `@app.on_dialog_open("dialog_id")` to handle a specific dialog, or `@app.on_dialog_open()` for a catch-all.
 
 > [!TIP]
+>
 > Use `@app.on_dialog_open("simple_form")` to handle specific dialogs directly, instead of a single catch-all handler with if-else logic. This keeps each handler focused and avoids routing boilerplate.
 ::: zone-end
 
@@ -164,6 +167,7 @@ When a user clicks the button, Teams sends a `task/fetch` invoke to your app. Re
 When a user clicks the button, Teams sends a `task/fetch` invoke to your app. Register a handler using `dialog.open.<dialog_id>` to handle a specific dialog, or `dialog.open` for a catch-all.
 
 > [!TIP]
+>
 > Use sub-routes like `dialog.open.simple_form` to handle specific dialogs directly, instead of a single catch-all handler with if-else logic. This keeps each handler focused and avoids routing boilerplate.
 ::: zone-end
 
@@ -411,8 +415,8 @@ app.on('dialog.open.simple_form', async () => {
 
 
 > [!NOTE]
+>
 > The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
-
 ### Rendering A Webpage
 
 You can render a webpage in a dialog as well. There are some security requirements to be aware of:
@@ -552,3 +556,4 @@ import path from 'path';
 app.tab('dialog-form', path.join(__dirname, 'views', 'customform'));
 ```
 ::: zone-end
+

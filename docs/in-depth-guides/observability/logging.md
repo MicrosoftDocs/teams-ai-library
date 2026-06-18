@@ -1,12 +1,12 @@
----
-title: Custom Logger
-description: Configure custom loggers in your Teams app to control log levels and output destinations.
+﻿---
+title: 'Custom Logger'
+description: 'Configure custom loggers in your Teams app to control log levels and output destinations.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
-# Custom Logger
+#  Custom Logger
 
 ::: zone pivot="csharp"
 The `App` will provide a default logger, but you can also provide your own.
@@ -43,7 +43,7 @@ var teams = app.UseTeams();
 ::: zone-end
 
 ::: zone pivot="python"
-The Python SDK uses standard `logging` — there's no custom logger to inject into `App`. To see SDK log output, attach a handler to the `microsoft_teams` logger hierarchy. The SDK ships a `ConsoleFormatter` with color-coded output if you want it:
+The Python SDK uses standard `logging`  there's no custom logger to inject into `App`. To see SDK log output, attach a handler to the `microsoft_teams` logger hierarchy. The SDK ships a `ConsoleFormatter` with color-coded output if you want it:
 
 ```python
 import logging
@@ -95,7 +95,7 @@ Python's standard `logging` levels apply: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `
 ::: zone-end
 
 ::: zone pivot="typescript"
-Available levels, from most to least severe: `error`, `warn`, `info`, `debug`, `trace`. The default is `info`. Setting `level: 'debug'` emits `error`, `warn`, `info`, and `debug` — but not `trace`.
+Available levels, from most to least severe: `error`, `warn`, `info`, `debug`, `trace`. The default is `info`. Setting `level: 'debug'` emits `error`, `warn`, `info`, and `debug`  but not `trace`.
 ::: zone-end
 
 
@@ -150,12 +150,12 @@ logging.getLogger().setLevel(os.getenv("LOG_LEVEL", "INFO").upper())
 ::: zone pivot="typescript"
 The TypeScript SDK's `ConsoleLogger` reads two environment variables at construction:
 
-| Variable | Purpose | Example |
+| Variable     | Purpose                          | Example                 |
 | ------------ | -------------------------------- | ----------------------- |
-| `LOG_LEVEL` | Minimum severity | `LOG_LEVEL=debug` |
-| `LOG` | Logger name pattern (wildcards) | `LOG=@teams*` |
+| `LOG_LEVEL`  | Minimum severity                 | `LOG_LEVEL=debug`       |
+| `LOG`        | Logger name pattern (wildcards)  | `LOG=@teams*`           |
 
-Env vars override options passed to the constructor. If you do not pass a logger to `App`, the SDK creates a default `ConsoleLogger` named `@teams/app` — so `LOG_LEVEL=debug` alone is enough to enable debug output.
+Env vars override options passed to the constructor. If you do not pass a logger to `App`, the SDK creates a default `ConsoleLogger` named `@teams/app`  so `LOG_LEVEL=debug` alone is enough to enable debug output.
 
 > **Gotcha:** `LOG` is a name filter, not a toggle. Setting `LOG` to a pattern that doesn't match the default `@teams/app` (for example `LOG=my-app*`) silences the default logger. If in doubt, unset `LOG` to match everything.
 ::: zone-end
@@ -182,3 +182,4 @@ app.on('message', async ({ log }) => {
 });
 ```
 ::: zone-end
+

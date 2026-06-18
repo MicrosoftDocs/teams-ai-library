@@ -1,10 +1,11 @@
 ---
-title: Exposing Teams to AI Agents (MCP)
-description: Turn your Teams bot into an MCP server so external AI agents can reach real users — sending notifications, asking questions, and requesting approvals through chat.
+title: 'Exposing Teams to AI Agents (MCP)'
+description: 'Turn your Teams bot into an MCP server so external AI agents can reach real users  sending notifications, asking questions, and requesting approvals through chat.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
+
 # Exposing Teams to AI Agents (MCP)
 
 ::: zone pivot="csharp,typescript"
@@ -59,9 +60,9 @@ See [Proactive Messaging](../../essentials/sending-messages/proactive-messaging.
 
 ## Asking the user a question
 Unlike notifications, questions require a response from the user.
-Because MCP tools are expected to return quickly, this pattern separates the interaction into an asynchronous request–response flow.
+Because MCP tools are expected to return quickly, this pattern separates the interaction into an asynchronous requestresponse flow.
 
-The `ask` tool sends the question and returns a `request_id`, which can later be used to retrieve the user’s reply via `get_reply`.
+The `ask` tool sends the question and returns a `request_id`, which can later be used to retrieve the users reply via `get_reply`.
 
 **The MCP tools**
 ```python
@@ -86,7 +87,7 @@ async def get_reply(request_id: str) -> dict:
 
 **The Teams handler**
 
-User responses are captured in the bot’s message handler.
+User responses are captured in the bots message handler.
 When a message arrives from a user with a pending request, it is treated as the answer to the outstanding question.
 ```python
 @app.on_message
@@ -107,10 +108,10 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ## Requesting an approval via Adaptive Card
 
-For decisions that require a clear outcome — such as approving a deployment or confirming an action — free-text responses are not ideal.
+For decisions that require a clear outcome  such as approving a deployment or confirming an action  free-text responses are not ideal.
 Instead, Adaptive Cards can be used to present structured Approve / Reject actions directly in the conversation.
 
-This pattern mirrors the request–response flow used in `ask`, but replaces text input with a single explicit user action captured through a card interaction.
+This pattern mirrors the requestresponse flow used in `ask`, but replaces text input with a single explicit user action captured through a card interaction.
 
 **The MCP tools**
 ```python

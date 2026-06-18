@@ -1,12 +1,12 @@
 ---
-title: Search commands
-description: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
+title: 'Search commands'
+description: 'Create search commands that allow users to search external systems and insert results as cards in Teams messages.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
-# Search commands
+#  Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 
@@ -19,8 +19,7 @@ There are two different areas search commands can be invoked from:
 
 ### Compose Area and Box
 
-:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps)." lightbox="~/assets/screenshots/compose-area.png":::
-
+:::image type="content" source="~/assets/screenshots/compose-area.png" alt-text="Screenshot of Teams with outlines around the 'Compose Box' (for typing messages) and the 'Compose Area' (the menu option next to the compose box that provides a search bar for actions and apps)." lightbox="~/assets/screenshots/compose-area.png" :::
 ## Setting up your Teams app manifest
 
 To use search commands you have to define them in the Teams app manifest. Here is an example:
@@ -420,12 +419,10 @@ export async function createDummyCards(searchQuery: string) {
 
 The search results include both a full adaptive card and a preview card. The preview card appears as a list item in the search command area:
 
-:::image type="content" source="~/assets/screenshots/preview-card.png" alt-text="Screenshot of Teams showing a message extensions search menu open with list of search results displayed as preview cards." lightbox="~/assets/screenshots/preview-card.png":::
-
+:::image type="content" source="~/assets/screenshots/preview-card.png" alt-text="Screenshot of Teams showing a message extensions search menu open with list of search results displayed as preview cards." lightbox="~/assets/screenshots/preview-card.png" :::
 When a user clicks on a list item the dummy adaptive card is added to the compose box:
 
-:::image type="content" source="~/assets/screenshots/card-in-compose.png" alt-text="Screenshot of Teams showing the selected adaptive card added to the compose box." lightbox="~/assets/screenshots/card-in-compose.png":::
-
+:::image type="content" source="~/assets/screenshots/card-in-compose.png" alt-text="Screenshot of Teams showing the selected adaptive card added to the compose box." lightbox="~/assets/screenshots/card-in-compose.png" :::
 To implement custom actions when a user clicks on a search result item, you can add the `tap` property to the preview card. This allows you to handle the click event with custom logic:
 
 
@@ -472,5 +469,5 @@ app.on('message.ext.select-item', async ({ activity, send }) => {
 
 ## Resources
 
-- [Search command](/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command)
-- [Just-In-Time Install](/microsoftteams/platform/messaging-extensions/how-to/search-commands/universal-actions-for-search-based-message-extensions#just-in-time-install)
+- [Search command](/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command/)
+- [Just-In-Time Install](/microsoftteams/platform/messaging-extensions/how-to/search-commands/universal-actions-for-search-based-message-extensions/#just-in-time-install)

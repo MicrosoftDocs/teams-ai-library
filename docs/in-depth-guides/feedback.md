@@ -1,17 +1,16 @@
 ---
-title: Feedback
-description: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
+title: 'Feedback'
+description: 'Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # User feedback
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
-:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Animated image showing user selecting the thumbs-up button on an agent response and a dialog opening asking 'What did you like?'. The user types 'Nice' and hits Submit." lightbox="~/assets/screenshots/feedback.gif":::
-
+:::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Animated image showing user selecting the thumbs-up button on an agent response and a dialog opening asking 'What did you like?'. The user types 'Nice' and hits Submit." lightbox="~/assets/screenshots/feedback.gif" :::
 ## Storage
 
 Once you receive a feedback event, you can choose to store it in some persistent storage. In the example below, we are storing it in an in-memory store.
@@ -268,3 +267,4 @@ app.on('message.submit.feedback', async ({ activity, log }) => {
 });
 ```
 ::: zone-end
+

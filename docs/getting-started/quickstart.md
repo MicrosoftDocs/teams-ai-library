@@ -1,9 +1,9 @@
 ---
-title: Quickstart
-description: Quick start guide for Teams SDK using the Teams Developer CLI to create and run your first agent.
+title: 'Quickstart'
+description: 'Quick start guide for Teams SDK using the Teams Developer CLI to create and run your first agent.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
 
 # Quickstart
@@ -35,11 +35,12 @@ Get started with Teams SDK quickly using the Teams Developer CLI.
 Install `teams` globally:
 
 ```sh
-npm install -g @microsoft/teams.cli@preview
+npm install -g @microsoft/teams.cli
 teams --version
 ```
 
 > [!NOTE]
+>
 > The [Teams Developer CLI](../developer-tools/cli.md) is the command-line tool for scaffolding, registering, and managing Teams apps. It's currently in Preview.
 
 ## Creating Your First Agent
@@ -72,13 +73,13 @@ This command:
 ::: zone pivot="csharp"
 1. Creates a new directory called `Quote.Agent`.
 2. Bootstraps the echo agent template files into your project directory.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `Quote.Agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema/) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload/) the app into Teams.
 ::: zone-end
 
 ::: zone pivot="python,typescript"
 1. Creates a new directory called `quote-agent`.
 2. Bootstraps the echo agent template files into it under `quote-agent/src`.
-3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload) the app into Teams.
+3. Creates your agent's manifest files, including a `manifest.json` file and placeholder icons in the `quote-agent/appPackage` directory. The Teams [app manifest](/microsoftteams/platform/resources/schema/manifest-schema/) is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload/) the app into Teams.
 ::: zone-end
 
 
@@ -148,8 +149,6 @@ npm run dev
 
 ```sh
 [INFO] Microsoft.Hosting.Lifetime Now listening on: http://localhost:3978
-[WARN] Echo.Microsoft.Teams.Plugins.AspNetCore.DevTools ⚠️  Devtools are not secure and should not be used production environments ⚠️
-[INFO] Echo.Microsoft.Teams.Plugins.AspNetCore.DevTools Available at http://localhost:3979/devtools
 [INFO] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
 [INFO] Microsoft.Hosting.Lifetime Hosting environment: Development
 ```
@@ -182,16 +181,32 @@ INFO:     Uvicorn running on http://0.0.0.0:3978 (Press CTRL+C to quit)
 [nodemon] watching path(s): src/**
 [nodemon] watching extensions: ts
 [nodemon] starting `node -r ts-node/register -r dotenv/config ./src/index.ts`
-[WARN] @teams/app/devtools ⚠️  Devtools are not secure and should not be used production environments ⚠️
 [INFO] @teams/app/http listening on port 3978 🚀
-[INFO] @teams/app/devtools available at http://localhost:3979/devtools
 ```
 ::: zone-end
 
 
-When the application starts, you'll see:
 
-1. An HTTP server starting up (on port `3978`). This is the main server which handles incoming requests and serves the agent application.
+::: zone pivot="csharp,python,typescript"
+The HTTP server is now listening on port `3978`. To test your agent locally without sideloading it into Teams, use the **[Microsoft 365 Agents Playground](../developer-tools/agents-playground/overview.md)**.
+
+Install the playground globally:
+
+```sh
+npm install -g @microsoft/m365agentsplayground
+```
+
+Then, with your agent still running, open a second terminal and launch the playground pointed at your agent:
+
+```sh
+agentsplayground -e http://localhost:3978/api/messages -c emulator
+```
+
+The playground opens at [http://localhost:56150](http://localhost:56150). Send a message in the compose box and your agent's reply renders inline.
+
+:::image type="content" source="~/assets/screenshots/agents-playground-echo-chat.png" alt-text="Microsoft 365 Agents Playground showing a user message 'hello!' and an agent reply 'you said 'hello!''." lightbox="~/assets/screenshots/agents-playground-echo-chat.png" :::
+::: zone-end
+
 
 ## Add to an Existing Project
 
@@ -286,7 +301,7 @@ server.listen(3978);
 ::: zone-end
 
 
-`app.initialize()` registers the Teams endpoint on your server without starting a new one — you keep full control of your server lifecycle.
+`app.initialize()` registers the Teams endpoint on your server without starting a new one  you keep full control of your server lifecycle.
 
 
 ::: zone pivot="csharp"
@@ -294,18 +309,23 @@ server.listen(3978);
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-See the [HTTP Server guide](../in-depth-guides/server/http-server.md) for full details on adapters and custom server setups.
+See the [Server guide](../in-depth-guides/server/static-pages.md) for hosting-related setup details.
 ::: zone-end
 
 
 ## Next steps
 
-After creating and running your first agent, read about [the code basics](code-basics.md) to better understand its components and structure.
+After creating and running your first agent, read about [the code basics](./code-basics.md) to better understand its components and structure.
 
-Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](running-in-teams/overview.md) guide.
+Otherwise, if you want to run your agent in Teams, you can check out the [Running in Teams](./running-in-teams/overview.md) guide.
 
 ## Resources
 
 - [Teams Developer CLI documentation](../developer-tools/cli.md)
-- [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema)
-- [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload)
+
+::: zone pivot="csharp,python,typescript"
+- [Microsoft 365 Agents Playground](../developer-tools/agents-playground/overview.md)
+::: zone-end
+
+- [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema/)
+- [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload/)

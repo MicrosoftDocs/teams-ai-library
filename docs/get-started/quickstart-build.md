@@ -1,17 +1,17 @@
----
-title: "Quickstart: Build your first bot"
-description: Wire up a message handler in TypeScript, C#, or Python with the Teams SDK.
-ms.topic: quickstart
-ms.date: 05/15/2026
+﻿---
+title: 'Quickstart: Build your first bot'
+description: 'Wire up a message handler in TypeScript, C#, or Python with the Teams SDK.'
+ms.topic: how-to
+ms.date: 06/11/2026
 ---
 
 # Quickstart: Build your first bot
 
 Write a bot that responds to messages in Teams using the Teams SDK. Pick your language below.
 
-:::tip
-If you haven't registered your Teams app yet, start with [Quickstart: Register your app](./quickstart-register.md) — you'll need the credentials before this code can talk to Teams.
-:::
+> [!TIP]
+>
+> If you haven't registered your Teams app yet, start with [Quickstart: Register your app](./quickstart-register.md)  you'll need the credentials before this code can talk to Teams.
 
 ## Pick your language
 
@@ -46,7 +46,7 @@ Run it:
 npm run dev
 ```
 
-Continue with the [TypeScript guide](../getting-started/overview.md?pivots=typescript) for events, sending messages, Adaptive Cards, AI, and more.
+Continue with the [TypeScript guide](../getting-started/overview.md) for events, sending messages, Adaptive Cards, AI, and more.
 
 # [C#](#tab/csharp)
 
@@ -77,7 +77,7 @@ Run it:
 dotnet run
 ```
 
-Continue with the [C# guide](../getting-started/overview.md?pivots=csharp) for events, sending messages, Adaptive Cards, AI, and more.
+Continue with the [C# guide](../getting-started/overview.md) for events, sending messages, Adaptive Cards, AI, and more.
 
 # [Python](#tab/python)
 
@@ -127,12 +127,12 @@ pip install -e .
 python src/main.py
 ```
 
-Continue with the [Python guide](../getting-started/overview.md?pivots=python) for events, sending messages, Adaptive Cards, AI, and more.
+Continue with the [Python guide](../getting-started/overview.md) for events, sending messages, Adaptive Cards, AI, and more.
 
 ---
 
 ## What's next
 
-- **Essentials** — events, activities, sending messages, authentication: [TypeScript](../essentials/overview.md?pivots=typescript) · [C#](../essentials/overview.md?pivots=csharp) · [Python](../essentials/overview.md?pivots=python)
-- **In-depth guides** — Adaptive Cards, AI, MCP, dialogs, tabs, and more: [TypeScript](../in-depth-guides/overview.md?pivots=typescript) · [C#](../in-depth-guides/overview.md?pivots=csharp) · [Python](../in-depth-guides/overview.md?pivots=python)
-- [Quickstart: Register your app](./quickstart-register.md) — set up bot infrastructure with the Teams Developer CLI
+- **Essentials**  events, activities, sending messages, authentication: [TypeScript](../essentials/overview.md)  [C#](../essentials/overview.md)  [Python](../essentials/overview.md)
+- **In-depth guides**  Adaptive Cards, AI, MCP, dialogs, tabs, and more: [TypeScript](../in-depth-guides/overview.md)  [C#](../in-depth-guides/overview.md)  [Python](../in-depth-guides/overview.md)
+- [Quickstart: Register your app](./quickstart-register.md)  set up bot infrastructure with the Teams Developer CLI

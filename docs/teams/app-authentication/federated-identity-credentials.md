@@ -1,10 +1,9 @@
 ---
-title: Federated Identity Credentials Setup
-description: Set up Federated Identity Credentials authentication for your Teams bot in Azure Portal or Azure CLI
+title: 'Federated Identity Credentials Setup'
+description: 'Set up Federated Identity Credentials authentication for your Teams bot in Azure Portal or Azure CLI'
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 06/11/2026
 ---
-
 
 # Federated Identity Credentials Setup
 
@@ -24,15 +23,12 @@ Before you begin, ensure you have:
 
 When creating your Azure Bot Service, select `Single Tenant` for the `Type of App`.
 
-:::image type="content" source="~/assets/screenshots/single-tenant-bot.png" alt-text="Single Tenant Bot Creation" lightbox="~/assets/screenshots/single-tenant-bot.png":::
-
+:::image type="content" source="~/assets/screenshots/single-tenant-bot.png" alt-text="Single Tenant Bot Creation" lightbox="~/assets/screenshots/single-tenant-bot.png" :::
 ### Step 2: Configure Federated Credentials
 
 Assign managed identities to your App Registration using Federated Credentials.
 
 # [Azure Portal](#tab/portal)
-
-
 
 1. Navigate to your **App Registration** in the Azure Portal
 2. Go to **Certificates and Secrets**
@@ -42,13 +38,10 @@ Assign managed identities to your App Registration using Federated Credentials.
 6. Choose the User Assigned Managed Identity or configure for System Assigned Identity
 7. Complete the required fields and click **Add**
 
-:::image type="content" source="~/assets/screenshots/fic.png" alt-text="Federated Identity Creds" lightbox="~/assets/screenshots/fic.png":::
-
+:::image type="content" source="~/assets/screenshots/fic.png" alt-text="Federated Identity Creds" lightbox="~/assets/screenshots/fic.png" :::
 The identity you select here must also be assigned to the compute resource where your application is hosted.
 
 # [Azure CLI](#tab/cli)
-
-
 
 ```bash
 # Add a federated credential for a user assigned managed identity
@@ -64,14 +57,11 @@ az ad app federated-credential create \
 
 ---
 
-
 ### Step 3: Assign the Managed Identity to Your Compute Resource
 
 The managed identity configured in the federated credential must be assigned to your compute resource.
 
 # [Azure Portal](#tab/portal)
-
-
 
 **For User Assigned Managed Identity:**
 
@@ -92,8 +82,6 @@ The managed identity configured in the federated credential must be assigned to 
 
 # [Azure CLI](#tab/cli)
 
-
-
 ```bash
 # For user assigned managed identity:
 az webapp identity assign \
@@ -108,7 +96,6 @@ az webapp identity assign \
 ```
 
 ---
-
 
 ## Next Steps
 
