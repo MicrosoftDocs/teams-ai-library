@@ -3,7 +3,7 @@ title: 'Graph API Client'
 description: 'Guide to using the Microsoft Graph API client to access Microsoft 365 data and services from your Teams SDK application.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Graph API Client
@@ -320,7 +320,7 @@ Microsoft Graph offers an extensive and thoroughly documented API surface. These
 
 - The [Microsoft Graph Rest API reference documentation](/graph/api/overview/) gives details for each API, including permissions requirements.
 - The [Microsoft Graph REST API beta endpoint reference](/graph/api/overview/) gives similar information for preview APIs.
-- The [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) lets you discover and test drive APIs.
+- The [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) lets you discover and test drive APIs.
 
 In addition, the following endpoints may be especially interesting to Teams developers:
 
@@ -340,4 +340,5 @@ In addition, the following endpoints may be especially interesting to Teams deve
 | [users](/graph/api/resources/users/) | User resources |
 
 ::: zone-end
+
 

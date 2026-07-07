@@ -3,7 +3,7 @@ title: 'The API Client'
 description: 'Replace BotBuilder''s static TeamsInfo class with Teams SDK''s injected ApiClient for cleaner API interactions.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # The API Client
@@ -249,3 +249,4 @@ The following table shows common BotBuilder `TeamsInfo` methods and their equiva
 | `TeamsInfo.getMeetingInfo(context, meetingId)` | `api.meetings.getById(meetingId)` |
 | `TeamsInfo.sendMessageToTeamsChannel(context, teamId, message)` | `api.conversations.create(CreateConversationParams)` then `api.conversations.activities(conversationId).create(activity)` |
 ::: zone-end
+

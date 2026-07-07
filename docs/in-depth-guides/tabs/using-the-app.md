@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Using The App'
 description: 'Initialize and use the Teams client App to call Graph APIs and remote agent functions.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Using The App
@@ -72,3 +72,4 @@ const presenceResult = await app.graph.call(endpoints.me.presence.get);
 const agentResult = await app.exec<string>('hello-world');
 ```
 ::: zone-end
+

@@ -3,7 +3,7 @@ title: 'Migrations'
 description: 'Migration guides for transitioning from older versions and frameworks to Teams SDK.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Migrations
@@ -15,3 +15,4 @@ This article is not available for the selected development language.
 ::: zone pivot="typescript,python"
 Migration guides for transitioning from older versions and frameworks to Teams SDK.
 ::: zone-end
+

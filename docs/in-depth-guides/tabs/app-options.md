@@ -3,7 +3,7 @@ title: 'App Options'
 description: 'Configure app settings for observability, MSAL authentication, and remote agent function calling.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # App Options
@@ -232,3 +232,4 @@ const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 
 [MSAL Configuration](/entra/identity-platform/msal-client-application-configuration/)
 ::: zone-end
+

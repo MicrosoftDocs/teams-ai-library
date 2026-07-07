@@ -41,11 +41,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "docs/teams/sdk-comparison.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "docs/in-depth-guides/ai/a2a/overview.md",
       "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/a2a",
       "redirect_document_id": false
@@ -107,7 +102,7 @@
     },
     {
       "source_path": "docs/teams/choosing-an-sdk.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/overview",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/sdk-comparison",
       "redirect_document_id": false
     }
   ]

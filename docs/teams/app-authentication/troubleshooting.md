@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'Authentication Troubleshooting'
 description: 'Common authentication errors and how to resolve them'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Authentication Troubleshooting
@@ -84,3 +84,4 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 
 6. **Restart your app**
    Once the Service Principal is created, restart your application.
+

@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'Welcome'
 description: 'Welcome guide to Teams SDK, covering the quickstart process and how to build agents and applications for Microsoft Teams.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Welcome
@@ -23,9 +23,10 @@ If you'd rather have your AI coding assistant do the work, install the [`teams-d
 Teams SDK has you covered for [AI-powered agents](./in-depth-guides/ai-integrations/overview.md), [message extensions](./in-depth-guides/message-extensions/overview.md), embedded web apps, Adaptive Cards, dialogs, Microsoft Graph integrations, and more  across TypeScript, C#, and Python.
 
 - [Why an SDK?](./why.md)  what the SDK handles for you
-- [TypeScript guide](./getting-started/overview.md)  [C# guide](./getting-started/overview.md)  [Python guide](./getting-started/overview.md)
+- [TypeScript guide](./getting-started/overview.md?tabs=typescript)  [C# guide](./getting-started/overview.md?tabs=csharp)  [Python guide](./getting-started/overview.md?tabs=python)
 - [CLI reference](./developer-tools/cli.md)  [DevTools](./developer-tools/devtools/overview.md)  local testing without sideloading
 
 ## Navigation tips
 
 Use the left sidebar to navigate. Can't find what you're looking for? Try the search button above.
+

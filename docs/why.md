@@ -2,7 +2,7 @@
 title: 'Why An SDK?'
 description: 'Explanation of why an SDK is beneficial for building Teams agent applications, covering event handling and proactive messaging patterns.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Why An SDK?
@@ -35,3 +35,4 @@ If your application wanted additional data from [Microsoft Graph](/graph/overvie
 
 :::image type="content" source="~/assets/diagrams/diagram-why-4.png" alt-text="Diagram showing the additional authentication flows needed for proactive messaging and Microsoft Graph access." lightbox="~/assets/diagrams/diagram-why-4.png" :::
 As you can see, there are a lot of moving parts to building a Teams agent application. This is where the SDK comes in. The SDK abstracts away all of the boilerplate code and provides you with a simple interface to work with. It handles all the authentication, routing, and event handling for you, so you can focus on building your application.
+

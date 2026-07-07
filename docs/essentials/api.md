@@ -3,7 +3,7 @@ title: 'Teams API Client'
 description: 'Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Teams API Client
@@ -170,4 +170,5 @@ app.on('meetingStart', async ({ activity, api }) => {
 
 
 Visit [Meeting Events](../in-depth-guides/meeting-events.md) to learn more about meeting events.
+
 

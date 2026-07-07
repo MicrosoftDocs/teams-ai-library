@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Executing Functions'
 description: 'Call remote agent functions from tab apps with authentication and custom headers using the exec() method.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Executing Functions
@@ -118,3 +118,4 @@ If you find that you'd rather test for consent or request consent before making 
 - [Graph API overview](/graph/api/overview/)
 - [Graph API permissions overview](/graph/permissions-reference/)
 ::: zone-end
+

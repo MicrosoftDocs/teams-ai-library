@@ -3,7 +3,7 @@ title: 'Tabs'
 description: 'Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Tabs
@@ -45,7 +45,7 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 ### Additional resources
 
 - [Static Pages](../server/static-pages.md)
-- [TypeScript Tabs in-depth guide](./overview.md)
+- [TypeScript Tabs in-depth guide](./overview.md?tabs=typescript)
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -53,5 +53,7 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 
 - [Static Pages](../server/static-pages.md)
 ::: zone-end
+
+
 
 

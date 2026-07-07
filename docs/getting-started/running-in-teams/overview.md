@@ -3,7 +3,7 @@ title: 'Running In Teams'
 description: 'Register and sideload your locally running agent into Microsoft Teams using the Teams Developer CLI.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Running In Teams
@@ -118,3 +118,4 @@ Continue with [essential concepts](../../essentials/overview.md) to build more c
 - [Teams Developer CLI](../../developer-tools/cli.md)
 - [Quickstart: Register your app](../../get-started/quickstart-register.md)
 - [Microsoft Teams deployment documentation](/microsoftteams/deploy-overview/)
+

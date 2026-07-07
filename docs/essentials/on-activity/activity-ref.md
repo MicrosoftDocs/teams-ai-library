@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Activity Type Reference'
 description: 'Complete reference guide for all activity types and routes available in Teams SDK applications, including core activities and configuration routes.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Activity Type Reference
@@ -117,3 +117,4 @@ The application supports a number of activity types:
 | `meetingParticipantLeave` | `application/vnd.microsoft.meetingParticipantLeave` | Triggered when participants leave a Teams meeting where the bot is present |
 | `readReceipt`             | `application/vnd.microsoft.readReceipt`             | Tracks when messages are read by users                                     |
 ::: zone-end
+

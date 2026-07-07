@@ -3,7 +3,7 @@ title: 'Feedback'
 description: 'Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # User feedback
@@ -267,4 +267,5 @@ app.on('message.submit.feedback', async ({ activity, log }) => {
 });
 ```
 ::: zone-end
+
 

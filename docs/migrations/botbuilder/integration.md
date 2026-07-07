@@ -3,7 +3,7 @@ title: 'Using the BotBuilder Plugin'
 description: 'How to migrate BotBuilder adapters to Teams SDK plugins for handling bot communication and middleware.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Using the BotBuilder Plugin
@@ -353,3 +353,4 @@ This strategy can now be used to incrementally migrate from BotBuilder to the Te
 hi from botbuilder...
 hi from teams...
 ```
+

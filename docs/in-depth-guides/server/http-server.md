@@ -3,7 +3,7 @@ title: 'Self-Managing Your Server'
 description: 'How to self-manage the HTTP server  bring your own Express, FastAPI, or any framework by implementing the HttpServerAdapter interface.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Self-Managing Your Server
@@ -245,5 +245,6 @@ server.listen(3978);
 
 > See the full implementation: [Restify adapter example](https://github.com/microsoft/teams.ts/tree/main/examples/http-adapters/restify)
 ::: zone-end
+
 
 

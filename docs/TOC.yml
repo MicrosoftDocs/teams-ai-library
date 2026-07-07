@@ -221,7 +221,7 @@
     - name: .NET SDK
       href: /dotnet/api/
     - name: Python SDK
-      href: /python/api/microsoft-teams-ai/microsoft.teams.ai
+      href: /python/api/
 - name: Resources
   items:
     - name: Teams Developer Documentation

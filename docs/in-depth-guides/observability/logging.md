@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Custom Logger'
 description: 'Configure custom loggers in your Teams app to control log levels and output destinations.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 #  Custom Logger
@@ -182,4 +182,5 @@ app.on('message', async ({ log }) => {
 });
 ```
 ::: zone-end
+
 

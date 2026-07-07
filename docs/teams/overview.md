@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'Teams Integration'
 description: 'Overview of Teams-specific features and SDK components that enable agent integration with the Microsoft Teams platform.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Teams Integration
@@ -24,6 +24,6 @@ When working with Teams, several key components come into play:
 2. [Teams Manifest](./manifest.md) - Configuring your agent's Teams presence
 3. [Enabling in M365 Copilot](./enabling-in-copilot.md) - Make your Teams app available in M365 Copilot
 
-For setup and registration details, see [Quickstart: Register your app](../get-started/quickstart-register.md).
+For the manual Azure setup path (existing Entra apps, locked-down environments, custom tenant policies), see [Azure Configuration](https://microsoft.github.io/teams-sdk/teams/azure-configuration/)
 
 Each guide provides detailed information about specific aspects of Teams integration, from local development to production deployment.

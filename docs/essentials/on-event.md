@@ -3,7 +3,7 @@ title: 'Listening To Events'
 description: 'Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Listening To Events
@@ -126,4 +126,5 @@ app.event('signin', async ({ activity, send, userGraph }) => {
 });
 ```
 ::: zone-end
+
 

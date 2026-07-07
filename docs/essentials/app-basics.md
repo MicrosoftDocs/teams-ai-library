@@ -2,7 +2,7 @@
 title: 'App Basics'
 description: 'Comprehensive guide to the App class, the main entry point for Teams SDK agents that handles server hosting, request routing, authentication, and plugin management.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # App Basics
@@ -51,3 +51,4 @@ It is responsible for:
 ## Plugins
 
 You'll notice that plugins are present in the front, which exposes your application as a server, and also in the back after the app does some processing to the incoming message. The plugin architecture allows the application to be built in an extremely modular way. Each plugin can be swapped out to change or augment the functionality of the application. The plugins can listen to various events that happen (e.g. the server starting or ending, an error occuring, etc), activities being sent to or from the application and more. This allows the application to be extremely flexible and extensible.
+

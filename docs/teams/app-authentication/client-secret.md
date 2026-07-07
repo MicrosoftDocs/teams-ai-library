@@ -2,7 +2,7 @@
 title: 'Client Secret Authentication Setup'
 description: 'Set up client secret authentication for your Teams bot in Azure Portal or Azure CLI'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Client Secret Authentication Setup
@@ -48,3 +48,4 @@ The command will output the secret value. Save it securely.
 ## Next Steps
 
 After completing the Azure setup, configure your application code with the appropriate environment variables. See the App Authentication Essentials Guide for details.
+

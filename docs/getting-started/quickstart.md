@@ -3,7 +3,7 @@ title: 'Quickstart'
 description: 'Quick start guide for Teams SDK using the Teams Developer CLI to create and run your first agent.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Quickstart
@@ -16,7 +16,7 @@ Get started with Teams SDK quickly using the Teams Developer CLI.
 
 
 ::: zone pivot="csharp"
-- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/en-us/download).
+- **.NET** v.8 or higher. Install or upgrade from [dotnet.microsoft.com](https://dotnet.microsoft.com/download).
 ::: zone-end
 
 ::: zone pivot="python"
@@ -323,9 +323,8 @@ Otherwise, if you want to run your agent in Teams, you can check out the [Runnin
 
 - [Teams Developer CLI documentation](../developer-tools/cli.md)
 
-::: zone pivot="csharp,python,typescript"
 - [Microsoft 365 Agents Playground](../developer-tools/agents-playground/overview.md)
-::: zone-end
 
 - [Teams manifest schema](/microsoftteams/platform/resources/schema/manifest-schema/)
+
 - [Teams sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload/)

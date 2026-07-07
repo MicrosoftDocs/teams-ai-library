@@ -3,7 +3,7 @@ title: 'App Authentication'
 description: 'Configure app authentication in your Teams SDK application using client secrets, user assigned managed identities, or federated identity credentials'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # App Authentication
@@ -211,3 +211,4 @@ The SDK automatically configures all authentication endpoints for the specified 
 ## Troubleshooting
 
 If you encounter authentication errors, see the [Authentication Troubleshooting](../../teams/app-authentication/troubleshooting.md) guide for common issues and solutions.
+

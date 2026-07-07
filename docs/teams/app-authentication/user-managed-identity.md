@@ -2,7 +2,7 @@
 title: 'User Assigned Managed Identity Authentication Setup'
 description: 'Set up User Assigned Managed Identity authentication for your Teams bot in Azure Portal or Azure CLI'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # User Assigned Managed Identity Authentication Setup
@@ -60,3 +60,4 @@ az containerapp identity assign \
 ## Next Steps
 
 After completing the Azure setup, configure your application code with the appropriate environment variables. See the App Authentication Essentials Guide for details.
+

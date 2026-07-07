@@ -3,7 +3,7 @@ title: 'Action commands'
 description: 'Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Action commands
@@ -787,3 +787,4 @@ export function createConversationMembersCard(members: Account[]) {
 
 - [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command/)
 - [Returning Adaptive Card Previews in Task Modules](/microsoftteams/platform/messaging-extensions/how-to/action-commands/respond-to-task-module-submit/#bot-response-with-adaptive-card)
+

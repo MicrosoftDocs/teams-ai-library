@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Handling Dialog Submissions'
 description: 'Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Handling Dialog Submissions
@@ -144,7 +144,7 @@ from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, Ta
 from microsoft_teams.apps import ActivityContext
 # ...
 
-# Webpage submissions route the same way â€” the webpage must include
+# Webpage submissions route the same way — the webpage must include
 # the "action" field in the data passed to microsoftTeams.dialog.url.submit()
 @app.on_dialog_submit("webpage_dialog")
 async def handle_webpage_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
@@ -161,7 +161,7 @@ async def handle_webpage_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActi
 import { App } from '@microsoft/teams.apps';
 // ...
 
-// Webpage submissions route the same way â€” the webpage must include
+// Webpage submissions route the same way — the webpage must include
 // the "action" field in the data passed to microsoftTeams.tasks.submitTask()
 app.on('dialog.submit.webpage_dialog', async ({ activity, send }) => {
   const name = activity.value.data.name;
@@ -248,4 +248,5 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
+
 

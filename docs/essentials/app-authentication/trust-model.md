@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'Trust Model'
 description: 'How the Teams SDK validates inbound tokens and what you can rely on downstream'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Trust Model
@@ -80,3 +80,4 @@ Do not:
 - Disable the SDK's automatic validation on `/api/messages`. The default-deny posture relies on it.
 
 If you need to validate a token outside the activity pipeline, use the validator components directly rather than the accessor. Each SDK exposes a token validator that performs the full signature-verification flow against the same JWKS endpoint the activity pipeline uses.
+

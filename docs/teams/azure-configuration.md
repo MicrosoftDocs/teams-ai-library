@@ -2,7 +2,7 @@
 title: 'Azure Configuration'
 description: 'Manually create the Entra App Registration and Azure Bot Service resource for cases where the Teams Developer CLI is not the right fit.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Azure Configuration
@@ -131,3 +131,4 @@ For C# projects, write the credentials to `appsettings.json` under a `Teams` sec
 - [Quickstart: Register your app](../get-started/quickstart-register.md)  automated setup with the Teams Developer CLI
 - [Teams Developer CLI](../developer-tools/cli.md)
 - [Teams App Publishing overview](/microsoftteams/platform/concepts/deploy-and-publish/apps-publish-overview/)
+

@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Handling Multi-Step Forms'
 description: 'Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Handling Multi-Step Forms
@@ -241,7 +241,7 @@ from microsoft_teams.apps import ActivityContext
 from microsoft_teams.cards import AdaptiveCard, TextBlock, TextInput, SubmitAction, SubmitData
 # ...
 
-# Step 1 submit â€” show step 2
+# Step 1 submit — show step 2
 @app.on_dialog_submit("multi_step_1")
 async def handle_multi_step_1_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
     data = ctx.activity.value.data
@@ -270,7 +270,7 @@ async def handle_multi_step_1_submit(ctx: ActivityContext[TaskSubmitInvokeActivi
         )
     )
 
-# Step 2 submit â€” final step, close the dialog
+# Step 2 submit — final step, close the dialog
 @app.on_dialog_submit("multi_step_2")
 async def handle_multi_step_2_submit(ctx: ActivityContext[TaskSubmitInvokeActivity]):
     data = ctx.activity.value.data
@@ -290,7 +290,7 @@ import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
 // ...
 
-// Step 1 submit â€” show step 2
+// Step 1 submit — show step 2
 app.on('dialog.submit.multi_step_1', async ({ activity }) => {
   const name = activity.value.data.name;
   const nextStepCard = new AdaptiveCard(
@@ -323,7 +323,7 @@ app.on('dialog.submit.multi_step_1', async ({ activity }) => {
   };
 });
 
-// Step 2 submit â€” final step, close the dialog
+// Step 2 submit — final step, close the dialog
 app.on('dialog.submit.multi_step_2', async ({ activity, send }) => {
   const name = activity.value.data.name;
   const email = activity.value.data.email;
@@ -449,4 +449,5 @@ public async Task<Response> OnTaskSubmit([Context] Tasks.SubmitActivity activity
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
+
 

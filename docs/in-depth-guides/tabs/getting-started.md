@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Getting started'
 description: 'Set up new tab app projects or add Teams client capabilities to existing tab applications.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Getting started
@@ -40,3 +40,4 @@ If you're already using Microsoft Authentication Library (MSAL) in an NAA enable
 - [Quickstart: Register your app](../../get-started/quickstart-register.md)
 - [Configuring an app for Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication/#configure-naa)
 ::: zone-end
+

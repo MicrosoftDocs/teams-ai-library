@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'From V2 Previews'
 description: 'Breaking changes and migration notes for moving from Teams SDK v2 preview builds.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # From V2 Previews
@@ -107,5 +107,6 @@ await app.graph.call(setPresence.create, newPresence);
 await app.graph.call(updatePresence, newPresence);
 ```
 ::: zone-end
+
 
 

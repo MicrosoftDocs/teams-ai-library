@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'Message Extensions'
 description: 'Overview of message extensions for enhancing user productivity with quick access to information and actions within Teams.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 #  Message Extensions
@@ -14,3 +14,4 @@ There are two types of message extensions: [API-based](/microsoftteams/platform/
 ## Resources
 
 - [What are message extensions?](/microsoftteams/platform/messaging-extensions/what-are-messaging-extensions/)
+
