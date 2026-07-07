@@ -3,7 +3,7 @@ title: 'Porting your Slack Bolt bot'
 description: 'Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Porting your Slack Bolt bot
@@ -540,5 +540,6 @@ app.message('me', async ({ activity, signin, token, send }) => {
 });
 ```
 ::: zone-end
+
 
 

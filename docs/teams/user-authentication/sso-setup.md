@@ -2,7 +2,7 @@
 title: 'SSO Setup'
 description: 'Describes how to configure SSO in Teams'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # SSO Setup
@@ -19,7 +19,7 @@ This section describes how to configure the Azure Bot Service (ABS), the Entra A
 Before starting SSO configuration, ensure you have:
 
 - An **Azure-managed** Azure Bot Service resource and its associated Entra App Registration (Application ID / Client ID and Tenant ID).
-- To set up using CLIs: the [`az` CLI](/cli/azure/install-azure-cli) and the [Teams Developer CLI](../../developer-tools/cli.md) installed and authenticated.
+- To set up using CLIs: the [`az` CLI](/cli/azure/install-azure-cli) and the [Teams Developer CLI](https://microsoft.github.io/teams-sdk/cli/getting-started/installation/) installed and authenticated.
 
 > [!NOTE]
 >
@@ -234,6 +234,10 @@ Expected  all SSO checks pass:
 - OAuth connection  URIs aligned
 
 ---
+
+## Cross-Tenant Considerations
+
+If your Entra auth app lives in a different tenant than where the Teams app is installed, see [Cross-Tenant Considerations](troubleshooting-sso.md#cross-tenant-considerations) in the troubleshooting guide.
 
 ## Troubleshooting
 

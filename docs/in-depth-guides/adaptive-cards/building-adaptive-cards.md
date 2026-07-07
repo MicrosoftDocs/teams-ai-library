@@ -3,7 +3,7 @@ title: 'Building Adaptive Cards'
 description: 'Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Building Adaptive Cards
@@ -606,3 +606,4 @@ app.on('message', async ({ send, activity }) => {
 - Prototype quickly in the **visual designer** and refine with builders.
 
 Happy card building!
+

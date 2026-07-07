@@ -3,7 +3,7 @@ title: 'Sending Activities'
 description: 'Migrate from BotBuilder''s TurnContext activity sending to Teams SDK''s simplified send method with better Adaptive Card support.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Sending Activities
@@ -844,4 +844,5 @@ but one key difference is that sending adaptive cards doesn't require constructi
 
 ---
 ::: zone-end
+
 

@@ -3,7 +3,7 @@ title: 'Executing Actions'
 description: 'How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Executing Actions
@@ -833,4 +833,5 @@ app.on('card.action', async ({ activity, send }) => {
 >
 > The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
 ::: zone-end
+
 

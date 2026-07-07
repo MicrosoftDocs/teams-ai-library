@@ -3,7 +3,7 @@ title: 'Sovereign Cloud Configuration'
 description: 'Configure your Teams bot for US Government (GCCH/DoD) or China (21Vianet) cloud environments'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Sovereign Cloud Configuration
@@ -226,3 +226,4 @@ const app = new App({
 **Fix:** Confirm the env var is exported into the process environment, then check whether your code passes `cloud:` explicitly. With current behavior, the value passed in code wins over the environment variable.
 
 For other authentication errors not specific to sovereign clouds, see the [App Authentication](../../teams/app-authentication/overview.md) guide.
+

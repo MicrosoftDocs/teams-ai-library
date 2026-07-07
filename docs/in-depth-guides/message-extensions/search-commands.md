@@ -3,7 +3,7 @@ title: 'Search commands'
 description: 'Create search commands that allow users to search external systems and insert results as cards in Teams messages.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 #  Search commands
@@ -471,3 +471,4 @@ app.on('message.ext.select-item', async ({ activity, send }) => {
 
 - [Search command](/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command/)
 - [Just-In-Time Install](/microsoftteams/platform/messaging-extensions/how-to/search-commands/universal-actions-for-search-based-message-extensions/#just-in-time-install)
+

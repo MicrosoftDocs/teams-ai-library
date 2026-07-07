@@ -3,7 +3,7 @@ title: 'Creating Dialogs'
 description: 'Build and launch Teams dialogs using Adaptive Card actions and activity handlers.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Creating Dialogs
@@ -556,4 +556,5 @@ import path from 'path';
 app.tab('dialog-form', path.join(__dirname, 'views', 'customform'));
 ```
 ::: zone-end
+
 

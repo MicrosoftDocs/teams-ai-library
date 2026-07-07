@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'Dialogs'
 description: 'Overview of dialogs in Teams, including when to use them and core interaction patterns.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Dialogs
@@ -25,3 +25,4 @@ Dialogs are a helpful paradigm in Teams which improve interactions between your 
 
 - [Task Modules](/microsoftteams/platform/task-modules-and-cards/what-are-task-modules/)
 - [Invoking Task Modules](/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules/)
+

@@ -3,13 +3,29 @@ title: 'AI Integrations'
 description: 'Plug AI agents into Teams Python apps  Microsoft Agent Framework for reasoning, MCP for human-in-the-loop, and A2A for bot-to-bot collaboration.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
+<!-- markdownlint-disable-next-line MD024 -->
 
 # AI Integrations
 
-::: zone pivot="csharp,typescript"
+::: zone pivot="csharp"
 This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="typescript"
+
+> [!NOTE]
+> **Our AI libraries are deprecated**: The Teams SDK has deprecated its own AI libraries — the `@microsoft/teams.ai` packages (`ChatPrompt`, `Model`, and the older `@microsoft/teams.mcp` / `@microsoft/teams.a2a` plugins) — in favor of dedicated AI frameworks. Use the pattern shown in these guides instead: bring the OpenAI SDK (or any framework you like), and wire MCP and A2A directly into your Teams app.
+
+Microsoft Teams SDK provides the platform and conversational interface for your app while remaining agnostic to the underlying intelligence. You can choose any AI framework, model, or protocol that suits your scenario and integrate it into your message handlers. The samples below walk through a few common ways to do that, from a single bot reasoning with an agent to multiple bots collaborating with each other.
+
+- **[Build an agent in Teams](./build-agent-maf.md)** - create an agent with the [OpenAI SDK](https://github.com/openai/openai-node) and Azure OpenAI, add a local clarification tool and remote MCP tool servers, stream responses into Teams, and preserve conversation history across turns.
+- **[Enhancing the Teams Experience](./teams-enhancements.md)** - build on the base integration with richer conversational features: clarification cards, suggested follow-up prompts, inline citations, and structured feedback handling.
+- **[Exposing Teams to AI Agents (MCP)](./mcp-server.md)**  turn your bot into an [MCP](https://modelcontextprotocol.io/introduction) server so external agents can reach real users through Teams chat with tools like `notify`, `ask`, and `request_approval`. Useful for human-in-the-loop workflows.
+- **[Bot-to-Bot with A2A](./a2a.md)**  two Teams bots, each with its own agent and human operator, coordinate with each other over the [Agent2Agent](https://a2a-protocol.org/) protocol, with human-in-the-loop (HITL) support when peer requests require human input.
+
+All samples are available in the [`microsoft/teams.ts` examples](https://github.com/microsoft/teams.ts/tree/main/examples).
 ::: zone-end
 
 ::: zone pivot="python"
@@ -22,3 +38,4 @@ Microsoft Teams SDK provides the platform and conversational interface for your 
 
 All samples are available in the [`microsoft/teams.py` examples](https://github.com/microsoft/teams.py/tree/main/examples).
 ::: zone-end
+

@@ -3,7 +3,7 @@ title: 'Essentials'
 description: 'Introduction to the core concepts of Teams SDK applications including events, activities, handlers, and the reactive paradigm for building intelligent agents.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Essentials
@@ -38,3 +38,4 @@ Before diving in, let's define a few key terms:
 ::: zone-end
 
 This section will walk you through the foundational pieces needed to build responsive, intelligent agents using the SDK.
+

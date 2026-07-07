@@ -3,7 +3,7 @@ title: 'Sending Messages'
 description: 'Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Sending Messages
@@ -692,4 +692,5 @@ await app.send(conversationId, msg);
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
+
 

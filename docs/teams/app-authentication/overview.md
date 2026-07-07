@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'App Authentication Setup'
 description: 'Set up authentication for your Teams bot using client secrets, user assigned managed identities, or federated identity credentials'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # App Authentication Setup
@@ -30,3 +30,4 @@ Once you've completed the Azure setup for your chosen authentication method, you
 ## Troubleshooting
 
 If you encounter authentication errors, see the [Troubleshooting](./troubleshooting.md) guide for common issues and solutions.
+

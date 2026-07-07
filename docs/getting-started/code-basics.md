@@ -3,7 +3,7 @@ title: 'Code Basics'
 description: 'Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 ::: zone pivot="csharp"
@@ -268,3 +268,4 @@ Continue on to the next page to learn about these advanced features.
 - [Essentials](../essentials/overview.md)
 - [Teams concepts](../teams/overview.md)
 - [Teams developer tools](../developer-tools/overview.md)
+

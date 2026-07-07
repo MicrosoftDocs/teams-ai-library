@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Microsoft Graph Client'
 description: 'Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Microsoft Graph Client
@@ -99,3 +99,4 @@ if (canReadChat) {
 - [Graph API overview](/graph/api/overview/)
 - [Graph API permissions overview](/graph/permissions-reference/)
 ::: zone-end
+

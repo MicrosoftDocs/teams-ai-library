@@ -3,7 +3,7 @@ title: 'Link unfurling'
 description: 'Enable your app to respond when users paste URLs by creating preview cards with additional information and actions.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 #  Link unfurling
@@ -323,3 +323,4 @@ The user can then choose to send either the preview or the full adaptive card as
 
 - [Link unfurling](/microsoftteams/platform/messaging-extensions/how-to/link-unfurling/)
 - [Zero install link unfurling](/microsoftteams/platform/messaging-extensions/how-to/link-unfurling/#zero-install-for-link-unfurling)
+

@@ -3,7 +3,7 @@ title: 'Listening To Activities'
 description: 'Guide to handling Teams-specific activities like chat messages, card actions, and installs using the fluent router API.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Listening To Activities
@@ -257,4 +257,5 @@ app.on('message', async ({ activity }) => {
 ::: zone pivot="python"
 <!-- Not applicable -->
 ::: zone-end
+
 

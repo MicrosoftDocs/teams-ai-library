@@ -3,7 +3,7 @@ title: 'Message Reactions'
 description: 'Guide to adding, removing, and receiving message reactions in Teams agents, including available reaction types, skin tones, rate limits, and best practices.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Message Reactions
@@ -253,3 +253,4 @@ Message reactions are different from the [feedback](./feedback.md) feature:
 - **Feedback** are interactive UI components (like/dislike buttons) that users can click to provide structured feedback on agent responses.
 
 Use reactions when your agent wants to acknowledge or respond to a message with emoji. Use feedback when you want to collect user opinions about your agent's responses.
+

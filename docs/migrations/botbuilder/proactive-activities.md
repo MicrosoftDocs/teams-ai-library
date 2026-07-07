@@ -3,7 +3,7 @@ title: 'Proactive Activities'
 description: 'Migrate from BotBuilder''s complex conversation reference handling to Teams SDK''s simple conversation ID-based proactive messaging.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Proactive Activities
@@ -286,4 +286,5 @@ passed into our activity handlers through our context. This method accepts a `co
 
 ---
 ::: zone-end
+
 

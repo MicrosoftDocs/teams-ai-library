@@ -3,7 +3,7 @@ title: 'Migrate User Authentication from BotBuilder'
 description: 'Migrate from BotBuilder''s complex OAuthPrompt dialogs to Teams SDK''s simple signin/signout methods.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Migrate User Authentication from BotBuilder
@@ -443,4 +443,5 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
 
 ---
 ::: zone-end
+
 

@@ -3,7 +3,7 @@ title: 'Functions'
 description: 'Details on how to register REST endpoints that can be called from Tab apps.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Functions
@@ -218,5 +218,6 @@ To simplify two common scenarios, the context provides the `getCurrentConversati
 ::: zone pivot="typescript"
 - For details on how tab apps invoke these functions, see the [Tabs overview](../overview.md).
 ::: zone-end
+
 
 

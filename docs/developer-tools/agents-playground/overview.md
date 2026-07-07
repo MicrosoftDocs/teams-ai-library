@@ -2,7 +2,7 @@
 title: 'Microsoft 365 Agents Playground'
 description: 'Test your Teams agent locally with the Microsoft 365 Agents Playground CLI.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 #  Microsoft 365 Agents Playground
@@ -76,3 +76,4 @@ Use the **Mock an Activity** menu to send custom activity types (membership chan
 
 - [Test your agent locally in Microsoft 365 Agents Playground](/microsoft-365/agents-sdk/test-with-toolkit-project/)  full Microsoft Learn guide
 - [Microsoft 365 Agents SDK](/microsoft-365/agents-sdk/)
+

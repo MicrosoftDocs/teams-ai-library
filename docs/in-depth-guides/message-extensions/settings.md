@@ -3,7 +3,7 @@ title: 'Settings'
 description: 'Add configurable settings pages to your message extensions to allow users to customize app behavior.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 #  Settings
@@ -14,55 +14,87 @@ The user can access the settings by right-clicking the app item in the compose b
 
 :::image type="content" source="../../assets/screenshots/settings.png" alt-text="Settings page for a message extension showing selectable configuration options" lightbox="../../assets/screenshots/settings.png" :::
 
-## 1. Create a settings page
+This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
-::: zone pivot="csharp,typescript"
+:::image type="content" source="../../assets/screenshots/settings-page.png" alt-text="Setting up a settings page" lightbox="../../assets/screenshots/settings-page.png":::
+
+## 1. Update the Teams Manifest
+
+Set the `canUpdateConfiguration` field to `true` in the desired message extension under `composeExtensions`.
+
+```json
+
+
+"composeExtensions": [
+    {
+        "botId": "${{BOT_ID}}",
+        "canUpdateConfiguration": true,
+        ...
+    }
+]
+```
+
+## 2. Serve the settings `html` page
+
+This is the code snippet for the settings html page:
+
+::: zone pivot="csharp,python"
 ```html
 <html>
-  <head>
-    <script src="https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-        padding: 10px;
-      }
-      .form-group {
-        margin-bottom: 10px;
-      }
-    </style>
-  </head>
   <body>
-    <div class="container">
-      <h3>Message Extension Settings</h3>
-      <form id="settingsForm">
-        <div class="form-group">
-          <label>Selected Option:</label>
-          <select class="form-control" id="selectedOption" name="selectedOption">
-            <option value="">Please select an option</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Save Settings</button>
-      </form>
-    </div>
+    <form>
+      <fieldset>
+        <legend>What programming language do you prefer?</legend>
+        <input type="radio" name="selectedOption" value="typescript" />Typescript<br />
+        <input type="radio" name="selectedOption" value="csharp" />C#<br />
+      </fieldset>
 
-    <script>
-      microsoftTeams.initialize();
+      <br />
+      <input type="button" onclick="onSubmit()" value="Save" /> <br />
+    </form>
 
-      // Get the selectedOption from URL parameters
-      const urlParams = new URLSearchParams(window.location.search);
-      const selectedOption = urlParams.get('selectedOption');
-      if (selectedOption) {
-        document.getElementById('selectedOption').value = selectedOption;
-      }
+    <script
+      src="https://res.cdn.office.net/teams-js/2.34.0/js/MicrosoftTeams.min.js"
+      integrity="sha384-brW9AazbKR2dYw2DucGgWCCcmrm2oBFV4HQidyuyZRI/TnAkmOOnTARSTdps3Hwt"
+      crossorigin="anonymous"
+    ></script>
 
-      document.getElementById('settingsForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        let selectedValue = document.getElementById('selectedOption').value;
-        microsoftTeams.tasks.submitTask(selectedValue);
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function () {
+        // Get the selected option from the URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var selectedOption = urlParams.get('selectedOption');
+        if (selectedOption) {
+          var checkboxes = document.getElementsByName('selectedOption');
+          for (var i = 0; i < checkboxes.length; i++) {
+            var thisCheckbox = checkboxes[i];
+            if (selectedOption.includes(thisCheckbox.value)) {
+              checkboxes[i].checked = true;
+            }
+          }
+        }
       });
+    </script>
+
+    <script type="text/javascript">
+      // initialize the Teams JS SDK
+      microsoftTeams.app.initialize();
+
+      // Run when the user clicks the submit button
+      function onSubmit() {
+        var newSettings = '';
+
+        var checkboxes = document.getElementsByName('selectedOption');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i].checked) {
+            newSettings = checkboxes[i].value;
+          }
+        }
+
+        // Closes the settings page and returns the selected option to the bot
+        microsoftTeams.authentication.notifySuccess(newSettings);
+      }
     </script>
   </body>
 </html>
@@ -383,4 +415,5 @@ app.on('message.ext.setting', async ({ activity, send }) => {
 });
 ```
 ::: zone-end
+
 

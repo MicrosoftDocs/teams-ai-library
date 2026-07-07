@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'Developer Tools'
 description: 'Overview of developer tools in Teams SDK including the Teams Developer CLI for project management and the Microsoft 365 Agents Playground for local testing.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Developer Tools
@@ -14,3 +14,4 @@ Teams SDK ships with tools that simplify and speed up building and testing agent
 3. [Agent Skills](./agent-skills.md)  give AI coding assistants context for Teams development
 4. [llms.txt](./llms-txt.md)  documentation files optimized for AI coding assistants
 5. [DevTools](./devtools/overview.md) (deprecated)
+

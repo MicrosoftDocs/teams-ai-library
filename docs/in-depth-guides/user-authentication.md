@@ -3,16 +3,17 @@ title: 'User Authentication In-Depth Guide'
 description: 'API guide to implement User Authentication with SSO in Teams Apps.'
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
-# User Authentication In-Depth Guide
+#  User Authentication
 
 At times agents must access secured online resources on behalf of the user, such as checking email, checking on flight status, or placing an order. To enable this, the user must authenticate their identity and grant consent for the application to access these resources. This process results in the application receiving a token, which the application can then use to access the permitted resources on the user's behalf.
 
 > [!NOTE]
 >
 > This is an advanced guide. It is highly recommended that you are familiar with [Teams Core Concepts](../teams/core-concepts.md) before attempting this guide.
+
 > [!WARNING]
 >
 > User authentication does not work with the developer tools setup. You have to run the app in Teams. Follow [Quickstart: Register your app](../get-started/quickstart-register.md) to register and sideload your bot.
@@ -76,7 +77,7 @@ User authentication requires an **Azure-managed bot** (Teams-managed bots don't 
 teams app bot migrate <appId> --subscription <id> --resource-group <your-resource-group>
 ```
 
-Then follow the [SSO Setup guide](../teams/user-authentication/sso-setup.md) to configure the AAD app, create the Azure Bot OAuth connection, and update the manifest. The guide covers both SSO (silent token exchange) and generic OAuth.
+Then follow the [User Authentication Setup guide](https://microsoft.github.io/teams-sdk/cli/guides/user-authentication-setup/) to configure the AAD app, create the Azure Bot OAuth connection, and update the manifest. The guide covers both SSO (silent token exchange) and generic OAuth.
 
 > [!TIP]
 >
@@ -351,6 +352,141 @@ app.message('/signout', async ({ send, signout, isSignedIn }) => {
 ```
 ::: zone-end
 
+## Resuming Pending Messages After Sign-In
+
+When a user isn't signed in and your message handler calls the sign-in method, an OAuth card is sent and the current turn ends. The sign-in completes on a separate turn — meaning the original message text is not available in the sign-in success context.
+
+To avoid ignoring what the user originally asked, store the pending message before initiating sign-in, then retrieve and process it once sign-in succeeds:
+
+::: zone pivot="typescript"
+```ts
+const pendingMessages = new Map<string, { text: string; activity: any }>();
+
+app.on('message', async ({ signin, activity, send }) => {
+  // signin() returns the token if already signed in, or undefined if OAuth card was sent
+  const token = await signin({
+    oauthCardText: 'To help with that, I need to sign you in first.',
+  });
+
+  if (!token) {
+    // OAuth card sent — store the original message for later
+    pendingMessages.set(activity.from.id, {
+      text: activity.text,
+      activity,
+    });
+    return;
+  }
+
+  // User is already signed in — process normally
+  await processMessage(activity.text, { send });
+});
+
+app.event('signin', async ({ send, userGraph, activity }) => {
+  const userId = activity.from.id;
+  const pending = pendingMessages.get(userId);
+
+  if (pending) {
+    pendingMessages.delete(userId);
+    await send('Successfully signed in! Processing your original request...');
+    await processMessage(pending.text, { send, userGraph });
+  } else {
+    await send('You are now signed in!');
+  }
+});
+```
+::: zone-end
+
+::: zone pivot="csharp"
+> [!NOTE]
+> The C# OAuth APIs shown below (`OAuthFlow`, `SignInAsync`, `OnSignInComplete`) are available in the [Microsoft.Teams.Apps](https://www.nuget.org/packages/Microsoft.Teams.Apps) core package (2.1+ preview).
+::: zone-end
+
+::: zone pivot="csharp"
+```cs
+using System.Collections.Concurrent;
+
+var pendingMessages = new ConcurrentDictionary<string, (string Text, object Activity)>();
+
+// Get the pre-registered OAuth flow
+OAuthFlow auth = teams.GetOAuthFlow("graph");
+
+teams.OnMessage(async (context, cancellationToken) =>
+{
+    // SignInAsync returns null if SSO was initiated (result arrives via OnSignInComplete)
+    string? token = await auth.SignInAsync(context, cancellationToken);
+
+    if (token is null)
+    {
+        // Sign-in initiated — store the original message
+        var userId = context.Activity.From?.Id ?? string.Empty;
+        pendingMessages[userId] = (context.Activity.Text ?? string.Empty, context.Activity);
+        return;
+    }
+
+    // User is already signed in — process normally
+    await ProcessMessage(context.Activity.Text, context, cancellationToken);
+});
+
+auth.OnSignInComplete(async (context, tokenResponse, cancellationToken) =>
+{
+    var userId = context.Activity.From?.Id ?? string.Empty;
+
+    if (pendingMessages.TryRemove(userId, out var pending))
+    {
+        await context.SendActivityAsync("Successfully signed in! Processing your original request...", cancellationToken);
+        await ProcessMessage(pending.Text, context, cancellationToken);
+    }
+    else
+    {
+        await context.SendActivityAsync("You are now signed in!", cancellationToken);
+    }
+});
+```
+::: zone-end
+
+::: zone pivot="python"
+```python
+from microsoft_teams.apps import App, ActivityContext, SignInEvent
+from microsoft_teams.apps.routing.activity_context import SignInOptions
+from microsoft_teams.api import MessageActivity
+
+app = App()
+
+pending_messages: dict[str, dict] = {}
+
+@app.on_message
+async def handle_message(ctx: ActivityContext[MessageActivity]):
+    # sign_in() returns the token if already signed in, or None if OAuth card was sent
+    token = await ctx.sign_in(SignInOptions(
+        oauth_card_text="To help with that, I need to sign you in first."
+    ))
+
+    if token is None:
+        # OAuth card sent — store the original message for later
+        pending_messages[ctx.activity.from_.id] = {
+            "text": ctx.activity.text,
+            "activity": ctx.activity,
+        }
+        return
+
+    # User is already signed in — process normally
+    await process_message(ctx.activity.text, ctx)
+
+@app.event("sign_in")
+async def handle_sign_in(event: SignInEvent):
+    user_id = event.activity_ctx.activity.from_.id
+    pending = pending_messages.pop(user_id, None)
+
+    if pending:
+        await event.activity_ctx.send("Successfully signed in! Processing your original request...")
+        await process_message(pending["text"], event.activity_ctx)
+    else:
+        await event.activity_ctx.send("You are now signed in!")
+```
+::: zone-end
+
+> [!NOTE]
+> For production apps, consider using a persistent store (database, Redis, etc.) instead of an in-memory map so pending messages survive restarts. You should also implement expiration or cleanup logic (e.g., a TTL) to discard stale entries when sign-in is cancelled, times out, or fails.
 
 ## Handling Sign-In Failures
 
@@ -472,3 +608,4 @@ To configure a new regional bot with ATK, you will need to make a few updates. N
 ## Resources
 
 [User Authentication Basics](/azure/bot-service/bot-builder-concept-authentication/)
+

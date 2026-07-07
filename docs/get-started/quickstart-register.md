@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'Quickstart: Register your app'
 description: 'Register a Teams app and bot using the Teams Developer CLI, then sideload into Teams.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Quickstart: Register your app
@@ -158,3 +158,4 @@ Send your bot a message to confirm it's working.
 - [Quickstart: Build your first bot](./quickstart-build.md)  wire up handlers and reply logic
 - [Agent Skills](../developer-tools/agent-skills.md)  let your AI coding assistant run this whole flow for you
 - [CLI command reference](../developer-tools/cli.md)  every flag, every subcommand
+

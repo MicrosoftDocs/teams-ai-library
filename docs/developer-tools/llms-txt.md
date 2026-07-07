@@ -1,8 +1,8 @@
-﻿---
+---
 title: 'llms.txt'
 description: 'Documentation files optimized for AI coding assistants to give them context about the Teams SDK.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # llms.txt
@@ -62,3 +62,4 @@ https://microsoft.github.io/teams-sdk/llms_docs/llms_csharp_full.txt
 ```
 
 ---
+

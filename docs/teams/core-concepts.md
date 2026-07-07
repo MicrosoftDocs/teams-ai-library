@@ -2,7 +2,7 @@
 title: 'Teams Core Concepts'
 description: 'Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.'
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 06/29/2026
 ---
 
 # Teams Core Concepts
@@ -87,3 +87,4 @@ The fastest path is `teams app create`, which provisions a Teams-managed bot by 
 If you need OAuth or SSO (typically for delegated Microsoft Graph access on behalf of a user), the bot must be Azure-managed. Either start with `teams app create --azure --subscription <id> --resource-group <rg>`, or start Teams-managed and switch later with `teams app bot migrate <appId> --subscription <id> --resource-group <rg>` (both require an Azure subscription)  your `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID` stay the same. For a hand-rolled Azure setup, follow the [Azure Configuration](./azure-configuration.md) guide.
 
 For deploying your bot's endpoint to App Service, Container Apps, or other Azure compute, see the Microsoft Learn [deployment overview](/microsoftteams/deploy-overview/).
+
