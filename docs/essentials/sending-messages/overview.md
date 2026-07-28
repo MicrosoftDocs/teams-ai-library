@@ -1,10 +1,11 @@
 ---
-title: 'Sending Messages'
-description: 'Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.'
+title: Sending Messages
+description: Guide to sending messages from your Teams SDK agent, including replies, proactive messages, and different message types.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Sending Messages
 
@@ -13,6 +14,7 @@ Sending messages is a core part of an agent's functionality. With all activity h
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async (context, cancellationToken) =>
 {
     await context.Send($"you said: {context.activity.Text}", cancellationToken);
@@ -22,6 +24,7 @@ app.OnMessage(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     await ctx.send(f"You said '{ctx.activity.text}'")
@@ -30,6 +33,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ activity, send }) => {
   await send(`You said: ${activity.text}`);
 });
@@ -42,6 +46,7 @@ In the above example, the handler gets a `message` activity, and uses the `send`
 
 ::: zone pivot="csharp"
 ```csharp
+
   app.OnVerifyState(async (context, cancellationToken) =>
   {
       await context.Send("You have successfully signed in!", cancellationToken);
@@ -51,6 +56,7 @@ In the above example, the handler gets a `message` activity, and uses the `send`
 
 ::: zone pivot="python"
 ```python
+
 @app.event("sign_in")
 async def handle_sign_in(event: SignInEvent):
     """Handle sign-in events."""
@@ -60,6 +66,7 @@ async def handle_sign_in(event: SignInEvent):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('signin.verify-state', async ({ send }) => {
   await send('You have successfully signed in!');
 });
@@ -81,7 +88,7 @@ You are not restricted to only replying to `message` activities. In the above ex
 
 > [!TIP]
 >
-> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [adaptive card](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
+> This shows an example of sending a text message. Additionally, you are able to send back things like [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) by using the same `send` method. Look at the [adaptive cards](../../in-depth-guides/adaptive-cards/overview.md) section for more details.
 
 ## Streaming
 
@@ -90,6 +97,7 @@ You may also stream messages to the user which can be useful for long messages, 
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async (context, cancellationToken) =>
 {
     context.Stream.Emit("hello");
@@ -103,6 +111,7 @@ app.OnMessage(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     ctx.stream.update("Stream starting...")
@@ -119,6 +128,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ activity, stream }) => {
   stream.emit('hello');
   stream.emit(', ');
@@ -135,6 +145,7 @@ app.on('message', async ({ activity, stream }) => {
 > Streaming is currently only supported in 1:1 conversations, not group chats or channels
 
 :::image type="content" source="~/assets/screenshots/streaming-chat.gif" alt-text="Animated image showing agent response text incrementally appearing in the chat window." lightbox="~/assets/screenshots/streaming-chat.gif" :::
+
 ## @Mention
 
 ::: zone pivot="csharp"
@@ -152,6 +163,7 @@ Sending a message at `@mentions` a user is as simple including the details of th
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async (context, cancellationToken) =>
 {
     await context.Send(new MessageActivity("hi!").AddMention(activity.From), cancellationToken);
@@ -161,6 +173,7 @@ app.OnMessage(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
   await ctx.send(MessageActivityInput(text='hi!').add_mention(account=ctx.activity.from_))
@@ -169,6 +182,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ send, activity }) => {
   await send(new MessageActivity('hi!').addMention(activity.from));
 });
@@ -178,9 +192,9 @@ app.on('message', async ({ send, activity }) => {
 
 ## Targeted Messages
 
-> [!NOTE]
->
-> Targeted messages are available in public preview. General availability is planned for a future release.
+:::info[Preview]
+Targeted messages are available in public preview. General availability is planned for a future release.
+:::
 
 Targeted messages, also known as ephemeral messages, are delivered to a specific user in a shared conversation. From a single user's perspective, they appear as regular inline messages in a conversation. Other participants won't see these messages, making them useful for authentication flows, help or error responses, personal reminders, or sharing contextual information without cluttering the group conversation.
 
@@ -199,6 +213,7 @@ To send a targeted message when responding to an incoming activity, use the `wit
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async (context, cancellationToken) =>
 {
     // Using WithRecipient with isTargeted=true explicitly targets the specified recipient
@@ -213,6 +228,7 @@ app.OnMessage(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api import MessageActivity, MessageActivityInput
 from microsoft_teams.apps import ActivityContext
 
@@ -228,7 +244,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
-import { MessageActivity } from '@microsoft/teams.api';
+
 
 app.on('message', async ({ send, activity }) => {
   // Using withRecipient with isTargeted=true explicitly targets the specified recipient
@@ -265,9 +281,9 @@ app.on('message', async ({ send, activity }) => {
 
 ### Prompt Preview
 
-> [!NOTE]
->
-> Prompt Preview is coming soon in June 2026.
+:::info[Coming Soon]
+Prompt Preview is coming soon in June 2026.
+:::
 
 Prompt Preview shows a compact, collapsible preview of the targeted message your agent is replying to, helping carry context from a private user-to-agent message into the reply.
 
@@ -276,11 +292,13 @@ Prompt Preview shows a compact, collapsible preview of the targeted message your
 In a targeted (private) reply, both the prompt preview and the bot response are visible only to the targeted user.
 
 :::image type="content" source="~/assets/screenshots/private-prompt-preview.png" alt-text="Prompt Preview in a targeted reply." lightbox="~/assets/screenshots/private-prompt-preview.png" :::
+
 #### Prompt Preview in public reply
 
 In a public reply, the same prompt preview appears above the bot response and is visible to everyone in the conversation.
 
 :::image type="content" source="~/assets/screenshots/public-prompt-preview.png" alt-text="Prompt Preview in a public reply." lightbox="~/assets/screenshots/public-prompt-preview.png" :::
+
 ::: zone pivot="csharp"
 In reactive scenarios, when replying to an inbound targeted activity through `Send()` or `Reply()`, the SDK automatically includes targeted message info.
 ::: zone-end
@@ -300,6 +318,7 @@ For proactive scenarios (using `app.send()`), attach targeted message info using
 
 ::: zone pivot="csharp"
 ```csharp
+
 var targetedMessageId = "1772050244572";
 var conversationId = "19:groupchat-id@thread.v2";
 var userAccount = new Account
@@ -324,6 +343,7 @@ await app.Send(conversationId, publicMessage);
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api import Account, MessageActivityInput
 
 targeted_message_id = "1772050244572"
@@ -334,10 +354,10 @@ targeted_message = MessageActivityInput(text="Here is the result!")
 targeted_message.add_targeted_message_info(targeted_message_id)
 targeted_message.with_recipient(user_account, is_targeted=True)
 
-# Targeted reply (only the user sees it)
+## Targeted reply (only the user sees it)
 await app.send(conversation_id, targeted_message)
 
-# OR public reply (everyone sees it)
+## OR public reply (everyone sees it)
 public_message = MessageActivityInput(text="Here is the result!")
 public_message.add_targeted_message_info(targeted_message_id)
 await app.send(conversation_id, public_message)
@@ -346,7 +366,7 @@ await app.send(conversation_id, public_message)
 
 ::: zone pivot="typescript"
 ```typescript
-import { Account, MessageActivity } from '@microsoft/teams.api';
+
 
 const targetedMessageId = '1772050244572';
 const conversationId = '19:groupchat-id@thread.v2';
@@ -391,6 +411,7 @@ When your agent receives a message in a thread, the conversation context already
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async (context, cancellationToken) =>
 {
     // Send in the same thread, no quote
@@ -404,6 +425,7 @@ app.OnMessage(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     # Send in the same thread, no quote
@@ -416,6 +438,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ send, reply }) => {
   // Send in the same thread, no quote
   await send('Acknowledged');
@@ -450,6 +473,7 @@ When a user quotes a message and sends it to your agent, the quoted reply metada
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async context =>
 {
     var quotes = context.Activity.GetQuotedMessages();
@@ -466,6 +490,7 @@ app.OnMessage(async context =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     quotes = ctx.activity.get_quoted_messages()
@@ -480,6 +505,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ activity, reply }) => {
   const quotes = activity.getQuotedMessages();
 
@@ -509,6 +535,7 @@ When your agent calls `reply()`, the SDK automatically stamps a quoted reply ent
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async context =>
 {
     // Reply() automatically quotes the inbound message
@@ -519,6 +546,7 @@ app.OnMessage(async context =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     # reply() automatically quotes the inbound message
@@ -528,6 +556,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ reply }) => {
   // reply() automatically quotes the inbound message
   await reply('Got it!');
@@ -547,6 +576,7 @@ To quote a different message in the same conversation (not the inbound message),
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async context =>
 {
     // Quote a specific message by its ID
@@ -558,6 +588,7 @@ app.OnMessage(async context =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     # Quote a specific message by its ID
@@ -568,6 +599,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ quote }) => {
   // Quote a specific message by its ID
   const parentMessageId = '1772050244572';
@@ -594,6 +626,7 @@ For proactive scenarios (using `app.send()`) or when quoting multiple messages, 
 
 ::: zone pivot="csharp"
 ```csharp
+
 var parentMessageId = "1772050244572";
 var firstMessageId = "1772050244573";
 var secondMessageId = "1772050244574";
@@ -619,24 +652,25 @@ await app.Send(conversationId, msg);
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api.activities.message import MessageActivityInput
 
 parent_message_id = "1772050244572"
 first_message_id = "1772050244573"
 second_message_id = "1772050244574"
 
-# Single quote with response below it
+## Single quote with response below it
 msg = (MessageActivityInput()
     .add_quote(parent_message_id, "Here is my response"))
 await app.send(conversation_id, msg)
 
-# Multiple quotes with interleaved responses
+## Multiple quotes with interleaved responses
 msg = (MessageActivityInput()
     .add_quote(first_message_id, "response to first")
     .add_quote(second_message_id, "response to second"))
 await app.send(conversation_id, msg)
 
-# Grouped quotes — omit response to group quotes together
+## Grouped quotes — omit response to group quotes together
 msg = (MessageActivityInput(text="see below for previous messages")
     .add_quote(first_message_id)
     .add_quote(second_message_id, "response to both"))
@@ -646,7 +680,7 @@ await app.send(conversation_id, msg)
 
 ::: zone pivot="typescript"
 ```typescript
-import { MessageActivity } from '@microsoft/teams.api';
+
 
 const parentMessageId = '1772050244572';
 const firstMessageId = '1772050244573';
@@ -674,15 +708,7 @@ await app.send(conversationId, msg);
 
 
 ::: zone pivot="csharp"
-> [!TIP]
->
-> In .NET, quoted reply APIs are marked with `[Experimental("ExperimentalTeamsQuotedReplies")]` and will produce a compiler error until you opt in. Suppress the diagnostic inline with `#pragma warning disable ExperimentalTeamsQuotedReplies` or project-wide in your `.csproj`:
->
-> ```xml
-> <PropertyGroup>
->   <NoWarn>$(NoWarn);ExperimentalTeamsQuotedReplies</NoWarn>
-> </PropertyGroup>
-> ```
+<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="python"
@@ -692,5 +718,6 @@ await app.send(conversationId, msg);
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
+
 
 

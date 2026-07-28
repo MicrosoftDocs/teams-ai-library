@@ -7,16 +7,16 @@ ms.date: 06/29/2026
 ---
 # OpenTelemetry
 
-::: zone pivot="python,javascript"
+::: zone pivot="python,typescript"
 This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="csharp"
-The Teams SDK instruments its pipeline through standard .NET primitives � `ActivitySource`, `Meter`, and `ILogger`. Your host application opts in by registering the SDK's source and meter names, then choosing where to export � [Azure Monitor / Application Insights](/azure/azure-monitor/app/opentelemetry-enable), an OTLP collector, or both.
+The Teams SDK instruments its pipeline through standard .NET primitives: `ActivitySource`, `Meter`, and `ILogger`. Your host application opts in by registering the SDK's source and meter names, then choosing where to export telemetry: [Azure Monitor / Application Insights](/azure/azure-monitor/app/opentelemetry-enable), an OTLP collector, or both.
 
-The SDK follows the .NET [library instrumentation model](/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs): **libraries produce telemetry; applications choose collection and export.** The SDK does not automatically send telemetry anywhere � your app controls what is collected and where it goes.
+The SDK follows the .NET [library instrumentation model](/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs): **libraries produce telemetry; applications choose collection and export.** The SDK does not automatically send telemetry anywhere; your app controls what is collected and where it goes.
 
-:::image type="content" source="~/assets/screenshots/open-telemetry-architecture.png" alt-text="Architecture overview showing Teams SDK telemetry sources, OpenTelemetry pipeline, and export destinations such as Azure Monitor and OTLP collectors." lightbox="~/assets/screenshots/open-telemetry-architecture.png" :::
+:::image type="content" source="~/assets/screenshots/otel-architecture.png" alt-text="Architecture overview showing Teams SDK telemetry sources, OpenTelemetry pipeline, and export destinations such as Azure Monitor and OTLP collectors." lightbox="~/assets/screenshots/otel-architecture.png" :::
 
 ## Prerequisites
 ::: zone-end
@@ -152,7 +152,7 @@ if (!string.IsNullOrEmpty(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_
 ::: zone pivot="csharp"
 Here is a turn in Application Insights — the span hierarchy from the inbound HTTP request through turn processing, handler dispatch, and outbound Bot Service calls:
 
-:::image type="content" source="~/assets/screenshots/application-insights-open-telemetry-trace.png" alt-text="Application Insights trace waterfall for a Teams bot turn, including middleware, handler, and outbound calls." lightbox="~/assets/screenshots/application-insights-open-telemetry-trace.png" :::
+:::image type="content" source="~/assets/screenshots/appinsights-otel-trace.png" alt-text="Application Insights trace waterfall for a Teams bot turn, including middleware, handler, and outbound calls." lightbox="~/assets/screenshots/appinsights-otel-trace.png" :::
 
 ## Exporting to a Local OTLP Collector
 
@@ -189,7 +189,7 @@ dotnet run
 
 ::: zone pivot="csharp"
 
-:::image type="content" source="~/assets/screenshots/aspire-open-telemetry-trace.png" alt-text="Aspire dashboard view showing traces, metrics, and logs for a Teams bot using OpenTelemetry." lightbox="~/assets/screenshots/aspire-open-telemetry-trace.png" :::
+:::image type="content" source="~/assets/screenshots/aspire-otel-trace.png" alt-text="Aspire dashboard view showing traces, metrics, and logs for a Teams bot using OpenTelemetry." lightbox="~/assets/screenshots/aspire-otel-trace.png" :::
 
 ### Grafana LGTM
 
@@ -214,7 +214,7 @@ Open `http://localhost:3000` (default credentials: `admin` / `admin`) to explore
 ::: zone pivot="csharp"
 Here is the same turn in Grafana Tempo — the span waterfall with span attributes showing `activity.type`, `activity.id`, `conversation.id`, `channel.id`, and the `Microsoft.Teams.Core` library name:
 
-:::image type="content" source="~/assets/screenshots/grafana-open-telemetry-trace.png" alt-text="Grafana Tempo span waterfall for a Teams bot turn with span attributes and hierarchy." lightbox="~/assets/screenshots/grafana-open-telemetry-trace.png" :::
+:::image type="content" source="~/assets/screenshots/grafana-otel-trace.png" alt-text="Grafana Tempo span waterfall for a Teams bot turn with span attributes and hierarchy." lightbox="~/assets/screenshots/grafana-otel-trace.png" :::
 
 ## AI and LLM Instrumentation
 
@@ -271,7 +271,7 @@ builder.Services.AddOpenTelemetry()
 
 With both steps in place, your traces show the full chain — from the inbound Teams message, through turn and handler processing, into AI model chat completions and tool calls, and back out through the Bot Service response:
 
-:::image type="content" source="~/assets/screenshots/application-insights-ai-bot-trace.png" alt-text="Application Insights trace showing end-to-end flow from inbound Teams message to AI model and tool spans." lightbox="~/assets/screenshots/application-insights-ai-bot-trace.png" :::
+:::image type="content" source="~/assets/screenshots/appinsights-aibot-trace.png" alt-text="Application Insights trace showing end-to-end flow from inbound Teams message to AI model and tool spans." lightbox="~/assets/screenshots/appinsights-aibot-trace.png" :::
 
 For a complete working example, see the [AIBotWithOTel sample](https://github.com/microsoft/teams-agent-accelerator-templates/tree/main/dotnet/AIBotWithOTel).
 ::: zone-end
@@ -345,7 +345,7 @@ app.MapDefaultEndpoints();
 app.Run();
 ```
 
-`AddServiceDefaults()` configures OpenTelemetry (traces, metrics, logs), health checks, service discovery, and resilience � all through the standard [.NET Aspire service defaults](/dotnet/aspire/fundamentals/service-defaults) pattern. The service defaults register the Teams SDK's `ActivitySource` and `Meter` names, and conditionally enable OTLP and Azure Monitor exporters based on environment variables.
+`AddServiceDefaults()` configures OpenTelemetry (traces, metrics, logs), health checks, service discovery, and resilience, all through the standard [.NET Aspire service defaults](/dotnet/aspire/fundamentals/service-defaults) pattern. The service defaults register the Teams SDK's `ActivitySource` and `Meter` names, and conditionally enable OTLP and Azure Monitor exporters based on environment variables.
 ::: zone-end
 
 ::: zone pivot="csharp"
@@ -430,8 +430,8 @@ Run with a local OTLP collector (Aspire Dashboard or Grafana LGTM) to see traces
 ## Next Steps
 
 - [OTelBotWithAspire sample](https://github.com/microsoft/teams-agent-accelerator-templates/tree/main/dotnet/OTelBotWithAspire) — ready-to-run Aspire solution with the Aspire Dashboard
-- [.NET observability with OpenTelemetry](/dotnet/core/diagnostics/observability-with-otel) � conceptual overview of the three pillars
-- [Configure Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-configuration) � sampling, resource attributes, and advanced configuration
+- [.NET observability with OpenTelemetry](/dotnet/core/diagnostics/observability-with-otel) - conceptual overview of the three pillars
+- [Configure Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-configuration) - sampling, resource attributes, and advanced configuration
 - [OpenTelemetry .NET documentation](https://opentelemetry.io/docs/languages/dotnet/) — upstream reference
 ::: zone-end
 

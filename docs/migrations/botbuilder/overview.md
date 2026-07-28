@@ -1,10 +1,11 @@
 ---
-title: 'From BotBuilder'
-description: 'Migration guide from BotBuilder to Teams SDK, including the BotBuilder plugin for compatibility with existing activity handlers and adapters.'
+title: From BotBuilder
+description: Migration guide from BotBuilder to Teams SDK, including the BotBuilder plugin for compatibility with existing activity handlers and adapters.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # From BotBuilder
 
@@ -34,4 +35,3 @@ to receive, process and send activities within the new Teams SDK abstractions.
 The plugin exists to bridge BotBuilder and the new Teams SDK,
 letting developers keep their existing BotBuilder activity handlers while gradually moving to the new Teams SDK App handlers.
 It enables incremental migration and smooth adoption of new SDK features.
-

@@ -1,9 +1,9 @@
 ---
-title: 'Proactive Messaging'
-description: 'Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.'
+title: Proactive Messaging
+description: Learn how to send proactive messages to users without waiting for them to initiate the conversation, including storing conversation IDs and sending notifications.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Proactive Messaging
@@ -24,29 +24,30 @@ The main thing to note is that you need to have the `conversation_id` of the cha
 # [Minimal](#tab/minimal)
 
 ```csharp
-    app.OnInstall(async (context, cancellationToken) =>
+app
+OnInstall(async (context, cancellationToken) =>
     {
         // Save the conversation id in
         context.Storage.Set(activity.From.AadObjectId!, activity.Conversation.Id);
         await context.Send("Hi! I am going to remind you to say something to me soon!", cancellationToken);
         notificationQueue.AddReminder(activity.From.AadObjectId!, Notifications.SendProactive, 10_000);
     });
-```
 
+    `
 
----
 ::: zone-end
-
 ::: zone pivot="python"
-```python
-from microsoft_teams.api import InstalledActivity, MessageActivityInput
-from microsoft_teams.apps import ActivityContext
-# ...
 
-# This would be some persistent storage
+```python
+from
+microsoft_teams.api import InstalledActivity, MessageActivityInput
+from microsoft_teams.apps import ActivityContext
+## ...
+
+## This would be some persistent storage
 storage = dict[str, str]()
 
-# Installation is just one place to get the conversation_id. All activities have this field as well.
+## Installation is just one place to get the conversation_id. All activities have this field as well.
 @app.on_install_add
 async def handle_install_add(ctx: ActivityContext[InstalledActivity]):
     # Save the conversation_id
@@ -54,14 +55,14 @@ async def handle_install_add(ctx: ActivityContext[InstalledActivity]):
     await ctx.send("Hi! I am going to remind you to say something to me soon!")
     # This queues up the proactive notifaction to be sent in 1 minute
     notication_queue.add_reminder(ctx.activity.from_.aad_object_id, send_proactive_notification, 60000)
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="typescript"
+
 ```typescript
-import { MessageActivity } from '@microsoft/teams.api';
-import { App } from '@microsoft/teams.apps';
-// ...
+/ ...
 
 // This would be some persistent storage
 const myConversationIdStorage = new Map<string, string>();
@@ -75,10 +76,10 @@ app.on('install.add', async ({ activity, send }) => {
   await send('Hi! I am going to remind you to say something to me soon!');
   notificationQueue.addReminder(activity.from.aadObjectId!, sendProactiveNotification, 10_000);
 });
+
 ```
+
 ::: zone-end
-
-
 ::: zone pivot="csharp,typescript"
 Then, when you want to send a proactive message, you can retrieve the `conversationId` from storage and use it to send the message.
 ::: zone-end
@@ -89,8 +90,10 @@ Then, when you want to send a proactive message, you can retrieve the `conversat
 
 
 ::: zone pivot="csharp"
+
 ```csharp
-public static class Notifications
+public
+static class Notifications
 {
     public static async Task SendProactive(string userId)
     {
@@ -101,13 +104,16 @@ public static class Notifications
         await app.Send(conversationId, "Hey! It's been a while. How are you?");
     }
 }
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="python"
+
 ```python
-from microsoft_teams.api import MessageActivityInput
-# ...
+from
+microsoft_teams.api import MessageActivityInput
+## ...
 
 async def send_proactive_notification(user_id: str):
     conversation_id = storage.get(user_id, "")
@@ -115,14 +121,14 @@ async def send_proactive_notification(user_id: str):
         return
     activity = MessageActivityInput(text="Hey! It's been a while. How are you?")
     await app.send(conversation_id, activity)
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="typescript"
+
 ```typescript
-import { MessageActivity } from '@microsoft/teams.api';
-import { App } from '@microsoft/teams.apps';
-// ...
+/ ...
 
 const sendProactiveNotification = async (userId: string) => {
   const conversationId = myConversationIdStorage.get(userId);
@@ -132,10 +138,10 @@ const sendProactiveNotification = async (userId: string) => {
   const activity = new MessageActivity('Hey! It\'s been a while. How are you?');
   await app.send(conversationId, activity);
 };
+
 ```
+
 ::: zone-end
-
-
 ::: zone pivot="csharp,typescript"
 > [!TIP]
 >
@@ -150,9 +156,9 @@ const sendProactiveNotification = async (userId: string) => {
 
 ## Targeted Proactive Messages
 
-> [!NOTE]
->
-> Targeted messages are available in public preview. General availability is planned for a future release.
+:::info[Preview]
+Targeted messages are available in public preview. General availability is planned for a future release.
+:::
 
 Targeted messages, also known as ephemeral messages, are delivered to a specific user in a shared conversation. From a single user's perspective, they appear as regular inline messages in a conversation. Other participants won't see these messages.
 
@@ -160,8 +166,9 @@ When sending targeted messages proactively, you must explicitly specify the reci
 
 
 ::: zone pivot="csharp"
+
 ```csharp
-// When sending proactively, you must provide an explicit recipient account
+/ When sending proactively, you must provide an explicit recipient account
 public static async Task SendTargetedNotification(string conversationId, Account recipient)
 {
     var teams = app.UseTeams();
@@ -171,28 +178,31 @@ public static async Task SendTargetedNotification(string conversationId, Account
             .WithRecipient(recipient, isTargeted: true)
     );
 }
+
 ```
+
 ::: zone-end
-
 ::: zone pivot="python"
-```python
-from microsoft_teams.api import MessageActivityInput, Account
 
-# When sending proactively, you must provide an explicit recipient account
+```python
+from
+microsoft_teams.api import MessageActivityInput, Account
+
+## When sending proactively, you must provide an explicit recipient account
 async def send_targeted_notification(conversation_id: str, recipient: Account):
     await app.send(
         conversation_id,
         MessageActivityInput(text="This is a private notification just for you!")
             .with_recipient(recipient, is_targeted=True)
     )
+
 ```
+
 ::: zone-end
-
 ::: zone pivot="typescript"
-```typescript
-import { MessageActivity, Account } from '@microsoft/teams.api';
 
-// When sending proactively, you must provide an explicit recipient account
+```typescript
+/ When sending proactively, you must provide an explicit recipient account
 const sendTargetedNotification = async (conversationId: string, recipient: Account) => {
   await app.send(
     conversationId,
@@ -200,10 +210,10 @@ const sendTargetedNotification = async (conversationId: string, recipient: Accou
       .withRecipient(recipient, true)
   );
 };
+
 ```
+
 ::: zone-end
-
-
 ## Proactive Threading
 
 Threads are only rendered visibly in Teams channels. In 1:1 chats, group chats, and meetings, messages appear flat; passing a thread root message ID has no visible effect in those scopes.
@@ -218,36 +228,41 @@ To proactively send a message as a reply to a thread, use `app.reply()` with the
 
 
 ::: zone pivot="csharp"
+
 ```csharp
-// Send to a specific thread proactively
+/ Send to a specific thread proactively
 await app.Reply(conversationId, messageId, "Thread update!");
 
 // Send to a flat conversation (1:1, group chat)
 await app.Reply(conversationId, "Hello!");
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="python"
+
 ```python
 # Send to a specific thread proactively
 await app.reply(conversation_id, message_id, "Thread update!")
 
-# Send to a flat conversation (1:1, group chat)
+## Send to a flat conversation (1:1, group chat)
 await app.reply(conversation_id, "Hello!")
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="typescript"
+
 ```typescript
-// Send to a specific thread proactively
+/ Send to a specific thread proactively
 await app.reply(conversationId, messageId, 'Thread update!');
 
 // Send to a flat conversation (1:1, group chat)
 await app.reply(conversationId, 'Hello!');
+
 ```
+
 ::: zone-end
-
-
 ::: zone pivot="csharp"
 You can also pass just a conversation ID to `app.Reply()` for non-threaded conversations such as 1:1 chats and group chats. To target a specific thread, include the thread root message ID as shown above.
 ::: zone-end
@@ -274,30 +289,36 @@ For advanced scenarios, the `toThreadedConversationId()` helper constructs the t
 
 
 ::: zone pivot="csharp"
+
 ```csharp
-using Microsoft.Teams.Api;
+using
+Microsoft.Teams.Api;
 
 var threadId = Conversation.ToThreadedConversationId(conversationId, messageId);
 await app.Send(threadId, "Sent via helper");
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="python"
+
 ```python
-from microsoft_teams.apps import to_threaded_conversation_id
+from
+microsoft_teams.apps import to_threaded_conversation_id
 
 thread_id = to_threaded_conversation_id(conversation_id, message_id)
 await app.send(thread_id, "Sent via helper")
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="typescript"
+
 ```typescript
-import { toThreadedConversationId } from '@microsoft/teams.apps';
-
-const threadId = toThreadedConversationId(conversationId, messageId);
+const
+threadId = toThreadedConversationId(conversationId, messageId);
 await app.send(threadId, 'Sent via helper');
+
 ```
+
 ::: zone-end
-
-

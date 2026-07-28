@@ -1,33 +1,40 @@
 ---
-title: 'Functions'
-description: 'Details on how to register REST endpoints that can be called from Tab apps.'
+title: Functions
+description: Details on how to register REST endpoints that can be called from Tab apps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Functions
 
+
 ::: zone pivot="python"
 This article is not available for the selected development language.
+
 ::: zone-end
 
 ::: zone pivot="csharp"
 Agents may want to expose REST APIs that client applications can call. This SDK makes it easy to implement those APIs through the `app.AddFunction()` method. The function takes a name and a callback that implements the function.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
 Agents may want to expose REST APIs that client applications can call. This SDK makes it easy to implement those APIs through the `app.function()` method. The function takes a name and a callback that implements the function.
+
 ::: zone-end
 
 
 
 
 ::: zone pivot="csharp"
+
 ```csharp
+
 app.AddFunction('do-something', (context) => {
   // do something useful
 });
+
 ```
 
 This registers a REST API hosted at `http://localhost:{PORT}/api/functions/do-something` or `https://{BOT_DOMAIN}/api/functions/do-something` that clients can POST to. When they do, this SDK validates that the caller provides a valid Microsoft Entra bearer token before invoking the registered callback. If the token is missing or invalid, the request is denied with a HTTP 401.
@@ -35,6 +42,7 @@ This registers a REST API hosted at `http://localhost:{PORT}/api/functions/do-so
 The function can be typed to accept input arguments. The clients would include those in the POST request payload, and they are made available in the callback through the `Data` context argument.
 
 ```csharp
+
 public class ProcessMessageData
 {
     [JsonPropertyName("message")]
@@ -48,13 +56,16 @@ app.AddFunction<ProcessMessageData> ("process-message", (context) => {
 });
 
 ```
-::: zone-end
 
+::: zone-end
 ::: zone pivot="typescript"
+
 ```typescript
+
 app.function('do-something', () => {
   // do something useful
 });
+
 ```
 
 This registers a REST API hosted at `http://localhost:{PORT}/api/functions/do-something` or `https://{BOT_DOMAIN}/api/functions/do-something` that clients can POST to. When they do, this SDK validates that the caller provides a valid Microsoft Entra bearer token before invoking the registered callback. If the token is missing or invalid, the request is denied with a HTTP 401.
@@ -62,19 +73,19 @@ This registers a REST API hosted at `http://localhost:{PORT}/api/functions/do-so
 The function can be typed to accept input arguments. The clients would include those in the POST request payload, and they are made available in the callback through the `data` context argument.
 
 ```typescript
+
 app.function<{}, { message: string }>('process-message', ({ data, log }) => {
   log.info(`process-message called with: ${data.message}`);
 });
+
 ```
+
 ::: zone-end
-
-
-
-
 ::: zone pivot="csharp,typescript"
 > [!WARNING]
 >
 > This SDK does not validate that the function arguments are of the expected types or otherwise trustworthy. You must take care to validate the input arguments before using them.
+
 ::: zone-end
 
 
@@ -84,47 +95,57 @@ app.function<{}, { message: string }>('process-message', ({ data, log }) => {
 If desired, the function can return data to the caller.
 
 ```csharp
+
 app.AddFunction('get-random-number', () => {
     return 4; // chosen by fair dice roll;
               // guaranteed to be random
 });
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="typescript"
 If desired, the function can return data to the caller. The return value can be a string, an object, or an array.
 
 ```typescript
+
 app.function('get-random-number', () => {
   return '4'; // chosen by fair dice roll;
   // guaranteed to be random
 });
+
 ```
 
 If your function returns a number, that will be interpreted as an HTTP status code:
 
 ```typescript
+
 app.function('privileged-action', ({ userId }) => {
   if (!hasPermission(userId)) {
     return 401; // HTTP response will have status 401: unauthorized
   }
   // ... do something
 });
-```
-::: zone-end
 
+```
+
+::: zone-end
 ::: zone pivot="typescript,csharp"
+
 ## Function context
+
 ::: zone-end
 
 ::: zone pivot="csharp,typescript"
 The function callback receives a context object with a number of useful values. Some originate within the agent itself, while others are furnished by the caller via the HTTP Request.
+
 ::: zone-end
 
 
 
 
 ::: zone pivot="csharp"
+
 | Property       | Source | Description                                                                                                        |
 | -------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
 | `Api`          | Agent  | The API client.                                                                                                    |
@@ -144,9 +165,11 @@ The function callback receives a context object with a number of useful values. 
 | `TenantId`     | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token.                            |
 | `UserId`       | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token.                            |
 | `UserName`     | Caller | Microsoft Entra name of the current user, extracted from the validated auth token.                                 |
+
 ::: zone-end
 
 ::: zone pivot="typescript"
+
 | Property                   | Source | Description                                                                                                                               |
 | -------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `api`                      | Agent  | The API client.                                                                                                                           |
@@ -167,6 +190,7 @@ The function callback receives a context object with a number of useful values. 
 | `teamId`                   | Caller | Microsoft Teams ID for the team associated with the content.                                                                              |
 | `tenantId`                 | Caller | Microsoft Entra tenant ID of the current user, extracted from the validated auth token.                                                   |
 | `userId`                   | Caller | Microsoft Entra object ID of the current user, extracted from the validated auth token.                                                   |
+
 ::: zone-end
 
 
@@ -178,6 +202,7 @@ The `AuthToken` is validated before the function callback is invoked, and the `T
 > [!WARNING]
 >
 > Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -186,6 +211,7 @@ The `authToken` is validated before the function callback is invoked, and the `t
 > [!WARNING]
 >
 > Take care to validate the caller-supplied values before using them. Don't assume that the calling user actually has access to items indicated in the context.
+
 ::: zone-end
 
 
@@ -197,6 +223,7 @@ To simplify a common scenarios, the context provides a `Send` method. This metho
 > [!WARNING]
 >
 > The `Send` method does not validate that the chat ID or conversation ID provided by the caller is valid or correct. You must take care to validate that the user and agent both have appropriate access to the conversation.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -204,20 +231,25 @@ To simplify two common scenarios, the context provides the `getCurrentConversati
 
 - The `getCurrentConversationId` method attempts to find the current conversation ID based on the context provided by the client (chatId and channelId) and validates that both the agent and the calling user are actually present in the conversation. If neither chatId or channelId is provided by the caller, the ID of the 1:1 conversation between the agent and the user is returned.
 - The `send` method relies on `getCurrentConversationId` to find the conversation where the app is hosted and posts an activity.
+
 ::: zone-end
 
 ::: zone pivot="typescript,csharp"
 ## Additional resources
+
 ::: zone-end
 
 ::: zone pivot="csharp"
-- For details on how tab apps use these functions, see the [Tabs overview](../overview.md).
-- For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library/) documentation.
+- For details on how to Tab apps can call these functions, see the TypeScript [Executing Functions](../../../in-depth-guides/tabs/functions/function-calling.md) in-depth guide.
+- For more information about the teams-js getContext() API, see the [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) documentation.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
-- For details on how tab apps invoke these functions, see the [Tabs overview](../overview.md).
+- For details on how to Tab apps can invoke these functions, see the [Executing Functions](./function-calling.md) in-depth guide.
+
 ::: zone-end
+
 
 
 

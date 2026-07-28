@@ -1,4 +1,4 @@
-- name: Teams SDK
+﻿- name: Teams SDK
   href: index.yml
 - name: Welcome
   href: welcome.md
@@ -123,7 +123,7 @@
         - name: Overview
           href: in-depth-guides/ai-integrations/overview.md
         - name: Build an agent in Teams
-          href: in-depth-guides/ai-integrations/build-agent-maf.md
+          href: in-depth-guides/ai-integrations/build-agent.md
         - name: Teams Enhancements
           href: in-depth-guides/ai-integrations/teams-enhancements.md
         - name: Exposing Teams to AI Agents (MCP)
@@ -136,7 +136,7 @@
       items:
         - name: Overview
           href: in-depth-guides/tabs/overview.md
-        - name: Getting started
+        - name: Getting Started
           href: in-depth-guides/tabs/getting-started.md
         - name: Using the App
           href: in-depth-guides/tabs/using-the-app.md
@@ -160,6 +160,8 @@
           href: in-depth-guides/observability/middleware.md
         - name: Custom Logger
           href: in-depth-guides/observability/logging.md
+        - name: OpenTelemetry
+          href: in-depth-guides/observability/open-telemetry.md
     - name: Message Reactions
       href: in-depth-guides/message-reactions.md
     - name: Server

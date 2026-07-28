@@ -1,9 +1,9 @@
 ---
-title: 'Building Adaptive Cards'
-description: 'Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.'
+title: Building Adaptive Cards
+description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Building Adaptive Cards
@@ -45,6 +45,7 @@ Each helper wraps raw JSON and provides fluent, chainable methods that keep your
 
 ::: zone pivot="csharp"
 ```csharp
+
 using Microsoft.Teams.Cards;
 
 var card = new AdaptiveCard
@@ -83,6 +84,7 @@ var card = new AdaptiveCard
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.cards import AdaptiveCard, TextBlock, ToggleInput, ActionSet, ExecuteAction
 
 card = AdaptiveCard(
@@ -104,6 +106,7 @@ card = AdaptiveCard(
 
 ::: zone pivot="typescript"
 ```ts
+
 import {
   AdaptiveCard,
   TextBlock,
@@ -129,31 +132,31 @@ Benefits:
 
 | Benefit     | Description                                                                   |
 | ----------- | ----------------------------------------------------------------------------- |
-| Readability | No deep JSON treesjust chain simple methods.                                 |
-| Reuse      | Extract snippets to functions or classes and share across cards.              |
+| Readability | No deep JSON treesajust chain simple methods.                                 |
+| Reause      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
 
 ::: zone pivot="csharp"
-> [!NOTE]
->
-> The builder helpers use strongly-typed interfaces. Use IntelliSense (Ctrl+Space) or "Go to Definition" (F12) in your IDE to explore available types and properties. Source code lives in the `Microsoft.Teams.Cards` namespace.
+:::info
+The builder helpers use strongly-typed interfaces. Use IntelliSense (Ctrl+Space) or "Go to Definition" (F12) in your IDE to explore available types and properties. Source code lives in the `Microsoft.Teams.Cards` namespace.
+:::
 ::: zone-end
 
 ::: zone pivot="python"
-> [!NOTE]
->
-> The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
+:::info
+The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
+:::
 ::: zone-end
 
 ::: zone pivot="typescript"
-> [!NOTE]
->
-> Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
+:::info
+Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
+:::
 ::: zone-end
 
 
-## Typesafe Authoring & IntelliSense
+## Typeasafe Authoring & IntelliSense
 
 ::: zone pivot="csharp"
 The package bundles the **Adaptive Card v1.5 schema** as strict C# types.
@@ -171,12 +174,13 @@ While coding you get:
 ::: zone-end
 
 - **Autocomplete** for every element and attribute.
-- **Ineditor validation**invalid enum values or missing required properties produce build errors.
+- **Inaeditor validation**ainvalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
 
 ::: zone pivot="csharp"
 ```csharp
+
 // "Huge" is not a valid size for TextBlock - this will cause a compilation error
 var textBlock = new TextBlock("Test")
 {
@@ -189,6 +193,7 @@ var textBlock = new TextBlock("Test")
 
 ::: zone pivot="python"
 ```python
+
 # "huge" is not a valid size for TextBlock
 text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 ```
@@ -196,6 +201,7 @@ text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 
 ::: zone pivot="typescript"
 ```typescript
+
 // @ts-expect-error: "huge" is not a valid size for TextBlock
 const textBlock = new TextBlock('Valid', { size: 'huge' });
 ```
@@ -204,7 +210,7 @@ const textBlock = new TextBlock('Valid', { size: 'huge' });
 
 ## The Visual Designer
 
-Prefer a draganddrop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
+Prefer a dragaandadrop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
 1. Add elements visually until the card looks right.
 2. Copy the JSON payload from the editor pane.
@@ -213,6 +219,7 @@ Prefer a draganddrop approach? Use [Microsoft's Adaptive Card Designer](https://
 
 ::: zone pivot="csharp"
 ```csharp
+
 var cardJson = """
 {
     "type": "AdaptiveCard",
@@ -281,6 +288,7 @@ await client.Send(card);
 ::: zone pivot="python"
 ```python
 
+
 card = AdaptiveCard.model_validate(
     {
         "type": "AdaptiveCard",
@@ -336,11 +344,13 @@ message = MessageActivityInput(text="Hello text!").add_card(card)
 
 ::: zone pivot="typescript"
 ```typescript
+
 const cardJson = /* copied JSON */;
 const card = new AdaptiveCard().withBody(cardJson);
 ```
 
 ```ts
+
 const rawCard: IAdaptiveCard = {
   type: 'AdaptiveCard',
   body: [
@@ -400,31 +410,27 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 >
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
 
-## Endtoend Example  Task Form Card
+## Endatoaend Example a Task Form Card
 
 Below is a complete example showing a task management form.
 
 
 ::: zone pivot="csharp"
 # [Minimal](#tab/minimal)
-
 ```csharp
+
     teams.OnMessage(async (context, cancellationToken) =>
     {
         var text = context.Activity.Text?.ToLowerInvariant() ?? "";
 
         if (text.Contains("form"))
         {
-            await context.Typing(cancellationToken);
+            await context.Typing(cancellationToken: cancellationToken);
             var card = CreateTaskFormCard();
             await context.Send(card, cancellationToken);
         }
     });
-```
-
-
-
----
+    ```
 
 The definition for `CreateTaskFormCard` is as follows
 ::: zone-end
@@ -437,6 +443,7 @@ Notice how the builder pattern keeps the file readable and maintainable:
 
 ::: zone pivot="csharp"
 ```csharp
+
 private static AdaptiveCard CreateTaskFormCard()
 {
     return new AdaptiveCard
@@ -504,11 +511,12 @@ private static AdaptiveCard CreateTaskFormCard()
 
 ::: zone pivot="python"
 ```python
+
 from datetime import datetime
 from microsoft_teams.api import MessageActivity, TypingActivityInput
 from microsoft_teams.apps import ActivityContext
 from microsoft_teams.cards import AdaptiveCard, TextBlock, ActionSet, ExecuteAction, Choice, ChoiceSetInput, DateInput, TextInput
-# ...
+## ...
 
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
@@ -543,6 +551,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```ts
+
 import {
   AdaptiveCard,
   TextBlock,
@@ -552,7 +561,6 @@ import {
   ActionSet,
   ExecuteAction,
 } from '@microsoft/teams.cards';
-import { App } from '@microsoft/teams.apps';
 // ...
 
 app.on('message', async ({ send, activity }) => {
@@ -605,5 +613,5 @@ app.on('message', async ({ send, activity }) => {
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building!
+Happy card building! YZ
 

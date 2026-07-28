@@ -1,10 +1,11 @@
 ---
-title: 'Handling Multi-Step Forms'
-description: 'Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.'
+title: Handling Multi-Step Forms
+description: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Handling Multi-Step Forms
 
@@ -29,6 +30,7 @@ Start by returning the first step's card from the `dialog.open` handler.
 
 ::: zone pivot="csharp"
 ```csharp
+
 using System.Text.Json;
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.TaskModules;
@@ -87,6 +89,7 @@ private static Response CreateMultiStepFormDialog()
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api import (
     TaskFetchInvokeActivity, TaskModuleResponse,
     TaskModuleContinueResponse, CardTaskModuleTaskInfo,
@@ -123,6 +126,7 @@ async def handle_multi_step_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { cardAttachment } from '@microsoft/teams.api';
 import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
 // ...
@@ -166,6 +170,7 @@ app.on('dialog.open.multi_step_form', async () => {
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
 ```csharp
+
 using System.Text.Json;
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.TaskModules;
@@ -232,6 +237,7 @@ case "webpage_dialog_step_2":
 Then in the submission handler, return `type: "continue"` with the next card to keep the dialog open. Pass state forward using `SubmitData`'s extra data parameter.
 
 ```python
+
 from microsoft_teams.api import (
     TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse,
     TaskModuleContinueResponse, CardTaskModuleTaskInfo,
@@ -285,6 +291,7 @@ async def handle_multi_step_2_submit(ctx: ActivityContext[TaskSubmitInvokeActivi
 Then in the submission handler, return `type: 'continue'` with the next card to keep the dialog open. Pass state forward using `SubmitData`'s extra data parameter.
 
 ```typescript
+
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
@@ -341,6 +348,7 @@ app.on('dialog.submit.multi_step_2', async ({ activity, send }) => {
 Here's the complete example showing how to handle a multi-step form:
 
 ```csharp
+
 using System.Text.Json;
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.TaskModules;

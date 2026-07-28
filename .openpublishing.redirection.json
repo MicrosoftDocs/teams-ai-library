@@ -62,22 +62,22 @@
     },
     {
       "source_path": "docs/in-depth-guides/ai/setup-and-prereqs.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent-maf",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/chat.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent-maf",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/function-calling.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent-maf",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/keeping-state.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent-maf",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
       "redirect_document_id": false
     },
     {
@@ -97,12 +97,22 @@
     },
     {
       "source_path": "docs/in-depth-guides/ai/mcp/mcp-client.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent-maf",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/ai-integrations/build-agent-maf.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/sdk-comparison.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/choosing-an-sdk.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/sdk-comparison",
+      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/overview",
       "redirect_document_id": false
     }
   ]

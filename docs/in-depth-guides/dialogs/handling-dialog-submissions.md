@@ -1,10 +1,11 @@
 ---
-title: 'Handling Dialog Submissions'
-description: 'Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.'
+title: Handling Dialog Submissions
+description: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Handling Dialog Submissions
 
@@ -34,6 +35,7 @@ In this example, we show how to handle dialog submissions from an Adaptive Card 
 
 ::: zone pivot="csharp"
 ```csharp
+
 using System.Text.Json;
 using Microsoft.Teams.Api.TaskModules;
 using Microsoft.Teams.Apps;
@@ -88,6 +90,7 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
 from microsoft_teams.apps import ActivityContext
 # ...
@@ -104,6 +107,7 @@ async def handle_simple_form_submit(ctx: ActivityContext[TaskSubmitInvokeActivit
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -128,6 +132,7 @@ Similarly, handling dialog submissions from rendered webpages is also possible:
 
 ::: zone pivot="csharp"
 ```csharp
+
 // Add this case to the switch statement in OnTaskSubmit method
 case "webpage_dialog":
     var webName = GetFormValue("name") ?? "Unknown";
@@ -140,6 +145,7 @@ case "webpage_dialog":
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
 from microsoft_teams.apps import ActivityContext
 # ...
@@ -158,6 +164,7 @@ async def handle_webpage_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActi
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -183,6 +190,7 @@ app.on('dialog.submit.webpage_dialog', async ({ activity, send }) => {
 Here's the complete example showing how to handle multiple submission types:
 
 ```csharp
+
 using System.Text.Json;
 using Microsoft.Teams.Api.TaskModules;
 using Microsoft.Teams.Apps;

@@ -1,14 +1,16 @@
 ---
-title: 'Message Reactions'
-description: 'Guide to adding, removing, and receiving message reactions in Teams agents, including available reaction types, skin tones, rate limits, and best practices.'
+title: Message Reactions
+description: Guide to adding, removing, and receiving message reactions in Teams agents, including available reaction types, skin tones, rate limits, and best practices.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Message Reactions
 
 :::image type="content" source="~/assets/screenshots/reaction-emoji.png" alt-text="Reaction emoji sent by bot" lightbox="~/assets/screenshots/reaction-emoji.png" :::
+
 Message reactions allow your agent to add or remove emoji reactions on messages in a Teams conversation, and to react to reactions added by users. This gives your agent a quick, low-friction way to acknowledge messages or signal status without sending a full text reply.
 
 ## Adding a Reaction
@@ -18,6 +20,7 @@ To add a reaction to a message, use the reactions client through the API client:
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async (context, cancellationToken) =>
 {
     await context.Send("Hello! I'll react to your message.", cancellationToken);
@@ -35,6 +38,7 @@ app.OnMessage(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     await ctx.send("Hello! I'll react to your message.")
@@ -50,6 +54,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ activity, api, send }) => {
   await send("Hello! I'll react to your message.");
 
@@ -67,6 +72,7 @@ You can also remove reactions that your agent has previously added:
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMessage(async (context, cancellationToken) =>
 {
     // First, add a reaction
@@ -91,6 +97,7 @@ app.OnMessage(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 import asyncio
 
 @app.on_message
@@ -114,6 +121,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ activity, api }) => {
   // First, add a reaction
   await api.reactions.add(activity.conversation.id, activity.id, 'heart');
@@ -145,6 +153,7 @@ Your agent can also listen for reactions that users add or remove on messages in
 .NET exposes a single `OnMessageReaction` handler plus dedicated `OnMessageReactionAdded` / `OnMessageReactionRemoved` sub-handlers.
 
 ```csharp
+
 app.OnMessageReactionAdded(async (context, cancellationToken) =>
 {
     foreach (var reaction in context.Activity.ReactionsAdded ?? [])
@@ -167,6 +176,7 @@ If you only need a single handler that runs for both adds and removes, use `app.
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message_reaction
 async def handle_reaction(ctx: ActivityContext[MessageReactionActivity]):
     for reaction in ctx.activity.reactions_added or []:
@@ -179,6 +189,7 @@ async def handle_reaction(ctx: ActivityContext[MessageReactionActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('messageReaction', async ({ activity }) => {
   for (const reaction of activity.reactionsAdded ?? []) {
     console.log(`User added reaction: ${reaction.type}`);
@@ -202,25 +213,25 @@ The SDK ships a small set of named reaction constants for the most common reacti
 The SDK ships a small set of named reaction constants for the most common reactions.
 ::: zone-end
 
-Any string-valued reaction ID is accepted, so you can pass any reaction ID from the [Teams reactions reference page](/microsoftteams/platform/agents-in-teams/teams-reactions-reference/).
+Any string-valued reaction ID is accepted, so you can pass any reaction ID from the [Teams reactions reference page](/microsoftteams/platform/agents-in-teams/teams-reactions-reference).
 
 
 ::: zone pivot="csharp"
-- `ReactionType.Like`
-- `ReactionType.Heart`
-- `ReactionType.Eyes`
-- `ReactionType.CheckMark`
-- `ReactionType.Launch`
-- `ReactionType.Pushpin`
+- `ReactionType.Like` a Y
+- `ReactionType.Heart` a ai
+- `ReactionType.Eyes` a Y
+- `ReactionType.CheckMark` a a...
+- `ReactionType.Launch` a Ys
+- `ReactionType.Pushpin` a Y
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-- `'like'`
-- `'heart'`
-- `'1f440_eyes'`
-- `'2705_whiteheavycheckmark'`
-- `'launch'`
-- `'1f4cc_pushpin'`
+- `'like'` a Y
+- `'heart'` a ai
+- `'1f440_eyes'` a Y
+- `'2705_whiteheavycheckmark'` a a...
+- `'launch'` a Ys
+- `'1f4cc_pushpin'` a Y
 ::: zone-end
 
 
@@ -229,10 +240,11 @@ Any string-valued reaction ID is accepted, so you can pass any reaction ID from 
 Reactions tagged **Diverse** in the Teams reactions reference support five skin-tone variants. Append `-tone1` through `-tone5` to the reaction ID to select a variant:
 
 ```text
+
 1f44b_wavinghand-tone4
 ```
 
-The full set of supported reactions can vary by Teams client version and tenant configuration.
+<!-- TODO: restore a direct Learn bookmark once the reactions reference section is published. -->
 
 ## Rate Limits
 

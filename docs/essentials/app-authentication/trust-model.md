@@ -1,13 +1,14 @@
 ---
-title: 'Trust Model'
-description: 'How the Teams SDK validates inbound tokens and what you can rely on downstream'
+title: Trust Model
+description: How the Teams SDK validates inbound tokens and what you can rely on downstream
 ms.topic: how-to
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Trust Model
 
-The Teams SDK enforces a layered authentication model. Inbound JSON Web Tokens are validated once, at the HTTP boundary, before any handler in your application sees them. Everything downstream  your activity handlers, the parsed token accessor on the context, and any custom routes that opt into the same policy  operates on tokens that have already passed signature, issuer, audience, and expiry checks.
+The Teams SDK enforces a layered authentication model. Inbound JSON Web Tokens are validated once, at the HTTP boundary, before any handler in your application sees them. Everything downstream from your activity handlers, the parsed token accessor on the context, and any custom routes that opt into the same policy all operate on tokens that have already passed signature, issuer, audience, and expiry checks.
 
 This page describes where validation happens, what you can trust afterwards, and how to extend the model when you add your own protected surfaces.
 
@@ -19,23 +20,24 @@ For every inbound request on `/api/messages`, the SDK validates the bearer token
 - **Issuer check** against the set of expected issuers for your cloud (commercial, US Government, DoD, or China).
 - **Audience check** against your bot's application identifier.
 - **Lifetime check** with default clock skew tolerance.
-- **Signing algorithm check**  only `RS256` is accepted.
+- **Signing algorithm check** a only `RS256` is accepted.
 
 Requests that fail any of these checks are rejected with HTTP 401 before reaching your code. If your application observes an inbound activity at all, the underlying token has been verified.
 
 ## What you can rely on downstream
 
-Once the request is past the validator, the SDK exposes selected token claims through typed accessors on the activity context. The accessor classes (`JsonWebToken` in each SDK) are payload views over an already-validated token  they perform no validation of their own. You can read fields like the tenant ID, application ID, service URL, and expiration directly without re-checking the token.
+Once the request is past the validator, the SDK exposes selected token claims through typed accessors on the activity context. The accessor classes (`JsonWebToken` in each SDK) are payload views over an already-validated token a they perform no validation of their own. You can read fields like the tenant ID, application ID, service URL, and expiration directly without re-checking the token.
 
-The same pattern applies to tokens the SDK acquires on your behalf  for example, when MSAL returns an access token for an outbound API call, or when an OAuth user-token exchange completes. Those tokens originate from Microsoft identity infrastructure and are wrapped in the same accessor type so your code reads them with a consistent API.
+The same pattern applies to tokens the SDK acquires on your behalf; for example, when MSAL returns an access token for an outbound API call, or when an OAuth user-token exchange completes. Those tokens originate from Microsoft identity infrastructure and are wrapped in the same accessor type so your code reads them with a consistent API.
 
 ## Adding custom authentication to your own surfaces
 
-If your bot exposes additional HTTP surfaces beyond the default Teams activity endpoint  for example a callback endpoint for an external system, a webhook handler, or any custom route you register  you are responsible for authenticating those requests yourself.
+If your bot exposes additional HTTP surfaces beyond the default Teams activity endpoint (for example, a callback endpoint for an external system, a webhook handler, or any custom route you register), you are responsible for authenticating those requests yourself.
 
 The SDK's HTTP adapter is a thin layer over a standard web framework, so you attach your own auth middleware using that framework's conventions. The pattern is the same in all three SDKs: short-circuit the request with HTTP 401 when the credential check fails, otherwise call the next handler.
 
 ```typescript
+
 // Express middleware: gate a custom route with a shared secret.
 const requireWebhookAuth: express.RequestHandler = (req, res, next) => {
   if (req.headers.authorization !== `Bearer ${process.env.WEBHOOK_SECRET}`) {
@@ -47,6 +49,7 @@ const requireWebhookAuth: express.RequestHandler = (req, res, next) => {
 ```
 
 ```python
+
 # FastAPI dependency: gate a custom route with a shared secret.
 async def require_webhook_auth(request: Request) -> None:
     if request.headers.get("authorization") != f"Bearer {os.environ['WEBHOOK_SECRET']}":
@@ -54,6 +57,7 @@ async def require_webhook_auth(request: Request) -> None:
 ```
 
 ```csharp
+
 // ASP.NET middleware: gate a custom route with a shared secret.
 app.Use(async (ctx, next) =>
 {
@@ -67,7 +71,7 @@ app.Use(async (ctx, next) =>
 });
 ```
 
-If the route needs the same trust posture as `/api/messages`  Microsoft-issued bearer tokens rather than a shared secret  reuse the SDK's built-in validator instead. See the [App Authentication](../../teams/app-authentication/overview.md) guide for how to compose validators.
+If the route needs the same trust posture as `/api/messages` a Microsoft-issued bearer tokens rather than a shared secret a reuse the SDK's built-in validator instead. See the [App Authentication](../../teams/app-authentication/overview.md) guide for how to compose validators.
 
 ## What not to do
 

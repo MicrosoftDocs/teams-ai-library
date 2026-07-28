@@ -1,10 +1,11 @@
 ---
-title: 'Adaptive Cards'
-description: 'Introduction to Adaptive Cards in Teams SDK applications for creating rich, interactive user experiences across various scenarios.'
+title: Adaptive Cards
+description: Introduction to Adaptive Cards in Teams SDK applications for creating rich, interactive user experiences across various scenarios.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Adaptive Cards
 
@@ -36,4 +37,3 @@ The Adaptive Card framework is widely implemented throughout Microsoft's ecosyst
 Mastering Adaptive Cards is essential for creating sophisticated, engaging experiences that leverage the full capabilities of the Teams platform. This guide will help you learn how to use them in this SDK.
 
 For a more comprehensive guide on Adaptive Cards, see the [official documentation](https://adaptivecards.microsoft.com/).
-

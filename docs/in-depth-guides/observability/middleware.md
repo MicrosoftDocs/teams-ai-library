@@ -1,10 +1,11 @@
 ---
-title: 'Middleware'
-description: 'Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.'
+title: Middleware
+description: Create middleware for logging, validation, and other cross-cutting concerns using the app.use method.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Middleware
 
@@ -23,6 +24,7 @@ Below is an example of a middleware that will log the elapse time of all handler
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.Use(async context =>
 {
     var start = DateTime.UtcNow;
@@ -40,6 +42,7 @@ app.Use(async context =>
 
 ::: zone pivot="python"
 ```python
+
 @app.use
 async def log_activity(ctx: ActivityContext[MessageActivity]):
     started_at = datetime.now()
@@ -50,6 +53,7 @@ async def log_activity(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.use(async ({ log, next }) => {
   const startedAt = new Date();
   await next();

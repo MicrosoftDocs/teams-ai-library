@@ -1,16 +1,18 @@
 ---
-title: 'Feedback'
-description: 'Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.'
+title: Feedback
+description: Guide to implementing user feedback functionality in Teams applications, covering feedback UI components, event handling, and storage mechanisms for gathering and managing user responses to improve application performance.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # User feedback
 
 User feedback is essential for the improvement of any application. Teams provides specialized UI components to help facilitate the gathering of feedback from users.
 
 :::image type="content" source="~/assets/screenshots/feedback.gif" alt-text="Animated image showing user selecting the thumbs-up button on an agent response and a dialog opening asking 'What did you like?'. The user types 'Nice' and hits Submit." lightbox="~/assets/screenshots/feedback.gif" :::
+
 ## Storage
 
 Once you receive a feedback event, you can choose to store it in some persistent storage. In the example below, we are storing it in an in-memory store.
@@ -18,6 +20,7 @@ Once you receive a feedback event, you can choose to store it in some persistent
 
 ::: zone pivot="csharp"
 ```csharp
+
 // This store would ideally be persisted in a database
 public static class FeedbackStore
 {
@@ -47,6 +50,7 @@ For production applications, consider using databases, file systems, or cloud st
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
 import { ActivityLike, IMessageActivity, MessageActivity } from '@microsoft/teams.api';
 // ...
@@ -73,6 +77,7 @@ When sending a message that you want feedback in, simply add feedback functional
 
 ::: zone pivot="csharp"
 ```csharp
+
 var sentMessageId = await context.Send(
     result.Content != null
         ? new MessageActivity(result.Content)
@@ -95,6 +100,7 @@ FeedbackStore.StoredFeedbackByMessageId[sentMessageId.Id] = new FeedbackStore.Fe
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.ai import Agent
 from microsoft_teams.api import MessageActivityInput
 from microsoft_teams.apps import ActivityContext, MessageActivity
@@ -119,6 +125,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { ChatPrompt, IChatModel } from '@microsoft/teams.ai';
 import {
   ActivityLike,
@@ -155,6 +162,7 @@ Once the user decides to like/dislike the message, you can handle the feedback i
 
 ::: zone pivot="csharp"
 ```csharp
+
 [Microsoft.Teams.Apps.Activities.Invokes.Message.Feedback]
 public Task OnFeedbackReceived([Context] Microsoft.Teams.Api.Activities.Invokes.Messages.SubmitActionActivity activity)
 {
@@ -197,6 +205,7 @@ public Task OnFeedbackReceived([Context] Microsoft.Teams.Api.Activities.Invokes.
 
 ::: zone pivot="python"
 ```python
+
 import json
 from typing import Dict, Any
 from microsoft_teams.api import MessageSubmitActionInvokeActivity
@@ -240,6 +249,7 @@ async def handle_message_feedback(ctx: ActivityContext[MessageSubmitActionInvoke
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 // ...
 

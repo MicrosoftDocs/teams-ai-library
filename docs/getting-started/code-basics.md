@@ -1,10 +1,12 @@
 ---
-title: 'Code Basics'
-description: 'Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.'
+title: Code Basics
+description: Understanding the structure and key components of a Teams SDK application including the Application class, dependency injection, and project organization.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
+
 
 ::: zone pivot="csharp"
 <!-- Not applicable -->
@@ -21,7 +23,7 @@ ms.date: 06/29/2026
 
 # Code Basics
 
-After following the guidance in [the quickstart](./quickstart.md) to create your first Teams application, let's review its structure and key components. This knowledge can help you build more complex applications as you progress.
+After following the guidance in [the quickstart.md](quickstart.md) to create your first Teams application, let's review its structure and key components. This knowledge can help you build more complex applications as you progress.
 
 ## Project Structure
 
@@ -30,8 +32,7 @@ When you create a new Teams application, it generates a directory with this basi
 
 ::: zone pivot="csharp"
 ```
-Quote.Agent/
-|── appPackage/       # Teams app package files
+QuoteAgent/
 ├── Program.cs        # Main application startup code
 ```
 ::: zone-end
@@ -39,7 +40,6 @@ Quote.Agent/
 ::: zone pivot="python"
 ```
 quote-agent/
-|── appPackage/       # Teams app package files
 ├── src
     ├── main.py       # Main application code
 ```
@@ -48,7 +48,6 @@ quote-agent/
 ::: zone pivot="typescript"
 ```
 quote-agent/
-|── appPackage/       # Teams app package files
 ├── src/
 │   └── index.ts      # Main application code
 ```
@@ -57,23 +56,21 @@ quote-agent/
 
 
 ::: zone pivot="csharp"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload/) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
+- **Program.cs**: Contains the main application code and is the entry point for your application.
 ::: zone-end
 
 ::: zone pivot="python"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload/) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 - **src/**: Contains the main application code. The `main.py` file is the entry point for your application.
 ::: zone-end
 
 ::: zone pivot="typescript"
-- **appPackage/**: Contains the Teams app package files, including the `manifest.json` file and icons. This is required for [sideloading](/microsoftteams/platform/concepts/deploy-and-publish/apps-upload/) the app into Teams for testing. The app manifest defines the app's metadata, capabilities, and permissions.
 - **src/**: Contains the main application code. The `index.ts` file is the entry point for your application.
 ::: zone-end
 
 
 ## Core Components
 
-Let's break down the simple application from the [quickstart](./quickstart.md) into its core components.
+Let's break down the simple application from the [quickstart.md](quickstart.md) into its core components.
 
 ### The App Class
 
@@ -81,20 +78,21 @@ The heart of an application is the `App` class. This class handles all incoming 
 
 
 ::: zone pivot="csharp"
-```csharp title="Program.cs"
-using Microsoft.Teams.Apps.Activities;
-using Microsoft.Teams.Apps.Extensions;
-using Microsoft.Teams.Plugins.AspNetCore.Extensions;
+```csharp
+title="Program.cs"
+using Microsoft.Teams.Apps;
+using Microsoft.Teams.Apps.Handlers;
 
-var builder = WebApplication.CreateBuilder(args);
-builder.AddTeams();
-var app = builder.Build();
-var teams = app.UseTeams();
+WebApplicationBuilder builder = WebApplication.CreateSlimBuilder(args);
+builder.Services.AddTeamsBotApplication();
+WebApplication app = builder.Build();
+
+TeamsBotApplication teams = app.UseTeamsBotApplication();
 
 teams.OnMessage(async (context, cancellationToken) =>
 {
-    await context.Typing(cancellationToken);
-    await context.Send($"you said '{context.Activity.Text}'", cancellationToken);
+    await context.TypingAsync(cancellationToken: cancellationToken);
+    await context.SendAsync($"you said '{context.Activity.Text}'", cancellationToken);
 });
 
 app.Run();
@@ -102,7 +100,8 @@ app.Run();
 ::: zone-end
 
 ::: zone pivot="python"
-```python title="src/main.py"
+```python
+title="src/main.py"
 from microsoft_teams.api import MessageActivity, TypingActivityInput
 from microsoft_teams.apps import ActivityContext, App
 
@@ -112,7 +111,8 @@ app = App()
 ::: zone-end
 
 ::: zone pivot="typescript"
-```typescript title="src/index.ts"
+```typescript
+title="src/index.ts"
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common/logging';
 
@@ -149,17 +149,19 @@ Teams applications respond to various types of activities. The most basic is han
 
 
 ::: zone pivot="csharp"
-```csharp title="Program.cs"
+```csharp
+title="Program.cs"
 teams.OnMessage(async (context, cancellationToken) =>
 {
-    await context.Typing(cancellationToken);
-    await context.Send($"you said \"{context.activity.Text}\"", cancellationToken);
+    await context.TypingAsync(cancellationToken: cancellationToken);
+    await context.SendAsync($"you said \"{context.Activity.Text}\"", cancellationToken);
 });
 ```
 ::: zone-end
 
 ::: zone pivot="python"
-```python title="src/main.py"
+```python
+title="src/main.py"
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     await ctx.reply(TypingActivityInput())
@@ -172,7 +174,8 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 ::: zone-end
 
 ::: zone pivot="typescript"
-```typescript title="src/index.ts"
+```typescript
+title="src/index.ts"
 app.on('message', async ({ send, activity }) => {
   await send({ type: 'typing' });
   await send(`you said "${activity.text}"`);
@@ -185,40 +188,40 @@ This code:
 
 ::: zone pivot="csharp"
 1. Listens for all incoming messages using `onMessage` handler.
-2. Sends a typing indicator, which renders as an animated ellipsis () in the chat.
+2. Sends a typing indicator, which renders as an animated ellipsis (a) in the chat.
 3. Responds by echoing back the received message.
 ::: zone-end
 
 ::: zone pivot="python"
 1. Listens for all incoming messages using `app.on_message`
-2. Sends a typing indicator, which renders as an animated ellipsis () in the chat.
+2. Sends a typing indicator, which renders as an animated ellipsis (a) in the chat.
 3. Responds by echoing back the received message if any other text aside from "reply" is sent.
 ::: zone-end
 
 ::: zone pivot="typescript"
 1. Listens for all incoming messages using `app.on('message')`.
-2. Sends a typing indicator, which renders as an animated ellipsis () in the chat.
+2. Sends a typing indicator, which renders as an animated ellipsis (a) in the chat.
 3. Responds by echoing back the received message.
 ::: zone-end
 
 
 ::: zone pivot="csharp"
-> [!NOTE]
->
-> Each activity type has both an attribute and a functional method for type safety/simplicity
-> of routing logic!
+:::info
+Each activity type has both an attribute and a functional method for type safety/simplicity
+of routing logic!
+:::
 ::: zone-end
 
 ::: zone pivot="python"
-> [!NOTE]
->
-> Python uses type hints for better development experience. You can change the activity handler to different supported activities, and the type system will provide appropriate hints and validation.
+:::info
+Python uses type hints for better development experience. You can change the activity handler to different supported activities, and the type system will provide appropriate hints and validation.
+:::
 ::: zone-end
 
 ::: zone pivot="typescript"
-> [!NOTE]
->
-> Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
+:::info
+Type safety is a core tenet of this version of the SDK. You can change the activity `name` to a different supported value, and the type system will automatically adjust the type of activity to match the new value.
+:::
 ::: zone-end
 
 
@@ -229,21 +232,24 @@ Your application starts when you run:
 
 ::: zone pivot="csharp"
 ```csharp
-var app = builder.Build();
-app.UseTeams();
+
+WebApplication app = builder.Build();
+app.UseTeamsBotApplication();
 app.Run();
 ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
+
 if __name__ == "__main__":
     asyncio.run(app.start())
 ```
 ::: zone-end
 
 ::: zone pivot="typescript"
-```typescript title="src/index.ts"
+```typescript
+title="src/index.ts"
 await app.start();
 ```
 ::: zone-end
@@ -253,7 +259,7 @@ This code initializes your application server and, when configured for Teams, al
 
 ## Next Steps
 
-Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](./running-in-teams/overview.md). You'll use the Teams Developer CLI to register your bot and sideload it into Teams.
+Now that you understand the basic structure of your Teams application, you're ready to [run it in Teams](running-in-teams/overview.md). You'll use the Teams Developer CLI to register your bot and sideload it into Teams.
 
 After that, you can:
 

@@ -1,9 +1,9 @@
 ---
-title: 'Porting your Slack Bolt bot'
-description: 'Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.'
+title: Porting your Slack Bolt bot
+description: Migration & port guide from Slack Bolt to Teams SDK, highlighting the key changes and upgrade steps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Porting your Slack Bolt bot
@@ -26,8 +26,8 @@ However, there are some key differences, such as with app installation. In Slack
 
 Let's take a look at some similarities and differences between Slack and Teams concepts:
 
-| Concept      | Teams      | Slack      |
-| ------------- | ------------- | ------------- |
+| Concept | Teams | Slack |
+| --- | --- | --- |
 | **Installation** | Installed via app store on per-scope basis | Installed via OAuth to Workspace |
 | **Quickstart** | New projects created via Agent Toolkit CLI, Visual Studio extension, or VS Code extension. | New projects created via Slack CLI. |
 | **App manifest** | Authored via JSON, Agent Toolkit, and/or via Teams Developer Portal. Must also setup Azure Bot and Azure App Registration resources, which can be done via Azure Portal or Agent Toolkit. | Authored via JSON, YAML, or app management page. |
@@ -39,10 +39,10 @@ Let's take a look at some similarities and differences between Slack and Teams c
 | **Cards** | Rich UI elements in messages using Adaptive Cards. | Rich UI elements in messages using Block Kit. |
 | **Files** | Files can be attached or downloaded using SharePoint / OneDrive Graph APIs. | Files can be attached or downloaded via Slack's files APIs. |
 | **Targeted messages** | Teams does not currently support targeted messages. | Slack supports targeted ephemeral messages. |
-| **Slash commands** | Teams supports [slash commands](/microsoftteams/platform/bots/how-to/create-a-bot-commands-menu/) that are declared in the app manifest. Unlike Slack, commands are sent as messages and thus are visible to all users in the conversation. Listen for new commands using `app.message` handler, either via `app.message('/command')` or `app.message(regexp)`. | Slack Bolt has a dedicated `app.command` handler for commands in the Slack app manifest. Slash commands are not displayed to other users in collaborative contexts. |
+| **Slash commands** | Teams supports [slash commands](/microsoftteams/platform/bots/how-to/create-a-bot-commands-menu) that are declared in the app manifest. Unlike Slack, commands are sent as messages and thus are visible to all users in the conversation. Listen for new commands using `app.message` handler, either via `app.message('/command')` or `app.message(regexp)`. | Slack Bolt has a dedicated `app.command` handler for commands in the Slack app manifest. Slash commands are not displayed to other users in collaborative contexts. |
 | **Workflows** | Teams Workflows is not integrated with the Teams SDK. To integrate with Teams Workflows, you must create a [custom Power Platform Connector](/connectors/custom-connectors/). | Slack Workflows are integrated with Slack Bolt. |
 | **UI dialogs** | Adaptive Cards can include actions that open [UI dialogs](../in-depth-guides/dialogs/overview.md) with an embedded website or another adaptive card. Dialogs must be opened via an adaptive card action and thus cannot be opened directly via a slash command. | BlockKit UI modals can be opened via slash commands (using `client.views.open`) or BlockKit actions. |
-| **AI strategy** | Teams has unique AI-native features for things like user feedback, AI-generated labels, prompt suggestions, streaming, and citations. We also feature an optional `ChatPrompt` class to simplify integrating LLMs into your bot. Leverage grounded search via the [Microsoft 365 Copilot Retrieval Graph API](/microsoft-365-copilot/extensibility/api/ai-services/retrieval/overview/). AI features are generally designed for use in any conversation type. | Slack has a dedicated `Assistant` class for AI interactions in a dedicated agent side panel view, which differs from Teams's strategy of using existing bot interaction patterns. Can still use AI in other conversation types using standard bot APIs. Can use Slack Data Access API for grounded search. |
+| **AI strategy** | Teams has unique AI-native features for things like user feedback, AI-generated labels, prompt suggestions, streaming, and citations. We also feature an optional `ChatPrompt` class to simplify integrating LLMs into your bot. Leverage grounded search via the [Microsoft 365 Copilot Retrieval Graph API](/microsoft-365-copilot/extensibility/api/ai-services/retrieval/overview). AI features are generally designed for use in any conversation type. | Slack has a dedicated `Assistant` class for AI interactions in a dedicated agent side panel view, which differs from Teams's strategy of using existing bot interaction patterns. Can still use AI in other conversation types using standard bot APIs. Can use Slack Data Access API for grounded search. |
 | **AI user feedback** | User feedback buttons are natively rendered in Teams with dedicated APIs for handling feedback. After user gives positive or negative feedback, a modal is opened where additional information (e.g., plain text response) can be captured. | Slack uses a dedicated `feedback_buttons` BlockKit element type and `app.action('feedback')` for attaching user feedback (positive vs. negative) to messages. |
 
 ## Configuring your application
@@ -50,18 +50,24 @@ Let's take a look at some similarities and differences between Slack and Teams c
 First, setup a new Teams application, as shown in [Teams Integration](../teams/overview.md).
 
 ## Installing Teams SDK
+
 ::: zone-end
 
 ::: zone pivot="typescript"
 First, let's install the Teams SDK into your project. This will install the Teams SDK alongside any existing packages. After you've completed your migration, you can safely remove the `@microsoft/teams-ai` dependency from your `package.json` file.
 
-```sh
-npm install @microsoft/teams.apps
-```
-::: zone-end
+```text
+s
 
+npm install @microsoft/teams.apps
+
+```
+
+::: zone-end
 ::: zone pivot="typescript"
+
 ## Configure application
+
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -69,8 +75,8 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
 
 # [Diff](#tab/diff)
 
-  ```ts
-    // Setup app
+```ts
+/ Setup app
     // highlight-error-start
     import { App } from '@slack/bolt';
 
@@ -144,15 +150,15 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
     (async () => {
         await app.start();
     })();
-```
+    ```
 
+---
 
 # [Slack Bolt](#tab/slack)
 
 ```ts
-    import { App } from '@slack/bolt';
-
-    const app = new App({
+const
+app = new App({
         signingSecret: process.env.SLACK_SIGNING_SECRET,
         clientId: process.env.SLACK_CLIENT_ID,
         clientSecret: process.env.SLACK_CLIENT_SECRET,
@@ -211,13 +217,15 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
     (async () => {
         await app.start();
     })();
-```
+    ```
 
+---
 
 # [Teams SDK](#tab/teams)
 
 ```ts
-    import { App } from '@microsoft/teams.apps';
+import
+{ App } from '@microsoft/teams.apps';
 
     // Define app
     const app = new App({
@@ -232,12 +240,9 @@ First, let's configure the `App` class in Teams JS. This is equivalent to Slack 
     (async () => {
         await app.start();
     })();
-```
+    `
 
-
----
 ::: zone-end
-
 ::: zone pivot="typescript"
 ## Migrate message handlers
 
@@ -250,7 +255,7 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
 # [Diff](#tab/diff)
 
 ```ts
-    // triggers user sends "hi" or "@bot hi"
+/ triggers user sends "hi" or "@bot hi"
     // highlight-error-start
     app.message("hi", async ({ message, say }) => {
         // Handle only newly posted messages here
@@ -278,13 +283,14 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
         await send(`you said: ${activity.text}`);
     });
     // highlight-success-end
-```
+    ```
 
+---
 
 # [Slack Bolt](#tab/slack)
 
 ```ts
-    // triggers when user sends a message containing "hi"
+/ triggers when user sends a message containing "hi"
     app.message("hi", async ({ message, say }) => {
         // Handle only newly posted messages here
         if (message.subtype) return;
@@ -297,13 +303,14 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
         // echo back users request
         await say(`you said: ${message.text}`);
     });
-```
+    ```
 
+---
 
 # [Teams SDK](#tab/teams)
 
 ```ts
-    // triggers when user sends "hi" or "@bot hi"
+/ triggers when user sends "hi" or "@bot hi"
     app.message("hi", async ({ send, activity }) => {
       await send(`Hello, ${activity.from.name}!`);
     });
@@ -312,12 +319,9 @@ In Slack, there are message handlers for events with different subtypes (e.g., u
         // echo back users request
         await send(`you said: ${activity.text}`);
     });
-```
+    `
 
-
----
 ::: zone-end
-
 ::: zone pivot="typescript"
 ## BlockKit -> Adaptive Cards
 
@@ -328,7 +332,7 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
 # [Diff](#tab/diff)
 
 ```ts
-    // highlight-error-start
+/ highlight-error-start
     app.message('card', async (client) => {
         await say({
             blocks: [
@@ -355,15 +359,15 @@ To include Rich UI in messages sent by your bot, Slack's Block Kit is equivalent
         );
     });
     // highlight-success-end
-```
+    ```
 
+---
 
 # [Slack Bolt](#tab/slack)
-
 For existing cards like this, the simplest way to convert that to Teams SDK is this:
 
-```ts
-    app.message('card', async (client) => {
+    `tsapp
+message('card', async (client) => {
         await say({
             blocks: [
                 {
@@ -376,16 +380,15 @@ For existing cards like this, the simplest way to convert that to Teams SDK is t
             ],
         });
     });
-```
+    ```
 
-
+---
 
 # [Teams SDK](#tab/teams)
-
 For a more thorough port, you could also do the following:
 
-```ts
-    import { Card, TextBlock } from '@microsoft/teams.cards';
+    `tsimport
+{ Card, TextBlock } from '@microsoft/teams.cards';
 
     app.message('/card', async ({ send }) => {
       await send(
@@ -394,13 +397,9 @@ For a more thorough port, you could also do the following:
         })
       );
     });
-```
+    `
 
-
-
----
 ::: zone-end
-
 ::: zone pivot="typescript"
 Learn more in the [Adaptive Cards guide](../in-depth-guides/adaptive-cards/overview.md).
 
@@ -421,7 +420,7 @@ Then, configure the authentication in your code.
 # [Diff](#tab/diff)
 
 ```ts
-    // highlight-error-start
+/ highlight-error-start
     // TODO: Configure App class with user OAuth permissions and install app for user
 
     app.message('me', async ({ client, message }) => {
@@ -430,8 +429,6 @@ Then, configure the authentication in your code.
     });
     // highlight-error-end
     // highlight-success-start
-    import { App } from '@microsoft/teams.apps';
-    import * as endpoints from '@microsoft/teams.graph-endpoints';
 
     const app = new App({
         // ... rest of App config
@@ -450,30 +447,28 @@ Then, configure the authentication in your code.
         await send(JSON.stringify(me));
     });
     // highlight-success-end
-```
+    ```
 
-
+---
 
 # [Slack Bolt](#tab/slack)
 
 ```ts
-    // TODO: Configure App class with user OAuth permissions and install app for user
+/ TODO: Configure App class with user OAuth permissions and install app for user
 
     app.message('me', async ({ client, message }) => {
         const me = await client.users.info({ user: message.user });
         await client.send(JSON.stringify(me));
     });
-```
+    ```
 
-
+---
 
 # [Teams SDK](#tab/teams)
 
 ```ts
-    import { App } from '@microsoft/teams.apps';
-    import * as endpoints from '@microsoft/teams.graph-endpoints';
-
-    const app = new App({
+const
+app = new App({
         // ... rest of App config
         oauth: {
             // The key here should match the OAuth Connection setting
@@ -489,13 +484,9 @@ Then, configure the authentication in your code.
         const me = await userGraph.call(endpoints.me.get);
         await send(JSON.stringify(me));
     });
-```
+    `
 
-
-
----
 ::: zone-end
-
 ::: zone pivot="typescript"
 ### User authentication for external services
 
@@ -504,12 +495,15 @@ In Slack, you can access external services by implementing an account binding fl
 First, setup your OAuth 2.0 connection settings in the [Azure Portal](https://portal.azure.com/) for your Azure Bot resource.
 
 :::image type="content" source="~/assets/screenshots/abs-custom-oauth-connection.png" alt-text="Screenshot showing Azure Bot custom OAuth connection settings." lightbox="~/assets/screenshots/abs-custom-oauth-connection.png" :::
+
 Then, add the authentication code to your application to get the relevant user token and call your external service.
 ::: zone-end
 
 ::: zone pivot="typescript"
+
 ```ts
-import { App } from '@microsoft/teams.apps';
+import
+{ App } from '@microsoft/teams.apps';
 
 const app = new App({
     // ... rest of App config
@@ -538,8 +532,7 @@ app.message('me', async ({ activity, signin, token, send }) => {
     const result = await response.json();
     await send(JSON.stringify(result));
 });
+
 ```
+
 ::: zone-end
-
-
-
