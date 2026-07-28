@@ -1,10 +1,11 @@
 ---
-title: 'Meeting Events'
-description: 'Guide to handling meeting events in Teams applications, covering meeting lifecycle events such as meeting start, meeting end, participant join, and participant leave events.'
+title: Meeting Events
+description: Guide to handling meeting events in Teams applications, covering meeting lifecycle events such as meeting start, meeting end, participant join, and participant leave events.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Meeting Events
 
@@ -25,6 +26,7 @@ There are a few requirements in the Teams app manifest (`manifest.json`) to supp
 1. The scopes section must include `team`, and `groupChat`
 
 ```json
+
 bots": [
         {
             "botId": "",
@@ -41,6 +43,7 @@ bots": [
 2. In the authorization section, make sure to specify the following resource-specific permissions:
 
 ```json
+
  "authorization":{
         "permissions":{
             "resourceSpecific":[
@@ -70,6 +73,7 @@ When a meeting starts, your app can handle the `meetingStart` event to send a no
 
 ::: zone pivot="csharp"
 ```csharp
+
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Activities;
 using Microsoft.Teams.Apps.Activities.Events;
@@ -108,6 +112,7 @@ teamsApp.OnMeetingStart(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api.activities.event import MeetingStartEventActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, OpenUrlAction, TextBlock
@@ -136,6 +141,7 @@ async def handle_meeting_start(ctx: ActivityContext[MeetingStartEventActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
 
@@ -168,6 +174,7 @@ When a meeting ends, your app can handle the `meetingEnd` event to send a summar
 
 ::: zone pivot="csharp"
 ```csharp
+
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Activities;
 using Microsoft.Teams.Apps.Activities.Events;
@@ -199,6 +206,7 @@ teamsApp.OnMeetingEnd(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api.activities.event import MeetingEndEventActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, TextBlock
@@ -226,6 +234,7 @@ async def handle_meeting_end(ctx: ActivityContext[MeetingEndEventActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -255,6 +264,7 @@ When a participant joins a meeting, your app can handle the `meetingParticipantJ
 
 ::: zone pivot="csharp"
 ```csharp
+
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Activities;
 using Microsoft.Teams.Apps.Activities.Events;
@@ -287,6 +297,7 @@ teamsApp.OnMeetingJoin(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api.activities.event import MeetingParticipantJoinEventActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, TextBlock
@@ -315,6 +326,7 @@ async def handle_meeting_participant_join(ctx: ActivityContext[MeetingParticipan
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -345,6 +357,7 @@ When a participant leaves a meeting, your app can handle the `meetingParticipant
 
 ::: zone pivot="csharp"
 ```csharp
+
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Activities;
 using Microsoft.Teams.Apps.Activities.Events;
@@ -376,6 +389,7 @@ teamsApp.OnMeetingLeave(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.api.activities.event import MeetingParticipantLeaveEventActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, TextBlock
@@ -403,6 +417,7 @@ async def handle_meeting_participant_leave(ctx: ActivityContext[MeetingParticipa
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 

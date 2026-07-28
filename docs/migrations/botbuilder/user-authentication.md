@@ -1,13 +1,12 @@
 ---
-title: 'Migrate User Authentication from BotBuilder'
-description: 'Migrate from BotBuilder''s complex OAuthPrompt dialogs to Teams SDK''s simple signin/signout methods.'
+title: BotBuilder User Authentication
+description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
-# Migrate User Authentication from BotBuilder
-
+# BotBuilder User Authentication
 ::: zone pivot="csharp"
 BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
 equivalent feature for dialogs, but we do support auth flows in our own way via our `SignIn` and `SignOut` methods.
@@ -25,9 +24,11 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
 
 
 ::: zone pivot="csharp"
+
 # [BotBuilder](#tab/botbuilder)
 
-```csharp showLineNumbers
+```csharp
+showLineNumbers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Dialogs;
     using Microsoft.Bot.Schema;
@@ -105,13 +106,13 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
         conversationState,
         userState
     );
-```
+    ```
 
-
+---
 
 # [Teams SDK](#tab/teams-sdk)
-
-```csharp showLineNumbers
+```csharp
+showLineNumbers
     using Microsoft.Teams.Apps;
 
     var builder = WebApplication.CreateBuilder(args);
@@ -141,17 +142,13 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     });
 
     app.Run()
-```
-
-
-
----
+    ```
 ::: zone-end
 
 ::: zone pivot="python"
 # [BotBuilder](#tab/botbuilder)
-
-```python showLineNumbers
+```python
+showLineNumbers
     from botbuilder.core import (
         ActivityHandler,
         ConversationState,
@@ -232,13 +229,13 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
         conversation_state,
         user_state
     )
-```
+    ```
 
-
+---
 
 # [Teams SDK](#tab/teams-sdk)
-
-```python showLineNumbers
+```python
+showLineNumbers
     from microsoft_teams.apps import ActivityContext, App, SignInEvent
     from microsoft_teams.api import MessageActivity
 
@@ -260,17 +257,13 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
     @app.event("sign_in")
     async def on_signin(event: SignInEvent):
         await context.send("You have been signed in.")
-```
-
-
-
----
+    ```
 ::: zone-end
 
 ::: zone pivot="typescript"
 # [BotBuilder](#tab/botbuilder)
-
-```typescript showLineNumbers
+```typescript
+showLineNumbers
       import restify from 'restify';
       import {
         TeamsActivityHandler,
@@ -402,15 +395,13 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
       server.post('/api/messages', async (req, res) => {
           await adapter.process(req, res, (context) => bot.run(context));
       });
-```
+      ```
 
-
+---
 
 # [Teams SDK](#tab/teams-sdk)
-
-```typescript showLineNumbers
-      import { App } from '@microsoft/teams.apps';
-      import { ConsoleLogger } from '@microsoft/teams.common/logging';
+```typescript
+showLineNumbers
 
       const app = new App({
         oauth: {
@@ -437,11 +428,7 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
       (async () => {
         await app.start();
       })();
-```
-
-
-
----
+      ```
 ::: zone-end
 
 

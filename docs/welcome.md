@@ -1,8 +1,8 @@
----
-title: 'Welcome'
-description: 'Welcome guide to Teams SDK, covering the quickstart process and how to build agents and applications for Microsoft Teams.'
+﻿---
+title: Welcome
+description: Welcome guide to Teams SDK, covering the quickstart process and how to build agents and applications for Microsoft Teams.
 ms.topic: how-to
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Welcome

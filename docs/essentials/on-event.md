@@ -1,26 +1,27 @@
 ---
-title: 'Listening To Events'
-description: 'Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.'
+title: Listening To Events
+description: Understanding how to listen to and handle events in Teams SDK applications, including user actions and application server events.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Listening To Events
 
-An **event** is a foundational concept in building agents  it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).
+An **event** is a foundational concept in building agents; it represents something noteworthy happening either on Microsoft Teams or within your application. These events can originate from the user (e.g. installing or uninstalling your app, sending a message, submitting a form), or from your application server (e.g. startup, error in a handler).
 
 
 ::: zone pivot="csharp"
-:::image type="content" source="~/assets/diagrams/essentials-on-event-1.png" alt-text="Flowchart showing Listening To Events" lightbox="~/assets/diagrams/essentials-on-event-1.png" :::
+:::image type="content" source="~/assets/diagrams/essentials-on-event-1.png" alt-text="flowchart for Listening To Events" lightbox="~/assets/diagrams/essentials-on-event-1.png" :::
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-:::image type="content" source="~/assets/diagrams/essentials-on-event-2.png" alt-text="Flowchart showing Listening To Events" lightbox="~/assets/diagrams/essentials-on-event-2.png" :::
+:::image type="content" source="~/assets/diagrams/essentials-on-event-2.png" alt-text="flowchart for Listening To Events" lightbox="~/assets/diagrams/essentials-on-event-2.png" :::
 ::: zone-end
 
 
-The Teams SDK makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur  such as logging errors, triggering workflows, or sending follow-up messages.
+The Teams SDK makes it easy to subscribe to these events and respond appropriately. You can register event handlers to take custom actions when specific events occur a such as logging errors, triggering workflows, or sending follow-up messages.
 
 Here are the events that you can start building handlers for:
 
@@ -47,9 +48,9 @@ Here are the events that you can start building handlers for:
 | `activity_sent`     | Triggered when an activity is sent (not necessarily in response).              |
 
 <br/>
-> [!NOTE]
->
-> Event handler registration uses `@app.event("&lt;event_name&gt;")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
+:::info
+Event handler registration uses `@app.event("&lt;event_name&gt;")` with an async function that receives an event object specific to the event type (e.g., `ErrorEvent`, `ActivityEvent`).
+:::
 ::: zone-end
 
 
@@ -60,6 +61,7 @@ We can subscribe to errors that occur in the app.
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnError((sender, @event) =>
 {
     // do something with the error
@@ -70,6 +72,7 @@ app.OnError((sender, @event) =>
 
 ::: zone pivot="python"
 ```python
+
 @app.event("error")
 async def handle_error(event: ErrorEvent):
     """Handle error events."""
@@ -81,6 +84,7 @@ async def handle_error(event: ErrorEvent):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.event('error', ({ error }) => {
   app.log.error(error);
   // Or Alternatively, send it to an observability platform
@@ -96,6 +100,7 @@ app.event('error', ({ error }) => {
 When an activity is received, log its `JSON` payload.
 
 ```csharp
+
 app.OnActivity((sender, @event) =>
 {
     app.Logger.Info(@event.Activity.ToString());
@@ -107,6 +112,7 @@ app.OnActivity((sender, @event) =>
 When an activity is received, log its payload.
 
 ```python
+
 @app.event("activity")
 async def handle_activity(event: ActivityEvent):
     """Handle activity events."""
@@ -118,6 +124,7 @@ async def handle_activity(event: ActivityEvent):
 When a user signs in using `OAuth` or `SSO`, use the graph api to fetch their profile and say hello.
 
 ```typescript
+
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 app.event('signin', async ({ activity, send, userGraph }) => {

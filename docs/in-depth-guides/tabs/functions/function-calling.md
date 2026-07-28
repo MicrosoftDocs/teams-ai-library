@@ -1,9 +1,9 @@
 ---
-title: 'Executing Functions'
-description: 'Call remote agent functions from tab apps with authentication and custom headers using the exec() method.'
+title: Executing Functions
+description: Call remote agent functions from tab apps with authentication and custom headers using the exec() method.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Executing Functions
@@ -22,6 +22,7 @@ The `exec()` method supports passing arguments and provides options to attach cu
 When the tab app and the remote agent are deployed to the same location and in the same AAD app, it's simple to construct the client app and call the function.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 
 const app = new App(clientId);
@@ -39,6 +40,7 @@ If the deployment is more complex, the [AppOptions](../app-options.md) can be us
 Any argument for the remote function can be provided as an object.
 
 ```typescript
+
 const args = { arg1: 'value1', arg2: 'value2' };
 const result = await app.exec('my-function', args);
 ```
@@ -50,6 +52,7 @@ By default, the HTTP request will include a header with a bearer token as well a
 If needed, you can add additional headers to the `requestHeaders` option field. This may be handy to provide additional context to the remote function, such as a logging correlation ID.
 
 ```typescript
+
 const requestHeaders = {
   'x-custom-correlation-id': 'aaaa0000-bb11-2222-33cc-444444dddddd',
 };
@@ -71,6 +74,7 @@ When calling a function that requires a different permission or scope, the `exec
 To specify a custom permission, set the permission field in the `exec` options.
 
 ```typescript
+
 // with this option, the exec() call will request a token for either
 // api://<clientId>/my_custom_permission or
 // <remoteApiOptions.remoteAppResource>/my_custom_permission,
@@ -90,6 +94,7 @@ const result = await app.exec('my-other-function', args, options);
 Sometimes you may need even more control. You might for need a scope for a different resource than your default when calling a particular remote agent function. In these cases you can provide the exact token request object you need as part of the `exec` options.
 
 ```typescript
+
 // with this option, the exec() call will request a token for exactly
 // api://my-custom-resources/my_custom_scope, regardless of which app
 // options were used to construct the app.
@@ -115,7 +120,7 @@ If you find that you'd rather test for consent or request consent before making 
 
 ## References
 
-- [Graph API overview](/graph/api/overview/)
-- [Graph API permissions overview](/graph/permissions-reference/)
+- [Graph API overview](/graph/api/overview)
+- [Graph API permissions overview](/graph/permissions-reference)
 ::: zone-end
 

@@ -1,14 +1,15 @@
 ---
-title: 'Executing Actions'
-description: 'How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.'
+title: Executing Actions
+description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Executing Actions
 
-Adaptive Cards support interactive elements through **actions**buttons, links, and input submission triggers that respond to user interaction.
+Adaptive Cards support interactive elements through **actions**abuttons, links, and input submission triggers that respond to user interaction.
 You can use these to collect form input, trigger workflows, show task modules, open URLs, and more.
 
 ## Action Types
@@ -17,15 +18,15 @@ The Teams SDK supports several action types for different interaction patterns:
 
 | Action Type               | Purpose                | Description                                                                  |
 | ------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
-| `Action.Execute`          | Serverside processing | Send data to your bot for processing. Best for forms & multistep workflows. |
+| `Action.Execute`          | Serveraside processing | Send data to your bot for processing. Best for forms & multiastep workflows. |
 | `Action.Submit`           | Simple data submission | Legacy action type. Prefer `Execute` for new projects.                       |
 | `Action.OpenUrl`          | External navigation    | Open a URL in the user's browser.                                            |
 | `Action.ShowCard`         | Progressive disclosure | Display a nested card when clicked.                                          |
 | `Action.ToggleVisibility` | UI state management    | Show/hide card elements dynamically.                                         |
 
-> [!NOTE]
->
-> For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
+:::info
+For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
+:::
 
 ## Creating Actions with the SDK
 
@@ -36,6 +37,7 @@ The SDK provides builder helpers that abstract the underlying JSON. For example:
 
 ::: zone pivot="csharp"
 ```csharp
+
 using Microsoft.Teams.Cards;
 
 var action = new ExecuteAction
@@ -55,6 +57,7 @@ var action = new ExecuteAction
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.cards.core import ExecuteAction
 # ...
 
@@ -66,6 +69,7 @@ action = ExecuteAction(title="Submit Feedback")
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { ExecuteAction } from '@microsoft/teams.cards';
 // ...
 
@@ -83,6 +87,7 @@ Group actions together using `ActionSet`:
 
 ::: zone pivot="csharp"
 ```csharp
+
 using Microsoft.Teams.Cards;
 
 var card = new AdaptiveCard
@@ -112,6 +117,7 @@ var card = new AdaptiveCard
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.cards.core import ActionSet, ExecuteAction, OpenUrlAction
 # ...
 
@@ -127,6 +133,7 @@ action_set = ActionSet(
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { ExecuteAction, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
 // ...
 
@@ -157,6 +164,7 @@ Just like when building cards, if you prefer to work with raw JSON, you can do j
 
 ::: zone pivot="csharp"
 ```csharp
+
 var actionJson = """
 {
   "type": "Action.OpenUrl",
@@ -170,6 +178,7 @@ var action = OpenUrlAction.Deserialize(actionJson);
 
 ::: zone pivot="python"
 ```python
+
 json = {
   "type": "Action.OpenUrl",
   "url": "https://adaptivecards.microsoft.com",
@@ -180,6 +189,7 @@ json = {
 
 ::: zone pivot="typescript"
 ```typescript
+
 import { IOpenUrlAction } from '@microsoft/teams.cards';
 // ...
 
@@ -201,6 +211,7 @@ Sometimes you want to send a card and have it be associated with some data. Set 
 
 ::: zone pivot="csharp"
 ```csharp
+
 private static AdaptiveCard CreateProfileCard()
 {
     return new AdaptiveCard
@@ -262,17 +273,18 @@ private static AdaptiveCard CreateProfileCard()
 }
 
 Accessed in C# as:
-- data["action"] â†’ "save_profile"
-- data["entity_id"] â†’ "12345"
-- data["name"] â†’ "John Doe"
-- data["email"] â†’ "john@doe.com"
-- data["subscribe"] â†’ "true"
+- data["action"] → "save_profile"
+- data["entity_id"] → "12345"
+- data["name"] → "John Doe"
+- data["email"] → "john@doe.com"
+- data["subscribe"] → "true"
 */
 ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.cards import AdaptiveCard, ActionSet, ExecuteAction, OpenUrlAction
 from microsoft_teams.cards.core import TextInput, ToggleInput
 # ...
@@ -308,6 +320,7 @@ profile_card = AdaptiveCard(
 
 ::: zone pivot="typescript"
 ```typescript
+
 import {
   AdaptiveCard,
   TextInput,
@@ -356,6 +369,7 @@ Input Controls provide ways for you to validate. More details can be found on th
 
 ::: zone pivot="csharp"
 ```csharp
+
 private static AdaptiveCard CreateProfileCardWithValidation()
 {
     return new AdaptiveCard
@@ -413,6 +427,7 @@ private static AdaptiveCard CreateProfileCardWithValidation()
 
 ::: zone pivot="python"
 ```python
+
 from microsoft_teams.cards import AdaptiveCard, ActionSet, ExecuteAction, NumberInput, TextInput
 # ...
 
@@ -443,6 +458,7 @@ def create_profile_card_input_validation():
 
 ::: zone pivot="typescript"
 ```typescript
+
 import {
   AdaptiveCard,
   NumberInput,
@@ -491,6 +507,7 @@ function createProfileCardInputValidation() {
 Card actions arrive as `card.action` activities in your app. These give you access to the validated input values plus any `data` values you had configured to be sent back to you.
 
 ```csharp
+
 using System.Text.Json;
 using Microsoft.Teams.Api.Activities.Invokes.AdaptiveCards;
 using Microsoft.Teams.Apps;
@@ -595,6 +612,7 @@ teams.OnAdaptiveCardAction(async (context, cancellationToken) =>
 The SDK provides a `SubmitData` helper that sets the routing key for your action. This is the recommended way to wire up actions to specific handlers:
 
 ```python
+
 from microsoft_teams.cards import ExecuteAction, SubmitData
 # ...
 
@@ -615,6 +633,7 @@ ExecuteAction(title="Save") \
 Register handlers for specific actions. When you use `SubmitData` to set the action name on the card, the SDK routes directly to the matching handler:
 
 ```python
+
 from microsoft_teams.apps import App, ActivityContext
 from microsoft_teams.api import AdaptiveCardInvokeActivity, AdaptiveCardActionMessageResponse, AdaptiveCardInvokeResponse
 # ...
@@ -648,6 +667,7 @@ The decorator argument matches the value passed to `SubmitData`. This is cleaner
 If you need to handle all card actions in one place, you can use the catch-all handler:
 
 ```python
+
 from microsoft_teams.api import AdaptiveCardInvokeActivity, AdaptiveCardActionErrorResponse, AdaptiveCardActionMessageResponse, HttpError, InnerHttpError, AdaptiveCardInvokeResponse
 from microsoft_teams.apps import ActivityContext
 # ...
@@ -713,6 +733,7 @@ async def handle_card_action(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -
 The SDK provides a `SubmitData` helper that sets the routing key for your action. This is the recommended way to wire up actions to specific handlers:
 
 ```typescript
+
 import { ExecuteAction, SubmitData } from '@microsoft/teams.cards';
 // ...
 
@@ -733,6 +754,7 @@ new ExecuteAction({ title: 'Save' })
 Register handlers for specific actions. When you use `SubmitData` to set the action name on the card, the SDK routes directly to the matching handler:
 
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -765,6 +787,7 @@ The route name follows the pattern `card.action.<action-name>`, where `<action-n
 If you need to handle all card actions in one place, you can use the catch-all handler:
 
 ```typescript
+
 import {
   AdaptiveCardActionErrorResponse,
   AdaptiveCardActionMessageResponse,

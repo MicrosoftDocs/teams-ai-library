@@ -1,23 +1,24 @@
 ---
-title: 'Sovereign Cloud Configuration'
-description: 'Configure your Teams bot for US Government (GCCH/DoD) or China (21Vianet) cloud environments'
+title: Sovereign Cloud Configuration
+description: Configure your Teams bot for US Government (GCCH/DoD) or China (21Vianet) cloud environments
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Sovereign Cloud Configuration
 
-> [!NOTE]
->
-> Most developers do not need this page. It applies only to bots deployed in US Government (GCC-High, DoD) or China (21Vianet) cloud environments. If your bot runs in the standard commercial cloud, no additional configuration is needed.
+:::info
+Most developers do not need this page. It applies only to bots deployed in US Government (GCC-High, DoD) or China (21Vianet) cloud environments. If your bot runs in the standard commercial cloud, no additional configuration is needed.
+:::
 
 Sovereign clouds use separate Azure infrastructure with different service endpoints for authentication, token services, and bot communication. The Teams SDK handles this automatically when you specify your cloud environment.
 
 ## Supported Clouds
 
 | Cloud | Value | Azure Portal | Teams Client |
-| --- | --- | --- | --- |
+|-------|-------|-------------|-------------|
 | Public (default) | `Public` | portal.azure.com | teams.microsoft.com |
 | US Gov (GCCH) | `USGov` | portal.azure.us | gov.teams.microsoft.us |
 | US Gov (DoD) | `USGovDoD` | portal.azure.us | dod.teams.microsoft.us |
@@ -33,6 +34,7 @@ Sovereign clouds use separate Azure infrastructure with different service endpoi
 Add the `CLOUD` environment variable to your existing app authentication configuration. This works alongside any auth method (client secret, managed identity, federated credentials).
 
 ```env
+
 CLOUD=USGov
 ```
 
@@ -45,6 +47,7 @@ You can also configure the cloud programmatically:
 In `appsettings.json`:
 
 ```json
+
 {
   "Teams": {
     "ClientId": "your-client-id",
@@ -58,6 +61,7 @@ In `appsettings.json`:
 Or programmatically:
 
 ```csharp
+
 var app = new App(new AppOptions
 {
     Cloud = CloudEnvironment.USGov,
@@ -69,8 +73,8 @@ var app = new App(new AppOptions
 ::: zone-end
 
 ::: zone pivot="python"
-
 ```python
+
 from microsoft_teams.api.auth.cloud_environment import US_GOV
 from microsoft_teams.apps import App
 
@@ -81,8 +85,8 @@ app = App(cloud=US_GOV)
 ::: zone-end
 
 ::: zone pivot="typescript"
-
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 import { US_GOV } from '@microsoft/teams.api';
 
@@ -104,6 +108,7 @@ For scenarios requiring customization of individual endpoints, such as China sin
 In `appsettings.json`:
 
 ```json
+
 {
   "Teams": {
     "Cloud": "China",
@@ -114,8 +119,8 @@ In `appsettings.json`:
 ::: zone-end
 
 ::: zone pivot="python"
-
 ```python
+
 from microsoft_teams.api.auth.cloud_environment import CHINA, with_overrides
 from microsoft_teams.apps import App
 
@@ -124,8 +129,8 @@ app = App(cloud=with_overrides(CHINA, login_tenant="your-tenant-id"))
 ::: zone-end
 
 ::: zone pivot="typescript"
-
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 import { CHINA, withOverrides } from '@microsoft/teams.api';
 
@@ -185,6 +190,7 @@ After configuring your cloud environment, your bot will authenticate and communi
 In `appsettings.json`:
 
 ```json
+
 {
   "Teams": {
     "Cloud": "China",
@@ -195,8 +201,8 @@ In `appsettings.json`:
 ::: zone-end
 
 ::: zone pivot="python"
-
 ```python
+
 from microsoft_teams.api.auth.cloud_environment import CHINA, with_overrides
 from microsoft_teams.apps import App
 
@@ -205,8 +211,8 @@ app = App(cloud=with_overrides(CHINA, login_tenant="your-tenant-id"))
 ::: zone-end
 
 ::: zone pivot="typescript"
-
 ```typescript
+
 import { App } from '@microsoft/teams.apps';
 import { CHINA, withOverrides } from '@microsoft/teams.api';
 

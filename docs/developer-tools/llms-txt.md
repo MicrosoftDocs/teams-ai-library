@@ -1,9 +1,10 @@
----
-title: 'llms.txt'
-description: 'Documentation files optimized for AI coding assistants to give them context about the Teams SDK.'
+﻿---
+title: llms.txt
+description: Documentation files optimized for AI coding assistants to give them context about the Teams SDK.
 ms.topic: how-to
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # llms.txt
 
@@ -24,42 +25,39 @@ https://microsoft.github.io/teams-sdk/llms_docs/llms.txt
 > Instead of manually providing URLs, you can install the [`teams-dev` agent skill](./agent-skills.md) which automatically gives your coding assistant the right context.
 
 ### Per-language
-
 # [TypeScript](#tab/typescript)
-
-**Small**  navigation index, the assistant fetches individual pages as needed.
+**Small** a navigation index, the assistant fetches individual pages as needed.
 ```
 https://microsoft.github.io/teams-sdk/llms_docs/llms_typescript.txt
 ```
 
-**Full**  complete documentation in a single file, best for tools with large context windows.
+**Full** a complete documentation in a single file, best for tools with large context windows.
 ```
 https://microsoft.github.io/teams-sdk/llms_docs/llms_typescript_full.txt
 ```
 
-# [Python](#tab/python)
+---
 
-**Small**  navigation index, the assistant fetches individual pages as needed.
+# [Python](#tab/python)
+**Small** a navigation index, the assistant fetches individual pages as needed.
 ```
 https://microsoft.github.io/teams-sdk/llms_docs/llms_python.txt
 ```
 
-**Full**  complete documentation in a single file, best for tools with large context windows.
+**Full** a complete documentation in a single file, best for tools with large context windows.
 ```
 https://microsoft.github.io/teams-sdk/llms_docs/llms_python_full.txt
 ```
 
-# [C#](#tab/csharp)
+---
 
-**Small**  navigation index, the assistant fetches individual pages as needed.
+# [C#](#tab/csharp)
+**Small** a navigation index, the assistant fetches individual pages as needed.
 ```
 https://microsoft.github.io/teams-sdk/llms_docs/llms_csharp.txt
 ```
 
-**Full**  complete documentation in a single file, best for tools with large context windows.
+**Full** a complete documentation in a single file, best for tools with large context windows.
 ```
 https://microsoft.github.io/teams-sdk/llms_docs/llms_csharp_full.txt
 ```
-
----
-

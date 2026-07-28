@@ -1,11 +1,10 @@
 ---
-title: 'Enhance the Teams Experience'
-description: 'Round out a Teams agent reply with suggested follow-up prompts, inline citations from tool middleware, the AI-generated label, and a custom feedback form  then assemble the full message handler.'
+title: Enhance the Teams Experience
+description: Round out a Teams agent reply with streaming, the AI-generated label, custom feedback, clarification cards, dynamic follow-up prompts, and inline citations.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
-<!-- markdownlint-disable-next-line MD024 -->
 
 # Enhance the Teams Experience
 
@@ -13,69 +12,117 @@ ms.date: 06/29/2026
 This article is not available for the selected development language.
 ::: zone-end
 
-::: zone pivot="python"
+::: zone pivot="typescript"
 
-You can enrich the agent output into a more Teams-native experience — adding structure, interactivity, and metadata on top of the generated text. This guide builds on the agent from [Build an agent in Teams](build-agent-maf.md).
+> [!WARNING]
+>
+> Our AI libraries are deprecated
+> The Teams SDK has deprecated its own AI libraries a the `@microsoft/teams.ai` packages (`ChatPrompt`, `Model`, and the older `@microsoft/teams.mcp` / `@microsoft/teams.a2a` plugins) a in favor of dedicated AI frameworks. Use the pattern shown in these guides instead: bring the OpenAI SDK (or any framework you like), and wire MCP and A2A directly into your Teams app.
+
+::: zone-end
+
+::: zone pivot="python,typescript"
+
+## Enhance the Teams Experience
+
+You can enrich the agent output into a more Teams-native experience a adding structure, interactivity, and metadata on top of the generated text. This guide builds on the agent from [Build an agent in Teams](./build-agent.md).
 
 ## Streaming
 
-Streaming allows the agent to deliver responses to Teams incrementally as theyre generated,
-rather than waiting for the full reply to complete.
-Each chunk of text is appended to the stream as it arrives.
+Streaming delivers responses to Teams incrementally as they're generated, rather than waiting for the full reply to complete. Each chunk of text is appended to the stream as it arrives.
+::: zone-end
+
+::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     async for chunk in agent.run(ctx.activity.text or "", stream=True):
         if chunk.text:
             ctx.stream.emit(chunk.text)
 ```
+::: zone-end
 
+::: zone pivot="typescript"
+```typescript
+
+const runner = client.chat.completions.runTools({ model, messages: history, tools, stream: true });
+runner.on('content', (delta: string) => stream.emit(delta));
+await runner.done();
+```
+::: zone-end
+
+::: zone pivot="python,typescript"
 See [Streaming](../../essentials/sending-messages/overview.md#streaming) for the full story on how Teams renders chunks and the constraints on stream lifecycle.
 
 ## AI-generated label
 
-`add_ai_generated()` marks the message as system-generated, ensuring it is clearly labeled as AI output within Teams.
+Mark the message as system-generated so Teams clearly labels it as AI output.
+::: zone-end
+
+::: zone pivot="python"
+`add_ai_generated()` marks the message as system-generated.
 
 ```python
-@app.on_message
-async def handle_message(ctx: ActivityContext[MessageActivity]):
-    async for chunk in agent.run(ctx.activity.text or "", stream=True):
-        if chunk.text:
-            ctx.stream.emit(chunk.text)
 
-    # highlight-success-start
-    reply = MessageActivityInput().add_ai_generated()
-    ctx.stream.emit(reply)
-    # highlight-success-end
+reply = MessageActivityInput().add_ai_generated()
+ctx.stream.emit(reply)
 ```
+::: zone-end
 
-:::image type="content" source="../../assets/screenshots/streaming.gif" alt-text="Screenshot shows streaming."lightbox="../../assets/screenshots/streaming.gif":::
+::: zone pivot="typescript"
+`addAiGenerated()` marks the message as system-generated.
+
+```typescript
+
+const reply = new MessageActivity().addAiGenerated();
+stream.emit(reply);
+```
+::: zone-end
+
+::: zone pivot="python,typescript"
+<img
+  src={StreamingImgUrl}
+  alt="Animated screenshot of an agent reply streaming into a Teams chat token by token, with the 'AI generated' label on the message."
+  style={{ width: '100%', maxWidth: 900 }}
+/>
 
 ## User feedback
 
-`add_feedback(mode="custom")` enables built-in thumbs up/down controls on the reply and lets you surface a custom feedback form when users respond.
+Enable built-in thumbs up/down controls on the reply and surface a custom feedback form when users respond.
+::: zone-end
+
+::: zone pivot="python"
+`add_feedback(mode="custom")` enables the thumbs up/down controls and lets you surface a custom feedback form when users respond.
 
 ```python
-@app.on_message
-async def handle_message(ctx: ActivityContext[MessageActivity]):
-    async for chunk in agent.run(ctx.activity.text or "", stream=True):
-        if chunk.text:
-            ctx.stream.emit(chunk.text)
 
-    reply = (MessageActivityInput().add_ai_generated()
-            # highlight-success-start
-            .add_feedback(mode="custom")
-            # highlight-success-end
-    )
-    ctx.stream.emit(reply)
+reply = MessageActivityInput().add_ai_generated().add_feedback(mode="custom")
+ctx.stream.emit(reply)
 ```
+::: zone-end
 
-See [Feedback](../feedback.md) for the full form-handling story  capturing the submission, persisting it, and following up with the user.
+::: zone pivot="typescript"
+`addFeedback('custom')` enables the thumbs up/down controls and lets you surface a custom feedback form when users respond.
+
+```typescript
+
+const reply = new MessageActivity().addAiGenerated().addFeedback('custom');
+stream.emit(reply);
+```
+::: zone-end
+
+::: zone pivot="python,typescript"
+See [Feedback](../feedback.md) for the full form-handling story a capturing the submission, persisting it, and following up with the user.
 
 ## Clarification cards
 
-When the agent calls the `request_clarification` tool (from [Build an agent](build-agent-maf.md#adding-a-local-tool)), the reply is a card, not text. The model still produces a short wrap-up after the tool returns, so discard the streamed text and send only the card. Clearing the stream's accumulated text before emitting the card-only activity keeps the turn to a single clean reply.
+When the agent calls the `request_clarification` tool (from [Build an agent](./build-agent.md#adding-a-local-tool)), the reply is a card, not text. The model still produces a short wrap-up after the tool returns, so discard the streamed text and send only the card. Clearing the stream's accumulated text before emitting the card-only activity keeps the turn to a single clean reply.
+::: zone-end
+
+::: zone pivot="python"
 ```python
+
 async def _run_agent_and_reply(ctx, session, text: str) -> None:
     cards: list[AdaptiveCard] = []
     pending_cards.set(cards)
@@ -101,6 +148,7 @@ async def _run_agent_and_reply(ctx, session, text: str) -> None:
 The user's choice is captured by a card-action handler and fed straight back into the agent as the next turn:
 
 ```python
+
 @app.on_card_action_execute(CLARIFICATION_VERB)
 async def handle_clarification(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -> AdaptiveCardInvokeResponse:
     choice = (ctx.activity.value.action.data or {}).get(CLARIFICATION_INPUT_ID, "")
@@ -111,148 +159,11 @@ async def handle_clarification(ctx: ActivityContext[AdaptiveCardInvokeActivity])
         status_code=200, type="application/vnd.microsoft.activity.message", value="OK",
     )
 ```
-
-The user's selection arrives as a fresh turn through the card-action route — the same code path as a normal message — so the agent picks up with full context.
-
-:::image type="content" source="../../assets/screenshots/clarification.gif" alt-text="Screenshot shows user selecting an option." lightbox="../../assets/screenshots/clarification.gif":::
-
-## Suggested prompts
-
-Suggested prompts give the user one-click follow-up questions after a reply.
-In Teams they render as chips under the message; tapping one sends the `value` back as a normal user message, so the same `on_message` handler picks it up  no extra routing required.
-
-Define prompts using `CardAction` and attach them to the reply via `with_suggested_actions`:
-
-```python
-from microsoft_teams.api import CardAction, CardActionType, SuggestedActions
-
-_SUGGESTED_PROMPTS = [
-    CardAction(
-        type=CardActionType.IM_BACK,
-        title="How do I stream in teams.py?",
-        value="How do I stream in teams.py?",
-    ),
-    CardAction(
-        type=CardActionType.IM_BACK,
-        title="How do I create an Adaptive Card in teams.py?",
-        value="How do I create an Adaptive Card in teams.py?",
-    ),
-]
-
-@app.on_message
-async def handle_message(ctx: ActivityContext[MessageActivity]):
-    async for chunk in agent.run(ctx.activity.text or "", stream=True):
-        if chunk.text:
-            ctx.stream.emit(chunk.text)
-
-    reply = (MessageActivityInput().add_ai_generated()
-            .add_feedback(mode="custom")
-            # highlight-success-start
-            .with_suggested_actions(
-                SuggestedActions(to=[ctx.activity.from_.id], actions=_SUGGESTED_PROMPTS)
-            )
-            # highlight-success-end
-    )
-    ctx.stream.emit(reply)
-```
-
-:::image type="content" source="~/assets/screenshots/suggested-prompts.png" alt-text="Screenshot of outgoing agent message to user marked with 'AI generated' badge, with thumbs up/down feedback controls below the message." lightbox="~/assets/screenshots/suggested-prompts.png" :::
-
-## Citations
-
-Citations render as footnote-style references inline with the reply  `[1]`, `[2]`, etc.  surfacing the source title, abstract, and URL on hover. They typically originate from tool outputs, where middleware assigns each result a stable `position` (see the [`CitationMiddleware` example](./build-agent-maf.md#middleware) earlier).
-
-When building the final reply, attach only the citations whose `position` actually appears in the streamed text.
-```python
-from microsoft_teams.api import CitationAppearance
-
-@app.on_message
-async def handle_message(ctx: ActivityContext[MessageActivity]):
-    # highlight-success-line
-    full_text = ""
-    async for chunk in agent.run(text, session=_sessions[conversation_id], stream=True):
-        if chunk.text:
-            ctx.stream.emit(chunk.text)
-            # highlight-success-line
-            full_text += chunk.text
-
-    reply = (MessageActivityInput().add_ai_generated()
-            .add_feedback(mode="custom")
-            .with_suggested_actions(
-                SuggestedActions(to=[ctx.activity.from_.id], actions=_SUGGESTED_PROMPTS)
-            )
-    )
-    # highlight-success-start
-    citations = tool_logger.get_citations()
-    attach_citations(reply, full_text, citations)
-    # highlight-success-end
-
-    ctx.stream.emit(reply)
-
-# highlight-success-start
-def attach_citations(reply, full_text, citations):
-    used = extract_referenced_ids(full_text)
-
-    for c in citations:
-        if c.position in used:
-            reply.add_citation(
-                position=c.position,
-                appearance=CitationAppearance(
-                    name=c.title,
-                    abstract=c.description,
-                    url=c.url),
-                )
-# highlight-success-end
-```
-
-:::image type="content" source="~/assets/screenshots/citations.gif" alt-text="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text." lightbox="~/assets/screenshots/citations.gif" :::
 ::: zone-end
 
 ::: zone pivot="typescript"
+```typescript
 
-> [!NOTE]
-> **Our AI libraries are deprecated**: The Teams SDK has deprecated its own AI libraries — the `@microsoft/teams.ai` packages (`ChatPrompt`, `Model`, and the older `@microsoft/teams.mcp` / `@microsoft/teams.a2a` plugins) — in favor of dedicated AI frameworks. Use the pattern shown in these guides instead: bring the OpenAI SDK (or any framework you like), and wire MCP and A2A directly into your Teams app.
-
-You can enrich the agent output into a more Teams-native experience — adding structure, interactivity, and metadata on top of the generated text. This guide builds on the agent from [Build an agent in Teams](build-agent-maf.md).
-
-## Streaming
-
-Streaming delivers responses to Teams incrementally as they're generated, rather than waiting for the full reply to complete. Each chunk of text is appended to the stream as it arrives.
-
-```ts
-const runner = client.chat.completions.runTools({ model, messages: history, tools, stream: true });
-runner.on('content', (delta: string) => stream.emit(delta));
-await runner.done();
-```
-
-See [Streaming](../../essentials/sending-messages/overview.md#streaming) for the full story on how Teams renders chunks and the constraints on stream lifecycle.
-
-## AI-generated label
-
-`add_ai_generated()` marks the message as system-generated, ensuring it is clearly labeled as AI output within Teams.
-
-```ts
-const reply = new MessageActivity().addAiGenerated();
-stream.emit(reply);
-```
-
-:::image type="content" source="../../assets/screenshots/streaming.gif" alt-text="Screenshot shows streaming."lightbox="../../assets/screenshots/streaming.gif":::
-
-## User feedback
-
-`add_feedback(mode="custom")` enables built-in thumbs up/down controls on the reply and lets you surface a custom feedback form when users respond.
-
-```ts
-const reply = new MessageActivity().addAiGenerated().addFeedback('custom');
-stream.emit(reply);
-```
-
-See [Feedback](../feedback.md) for the full form-handling story  capturing the submission, persisting it, and following up with the user.
-
-## Clarification cards
-
-When the agent calls the `request_clarification` tool (from [Build an agent](build-agent-maf.md#adding-a-local-tool)), the reply is a card, not text. The model still produces a short wrap-up after the tool returns, so discard the streamed text and send only the card. Clearing the stream's accumulated text before emitting the card-only activity keeps the turn to a single clean reply.
-```ts
 function shipResult(result: AgentRunResult, stream: IStreamer, recipientId: string): void {
   if (result.pendingCard) {
     // Clarification card — discard any streamed text, then emit card-only.
@@ -266,7 +177,8 @@ function shipResult(result: AgentRunResult, stream: IStreamer, recipientId: stri
 
 The user's choice is captured by a card-action handler and fed straight back into the agent as the next turn:
 
-```ts
+```typescript
+
 app.on('card.action.clarification', async ({ activity, stream }) => {
   const data = (activity.value.action.data ?? {}) as Record<string, unknown>;
   const choice = typeof data[CLARIFICATION_INPUT_ID] === 'string' ? (data[CLARIFICATION_INPUT_ID] as string) : '';
@@ -277,18 +189,65 @@ app.on('card.action.clarification', async ({ activity, stream }) => {
   return { statusCode: 200, type: 'application/vnd.microsoft.activity.message', value: 'OK' };
 });
 ```
+::: zone-end
 
-The user's selection arrives as a fresh turn through the card-action route — the same code path as a normal message — so the agent picks up with full context.
+::: zone pivot="python,typescript"
+The user's selection arrives as a fresh turn through the card-action route; the same code path as a normal message, so the agent picks up with full context.
 
-:::image type="content" source="../../assets/screenshots/clarification.gif" alt-text="Screenshot shows user selecting an option." lightbox="../../assets/screenshots/clarification.gif":::
+<img
+  src={ClarificationImgUrl}
+  alt="Animated screenshot of the clarification flow: the user asks an ambiguous question, the bot replies with a choice card, the user picks an option, and the bot streams a grounded answer with an inline citation."
+  style={{ width: '100%', maxWidth: 900 }}
+/>
 
 ## Suggested prompts
 
-Suggested prompts give the user one-click follow-up questions after a reply. In Teams they render as chips under the message; tapping one sends the value back as a normal user message, so the same message handler picks it up — no extra routing required.
+Suggested prompts give the user one-click follow-up questions after a reply. In Teams they render as chips under the message; tapping one sends the value back as a normal user message, so the same message handler picks it up a no extra routing required.
 
 Rather than hard-coding them, generate two contextual follow-ups with a separate lightweight model call constrained to a strict JSON schema, then attach them as suggested actions.
+::: zone-end
 
-```ts
+::: zone pivot="python"
+```python
+
+import json
+
+from microsoft_teams.api import CardAction, CardActionType, SuggestedActions
+
+_FOLLOW_UPS_PROMPT = (
+    "Based on the conversation so far, suggest exactly 2 short follow-up questions the user might want to ask next. "
+    'Respond with JSON: {"followUps": ["question 1", "question 2"]}. Keep each question under 60 characters.'
+)
+
+async def _generate_follow_ups(last_user_text: str, last_ai_text: str) -> list[CardAction]:
+    completion = await openai_client.chat.completions.create(
+        model=getenv("AZURE_OPENAI_MODEL", ""),
+        messages=[
+            {"role": "user", "content": last_user_text},
+            {"role": "assistant", "content": last_ai_text},
+            {"role": "system", "content": _FOLLOW_UPS_PROMPT},
+        ],
+        response_format=_FOLLOW_UPS_SCHEMA,  # strict json_schema
+    )
+    data = json.loads(completion.choices[0].message.content or "{}")
+    return [CardAction(type=CardActionType.IM_BACK, title=q, value=q) for q in data.get("followUps", [])[:2]]
+```
+
+Attach the generated prompts to the reply with `with_suggested_actions`:
+
+```python
+
+reply.with_suggested_actions(
+    SuggestedActions(to=[ctx.activity.from_.id], actions=follow_ups)
+)
+```
+
+The follow-up call runs separately from the main agent, so any parse or network failure silently degrades to no chips while the main reply still ships.
+::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+
 const FOLLOW_UPS_PROMPT =
   'Produce 2 specific prompts the user might want to ask next, based on the conversation so far. ' +
   'Each must be phrased in the first person and stay under 8 words.';
@@ -318,21 +277,61 @@ async function generateFollowUps(history: ChatCompletionMessageParam[]): Promise
 }
 ```
 
-Attach the generated prompts to the reply with withSuggestedActions:
-```ts
+Attach the generated prompts to the reply with `withSuggestedActions`:
+
+```typescript
+
 finalMarker.withSuggestedActions({
   to: [recipientId],
   actions: followUps.map((prompt) => ({ type: 'imBack', title: prompt, value: prompt })),
 });
 ```
+::: zone-end
 
-:::image type="content" source="~/assets/screenshots/suggested-prompts.png" alt-text="Screenshot of outgoing agent message to user marked with 'AI generated' badge, with thumbs up/down feedback controls below the message." lightbox="~/assets/screenshots/suggested-prompts.png" :::
+::: zone pivot="python,typescript"
+<img
+  src={SuggestedPromptsImgUrl}
+  alt="Animated screenshot of suggested follow-up prompt chips appearing under an agent reply; tapping one sends it back as the next user message."
+  style={{ width: '100%', maxWidth: 900 }}
+/>
+
 ## Citations
 
-Citations render as footnote-style references inline with the reply  `[1]`, `[2]`, etc.  surfacing the source title, abstract, and URL on hover. They typically originate from tool outputs, where middleware assigns each result a stable `position` (see the [`CitationMiddleware` example](./build-agent-maf.md#middleware) earlier).
+Citations render as footnote-style references inline with the reply a `[1]`, `[2]`, etc. a surfacing the source title, abstract, and URL on hover. They originate from tool outputs, where the collector from [Grounding responses with citations](./build-agent.md#grounding-responses-with-citations) assigned each result a stable position.
 
-When building the final reply, attach only the citations whose `position` actually appears in the streamed text.
-```ts
+When building the final reply, attach only the citations whose position actually appears in the streamed text.
+::: zone-end
+
+::: zone pivot="python"
+```python
+
+import re
+
+from microsoft_teams.api import CitationAppearance
+
+def _attach_citations(reply: MessageActivityInput, full_text: str) -> None:
+    used_positions = {int(n) for n in re.findall(r"\[(\d+)\]", full_text)}
+    for annotation in tool_logger.citations.values():
+        pos = annotation["position"]
+        if pos in used_positions:
+            reply.add_citation(
+                position=pos,
+                appearance=CitationAppearance(
+                    name=annotation.get("title") or f"Source {pos}",
+                    abstract=annotation.get("snippet") or "No description available.",
+                    url=annotation.get("url"),
+                ),
+            )
+```
+
+`tool_logger` is the `CitationMiddleware` instance from [Build an agent](./build-agent.md#grounding-responses-with-citations); its `citations` dict is reset at the start of each turn.
+::: zone-end
+
+::: zone pivot="typescript"
+Use the `CitationCollector` from [Build an agent](./build-agent.md#grounding-responses-with-citations). `attachCitations` reads the `[N]` markers out of the streamed text and writes a citation entity onto the final activity for each one it has data for.
+
+```typescript
+
 attachCitations(activity: MessageActivity, fullText: string): number {
   const used = new Set<number>();
   for (const match of fullText.matchAll(/\[(\d+)\]/g)) used.add(Number(match[1]));
@@ -350,9 +349,11 @@ attachCitations(activity: MessageActivity, fullText: string): number {
   return attached;
 }
 ```
-Assemble the final marker activity with everything at once — the AI label, custom feedback, citations, and follow-up chips — then emit it so the streamer folds them into the final message:
 
-```ts
+Assemble the final marker activity with everything at once a the AI label, custom feedback, citations, and follow-up chips a then emit it so the streamer folds them into the final message:
+
+```typescript
+
 const finalMarker = new MessageActivity().addAiGenerated().addFeedback('custom');
 result.citations.attachCitations(finalMarker, result.fullText);
 if (result.followUps.length > 0) {
@@ -363,6 +364,13 @@ if (result.followUps.length > 0) {
 }
 stream.emit(finalMarker);
 ```
-
-:::image type="content" source="~/assets/screenshots/citations.gif" alt-text="Animated screenshot showing user hovering over a footnote citation in agent response, and a pop-up showing explanatory text." lightbox="~/assets/screenshots/citations.gif" :::
 ::: zone-end
+
+::: zone pivot="python,typescript"
+<img
+  src={CitationsImgUrl}
+  alt="Animated screenshot showing a user hovering over a footnote citation in an agent response, with a pop-up showing explanatory text."
+  style={{ width: '100%', maxWidth: 900 }}
+/>
+::: zone-end
+

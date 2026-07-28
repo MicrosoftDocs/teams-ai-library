@@ -1,33 +1,34 @@
----
-title: 'Teams Core Concepts'
-description: 'Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.'
+﻿---
+title: Teams Core Concepts
+description: Understand Teams app architecture including app registration, Azure Bot Service, DevTunnel, and sideloading processes.
 ms.topic: how-to
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Teams Core Concepts
 
-Running an agent on Teams involves several moving pieces  an app registration, an Azure or Teams-managed bot, a public messaging endpoint, and a sideloaded app package. Understanding these components helps you debug and deploy your agent confidently. The [Teams Developer CLI](../developer-tools/cli.md) automates all of them with a single `teams app create` command, but it's worth knowing what it sets up underneath.
+Running an agent on Teams involves several moving pieces a an app registration, an Azure or Teams-managed bot, a public messaging endpoint, and a sideloaded app package. Understanding these components helps you debug and deploy your agent confidently. The [Teams Developer CLI](../developer-tools/cli.md) automates all of them with a single `teams app create` command, but it's worth knowing what it sets up underneath.
 
 ## Basic Flow
 
-:::image type="content" source="~/assets/diagrams/teams-core-concepts-1.png" alt-text="Flowchart showing Basic Flow" lightbox="~/assets/diagrams/teams-core-concepts-1.png" :::
-**Teams**
+:::image type="content" source="~/assets/diagrams/teams-core-concepts-1.png" alt-text="flowchart for Basic Flow" lightbox="~/assets/diagrams/teams-core-concepts-1.png" :::
+
+## Teams
 
 - Teams Client: User-facing agent that interacts with the user.
-- Teams Backend: Part of your app package; includes a manifest with your apps client ID.
+- Teams Backend: Part of your app package; includes a manifest with your appaTMs client ID.
 
-**Azure**
+## Azure
 
 - App Registration: Contains a unique client ID and secret for your app.
 - Azure Bot: Connects your app to Teams; contains a pointer to your HTTPS URL.
 
-**Local Server**
+## Local Server
 
 - Dev Tunnel: Public-facing HTTPS tunnel to expose your local machine.
 - Local App: Your application running locally; handles events from Teams and sends responses.
 
-**Deployed Server**
+## Deployed Server
 
 - Deployed App: Your app deployed to the cloud with a public HTTPS endpoint; also interacts with Teams.
 
@@ -45,15 +46,15 @@ When working with Teams, these are the key concepts. Keep in mind, this is a sim
 
 ## DevTunnel
 
-[DevTunnel](/azure/developer/dev-tunnels/overview/) is a critical component that makes your locally running agent accessible to Teams. When you set up a DevTunnel, it:
+[DevTunnel](/azure/developer/dev-tunnels/overview) is a critical component that makes your locally running agent accessible to Teams. When you set up a DevTunnel, it:
 
 - Creates a secure public HTTPS endpoint that forwards to your local server
 - Manages SSL certificates automatically
 - Routes Teams messages and events to your local agent
 
 > [!NOTE]
->
 > DevTunnel is only one way of exposing your locally running service to the internet. Other tools like ngrok can also accomplish the same thing.
+
 ## Teams App Provisioning
 
 Before your agent can interact with Teams, it needs to be properly registered and configured. This step handles creating or updating the App Registration and creating or registering the Azure Bot instance in Azure.
@@ -62,7 +63,7 @@ Before your agent can interact with Teams, it needs to be properly registered an
 
 - Creates an App ID (i.e. Client ID) in the Teams platform
 - Sets up a bot registration with the Bot Framework
-- Creates a client secret that your agent can use to authenticate to send and receive messages. The [Teams Developer CLI](../developer-tools/cli.md) writes this value to `.env` (or `appsettings.json` for C#) automatically when you run `teams app create`.
+- Creates a client secret that your agent can use to authenticate to send and receive messages. The [Teams Developer CLI](/cli/) writes this value to `.env` (or `appsettings.json` for C#) automatically when you run `teams app create`.
 
 ### Azure Bot
 
@@ -82,9 +83,8 @@ Sideloading is the process of installing your agent in Teams. You are able to pa
 
 To test your app in Teams you need, at minimum, a provisioned bot. You'll likely also have other resources such as storage.
 
-The fastest path is `teams app create`, which provisions a Teams-managed bot by default  no Azure subscription required. See the [Quickstart: Register your app](../get-started/quickstart-register.md).
+The fastest path is `teams app create`, which provisions a Teams-managed bot by default a no Azure subscription required. See the [Quickstart: Register your app](../get-started/quickstart-register.md).
 
-If you need OAuth or SSO (typically for delegated Microsoft Graph access on behalf of a user), the bot must be Azure-managed. Either start with `teams app create --azure --subscription <id> --resource-group <rg>`, or start Teams-managed and switch later with `teams app bot migrate <appId> --subscription <id> --resource-group <rg>` (both require an Azure subscription)  your `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID` stay the same. For a hand-rolled Azure setup, follow the [Azure Configuration](./azure-configuration.md) guide.
+If you need OAuth or SSO (typically for delegated Microsoft Graph access on behalf of a user), the bot must be Azure-managed. Either start with `teams app create --azure --subscription <id> --resource-group <rg>`, or start Teams-managed and switch later with `teams app bot migrate <appId> --subscription <id> --resource-group <rg>` (both require an Azure subscription); your `CLIENT_ID`, `CLIENT_SECRET`, and `TENANT_ID` stay the same. For a hand-rolled Azure setup, follow the [Azure Configuration](https://microsoft.github.io/teams-sdk/teams/azure-configuration/) guide.
 
-For deploying your bot's endpoint to App Service, Container Apps, or other Azure compute, see the Microsoft Learn [deployment overview](/microsoftteams/deploy-overview/).
-
+For deploying your bot's endpoint to App Service, Container Apps, or other Azure compute, see the Microsoft Learn [deployment overview](/microsoftteams/deploy-overview).

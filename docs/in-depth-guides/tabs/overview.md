@@ -1,19 +1,18 @@
 ---
-title: 'Tabs'
-description: 'Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.'
+title: Tabs
+description: Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Tabs
-
 ::: zone pivot="python"
 This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="typescript,csharp"
-Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library/) (TeamsJS) to interact with the app host.
+Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft 365. Tabs are commonly implemented as Single Page Applications that use the Teams [JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library) (TeamsJS) to interact with the app host.
 ::: zone-end
 
 ::: zone pivot="csharp"
@@ -21,7 +20,7 @@ This SDK does not offer features for implementing Tab apps in C#. It does howeve
 ::: zone-end
 
 ::: zone pivot="typescript"
-Tab apps will often need to interact with remote services. They may need to fetch data from [Microsoft Graph](/graph/overview/) or invoke remote agent functions, using the [Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication/) (NAA) and the [Microsoft Authentication Library](/entra/identity-platform/msal-overview/) (MSAL) to ensure user consent and to allow the remote service authenticate the user.
+Tab apps will often need to interact with remote services. They may need to fetch data from [Microsoft Graph](/graph/overview) or invoke remote agent functions, using the [Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication) (NAA) and the [Microsoft Authentication Library](/entra/identity-platform/msal-overview) (MSAL) to ensure user consent and to allow the remote service authenticate the user.
 
 The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to streamline these common scenarios. It aims to simplify:
 
@@ -32,28 +31,30 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 ::: zone-end
 
 ::: zone pivot="typescript,csharp"
+
 ## Resources
 
-- [Tabs overview](/microsoftteams/platform/tabs/what-are-tabs/)
-- [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library/)
-- [Microsoft Graph overview](/graph/overview/)
-- [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview/)
-- [Nested App Authentication (NAA)](/microsoftteams/platform/concepts/authentication/nested-authentication/)
+
+- [Tabs overview](/microsoftteams/platform/tabs/what-are-tabs?tabs=personal)
+- [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library)
+- [Microsoft Graph overview](/graph/overview)
+- [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview)
+- [Nested App Authentication (NAA)](/microsoftteams/platform/concepts/authentication/nested-authentication)
 ::: zone-end
 
 ::: zone pivot="csharp"
-### Additional resources
+
+### Additional resources for C sharp
 
 - [Static Pages](../server/static-pages.md)
-- [TypeScript Tabs in-depth guide](./overview.md?tabs=typescript)
+- [TypeScript Tabs in-depth guide](../../in-depth-guides/tabs/overview.md)
 ::: zone-end
 
 ::: zone pivot="typescript"
-### Additional resources
+
+### Additional resources for JavaScript
 
 - [Static Pages](../server/static-pages.md)
 ::: zone-end
-
-
 
 

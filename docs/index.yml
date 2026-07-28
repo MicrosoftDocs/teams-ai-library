@@ -188,22 +188,24 @@ landingContent:
         links:
           - text: Observability & Logging
             url: ./in-depth-guides/observability/logging.md
-          - text: OpenTelemetry
-            url: ./in-depth-guides/observability/open-telemetry.md
           - text: Middleware
             url: ./in-depth-guides/observability/middleware.md
+          - text: HTTP Server
+            url: ./in-depth-guides/server/http-server.md
           - text: Feedback Integration
             url: ./in-depth-guides/feedback.md
           - text: Message Reactions
             url: ./in-depth-guides/message-reactions.md
-          - text: HTTP Server
-            url: ./in-depth-guides/server/http-server.md
+          - text: Static Pages
+            url: ./in-depth-guides/server/static-pages.md
       - linkListType: concept
         links:
           - text: Migrations Overview
             url: ./migrations/overview.md
           - text: Migrate from BotBuilder
             url: ./migrations/botbuilder/overview.md
+          - text: From V2 Previews
+            url: ./migrations/v2-previews.md
           - text: Using the BotBuilder Plugin
             url: ./migrations/botbuilder/integration.md
           - text: Sending Activities (BotBuilder)
@@ -212,6 +214,14 @@ landingContent:
             url: ./migrations/botbuilder/proactive-activities.md
           - text: User Authentication (BotBuilder)
             url: ./migrations/botbuilder/user-authentication.md
+      - linkListType: concept
+        links:
+          - text: Tabs Overview
+            url: ./in-depth-guides/tabs/overview.md
+          - text: Tabs Getting Started
+            url: ./in-depth-guides/tabs/getting-started.md
+          - text: Tabs Functions Overview
+            url: ./in-depth-guides/tabs/functions/overview.md
 
   # SDK References & Resources
   - title: Reference and resources

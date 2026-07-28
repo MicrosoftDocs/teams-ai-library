@@ -1,9 +1,9 @@
 ---
-title: 'App Options'
-description: 'Configure app settings for observability, MSAL authentication, and remote agent function calling.'
+title: App Options
+description: Configure app settings for observability, MSAL authentication, and remote agent function calling.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # App Options
@@ -21,6 +21,7 @@ remote agent function calling. Each setting is optional, with the app using a re
 If no logger is specified in the app options, the app will create a [ConsoleLogger](../observability/logging.md). You can however provide your own logger implementation to control log level and destination.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 import { ConsoleLogger } from '@microsoft/teams.common';
 
@@ -40,6 +41,7 @@ The remote API options let you control which endpoint that `app.exec()` make a r
 The `baseUrl` value is used to provide the URL where the remote API is hosted. This can be omitted if the tab app is hosted on the same domain as the remote agent.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 
 const app = new App(clientId, {
@@ -59,6 +61,7 @@ await app.exec('my-function');
 The `remoteAppResource` value is used to control the default resource name used when building a token request for the Entra token to include when invoking the function. This can be omitted if the tab app and the remote agent app are in the same AAD app, but should be provided if they're in different apps or the agent requires scopes for a different resource than the default `api://<clientId>/access_as_user`.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 
 const app = new App(clientId, {
@@ -91,6 +94,7 @@ You have three options to control the MSAL instance used by the app.
 If the app options contain neither an MSAL instance nor an MSAL configuration, the app constructs a simple MSAL configuration that is suitable for multi-tenant apps and that connects the MSAL logger callbacks to the app logger.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 
 const app = new App(clientId);
@@ -105,6 +109,7 @@ await app.start();
 MSAL offers a rich set of configuration options, and you can provide your own configuration as an app option.
 
 ```typescript
+
 import * as msal from '@azure/msal-browser';
 import { App } from '@microsoft/teams.client';
 
@@ -122,6 +127,7 @@ await app.start();
 MSAL cautions against an app using multiple IPublicClientApp instances at the same time. If you're already using MSAL, you can provide a pre-created MSAL instance to use as an app option.
 
 ```typescript
+
 import * as msal from '@azure/msal-browser';
 import { App } from '@microsoft/teams.client';
 
@@ -137,6 +143,7 @@ await app.start();
 If you need multiple app instances in order to call functions in several agents, you can re-use the MSAL instance from one as you construct another.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 
 // let app1 create & initialize an MSAL IPublicClientApplication
@@ -171,6 +178,7 @@ For more details on how and when to prompt for scope consent, see the [Graph](./
 If the app is started without specifying any option to control scope pre-warming, the `.default` scope is pre-warmed. This means that in a first-run experience, the user would be prompted to consent for all Graph permissions listed in the app manifest. However, if the user has consented to at least one Graph permission, any one at all, no prompt appears.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 
 const app = new App(clientId);
@@ -180,15 +188,16 @@ const app = new App(clientId);
 await app.start();
 ```
 
-> [!NOTE]
->
-> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::info
+The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::
 
 #### Pre-warm a specific set of scopes
 
 If your app requires a specific set of scopes in order to run well, you can list those in the set of scopes to pre-warm.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 
 const app = new App(clientId, {
@@ -200,15 +209,16 @@ const app = new App(clientId, {
 await app.start();
 ```
 
-> [!NOTE]
->
-> The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::info
+The user can decline the prompt and the app will still continue to run. However, the user will again be prompted next time they launch the app.
+:::
 
 #### Disabling pre-warming
 
 Scope pre-warming can be disabled if needed. This is useful if your app doesn't use graph APIs, or if you want more control over the consent prompt.
 
 ```typescript
+
 import { App } from '@microsoft/teams.client';
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -224,12 +234,12 @@ await app.start();
 const top10Chats = await app.graph.call(endpoints.chats.list, { $top: 10 });
 ```
 
-> [!NOTE]
->
-> Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
+:::info
+Even if pre-warming is disabled and the user is not prompted to consent, a prompt for the `.default` scope will appear when invoking any graph API.
+:::
 
 ## References
 
-[MSAL Configuration](/entra/identity-platform/msal-client-application-configuration/)
+[MSAL Configuration](/entra/identity-platform/msal-client-application-configuration)
 ::: zone-end
 

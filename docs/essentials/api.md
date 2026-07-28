@@ -1,10 +1,11 @@
 ---
-title: 'Teams API Client'
-description: 'Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.'
+title: Teams API Client
+description: Overview of the Teams API Client and how to use it to interact with conversations, meetings, and teams in your application.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
+
 
 # Teams API Client
 
@@ -56,18 +57,15 @@ In this example, we use the API client to fetch the members in a conversation. T
 
 
 ::: zone pivot="csharp"
-
-
 ```csharp
+
 app.OnMessage(async (context, cancellationToken) =>
-{
-    var members = await context.Api.Conversations.Members.Get(context.Conversation.Id);
-});
 ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
+
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     members = await ctx.api.conversations.members.get(ctx.activity.conversation.id)
@@ -76,6 +74,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('message', async ({ activity, api }) => {
   const members = await api.conversations.members(activity.conversation.id).get();
 });
@@ -90,18 +89,21 @@ It's also possible to access the API client from outside a handler via the app i
 
 ::: zone pivot="csharp"
 ```csharp
+
 var members = await app.Api.Conversations.Members.Get("...");
 ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
+
 members = await app.api.conversations.members.get("...")
 ```
 ::: zone-end
 
 ::: zone pivot="typescript"
 ```typescript
+
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 const res = await app.api.graph.call(endpoints.chats.getAllMessages.get);
@@ -121,6 +123,7 @@ In this example, we use the API client to get a specific meeting participant's d
 
 ::: zone pivot="csharp"
 ```csharp
+
 app.OnMeetingStart(async (context, cancellationToken) =>
 {
     var meetingId = context.Activity.Value.Id;
@@ -139,6 +142,7 @@ app.OnMeetingStart(async (context, cancellationToken) =>
 
 ::: zone pivot="python"
 ```python
+
 @app.on_activity("meetingStart")
 async def handle_meeting_start(ctx: ActivityContext):
     meeting_id = ctx.activity.channel_data.meeting.id
@@ -154,6 +158,7 @@ async def handle_meeting_start(ctx: ActivityContext):
 
 ::: zone pivot="typescript"
 ```typescript
+
 app.on('meetingStart', async ({ activity, api }) => {
   const meetingId = activity.channelData?.meeting?.id;
   const tenantId = activity.channelData?.tenant?.id;

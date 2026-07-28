@@ -1,18 +1,19 @@
 ---
-title: 'App Authentication'
-description: 'Configure app authentication in your Teams SDK application using client secrets, user assigned managed identities, or federated identity credentials'
+title: App Authentication
+description: Configure app authentication in your Teams SDK application using client secrets, user assigned managed identities, or federated identity credentials
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # App Authentication
 
+
 Your application needs to authenticate to send messages to Teams as your bot. Authentication allows your app service to certify that it is _allowed_ to send messages as your Azure Bot.
 
-> [!NOTE]
->
-> **Azure Setup Required** - Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](../../teams/app-authentication/overview.md) guide for instructions on creating the necessary Azure resources.
+:::info Azure Setup Required
+Before configuring your application, you must first set up authentication in Azure. See the [App Authentication Setup](../../teams/app-authentication/overview.md) guide for instructions on creating the necessary Azure resources.
+:::
 
 ## Authentication Methods
 
@@ -27,7 +28,7 @@ There are 3 main ways of authenticating:
 The Teams SDK automatically detects which authentication method to use based on the environment variables you set:
 
 | CLIENT_ID | CLIENT_SECRET | MANAGED_IDENTITY_CLIENT_ID | Authentication Method |
-|-|-|-|-|
+| --- | --- | --- | --- |
 | not_set | | | No-Auth (local development only) |
 | set | set | | Client Secret |
 | set | not_set | | User Assigned Managed Identity |
@@ -39,11 +40,11 @@ The Teams SDK automatically detects which authentication method to use based on 
 
 The simplest authentication method using a password-like secret.
 
-### Setup
+### User Assigned Managed Identity Setup
 
 First, complete the [Client Secret Setup](../../teams/app-authentication/client-secret.md) in Azure Portal or Azure CLI.
 
-### Configuration
+### User Assigned Managed Identity Configuration
 
 Set the following environment variables in your application:
 
@@ -52,9 +53,11 @@ Set the following environment variables in your application:
 - `TENANT_ID`: The tenant id where your bot is registered
 
 ```env
+
 CLIENT_ID=your-client-id-here
 CLIENT_SECRET=your-client-secret-here
 TENANT_ID=your-tenant-id
+
 ```
 
 The SDK will automatically use Client Secret authentication when both `CLIENT_ID` and `CLIENT_SECRET` are provided.
@@ -76,12 +79,18 @@ First, complete the [User Assigned Managed Identity Setup](../../teams/app-authe
 > The environment file approach is not yet supported for C#. You need to configure authentication programmatically in your code.
 
 In your `Program.cs`, replace the initialization:
+
 ```csharp
+
 var builder = WebApplication.CreateBuilder(args);
 builder.AddTeams();
+
 ```
-with the following code to enable User Assigned Managed Identity authentication:
+
+ith the following code to enable User Assigned Managed Identity authentication:
+
 ```csharp
+
 var builder = WebApplication.CreateBuilder(args);
 
 Func<string[], string?, Task<ITokenResponse>> createTokenFactory = async (string[] scopes, string? tenantId) =>
@@ -108,11 +117,12 @@ var appBuilder = App.Builder()
     ));
 
 builder.AddTeams(appBuilder);
+
 ```
 
 The `createTokenFactory` function provides a method to retrieve access tokens from Azure on demand, and `TokenCredentials` passes this method to the app.
 
-## Configuration
+## User Assigned Managed Identity Environment Variables
 
 Set the following environment variable:
 
@@ -122,7 +132,7 @@ Set the following environment variable:
 ::: zone pivot="python,typescript"
 Your application should automatically use User Assigned Managed Identity authentication when you provide the `CLIENT_ID` environment variable without a `CLIENT_SECRET`.
 
-## Configuration
+## Federated Identity Credentials Environment Variables
 
 Set the following environment variables in your application:
 
@@ -131,13 +141,14 @@ Set the following environment variables in your application:
 - `TENANT_ID`: The tenant id where your bot is registered
 
 ```env
+
 CLIENT_ID=your-client-id-here
 # Do not set CLIENT_SECRET
 TENANT_ID=your-tenant-id
+
 ```
+
 ::: zone-end
-
-
 ## Federated Identity Credentials
 
 Advanced identity federation allowing you to assign managed identities directly to your App Registration.
@@ -158,42 +169,48 @@ Advanced identity federation allowing you to assign managed identities directly 
 ::: zone-end
 
 
-### Setup
+### Federated Identity Credentials Setup
 
 First, complete the [Federated Identity Credentials Setup](../../teams/app-authentication/federated-identity-credentials.md) in Azure Portal or Azure CLI.
 
-### Configuration
+### Federated Identity Credentials Configuration
 
 Depending on the type of managed identity you select, set the environment variables accordingly.
 
 **For User Assigned Managed Identity:**
 
 Set the following environment variables:
+
 - `CLIENT_ID`: Your Application (client) ID
 - `MANAGED_IDENTITY_CLIENT_ID`: The Client ID for the User Assigned Managed Identity resource
 - **Do not set** `CLIENT_SECRET`
 - `TENANT_ID`: The tenant id where your bot is registered
 
 ```env
+
 CLIENT_ID=your-app-client-id-here
 MANAGED_IDENTITY_CLIENT_ID=your-managed-identity-client-id-here
 # Do not set CLIENT_SECRET
 TENANT_ID=your-tenant-id
+
 ```
 
 **For System Assigned Identity:**
 
 Set the following environment variables:
+
 - `CLIENT_ID`: Your Application (client) ID
 - `MANAGED_IDENTITY_CLIENT_ID`: `system`
 - **Do not set** `CLIENT_SECRET`
 - `TENANT_ID`: The tenant id where your bot is registered
 
 ```env
+
 CLIENT_ID=your-app-client-id-here
 MANAGED_IDENTITY_CLIENT_ID=system
 # Do not set CLIENT_SECRET
 TENANT_ID=your-tenant-id
+
 ```
 
 ## Sovereign Cloud
@@ -201,7 +218,9 @@ TENANT_ID=your-tenant-id
 If your bot runs in a US Government (GCC-High, DoD) or China (21Vianet) cloud environment, add the `CLOUD` environment variable to your configuration:
 
 ```env
+
 CLOUD=USGov
+
 ```
 
 Valid values: `Public` (default), `USGov`, `USGovDoD`, `China`
@@ -211,4 +230,5 @@ The SDK automatically configures all authentication endpoints for the specified 
 ## Troubleshooting
 
 If you encounter authentication errors, see the [Authentication Troubleshooting](../../teams/app-authentication/troubleshooting.md) guide for common issues and solutions.
+
 

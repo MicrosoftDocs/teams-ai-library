@@ -1,13 +1,12 @@
 ---
-title: 'Proactive Activities'
-description: 'Migrate from BotBuilder''s complex conversation reference handling to Teams SDK''s simple conversation ID-based proactive messaging.'
+title: Proactive Activities
+description: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 06/29/2026
+ms.date: 07/27/2026
 ---
 
 # Proactive Activities
-
 ::: zone pivot="csharp"
 The BotBuilder proactive message flow requires storing a conversation reference.
 In Teams SDK, we expose a `SendAsync` method in the `App` class, almost identical to the one
@@ -28,9 +27,11 @@ passed into our activity handlers through our context. This method accepts a `co
 
 
 ::: zone pivot="csharp"
+
 # [Diff](#tab/diff)
 
 ```csharp
+
     // highlight-error-start
 -   using Microsoft.Bot.Builder;
 -   using Microsoft.Bot.Builder.Integration.AspNet.Core;
@@ -62,12 +63,13 @@ passed into our activity handlers through our context. This method accepts a `co
 +   var teams = app.UseTeams();
 +   await teams.Send("your-conversation-id", "proactive hello");
     // highlight-success-end
-```
+    ```
 
+---
 
 # [BotBuilder](#tab/botbuilder)
-
-```csharp showLineNumbers
+```csharp
+showLineNumbers
     using Microsoft.Bot.Builder;
     using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Bot.Schema;
@@ -91,28 +93,26 @@ passed into our activity handlers through our context. This method accepts a `co
         },
         default);
     // highlight-end
-```
+    ```
 
+---
 
 # [Teams SDK](#tab/teams-sdk)
-
-```csharp showLineNumbers
+```csharp
+showLineNumbers
     using Microsoft.Teams.Apps;
 
     // highlight-start
     var teams = app.UseTeams();
     await teams.Send("your-conversation-id", "proactive hello");
     // highlight-end
-```
-
-
----
+    ```
 ::: zone-end
 
 ::: zone pivot="python"
 # [Diff](#tab/diff)
-
 ```python
+
     # highlight-error-start
 -   from botbuilder.core import TurnContext
 -   from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
@@ -147,12 +147,13 @@ passed into our activity handlers through our context. This method accepts a `co
     # highlight-success-start
 +   await app.send("your-conversation-id", "proactive hello")
     # highlight-success-end
-```
+    ```
 
+---
 
 # [BotBuilder](#tab/botbuilder)
-
-```python showLineNumbers
+```python
+showLineNumbers
     from botbuilder.core import TurnContext
     from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
     from botbuilder.schema import ChannelAccount, ConversationAccount, ConversationReference
@@ -176,12 +177,13 @@ passed into our activity handlers through our context. This method accepts a `co
         send_proactive
     )
     # highlight-end
-```
+    ```
 
+---
 
 # [Teams SDK](#tab/teams-sdk)
-
-```python showLineNumbers
+```python
+showLineNumbers
     from microsoft_teams.apps import App
 
     app = App()
@@ -189,16 +191,13 @@ passed into our activity handlers through our context. This method accepts a `co
     # highlight-start
     await app.send("your-conversation-id", "proactive hello")
     # highlight-end
-```
-
-
----
+    ```
 ::: zone-end
 
 ::: zone pivot="typescript"
 # [Diff](#tab/diff)
-
 ```typescript
+
     // highlight-error-start
 -    import {
 -      CloudAdapter,
@@ -235,12 +234,13 @@ passed into our activity handlers through our context. This method accepts a `co
 +      await app.send('your-conversation-id', 'proactive hello');
       // highlight-success-end
     }());
-```
+    ```
 
+---
 
 # [BotBuilder](#tab/botbuilder)
-
-```typescript showLineNumbers
+```typescript
+showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -265,12 +265,13 @@ passed into our activity handlers through our context. This method accepts a `co
       });
     }());
     // highlight-end
-```
+    ```
 
+---
 
 # [Teams SDK](#tab/teams-sdk)
-
-```typescript showLineNumbers
+```typescript
+showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();
@@ -281,10 +282,7 @@ passed into our activity handlers through our context. This method accepts a `co
       await app.send('your-conversation-id', 'proactive hello');
     }());
     // highlight-end
-```
-
-
----
+    ```
 ::: zone-end
 
 
