@@ -1,11 +1,10 @@
 ---
 title: From V2 Previews
-description: Migrate JavaScript apps from Teams SDK v2 preview releases to current versions, including Graph client breaking changes.
+description: Learn about the breaking changes when moving from preview versions of the Teams SDK.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 # From V2 Previews
 
 ::: zone pivot="csharp,python"
@@ -27,9 +26,7 @@ The first step in the migration is to install the `@microsoft/teams.graph-endpoi
 
 This package is installed just like any other NPM package, using your package manager of choice. For instance:
 
-```text
-s
-
+```sh
 npm install @microsoft/teams.graph-endpoints
 ```
 
@@ -42,7 +39,6 @@ Once the endpoints dependency is installed, the code changes should be fairly st
 In earlier preview versions, the way to get details for the current user was:
 
 ```typescript
-
 // GET /me
 const me = await app.graph.me.get();
 ```
@@ -50,7 +46,6 @@ const me = await app.graph.me.get();
 In current versions, the equivalent method is:
 
 ```typescript
-
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 // GET /me
@@ -62,7 +57,6 @@ const me = await app.graph.call(endpoints.me.get);
 In earlier preview versions, variables were passes as an argument when invoking the endpoint. To get details for a specific user, you would do the following:
 
 ```typescript
-
 // GET /users/{id | userPrincipalName}
 const user = await app.graph.users.get({ 'user-id': userId });
 ```
@@ -70,7 +64,6 @@ const user = await app.graph.users.get({ 'user-id': userId });
 In current versions, the variables are provided as a separate argument after the endpoint:
 
 ```typescript
-
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 // GET /users/{id | userPrincipalName}
@@ -82,7 +75,6 @@ const user = await app.graph.call(endpoints.users.get, { 'user-id': userId });
 In earlier preview versions, some endpoints required the same argument to be provided twice. For instance:
 
 ```typescript
-
 // GET /teams/{team-id}/installedApps`
 const apps = await app.graph.teams.installedApps(teamId).list({ 'team-id': teamId });
 ```
@@ -90,7 +82,6 @@ const apps = await app.graph.teams.installedApps(teamId).list({ 'team-id': teamI
 In current versions, once is enough:
 
 ```typescript
-
 // GET /teams/{team-id}/installedApps`
 const apps = await app.graph.call(endpoints.teams.installedApps.list, { 'team-id': teamId });
 ```
@@ -100,7 +91,6 @@ const apps = await app.graph.call(endpoints.teams.installedApps.list, { 'team-id
 If you find it helpful for readability, you can scope your endpoint import as you prefer. For instance:
 
 ```typescript
-
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 import { me } from '@microsoft/teams.graph-endpoints';
 import { presence } from '@microsoft/teams.graph-endpoints/me';
@@ -116,6 +106,5 @@ await app.graph.call(setPresence.create, newPresence);
 await app.graph.call(updatePresence, newPresence);
 ```
 ::: zone-end
-
 
 

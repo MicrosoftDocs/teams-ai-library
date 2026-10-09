@@ -1,11 +1,12 @@
 ---
-title: YZ Microsoft 365 Agents Playground
+title: Microsoft 365 Agents Playground
 description: Test your Teams agent locally with the Microsoft 365 Agents Playground CLI.
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
 
-# YZ Microsoft 365 Agents Playground
+
+# Microsoft 365 Agents Playground
 
 The Microsoft 365 Agents Playground is a local testing tool for agents built with the Teams SDK. It lets you chat with your agent, mock activities, and inspect requests and responses without sideloading into Teams.
 
@@ -16,14 +17,12 @@ The Microsoft 365 Agents Playground is a local testing tool for agents built wit
 ### Option 1: npm (recommended)
 
 ```bash
-
 npm install -g @microsoft/m365agentsplayground
 ```
 
 ### Option 2: Standalone binary
 
 ```bash
-
 winget install agentsplayground
 ```
 
@@ -40,47 +39,50 @@ The Playground sends requests without a Bot Framework JWT, so your agent needs t
 By default the SDK **rejects** unauthenticated requests, so a freshly scaffolded agent rejects every request the Playground sends and logs:
 
 > [!WARNING]
->
-> No credentials configured and skipAuth is not enabled. All incoming requests will be rejected. Configure client authentication to securely receive messages, or set skipAuth for local development.
+> No credentials configured and dangerouslyAllowUnauthenticatedRequests is not enabled. All incoming requests will be rejected. Configure client authentication to securely receive messages, or set dangerouslyAllowUnauthenticatedRequests: true for local development.
 
-To accept the Playground's requests during local development, enable `skipAuth` on your app:
+To accept the Playground's requests during local development, enable unauthenticated requests on your app:
 
 # [TypeScript](#tab/typescript)
-```typescript
-title="src/index.ts"
-const app = new App({ skipAuth: true });
+```typescript title="src/index.ts"
+const app = new App({ dangerouslyAllowUnauthenticatedRequests: true });
 ```
 
 ---
 
 # [C#](#tab/csharp)
-```csharp
-title="Program.cs"
-builder.AddTeams(skipAuth: true);
+```json title="Properties/launchSettings.json"
+{
+  "profiles": {
+    "YourBot": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AzureAd__DangerouslyAllowUnauthenticatedRequests": "true"
+      }
+    }
+  }
+}
 ```
 
 ---
 
 # [Python](#tab/python)
-```python
-title="src/main.py"
-app = App(skip_auth=True)
+```python title="src/main.py"
+app = App(dangerously_allow_unauthenticated_requests=True)
 ```
 
 > [!WARNING]
->
-> Only use `skipAuth` for local development a never in production, as it disables inbound request authentication.
+> Only enable unauthenticated requests for local development — never in production, as it disables inbound request authentication.
 
 ### Why this is needed
 
-`DevtoolsPlugin` previously bypassed JWT validation implicitly because it ran in-process and never went through `/api/messages` over HTTP. The Playground sends real HTTP requests, so the bot's JWT validator runs unless `skipAuth` is enabled.
+`DevtoolsPlugin` previously bypassed JWT validation implicitly because it ran in-process and never went through `/api/messages` over HTTP. The Playground sends real HTTP requests, so the bot's JWT validator runs unless unauthenticated requests are explicitly enabled.
 
 ## Launch
 
 Start your agent locally (default port `3978`), then run:
 
 ```bash
-
 agentsplayground -e http://localhost:3978/api/messages -c msteams
 ```
 
@@ -88,10 +90,10 @@ The playground opens at [http://localhost:56150](http://localhost:56150).
 
 ### Common flags
 
-- `-e, --app-endpoint` - your agent's endpoint, e.g. `http://localhost:3978/api/messages`
-- `-c, --channel-id` a `emulator`, `webchat`, `msteams`, `directline`, or `agents`
-- `--client-id`, `--client-secret`, `--tenant-id` a credentials when your agent requires authentication
-- `-p, --port` a port for the playground UI (default `56150`)
+- `-e, --app-endpoint` — your agent's endpoint, e.g. `http://localhost:3978/api/messages`
+- `-c, --channel-id` — `emulator`, `webchat`, `msteams`, `directline`, or `agents`
+- `--client-id`, `--client-secret`, `--tenant-id` — credentials when your agent requires authentication
+- `-p, --port` — port for the playground UI (default `56150`)
 
 Run `agentsplayground --help` for the full list.
 
@@ -99,12 +101,11 @@ Run `agentsplayground --help` for the full list.
 
 Type a message in the compose box and send it. Your agent's reply renders inline.
 
-:::image type="content" source="~/assets/screenshots/agents-playground-echo-chat.png" alt-text="Microsoft 365 Agents Playground showing a user message hello and an agent reply you said hello." lightbox="~/assets/screenshots/agents-playground-echo-chat.png" :::
+:::image type="content" source="~/assets/screenshots/agents-playground-echo-chat.png" alt-text="Microsoft 365 Agents Playground showing a user message 'hello!' and an agent reply that says 'you said hello!'." lightbox="~/assets/screenshots/agents-playground-echo-chat.png" :::
 
 Use the **Mock an Activity** menu to send custom activity types (membership changes, invokes, message reactions, and more). Use the **Debug Options** menu to control delivery mode and logging. The **Log Panel** (toggle from the top right) shows the HTTP exchange between the playground and your agent.
 
 ## Learn more
 
-- [Test your agent locally in Microsoft 365 Agents Playground](/microsoft-365/agents-sdk/test-with-toolkit-project) a full Microsoft Learn guide
+- [Test your agent locally in Microsoft 365 Agents Playground](/microsoft-365/agents-sdk/test-with-toolkit-project) — full Microsoft Learn guide
 - [Microsoft 365 Agents SDK](/microsoft-365/agents-sdk/)
-

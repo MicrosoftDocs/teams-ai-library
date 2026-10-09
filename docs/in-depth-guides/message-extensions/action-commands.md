@@ -3,9 +3,8 @@ title: Action commands
 description: Learn how to create action commands for message extensions that present modal dialogs to collect or display information in Teams.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Action commands
 
@@ -28,7 +27,6 @@ There are three different areas action commands can be invoked from:
 :::image type="content" source="~/assets/screenshots/message.png" alt-text="Screenshot of message extension response in Teams. By selecting the '...' button, a menu has opened with 'More actions' option in which they can select from a list of available message extension actions." lightbox="~/assets/screenshots/message.png" :::
 
 > [!TIP]
->
 > See the [Invoke Locations](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet#select-action-command-invoke-locations) guide to learn more about the different entry points for action commands.
 
 ## Setting up your Teams app manifest
@@ -36,7 +34,6 @@ There are three different areas action commands can be invoked from:
 To use action commands you have define them in the Teams app manifest. Here is an example:
 
 ```json
-
 "composeExtensions": [
     {
         "botId": "${{BOT_ID}}",
@@ -123,8 +120,9 @@ Handle submission when the `createCard` or `getMessageDetails` action commands a
 
 
 ::: zone pivot="csharp"
-```csharp
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
+```csharp
 using System.Text.Json;
 using Microsoft.Teams.Api.Activities.Invokes.MessageExtensions;
 using Microsoft.Teams.Api.MessageExtensions;
@@ -160,11 +158,38 @@ public Response OnMessageExtensionSubmit(
     }
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.MessageExtensions;
+
+//...
+
+bot.OnSubmitAction(async (context, cancellationToken) =>
+{
+    MessageExtensionAction? action = context.Activity.Value;
+    string? commandId = action?.CommandId;
+    JsonElement? data = action?.Data as JsonElement?;
+
+    return commandId switch
+    {
+        "createCard" => HandleCreateCard(data),
+        "getMessageDetails" => HandleGetMessageDetails(action),
+        _ => MessageExtensionActionResponse.CreateBuilder()
+            .WithComposeExtension(MessageExtensionResponse.CreateBuilder()
+                .WithType(MessageExtensionResponseTypes.Message)
+                .WithText($"Unknown command: {commandId}"))
+            .Build()
+    };
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import AdaptiveCardAttachment, MessageExtensionSubmitActionInvokeActivity, card_attachment
 from microsoft_teams.api.models import AttachmentLayout, MessagingExtensionActionInvokeResponse, MessagingExtensionAttachment, MessagingExtensionResult, MessagingExtensionResultType
 from microsoft_teams.apps import ActivityContext
@@ -196,7 +221,6 @@ async def handle_message_ext_submit(ctx: ActivityContext[MessageExtensionSubmitA
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
 import { IAdaptiveCard } from '@microsoft/teams.cards';
@@ -236,8 +260,8 @@ app.on('message.ext.submit', async ({ activity }) => {
 ::: zone pivot="csharp"
 `HandleCreateCard()` method
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using System.Text.Json;
 using Microsoft.Teams.Api.MessageExtensions;
 using Microsoft.Teams.Cards;
@@ -293,13 +317,56 @@ private static Response HandleCreateCard(JsonElement? data, ILogger log)
     };
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.MessageExtensions;
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Cards;
+
+//...
+
+private static InvokeResponse<MessageExtensionActionResponse> HandleCreateCard(JsonElement? data)
+{
+    var title = GetJsonValue(data, "title") ?? "Default Title";
+    var description = GetJsonValue(data, "description") ?? "Default Description";
+
+    var card = new AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("Custom Card Created")
+            {
+                Weight = TextWeight.Bolder,
+                Size = TextSize.Large,
+                Color = TextColor.Good
+            },
+            new TextBlock(title) { Weight = TextWeight.Bolder, Size = TextSize.Medium },
+            new TextBlock(description) { Wrap = true, IsSubtle = true }
+        }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(card))
+        .Build();
+
+    return MessageExtensionActionResponse.CreateBuilder()
+        .WithComposeExtension(MessageExtensionResponse.CreateBuilder()
+            .WithType(MessageExtensionResponseTypes.Result)
+            .WithAttachmentLayout(TeamsAttachmentLayouts.List)
+            .WithAttachments(attachment))
+        .Build();
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 `create_card()` method
 
-```python
-
+```py
 from typing import Dict
 from microsoft_teams.cards import AdaptiveCard
 # ...
@@ -339,7 +406,6 @@ def create_card(data: Dict[str, str]) -> AdaptiveCard:
 `createCard()` function
 
 ```typescript
-
 import { AdaptiveCard, TextBlock, Image } from '@microsoft/teams.cards';
 // ...
 
@@ -379,8 +445,8 @@ export function createCard(data: IFormData) {
 ::: zone pivot="csharp"
 `HandleGetMessageDetails()` method
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.Activities.Invokes.MessageExtensions;
 using Microsoft.Teams.Api.MessageExtensions;
@@ -434,13 +500,56 @@ private static Response HandleGetMessageDetails(SubmitActionActivity activity, I
     };
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.MessageExtensions;
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Cards;
+
+//...
+
+private static InvokeResponse<MessageExtensionActionResponse> HandleGetMessageDetails(MessageExtensionAction? action)
+{
+    var messageText = action?.MessagePayload?.Body?.Content ?? "No message content";
+    var messageId = action?.MessagePayload?.Id ?? "Unknown";
+
+    var card = new AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("Message Details")
+            {
+                Weight = TextWeight.Bolder,
+                Size = TextSize.Large,
+                Color = TextColor.Accent
+            },
+            new TextBlock($"Message ID: {messageId}") { Wrap = true },
+            new TextBlock($"Content: {messageText}") { Wrap = true }
+        }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(card))
+        .Build();
+
+    return MessageExtensionActionResponse.CreateBuilder()
+        .WithComposeExtension(MessageExtensionResponse.CreateBuilder()
+            .WithType(MessageExtensionResponseTypes.Result)
+            .WithAttachmentLayout(TeamsAttachmentLayouts.List)
+            .WithAttachments(attachment))
+        .Build();
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 `create_message_details_card()` method
 
 ```python
-
 from typing import Dict, List, Union
 from microsoft_teams.api.models.message import Message
 from microsoft_teams.cards import AdaptiveCard
@@ -503,7 +612,6 @@ def create_message_details_card(message_payload: Message) -> AdaptiveCard:
 `createMessageDetailsCard()` function
 
 ```typescript
-
 import { Message } from '@microsoft/teams.api';
 import {
   AdaptiveCard,
@@ -594,8 +702,8 @@ Handle opening adaptive card dialog when the `fetchConversationMembers` command 
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using Microsoft.Teams.Api.Activities.Invokes.MessageExtensions;
 using Microsoft.Teams.Api.MessageExtensions;
 using Microsoft.Teams.Apps.Annotations;
@@ -615,11 +723,27 @@ public async Task<ActionResponse> OnMessageExtensionFetchTask(
     return CreateFetchTaskResponse(commandId, log);
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using Microsoft.Teams.Apps.MessageExtensions;
+
+//...
+
+bot.OnFetchTask(async (context, cancellationToken) =>
+{
+    MessageExtensionAction? action = context.Activity.Value;
+    string? commandId = action?.CommandId;
+
+    return CreateFetchTaskResponse(commandId);
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import AdaptiveCardAttachment, MessageExtensionFetchTaskInvokeActivity, card_attachment
 from microsoft_teams.api.models import CardTaskModuleTaskInfo, MessagingExtensionActionInvokeResponse, TaskModuleContinueResponse
 from microsoft_teams.apps import ActivityContext
@@ -628,7 +752,7 @@ from microsoft_teams.apps import ActivityContext
 @app.on_message_ext_open
 async def handle_message_ext_open(ctx: ActivityContext[MessageExtensionFetchTaskInvokeActivity]):
     conversation_id = ctx.activity.conversation.id
-    members = await ctx.api.conversations.members(conversation_id).get_all()
+    members = await ctx.api.conversations.get_members(conversation_id)
     card = create_conversation_members_card(members)
 
     card_info = CardTaskModuleTaskInfo(
@@ -646,14 +770,13 @@ async def handle_message_ext_open(ctx: ActivityContext[MessageExtensionFetchTask
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
 // ...
 
 app.on('message.ext.open', async ({ activity, api }) => {
   const conversationId = activity.conversation.id;
-  const members = await api.conversations.members(conversationId).get();
+  const members = await api.conversations.getMembers(conversationId);
   const card = createConversationMembersCard(members);
 
   return {
@@ -678,8 +801,8 @@ app.on('message.ext.open', async ({ activity, api }) => {
 ::: zone pivot="csharp"
 `CreateFetchTaskResponse()` method
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.MessageExtensions;
 using Microsoft.Teams.Api.TaskModules;
@@ -740,13 +863,61 @@ private static Response CreateErrorActionResponse(string message)
     };
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.MessageExtensions;
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Apps.TaskModules;
+using Microsoft.Teams.Cards;
+
+//...
+
+private static InvokeResponse<MessageExtensionActionResponse> CreateFetchTaskResponse(string? commandId)
+{
+    var card = new AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("Conversation Members is not implemented in C# yet :(")
+            {
+                Weight = TextWeight.Bolder,
+                Color = TextColor.Accent
+            }
+        }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(card))
+        .Build();
+
+    return MessageExtensionActionResponse.CreateBuilder()
+        .WithTask(TaskModuleResponse.CreateBuilder()
+            .WithType(TaskModuleResponseTypes.Continue)
+            .WithTitle("Fetch Task Dialog")
+            .WithHeight(TaskModuleSizes.Small)
+            .WithWidth(TaskModuleSizes.Small)
+            .WithCard(attachment))
+        .Build();
+}
+
+// Helper method to extract JSON values
+private static string? GetJsonValue(JsonElement? data, string key)
+{
+    if (data?.ValueKind == JsonValueKind.Object && data.Value.TryGetProperty(key, out var value))
+        return value.GetString();
+    return null;
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 `create_conversation_members_card()` method
 
 ```python
-
 from typing import List
 from microsoft_teams.api import Account
 from microsoft_teams.cards import AdaptiveCard
@@ -780,7 +951,6 @@ def create_conversation_members_card(members: List[Account]) -> AdaptiveCard:
 `createConversationMembersCard()` function
 
 ```typescript
-
 import { Account } from '@microsoft/teams.api';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 // ...
@@ -809,4 +979,3 @@ export function createConversationMembersCard(members: Account[]) {
 
 - [Action commands](/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?tabs=Teams-toolkit%2Cdotnet)
 - [Returning Adaptive Card Previews in Task Modules](/microsoftteams/platform/messaging-extensions/how-to/action-commands/respond-to-task-module-submit?tabs=dotnet%2Cdotnet-1#bot-response-with-adaptive-card)
-

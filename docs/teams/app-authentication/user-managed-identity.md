@@ -2,8 +2,9 @@
 title: User Assigned Managed Identity Authentication Setup
 description: Set up User Assigned Managed Identity authentication for your Teams bot in Azure Portal or Azure CLI
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
+
 
 # User Assigned Managed Identity Authentication Setup
 
@@ -11,9 +12,7 @@ User Assigned Managed Identity authentication eliminates the need for secrets or
 
 ## Prerequisites
 
-
 Before you begin, ensure you have:
-
 - An Azure subscription
 - Permissions to create App Registrations, Azure Bot Services, and manage identities
 - A compute resource where your bot will be hosted (App Service, Container App, VM, etc.)
@@ -33,7 +32,6 @@ This will automatically create a User Assigned Managed Identity resource alongsi
 The User Assigned Managed Identity created with your bot must be assigned to the service running your application.
 
 # [Azure Portal](#tab/portal)
-
 1. Navigate to your compute resource (App Service, Container App, VM, etc.) in the Azure Portal
 2. Go to **Identity** section in the left menu
 3. Select the **User assigned** tab
@@ -44,9 +42,7 @@ The User Assigned Managed Identity created with your bot must be assigned to the
 ---
 
 # [Azure CLI](#tab/cli)
-
 ```bash
-
 # Assign user managed identity to your compute resource
 # Example for App Service:
 az webapp identity assign \
@@ -64,4 +60,3 @@ az containerapp identity assign \
 ## Next Steps
 
 After completing the Azure setup, configure your application code with the appropriate environment variables. See the App Authentication Essentials Guide for details.
-

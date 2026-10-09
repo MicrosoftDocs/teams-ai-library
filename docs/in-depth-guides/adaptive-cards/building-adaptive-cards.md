@@ -3,8 +3,9 @@ title: Building Adaptive Cards
 description: Guide to building Adaptive Cards with builder helpers for type-safe, maintainable UI development.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
+
 
 # Building Adaptive Cards
 
@@ -45,7 +46,6 @@ Each helper wraps raw JSON and provides fluent, chainable methods that keep your
 
 ::: zone pivot="csharp"
 ```csharp
-
 using Microsoft.Teams.Cards;
 
 var card = new AdaptiveCard
@@ -84,7 +84,6 @@ var card = new AdaptiveCard
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.cards import AdaptiveCard, TextBlock, ToggleInput, ActionSet, ExecuteAction
 
 card = AdaptiveCard(
@@ -106,7 +105,6 @@ card = AdaptiveCard(
 
 ::: zone pivot="typescript"
 ```ts
-
 import {
   AdaptiveCard,
   TextBlock,
@@ -132,31 +130,31 @@ Benefits:
 
 | Benefit     | Description                                                                   |
 | ----------- | ----------------------------------------------------------------------------- |
-| Readability | No deep JSON treesajust chain simple methods.                                 |
-| Reause      | Extract snippets to functions or classes and share across cards.              |
+| Readability | No deep JSON trees—just chain simple methods.                                 |
+| Re‑use      | Extract snippets to functions or classes and share across cards.              |
 | Safety      | Builders validate every property against the Adaptive Card schema (see next). |
 
 
 ::: zone pivot="csharp"
-:::info
-The builder helpers use strongly-typed interfaces. Use IntelliSense (Ctrl+Space) or "Go to Definition" (F12) in your IDE to explore available types and properties. Source code lives in the `Microsoft.Teams.Cards` namespace.
-:::
+> [!NOTE]
+> The builder helpers use strongly-typed interfaces. Use IntelliSense (Ctrl+Space) or "Go to Definition" (F12) in your IDE to explore available types and properties. Source code lives in the `Microsoft.Teams.Cards` namespace.
+
 ::: zone-end
 
 ::: zone pivot="python"
-:::info
-The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
-:::
+> [!NOTE]
+> The builder helpers use typed dictionaries and type hints. Use your IDE's IntelliSense features to explore available properties. Source code lives in the `teams.cards` module.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
-:::info
-Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
-:::
+> [!NOTE]
+> Source code lives in `teams.ts/packages/cards/src/`. Feel free to inspect or extend the helpers for your own needs.
+
 ::: zone-end
 
 
-## Typeasafe Authoring & IntelliSense
+## Type‑safe Authoring & IntelliSense
 
 ::: zone pivot="csharp"
 The package bundles the **Adaptive Card v1.5 schema** as strict C# types.
@@ -174,13 +172,12 @@ While coding you get:
 ::: zone-end
 
 - **Autocomplete** for every element and attribute.
-- **Inaeditor validation**ainvalid enum values or missing required properties produce build errors.
+- **In‑editor validation**—invalid enum values or missing required properties produce build errors.
 - Automatic upgrades when the schema evolves; simply update the package.
 
 
 ::: zone pivot="csharp"
 ```csharp
-
 // "Huge" is not a valid size for TextBlock - this will cause a compilation error
 var textBlock = new TextBlock("Test")
 {
@@ -193,7 +190,6 @@ var textBlock = new TextBlock("Test")
 
 ::: zone pivot="python"
 ```python
-
 # "huge" is not a valid size for TextBlock
 text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 ```
@@ -201,7 +197,6 @@ text_block = TextBlock(text="Test", wrap=True, weight="Bolder", size="huge"),
 
 ::: zone pivot="typescript"
 ```typescript
-
 // @ts-expect-error: "huge" is not a valid size for TextBlock
 const textBlock = new TextBlock('Valid', { size: 'huge' });
 ```
@@ -210,7 +205,7 @@ const textBlock = new TextBlock('Valid', { size: 'huge' });
 
 ## The Visual Designer
 
-Prefer a dragaandadrop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
+Prefer a drag‑and‑drop approach? Use [Microsoft's Adaptive Card Designer](https://adaptivecards.microsoft.com/designer.html):
 
 1. Add elements visually until the card looks right.
 2. Copy the JSON payload from the editor pane.
@@ -218,76 +213,153 @@ Prefer a dragaandadrop approach? Use [Microsoft's Adaptive Card Designer](https:
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
+    var cardJson = """
+    {
+        "type": "AdaptiveCard",
+        "body": [
+            {
+                "type": "ColumnSet",
+                "columns": [
+                    {
+                        "type": "Column",
+                        "verticalContentAlignment": "center",
+                        "items": [
+                            {
+                                "type": "Image",
+                                "style": "Person",
+                                "url": "https://aka.ms/AAp9xo4",
+                                "size": "Small",
+                                "altText": "Portrait of David Claux"
+                            }
+                        ],
+                        "width": "auto"
+                    },
+                    {
+                        "type": "Column",
+                        "spacing": "medium",
+                        "verticalContentAlignment": "center",
+                        "items": [
+                            {
+                                "type": "TextBlock",
+                                "weight": "Bolder",
+                                "text": "David Claux",
+                                "wrap": true
+                            }
+                        ],
+                        "width": "auto"
+                    },
+                    {
+                        "type": "Column",
+                        "spacing": "medium",
+                        "verticalContentAlignment": "center",
+                        "items": [
+                            {
+                                "type": "TextBlock",
+                                "text": "Principal Platform Architect at Microsoft",
+                                "isSubtle": true,
+                                "wrap": true
+                            }
+                        ],
+                        "width": "stretch"
+                    }
+                ]
+            }
+        ],
+        "version": "1.5",
+        "schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+    }
+    """;
 
-var cardJson = """
-{
-    "type": "AdaptiveCard",
-    "body": [
-        {
-            "type": "ColumnSet",
-            "columns": [
-                {
-                    "type": "Column",
-                    "verticalContentAlignment": "center",
-                    "items": [
-                        {
-                            "type": "Image",
-                            "style": "Person",
-                            "url": "https://aka.ms/AAp9xo4",
-                            "size": "Small",
-                            "altText": "Portrait of David Claux"
-                        }
-                    ],
-                    "width": "auto"
-                },
-                {
-                    "type": "Column",
-                    "spacing": "medium",
-                    "verticalContentAlignment": "center",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "weight": "Bolder",
-                            "text": "David Claux",
-                            "wrap": true
-                        }
-                    ],
-                    "width": "auto"
-                },
-                {
-                    "type": "Column",
-                    "spacing": "medium",
-                    "verticalContentAlignment": "center",
-                    "items": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Principal Platform Architect at Microsoft",
-                            "isSubtle": true,
-                            "wrap": true
-                        }
-                    ],
-                    "width": "stretch"
-                }
-            ]
-        }
-    ],
-    "version": "1.5",
-    "schema": "http://adaptivecards.io/schemas/adaptive-card.json"
-}
-""";
+    // Deserialize the JSON into an AdaptiveCard object
+    var card = AdaptiveCard.Deserialize(cardJson);
 
-// Deserialize the JSON into an AdaptiveCard object
-var card = AdaptiveCard.Deserialize(cardJson);
+    // Send the card
+    await client.Send(card);
+    ```
 
-// Send the card
-await client.Send(card);
-```
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+    using System.Text.Json;
+    using Microsoft.Teams.Apps;
+    using Microsoft.Teams.Cards;
+
+    var cardJson = """
+    {
+        "type": "AdaptiveCard",
+        "body": [
+            {
+                "type": "ColumnSet",
+                "columns": [
+                    {
+                        "type": "Column",
+                        "verticalContentAlignment": "center",
+                        "items": [
+                            {
+                                "type": "Image",
+                                "style": "Person",
+                                "url": "https://aka.ms/AAp9xo4",
+                                "size": "Small",
+                                "altText": "Portrait of David Claux"
+                            }
+                        ],
+                        "width": "auto"
+                    },
+                    {
+                        "type": "Column",
+                        "spacing": "medium",
+                        "verticalContentAlignment": "center",
+                        "items": [
+                            {
+                                "type": "TextBlock",
+                                "weight": "Bolder",
+                                "text": "David Claux",
+                                "wrap": true
+                            }
+                        ],
+                        "width": "auto"
+                    },
+                    {
+                        "type": "Column",
+                        "spacing": "medium",
+                        "verticalContentAlignment": "center",
+                        "items": [
+                            {
+                                "type": "TextBlock",
+                                "text": "Principal Platform Architect at Microsoft",
+                                "isSubtle": true,
+                                "wrap": true
+                            }
+                        ],
+                        "width": "stretch"
+                    }
+                ]
+            }
+        ],
+        "version": "1.5",
+        "schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+    }
+    """;
+
+    // Deserialize the JSON into an AdaptiveCard object
+    var card = AdaptiveCard.Deserialize(cardJson);
+
+    // Serialize and wrap in a TeamsAttachment
+    JsonElement cardElement = JsonSerializer.SerializeToElement(card);
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(cardElement)
+        .Build();
+
+    // Send the card
+    await context.SendAsync(new MessageActivityInput().AddAttachment(attachment), cancellationToken);
+    ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 
 card = AdaptiveCard.model_validate(
     {
@@ -344,13 +416,11 @@ message = MessageActivityInput(text="Hello text!").add_card(card)
 
 ::: zone pivot="typescript"
 ```typescript
-
 const cardJson = /* copied JSON */;
 const card = new AdaptiveCard().withBody(cardJson);
 ```
 
 ```ts
-
 const rawCard: IAdaptiveCard = {
   type: 'AdaptiveCard',
   body: [
@@ -407,27 +477,56 @@ This method leverages the full Adaptive Card schema and ensures that the payload
 ::: zone-end
 
 > [!TIP]
->
 > You can use a combination of raw JSON and builder helpers depending on whatever you find easier.
 
-## Endatoaend Example a Task Form Card
+## End‑to‑end Example – Task Form Card
 
 Below is a complete example showing a task management form.
 
 
 ::: zone pivot="csharp"
-# [Minimal](#tab/minimal)
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
+    using Microsoft.Teams.Apps.Annotations;
 
-    teams.OnMessage(async (context, cancellationToken) =>
+    [TeamsController]
+    public class MessageController
+    {
+        [Message]
+        public async Task OnMessage([Context] IContext context)
+        {
+            var text = context.Activity.Text?.ToLowerInvariant() ?? "";
+
+            if (text.Contains("form"))
+            {
+                var card = CreateTaskFormCard();
+                await context.Client.Send(card);
+            }
+        }
+    }
+    ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+    using System.Text.Json;
+    using Microsoft.Teams.Apps;
+    using Microsoft.Teams.Cards;
+
+    bot.OnMessage(async (context, cancellationToken) =>
     {
         var text = context.Activity.Text?.ToLowerInvariant() ?? "";
 
         if (text.Contains("form"))
         {
-            await context.Typing(cancellationToken: cancellationToken);
+            await context.TypingAsync(cancellationToken);
             var card = CreateTaskFormCard();
-            await context.Send(card, cancellationToken);
+            JsonElement cardElement = JsonSerializer.SerializeToElement(card);
+            TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+                .WithAdaptiveCard(cardElement)
+                .Build();
+            await context.SendAsync(new MessageActivityInput().AddAttachment(attachment), cancellationToken);
         }
     });
     ```
@@ -443,7 +542,6 @@ Notice how the builder pattern keeps the file readable and maintainable:
 
 ::: zone pivot="csharp"
 ```csharp
-
 private static AdaptiveCard CreateTaskFormCard()
 {
     return new AdaptiveCard
@@ -511,12 +609,11 @@ private static AdaptiveCard CreateTaskFormCard()
 
 ::: zone pivot="python"
 ```python
-
 from datetime import datetime
 from microsoft_teams.api import MessageActivity, TypingActivityInput
 from microsoft_teams.apps import ActivityContext
 from microsoft_teams.cards import AdaptiveCard, TextBlock, ActionSet, ExecuteAction, Choice, ChoiceSetInput, DateInput, TextInput
-## ...
+# ...
 
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
@@ -551,7 +648,6 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```ts
-
 import {
   AdaptiveCard,
   TextBlock,
@@ -561,6 +657,7 @@ import {
   ActionSet,
   ExecuteAction,
 } from '@microsoft/teams.cards';
+import { App } from '@microsoft/teams.apps';
 // ...
 
 app.on('message', async ({ send, activity }) => {
@@ -595,7 +692,7 @@ app.on('message', async ({ send, activity }) => {
   );
   await send(card);
   // Or build a complex activity out that includes the card:
-  // const message  = new MessageActivity('Enter this form').addCard('adaptive', card);
+  // const message = new MessageActivityInput('Enter this form').addCard('adaptive', card);
   // await send(message);
 });
 ```
@@ -613,5 +710,4 @@ app.on('message', async ({ send, activity }) => {
 - Enjoy **full type safety** and IDE assistance.
 - Prototype quickly in the **visual designer** and refine with builders.
 
-Happy card building! YZ
-
+Happy card building!

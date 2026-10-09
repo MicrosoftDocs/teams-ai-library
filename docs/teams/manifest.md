@@ -1,10 +1,9 @@
-﻿---
+---
 title: Teams Manifest
 description: Learn about Teams app manifest requirements, permissions, and sideloading process for app installation.
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Teams Manifest
 
@@ -22,7 +21,6 @@ To sideload, ensure the manifest includes all required information (such as the 
 
 The [Teams Developer CLI](../developer-tools/cli.md) handles manifest scaffolding, validation, and updates as part of `teams app create`. To work with the manifest directly:
 
-- [`teams app manifest download`](../developer-tools/cli.md) a pull the current manifest from a registered app
-- [`teams app manifest upload`](../developer-tools/cli.md) a apply a local manifest.json to an existing app
-- [`teams app package download`](../developer-tools/cli.md) a get a sideload-ready zip (manifest + icons)
-
+- [`teams app manifest download`](../developer-tools/cli.md) — pull the current manifest from a registered app
+- [`teams app manifest upload`](../developer-tools/cli.md) — apply a local manifest.json to an existing app
+- [`teams app package download`](../developer-tools/cli.md) — get a sideload-ready zip (manifest + icons)

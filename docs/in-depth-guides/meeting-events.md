@@ -3,9 +3,8 @@ title: Meeting Events
 description: Guide to handling meeting events in Teams applications, covering meeting lifecycle events such as meeting start, meeting end, participant join, and participant leave events.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Meeting Events
 
@@ -26,7 +25,6 @@ There are a few requirements in the Teams app manifest (`manifest.json`) to supp
 1. The scopes section must include `team`, and `groupChat`
 
 ```json
-
 bots": [
         {
             "botId": "",
@@ -43,7 +41,6 @@ bots": [
 2. In the authorization section, make sure to specify the following resource-specific permissions:
 
 ```json
-
  "authorization":{
         "permissions":{
             "resourceSpecific":[
@@ -72,15 +69,16 @@ When a meeting starts, your app can handle the `meetingStart` event to send a no
 
 
 ::: zone pivot="csharp"
-```csharp
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
+```csharp
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Activities;
 using Microsoft.Teams.Apps.Activities.Events;
 using Microsoft.Teams.Cards;
 
 // Register meeting start handler
-teamsApp.OnMeetingStart(async (context, cancellationToken) =>
+app.OnMeetingStart(async (context, cancellationToken) =>
 {
     var activity = context.Activity.Value;
     var startTime = activity.StartTime.ToLocalTime();
@@ -96,23 +94,71 @@ teamsApp.OnMeetingStart(async (context, cancellationToken) =>
                 Weight = TextWeight.Bolder
             }
         },
-        Actions = new List<Microsoft.Teams.Cards.Action>
-        {
-            new OpenUrlAction(activity.JoinUrl)
+        // Meetings held inside a channel have no join URL, so there is no action to offer.
+        Actions = activity.JoinUrl is null
+            ? new List<Microsoft.Teams.Cards.Action>()
+            : new List<Microsoft.Teams.Cards.Action>
             {
-                Title = "Join the meeting",
+                new OpenUrlAction(activity.JoinUrl)
+                {
+                    Title = "Join the meeting",
+                }
             }
-        }
     };
 
     await context.Send(card, cancellationToken);
+});
+```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps;
+using Microsoft.Teams.Apps.Activities;
+using Microsoft.Teams.Apps.Activities.Events;
+using Microsoft.Teams.Cards;
+
+// Register meeting start handler
+teams.OnMeetingStart(async (context, cancellationToken) =>
+{
+    var activity = context.Activity.Value;
+    var startTime = DateTimeOffset.Parse(activity.StartTime).ToLocalTime();
+
+    var card = new AdaptiveCard
+    {
+        Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+        Body = new List<CardElement>
+        {
+            new TextBlock($"'{activity.Title}' has started at {startTime}.")
+            {
+                Wrap = true,
+                Weight = TextWeight.Bolder
+            }
+        },
+        // Meetings held inside a channel have no join URL, so there is no action to offer.
+        Actions = activity.JoinUrl is null
+            ? new List<Microsoft.Teams.Cards.Action>()
+            : new List<Microsoft.Teams.Cards.Action>
+            {
+                new OpenUrlAction(activity.JoinUrl)
+                {
+                    Title = "Join the meeting",
+                }
+            }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(card))
+        .Build();
+    await context.SendAsync(new MessageActivityInput().AddAttachment(attachment), cancellationToken);
 });
 ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api.activities.event import MeetingStartEventActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, OpenUrlAction, TextBlock
@@ -123,6 +169,7 @@ app = App()
 async def handle_meeting_start(ctx: ActivityContext[MeetingStartEventActivity]):
     meeting_data = ctx.activity.value
     start_time = meeting_data.start_time.strftime("%c")
+    join_url = meeting_data.join_url
 
     card = AdaptiveCard(
         body=[
@@ -132,7 +179,8 @@ async def handle_meeting_start(ctx: ActivityContext[MeetingStartEventActivity]):
                 weight="Bolder",
             )
         ],
-        actions=[OpenUrlAction(url=meeting_data.join_url, title="Join the meeting")],
+        # Meetings held inside a channel have no join URL, so the action is omitted for them.
+        actions=[OpenUrlAction(url=join_url, title="Join the meeting")] if join_url else None,
     )
 
     await ctx.send(card)
@@ -141,7 +189,6 @@ async def handle_meeting_start(ctx: ActivityContext[MeetingStartEventActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
 
@@ -156,9 +203,10 @@ app.on('meetingStart', async ({ activity, send }) => {
       wrap: true,
       weight: 'Bolder'
     }),
-    new ActionSet(
-      new OpenUrlAction(meetingData.JoinUrl).withTitle('Join the meeting')
-    )
+    // Meetings held inside a channel have no join URL, so there is no action to offer.
+    ...(meetingData.JoinUrl
+      ? [new ActionSet(new OpenUrlAction(meetingData.JoinUrl).withTitle('Join the meeting'))]
+      : [])
   );
 
   await send(card);
@@ -173,15 +221,15 @@ When a meeting ends, your app can handle the `meetingEnd` event to send a summar
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Activities;
 using Microsoft.Teams.Apps.Activities.Events;
 using Microsoft.Teams.Cards;
 
 // Register meeting end handler
-teamsApp.OnMeetingEnd(async (context, cancellationToken) =>
+app.OnMeetingEnd(async (context, cancellationToken) =>
 {
     var activity = context.Activity.Value;
     var endTime = activity.EndTime.ToLocalTime();
@@ -202,11 +250,46 @@ teamsApp.OnMeetingEnd(async (context, cancellationToken) =>
     await context.Send(card, cancellationToken);
 });
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps;
+using Microsoft.Teams.Apps.Activities;
+using Microsoft.Teams.Apps.Activities.Events;
+using Microsoft.Teams.Cards;
+
+// Register meeting end handler
+teams.OnMeetingEnd(async (context, cancellationToken) =>
+{
+    var activity = context.Activity.Value;
+    var endTime = DateTimeOffset.Parse(activity.EndTime).ToLocalTime();
+
+    var card = new AdaptiveCard
+    {
+        Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+        Body = new List<CardElement>
+        {
+            new TextBlock($"'{activity.Title}' has ended at {endTime}.")
+            {
+                Wrap = true,
+                Weight = TextWeight.Bolder
+            }
+        }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(card))
+        .Build();
+    await context.SendAsync(new MessageActivityInput().AddAttachment(attachment), cancellationToken);
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api.activities.event import MeetingEndEventActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, TextBlock
@@ -234,7 +317,6 @@ async def handle_meeting_end(ctx: ActivityContext[MeetingEndEventActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -263,15 +345,15 @@ When a participant joins a meeting, your app can handle the `meetingParticipantJ
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Activities;
 using Microsoft.Teams.Apps.Activities.Events;
 using Microsoft.Teams.Cards;
 
 // Register participant join handler
-teamsApp.OnMeetingJoin(async (context, cancellationToken) =>
+app.OnMeetingJoin(async (context, cancellationToken) =>
 {
     var activity = context.Activity.Value;
     var member = activity.Members[0].User.Name;
@@ -293,11 +375,47 @@ teamsApp.OnMeetingJoin(async (context, cancellationToken) =>
     await context.Send(card, cancellationToken);
 });
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps;
+using Microsoft.Teams.Apps.Activities;
+using Microsoft.Teams.Apps.Activities.Events;
+using Microsoft.Teams.Cards;
+
+// Register participant join handler
+teams.OnMeetingJoin(async (context, cancellationToken) =>
+{
+    var activity = context.Activity.Value;
+    var member = activity.Members[0].User.Name;
+    var role = activity.Members[0].Meeting.Role;
+
+    var card = new AdaptiveCard
+    {
+        Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+        Body = new List<CardElement>
+        {
+            new TextBlock($"{member} has joined the meeting as {role}.")
+            {
+                Wrap = true,
+                Weight = TextWeight.Bolder
+            }
+        }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(card))
+        .Build();
+    await context.SendAsync(new MessageActivityInput().AddAttachment(attachment), cancellationToken);
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api.activities.event import MeetingParticipantJoinEventActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, TextBlock
@@ -326,7 +444,6 @@ async def handle_meeting_participant_join(ctx: ActivityContext[MeetingParticipan
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -356,15 +473,15 @@ When a participant leaves a meeting, your app can handle the `meetingParticipant
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Activities;
 using Microsoft.Teams.Apps.Activities.Events;
 using Microsoft.Teams.Cards;
 
 // Register participant leave handler
-teamsApp.OnMeetingLeave(async (context, cancellationToken) =>
+app.OnMeetingLeave(async (context, cancellationToken) =>
 {
     var activity = context.Activity.Value;
     var member = activity.Members[0].User.Name;
@@ -385,11 +502,46 @@ teamsApp.OnMeetingLeave(async (context, cancellationToken) =>
     await context.Send(card, cancellationToken);
 });
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps;
+using Microsoft.Teams.Apps.Activities;
+using Microsoft.Teams.Apps.Activities.Events;
+using Microsoft.Teams.Cards;
+
+// Register participant leave handler
+teams.OnMeetingLeave(async (context, cancellationToken) =>
+{
+    var activity = context.Activity.Value;
+    var member = activity.Members[0].User.Name;
+
+    var card = new AdaptiveCard
+    {
+        Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+        Body = new List<CardElement>
+        {
+            new TextBlock($"{member} has left the meeting.")
+            {
+                Wrap = true,
+                Weight = TextWeight.Bolder
+            }
+        }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(card))
+        .Build();
+    await context.SendAsync(new MessageActivityInput().AddAttachment(attachment), cancellationToken);
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api.activities.event import MeetingParticipantLeaveEventActivity
 from microsoft_teams.apps import ActivityContext, App
 from microsoft_teams.cards import AdaptiveCard, TextBlock
@@ -417,7 +569,6 @@ async def handle_meeting_participant_leave(ctx: ActivityContext[MeetingParticipa
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 
@@ -438,5 +589,4 @@ app.on('meetingParticipantLeave', async ({ activity, send }) => {
 });
 ```
 ::: zone-end
-
 

@@ -1,17 +1,14 @@
 ---
-title: Yi  Custom Logger
+title: Custom Logger
 description: Configure custom loggers in your Teams app to control log levels and output destinations.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
-
-# Yi  Custom Logger
+# Custom Logger
 
 ::: zone pivot="csharp"
-The `App` will provide a default logger, but you can also provide your own.
-The default `Logger` instance will be set to `ConsoleLogger` from the `Microsoft.Teams.Common` package.
+This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="python"
@@ -25,30 +22,11 @@ The default `Logger` instance will be set to `ConsoleLogger` from the `@microsof
 ::: zone-end
 
 
-::: zone pivot="csharp"
-```csharp
-
-using Microsoft.Teams.Apps;
-using Microsoft.Teams.Common.Logging;
-using Microsoft.Teams.Plugins.AspNetCore.Extensions;
-
-var builder = WebApplication.CreateBuilder(args);
-
-var appBuilder = App.Builder()
-    .AddLogger(new ConsoleLogger())
-
-builder.AddTeams(appBuilder)
-
-var app = builder.Build();
-var teams = app.UseTeams();
-```
-::: zone-end
 
 ::: zone pivot="python"
-The Python SDK uses standard `logging` a there's no custom logger to inject into `App`. To see SDK log output, attach a handler to the `microsoft_teams` logger hierarchy. The SDK ships a `ConsoleFormatter` with color-coded output if you want it:
+The Python SDK uses standard `logging` — there's no custom logger to inject into `App`. To see SDK log output, attach a handler to the `microsoft_teams` logger hierarchy. The SDK ships a `ConsoleFormatter` with color-coded output if you want it:
 
 ```python
-
 import logging
 import os
 from microsoft_teams.common import ConsoleFormatter
@@ -64,7 +42,6 @@ logging.getLogger("microsoft_teams").setLevel(
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 import { ConsoleLogger } from '@microsoft/teams.common';
 
@@ -86,12 +63,8 @@ app.on('message', async ({ send, activity, log }) => {
 ```
 ::: zone-end
 
-
+::: zone pivot="python,typescript"
 ## Log Levels
-
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="python"
@@ -99,24 +72,19 @@ Python's standard `logging` levels apply: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `
 ::: zone-end
 
 ::: zone pivot="typescript"
-Available levels, from most to least severe: `error`, `warn`, `info`, `debug`, `trace`. The default is `info`. Setting `level: 'debug'` emits `error`, `warn`, `info`, and `debug` a but not `trace`.
+Available levels, from most to least severe: `error`, `warn`, `info`, `debug`, `trace`. The default is `info`. Setting `level: 'debug'` emits `error`, `warn`, `info`, and `debug` — but not `trace`.
 ::: zone-end
 
-
+::: zone pivot="python,typescript"
 ## Filtering by Logger Name
 
 Each logger is created with a name. You can filter which loggers emit output by providing a name pattern, using `*` as a wildcard.
-
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="python"
 Use `ConsoleFilter` to limit which loggers emit, matched by name with `*` wildcards:
 
 ```python
-
 from microsoft_teams.common import ConsoleFilter, ConsoleFormatter
 
 handler = logging.StreamHandler()
@@ -130,25 +98,19 @@ logging.getLogger().addHandler(handler)
 Each logger has a name. The `pattern` option filters which loggers emit, with `*` as a wildcard. Prefix a pattern with `-` to exclude. Combine with commas.
 
 ```typescript
-
 new ConsoleLogger('my-app', { pattern: '@teams*' });        // only SDK loggers
 new ConsoleLogger('my-app', { pattern: '*,-@teams/http*' }); // everything except HTTP
 ```
 ::: zone-end
 
-
+::: zone pivot="python,typescript"
 ## Environment Variables
-
-
-::: zone pivot="csharp"
-<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="python"
 The Python SDK does not read logging environment variables on its own. If you want `LOG_LEVEL` to control verbosity, read it yourself at startup:
 
 ```python
-
 import os
 logging.getLogger().setLevel(os.getenv("LOG_LEVEL", "INFO").upper())
 ```
@@ -162,16 +124,13 @@ The TypeScript SDK's `ConsoleLogger` reads two environment variables at construc
 | `LOG_LEVEL`  | Minimum severity                 | `LOG_LEVEL=debug`       |
 | `LOG`        | Logger name pattern (wildcards)  | `LOG=@teams*`           |
 
-Env vars override options passed to the constructor. If you do not pass a logger to `App`, the SDK creates a default `ConsoleLogger` named `@teams/app` a so `LOG_LEVEL=debug` alone is enough to enable debug output.
+Env vars override options passed to the constructor. If you do not pass a logger to `App`, the SDK creates a default `ConsoleLogger` named `@teams/app` — so `LOG_LEVEL=debug` alone is enough to enable debug output.
 
 > **Gotcha:** `LOG` is a name filter, not a toggle. Setting `LOG` to a pattern that doesn't match the default `@teams/app` (for example `LOG=my-app*`) silences the default logger. If in doubt, unset `LOG` to match everything.
 ::: zone-end
 
 
 
-::: zone pivot="csharp"
-<!-- Not applicable -->
-::: zone-end
 
 ::: zone pivot="python"
 <!-- Not applicable -->
@@ -183,7 +142,6 @@ Env vars override options passed to the constructor. If you do not pass a logger
 Call `log.child('scope')` on an existing logger to get a scoped logger. Its name is `parent/scope`, and pattern/level are inherited.
 
 ```typescript
-
 app.on('message', async ({ log }) => {
   const msgLog = log.child('message-handler');
   msgLog.debug('processing'); // logged as "@teams/app/message-handler"

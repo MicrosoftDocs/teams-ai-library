@@ -3,92 +3,29 @@ title: The API Client
 description: Replace BotBuilder's static TeamsInfo class with Teams SDK's injected ApiClient for cleaner API interactions.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 # The API Client
+
+::: zone pivot="csharp"
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="typescript,python"
+
+## The API Client
+
 BotBuilder exposes a static class `TeamsInfo` that allows you to query the api. In Teams SDK
 we pass an instance of our `ApiClient` into all our activity handlers through the context.
 
 > [!TIP]
->
 > The Teams SDK `ApiClient` uses a fluent API pattern that makes it easier to discover available methods through IDE autocompletion.
 
-
-::: zone pivot="csharp"
-
-# [Diff](#tab/diff)
-
-```csharp
-
-  // highlight-error-start
--  using Microsoft.Bot.Builder;
--  using Microsoft.Bot.Builder.Teams;
-  // highlight-error-end
-  // highlight-success-line
-+  using Microsoft.Teams.Apps;
-
-  // highlight-error-start
--  public class MyActivityHandler : ActivityHandler
--  {
--      protected override async Task OnMessageActivityAsync(
--          ITurnContext<IMessageActivity> turnContext,
--          CancellationToken cancellationToken)
--      {
--          var members = await TeamsInfo.GetMembersAsync(turnContext, cancellationToken);
--      }
--  }
-  // highlight-error-end
-  // highlight-success-start
-+  var teams = app.UseTeams();
-+  teams.OnMessage(async (context, cancellationToken) =>
-+  {
-+      var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
-+  });
-  // highlight-success-end
-  ```
-
----
-
-# [BotBuilder](#tab/botbuilder)
-
-```csharp
-showLineNumbers
-    using Microsoft.Bot.Builder;
-    using Microsoft.Bot.Builder.Teams;
-
-    public class MyActivityHandler : TeamsActivityHandler
-    {
-        protected override async Task OnMessageActivityAsync(
-            ITurnContext<IMessageActivity> turnContext,
-            CancellationToken cancellationToken)
-        {
-            // highlight-next-line
-            var members = await TeamsInfo.GetMembersAsync(turnContext, cancellationToken);
-        }
-    }
-    ```
-
----
-
-# [Teams SDK](#tab/teams-sdk)
-
-```csharp
-showLineNumbers
-    using Microsoft.Teams.Apps;
-    
-    app.OnMessage(async (context, cancellationToken) =>
-    {
-        // highlight-next-line
-        var members = await context.Api.Conversations.Members.GetAsync(context.Activity.Conversation.Id);
-    });
-    ```
 ::: zone-end
 
 ::: zone pivot="python"
-# [Diff](#tab/diff)
+# [Diff](#tab/Diff)
 ```python
-
   # highlight-error-start
 -  from botbuilder.core import ActivityHandler, TurnContext
 -  from botbuilder.core.teams import TeamsInfo
@@ -105,15 +42,14 @@ showLineNumbers
   # highlight-success-start
 +  @app.on_message
 +  async def on_message(context: ActivityContext[MessageActivity]):
-+      members = await context.api.conversations.members(context.activity.conversation.id).get_all()
++      members = await context.api.conversations.get_members(context.activity.conversation.id)
   # highlight-success-end
   ```
 
 ---
 
-# [BotBuilder](#tab/botbuilder)
-```python
-showLineNumbers
+# [BotBuilder](#tab/BotBuilder)
+```python showLineNumbers
     from botbuilder.core import ActivityHandler, TurnContext
     from botbuilder.core.teams import TeamsInfo
 
@@ -125,23 +61,21 @@ showLineNumbers
 
 ---
 
-# [Teams SDK](#tab/teams-sdk)
-```python
-showLineNumbers
+# [Teams SDK](#tab/Teams SDK)
+```python showLineNumbers
     from microsoft_teams.api import MessageActivity
     from microsoft_teams.apps import ActivityContext
 
     @app.on_message
     async def on_message(context: ActivityContext[MessageActivity]):
         # highlight-next-line
-        members = await context.api.conversations.members(context.activity.conversation.id).get()
+        members = await context.api.conversations.get_members(context.activity.conversation.id)
     ```
 ::: zone-end
 
 ::: zone pivot="typescript"
-# [Diff](#tab/diff)
+# [Diff](#tab/Diff)
 ```typescript
-
   // highlight-error-start
 -  import {
 -    CloudAdapter,
@@ -171,16 +105,15 @@ showLineNumbers
   // highlight-error-end
   // highlight-success-start
 +  app.on('message', async ({ api, activity }) => {
-+    const members = await api.conversations.members(activity.conversation.id).get();
++    const members = await api.conversations.getMembers(activity.conversation.id);
 +  });
   // highlight-success-end
   ```
 
 ---
 
-# [BotBuilder](#tab/botbuilder)
-```typescript
-showLineNumbers
+# [BotBuilder](#tab/BotBuilder)
+```typescript showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -203,50 +136,40 @@ showLineNumbers
 
 ---
 
-# [Teams SDK](#tab/teams-sdk)
-```typescript
-showLineNumbers
+# [Teams SDK](#tab/Teams SDK)
+```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();
 
     app.on('message', async ({ api, activity }) => {
       // highlight-next-line
-      const members = await api.conversations.members(activity.conversation.id).get();
+      const members = await api.conversations.getMembers(activity.conversation.id);
     });
     ```
 ::: zone-end
 
-
+::: zone pivot="typescript,python"
 ## Mapping TeamsInfo APIs to Teams SDK ApiClient Methods
 
 The following table shows common BotBuilder `TeamsInfo` methods and their equivalent Teams SDK `ApiClient` methods:
-
-
-::: zone pivot="csharp"
-| BotBuilder (TeamsInfo) | Teams SDK (ApiClient) |
-|------------------------|----------------------|
-| `TeamsInfo.GetMemberAsync(context, userId)` | `Api.Conversations.Members.GetByIdAsync(conversationId, userId)` |
-| `TeamsInfo.GetTeamDetailsAsync(context, teamId)` | `Api.Teams.GetByIdAsync(teamId)` |
-| `TeamsInfo.GetMeetingInfoAsync(context, meetingId)` | `Api.Meetings.GetByIdAsync(meetingId)` |
-| `TeamsInfo.SendMessageToTeamsChannelAsync(context, teamId, message)` | `Api.Conversations.CreateAsync(CreateRequest)` then `Api.Conversations.Activities.CreateAsync(conversationId, activity)` |
 ::: zone-end
 
 ::: zone pivot="python"
 | BotBuilder (TeamsInfo) | Teams SDK (ApiClient) |
 |------------------------|----------------------|
-| `TeamsInfo.getMembers(context, user_id)` | `api.conversations.members(conversation_id).get(user_id)` |
+| `TeamsInfo.get_member(context, user_id)` | `api.conversations.get_member_by_id(conversation_id, user_id)` |
 | `TeamsInfo.get_team_details(context, team_id)` | `api.teams.get_by_id(team_id)` |
 | `TeamsInfo.get_meeting_info(context, meeting_id)` | `api.meetings.get_by_id(meeting_id)` |
-| `TeamsInfo.send_message_to_teams_channel(context, team_id, message)` | `api.conversations.create(CreateConversationParams)` then `api.conversations.activities(conversation_id).create(activity)` |
+| `TeamsInfo.send_message_to_teams_channel(context, team_id, message)` | `api.conversations.create(CreateConversationParams)` then `api.conversations.create_activity(conversation_id, activity)` |
 ::: zone-end
 
 ::: zone pivot="typescript"
 | BotBuilder (TeamsInfo) | Teams SDK (ApiClient) |
 |------------------------|----------------------|
-| `TeamsInfo.getMember(context, userId)` | `api.conversations.members(conversationId).getById(userId)` |
+| `TeamsInfo.getMember(context, userId)` | `api.conversations.getMemberById(conversationId, userId)` |
 | `TeamsInfo.getTeamDetails(context, teamId)` | `api.teams.getById(teamId)` |
 | `TeamsInfo.getMeetingInfo(context, meetingId)` | `api.meetings.getById(meetingId)` |
-| `TeamsInfo.sendMessageToTeamsChannel(context, teamId, message)` | `api.conversations.create(CreateConversationParams)` then `api.conversations.activities(conversationId).create(activity)` |
+| `TeamsInfo.sendMessageToTeamsChannel(context, teamId, message)` | `api.conversations.create(CreateConversationParams)` then `api.conversations.createActivity(conversationId, activity)` |
 ::: zone-end
 

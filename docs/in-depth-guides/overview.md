@@ -3,9 +3,8 @@ title: In-Depth Guides
 description: Advanced guides covering complex topics like AI integration, adaptive cards, dialogs, message extensions, and user authentication.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # In-Depth Guides
 

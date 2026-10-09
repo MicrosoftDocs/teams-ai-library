@@ -1,16 +1,14 @@
 ---
 title: Creating Dialogs
-description: Learn how to create and launch dialogs in Teams apps, including Adaptive Card entry points and dialog handlers.
+description: Learn how to open a dialog from an Adaptive Card button and supply its content with the Teams SDK.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Creating Dialogs
 
 > [!TIP]
->
 > If you're not familiar with how to build Adaptive Cards, check out [the cards guide](../adaptive-cards/overview.md). Understanding their basics is a prerequisite for this guide.
 
 ## Entry Point
@@ -27,8 +25,9 @@ To open a dialog, add a button to your Adaptive Card using `OpenDialogData`. Thi
 
 
 ::: zone pivot="csharp"
-```csharp
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
+```csharp
 using Microsoft.Teams.Api.Activities;
 using Microsoft.Teams.Apps;
 using Microsoft.Teams.Apps.Annotations;
@@ -77,11 +76,58 @@ private static AdaptiveCard CreateDialogLauncherCard()
     return card;
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using Microsoft.Teams.Cards;
+
+//...
+
+teams.OnMessage(async (context, cancellationToken) =>
+{
+    // Create the launcher adaptive card
+    var card = CreateDialogLauncherCard();
+    await context.SendAsync(card, cancellationToken);
+});
+
+private static AdaptiveCard CreateDialogLauncherCard()
+{
+    var card = new AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("Select the examples you want to see!")
+            {
+                Size = TextSize.Large,
+                Weight = TextWeight.Bolder
+            }
+        },
+        Actions = new List<Action>
+        {
+            new TaskFetchAction(new { opendialogtype = "simple_form" })
+            {
+                Title = "Simple form test"
+            },
+            new TaskFetchAction(new { opendialogtype = "webpage_dialog" })
+            {
+                Title = "Webpage Dialog"
+            },
+            new TaskFetchAction(new { opendialogtype = "multi_step_form" })
+            {
+                Title = "Multi-step Form"
+            }
+        }
+    };
+
+    return card;
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import MessageActivity, MessageActivityInput, TypingActivityInput
 from microsoft_teams.apps import ActivityContext
 from microsoft_teams.cards import AdaptiveCard, TextBlock, SubmitAction, OpenDialogData
@@ -114,8 +160,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
-
-import { cardAttachment, MessageActivity } from '@microsoft/teams.api';
+import { cardAttachment, MessageActivityInput } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
 import {
   AdaptiveCard,
@@ -146,7 +191,7 @@ app.on('message', async ({ send }) => {
       .withData(new OpenDialogData('multi_step_form'))
   );
 
-  await send(new MessageActivity('Enter this form').addCard('adaptive', card));
+  await send(new MessageActivityInput('Enter this form').addCard('adaptive', card));
 });
 ```
 ::: zone-end
@@ -163,23 +208,23 @@ Once an action is executed to open a dialog, the Teams client will send an event
 When a user clicks the button, Teams sends a `task/fetch` invoke to your app. Register a handler with `@app.on_dialog_open("dialog_id")` to handle a specific dialog, or `@app.on_dialog_open()` for a catch-all.
 
 > [!TIP]
->
 > Use `@app.on_dialog_open("simple_form")` to handle specific dialogs directly, instead of a single catch-all handler with if-else logic. This keeps each handler focused and avoids routing boilerplate.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
 When a user clicks the button, Teams sends a `task/fetch` invoke to your app. Register a handler using `dialog.open.<dialog_id>` to handle a specific dialog, or `dialog.open` for a catch-all.
 
 > [!TIP]
->
 > Use sub-routes like `dialog.open.simple_form` to handle specific dialogs directly, instead of a single catch-all handler with if-else logic. This keeps each handler focused and avoids routing boilerplate.
+
 ::: zone-end
 
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using System.Text.Json;
 using Microsoft.Teams.Api.TaskModules;
 using Microsoft.Teams.Apps;
@@ -217,11 +262,48 @@ public Microsoft.Teams.Api.TaskModules.Response OnTaskFetch([Context] Tasks.Fetc
     };
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.TaskModules;
+
+//...
+
+teams.OnTaskFetch(async (context, cancellationToken) =>
+{
+    var data = context.Activity.Value?.Data as JsonElement?;
+    if (data == null)
+    {
+        return TaskModuleResponse.CreateBuilder()
+            .WithType(TaskModuleResponseTypes.Message)
+            .WithMessage("No data found in the activity value")
+            .Build();
+    }
+
+    var dialogType = data.Value.TryGetProperty("opendialogtype", out var dialogTypeElement) && dialogTypeElement.ValueKind == JsonValueKind.String
+        ? dialogTypeElement.GetString()
+        : null;
+
+    return dialogType switch
+    {
+        "simple_form" => CreateSimpleFormDialog(),
+        "webpage_dialog" => CreateWebpageDialog(_configuration, context.Log),
+        "multi_step_form" => CreateMultiStepFormDialog(),
+        "mixed_example" => CreateMixedExampleDialog(),
+        _ => TaskModuleResponse.CreateBuilder()
+            .WithType(TaskModuleResponseTypes.Message)
+            .WithMessage("Unknown dialog type")
+            .Build()
+    };
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import (
     TaskFetchInvokeActivity, TaskModuleResponse,
     TaskModuleContinueResponse, CardTaskModuleTaskInfo,
@@ -249,7 +331,6 @@ async def handle_simple_form_open(ctx: ActivityContext[TaskFetchInvokeActivity])
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, IAdaptiveCard } from '@microsoft/teams.cards';
@@ -279,8 +360,8 @@ You can render an Adaptive Card in a dialog by returning a card response.
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using System.Text.Json;
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.TaskModules;
@@ -345,11 +426,78 @@ private static Microsoft.Teams.Api.TaskModules.Response CreateSimpleFormDialog()
         new Microsoft.Teams.Api.TaskModules.ContinueTask(taskInfo));
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Apps.TaskModules;
+using Microsoft.Teams.Cards;
+
+//...
+
+private static TaskModuleResponse CreateSimpleFormDialog()
+{
+    var choices = new List<Choice>
+    {
+        new Choice { Title = "Option 1", Value = "opt1" },
+        new Choice { Title = "Option 2", Value = "opt2" },
+        new Choice { Title = "Option 3", Value = "opt3" }
+    };
+
+    var dialogCard = new AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("This is a simple form")
+            {
+                Size = TextSize.Large,
+                Weight = TextWeight.Bolder
+            },
+            new TextInput
+            {
+                Id = "name",
+                Label = "Name",
+                Placeholder = "Enter your name",
+                IsRequired = true
+            },
+            new ChoiceSetInput
+            {
+                Id = "preference",
+                Label = "Select your preference",
+                Choices = choices,
+                Style = StyleEnum.Compact
+            }
+        },
+        Actions = new List<Action>
+        {
+            new SubmitAction
+            {
+                Title = "Submit",
+                Data = new { submissiondialogtype = "simple_form" }
+            }
+        }
+    };
+
+    TeamsAttachment taskModuleCardResponse = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(dialogCard))
+        .Build();
+
+    return TaskModuleResponse.CreateBuilder()
+        .WithType(TaskModuleResponseTypes.Continue)
+        .WithTitle("Simple Form Dialog")
+        .WithHeight("medium")
+        .WithWidth("medium")
+        .WithCard(taskModuleCardResponse)
+        .Build();
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import (
     TaskFetchInvokeActivity, TaskModuleResponse,
     TaskModuleContinueResponse, CardTaskModuleTaskInfo,
@@ -386,7 +534,6 @@ async def handle_simple_form_open(ctx: ActivityContext[TaskFetchInvokeActivity])
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { cardAttachment } from '@microsoft/teams.api';
 import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
 // ...
@@ -424,9 +571,8 @@ app.on('dialog.open.simple_form', async () => {
 ::: zone-end
 
 
-:::info
-The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
-:::
+> [!NOTE]
+> The action type for submitting a dialog must be `Action.Submit`. This is a requirement of the Teams client. If you use a different action type, the dialog will not be submitted and the agent will not receive the submission event.
 
 ### Rendering A Webpage
 
@@ -437,8 +583,8 @@ You can render a webpage in a dialog as well. There are some security requiremen
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using Microsoft.Teams.Api.TaskModules;
 using Microsoft.Teams.Common;
 
@@ -449,12 +595,7 @@ private static Microsoft.Teams.Api.TaskModules.Response CreateWebpageDialog(ICon
     var botEndpoint = configuration["BotEndpoint"];
     if (string.IsNullOrEmpty(botEndpoint))
     {
-        log.Warn("No remote endpoint detected. Using webpages for dialog will not work as expected");
         botEndpoint = "http://localhost:3978"; // Fallback for local development
-    }
-    else
-    {
-        log.Info($"Using BotEndpoint: {botEndpoint}/tabs/dialog-form");
     }
 
     var taskInfo = new TaskInfo
@@ -473,11 +614,44 @@ private static Microsoft.Teams.Api.TaskModules.Response CreateWebpageDialog(ICon
         new Microsoft.Teams.Api.TaskModules.ContinueTask(taskInfo));
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Apps.TaskModules;
+
+//...
+
+private static InvokeResponse<TaskModuleResponse> CreateWebpageDialog(IConfiguration configuration)
+{
+    var botEndpoint = configuration["BotEndpoint"] ?? "http://localhost:3978";
+
+    // The TaskModuleResponse builder supports card-based dialogs only.
+    // For URL-based dialogs, construct the response manually.
+    // This server needs to be publicly accessible, set up the teams.js client library
+    // (https://www.npmjs.com/package/@microsoft/teams-js), and be registered in the manifest.
+    return new InvokeResponse<TaskModuleResponse>(200, new TaskModuleResponse
+    {
+        Task = new Microsoft.Teams.Apps.TaskModules.Response
+        {
+            Type = TaskModuleResponseTypes.Continue,
+            Value = new
+            {
+                title = "Webpage Dialog",
+                url = $"{botEndpoint}/tabs/dialog-form",
+                height = 800,
+                width = 1000
+            }
+        }
+    });
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 import os
 from microsoft_teams.api import TaskModuleContinueResponse, TaskModuleResponse, UrlTaskModuleTaskInfo
 # ...
@@ -501,7 +675,6 @@ async def handle_webpage_dialog_open(ctx):
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -531,7 +704,6 @@ app.on('dialog.open.webpage_dialog', async () => {
 To serve web content for dialogs, you can use the `AddTab` functionality to embed HTML files as resources:
 
 ```csharp
-
 // In Program.cs when building your app
 app.UseTeams();
 app.AddTab("dialog-form", "Web/dialog-form");
@@ -550,7 +722,6 @@ app.AddTab("dialog-form", "Web/dialog-form");
 To serve web content for dialogs, you can use the `page` method to host static webpages:
 
 ```python
-
 import os
 
 # In your app setup (e.g., main.py)
@@ -565,7 +736,6 @@ app.page("customform", os.path.join(os.path.dirname(__file__), "views", "customf
 To serve web content for dialogs, you can use the `tab` method to host static webpages:
 
 ```typescript
-
 import path from 'path';
 
 // In your app setup (e.g., index.ts)
@@ -573,5 +743,4 @@ import path from 'path';
 app.tab('dialog-form', path.join(__dirname, 'views', 'customform'));
 ```
 ::: zone-end
-
 

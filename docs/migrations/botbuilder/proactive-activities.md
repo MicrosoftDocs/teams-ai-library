@@ -3,14 +3,17 @@ title: Proactive Activities
 description: Migrate from BotBuilder's complex conversation reference handling to Teams SDK's simple conversation ID-based proactive messaging.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 # Proactive Activities
+
 ::: zone pivot="csharp"
-The BotBuilder proactive message flow requires storing a conversation reference.
-In Teams SDK, we expose a `SendAsync` method in the `App` class, almost identical to the one
-passed into our activity handlers through our context. This method accepts a `conversationId`, so storing just that is enough!
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="typescript,python"
+
+## Proactive Activities
 ::: zone-end
 
 ::: zone pivot="python"
@@ -26,93 +29,10 @@ passed into our activity handlers through our context. This method accepts a `co
 ::: zone-end
 
 
-::: zone pivot="csharp"
-
-# [Diff](#tab/diff)
-
-```csharp
-
-    // highlight-error-start
--   using Microsoft.Bot.Builder;
--   using Microsoft.Bot.Builder.Integration.AspNet.Core;
--   using Microsoft.Bot.Schema;
-    // highlight-error-end
-    // highlight-success-line
-+   using Microsoft.Teams.Apps;
-
-    // highlight-error-start
--   var conversationReference = new ConversationReference
--   {
--       ServiceUrl = "...",
--       Bot = new ChannelAccount { ... },
--       ChannelId = "msteams",
--       Conversation = new ConversationAccount { ... },
--       User = new ChannelAccount { ... }
--   };
--
--   await adapter.ContinueConversationAsync(
--       configuration["MicrosoftAppId"],
--       conversationReference,
--       async (turnContext, cancellationToken) =>
--       {
--           await turnContext.SendActivityAsync("proactive hello", cancellationToken: cancellationToken);
--       },
--       default);
-    // highlight-error-end
-    // highlight-success-start
-+   var teams = app.UseTeams();
-+   await teams.Send("your-conversation-id", "proactive hello");
-    // highlight-success-end
-    ```
-
----
-
-# [BotBuilder](#tab/botbuilder)
-```csharp
-showLineNumbers
-    using Microsoft.Bot.Builder;
-    using Microsoft.Bot.Builder.Integration.AspNet.Core;
-    using Microsoft.Bot.Schema;
-
-    // highlight-start
-    var conversationReference = new ConversationReference
-    {
-        ServiceUrl = "...",
-        Bot = new ChannelAccount { ... },
-        ChannelId = "msteams",
-        Conversation = new ConversationAccount { ... },
-        User = new ChannelAccount { ... }
-    };
-
-    await adapter.ContinueConversationAsync(
-        configuration["MicrosoftAppId"],
-        conversationReference,
-        async (turnContext, cancellationToken) =>
-        {
-            await turnContext.SendActivityAsync("proactive hello", cancellationToken: cancellationToken);
-        },
-        default);
-    // highlight-end
-    ```
-
----
-
-# [Teams SDK](#tab/teams-sdk)
-```csharp
-showLineNumbers
-    using Microsoft.Teams.Apps;
-
-    // highlight-start
-    var teams = app.UseTeams();
-    await teams.Send("your-conversation-id", "proactive hello");
-    // highlight-end
-    ```
-::: zone-end
 
 ::: zone pivot="python"
-# [Diff](#tab/diff)
+# [Diff](#tab/Diff)
 ```python
-
     # highlight-error-start
 -   from botbuilder.core import TurnContext
 -   from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
@@ -151,9 +71,8 @@ showLineNumbers
 
 ---
 
-# [BotBuilder](#tab/botbuilder)
-```python
-showLineNumbers
+# [BotBuilder](#tab/BotBuilder)
+```python showLineNumbers
     from botbuilder.core import TurnContext
     from botbuilder.integration.aiohttp import CloudAdapter, ConfigurationBotFrameworkAuthentication
     from botbuilder.schema import ChannelAccount, ConversationAccount, ConversationReference
@@ -181,9 +100,8 @@ showLineNumbers
 
 ---
 
-# [Teams SDK](#tab/teams-sdk)
-```python
-showLineNumbers
+# [Teams SDK](#tab/Teams SDK)
+```python showLineNumbers
     from microsoft_teams.apps import App
 
     app = App()
@@ -195,9 +113,8 @@ showLineNumbers
 ::: zone-end
 
 ::: zone pivot="typescript"
-# [Diff](#tab/diff)
+# [Diff](#tab/Diff)
 ```typescript
-
     // highlight-error-start
 -    import {
 -      CloudAdapter,
@@ -238,9 +155,8 @@ showLineNumbers
 
 ---
 
-# [BotBuilder](#tab/botbuilder)
-```typescript
-showLineNumbers
+# [BotBuilder](#tab/BotBuilder)
+```typescript showLineNumbers
     import {
       CloudAdapter,
       ConfigurationBotFrameworkAuthentication,
@@ -269,9 +185,8 @@ showLineNumbers
 
 ---
 
-# [Teams SDK](#tab/teams-sdk)
-```typescript
-showLineNumbers
+# [Teams SDK](#tab/Teams SDK)
+```typescript showLineNumbers
     import { App } from '@microsoft/teams.apps';
 
     const app = new App();

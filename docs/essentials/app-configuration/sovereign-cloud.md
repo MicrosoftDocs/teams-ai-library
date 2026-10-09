@@ -3,15 +3,13 @@ title: Sovereign Cloud Configuration
 description: Configure your Teams bot for US Government (GCCH/DoD) or China (21Vianet) cloud environments
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Sovereign Cloud Configuration
 
-:::info
-Most developers do not need this page. It applies only to bots deployed in US Government (GCC-High, DoD) or China (21Vianet) cloud environments. If your bot runs in the standard commercial cloud, no additional configuration is needed.
-:::
+> [!NOTE]
+> Most developers do not need this page. It applies only to bots deployed in US Government (GCC-High, DoD) or China (21Vianet) cloud environments. If your bot runs in the standard commercial cloud, no additional configuration is needed.
 
 Sovereign clouds use separate Azure infrastructure with different service endpoints for authentication, token services, and bot communication. The Teams SDK handles this automatically when you specify your cloud environment.
 
@@ -31,29 +29,21 @@ Sovereign clouds use separate Azure infrastructure with different service endpoi
 
 ## Configuration
 
-Add the `CLOUD` environment variable to your existing app authentication configuration. This works alongside any auth method (client secret, managed identity, federated credentials).
-
-```env
-
-CLOUD=USGov
-```
-
-Valid values: `Public`, `USGov`, `USGovDoD`, `China`
-
-You can also configure the cloud programmatically:
-
 
 ::: zone pivot="csharp"
+
+# [SDK 2.0 (Legacy)](#tab/legacy)
+The configuration below is only valid for **SDK 2.0** apps. It uses SDK 2.0 `Teams:Cloud` presets and per endpoint overrides.
 In `appsettings.json`:
 
 ```json
-
 {
   "Teams": {
     "ClientId": "your-client-id",
     "ClientSecret": "your-client-secret",
     "TenantId": "your-tenant-id",
-    "Cloud": "USGov"
+    "Cloud": "USGov",
+    "LoginTenant": "your-tenant-id"
   }
 }
 ```
@@ -61,7 +51,6 @@ In `appsettings.json`:
 Or programmatically:
 
 ```csharp
-
 var app = new App(new AppOptions
 {
     Cloud = CloudEnvironment.USGov,
@@ -70,11 +59,46 @@ var app = new App(new AppOptions
 ```
 
 **Available cloud presets:** `CloudEnvironment.Public`, `CloudEnvironment.USGov`, `CloudEnvironment.USGovDoD`, `CloudEnvironment.China`
+
+Available override properties: `LoginEndpoint`, `LoginTenant`, `BotScope`, `TokenServiceUrl`, `OpenIdMetadataUrl`, `TokenIssuer`, `GraphScope`
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+For 2.1, configure sovereign cloud endpoints as shown below.
+
+```json title="Properties/launchSettings.json (US Gov example)"
+{
+  "profiles": {
+    "YourBot": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "AzureAd__Instance": "https://login.microsoftonline.us/",
+        "AzureAd__TenantId": "your-tenant-id",
+        "AzureAd__ClientId": "your-client-id",
+        "BotFramework__OpenIdMetadataUrl": "https://login.botframework.azure.us/v1/.well-known/openid-configuration",
+        "BotFramework__BotTokenIssuer": "https://api.botframework.us"
+      }
+    }
+  }
+}
+```
+
+For deployed environments, set equivalent values via app configuration or environment variables. When these aren't set, the SDK defaults to public-cloud endpoints.
 ::: zone-end
 
 ::: zone pivot="python"
-```python
+Add the `CLOUD` environment variable to your existing app authentication configuration. This works alongside any auth method (client secret, managed identity, federated credentials).
 
+```env
+CLOUD=USGov
+```
+
+Valid values: `Public`, `USGov`, `USGovDoD`, `China`
+
+You can also configure the cloud programmatically:
+
+```python
 from microsoft_teams.api.auth.cloud_environment import US_GOV
 from microsoft_teams.apps import App
 
@@ -85,8 +109,17 @@ app = App(cloud=US_GOV)
 ::: zone-end
 
 ::: zone pivot="typescript"
-```typescript
+Add the `CLOUD` environment variable to your existing app authentication configuration. This works alongside any auth method (client secret, managed identity, federated credentials).
 
+```env
+CLOUD=USGov
+```
+
+Valid values: `Public`, `USGov`, `USGovDoD`, `China`
+
+You can also configure the cloud programmatically:
+
+```typescript
 import { App } from '@microsoft/teams.apps';
 import { US_GOV } from '@microsoft/teams.api';
 
@@ -99,38 +132,32 @@ const app = new App({
 ::: zone-end
 
 
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python"
 ## Per-Endpoint Overrides
 
 For scenarios requiring customization of individual endpoints, such as China single-tenant bots that need a tenant-specific login URL, you can override specific properties.
 
-
-::: zone pivot="csharp"
-In `appsettings.json`:
-
-```json
-
-{
-  "Teams": {
-    "Cloud": "China",
-    "LoginTenant": "your-tenant-id"
-  }
-}
-```
-::: zone-end
-
-::: zone pivot="python"
 ```python
-
 from microsoft_teams.api.auth.cloud_environment import CHINA, with_overrides
 from microsoft_teams.apps import App
 
 app = App(cloud=with_overrides(CHINA, login_tenant="your-tenant-id"))
 ```
+Available override properties: `LoginEndpoint`, `LoginTenant`, `BotScope`, `TokenServiceUrl`, `OpenIdMetadataUrl`, `TokenIssuer`, `GraphScope`
 ::: zone-end
 
 ::: zone pivot="typescript"
-```typescript
+## Per-Endpoint Overrides
 
+For scenarios requiring customization of individual endpoints, such as China single-tenant bots that need a tenant-specific login URL, you can override specific properties.
+
+
+```typescript
 import { App } from '@microsoft/teams.apps';
 import { CHINA, withOverrides } from '@microsoft/teams.api';
 
@@ -138,10 +165,10 @@ const app = new App({
   cloud: withOverrides(CHINA, { loginTenant: 'your-tenant-id' }),
 });
 ```
-::: zone-end
-
 
 Available override properties: `LoginEndpoint`, `LoginTenant`, `BotScope`, `TokenServiceUrl`, `OpenIdMetadataUrl`, `TokenIssuer`, `GraphScope`
+::: zone-end
+
 
 ## What the SDK Configures Automatically
 
@@ -187,22 +214,11 @@ After configuring your cloud environment, your bot will authenticate and communi
 
 
 ::: zone pivot="csharp"
-In `appsettings.json`:
-
-```json
-
-{
-  "Teams": {
-    "Cloud": "China",
-    "LoginTenant": "your-tenant-id"
-  }
-}
-```
+<!-- Not applicable -->
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api.auth.cloud_environment import CHINA, with_overrides
 from microsoft_teams.apps import App
 
@@ -212,7 +228,6 @@ app = App(cloud=with_overrides(CHINA, login_tenant="your-tenant-id"))
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 import { CHINA, withOverrides } from '@microsoft/teams.api';
 
@@ -223,6 +238,12 @@ const app = new App({
 ::: zone-end
 
 
+
+::: zone pivot="csharp"
+<!-- Not applicable -->
+::: zone-end
+
+::: zone pivot="python,typescript"
 ### `CLOUD` environment variable seems ignored
 
 **Symptom:** The bot still uses public cloud endpoints despite setting `CLOUD=USGov`.
@@ -230,6 +251,7 @@ const app = new App({
 **Cause:** Either the env var is not set in the running process (only in your shell), or your code passes `cloud:` explicitly, which takes precedence.
 
 **Fix:** Confirm the env var is exported into the process environment, then check whether your code passes `cloud:` explicitly. With current behavior, the value passed in code wins over the environment variable.
+::: zone-end
+
 
 For other authentication errors not specific to sovereign clouds, see the [App Authentication](../../teams/app-authentication/overview.md) guide.
-

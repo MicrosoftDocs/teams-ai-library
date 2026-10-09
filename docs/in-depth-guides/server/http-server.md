@@ -1,12 +1,10 @@
 ---
 title: Self-Managing Your Server
-description: How to self-manage the HTTP server  bring your own Express, FastAPI, or any framework by implementing the HttpServerAdapter interface.
+description: How to self-manage the HTTP server — bring your own Express, FastAPI, or any framework by implementing the HttpServerAdapter interface.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
-
 # Self-Managing Your Server
 
 ::: zone pivot="csharp"
@@ -14,11 +12,11 @@ This article is not available for the selected development language.
 ::: zone-end
 
 ::: zone pivot="python"
-By default, `app.start()` spins up an HTTP server, registers the Teams endpoint, and manages the full lifecycle for you. Under the hood, the SDK uses [FastAPI](https://fastapi.tiangolo.com/) as its built-in HTTP framework. But if you need to self-manage your server  because you have an existing app, need custom server configuration (TLS, workers, middleware), or use a different HTTP framework  the SDK supports that through the `HttpServerAdapter` interface.
+By default, `app.start()` spins up an HTTP server, registers the Teams endpoint, and manages the full lifecycle for you. Under the hood, the SDK uses [FastAPI](https://fastapi.tiangolo.com/) as its built-in HTTP framework. But if you need to self-manage your server — because you have an existing app, need custom server configuration (TLS, workers, middleware), or use a different HTTP framework — the SDK supports that through the `HttpServerAdapter` interface.
 ::: zone-end
 
 ::: zone pivot="typescript"
-By default, `app.start()` spins up an HTTP server, registers the Teams endpoint, and manages the full lifecycle for you. Under the hood, the SDK uses [Express](https://expressjs.com/) as its built-in HTTP framework. But if you need to self-manage your server  because you have an existing app, need custom server configuration (TLS, workers, middleware), or use a different HTTP framework  the SDK supports that through the `HttpServerAdapter` interface.
+By default, `app.start()` spins up an HTTP server, registers the Teams endpoint, and manages the full lifecycle for you. Under the hood, the SDK uses [Express](https://expressjs.com/) as its built-in HTTP framework. But if you need to self-manage your server — because you have an existing app, need custom server configuration (TLS, workers, middleware), or use a different HTTP framework — the SDK supports that through the `HttpServerAdapter` interface.
 ::: zone-end
 
 ::: zone pivot="typescript,python"
@@ -29,15 +27,15 @@ The SDK splits HTTP handling into two layers:
 - **HttpServer** handles Teams protocol concerns: JWT authentication, activity parsing, and routing to your handlers.
 - **HttpServerAdapter** handles framework concerns: translating between your HTTP framework's request/response model and the SDK's pure handler pattern.
 
-:::image type="content" source="~/assets/diagrams/in-depth-guides-server-http-server-1.png" alt-text="Flowchart showing how self-managed HTTP server integration works" lightbox="~/assets/diagrams/in-depth-guides-server-http-server-1.png" :::
-The adapter interface is intentionally simple  implement `registerRoute` and the SDK handles the rest.
+:::image type="content" source="~/assets/diagrams/in-depth-guides-server-http-server-1.png" alt-text="Flowchart showing Teams posting to an HttpServerAdapter, which passes the body and headers to HttpServer for authentication and parsing, then to your app handlers, with the response returning to Teams." lightbox="~/assets/diagrams/in-depth-guides-server-http-server-1.png" :::
+
+The adapter interface is intentionally simple — implement `registerRoute` and the SDK handles the rest.
 
 ## The Adapter Interface
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 class HttpServerAdapter(Protocol):
     def register_route(self, method: HttpMethod, path: str, handler: HttpRouteHandler) -> None: ...
     def serve_static(self, path: str, directory: str) -> None: ...
@@ -51,7 +49,6 @@ class HttpRouteHandler(Protocol):
 
 ::: zone pivot="typescript"
 ```typescript
-
 interface IHttpServerAdapter {
   registerRoute(method: HttpMethod, path: string, handler: HttpRouteHandler): void;
   serveStatic?(path: string, directory: string): void;
@@ -65,9 +62,9 @@ type HttpRouteHandler = (request: { body: unknown; headers: Record<string, strin
 ::: zone-end
 
 ::: zone pivot="typescript,python"
-- **`registerRoute`**  Required. Routes are registered dynamically (`/api/messages`, `/api/functions/{name}`, etc.).
-- **`serveStatic`**  Optional. Only needed for tabs or static pages.
-- **`start` / `stop`**  Optional. Omit when you manage the server lifecycle yourself.
+- **`registerRoute`** — Required. Routes are registered dynamically (`/api/messages`, `/api/functions/{name}`, etc.).
+- **`serveStatic`** — Optional. Only needed for tabs or static pages.
+- **`start` / `stop`** — Optional. Omit when you manage the server lifecycle yourself.
 
 ## Self-Managing Your Server
 
@@ -75,13 +72,12 @@ To add Teams to an existing server:
 
 1. Create your server with your own routes and middleware.
 2. Wrap it in an adapter (or use the built-in one with your server instance).
-3. Call `app.initialize()`  this registers the Teams routes on your server. Do **not** call `app.start()`.
+3. Call `app.initialize()` — this registers the Teams routes on your server. Do **not** call `app.start()`.
 4. Start the server yourself.
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 import asyncio
 import uvicorn
 from fastapi import FastAPI
@@ -121,7 +117,6 @@ asyncio.run(main())
 
 ::: zone pivot="typescript"
 ```typescript
-
 import http from 'http';
 import express from 'express';
 import { App, ExpressAdapter } from '@microsoft/teams.apps';
@@ -151,14 +146,13 @@ await app.initialize();
 httpServer.listen(3978, () => console.log('Server ready on http://localhost:3978'));
 ```
 
-> **Note:** `app.initialize()` runs each plugin's `onInit` hook but not its `onStart` hook
+> **Note:** `app.initialize()` runs each plugin's `onInit` hook but not its `onStart` hook —
 > `onStart` only fires from `app.start()`. When you take over the HTTP lifecycle with a custom
 > adapter, plugins that do their setup in `onStart` won't run. If you're using such a plugin,
 > either call `app.start()` (and let it manage the server) or invoke that plugin's `onStart`
 > yourself after `app.initialize()`:
 >
-> `t
-
+> ```ts
 > await app.initialize();
 > await myPlugin.onStart({ port: 3978 });
 > ```
@@ -169,14 +163,13 @@ httpServer.listen(3978, () => console.log('Server ready on http://localhost:3978
 ::: zone pivot="typescript,python"
 ## Using a Different Framework
 
-If you use a framework other than the built-in default, implement the adapter interface for your framework. The core work is in `registerRoute`  translate incoming requests to `{ body, headers }`, call the handler, and write the response back. Since you manage the server lifecycle yourself, `start`/`stop` aren't needed. And `serveStatic` is only required if you serve tabs or static pages.
+If you use a framework other than the built-in default, implement the adapter interface for your framework. The core work is in `registerRoute` — translate incoming requests to `{ body, headers }`, call the handler, and write the response back. Since you manage the server lifecycle yourself, `start`/`stop` aren't needed. And `serveStatic` is only required if you serve tabs or static pages.
 ::: zone-end
 
 ::: zone pivot="python"
-Here is a Starlette adapter  only `register_route` is needed:
+Here is a Starlette adapter — only `register_route` is needed:
 
 ```python
-
 from starlette.applications import Starlette
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
@@ -204,7 +197,6 @@ class StarletteAdapter:
 Usage:
 
 ```python
-
 starlette_app = Starlette()
 adapter = StarletteAdapter(starlette_app)
 app = App(http_server_adapter=adapter)
@@ -216,10 +208,9 @@ await app.initialize()
 ::: zone-end
 
 ::: zone pivot="typescript"
-Here is a Restify adapter  only `registerRoute` is needed:
+Here is a Restify adapter — only `registerRoute` is needed:
 
 ```typescript
-
 import restify from 'restify';
 import { HttpMethod, IHttpServerAdapter, HttpRouteHandler } from '@microsoft/teams.apps';
 
@@ -245,7 +236,6 @@ class RestifyAdapter implements IHttpServerAdapter {
 Usage:
 
 ```typescript
-
 const server = restify.createServer();
 const adapter = new RestifyAdapter(server);
 const app = new App({ httpServerAdapter: adapter });
@@ -255,7 +245,5 @@ server.listen(3978);
 
 > See the full implementation: [Restify adapter example](https://github.com/microsoft/teams.ts/tree/main/examples/http-adapters/restify)
 ::: zone-end
-
-
 
 

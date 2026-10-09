@@ -1,17 +1,15 @@
-﻿---
-title: Dialogs
-description: Understand Teams dialogs, when to use them, and where to go next for creating and invoking dialog experiences.
-ms.topic: how-to
-ms.date: 07/27/2026
 ---
-
+title: Dialogs
+description: Dialogs open a window in the Teams client so your agent can collect input through forms and multi-step flows.
+ms.topic: how-to
+ms.date: 10/09/2026
+---
 
 # Dialogs
 
 Dialogs are a helpful paradigm in Teams which improve interactions between your agent and users. When dialogs are **invoked**, they pop open a window for a user in the Teams client. The content of the dialog can be supplied by the agent application.
 
 > [!NOTE]
->
 > In Teams client v1, dialogs were called task modules. They may occasionaly be used synonymously.
 
 ## Key benefits

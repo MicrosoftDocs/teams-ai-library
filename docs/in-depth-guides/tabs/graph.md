@@ -3,9 +3,8 @@ title: Microsoft Graph Client
 description: Access Microsoft Graph APIs with type-safe client and manage user consent for permissions.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 # Microsoft Graph Client
 
 ::: zone pivot="csharp,python"
@@ -20,7 +19,6 @@ The client App exposes a `graph` property that gives type-safe access to Microso
 After constructing and starting an App instance, you can invoke any graph function by using the `app.graph` client.
 
 ```typescript
-
 import { App } from '@microsoft/teams.client';
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -53,7 +51,6 @@ The method returns a promise that resolves to true if the user has already provi
 This method is useful for building an incremental, just-in-time, consent model, or to fully control how consent is pre-warmed.
 
 ```typescript
-
 import { App } from '@microsoft/teams.client';
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -78,7 +75,6 @@ if (canReadChat) {
 The app also provides a `hasConsentForScopes` method to test for consent without raising a prompt. This is handy to enable or disable features based on user choice, or to provide friendly messaging before raising a prompt with `ensureConsentForScopes`.
 
 ```typescript
-
 import { App } from '@microsoft/teams.client';
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
@@ -102,4 +98,3 @@ if (canReadChat) {
 - [Graph API overview](/graph/api/overview)
 - [Graph API permissions overview](/graph/permissions-reference)
 ::: zone-end
-

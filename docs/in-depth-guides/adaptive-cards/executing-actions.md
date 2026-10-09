@@ -3,13 +3,12 @@ title: Executing Actions
 description: How to implement interactive elements in Adaptive Cards through actions like buttons, links, and input submission triggers.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Executing Actions
 
-Adaptive Cards support interactive elements through **actions**abuttons, links, and input submission triggers that respond to user interaction.
+Adaptive Cards support interactive elements through **actions**—buttons, links, and input submission triggers that respond to user interaction.
 You can use these to collect form input, trigger workflows, show task modules, open URLs, and more.
 
 ## Action Types
@@ -18,15 +17,14 @@ The Teams SDK supports several action types for different interaction patterns:
 
 | Action Type               | Purpose                | Description                                                                  |
 | ------------------------- | ---------------------- | ---------------------------------------------------------------------------- |
-| `Action.Execute`          | Serveraside processing | Send data to your bot for processing. Best for forms & multiastep workflows. |
+| `Action.Execute`          | Server‑side processing | Send data to your bot for processing. Best for forms & multi‑step workflows. |
 | `Action.Submit`           | Simple data submission | Legacy action type. Prefer `Execute` for new projects.                       |
 | `Action.OpenUrl`          | External navigation    | Open a URL in the user's browser.                                            |
 | `Action.ShowCard`         | Progressive disclosure | Display a nested card when clicked.                                          |
 | `Action.ToggleVisibility` | UI state management    | Show/hide card elements dynamically.                                         |
 
-:::info
-For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
-:::
+> [!NOTE]
+> For complete reference, see the [official documentation](https://adaptivecards.microsoft.com/?topic=Action.Execute).
 
 ## Creating Actions with the SDK
 
@@ -37,7 +35,6 @@ The SDK provides builder helpers that abstract the underlying JSON. For example:
 
 ::: zone pivot="csharp"
 ```csharp
-
 using Microsoft.Teams.Cards;
 
 var action = new ExecuteAction
@@ -57,7 +54,6 @@ var action = new ExecuteAction
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.cards.core import ExecuteAction
 # ...
 
@@ -69,7 +65,6 @@ action = ExecuteAction(title="Submit Feedback")
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { ExecuteAction } from '@microsoft/teams.cards';
 // ...
 
@@ -87,7 +82,6 @@ Group actions together using `ActionSet`:
 
 ::: zone pivot="csharp"
 ```csharp
-
 using Microsoft.Teams.Cards;
 
 var card = new AdaptiveCard
@@ -117,7 +111,6 @@ var card = new AdaptiveCard
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.cards.core import ActionSet, ExecuteAction, OpenUrlAction
 # ...
 
@@ -133,7 +126,6 @@ action_set = ActionSet(
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { ExecuteAction, OpenUrlAction, ActionSet } from '@microsoft/teams.cards';
 // ...
 
@@ -164,7 +156,6 @@ Just like when building cards, if you prefer to work with raw JSON, you can do j
 
 ::: zone pivot="csharp"
 ```csharp
-
 var actionJson = """
 {
   "type": "Action.OpenUrl",
@@ -178,7 +169,6 @@ var action = OpenUrlAction.Deserialize(actionJson);
 
 ::: zone pivot="python"
 ```python
-
 json = {
   "type": "Action.OpenUrl",
   "url": "https://adaptivecards.microsoft.com",
@@ -189,7 +179,6 @@ json = {
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { IOpenUrlAction } from '@microsoft/teams.cards';
 // ...
 
@@ -211,7 +200,6 @@ Sometimes you want to send a card and have it be associated with some data. Set 
 
 ::: zone pivot="csharp"
 ```csharp
-
 private static AdaptiveCard CreateProfileCard()
 {
     return new AdaptiveCard
@@ -284,7 +272,6 @@ Accessed in C# as:
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.cards import AdaptiveCard, ActionSet, ExecuteAction, OpenUrlAction
 from microsoft_teams.cards.core import TextInput, ToggleInput
 # ...
@@ -320,7 +307,6 @@ profile_card = AdaptiveCard(
 
 ::: zone pivot="typescript"
 ```typescript
-
 import {
   AdaptiveCard,
   TextInput,
@@ -369,7 +355,6 @@ Input Controls provide ways for you to validate. More details can be found on th
 
 ::: zone pivot="csharp"
 ```csharp
-
 private static AdaptiveCard CreateProfileCardWithValidation()
 {
     return new AdaptiveCard
@@ -427,7 +412,6 @@ private static AdaptiveCard CreateProfileCardWithValidation()
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.cards import AdaptiveCard, ActionSet, ExecuteAction, NumberInput, TextInput
 # ...
 
@@ -458,7 +442,6 @@ def create_profile_card_input_validation():
 
 ::: zone pivot="typescript"
 ```typescript
-
 import {
   AdaptiveCard,
   NumberInput,
@@ -506,102 +489,168 @@ function createProfileCardInputValidation() {
 
 Card actions arrive as `card.action` activities in your app. These give you access to the validated input values plus any `data` values you had configured to be sent back to you.
 
+
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
+    using System.Text.Json;
+    using Microsoft.Teams.Api.AdaptiveCards;
+    using Microsoft.Teams.Apps.Annotations;
 
-using System.Text.Json;
-using Microsoft.Teams.Api.Activities.Invokes.AdaptiveCards;
-using Microsoft.Teams.Apps;
-using Microsoft.Teams.Apps.Annotations;
-using Microsoft.Teams.Common.Logging;
-
-//...
-
-teams.OnAdaptiveCardAction(async (context, cancellationToken) =>
-{
-    var activity = context.Activity;
-    context.Log.Info("[CARD_ACTION] Card action received");
-
-    var data = activity.Value?.Action?.Data;
-
-    context.Log.Info($"[CARD_ACTION] Raw data: {JsonSerializer.Serialize(data)}");
-
-    if (data == null)
+    [TeamsController]
+    public class AdaptiveCardController
     {
-        context.Log.Error("[CARD_ACTION] No data in card action");
-        return new ActionResponse.Message("No data specified") { StatusCode = 400 };
-    }
-
-    string? action = data.TryGetValue("action", out var actionObj) ? actionObj?.ToString() : null;
-
-    if (string.IsNullOrEmpty(action))
-    {
-        context.Log.Error("[CARD_ACTION] No action specified in card data");
-        return new ActionResponse.Message("No action specified") { StatusCode = 400 };
-    }
-    context.Log.Info($"[CARD_ACTION] Processing action: {action}");
-
-    string? GetFormValue(string key)
-    {
-        if (data.TryGetValue(key, out var val))
+        [AdaptiveCard.Action]
+        public async Task<ActionResponse> OnAction([Context] IContext context, CancellationToken cancellationToken)
         {
-            if (val is JsonElement element)
-                return element.GetString();
-            return val?.ToString();
+            var data = context.Activity.Value?.Action?.Data;
+
+            if (data == null)
+                return new ActionResponse.Message("No data specified") { StatusCode = 400 };
+
+            string? action = data.TryGetValue("action", out var actionObj) ? actionObj?.ToString() : null;
+
+            if (string.IsNullOrEmpty(action))
+                return new ActionResponse.Message("No action specified") { StatusCode = 400 };
+
+            string? GetFormValue(string key)
+            {
+                if (data.TryGetValue(key, out var val))
+                {
+                    if (val is JsonElement element)
+                        return element.GetString();
+                    return val?.ToString();
+                }
+                return null;
+            }
+
+            switch (action)
+            {
+                case "submit_basic":
+                    var notifyValue = GetFormValue("notify") ?? "false";
+                    await context.Client.Send($"Basic card submitted! Notify setting: {notifyValue}");
+                    break;
+
+                case "submit_feedback":
+                    var feedbackText = GetFormValue("feedback") ?? "No feedback provided";
+                    await context.Client.Send($"Feedback received: {feedbackText}");
+                    break;
+
+                case "create_task":
+                    var title = GetFormValue("title") ?? "Untitled";
+                    var priority = GetFormValue("priority") ?? "medium";
+                    var dueDate = GetFormValue("due_date") ?? "No date";
+                    await context.Client.Send($"Task created!\nTitle: {title}\nPriority: {priority}\nDue: {dueDate}");
+                    break;
+
+                case "save_profile":
+                    var name = GetFormValue("name") ?? "Unknown";
+                    var email = GetFormValue("email") ?? "No email";
+                    var subscribe = GetFormValue("subscribe") ?? "false";
+                    var age = GetFormValue("age");
+                    var location = GetFormValue("location") ?? "Not specified";
+
+                    var response = $"Profile saved!\nName: {name}\nEmail: {email}\nSubscribed: {subscribe}";
+                    if (!string.IsNullOrEmpty(age))
+                        response += $"\nAge: {age}";
+                    if (location != "Not specified")
+                        response += $"\nLocation: {location}";
+
+                    await context.Client.Send(response);
+                    break;
+
+                case "test_json":
+                    await context.Client.Send("JSON deserialization test successful!");
+                    break;
+
+                default:
+                    return new ActionResponse.Message("Unknown action") { StatusCode = 400 };
+            }
+
+            return new ActionResponse.Message("Action processed successfully");
         }
-        return null;
     }
+    ```
 
-    switch (action)
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+    using System.Text.Json;
+    using Microsoft.Teams.Apps;
+
+    bot.OnAdaptiveCardAction(async (context, cancellationToken) =>
     {
-        case "submit_basic":
-            var notifyValue = GetFormValue("notify") ?? "false";
-            await context.Send($"Basic card submitted! Notify setting: {notifyValue}", cancellationToken);
-            break;
+        var data = context.Activity.Value?.Action?.Data;
 
-        case "submit_feedback":
-            var feedbackText = GetFormValue("feedback") ?? "No feedback provided";
-            await context.Send($"Feedback received: {feedbackText}", cancellationToken);
-            break;
+        if (data == null)
+            return AdaptiveCardResponse.CreateMessageResponse("No data specified", 400);
 
-        case "create_task":
-            var title = GetFormValue("title") ?? "Untitled";
-            var priority = GetFormValue("priority") ?? "medium";
-            var dueDate = GetFormValue("due_date") ?? "No date";
-            await context.Send($"Task created!\nTitle: {title}\nPriority: {priority}\nDue: {dueDate}", cancellationToken);
-            break;
+        string? action = data.TryGetValue("action", out var actionObj) ? actionObj?.ToString() : null;
 
-        case "save_profile":
-            var name = GetFormValue("name") ?? "Unknown";
-            var email = GetFormValue("email") ?? "No email";
-            var subscribe = GetFormValue("subscribe") ?? "false";
-            var age = GetFormValue("age");
-            var location = GetFormValue("location") ?? "Not specified";
+        if (string.IsNullOrEmpty(action))
+            return AdaptiveCardResponse.CreateMessageResponse("No action specified", 400);
 
-            var response = $"Profile saved!\nName: {name}\nEmail: {email}\nSubscribed: {subscribe}";
-            if (!string.IsNullOrEmpty(age))
-                response += $"\nAge: {age}";
-            if (location != "Not specified")
-                response += $"\nLocation: {location}";
+        string? GetFormValue(string key)
+        {
+            if (data.TryGetValue(key, out var val))
+            {
+                if (val is JsonElement element)
+                    return element.GetString();
+                return val?.ToString();
+            }
+            return null;
+        }
 
-            await context.Send(response, cancellationToken);
-            break;
+        switch (action)
+        {
+            case "submit_basic":
+                var notifyValue = GetFormValue("notify") ?? "false";
+                await context.SendAsync($"Basic card submitted! Notify setting: {notifyValue}", cancellationToken);
+                break;
 
-        case "test_json":
-            await context.Send("JSON deserialization test successful!", cancellationToken);
-            break;
+            case "submit_feedback":
+                var feedbackText = GetFormValue("feedback") ?? "No feedback provided";
+                await context.SendAsync($"Feedback received: {feedbackText}", cancellationToken);
+                break;
 
-        default:
-            context.Log.Error($"[CARD_ACTION] Unknown action: {action}");
-            return new ActionResponse.Message("Unknown action") { StatusCode = 400 };
-    }
+            case "create_task":
+                var title = GetFormValue("title") ?? "Untitled";
+                var priority = GetFormValue("priority") ?? "medium";
+                var dueDate = GetFormValue("due_date") ?? "No date";
+                await context.SendAsync($"Task created!\nTitle: {title}\nPriority: {priority}\nDue: {dueDate}", cancellationToken);
+                break;
 
-    return new ActionResponse.Message("Action processed successfully") { StatusCode = 200 };
-});
-```
+            case "save_profile":
+                var name = GetFormValue("name") ?? "Unknown";
+                var email = GetFormValue("email") ?? "No email";
+                var subscribe = GetFormValue("subscribe") ?? "false";
+                var age = GetFormValue("age");
+                var location = GetFormValue("location") ?? "Not specified";
+
+                var response = $"Profile saved!\nName: {name}\nEmail: {email}\nSubscribed: {subscribe}";
+                if (!string.IsNullOrEmpty(age))
+                    response += $"\nAge: {age}";
+                if (location != "Not specified")
+                    response += $"\nLocation: {location}";
+
+                await context.SendAsync(response, cancellationToken);
+                break;
+
+            case "test_json":
+                await context.SendAsync("JSON deserialization test successful!", cancellationToken);
+                break;
+
+            default:
+                return AdaptiveCardResponse.CreateMessageResponse("Unknown action", 400);
+        }
+
+        return AdaptiveCardResponse.CreateMessageResponse("Action processed successfully");
+    });
+    ```
 
 > [!NOTE]
->
 > The `data` values come from JSON and need to be extracted using the helper method shown above to handle different JSON element types.
+
 ::: zone-end
 
 ::: zone pivot="python"
@@ -612,7 +661,6 @@ teams.OnAdaptiveCardAction(async (context, cancellationToken) =>
 The SDK provides a `SubmitData` helper that sets the routing key for your action. This is the recommended way to wire up actions to specific handlers:
 
 ```python
-
 from microsoft_teams.cards import ExecuteAction, SubmitData
 # ...
 
@@ -633,7 +681,6 @@ ExecuteAction(title="Save") \
 Register handlers for specific actions. When you use `SubmitData` to set the action name on the card, the SDK routes directly to the matching handler:
 
 ```python
-
 from microsoft_teams.apps import App, ActivityContext
 from microsoft_teams.api import AdaptiveCardInvokeActivity, AdaptiveCardActionMessageResponse, AdaptiveCardInvokeResponse
 # ...
@@ -667,7 +714,6 @@ The decorator argument matches the value passed to `SubmitData`. This is cleaner
 If you need to handle all card actions in one place, you can use the catch-all handler:
 
 ```python
-
 from microsoft_teams.api import AdaptiveCardInvokeActivity, AdaptiveCardActionErrorResponse, AdaptiveCardActionMessageResponse, HttpError, InnerHttpError, AdaptiveCardInvokeResponse
 from microsoft_teams.apps import ActivityContext
 # ...
@@ -721,8 +767,8 @@ async def handle_card_action(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -
 ```
 
 > [!NOTE]
->
 > The `data` values are accessible as a dictionary and can be accessed using `.get()` method for safe access.
+
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -733,7 +779,6 @@ async def handle_card_action(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -
 The SDK provides a `SubmitData` helper that sets the routing key for your action. This is the recommended way to wire up actions to specific handlers:
 
 ```typescript
-
 import { ExecuteAction, SubmitData } from '@microsoft/teams.cards';
 // ...
 
@@ -754,7 +799,6 @@ new ExecuteAction({ title: 'Save' })
 Register handlers for specific actions. When you use `SubmitData` to set the action name on the card, the SDK routes directly to the matching handler:
 
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -787,7 +831,6 @@ The route name follows the pattern `card.action.<action-name>`, where `<action-n
 If you need to handle all card actions in one place, you can use the catch-all handler:
 
 ```typescript
-
 import {
   AdaptiveCardActionErrorResponse,
   AdaptiveCardActionMessageResponse,
@@ -853,8 +896,187 @@ app.on('card.action', async ({ activity, send }) => {
 ```
 
 > [!NOTE]
->
 > The `data` values are not typed and come as `any`, so you will need to cast them to the correct type in this case.
+
 ::: zone-end
 
 
+## Dynamic Typeahead Search
+
+An `Input.ChoiceSet` can fetch its choices dynamically as the user types, instead of listing them statically. Leave `choices` as an empty array and add a `choices.data` `Data.Query` that names a `dataset`. As the user types, Teams sends your bot an `application/search` invoke, and you return the matching results.
+
+
+::: zone pivot="csharp"
+```csharp
+using Microsoft.Teams.Cards;
+
+private static AdaptiveCard CreateDynamicSearchCard()
+{
+    return new AdaptiveCard
+    {
+        Schema = "http://adaptivecards.io/schemas/adaptive-card.json",
+        Body = new List<CardElement>
+        {
+            new ChoiceSetInput
+            {
+                Id = "game",
+                Label = "Game",
+                Placeholder = "Search for a game",
+                Style = ChoiceSetInputStyle.Filtered,
+                Choices = new List<Choice>()
+            }.WithChoicesData(new QueryData { Dataset = "nintendoGames" })
+        },
+        Actions = new List<Microsoft.Teams.Cards.Action>
+        {
+            new ExecuteAction
+            {
+                Title = "Submit",
+                Data = new Union<string, SubmitActionData>(new SubmitActionData
+                {
+                    NonSchemaProperties = new Dictionary<string, object?>
+                    {
+                        { "action", "submit_game" }
+                    }
+                })
+            }
+        }
+    };
+}
+```
+::: zone-end
+
+::: zone pivot="python"
+```python
+from microsoft_teams.cards import AdaptiveCard
+
+card = AdaptiveCard.model_validate(
+    {
+        "type": "AdaptiveCard",
+        "version": "1.5",
+        "body": [
+            {
+                "type": "Input.ChoiceSet",
+                "id": "game",
+                "label": "Game",
+                "placeholder": "Search for a game",
+                "style": "filtered",
+                "choices": [],
+                "choices.data": {"type": "Data.Query", "dataset": "nintendoGames"},
+            }
+        ],
+        "actions": [
+            {"type": "Action.Execute", "title": "Submit", "data": {"action": "submit_game"}}
+        ],
+    }
+)
+```
+::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+import { IAdaptiveCard } from '@microsoft/teams.cards';
+
+const card: IAdaptiveCard = {
+  type: 'AdaptiveCard',
+  version: '1.5',
+  body: [
+    {
+      type: 'Input.ChoiceSet',
+      id: 'game',
+      label: 'Game',
+      placeholder: 'Search for a game',
+      style: 'filtered',
+      choices: [],
+      'choices.data': { type: 'Data.Query', dataset: 'nintendoGames' },
+    },
+  ],
+  actions: [
+    { type: 'Action.Execute', title: 'Submit', data: { action: 'submit_game' } },
+  ],
+};
+```
+::: zone-end
+
+
+Register a handler for the `application/search` invoke to return results as `{ title, value }` pairs, where `title` is the display text and `value` is what gets submitted when the choice is selected:
+
+
+::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
+> [!NOTE]
+> Dynamic typeahead search for Adaptive Cards is not supported in SDK 2.0. Use SDK 2.1 for this feature.
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+    using Microsoft.Teams.Apps;
+    using Microsoft.Teams.Apps.Handlers;
+
+    var games = new[] { "Super Mario Odyssey", "Metroid Dread", "Splatoon 3" };
+
+    bot.OnSearch((context, cancellationToken) =>
+    {
+        var query = context.Activity.Value?.QueryText?.ToLowerInvariant() ?? "";
+        var results = games
+            .Where(g => g.ToLowerInvariant().Contains(query))
+            .Select(g => new SearchResult { Title = g, Value = g })
+            .ToList();
+
+        var response = new SearchResponse
+        {
+            Value = new SearchResponseValue { Results = results }
+        };
+
+        return Task.FromResult(new InvokeResponse<SearchResponse>(200, response));
+    });
+    ```
+::: zone-end
+
+::: zone pivot="python"
+```python
+from microsoft_teams.api import SearchInvokeActivity
+from microsoft_teams.api.models.search import (
+    SearchInvokeResponseValue,
+    SearchInvokeResult,
+    SearchResponse,
+)
+from microsoft_teams.apps import ActivityContext
+
+GAMES = ["Super Mario Odyssey", "Metroid Dread", "Splatoon 3"]
+
+
+@app.on_card_search
+async def handle_search(ctx: ActivityContext[SearchInvokeActivity]) -> SearchResponse:
+    query = (ctx.activity.value.query_text or "").lower()
+    results = [
+        SearchInvokeResult(title=g, value=g) for g in GAMES if query in g.lower()
+    ]
+    return SearchResponse(value=SearchInvokeResponseValue(results=results))
+```
+::: zone-end
+
+::: zone pivot="typescript"
+```typescript
+import { App } from '@microsoft/teams.apps';
+// ...
+
+const GAMES = ['Super Mario Odyssey', 'Metroid Dread', 'Splatoon 3'];
+
+app.on('card.search', async ({ activity }) => {
+  const query = activity.value.queryText?.toLowerCase() ?? '';
+  const results = GAMES.filter((g) => g.toLowerCase().includes(query)).map(
+    (g) => ({ title: g, value: g })
+  );
+
+  return {
+    statusCode: 200,
+    type: 'application/vnd.microsoft.search.searchResponse',
+    value: { results },
+  };
+});
+```
+::: zone-end
+
+
+The activity value also carries the query options (`skip`/`top` for paging) and the originating `dataset`, so a single handler can branch on the dataset when several `Input.ChoiceSet` inputs share it.

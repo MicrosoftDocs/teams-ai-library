@@ -2,8 +2,9 @@
 title: Federated Identity Credentials Setup
 description: Set up Federated Identity Credentials authentication for your Teams bot in Azure Portal or Azure CLI
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
+
 
 # Federated Identity Credentials Setup
 
@@ -11,9 +12,7 @@ Federated Identity Credentials (FIC) allows you to assign managed identities dir
 
 ## Prerequisites
 
-
 Before you begin, ensure you have:
-
 - An Azure subscription
 - Permissions to create App Registrations, Azure Bot Services, and manage identities
 - A compute resource where your bot will be hosted (App Service, Container App, VM, etc.)
@@ -31,8 +30,7 @@ When creating your Azure Bot Service, select `Single Tenant` for the `Type of Ap
 
 Assign managed identities to your App Registration using Federated Credentials.
 
-# [Azure Portal](#tab/portal)
-
+### Azure Portal
 1. Navigate to your **App Registration** in the Azure Portal
 2. Go to **Certificates and Secrets**
 3. Select the **Federated Credentials** tab
@@ -47,10 +45,8 @@ The identity you select here must also be assigned to the compute resource where
 
 ---
 
-# [Azure CLI](#tab/cli)
-
+### Azure CLI
 ```bash
-
 # Add a federated credential for a user assigned managed identity
 az ad app federated-credential create \
   --id $APP_ID \
@@ -60,17 +56,13 @@ az ad app federated-credential create \
     "subject": "'$MANAGED_IDENTITY_CLIENT_ID'",
     "audiences": ["api://AzureADTokenExchange"]
   }'
-
 ```
 
----
-
-## Step 3: Assign the Managed Identity to Your Compute Resource
+### Step 3: Assign the Managed Identity to Your Compute Resource
 
 The managed identity configured in the federated credential must be assigned to your compute resource.
 
-# [Azure Portal - Assign Identity](#tab/portal)
-
+### Azure Portal
 **For User Assigned Managed Identity:**
 
 1. Navigate to your compute resource in the Azure Portal
@@ -90,10 +82,8 @@ The managed identity configured in the federated credential must be assigned to 
 
 ---
 
-# [Azure CLI - Assign Identity](#tab/cli)
-
+### Azure CLI
 ```bash
-
 # For user assigned managed identity:
 az webapp identity assign \
   --name $APP_NAME \
@@ -106,9 +96,6 @@ az webapp identity assign \
   --resource-group $RESOURCE_GROUP
 ```
 
----
-
 ## Next Steps
 
 After completing the Azure setup, configure your application code with the appropriate environment variables. See the App Authentication Essentials Guide for details.
-

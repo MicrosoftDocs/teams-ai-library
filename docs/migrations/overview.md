@@ -2,16 +2,17 @@
 title: Migrations
 description: Migration guides for transitioning from older versions and frameworks to Teams SDK.
 ms.topic: how-to
-zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
 
 # Migrations
 
-::: zone pivot="csharp"
-This article is not available for the selected development language.
-::: zone-end
-
-::: zone pivot="typescript,python"
 Migration guides for transitioning from older versions and frameworks to Teams SDK.
-::: zone-end
+
+- [From BotBuilder](./botbuilder/overview.md)
+
+
+For .NET:
+
+- [From SDK 2.0 to 2.1](./v2-dotnet.md)
+
