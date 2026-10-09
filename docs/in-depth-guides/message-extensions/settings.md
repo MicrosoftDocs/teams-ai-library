@@ -1,19 +1,20 @@
 ---
-title: asTMi  Settings
+title: Settings
 description: Add configurable settings pages to your message extensions to allow users to customize app behavior.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
 
-# Settings
 
+# Settings
 
 You can add a settings page that allows users to configure settings for your app.
 
 The user can access the settings by right-clicking the app item in the compose box.
 
-:::image type="content" source="~/assets/screenshots/settings.png" alt-text="Settings page example for a message extension." lightbox="~/assets/screenshots/settings.png" :::
+<br />
+:::image type="content" source="~/assets/screenshots/settings.png" alt-text="Settings" lightbox="~/assets/screenshots/settings.png" :::
 
 This guide will show how to enable user access to settings, as well as setting up a page that looks like this:
 
@@ -24,7 +25,6 @@ This guide will show how to enable user access to settings, as well as setting u
 Set the `canUpdateConfiguration` field to `true` in the desired message extension under `composeExtensions`.
 
 ```json
-
 "composeExtensions": [
     {
         "botId": "${{BOT_ID}}",
@@ -32,7 +32,6 @@ Set the `canUpdateConfiguration` field to `true` in the desired message extensio
         ...
     }
 ]
-
 ```
 
 ## 2. Serve the settings `html` page
@@ -41,9 +40,7 @@ This is the code snippet for the settings `html` page:
 
 
 ::: zone pivot="csharp,python"
-
 ```html
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -98,14 +95,11 @@ This is the code snippet for the settings `html` page:
     </script>
   </body>
 </html>
-
 ```
-
 ::: zone-end
+
 ::: zone pivot="typescript"
-
 ```html
-
 <html>
   <body>
     <form>
@@ -164,19 +158,17 @@ This is the code snippet for the settings `html` page:
     </script>
   </body>
 </html>
-
 ```
-
 ::: zone-end
+
+
 Save it in the `index.html` file in the same folder as where your app is initialized.
 
 You can serve it by adding the following code to your app:
 
 
 ::: zone pivot="csharp"
-
 ```csharp
-
 // In your startup configuration (Program.cs or Startup.cs)
 app.UseStaticFiles();
 app.MapGet("/tabs/settings", async context =>
@@ -185,42 +177,37 @@ app.MapGet("/tabs/settings", async context =>
     context.Response.ContentType = "text/html";
     await context.Response.WriteAsync(html);
 });
-
 ```
-
 ::: zone-end
+
 ::: zone pivot="python"
-
 ```python
-
 app.page("settings", str(Path(__file__).parent), "/tabs/settings")
-
 ```
-
 ::: zone-end
+
 ::: zone pivot="typescript"
-
 ```typescript
-
 import path from 'path';
 import { App } from '@microsoft/teams.apps';
 // ...
 
 app.tab('settings', path.resolve(__dirname));
-
 ```
-
 ::: zone-end
+
+
+
 ::: zone pivot="csharp,typescript"
 > [!NOTE]
->
 > This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab. See [Tabs Guide](../tabs/overview.md) to learn more.
+
 ::: zone-end
 
 ::: zone pivot="python"
 > [!NOTE]
->
 > This will serve the HTML page to the `${BOT_ENDPOINT}/tabs/settings` endpoint as a tab.
+
 ::: zone-end
 
 
@@ -231,8 +218,8 @@ To enable the settings page, your app needs to handle the `message.ext.query-set
 
 ::: zone pivot="csharp"
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using Microsoft.Teams.Api.Cards;
 using Microsoft.Teams.Cards;
 
@@ -273,14 +260,35 @@ public Microsoft.Teams.Api.MessageExtensions.Response OnMessageExtensionQuerySet
         ComposeExtension = result
     };
 }
-
 ```
 
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using Microsoft.Teams.Apps.MessageExtensions;
+using Microsoft.Teams.Apps.Schema;
+
+//...
+
+bot.OnQuerySettingUrl(async (context, cancellationToken) =>
+{
+    // Get user settings (this could come from a database or user store)
+    var selectedOption = ""; // Default or retrieve from user preferences
+
+    var botEndpoint = Environment.GetEnvironmentVariable("BOT_ENDPOINT") ?? "https://your-bot-endpoint.com";
+    var settingsUrl = $"{botEndpoint}/tabs/settings?selectedOption={Uri.EscapeDataString(selectedOption)}";
+
+    return MessageExtensionResponse.CreateBuilder()
+        .WithType(MessageExtensionResponseTypes.Config)
+        .WithSuggestedActions(new SuggestedAction(ActionTypes.OpenUrl, "Settings", settingsUrl))
+        .Build();
+});
+```
 ::: zone-end
+
 ::: zone pivot="python"
-
 ```python
-
 @app.on_message_ext_query_settings_url
 async def handle_message_ext_query_settings_url(ctx: ActivityContext[MessageExtensionQuerySettingUrlInvokeActivity]):
     user_settings = {"selectedOption": ""}
@@ -299,14 +307,11 @@ async def handle_message_ext_query_settings_url(ctx: ActivityContext[MessageExte
     result = MessagingExtensionResult(type=MessagingExtensionResultType.CONFIG, suggested_actions=suggested_actions)
 
     return MessagingExtensionInvokeResponse(compose_extension=result)
-
 ```
-
 ::: zone-end
+
 ::: zone pivot="typescript"
-
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -331,19 +336,18 @@ app.on('message.ext.query-settings-url', async ({ activity }) => {
     },
   };
 });
-
 ```
-
 ::: zone-end
+
+
 ## 4. Handle Form Submission
 
 When a user submits the settings form, Teams sends a `message.ext.setting` activity with the selected option in the `activity.value.state` property. Handle it to save the user's selection:
 
 
 ::: zone pivot="csharp"
-
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 [MessageExtension.Setting]
 public Microsoft.Teams.Api.MessageExtensions.Response OnMessageExtensionSetting(
     [Context] Microsoft.Teams.Api.Activities.Invokes.MessageExtensions.SettingActivity activity,
@@ -384,14 +388,31 @@ private static Microsoft.Teams.Api.MessageExtensions.Response CreateEmptyResult(
         }
     };
 }
-
 ```
 
+---
+
+# [SDK 2.1 (current)](#tab/core)
+SDK 2.1 does not have a dedicated settings-submission handler. Inside your existing `OnInvoke` handler, check for `composeExtension/setting`:
+
+```csharp
+bot.OnQuerySetting(async (context, cancellationToken) =>
+{
+    string? state = context.Activity.Value?.State;
+
+    if (state != "CancelledByUser")
+    {
+        // Save the user's settings here
+        // SaveUserSettings(context.Activity.From.Id, state);
+    }
+
+    return new InvokeResponse(200);
+});
+```
 ::: zone-end
+
 ::: zone pivot="python"
-
 ```python
-
 @app.on_message_ext_setting
 async def handle_message_ext_setting(ctx: ActivityContext[MessageExtensionSettingInvokeActivity]):
     state = getattr(ctx.activity.value, "state", None)
@@ -410,14 +431,11 @@ async def handle_message_ext_setting(ctx: ActivityContext[MessageExtensionSettin
     )
 
     return MessagingExtensionInvokeResponse(compose_extension=result)
-
 ```
-
 ::: zone-end
+
 ::: zone pivot="typescript"
-
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -439,7 +457,6 @@ app.on('message.ext.setting', async ({ activity, send }) => {
     status: 200,
   };
 });
-
 ```
-
 ::: zone-end
+

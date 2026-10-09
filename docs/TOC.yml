@@ -1,12 +1,12 @@
-﻿- name: Teams SDK
+- name: Teams SDK
   href: index.yml
 - name: Welcome
   href: welcome.md
 - name: Get Started
   items:
-    - name: 'Quickstart: Register your app'
+    - name: "Quickstart: Register your app"
       href: get-started/quickstart-register.md
-    - name: 'Quickstart: Build your first bot'
+    - name: "Quickstart: Build your first bot"
       href: get-started/quickstart-build.md
 - name: Why an SDK?
   href: why.md
@@ -56,6 +56,8 @@
       href: essentials/overview.md
     - name: App Basics
       href: essentials/app-basics.md
+    - name: Middleware
+      href: essentials/middleware-error-handling.md
     - name: Listening to Events
       href: essentials/on-event.md
     - name: Listening to Activities
@@ -118,6 +120,14 @@
           href: in-depth-guides/message-extensions/settings.md
         - name: Link Unfurling
           href: in-depth-guides/message-extensions/link-unfurling.md
+    - name: Feedback
+      href: in-depth-guides/feedback.md
+    - name: Meeting Events
+      href: in-depth-guides/meeting-events.md
+    - name: Message Reactions
+      href: in-depth-guides/message-reactions.md
+    - name: User Authentication
+      href: in-depth-guides/user-authentication.md
     - name: AI Integrations
       items:
         - name: Overview
@@ -130,8 +140,26 @@
           href: in-depth-guides/ai-integrations/mcp-server.md
         - name: Bot-to-Bot with A2A
           href: in-depth-guides/ai-integrations/a2a.md
-    - name: User Authentication
-      href: in-depth-guides/user-authentication.md
+    - name: Microsoft 365 Extensions
+      href: in-depth-guides/microsoft-365-extensions.md
+    - name: Observability
+      items:
+        - name: Middleware
+          href: in-depth-guides/observability/middleware.md
+        - name: Custom Logger
+          href: in-depth-guides/observability/logging.md
+        - name: OpenTelemetry
+          href: in-depth-guides/observability/open-telemetry.md
+    - name: State Management
+      href: in-depth-guides/state.md
+    - name: Agentic Identity
+      href: in-depth-guides/agentic-identity.md
+    - name: Server
+      items:
+        - name: Static Pages
+          href: in-depth-guides/server/static-pages.md
+        - name: Self-Managing Your Server
+          href: in-depth-guides/server/http-server.md
     - name: Tabs
       items:
         - name: Overview
@@ -150,26 +178,16 @@
               href: in-depth-guides/tabs/functions/overview.md
             - name: Executing Functions
               href: in-depth-guides/tabs/functions/function-calling.md
-    - name: Feedback
-      href: in-depth-guides/feedback.md
-    - name: Meeting Events
-      href: in-depth-guides/meeting-events.md
-    - name: Observability
+    - name: File and Image Handling
       items:
-        - name: Middleware
-          href: in-depth-guides/observability/middleware.md
-        - name: Custom Logger
-          href: in-depth-guides/observability/logging.md
-        - name: OpenTelemetry
-          href: in-depth-guides/observability/open-telemetry.md
-    - name: Message Reactions
-      href: in-depth-guides/message-reactions.md
-    - name: Server
-      items:
-        - name: Static Pages
-          href: in-depth-guides/server/static-pages.md
-        - name: Self-Managing Your Server
-          href: in-depth-guides/server/http-server.md
+        - name: Overview
+          href: in-depth-guides/file-handling/overview.md
+        - name: Receiving Files
+          href: in-depth-guides/file-handling/receiving-files.md
+        - name: Receiving Inline Images
+          href: in-depth-guides/file-handling/receiving-inline-images.md
+        - name: Sending Inline Images
+          href: in-depth-guides/file-handling/sending-inline-images.md
 - name: Migrations
   items:
     - name: Overview
@@ -178,7 +196,7 @@
       items:
         - name: Overview
           href: migrations/botbuilder/overview.md
-        - name: Using the BotBuilder Plugin
+        - name: Botbuilder Compatibility
           href: migrations/botbuilder/integration.md
         - name: Sending Activities
           href: migrations/botbuilder/sending-activities.md
@@ -192,6 +210,8 @@
       href: migrations/slack-bolt.md
     - name: Migrating from Teams SDK v1
       href: migrations/v1.md
+    - name: From SDK 2.0 to 2.1
+      href: migrations/v2-dotnet.md
     - name: From V2 Previews
       href: migrations/v2-previews.md
 - name: Developer Tools
@@ -202,20 +222,22 @@
       href: developer-tools/cli.md
     - name: Agent Skills
       href: developer-tools/agent-skills.md
-    - name: Agents Playground
+    - name: Microsoft 365 Agents Playground
       href: developer-tools/agents-playground/overview.md
     - name: DevTools
       items:
         - name: Overview
           href: developer-tools/devtools/overview.md
-        - name: Devtools Chat
+        - name: Devtools chat
           href: developer-tools/devtools/chat.md
-        - name: Inspect Activities
+        - name: Inspect activities
           href: developer-tools/devtools/inspect.md
         - name: Cards
           href: developer-tools/devtools/cards.md
     - name: llms.txt
       href: developer-tools/llms-txt.md
+    - name: Exposing Your Local App with a Tunnel
+      href: developer-tools/local-tunnels.md
 - name: Reference
   items:
     - name: TypeScript SDK

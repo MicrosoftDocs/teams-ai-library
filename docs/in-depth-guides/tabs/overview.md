@@ -3,10 +3,10 @@ title: Tabs
 description: Build Teams tab apps with Graph integration, authentication, and remote agent function calling capabilities.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 # Tabs
+
 ::: zone pivot="python"
 This article is not available for the selected development language.
 ::: zone-end
@@ -16,7 +16,14 @@ Tabs are host-aware webpages embedded in Microsoft Teams, Outlook, and Microsoft
 ::: zone-end
 
 ::: zone pivot="csharp"
-This SDK does not offer features for implementing Tab apps in C#. It does however let you host tab apps and implement functions that can be called by Tab apps.
+
+# [SDK 2.0 (Legacy)](#tab/legacy)
+SDK 2.0 includes a built-in `app.AddTab(...)` helper for hosting static tab content from your bot host.
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+SDK 2.1 does not expose a dedicated `AddTab` helper. Instead, host tab content with standard ASP.NET routes (for example `app.MapGet("/tabs/{name}/...")`) and keep using Teams SDK handlers for bot-side tab functions.
 ::: zone-end
 
 ::: zone pivot="typescript"
@@ -31,9 +38,7 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 ::: zone-end
 
 ::: zone pivot="typescript,csharp"
-
 ## Resources
-
 
 - [Tabs overview](/microsoftteams/platform/tabs/what-are-tabs?tabs=personal)
 - [Teams JavaScript client library](/microsoftteams/platform/tabs/how-to/using-teams-client-library)
@@ -43,16 +48,14 @@ The `@microsoft/teams.client` package in this SDK builds on TeamsJS and MSAL to 
 ::: zone-end
 
 ::: zone pivot="csharp"
-
-### Additional resources for C sharp
+### Additional resources
 
 - [Static Pages](../server/static-pages.md)
-- [TypeScript Tabs in-depth guide](../../in-depth-guides/tabs/overview.md)
+- [TypeScript Tabs in-depth guide](./getting-started.md)
 ::: zone-end
 
 ::: zone pivot="typescript"
-
-### Additional resources for JavaScript
+### Additional resources
 
 - [Static Pages](../server/static-pages.md)
 ::: zone-end

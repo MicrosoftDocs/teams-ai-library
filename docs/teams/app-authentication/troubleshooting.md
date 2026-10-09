@@ -2,8 +2,9 @@
 title: Authentication Troubleshooting
 description: Common authentication errors and how to resolve them
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
+
 
 # Authentication Troubleshooting
 
@@ -16,9 +17,7 @@ This error occurs when the application has a single-tenant Azure Bot Service (`m
 ### Error Examples
 
 # [TypeScript](#tab/typescript)
-```text
-s
-
+```sh
 [ERROR] @teams/app Request failed with status code 401
 [ERROR] @teams/app /aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token
 [ERROR] @teams/app {
@@ -37,9 +36,7 @@ s
 ---
 
 # [Python](#tab/python)
-```text
-s
-
+```sh
 [ERROR] @teams/app Failed to refresh bot token: Client error '401 Unauthorized' for url 'https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token'
 [ERROR] @teams/app For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
 ```
@@ -47,9 +44,7 @@ s
 ---
 
 # [C#](#tab/csharp)
-```text
-s
-
+```sh
 [ERROR] Echobot Failed to get bot token on app startup.
 [ERROR] Echobot {
 [ERROR] Echobot   "error": "invalid_client",
@@ -74,8 +69,8 @@ s
 
 3. **Search for your application**
    Use the **BOT_ID** from your environment file:
-   - Local development a `env/.env.local`
-   - Azure deployment a `env/.env.dev`
+   - Local development → `env/.env.local`
+   - Azure deployment → `env/.env.dev`
 
 4. **Check if a Service Principal exists**
    Open the app registration and verify if a Service Principal is created. If it exists already, you should see an entry for a **Managed Application in your local directory**.
@@ -89,4 +84,3 @@ s
 
 6. **Restart your app**
    Once the Service Principal is created, restart your application.
-

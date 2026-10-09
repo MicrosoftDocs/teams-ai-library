@@ -3,9 +3,8 @@ title: Getting started
 description: Set up new tab app projects or add Teams client capabilities to existing tab applications.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 # Getting started
 
 ::: zone pivot="csharp,python"
@@ -19,9 +18,7 @@ To use this package, you can either set up a new project using the Teams Develop
 
 The Teams Developer CLI ships a `tab` template that scaffolds a new tab app with a callable remote function. First install the Teams Developer CLI as outlined in the [Quickstart](../../getting-started/quickstart.md) guide, then create the app:
 
-```text
-s
-
+```sh
 teams project new typescript my-first-tab-app --template tab
 ```
 
@@ -42,4 +39,3 @@ If you're already using Microsoft Authentication Library (MSAL) in an NAA enable
 - [Quickstart: Register your app](../../get-started/quickstart-register.md)
 - [Configuring an app for Nested App Authentication](/microsoftteams/platform/concepts/authentication/nested-authentication#configure-naa)
 ::: zone-end
-

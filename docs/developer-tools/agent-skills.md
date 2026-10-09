@@ -1,25 +1,24 @@
-﻿---
+---
 title: Agent Skills
 description: Give AI coding assistants (Claude Code, Cursor, GitHub Copilot) relevant context for Teams bot development using the teams-dev agent skill.
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Agent Skills
 
 [Agent Skills](https://aka.ms/teams-agent-skills) give AI coding assistants relevant context for specific development tasks. The `teams-dev` skill is the go-to agent skill for Teams bot development. It gives AI coding assistants (Claude Code, Cursor, GitHub Copilot, and others) relevant context to assist in developing Teams bots and use the Teams Developer CLI to manage your bot infrastructure. Instead of running CLI commands manually, you describe what you want and your AI assistant handles the rest.
 
 > [!NOTE]
->
-> Alternative: Use llms.txt directly
-> If you'd rather not install a skill, you can provide the same context by pointing your AI tool to the llms.txt URL:
+> Alternative: Use llms.txt directly. If you'd rather not install a skill, you can provide the same context by pointing your AI tool to the llms.txt URL:
 >
 > ```
 > https://microsoft.github.io/teams-sdk/llms_docs/llms.txt
 > ```
 
 ## Install the `teams-dev` skill
+
+
 # [GitHub Copilot CLI](#tab/copilot)
 Add the marketplace (first time only):
 
@@ -73,7 +72,7 @@ The `teams-dev` skill guides your AI assistant through:
 | **Set up SSO**                | Enable Single Sign-On so users can authenticate seamlessly without login prompts  |
 | **Troubleshoot**              | Diagnose and resolve common bot setup and configuration issues                    |
 
-The skill does **not** cover hosting or deployment a it focuses on bot registration, development, and configuration.
+The skill does **not** cover hosting or deployment — it focuses on bot registration, development, and configuration.
 
 ## Invoke the skill
 
@@ -102,13 +101,13 @@ Agent: I'll create an echo bot for you.
        [checks Teams Developer CLI installation and authentication]
        [creates development tunnel: https://abc123.ngrok.io]
        [runs teams app create with endpoint]
-       âœ“ Bot registered, credentials saved to .env
+       ✓ Bot registered, credentials saved to .env
 
        [runs teams project new typescript echo-bot -t echo]
-       âœ“ Bot code created in ./echo-bot
+       ✓ Bot code created in ./echo-bot
 
        [installs dependencies and starts bot server]
-       âœ“ Bot running at http://localhost:3978
+       ✓ Bot running at http://localhost:3978
 
        Your bot is ready! Install it in Teams:
        https://teams.microsoft.com/l/app/[app-id]
@@ -117,5 +116,5 @@ Agent: I'll create an echo bot for you.
 ## Requirements
 
 - Teams Developer CLI installed (`npm install -g @microsoft/teams.cli`)
-- Node.js 20 or later
+- Node.js 22.12 or later
 - Microsoft 365 account with sideloading enabled

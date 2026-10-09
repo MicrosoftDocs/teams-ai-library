@@ -1,32 +1,32 @@
 ---
 title: Exposing Teams to AI Agents (MCP)
-description: Turn your Teams bot into an MCP server so external AI agents can reach real users a finding them by name, sending notifications, asking questions, and requesting approvals through chat.
+description: Turn your Teams bot into an MCP server so external AI agents can reach real users — finding them by name, sending notifications, asking questions, and requesting approvals through chat.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
 
 # Exposing Teams to AI Agents (MCP)
 
-::: zone pivot="csharp"
-This article is not available for the selected development language.
-::: zone-end
-
-::: zone pivot="typescript"
 
 > [!WARNING]
->
-> Our AI libraries are deprecated
-> The Teams SDK has deprecated its own AI libraries a the `@microsoft/teams.ai` packages (`ChatPrompt`, `Model`, and the older `@microsoft/teams.mcp` / `@microsoft/teams.a2a` plugins) a in favor of dedicated AI frameworks. Use the pattern shown in these guides instead: bring the OpenAI SDK (or any framework you like), and wire MCP and A2A directly into your Teams app.
+> Our AI libraries are deprecated. The Teams SDK has deprecated its own AI libraries — the `@microsoft/teams.ai` packages (`ChatPrompt`, `Model`, and the older `@microsoft/teams.mcp` / `@microsoft/teams.a2a` plugins) — in favor of dedicated AI frameworks. Use the pattern shown in these guides instead: bring the OpenAI SDK (or any framework you like), and wire MCP and A2A directly into your Teams app.
 
-::: zone-end
 
-::: zone pivot="python,typescript"
-This guide turns your Teams bot into an [MCP](https://modelcontextprotocol.io/introduction) server, enabling external AI agents to interact with users in Teams. Through this server, agents can find users by name, send messages into chats, ask questions, and trigger workflows such as notifications or approvals a turning Teams into a communication surface for agent-to-human interaction.
+
+> [!WARNING]
+> SDK 2.0 AI libraries are deprecated. In .NET, use SDK 2.1 and host MCP endpoints alongside your Teams endpoint in the same ASP.NET app. Treat Teams as the interaction channel and MCP as the agent-facing control plane.
+
+
+This guide turns your Teams bot into an [MCP](https://modelcontextprotocol.io/introduction) server, enabling external AI agents to interact with users in Teams. Through this server, agents can find users by name, send messages into chats, ask questions, and trigger workflows such as notifications or approvals — turning Teams into a communication surface for agent-to-human interaction.
 
 The bot and the MCP server run in the same process, exposing two HTTP surfaces: `/api/messages` for Teams and `/mcp` for agents.
 
-:::image type="content" source="~/assets/screenshots/mcp-server.png" alt-text="Animated screenshot of an AI agent calling the Teams MCP server: it resolves a user by name, sends a notification, then asks a question that lands in the user's Teams chat." lightbox="~/assets/screenshots/mcp-server.png" :::
+:::image type="content" source="~/assets/screenshots/mcp-server.gif" alt-text="Animated screenshot of an AI agent calling the Teams MCP server: it resolves a user by name, sends a notification, then asks a question that lands in the user's Teams chat." lightbox="~/assets/screenshots/mcp-server.gif" :::
+
+
+::: zone pivot="csharp"
+This guide is based on [`core/samples/McpServer`](https://github.com/microsoft/teams.net/tree/main/core/samples/McpServer): a single ASP.NET process hosts both Teams (`/api/messages`) and MCP (`/mcp`).
 ::: zone-end
 
 ::: zone pivot="python"
@@ -41,18 +41,29 @@ The setup uses the official [MCP TypeScript SDK](https://github.com/modelcontext
 Full source: [examples/mcp-server](https://github.com/microsoft/teams.ts/tree/main/examples/mcp-server).
 ::: zone-end
 
-::: zone pivot="python,typescript"
 
 ## Defining a tool
 
 An MCP tool is a function exposed by the server and discoverable by clients. The function signature defines the input schema, the return type defines the output, and the description tells the agent when to use it.
+
+
+::: zone pivot="csharp"
+The sample uses MCP tool attributes for discovery:
+
+```csharp
+[McpServerToolType]
+public sealed class McpTools(TeamsBotApplication app, State state, IConfiguration config, GraphClient graph)
+{
+    [McpServerTool(Name = "notify"), Description("Send a notification to a Teams user. No response expected.")]
+    public async Task<NotifyResult> Notify(string userId, string message, CancellationToken cancellationToken = default) { ... }
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 Tools are defined with the `@mcp.tool()` decorator. The function signature defines the input schema, the return type the output, and the docstring the tool description for agent consumption.
 
 ```python
-
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("teams-bot")
@@ -68,7 +79,6 @@ async def echo(message: str) -> str:
 Tools are registered on an `McpServer`. The sample wraps `registerTool` in a small `structuredTool` helper so handlers can return a plain typed value that's serialized to MCP's structured-content shape. Input and output schemas are described with [Zod](https://zod.dev/).
 
 ```typescript
-
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 
@@ -89,15 +99,27 @@ mcpServer.registerTool(
 ```
 ::: zone-end
 
-::: zone pivot="python,typescript"
+
 ## Finding users by name
 
 The agent talks in terms of names ("message Mehak about the deploy"), but every other tool needs an **AAD object id**. `find_user` bridges that gap by searching the tenant directory through Microsoft Graph, using the bot's own app identity.
+
+
+::: zone pivot="csharp"
+`find_user` delegates to a Graph client and returns stable IDs:
+
+```csharp
+[McpServerTool(Name = "find_user"), Description("Find users in this tenant by partial name, email, or UPN.")]
+public async Task<FindUserResult> FindUser(string query, CancellationToken cancellationToken = default)
+{
+    IReadOnlyList<UserMatch> matches = await graph.SearchUsersAsync(query, top: 5, cancellationToken);
+    return new FindUserResult(matches);
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from msgraph.generated.users.users_request_builder import UsersRequestBuilder
 
 @mcp.tool()
@@ -127,7 +149,6 @@ async def find_user(query: str) -> FindUserResult:
 
 ::: zone pivot="typescript"
 ```typescript
-
 import * as endpoints from '@microsoft/teams.graph-endpoints';
 
 structuredTool(
@@ -160,20 +181,29 @@ structuredTool(
 );
 ```
 
-`app.graph` calls Microsoft Graph as the bot's app identity a no extra credentials beyond `CLIENT_ID` / `CLIENT_SECRET` / `TENANT_ID`.
+`app.graph` calls Microsoft Graph as the bot's app identity — no extra credentials beyond `CLIENT_ID` / `CLIENT_SECRET` / `TENANT_ID`.
 ::: zone-end
 
-::: zone pivot="python,typescript"
+
 This requires the bot's app registration to have the **`User.ReadBasic.All`** (Microsoft Graph, Application) permission with admin consent granted.
 
 ## Sending proactive notifications
 
-A one-way notification needs no response. The tool resolves the user's 1:1 conversation a opening one proactively if the user hasn't messaged the bot a and sends the message.
+A one-way notification needs no response. The tool resolves the user's 1:1 conversation — opening one proactively if the user hasn't messaged the bot — and sends the message.
+
+
+::: zone pivot="csharp"
+`notify` resolves/creates a DM conversation and sends proactively:
+
+```csharp
+string conversationId = await GetOrCreateConversationAsync(userId, cancellationToken);
+MessageActivityInput notifyActivity = new MessageActivityInput().WithText(message);
+await app.ConversationClient.SendActivityAsync(conversationId, notifyActivity, state.ServiceUrl, cancellationToken: cancellationToken);
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 @mcp.tool()
 async def notify(user_id: str, message: str) -> NotifyResult:
     """Send a notification to a Teams user. No response expected."""
@@ -187,7 +217,6 @@ async def notify(user_id: str, message: str) -> NotifyResult:
 
 ::: zone pivot="typescript"
 ```typescript
-
 structuredTool(
   'notify',
   {
@@ -209,17 +238,35 @@ structuredTool(
 `getOrCreateConversation` returns the cached 1:1 conversation id for the user, or opens one proactively via `app.api.conversations.create({ members, tenantId })` if the user hasn't messaged the bot yet.
 ::: zone-end
 
-::: zone pivot="python,typescript"
+
 See [Proactive Messaging](../../essentials/sending-messages/proactive-messaging.md) for the full story on how Teams handles bot-initiated conversations.
 
 ## Asking the user a question
 
 Unlike notifications, questions need a response. The flow is split into two tools: `ask` sends an Adaptive Card with a reply box and returns a `requestId`; `wait_for_reply` blocks until the user submits (or a timeout fires). Recording the pending ask **before** sending the card means a fast reply is never lost.
+
+
+::: zone pivot="csharp"
+`ask` + `wait_for_reply` use request IDs and waiter tasks:
+
+```csharp
+state.PendingAsks[requestId] = new PendingAsk(userId);
+await app.ConversationClient.SendActivityAsync(conversationId,
+    new MessageActivityInput().WithAdaptiveCardAttachment(Cards.AskCard(requestId, question)),
+    state.ServiceUrl,
+    cancellationToken: cancellationToken);
+```
+
+```csharp
+TaskCompletionSource<PendingAsk> waiter = state.ReplyWaiters.GetOrAdd(
+    requestId,
+    _ => new TaskCompletionSource<PendingAsk>(TaskCreationOptions.RunContinuationsAsynchronously));
+PendingAsk result = await waiter.Task.WaitAsync(TimeSpan.FromSeconds(timeoutSeconds), cancellationToken);
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 @mcp.tool()
 async def ask(user_id: str, question: str) -> AskResult:
     """Ask a Teams user a question. Returns a request_id — call wait_for_reply with it to get the answer."""
@@ -259,7 +306,6 @@ async def wait_for_reply(request_id: str, timeout_seconds: int = 30) -> ReplyRes
 
 ::: zone pivot="typescript"
 ```typescript
-
 structuredTool(
   'ask',
   {
@@ -319,13 +365,24 @@ structuredTool(
 `makeEvent()` is a minimal promise resolved exactly once. `wait_for_reply` races it against a timeout and returns the moment the user submits, or `status: 'pending'` if the timeout fires first.
 ::: zone-end
 
-::: zone pivot="python,typescript"
+
 The user's typed reply arrives through a card-action handler, which records the answer and wakes up any `wait_for_reply` caller parked on it.
+
+
+::: zone pivot="csharp"
+Card submit updates pending state and resolves waiting callers:
+
+```csharp
+case "ask_reply":
+    return HandleAskReply(action, state);
+...
+if (state.ReplyWaiters.TryRemove(requestId, out TaskCompletionSource<PendingAsk>? waiter))
+    waiter.TrySetResult(answered);
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 @app.on_card_action_execute("ask_reply")
 async def handle_ask_reply(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -> AdaptiveCardInvokeResponse:
     data = ctx.activity.value.action.data
@@ -347,7 +404,6 @@ async def handle_ask_reply(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -> 
 
 ::: zone pivot="typescript"
 ```typescript
-
 app.on('card.action.ask_reply', async ({ activity }) => {
   const { request_id: requestId, reply } = activity.value.action.data as { request_id?: string; reply?: string };
   const entry = requestId ? state.pendingAsks.get(requestId) : undefined;
@@ -370,15 +426,26 @@ app.on('card.action.ask_reply', async ({ activity }) => {
 ```
 ::: zone-end
 
-::: zone pivot="python,typescript"
+
 ## Requesting an approval
 
-For decisions that need a clear outcome a approving a deployment, confirming an action a an Adaptive Card with explicit **Approve** / **Reject** buttons is clearer than free text. The shape mirrors the ask flow: `request_approval` returns an `approvalId`, and `wait_for_approval` blocks for the decision.
+For decisions that need a clear outcome — approving a deployment, confirming an action — an Adaptive Card with explicit **Approve** / **Reject** buttons is clearer than free text. The shape mirrors the ask flow: `request_approval` returns an `approvalId`, and `wait_for_approval` blocks for the decision.
+
+
+::: zone pivot="csharp"
+Approvals mirror the ask pattern with explicit decision state:
+
+```csharp
+state.Approvals[approvalId] = ApprovalStatus.Pending;
+await app.ConversationClient.SendActivityAsync(conversationId,
+    new MessageActivityInput().WithAdaptiveCardAttachment(Cards.ApprovalCard(approvalId, title, description)),
+    state.ServiceUrl,
+    cancellationToken: cancellationToken);
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 @mcp.tool()
 async def request_approval(user_id: str, title: str, description: str) -> ApprovalRequestResult:
     """Send an approval request to a Teams user. Returns an approval_id."""
@@ -413,12 +480,11 @@ async def wait_for_approval(approval_id: str, timeout_seconds: int = 30) -> Appr
     return ApprovalResult(approval_id=approval_id, status=entry.status)
 ```
 
-`wait_for_approval` mirrors `wait_for_reply` a it parks on the approval's event and returns the decision the moment the user clicks, or `"pending"` on timeout.
+`wait_for_approval` mirrors `wait_for_reply` — it parks on the approval's event and returns the decision the moment the user clicks, or `"pending"` on timeout.
 ::: zone-end
 
 ::: zone pivot="typescript"
 ```typescript
-
 structuredTool(
   'request_approval',
   {
@@ -479,16 +545,24 @@ structuredTool(
 );
 ```
 
-`wait_for_approval` mirrors `wait_for_reply` a it parks on the approval's event and returns the decision the moment the user clicks, or `'pending'` on timeout.
+`wait_for_approval` mirrors `wait_for_reply` — it parks on the approval's event and returns the decision the moment the user clicks, or `'pending'` on timeout.
 ::: zone-end
 
-::: zone pivot="python,typescript"
-The user's choice arrives through the same card-action mechanism as the ask flow a the `approval_response` handler records the decision and wakes up any `wait_for_approval` caller.
+
+The user's choice arrives through the same card-action mechanism as the ask flow — the `approval_response` handler records the decision and wakes up any `wait_for_approval` caller.
+
+
+::: zone pivot="csharp"
+Approval card submit wakes `wait_for_approval`:
+
+```csharp
+if (state.ApprovalWaiters.TryRemove(approvalId, out TaskCompletionSource<string>? waiter))
+    waiter.TrySetResult(decision);
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 @app.on_card_action_execute("approval_response")
 async def handle_approval_response(ctx: ActivityContext[AdaptiveCardInvokeActivity]) -> AdaptiveCardInvokeResponse:
     data = ctx.activity.value.action.data
@@ -515,7 +589,6 @@ async def handle_approval_response(ctx: ActivityContext[AdaptiveCardInvokeActivi
 
 ::: zone pivot="typescript"
 ```typescript
-
 app.on('card.action.approval_response', async ({ activity }) => {
   const { approval_id: approvalId, decision } = activity.value.action.data as {
     approval_id?: string;
@@ -542,17 +615,35 @@ app.on('card.action.approval_response', async ({ activity }) => {
 ```
 ::: zone-end
 
-::: zone pivot="python,typescript"
+
 ## Wiring the MCP server into your Teams app
 
 The Teams bot handles `/api/messages`, while the MCP server is mounted on the same HTTP server at `/mcp`.
+
+
+::: zone pivot="csharp"
+Wire Teams and MCP into one app:
+
+```csharp
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTeamsBotApplication();
+builder.Services.AddSingleton<State>();
+builder.Services
+    .AddMcpServer()
+    .WithHttpTransport()
+    .WithTools<McpTools>();
+
+WebApplication webApp = builder.Build();
+TeamsBotApplication bot = webApp.UseTeamsBotApplication();
+webApp.MapMcp("/mcp");
+webApp.Run();
+```
 ::: zone-end
 
 ::: zone pivot="python"
 Register the Teams routes first, then mount the MCP app onto the same FastAPI server.
 
 ```python
-
 import asyncio
 from microsoft_teams.apps.http.fastapi_adapter import FastAPIAdapter
 
@@ -577,7 +668,6 @@ if __name__ == "__main__":
 Initialize the Teams app first (its plugins register `/api/messages` on the Express app), then mount the MCP transport at `/mcp`. The MCP SDK binds one server per client session, so spin up a transport + `McpServer` per `Mcp-Session-Id`.
 
 ```typescript
-
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { isInitializeRequest } from '@modelcontextprotocol/sdk/types.js';
 
@@ -605,16 +695,13 @@ server.listen(Number(process.env.PORT) || 3978);
 ```
 ::: zone-end
 
-::: zone pivot="python,typescript"
+
 ## Testing with MCP Inspector
 
 The easiest way to drive the server before wiring up a real agent is the [MCP Inspector](https://modelcontextprotocol.io/legacy/tools/inspector):
 
 ```bash
-
 npx @modelcontextprotocol/inspector
 ```
 
-Set the transport to **Streamable HTTP** and the URL to `http://localhost:3978/mcp`, then connect and call `find_user` a `ask` a `wait_for_reply` to drive a full round-trip with a real Teams user.
-::: zone-end
-
+Set the transport to **Streamable HTTP** and the URL to `http://localhost:3978/mcp`, then connect and call `find_user` → `ask` → `wait_for_reply` to drive a full round-trip with a real Teams user.

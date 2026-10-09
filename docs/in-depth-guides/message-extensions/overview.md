@@ -1,12 +1,11 @@
-﻿---
-title: Y Message Extensions
+---
+title: Message Extensions
 description: Overview of message extensions for enhancing user productivity with quick access to information and actions within Teams.
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
 
-
-# Y Message Extensions
+# Message Extensions
 
 Message extensions (or Compose Extensions) allow your application to hook into messages that users can send or perform actions on messages that users have already sent. They enhance user productivity by providing quick access to information and actions directly within the Teams interface. Users can search or initiate actions from the compose message area, the command box, or directly from a message, with the results returned as richly formatted cards that make information more accessible and actionable.
 

@@ -3,13 +3,17 @@ title: BotBuilder User Authentication
 description: Migrate from BotBuilder's complex OAuthPrompt dialogs to Teams SDK's simple signin/signout methods.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 # BotBuilder User Authentication
+
 ::: zone pivot="csharp"
-BotBuilder uses its `dialogs` for authentication via the `OAuthPrompt`. Teams SDK doesn't have any
-equivalent feature for dialogs, but we do support auth flows in our own way via our `SignIn` and `SignOut` methods.
+This article is not available for the selected development language.
+::: zone-end
+
+::: zone pivot="typescript,python"
+
+## User Authentication
 ::: zone-end
 
 ::: zone pivot="python"
@@ -23,132 +27,10 @@ equivalent feature for dialogs, but we do support auth flows in our own way via 
 ::: zone-end
 
 
-::: zone pivot="csharp"
-
-# [BotBuilder](#tab/botbuilder)
-
-```csharp
-showLineNumbers
-    using Microsoft.Bot.Builder;
-    using Microsoft.Bot.Builder.Dialogs;
-    using Microsoft.Bot.Schema;
-
-    public class MyActivityHandler : TeamsActivityHandler
-    {
-        private readonly ConversationState _conversationState;
-        private readonly UserState _userState;
-        private readonly Dialog _dialog;
-
-        public MyActivityHandler(string connectionName, ConversationState conversationState, UserState userState)
-        {
-            _conversationState = conversationState;
-            _userState = userState;
-            _dialog = new SignInDialog("signin", connectionName);
-        }
-
-        protected override async Task OnMessageActivityAsync(
-            ITurnContext<IMessageActivity> turnContext,
-            CancellationToken cancellationToken)
-        {
-            await _dialog.RunAsync(turnContext, _conversationState.CreateProperty<DialogState>("DialogState"), cancellationToken);
-        }
-
-        public override async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default)
-        {
-            await base.OnTurnAsync(turnContext, cancellationToken);
-            await _conversationState.SaveChangesAsync(turnContext, false, cancellationToken);
-            await _userState.SaveChangesAsync(turnContext, false, cancellationToken);
-        }
-    }
-
-    public class SignInDialog : ComponentDialog
-    {
-        private readonly string _connectionName;
-
-        public SignInDialog(string id, string connectionName) : base(id)
-        {
-            _connectionName = connectionName;
-
-            AddDialog(new OAuthPrompt("OAuthPrompt", new OAuthPromptSettings
-            {
-                ConnectionName = connectionName,
-                Text = "Please Sign In",
-                Title = "Sign In",
-                Timeout = 300000
-            }));
-
-            AddDialog(new WaterfallDialog("Main", new WaterfallStep[]
-            {
-                PromptStepAsync,
-                LoginStepAsync
-            }));
-
-            InitialDialogId = "Main";
-        }
-
-        private async Task<DialogTurnResult> PromptStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-        {
-            return await stepContext.BeginDialogAsync("OAuthPrompt", null, cancellationToken);
-        }
-
-        private async Task<DialogTurnResult> LoginStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-        {
-            await stepContext.Context.SendActivityAsync("You have been signed in.", cancellationToken: cancellationToken);
-            return await stepContext.EndDialogAsync(null, cancellationToken);
-        }
-    }
-
-    var storage = new MemoryStorage();
-    var conversationState = new ConversationState(storage);
-    var userState = new UserState(storage);
-    var handler = new MyActivityHandler(
-        builder.Configuration["ConnectionName"],
-        conversationState,
-        userState
-    );
-    ```
-
----
-
-# [Teams SDK](#tab/teams-sdk)
-```csharp
-showLineNumbers
-    using Microsoft.Teams.Apps;
-
-    var builder = WebApplication.CreateBuilder(args);
-    var appBuilder = App.Builder().AddOAuth("ConnectionName");
-    var app = builder.Build();
-    var teams = app.UseTeams();
-
-    teams.OnMessage("/signout", async (context, cancellationToken) =>
-    {
-        if (!context.IsSignedIn) return;
-        await context.SignOut(cancellationToken);
-        await context.Send("You have been signed out.", cancellationToken);
-    });
-
-    teams.OnMessage(async (context, cancellationToken) =>
-    {
-        if (!context.IsSignedIn)
-        {
-            await context.SignIn(cancellationToken);
-            return;
-        }
-    });
-
-    teams.OnSignIn(async (_, @event, cancellationToken) =>
-    {
-        await context.Send("You have been signed in.", cancellationToken);
-    });
-
-    app.Run()
-    ```
-::: zone-end
 
 ::: zone pivot="python"
-# [BotBuilder](#tab/botbuilder)
-```python
-showLineNumbers
+# [BotBuilder](#tab/BotBuilder)
+```python showLineNumbers
     from botbuilder.core import (
         ActivityHandler,
         ConversationState,
@@ -233,37 +115,36 @@ showLineNumbers
 
 ---
 
-# [Teams SDK](#tab/teams-sdk)
-```python
-showLineNumbers
+# [Teams SDK](#tab/Teams SDK)
+```python showLineNumbers
     from microsoft_teams.apps import ActivityContext, App, SignInEvent
     from microsoft_teams.api import MessageActivity
 
-    app = App(default_connection_name=connection_name)
+    app = App()
+    flow = app.add_oauth_flow(connection_name)
 
     @app.on_message_pattern("/signout")
-    async def on_signout(context: ActivityContext[MessageActivity]):
-        if not context.is_signed_in:
+    async def on_signout(ctx: ActivityContext[MessageActivity]):
+        if not await flow.is_signed_in(ctx):
             return
-        await context.sign_out()
-        await context.send("You have been signed out.")
+        await flow.sign_out(ctx)
+        await ctx.send("You have been signed out.")
 
     @app.on_message
-    async def on_message(context: ActivityContext[MessageActivity]):
-        if not context.is_signed_in:
-            await context.sign_in()
-            return
+    async def on_message(ctx: ActivityContext[MessageActivity]):
+        token = await flow.sign_in(ctx)
+        if token:
+            await ctx.send("You have been signed in.")
 
-    @app.event("sign_in")
+    @flow.on_signin
     async def on_signin(event: SignInEvent):
-        await context.send("You have been signed in.")
+        await event.activity_ctx.send("You have been signed in.")
     ```
 ::: zone-end
 
 ::: zone pivot="typescript"
-# [BotBuilder](#tab/botbuilder)
-```typescript
-showLineNumbers
+# [BotBuilder](#tab/BotBuilder)
+```typescript showLineNumbers
       import restify from 'restify';
       import {
         TeamsActivityHandler,
@@ -399,30 +280,26 @@ showLineNumbers
 
 ---
 
-# [Teams SDK](#tab/teams-sdk)
-```typescript
-showLineNumbers
+# [Teams SDK](#tab/Teams SDK)
+```typescript showLineNumbers
+      import { App } from '@microsoft/teams.apps';
 
-      const app = new App({
-        oauth: {
-          defaultConnectionName: process.env.connectionName
-        }
+      const app = new App();
+      const flow = app.addOAuthFlow(process.env.connectionName!);
+
+      app.message('/signout', async (ctx) => {
+        if (!(await flow.isSignedIn(ctx))) return;
+        await flow.signOut(ctx);
+        await ctx.send('You have been signed out.');
       });
 
-      app.message('/signout', async ({ send, signout, isSignedIn }) => {
-        if (!isSignedIn) return;
-        await signout();
-        await send('You have been signed out.');
+      app.on('message', async (ctx) => {
+        const token = await flow.signIn(ctx);
+        if (token) await ctx.send('You have been signed in.');
       });
 
-      app.on('message', async ({ send, signin }) => {
-        if (!await signin()) {
-          return;
-        }
-      });
-
-      app.event('signin', async ({ send }) => {
-        await send('You have been signed in.');
+      flow.onSignInComplete(async (ctx) => {
+        await ctx.send('You have been signed in.');
       });
 
       (async () => {

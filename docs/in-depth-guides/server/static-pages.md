@@ -3,16 +3,15 @@ title: Static Pages
 description: Shows how to host web apps.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Static Pages
 
-The `App` class lets you host web apps in the agent. This is useful for an efficient inner loop a you can build, deploy, and sideload both an agent and a Tab app inside Teams in a single step. It's also useful in production, since it makes it straightforward to host a simple experience such as an agent configuration page or a Dialog.
+The `App` class lets you host web apps in the agent. This is useful for an efficient inner loop — you can build, deploy, and sideload both an agent and a Tab app inside Teams in a single step. It's also useful in production, since it makes it straightforward to host a simple experience such as an agent configuration page or a Dialog.
 
 ::: zone pivot="csharp"
-To host a static tab web app, call the `app.AddTab()` function and provide an app name and a path to a folder containing an `index.html` file to be served up.
+To host a static tab web app, call the SDK 2.0 `app.AddTab()` helper or SDK 2.1 ASP.NET route mapping with `app.MapGet(...)` function and provide an app name and a path to a folder containing an `index.html` file to be served up.
 ::: zone-end
 
 ::: zone pivot="python,typescript"
@@ -21,22 +20,45 @@ To host a static tab web app, call the `app.tab()` function and provide an app n
 
 
 ::: zone pivot="csharp"
-```csharp
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
+```csharp
 app.AddTab("myApp", "Web/bin");
+```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using Microsoft.AspNetCore.StaticFiles;
+
+FileExtensionContentTypeProvider contentTypes = new();
+
+app.MapGet("/tabs/myApp", () =>
+{
+    string index = Path.Combine(Directory.GetCurrentDirectory(), "Web", "bin", "index.html");
+    contentTypes.TryGetContentType(index, out string? ct);
+    return Results.File(File.OpenRead(index), ct ?? "text/html");
+});
+
+app.MapGet("/tabs/myApp/{*path}", (string? path) =>
+{
+    string root = Path.Combine(Directory.GetCurrentDirectory(), "Web", "bin");
+    string full = Path.Combine(root, path ?? "index.html");
+    contentTypes.TryGetContentType(full, out string? ct);
+    return Results.File(File.OpenRead(full), ct ?? "text/html");
+});
 ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 app.tab("my_app", os.path.abspath("dist/client"))
 ```
 ::: zone-end
 
 ::: zone pivot="typescript"
 ```typescript
-
 app.tab('myApp', path.resolve('dist/client'));
 ```
 ::: zone-end
@@ -66,5 +88,4 @@ This registers a route that is hosted at `http://localhost:{PORT}/tabs/my_app` o
 - For more details about Tab apps, see the [Tabs](../tabs/overview.md) in-depth guide.
 - For an example of hosting a Dialog, see the [Creating Dialogs](../dialogs/creating-dialogs.md) in-depth guide.
 ::: zone-end
-
 

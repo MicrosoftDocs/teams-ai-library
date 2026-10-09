@@ -3,9 +3,8 @@ title: Using The App
 description: Initialize and use the Teams client App to call Graph APIs and remote agent functions.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 # Using The App
 
 ::: zone pivot="csharp,python"
@@ -22,7 +21,6 @@ These two App classes are designed to work well together. For instance, when you
 To use the `@microsoft/teams.client` package, you first create an App instance and then call `app.start()`.
 
 ```typescript
-
 import { App } from '@microsoft/teams.client';
 
 const app = new App(clientId);
@@ -56,7 +54,6 @@ The `app.start()` call does the following:
 When the `app.start()` call has completed, you can use the app instance to call Graph APIs and to call remote agent functions using the `exec()` function, or directly by using the `app.http` HTTP client. TeamsJS is now initialized, so you can interact with the hosting app. The `app.msalInstance` is now populated, in case you need to use the same MSAL for other purposes.
 
 ```typescript
-
 import * as teamsJs from '@microsoft/teams-js';
 import { App } from '@microsoft/teams.client';
 import * as endpoints from '@microsoft/teams.graph-endpoints';
@@ -74,4 +71,3 @@ const presenceResult = await app.graph.call(endpoints.me.presence.get);
 const agentResult = await app.exec<string>('hello-world');
 ```
 ::: zone-end
-

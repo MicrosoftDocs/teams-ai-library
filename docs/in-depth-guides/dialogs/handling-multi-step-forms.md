@@ -3,9 +3,8 @@ title: Handling Multi-Step Forms
 description: Tutorial on implementing multi-step dialogs in Teams, demonstrating how to create dynamic form flows that adapt based on user input, with examples of handling state between steps and conditional navigation.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Handling Multi-Step Forms
 
@@ -29,8 +28,9 @@ Start by returning the first step's card from the `dialog.open` handler.
 
 
 ::: zone pivot="csharp"
-```csharp
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
+```csharp
 using System.Text.Json;
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.TaskModules;
@@ -85,11 +85,64 @@ private static Response CreateMultiStepFormDialog()
     return new Response(new ContinueTask(taskInfo));
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Apps.TaskModules;
+using Microsoft.Teams.Cards;
+
+//...
+
+private static InvokeResponse<TaskModuleResponse> CreateMultiStepFormDialog()
+{
+    var dialogCard = new AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("This is a multi-step form")
+            {
+                Size = TextSize.Large,
+                Weight = TextWeight.Bolder
+            },
+            new TextInput
+            {
+                Id = "name",
+                Label = "Name",
+                Placeholder = "Enter your name",
+                IsRequired = true
+            }
+        },
+        Actions = new List<Action>
+        {
+            new SubmitAction
+            {
+                Title = "Submit",
+                Data = new { submissiondialogtype = "webpage_dialog_step_1" }
+            }
+        }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(dialogCard))
+        .Build();
+
+    return TaskModuleResponse.CreateBuilder()
+        .WithType(TaskModuleResponseTypes.Continue)
+        .WithTitle("Multi-step Form Dialog")
+        .WithHeight("medium")
+        .WithWidth("medium")
+        .WithCard(attachment)
+        .Build();
+}
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import (
     TaskFetchInvokeActivity, TaskModuleResponse,
     TaskModuleContinueResponse, CardTaskModuleTaskInfo,
@@ -126,7 +179,6 @@ async def handle_multi_step_open(ctx: ActivityContext[TaskFetchInvokeActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { cardAttachment } from '@microsoft/teams.api';
 import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
 // ...
@@ -169,8 +221,8 @@ app.on('dialog.open.multi_step_form', async () => {
 ::: zone pivot="csharp"
 Then in the submission handler, you can choose to `continue` the dialog with a different card.
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using System.Text.Json;
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.TaskModules;
@@ -231,13 +283,75 @@ case "webpage_dialog_step_2":
     await client.Send($"Hi {nameStep2}, thanks for submitting the form! We got that your email is {emailStep2}");
     return new Response(new MessageTask("Multi-step form completed successfully"));
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Apps.TaskModules;
+using Microsoft.Teams.Cards;
+
+//...
+
+// Add these cases to the OnTaskSubmit handler switch statement
+case "webpage_dialog_step_1":
+    var nameStep1 = GetFormValue("name") ?? "Unknown";
+    var nextStepCard = new AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("Email")
+            {
+                Size = TextSize.Large,
+                Weight = TextWeight.Bolder
+            },
+            new TextInput
+            {
+                Id = "email",
+                Label = "Email",
+                Placeholder = "Enter your email",
+                IsRequired = true
+            }
+        },
+        Actions = new List<Action>
+        {
+            new SubmitAction
+            {
+                Title = "Submit",
+                Data = new { submissiondialogtype = "webpage_dialog_step_2", name = nameStep1 }
+            }
+        }
+    };
+
+    TeamsAttachment nextStepAttachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(nextStepCard))
+        .Build();
+
+    return TaskModuleResponse.CreateBuilder()
+        .WithType(TaskModuleResponseTypes.Continue)
+        .WithTitle($"Thanks {nameStep1} - Get Email")
+        .WithHeight("medium")
+        .WithWidth("medium")
+        .WithCard(nextStepAttachment)
+        .Build();
+
+case "webpage_dialog_step_2":
+    var nameStep2 = GetFormValue("name") ?? "Unknown";
+    var emailStep2 = GetFormValue("email") ?? "No email";
+    await context.SendAsync($"Hi {nameStep2}, thanks for submitting the form! We got that your email is {emailStep2}", cancellationToken);
+    return TaskModuleResponse.CreateBuilder()
+        .WithType(TaskModuleResponseTypes.Message)
+        .WithMessage("Multi-step form completed successfully")
+        .Build();
+```
 ::: zone-end
 
 ::: zone pivot="python"
 Then in the submission handler, return `type: "continue"` with the next card to keep the dialog open. Pass state forward using `SubmitData`'s extra data parameter.
 
 ```python
-
 from microsoft_teams.api import (
     TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse,
     TaskModuleContinueResponse, CardTaskModuleTaskInfo,
@@ -291,7 +405,6 @@ async def handle_multi_step_2_submit(ctx: ActivityContext[TaskSubmitInvokeActivi
 Then in the submission handler, return `type: 'continue'` with the next card to keep the dialog open. Pass state forward using `SubmitData`'s extra data parameter.
 
 ```typescript
-
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
 import { AdaptiveCard, TextInput, SubmitAction, SubmitData } from '@microsoft/teams.cards';
@@ -347,8 +460,8 @@ app.on('dialog.submit.multi_step_2', async ({ activity, send }) => {
 
 Here's the complete example showing how to handle a multi-step form:
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using System.Text.Json;
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.TaskModules;
@@ -448,6 +561,104 @@ public async Task<Response> OnTaskSubmit([Context] Tasks.SubmitActivity activity
     }
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Apps.TaskModules;
+using Microsoft.Teams.Cards;
+
+//...
+
+teams.OnTaskSubmit(async (context, cancellationToken) =>
+{
+    var data = context.Activity.Value?.Data as JsonElement?;
+    if (data == null)
+    {
+        return TaskModuleResponse.CreateBuilder()
+            .WithType(TaskModuleResponseTypes.Message)
+            .WithMessage("No data found in the activity value")
+            .Build();
+    }
+
+    var submissionType = data.Value.TryGetProperty("submissiondialogtype", out var submissionTypeObj) && submissionTypeObj.ValueKind == JsonValueKind.String
+        ? submissionTypeObj.ToString()
+        : null;
+
+    string? GetFormValue(string key)
+    {
+        if (data.Value.TryGetProperty(key, out var val))
+        {
+            if (val is JsonElement element)
+                return element.GetString();
+            return val.ToString();
+        }
+        return null;
+    }
+
+    switch (submissionType)
+    {
+        case "webpage_dialog_step_1":
+            var nameStep1 = GetFormValue("name") ?? "Unknown";
+            var nextStepCard = new AdaptiveCard
+            {
+                Body = new List<CardElement>
+                {
+                    new TextBlock("Email")
+                    {
+                        Size = TextSize.Large,
+                        Weight = TextWeight.Bolder
+                    },
+                    new TextInput
+                    {
+                        Id = "email",
+                        Label = "Email",
+                        Placeholder = "Enter your email",
+                        IsRequired = true
+                    }
+                },
+                Actions = new List<Action>
+                {
+                    new SubmitAction
+                    {
+                        Title = "Submit",
+                        Data = new { submissiondialogtype = "webpage_dialog_step_2", name = nameStep1 }
+                    }
+                }
+            };
+
+            TeamsAttachment nextStepAttachment = TeamsAttachment.CreateBuilder()
+                .WithAdaptiveCard(JsonSerializer.SerializeToElement(nextStepCard))
+                .Build();
+
+            return TaskModuleResponse.CreateBuilder()
+                .WithType(TaskModuleResponseTypes.Continue)
+                .WithTitle($"Thanks {nameStep1} - Get Email")
+                .WithHeight("medium")
+                .WithWidth("medium")
+                .WithCard(nextStepAttachment)
+                .Build();
+
+        case "webpage_dialog_step_2":
+            var nameStep2 = GetFormValue("name") ?? "Unknown";
+            var emailStep2 = GetFormValue("email") ?? "No email";
+            await context.SendAsync($"Hi {nameStep2}, thanks for submitting the form! We got that your email is {emailStep2}", cancellationToken);
+            return TaskModuleResponse.CreateBuilder()
+                .WithType(TaskModuleResponseTypes.Message)
+                .WithMessage("Multi-step form completed successfully")
+                .Build();
+
+        default:
+            return TaskModuleResponse.CreateBuilder()
+                .WithType(TaskModuleResponseTypes.Message)
+                .WithMessage("Unknown submission type")
+                .Build();
+    }
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
@@ -457,5 +668,4 @@ public async Task<Response> OnTaskSubmit([Context] Tasks.SubmitActivity activity
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
-
 

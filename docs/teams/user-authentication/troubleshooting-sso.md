@@ -2,10 +2,8 @@
 title: SSO Troubleshooting
 description: Common SSO errors and how to resolve them
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
-
 
 # SSO Troubleshooting
 
@@ -23,10 +21,9 @@ When SSO fails, Teams sends a `signin/failure` invoke activity to your bot with 
 | `oauthcardnotvalid` | Yes | The bot's OAuthCard could not be parsed. |
 | `tokenmissing` | Yes | AAD token acquisition failed. |
 
-"Silent" failures produce no user-facing feedback in the Teams client a the user sees nothing and sign-in simply doesn't complete. "Non-silent" failures occur during the group chat SSO flow where the user is shown an install/auth card.
+"Silent" failures produce no user-facing feedback in the Teams client — the user sees nothing and sign-in simply doesn't complete. "Non-silent" failures occur during the group chat SSO flow where the user is shown an install/auth card.
 
 > [!NOTE]
->
 > The `userconsentrequired` and `interactionrequired` codes are handled by the Teams client via the OAuth card fallback flow and do not typically reach the bot.
 
 ## `authrequestfailed`
@@ -60,13 +57,11 @@ However, if the **identity that authenticates in the popup differs from the Team
 4. The SDK emits a `signin` event
 
 > [!CAUTION]
->
 > In cross-tenant scenarios where the authenticating identity differs from the Teams session user (for example, signing in with a production tenant account while Teams is logged in as a dev tenant user), the Teams client may not be able to correlate the magic code back to the pending OAuthCard session. In this case, the code arrives as a regular `message` activity instead of a `signin/verifyState` invoke, and the SDK cannot process it. To avoid this, ensure the authenticating identity matches the Teams session, or use one of the options in [Cross-Tenant Considerations](#cross-tenant-considerations) to enable SSO directly.
 
 **Important:** the `signin()` method in your message handler sends the OAuthCard and returns `undefined` when no cached token exists. It does not wait for the user to complete authentication. To handle the post-sign-in logic, use the `signin` event:
 
 ```typescript
-
 app.on('message', async ({ signin, send }) => {
   if (!(await signin())) {
     return; // OAuthCard sent; waiting for auth to complete
@@ -107,8 +102,6 @@ This means Teams attempted the SSO token exchange but failed because the token e
 5. **Verify the `webApplicationInfo.resource`** in your Teams app manifest matches the Application ID URI
 
 > [!TIP]
->
 > If you don't need SSO and only want standard OAuth (sign-in button), leave the **Token Exchange URL** blank in your OAuth connection settings.
 
 To handle `signin/failure` programmatically in your app, see [Handling Sign-In Failures](../../in-depth-guides/user-authentication.md#handling-sign-in-failures) in the User Authentication guide.
-

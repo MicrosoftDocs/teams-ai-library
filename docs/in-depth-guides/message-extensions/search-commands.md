@@ -1,13 +1,12 @@
 ---
-title: Y Search commands
+title: Search commands
 description: Create search commands that allow users to search external systems and insert results as cards in Teams messages.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
 
-
-# Y Search commands
+# Search commands
 
 Message extension search commands allow users to search external systems and insert the results of that search into a message in the form of a card.
 
@@ -27,7 +26,6 @@ There are two different areas search commands can be invoked from:
 To use search commands you have to define them in the Teams app manifest. Here is an example:
 
 ```json
-
 "composeExtensions": [
     {
         "botId": "${{BOT_ID}}",
@@ -63,8 +61,9 @@ Handle the search query submission when the `searchQuery` search command is invo
 
 
 ::: zone pivot="csharp"
-```csharp
 
+### SDK 2.0 (Legacy)
+```csharp
 using Microsoft.Teams.Api.Activities.Invokes.MessageExtensions;
 using Microsoft.Teams.Api.MessageExtensions;
 using Microsoft.Teams.Apps.Annotations;
@@ -100,11 +99,36 @@ public Response OnMessageExtensionQuery(
     };
 }
 ```
+
+---
+
+### SDK 2.1 (current)
+```csharp
+using Microsoft.Teams.Apps.MessageExtensions;
+
+//...
+
+bot.OnQuery(async (context, cancellationToken) =>
+{
+    MessageExtensionQuery? query = context.Activity.Value;
+    string? commandId = query?.CommandId;
+    string searchText = query?.Parameters?.FirstOrDefault(p => p.Name == "searchQuery")?.Value ?? "";
+
+    if (commandId == "searchQuery")
+    {
+        return CreateSearchResults(searchText);
+    }
+
+    return MessageExtensionResponse.CreateBuilder()
+        .WithType(MessageExtensionResponseTypes.Message)
+        .WithText("Unknown command")
+        .Build();
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import AdaptiveCardAttachment, MessageExtensionQueryInvokeActivity, ThumbnailCardAttachment, card_attachment, InvokeResponse, AttachmentLayout, MessagingExtensionAttachment, MessagingExtensionInvokeResponse, MessagingExtensionResult, MessagingExtensionResultType
 # ...
 
@@ -140,7 +164,6 @@ async def handle_message_ext_query(ctx: ActivityContext[MessageExtensionQueryInv
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { cardAttachment } from '@microsoft/teams.api';
 import { App } from '@microsoft/teams.apps';
 // ...
@@ -177,8 +200,8 @@ app.on('message.ext.query', async ({ activity }) => {
 ::: zone pivot="csharp"
 `CreateSearchResults()` method
 
+### SDK 2.0 (Legacy)
 ```csharp
-
 using Microsoft.Teams.Api.MessageExtensions;
 using Microsoft.Teams.Cards;
 using Microsoft.Teams.Common;
@@ -241,10 +264,51 @@ private static Response CreateSearchResults(string query, ILogger log)
 }
 ```
 
+---
+
+### SDK 2.1 (current)
+```csharp
+using Microsoft.Teams.Apps.MessageExtensions;
+using Microsoft.Teams.Apps.Schema;
+
+//...
+
+private static InvokeResponse<MessageExtensionResponse> CreateSearchResults(string query)
+{
+    var attachments = new List<TeamsAttachment>();
+
+    for (int i = 1; i <= 5; i++)
+    {
+        // Thumbnail cards with a tap/invoke value to trigger OnSelectItem
+        var previewCard = new
+        {
+            title = $"Result {i}",
+            text = $"This is a preview of result {i} for query '{query}'.",
+            tap = new
+            {
+                type = "invoke",
+                value = new { itemIndex = i, query }
+            }
+        };
+
+        attachments.Add(TeamsAttachment.CreateBuilder()
+            .WithContent(previewCard)
+            .WithContentType(AttachmentContentTypes.ThumbnailCard)
+            .Build());
+    }
+
+    return MessageExtensionResponse.CreateBuilder()
+        .WithType(MessageExtensionResponseTypes.Result)
+        .WithAttachmentLayout(TeamsAttachmentLayouts.List)
+        .WithAttachments([.. attachments])
+        .Build();
+}
+```
+
 To implement custom actions when a user clicks on a search result item, you can handle the select item event:
 
+### SDK 2.0 (Legacy)
 ```csharp
-
 using System.Text.Json;
 using Microsoft.Teams.Api;
 using Microsoft.Teams.Api.Activities.Invokes.MessageExtensions;
@@ -314,13 +378,55 @@ private static Response CreateItemSelectionResponse(object? selectedItem, ILogge
     };
 }
 ```
+
+---
+
+### SDK 2.1 (current)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.MessageExtensions;
+using Microsoft.Teams.Apps.Schema;
+using Microsoft.Teams.Cards;
+
+//...
+
+bot.OnSelectItem(async (context, cancellationToken) =>
+{
+    JsonElement selectedItem = context.Activity.Value;
+    string itemJson = JsonSerializer.Serialize(selectedItem);
+
+    var card = new AdaptiveCard
+    {
+        Body = new List<CardElement>
+        {
+            new TextBlock("Item Selected")
+            {
+                Weight = TextWeight.Bolder,
+                Size = TextSize.Large,
+                Color = TextColor.Good
+            },
+            new TextBlock("You selected the following item:") { Wrap = true },
+            new TextBlock(itemJson) { Wrap = true, FontType = FontType.Monospace, Separator = true }
+        }
+    };
+
+    TeamsAttachment attachment = TeamsAttachment.CreateBuilder()
+        .WithAdaptiveCard(JsonSerializer.SerializeToElement(card))
+        .Build();
+
+    return MessageExtensionResponse.CreateBuilder()
+        .WithType(MessageExtensionResponseTypes.Result)
+        .WithAttachmentLayout(TeamsAttachmentLayouts.List)
+        .WithAttachments(attachment)
+        .Build();
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 `create_dummy_cards()` method
 
 ```python
-
 from typing import Any, Dict, List
 from microsoft_teams.cards import AdaptiveCard
 # ...
@@ -373,7 +479,6 @@ async def create_dummy_cards(search_query: str) -> List[Dict[str, Any]]:
 `createDummyCards()` function
 
 ```typescript
-
 import { ThumbnailCard } from '@microsoft/teams.api';
 import { AdaptiveCard, TextBlock } from '@microsoft/teams.cards';
 // ...
@@ -444,7 +549,6 @@ To implement custom actions when a user clicks on a search result item, you can 
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import MessageExtensionSelectItemInvokeActivity, AttachmentLayout, MessagingExtensionInvokeResponse, MessagingExtensionResult, MessagingExtensionResultType
 from microsoft_teams.apps import ActivityContext
 # ...
@@ -464,7 +568,6 @@ async def handle_message_ext_select_item(ctx: ActivityContext[MessageExtensionSe
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -485,4 +588,3 @@ app.on('message.ext.select-item', async ({ activity, send }) => {
 
 - [Search command](/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?tabs=Teams-toolkit%2Cdotnet)
 - [Just-In-Time Install](/microsoftteams/platform/messaging-extensions/how-to/search-commands/universal-actions-for-search-based-message-extensions#just-in-time-install)
-

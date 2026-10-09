@@ -3,9 +3,8 @@ title: Message Reactions
 description: Guide to adding, removing, and receiving message reactions in Teams agents, including available reaction types, skin tones, rate limits, and best practices.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Message Reactions
 
@@ -19,32 +18,58 @@ To add a reaction to a message, use the reactions client through the API client:
 
 
 ::: zone pivot="csharp"
+
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
+    using Microsoft.Teams.Apps.Annotations;
 
-app.OnMessage(async (context, cancellationToken) =>
-{
-    await context.Send("Hello! I'll react to your message.", cancellationToken);
+    [TeamsController]
+    public class MessageController
+    {
+        [Message]
+        public async Task OnMessage([Context] IContext context, CancellationToken cancellationToken)
+        {
+            await context.Client.Send("Hello! I'll react to your message.");
 
-    // Add a reaction to the incoming message
-    await context.Api.Conversations.Reactions.AddAsync(
-        context.Activity.Conversation.Id,
-        context.Activity.Id,
-        ReactionType.Like,
-        cancellationToken: cancellationToken
-    );
-});
-```
+            await context.Api.Conversations.Reactions.AddAsync(
+                context.Activity.Conversation.Id,
+                context.Activity.Id,
+                ReactionType.Like,
+                cancellationToken
+            );
+        }
+    }
+    ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+    using Microsoft.Teams.Apps;
+
+    app.OnMessage(async (context, cancellationToken) =>
+    {
+        await context.SendAsync("Hello! I'll react to your message.", cancellationToken);
+
+        // Add a reaction to the incoming message
+        await context.Api.Conversations.AddReactionAsync(
+            context.Activity.Conversation.Id,
+            context.Activity.Id,
+            ReactionType.Like,
+            cancellationToken: cancellationToken
+        );
+    });
+    ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     await ctx.send("Hello! I'll react to your message.")
 
     # Add a reaction to the incoming message
-    await ctx.api.reactions.add(
+    await ctx.api.conversations.add_reaction(
         ctx.activity.conversation.id,
         ctx.activity.id,
         'like'
@@ -54,12 +79,11 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
-
 app.on('message', async ({ activity, api, send }) => {
   await send("Hello! I'll react to your message.");
 
   // Add a reaction to the incoming message
-  await api.reactions.add(activity.conversation.id, activity.id, 'like');
+  await api.conversations.addReaction(activity.conversation.id, activity.id, 'like');
 });
 ```
 ::: zone-end
@@ -71,39 +95,72 @@ You can also remove reactions that your agent has previously added:
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
+    using Microsoft.Teams.Apps.Annotations;
 
-app.OnMessage(async (context, cancellationToken) =>
-{
-    // First, add a reaction
-    await context.Api.Conversations.Reactions.AddAsync(
-        context.Activity.Conversation.Id,
-        context.Activity.Id,
-        ReactionType.Heart,
-        cancellationToken: cancellationToken
-    );
+    [TeamsController]
+    public class MessageController
+    {
+        [Message]
+        public async Task OnMessage([Context] IContext context, CancellationToken cancellationToken)
+        {
+            // First, add a reaction
+            await context.Api.Conversations.Reactions.AddAsync(
+                context.Activity.Conversation.Id,
+                context.Activity.Id,
+                ReactionType.Heart,
+                cancellationToken
+            );
 
-    // Wait a bit, then remove it
-    await Task.Delay(2000, cancellationToken);
-    await context.Api.Conversations.Reactions.DeleteAsync(
-        context.Activity.Conversation.Id,
-        context.Activity.Id,
-        ReactionType.Heart,
-        cancellationToken: cancellationToken
-    );
-});
-```
+            // Wait a bit, then remove it
+            await Task.Delay(2000, cancellationToken);
+            await context.Api.Conversations.Reactions.DeleteAsync(
+                context.Activity.Conversation.Id,
+                context.Activity.Id,
+                ReactionType.Heart,
+                cancellationToken
+            );
+        }
+    }
+    ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+    using Microsoft.Teams.Apps;
+
+    app.OnMessage(async (context, cancellationToken) =>
+    {
+        // First, add a reaction
+        await context.Api.Conversations.AddReactionAsync(
+            context.Activity.Conversation.Id,
+            context.Activity.Id,
+            ReactionType.Heart,
+            cancellationToken: cancellationToken
+        );
+
+        // Wait a bit, then remove it
+        await Task.Delay(2000, cancellationToken);
+        await context.Api.Conversations.DeleteReactionAsync(
+            context.Activity.Conversation.Id,
+            context.Activity.Id,
+            ReactionType.Heart,
+            cancellationToken: cancellationToken
+        );
+    });
+    ```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 import asyncio
 
 @app.on_message
 async def handle_message(ctx: ActivityContext[MessageActivity]):
     # First, add a reaction
-    await ctx.api.reactions.add(
+    await ctx.api.conversations.add_reaction(
         ctx.activity.conversation.id,
         ctx.activity.id,
         'heart'
@@ -111,7 +168,7 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
     # Wait a bit, then remove it
     await asyncio.sleep(2)
-    await ctx.api.reactions.delete(
+    await ctx.api.conversations.delete_reaction(
         ctx.activity.conversation.id,
         ctx.activity.id,
         'heart'
@@ -121,14 +178,13 @@ async def handle_message(ctx: ActivityContext[MessageActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
-
 app.on('message', async ({ activity, api }) => {
   // First, add a reaction
-  await api.reactions.add(activity.conversation.id, activity.id, 'heart');
+  await api.conversations.addReaction(activity.conversation.id, activity.id, 'heart');
 
   // Wait a bit, then remove it
   await new Promise((resolve) => setTimeout(resolve, 2000));
-  await api.reactions.delete(activity.conversation.id, activity.id, 'heart');
+  await api.conversations.deleteReaction(activity.conversation.id, activity.id, 'heart');
 });
 ```
 ::: zone-end
@@ -152,31 +208,57 @@ Your agent can also listen for reactions that users add or remove on messages in
 ::: zone pivot="csharp"
 .NET exposes a single `OnMessageReaction` handler plus dedicated `OnMessageReactionAdded` / `OnMessageReactionRemoved` sub-handlers.
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
+    using Microsoft.Teams.Apps.Annotations;
 
-app.OnMessageReactionAdded(async (context, cancellationToken) =>
-{
-    foreach (var reaction in context.Activity.ReactionsAdded ?? [])
+    [TeamsController]
+    public class ReactionController
     {
-        Console.WriteLine($"User added reaction: {reaction.Type}");
-    }
-});
+        [Message.Reaction]
+        public void OnMessageReaction([Context] IContext context)
+        {
+            foreach (var reaction in context.Activity.ReactionsAdded ?? [])
+            {
+                Console.WriteLine($"User added reaction: {reaction.Type}");
+            }
 
-app.OnMessageReactionRemoved(async (context, cancellationToken) =>
-{
-    foreach (var reaction in context.Activity.ReactionsRemoved ?? [])
-    {
-        Console.WriteLine($"User removed reaction: {reaction.Type}");
+            foreach (var reaction in context.Activity.ReactionsRemoved ?? [])
+            {
+                Console.WriteLine($"User removed reaction: {reaction.Type}");
+            }
+        }
     }
-});
-```
+    ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+    using Microsoft.Teams.Apps;
+
+    app.OnMessageReactionAdded(async (context, cancellationToken) =>
+    {
+        foreach (var reaction in context.Activity.ReactionsAdded ?? [])
+        {
+            Console.WriteLine($"User added reaction: {reaction.Type}");
+        }
+    });
+
+    app.OnMessageReactionRemoved(async (context, cancellationToken) =>
+    {
+        foreach (var reaction in context.Activity.ReactionsRemoved ?? [])
+        {
+            Console.WriteLine($"User removed reaction: {reaction.Type}");
+        }
+    });
+    ```
 
 If you only need a single handler that runs for both adds and removes, use `app.OnMessageReaction` instead.
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 @app.on_message_reaction
 async def handle_reaction(ctx: ActivityContext[MessageReactionActivity]):
     for reaction in ctx.activity.reactions_added or []:
@@ -189,7 +271,6 @@ async def handle_reaction(ctx: ActivityContext[MessageReactionActivity]):
 
 ::: zone pivot="typescript"
 ```typescript
-
 app.on('messageReaction', async ({ activity }) => {
   for (const reaction of activity.reactionsAdded ?? []) {
     console.log(`User added reaction: ${reaction.type}`);
@@ -217,21 +298,25 @@ Any string-valued reaction ID is accepted, so you can pass any reaction ID from 
 
 
 ::: zone pivot="csharp"
-- `ReactionType.Like` a Y
-- `ReactionType.Heart` a ai
-- `ReactionType.Eyes` a Y
-- `ReactionType.CheckMark` a a...
-- `ReactionType.Launch` a Ys
-- `ReactionType.Pushpin` a Y
+- `ReactionType.Like`
+- `ReactionType.Heart`
+- `ReactionType.Checkmark`
+- `ReactionType.Pushpin`
+- `ReactionType.Laugh`
+- `ReactionType.Surprise`
+- `ReactionType.Sad`
+- `ReactionType.Angry`
+- `ReactionType.Hourglass`
+- `ReactionType.Exclamation`
 ::: zone-end
 
 ::: zone pivot="python,typescript"
-- `'like'` a Y
-- `'heart'` a ai
-- `'1f440_eyes'` a Y
-- `'2705_whiteheavycheckmark'` a a...
-- `'launch'` a Ys
-- `'1f4cc_pushpin'` a Y
+- `'like'`
+- `'heart'`
+- `'1f440_eyes'`
+- `'2705_whiteheavycheckmark'`
+- `'launch'`
+- `'1f4cc_pushpin'`
 ::: zone-end
 
 
@@ -240,11 +325,10 @@ Any string-valued reaction ID is accepted, so you can pass any reaction ID from 
 Reactions tagged **Diverse** in the Teams reactions reference support five skin-tone variants. Append `-tone1` through `-tone5` to the reaction ID to select a variant:
 
 ```text
-
 1f44b_wavinghand-tone4
 ```
 
-<!-- TODO: restore a direct Learn bookmark once the reactions reference section is published. -->
+The full Teams reactions reference will be linked here when it is published.
 
 ## Rate Limits
 
@@ -265,4 +349,3 @@ Message reactions are different from the [feedback](./feedback.md) feature:
 - **Feedback** are interactive UI components (like/dislike buttons) that users can click to provide structured feedback on agent responses.
 
 Use reactions when your agent wants to acknowledge or respond to a message with emoji. Use feedback when you want to collect user opinions about your agent's responses.
-

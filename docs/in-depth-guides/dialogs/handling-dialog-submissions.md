@@ -3,9 +3,8 @@ title: Handling Dialog Submissions
 description: Guide to processing dialog submissions in Teams applications, showing how to handle form data from both Adaptive Cards and web pages using dialog submission event handlers.
 ms.topic: how-to
 zone_pivot_groups: dev-lang
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
-
 
 # Handling Dialog Submissions
 
@@ -14,9 +13,7 @@ ms.date: 07/27/2026
 Dialogs have a specific `TaskSubmit` event to handle submissions. When a user submits a form inside a dialog, the app is notified via this event, which is then handled to process the submission values, and can either send a response or proceed to more steps in the dialogs (see [Multi-step Dialogs](./handling-multi-step-forms.md)).
 
 > [!WARNING]
->
-> Return Type Requirement
-> Methods decorated with `[TaskSubmit]` **must** return `Task<Microsoft.Teams.Api.TaskModules.Response>`. Every code path must return a Response object containing either a `MessageTask` (to show a message and close the dialog) or a `ContinueTask` (to show another dialog). Using just `Task` or `void` will compile but fail at runtime when the Teams client expects a Response object.
+> Return Type Requirement. Methods decorated with `[TaskSubmit]` **must** return `Task<Microsoft.Teams.Api.TaskModules.Response>`. Every code path must return a Response object containing either a `MessageTask` (to show a message and close the dialog) or a `ContinueTask` (to show another dialog). Using just `Task` or `void` will compile but fail at runtime when the Teams client expects a Response object.
 
 ## Basic Example
 ::: zone-end
@@ -34,8 +31,9 @@ In this example, we show how to handle dialog submissions from an Adaptive Card 
 
 
 ::: zone pivot="csharp"
-```csharp
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
+```csharp
 using System.Text.Json;
 using Microsoft.Teams.Api.TaskModules;
 using Microsoft.Teams.Apps;
@@ -59,7 +57,6 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
     var submissionType = data.Value.TryGetProperty("submissiondialogtype", out var submissionTypeObj) && submissionTypeObj.ValueKind == JsonValueKind.String
         ? submissionTypeObj.ToString()
         : null;
-
 
     string? GetFormValue(string key)
     {
@@ -86,11 +83,64 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
     }
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.TaskModules;
+
+//...
+
+teams.OnTaskSubmit(async (context, cancellationToken) =>
+{
+    var data = context.Activity.Value?.Data as JsonElement?;
+    if (data == null)
+    {
+        return TaskModuleResponse.CreateBuilder()
+            .WithType(TaskModuleResponseTypes.Message)
+            .WithMessage("No data found in the activity value")
+            .Build();
+    }
+
+    var submissionType = data.Value.TryGetProperty("submissiondialogtype", out var submissionTypeObj) && submissionTypeObj.ValueKind == JsonValueKind.String
+        ? submissionTypeObj.ToString()
+        : null;
+
+    string? GetFormValue(string key)
+    {
+        if (data.Value.TryGetProperty(key, out var val))
+        {
+            if (val is JsonElement element)
+                return element.GetString();
+            return val.ToString();
+        }
+        return null;
+    }
+
+    switch (submissionType)
+    {
+        case "simple_form":
+            var name = GetFormValue("name") ?? "Unknown";
+            await context.SendAsync($"Hi {name}, thanks for submitting the form!", cancellationToken);
+            return TaskModuleResponse.CreateBuilder()
+                .WithType(TaskModuleResponseTypes.Message)
+                .WithMessage("Form was submitted")
+                .Build();
+        // More examples below
+        default:
+            return TaskModuleResponse.CreateBuilder()
+                .WithType(TaskModuleResponseTypes.Message)
+                .WithMessage("Unknown submission type")
+                .Build();
+    }
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
 from microsoft_teams.apps import ActivityContext
 # ...
@@ -107,7 +157,6 @@ async def handle_simple_form_submit(ctx: ActivityContext[TaskSubmitInvokeActivit
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -131,8 +180,8 @@ Similarly, handling dialog submissions from rendered webpages is also possible:
 
 
 ::: zone pivot="csharp"
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 // Add this case to the switch statement in OnTaskSubmit method
 case "webpage_dialog":
     var webName = GetFormValue("name") ?? "Unknown";
@@ -141,11 +190,25 @@ case "webpage_dialog":
     return new Microsoft.Teams.Api.TaskModules.Response(
         new Microsoft.Teams.Api.TaskModules.MessageTask("Form submitted successfully"));
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+// Add this case to the switch statement in the OnTaskSubmit handler
+case "webpage_dialog":
+    var webName = GetFormValue("name") ?? "Unknown";
+    var email = GetFormValue("email") ?? "No email";
+    await context.SendAsync($"Hi {webName}, thanks for submitting the form! We got that your email is {email}", cancellationToken);
+    return TaskModuleResponse.CreateBuilder()
+        .WithType(TaskModuleResponseTypes.Message)
+        .WithMessage("Form submitted successfully")
+        .Build();
+```
 ::: zone-end
 
 ::: zone pivot="python"
 ```python
-
 from microsoft_teams.api import TaskSubmitInvokeActivity, TaskModuleResponse, TaskModuleMessageResponse
 from microsoft_teams.apps import ActivityContext
 # ...
@@ -164,7 +227,6 @@ async def handle_webpage_dialog_submit(ctx: ActivityContext[TaskSubmitInvokeActi
 
 ::: zone pivot="typescript"
 ```typescript
-
 import { App } from '@microsoft/teams.apps';
 // ...
 
@@ -189,8 +251,8 @@ app.on('dialog.submit.webpage_dialog', async ({ activity, send }) => {
 
 Here's the complete example showing how to handle multiple submission types:
 
+# [SDK 2.0 (Legacy)](#tab/legacy)
 ```csharp
-
 using System.Text.Json;
 using Microsoft.Teams.Api.TaskModules;
 using Microsoft.Teams.Apps;
@@ -247,6 +309,69 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
     }
 }
 ```
+
+---
+
+# [SDK 2.1 (current)](#tab/core)
+```csharp
+using System.Text.Json;
+using Microsoft.Teams.Apps.TaskModules;
+
+//...
+
+teams.OnTaskSubmit(async (context, cancellationToken) =>
+{
+    var data = context.Activity.Value?.Data as JsonElement?;
+    if (data == null)
+    {
+        return TaskModuleResponse.CreateBuilder()
+            .WithType(TaskModuleResponseTypes.Message)
+            .WithMessage("No data found in the activity value")
+            .Build();
+    }
+
+    var submissionType = data.Value.TryGetProperty("submissiondialogtype", out var submissionTypeObj) && submissionTypeObj.ValueKind == JsonValueKind.String
+        ? submissionTypeObj.ToString()
+        : null;
+
+    string? GetFormValue(string key)
+    {
+        if (data.Value.TryGetProperty(key, out var val))
+        {
+            if (val is JsonElement element)
+                return element.GetString();
+            return val.ToString();
+        }
+        return null;
+    }
+
+    switch (submissionType)
+    {
+        case "simple_form":
+            var name = GetFormValue("name") ?? "Unknown";
+            await context.SendAsync($"Hi {name}, thanks for submitting the form!", cancellationToken);
+            return TaskModuleResponse.CreateBuilder()
+                .WithType(TaskModuleResponseTypes.Message)
+                .WithMessage("Form was submitted")
+                .Build();
+
+        case "webpage_dialog":
+            var webName = GetFormValue("name") ?? "Unknown";
+            var email = GetFormValue("email") ?? "No email";
+            await context.SendAsync($"Hi {webName}, thanks for submitting the form! We got that your email is {email}", cancellationToken);
+            return TaskModuleResponse.CreateBuilder()
+                .WithType(TaskModuleResponseTypes.Message)
+                .WithMessage("Form submitted successfully")
+                .Build();
+
+        default:
+            return TaskModuleResponse.CreateBuilder()
+                .WithType(TaskModuleResponseTypes.Message)
+                .WithMessage("Unknown submission type")
+                .Build();
+    }
+});
+```
 ::: zone-end
 
 ::: zone pivot="python"
@@ -256,5 +381,4 @@ public async Task<Microsoft.Teams.Api.TaskModules.Response> OnTaskSubmit([Contex
 ::: zone pivot="typescript"
 <!-- Not applicable -->
 ::: zone-end
-
 

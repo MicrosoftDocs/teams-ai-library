@@ -1,16 +1,13 @@
-﻿---
-title: Y Inspect activities
+---
+title: Inspect activities
 description: Inspect all incoming and outgoing activities with your agent using DevTools Activities page for debugging.
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 10/09/2026
 ---
 
-
-# Y Inspect activities
+# Inspect activities
 
 > [!WARNING]
->
-> Deprecated
-> DevTools is deprecated and will be removed in a later version. Use the [Microsoft 365 Agents Playground](../agents-playground/overview.md) for local testing of your agent. For details, see the [Microsoft Learn guide](/microsoft-365/agents-sdk/test-with-toolkit-project).
+> Deprecated. DevTools is deprecated and will be removed in a later version. Use the [Microsoft 365 Agents Playground](../agents-playground/overview.md) for local testing of your agent. For details, see the [Microsoft Learn guide](/microsoft-365/agents-sdk/test-with-toolkit-project).
 
-The DevTools Activities page logged every incoming and outgoing activity (messages, reactions, invokes, and more) and let you inspect the JSON payload of each. For local testing going forward, use the [Microsoft 365 Agents Playground](../agents-playground/overview.md), which exposes the same wire traffic via its Log Panel.
+Activities is the inspection view for incoming and outgoing HTTP traffic. It helps you trace requests, payloads, and retries while troubleshooting bot behavior.
