@@ -591,9 +591,6 @@ app.on('message', async ({ send, activity }) => {
 
 ### Prompt Preview
 
-> [!NOTE]
-> Coming Soon. Prompt Preview is coming soon in June 2026.
-
 Prompt Preview shows a compact, collapsible preview of the targeted message your agent is replying to, helping carry context from a private user-to-agent message into the reply.
 
 #### Prompt Preview in targeted reply
