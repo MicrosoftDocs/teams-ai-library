@@ -9,4 +9,4 @@ ms.date: 10/09/2026
 
 The Teams Developer CLI documentation has moved to its own section.
 
-**[Go to CLI Documentation](/cli)**
+**[Go to CLI Documentation](https://microsoft.github.io/teams-sdk/cli/)**
