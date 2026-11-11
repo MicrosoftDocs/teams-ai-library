@@ -2,117 +2,602 @@
   "redirections": [
     {
       "source_path": "docs/essentials/hosting-static-pages.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/server/static-pages",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/host-agent-server",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/observability/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/observability/logging",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/agent-observability",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/configuration/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/get-started/quickstart-register",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/configuration/agents-toolkit.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/get-started/quickstart-register",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/configuration/manual-configuration.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/get-started/quickstart-register",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/developer-tools/llms-text.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/developer-tools/llms-txt",
+      "redirect_url": "/microsoftteams/platform/llms-txt",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/essentials/app-authentication.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/essentials/app-authentication/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/a2a/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/a2a",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/agent-to-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/a2a/a2a-server.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/a2a",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/agent-to-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/a2a/a2a-client.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/a2a",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/agent-to-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/setup-and-prereqs.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/chat.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/function-calling.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/keeping-state.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/best-practices.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/teams-enhancements",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/teams-conversational-ai/agents-best-practices-features-checklist",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/mcp/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/mcp-server",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/mcp-server",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/mcp/mcp-server.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/mcp-server",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/mcp-server",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/mcp/mcp-client.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai-integrations/build-agent-maf.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/sdk-comparison.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/choosing-an-sdk.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/agent-skills.md",
+      "redirect_url": "/microsoftteams/platform/coding-agent-skill",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/agents-playground/overview.md",
+      "redirect_url": "/microsoftteams/platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/cli.md",
+      "redirect_url": "/microsoftteams/platform/teams-developer-cli-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/devtools/cards.md",
+      "redirect_url": "/microsoftteams/platform/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/devtools/chat.md",
+      "redirect_url": "/microsoftteams/platform/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/devtools/inspect.md",
+      "redirect_url": "/microsoftteams/platform/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/devtools/overview.md",
+      "redirect_url": "/microsoftteams/platform/concepts/build-and-test/tool-sdk-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/llms-txt.md",
+      "redirect_url": "/microsoftteams/platform/llms-txt",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/local-tunnels.md",
+      "redirect_url": "/microsoftteams/platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/developer-tools/overview.md",
+      "redirect_url": "/microsoftteams/platform/concepts/build-and-test/tool-sdk-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/api.md",
+      "redirect_url": "/microsoftteams/platform/concepts/sdk-teams-api-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/app-authentication/overview.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/app-authentication/trust-model.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/incoming-request-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/app-basics.md",
+      "redirect_url": "/microsoftteams/platform/concepts/sdk-app-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/app-configuration/sovereign-cloud.md",
+      "redirect_url": "/microsoftteams/platform/concepts/sovereign-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/graph.md",
+      "redirect_url": "/microsoftteams/platform/concepts/sdk-graph-api-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/middleware-error-handling.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/agent-observability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/on-activity/activity-ref.md",
+      "redirect_url": "/microsoftteams/platform/concepts/listening-activities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/on-activity/overview.md",
+      "redirect_url": "/microsoftteams/platform/concepts/listening-activities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/on-event.md",
+      "redirect_url": "/microsoftteams/platform/concepts/listening-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/overview.md",
+      "redirect_url": "/microsoftteams/platform/concepts/sdk-app-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/sending-messages/overview.md",
+      "redirect_url": "/microsoftteams/platform/bots/build-conversational-capability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/essentials/sending-messages/proactive-messaging.md",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/get-started/quickstart-build.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/get-started/quickstart-register.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/getting-started/code-basics.md",
+      "redirect_url": "/microsoftteams/platform/concepts/sdk-code-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/getting-started/overview.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/getting-started/quickstart.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/getting-started/running-in-teams/overview.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/adaptive-cards/building-adaptive-cards.md",
+      "redirect_url": "/microsoftteams/platform/task-modules-and-cards/cards/build-with-teams-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/adaptive-cards/executing-actions.md",
+      "redirect_url": "/microsoftteams/platform/task-modules-and-cards/cards/executing-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/adaptive-cards/overview.md",
+      "redirect_url": "/microsoftteams/platform/task-modules-and-cards/cards/build-with-teams-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/agentic-identity.md",
+      "redirect_url": "/microsoftteams/platform/concepts/agentic-identity/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/ai-integrations/a2a.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/agent-to-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/ai-integrations/build-agent.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/ai-integrations/mcp-server.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/mcp-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/ai-integrations/overview.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/ai-integrations/teams-enhancements.md",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/teams-conversational-ai/agents-best-practices-features-checklist",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/dialogs/creating-dialogs.md",
+      "redirect_url": "/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/dialogs/handling-dialog-submissions.md",
+      "redirect_url": "/microsoftteams/platform/task-modules-and-cards/task-modules/invoking-task-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/dialogs/handling-multi-step-forms.md",
+      "redirect_url": "/microsoftteams/platform/task-modules-and-cards/task-modules/task-modules-bots",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/dialogs/overview.md",
+      "redirect_url": "/microsoftteams/platform/task-modules-and-cards/what-are-task-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/feedback.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/user-feedback-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/file-handling/overview.md",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/bots-filesv4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/file-handling/receiving-files.md",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/bots-filesv4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/file-handling/receiving-inline-images.md",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/agents-inline-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/file-handling/sending-inline-images.md",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/agents-inline-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/meeting-events.md",
+      "redirect_url": "/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/message-extensions/action-commands.md",
+      "redirect_url": "/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/message-extensions/link-unfurling.md",
+      "redirect_url": "/microsoftteams/platform/messaging-extensions/how-to/link-unfurling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/message-extensions/overview.md",
+      "redirect_url": "/microsoftteams/platform/messaging-extensions/build-bot-based-message-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/message-extensions/search-commands.md",
+      "redirect_url": "/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/message-extensions/settings.md",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/bot-configuration-experience",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/message-reactions.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/agent-reactions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/microsoft-365-extensions.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/extend-with-agents-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/observability/logging.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/agent-observability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/observability/middleware.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/agent-observability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/observability/open-telemetry.md",
+      "redirect_url": "/microsoftteams/platform/concepts/sdk-opentelemetry",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/overview.md",
+      "redirect_url": "/microsoftteams/platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/server/http-server.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/host-agent-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/server/static-pages.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/host-agent-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/state.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/manage-conversation-state",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/tabs/app-options.md",
+      "redirect_url": "/microsoftteams/platform/tabs/teams-sdk/tab-app-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/tabs/functions/function-calling.md",
+      "redirect_url": "/microsoftteams/platform/tabs/teams-sdk/tab-app-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/tabs/functions/overview.md",
+      "redirect_url": "/microsoftteams/platform/tabs/teams-sdk/tab-app-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/tabs/getting-started.md",
+      "redirect_url": "/microsoftteams/platform/tabs/teams-sdk/getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/tabs/graph.md",
+      "redirect_url": "/microsoftteams/platform/tabs/teams-sdk/tab-graph",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/tabs/overview.md",
+      "redirect_url": "/microsoftteams/platform/tabs/what-are-tabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/tabs/using-the-app.md",
+      "redirect_url": "/microsoftteams/platform/tabs/teams-sdk/using-the-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/in-depth-guides/user-authentication.md",
+      "redirect_url": "/microsoftteams/platform/concepts/authentication/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/botbuilder/integration.md",
+      "redirect_url": "/microsoftteams/platform/botbuilder-migration/integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/botbuilder/overview.md",
+      "redirect_url": "/microsoftteams/platform/botbuilder-migration/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/botbuilder/proactive-activities.md",
+      "redirect_url": "/microsoftteams/platform/botbuilder-migration/proactive-activities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/botbuilder/sending-activities.md",
+      "redirect_url": "/microsoftteams/platform/botbuilder-migration/sending-activities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/botbuilder/the-api-client.md",
+      "redirect_url": "/microsoftteams/platform/botbuilder-migration/api-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/botbuilder/user-authentication.md",
+      "redirect_url": "/microsoftteams/platform/botbuilder-migration/user-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/overview.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/port-slack-bolt-javascript-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/slack-bolt.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/port-slack-bolt-javascript-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/v1.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/v2-dotnet.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/migrations/v2-previews.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/app-authentication/client-secret.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/configure-agent-runtime-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/app-authentication/federated-identity-credentials.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/configure-agent-runtime-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/app-authentication/overview.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/configure-agent-runtime-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/app-authentication/troubleshooting.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/configure-agent-runtime-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/app-authentication/user-managed-identity.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/configure-agent-runtime-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/azure-configuration.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/core-concepts.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/enabling-in-copilot.md",
+      "redirect_url": "/microsoftteams/platform/m365-apps/enable-agent-app-copilot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/manifest.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/overview.md",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/user-authentication/overview.md",
+      "redirect_url": "/microsoftteams/platform/concepts/authentication/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/user-authentication/sso-setup.md",
+      "redirect_url": "/microsoftteams/platform/concepts/authentication/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/teams/user-authentication/troubleshooting-sso.md",
+      "redirect_url": "/microsoftteams/platform/tabs/how-to/authentication/tab-sso-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/welcome.md",
+      "redirect_url": "/microsoftteams/platform/teams-sdk-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/why.md",
+      "redirect_url": "/microsoftteams/platform/concepts/why-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/index.yml",
+      "redirect_url": "/microsoftteams/platform/teams-sdk-overview",
       "redirect_document_id": false
     }
   ]
