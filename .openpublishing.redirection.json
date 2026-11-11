@@ -2,117 +2,117 @@
   "redirections": [
     {
       "source_path": "docs/essentials/hosting-static-pages.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/server/static-pages",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/host-agent-server",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/observability/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/observability/logging",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/agent-observability",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/configuration/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/get-started/quickstart-register",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/configuration/agents-toolkit.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/get-started/quickstart-register",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/configuration/manual-configuration.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/get-started/quickstart-register",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/quickstart-create-agent-teams-sdk",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/developer-tools/llms-text.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/developer-tools/llms-txt",
+      "redirect_url": "/microsoftteams/platform/llms-txt",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/essentials/app-authentication.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/essentials/app-authentication/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai-integrations/build-agent-microsoft-agent-framework.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/a2a/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/a2a",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/agent-to-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/a2a/a2a-server.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/a2a",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/agent-to-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/a2a/a2a-client.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/a2a",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/agent-to-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/setup-and-prereqs.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/chat.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/function-calling.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/keeping-state.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/best-practices.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/teams-enhancements",
+      "redirect_url": "/microsoftteams/platform/bots/how-to/teams-conversational-ai/agents-best-practices-features-checklist",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/mcp/overview.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/mcp-server",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/mcp-server",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/mcp/mcp-server.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/mcp-server",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/mcp-server",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai/mcp/mcp-client.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/in-depth-guides/ai-integrations/build-agent-maf.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/in-depth-guides/ai-integrations/build-agent",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/integrate-ai/ai-agent-sample-walkthrough",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/sdk-comparison.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
       "redirect_document_id": false
     },
     {
       "source_path": "docs/teams/choosing-an-sdk.md",
-      "redirect_url": "/microsoftteams/platform/teams-sdk/teams/overview",
+      "redirect_url": "/microsoftteams/platform/agents-in-teams/registering-agent-teams-platform",
       "redirect_document_id": false
     },
     {
@@ -222,7 +222,7 @@
     },
     {
       "source_path": "docs/essentials/sending-messages/overview.md",
-      "redirect_url": "microsoftteams/platform/bots/build-conversational-capability",
+      "redirect_url": "/microsoftteams/platform/bots/build-conversational-capability",
       "redirect_document_id": false
     },
     {
@@ -352,7 +352,7 @@
     },
     {
       "source_path": "docs/in-depth-guides/meeting-events.md",
-      "redirect_url": "/platform/apps-in-teams-meetings/meeting-apps-apis",
+      "redirect_url": "/microsoftteams/platform/apps-in-teams-meetings/meeting-apps-apis",
       "redirect_document_id": false
     },
     {
@@ -587,7 +587,7 @@
     },
     {
       "source_path": "docs/welcome.md",
-      "redirect_url": "/microsoftteams/platform/",
+      "redirect_url": "/microsoftteams/platform/teams-sdk-overview",
       "redirect_document_id": false
     },
     {
